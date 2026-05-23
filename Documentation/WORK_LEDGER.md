@@ -54,6 +54,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | HAZ-002 | Link Boilerheart valve to steam hazards | code/level/test | P1 | verified | v0.0.42 | Valve venting disables linked Boilerheart hazards; auto-playthrough validates shutdown before final lift completion. |
 | SEC-001 | Add secret area foundation | code/level/test | P1 | verified | v0.0.43 | SecretArea, Intake pressure cache, validation, and V0_SECRET_PASS matrix coverage are verified. |
 | SEC-002 | Add run secret stats | code/ui/test | P1 | verified | v0.0.44 | RunStats tracks secret totals/discoveries and win message can report secret progress. |
+| TEST-009 | Verify secret stats in auto-playthrough | test | P1 | verified | v0.0.45 | Auto-playthrough asserts run secret totals persist to final win state. |
 
 ## Ready Next
 
@@ -151,3 +152,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.42` Boilerheart hazard shutdown build created at `Builds/Windows/v0.0.42/BrassworksBreach_v0.0.42.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.43` secret area foundation build created at `Builds/Windows/v0.0.43/BrassworksBreach_v0.0.43.exe` and passed the complete V0 matrix, including secret smoke, through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.44` run secret stats build created at `Builds/Windows/v0.0.44/BrassworksBreach_v0.0.44.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.45` secret-stat auto-playthrough build created at `Builds/Windows/v0.0.45/BrassworksBreach_v0.0.45.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.

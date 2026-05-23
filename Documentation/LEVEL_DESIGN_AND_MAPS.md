@@ -53,6 +53,7 @@ Near-term:
 - Venting the Boilerheart pressure valve shuts down the linked Level03 steam hazards.
 - Level01 includes the first secret pressure cache reward space.
 - Run secret stats persist across the current multi-level route and can display at win.
+- Auto-playthrough validates the run secret total survives to final win.
 - Health and ammo persist across scene transitions.
 - Future weapon inventory and campaign flags still need expanded persistence.
 
@@ -190,6 +191,10 @@ v0.0.44 implementation notes:
 
 - Added persistent `RunStats` secret totals and discoveries.
 - Win message can include `SECRETS discovered/total`.
+
+v0.0.45 implementation notes:
+
+- Auto-playthrough validates secret totals persist to the final win state.
 
 ### Level 04: Furnace Foundry
 

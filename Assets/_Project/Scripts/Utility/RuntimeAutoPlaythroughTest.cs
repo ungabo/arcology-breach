@@ -148,6 +148,12 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
             yield break;
         }
 
+        if (RunStats.TotalSecrets <= 0)
+        {
+            Fail("Auto-playthrough failed: run secret totals did not persist to win state.");
+            yield break;
+        }
+
         Debug.Log("V0_AUTO_PLAYTHROUGH_PASS");
         Application.Quit(0);
     }

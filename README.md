@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.44` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.45` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -59,7 +59,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.44\BrassworksBreach_v0.0.44.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.45\BrassworksBreach_v0.0.45.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -225,6 +225,11 @@ Individual Unity entry points remain available:
 - Persistent `RunStats` secret tracking.
 - Secret smoke now verifies run-stat registration/discovery.
 - Win message can report secret progress.
+
+## What v0.0.45 Adds
+
+- Auto-playthrough now verifies secret totals persist to the final win state.
+- Full build matrix remains green with secret persistence coverage.
 
 ## Good Next Steps
 
