@@ -468,6 +468,25 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.32 Build Automation Cleanup Pass
+
+- [x] Add `Tools/RunV0BuildMatrix.ps1`.
+- [x] Make the runner read `GameBranding.BuildVersion`.
+- [x] Make the runner execute scene rebuild, level validation, editor smoke, Windows build, and packaged smoke tests.
+- [x] Make the runner fail if expected pass markers are missing.
+- [x] Bump build version to `v0.0.32`.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run packaged runtime smoke through the runner.
+- [x] Run packaged auto-playthrough through the runner.
+- [x] Run packaged combat smoke through the runner.
+- [x] Run packaged combat-edge smoke through the runner.
+- [x] Run packaged ranged combat smoke through the runner.
+- [x] Run packaged pause-flow smoke through the runner.
+- [x] Commit and push `v0.0.32`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -505,7 +524,7 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [ ] Level transition controller.
 - [x] Level validation tool.
 - [ ] Expand combat automation harness.
-- [ ] Build automation cleanup.
+- [x] Build automation cleanup.
 - [ ] Platform asset-quality settings.
 
 ## Platform Planning

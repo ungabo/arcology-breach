@@ -118,6 +118,7 @@ During work:
 2. Add newly discovered work to `WORK_LEDGER.md`.
 3. Update asset statuses when assets are created/imported.
 4. Run the smallest relevant verification.
+5. For a full current Windows V0 matrix, run `powershell -ExecutionPolicy Bypass -File Tools\RunV0BuildMatrix.ps1`.
 
 At the end of a session:
 
@@ -145,7 +146,15 @@ Current automated pass markers:
 - `V0_RUNTIME_SMOKE_PASS`
 - `V0_AUTO_PLAYTHROUGH_PASS`
 - `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_RANGED_COMBAT_PASS`
 - `V0_PAUSE_FLOW_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Completed-step records should end with:
+
+`Next-step directive: continue immediately with the next highest-impact unfinished task.`
 
 ## 9. Change Control
 

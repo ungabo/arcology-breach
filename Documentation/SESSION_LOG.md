@@ -700,3 +700,33 @@ Build executable:
 `Builds/Windows/v0.0.31/BrassworksBreach_v0.0.31.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 12:57 -04:00
+
+Completed `v0.0.32` build automation cleanup pass.
+
+Added:
+
+- `Tools/RunV0BuildMatrix.ps1`.
+- Automatic `GameBranding.BuildVersion` detection for build/test logs and executable path checks.
+- One-command scene rebuild, level validation, editor smoke, Windows build, and packaged runtime test matrix.
+- Pass-marker assertions for each editor/player log.
+
+Verification completed through the new runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.32/BrassworksBreach_v0.0.32.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

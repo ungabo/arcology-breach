@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.11` proof of concept.
+Current state: playable `v0.0.32` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -8,7 +8,7 @@ Public repository:
 
 Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, text HUD, basic hitscan shooting, procedural audio cues, mechanical melee enemies, a gear key, a pressure gate, and a service lift.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged enemies, a gear key, a pressure gate, and a service lift into a second level.
 
 Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
 
@@ -57,7 +57,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.11\BrassworksBreach_v0.0.11.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.32\BrassworksBreach_v0.0.32.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -72,7 +72,10 @@ The project test matrix includes:
 - Packaged runtime smoke test.
 - Packaged auto-playthrough objective-chain test.
 - Packaged combat smoke test.
+- Packaged combat-edge smoke test.
+- Packaged ranged-combat smoke test.
 - Packaged pause-flow smoke test.
+- One-command build matrix runner.
 
 Smoke pass markers:
 
@@ -81,50 +84,30 @@ Smoke pass markers:
 - `V0_RUNTIME_SMOKE_PASS`
 - `V0_AUTO_PLAYTHROUGH_PASS`
 - `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_RANGED_COMBAT_PASS`
 - `V0_PAUSE_FLOW_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_BUILD_MATRIX_PASS`
 
 ## Developer Commands
 
-Rebuild the generated scene:
+Run the full current V0 Windows matrix:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v011-scene.log'
+powershell -ExecutionPolicy Bypass -File Tools\RunV0BuildMatrix.ps1
 ```
 
-Run editor smoke test:
+The runner rebuilds generated scenes, validates the levels, runs editor smoke, builds the Windows player, launches every packaged smoke test, and checks each pass marker.
+
+Individual Unity entry points remain available:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v011-smoke-test.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v032-scene.log'
 ```
 
-Build Windows player:
-
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v011-windows-build.log'
-```
-
-Run packaged runtime smoke:
-
-```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.11\BrassworksBreach_v0.0.11.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v011-runtime-smoke.log'
-```
-
-Run packaged auto-playthrough:
-
-```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.11\BrassworksBreach_v0.0.11.exe' -batchmode -nographics -v0AutoPlaythrough -logFile 'D:\__MY APPS\Unity Doom\Logs\v011-auto-playthrough.log'
-```
-
-Run packaged combat smoke:
-
-```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.11\BrassworksBreach_v0.0.11.exe' -batchmode -nographics -v0CombatSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v011-combat-smoke.log'
-```
-
-Run packaged pause flow:
-
-```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.11\BrassworksBreach_v0.0.11.exe' -batchmode -nographics -v0PauseFlow -logFile 'D:\__MY APPS\Unity Doom\Logs\v011-pause-flow.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v032-windows-build.log'
 ```
 
 ## What v0.0.7 Adds
@@ -157,12 +140,18 @@ Run packaged pause flow:
 
 - Spark-burst impact feedback replacing the yellow hit-marker sphere.
 
+## What v0.0.32 Adds
+
+- One-command V0 Windows build matrix runner.
+- Automatic version detection from `GameBranding.BuildVersion`.
+- Full pass-marker validation for scene rebuild, level validation, editor smoke, Windows build, runtime smoke, auto-playthrough, combat, combat-edge, ranged combat, and pause flow.
+
 ## Good Next Steps
 
 - Continue replacing procedural placeholder geometry with steampunk assets from the asset catalog.
-- Add first brass gauge HUD pass.
-- Add first Scrapper visual pass.
-- Add first Pressure Pistol visual pass.
+- Add the interaction system foundation.
+- Clean up pickup and inventory architecture.
+- Continue Level01 combat/readability tuning.
 
 ## Planning Docs
 

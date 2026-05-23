@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.11`.
+Current state: `v0.0.32`.
 
 Implemented:
 
@@ -35,6 +35,11 @@ Implemented:
 - Packaged combat smoke for pressure-pistol damage and Scrapper death.
 - Packaged pause-flow smoke for pause/resume/restart/quit.
 - Unity editor smoke test, Windows build, and runtime smoke test.
+- Two-level flow with Level01 and Level02.
+- Ranged Lancer enemy prototype and ranged-combat smoke test.
+- Centralized `GameBalance` values.
+- Data-driven Pressure Pistol, Scrapper, and Lancer definitions.
+- One-command V0 Windows build matrix runner.
 
 ## 3. Target Platform
 

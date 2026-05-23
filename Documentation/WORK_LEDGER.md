@@ -41,6 +41,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | CODE-003A | Add initial movement/combat balance profile | code | P1 | verified | v0.0.29 | GameBalance drives player/pistol/Scrapper/Lancer values and validator enforces them. |
 | CODE-006 | Data-driven weapon definitions | code | P2 | verified | v0.0.30 | PressurePistolDefinition.asset drives current weapon data and validator enforces assignment. |
 | CODE-007 | Data-driven enemy definitions | code | P2 | verified | v0.0.31 | ScrapperDefinition and LancerDefinition drive current enemy data and validator enforces assignment. |
+| TOOL-002 | Build automation cleanup | tool | P1 | verified | v0.0.32 | Tools/RunV0BuildMatrix.ps1 runs the complete V0 Windows matrix and asserts pass markers. |
 
 ## Ready Next
 
@@ -125,3 +126,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.29` movement/combat balance build created at `Builds/Windows/v0.0.29/BrassworksBreach_v0.0.29.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.30` data-driven weapon definition build created at `Builds/Windows/v0.0.30/BrassworksBreach_v0.0.30.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.31` data-driven enemy definition build created at `Builds/Windows/v0.0.31/BrassworksBreach_v0.0.31.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.32` build automation cleanup created `Tools/RunV0BuildMatrix.ps1`, built `Builds/Windows/v0.0.32/BrassworksBreach_v0.0.32.exe`, and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
