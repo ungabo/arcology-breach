@@ -145,7 +145,7 @@ Every major asset should eventually have three quality targets:
 | UI-003 | Gear-key indicator | P1 | prototype | Primitive amber/green gear-key status lamp. |
 | UI-004 | Damage pressure overlay | P1 | prototype | Existing red damage flash can become pressure warning overlay. |
 | UI-005 | Pressure warning prompt | P1 | prototype | Clear denied/key-required feedback through HUD text, gate audio, and world label. |
-| UI-006 | Main menu | P2 | planned | Start/settings/quit with brass panel styling. |
+| UI-006 | Main menu | P2 | prototype | Generated start/quit menu with brassworks backdrop and automated test routing into gameplay. |
 | UI-007 | Settings and accessibility | P2 | planned | Sensitivity, volume, resolution, flash intensity, color readability. |
 
 ## 10. Level Assets

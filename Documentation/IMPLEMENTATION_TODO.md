@@ -119,6 +119,21 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Run packaged pause-flow smoke.
 - [x] Commit and push `v0.0.13`.
 
+## v0.0.14 Main Menu Flow
+
+- [x] Add generated `MainMenu` scene.
+- [x] Add `MainMenuController` with start and quit actions.
+- [x] Put `MainMenu` first and `Level01` second in build settings.
+- [x] Add automated test-flag routing from menu into gameplay.
+- [x] Rebuild generated scenes.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.14`.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

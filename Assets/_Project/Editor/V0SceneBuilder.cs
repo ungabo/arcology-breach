@@ -10,6 +10,7 @@ using UnityEngine.UI;
 
 public static class V0SceneBuilder
 {
+    private const string MainMenuScenePath = "Assets/_Project/Scenes/MainMenu.unity";
     private const string ScenePath = "Assets/_Project/Scenes/Level01.unity";
     private const string MaterialFolder = "Assets/_Project/Materials";
     private const string WindowsBuildFolder = "Builds/Windows";
@@ -65,19 +66,26 @@ public static class V0SceneBuilder
         CreateSteamworksDressing(rivetedIronMaterial, oilStoneMaterial, brassGuideMaterial, pressureWarningMaterial, brassHazardMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
+        CreateMainMenuScene(brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, furnaceGlowMaterial, oilStoneMaterial);
         EditorBuildSettings.scenes = new[]
         {
+            new EditorBuildSettingsScene(MainMenuScenePath, true),
             new EditorBuildSettingsScene(ScenePath, true)
         };
 
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
-        Debug.Log("V0 scene rebuilt at " + ScenePath);
+        Debug.Log("V0 scenes rebuilt at " + MainMenuScenePath + " and " + ScenePath);
     }
 
     public static void RunSmokeTest()
     {
+        if (!File.Exists(MainMenuScenePath))
+        {
+            throw new FileNotFoundException("Missing main menu scene", MainMenuScenePath);
+        }
+
         if (!File.Exists(ScenePath))
         {
             throw new FileNotFoundException("Missing v0 scene", ScenePath);
@@ -101,9 +109,12 @@ public static class V0SceneBuilder
         RequireObject<LockedDoor>("LockedDoor");
         RequireObject<ExitTrigger>("ExitTrigger");
 
-        if (EditorBuildSettings.scenes.Length == 0 || EditorBuildSettings.scenes[0].path != ScenePath)
+        EditorSceneManager.OpenScene(MainMenuScenePath);
+        RequireObject<MainMenuController>("MainMenuController");
+
+        if (EditorBuildSettings.scenes.Length < 2 || EditorBuildSettings.scenes[0].path != MainMenuScenePath || EditorBuildSettings.scenes[1].path != ScenePath)
         {
-            throw new InvalidOperationException("Level01 is not the first enabled build scene.");
+            throw new InvalidOperationException("MainMenu and Level01 are not the first enabled build scenes.");
         }
 
         Debug.Log("V0_SMOKE_TEST_PASS");
@@ -122,7 +133,7 @@ public static class V0SceneBuilder
 
         BuildPlayerOptions options = new BuildPlayerOptions
         {
-            scenes = new[] { ScenePath },
+            scenes = new[] { MainMenuScenePath, ScenePath },
             locationPathName = executablePath,
             target = BuildTarget.StandaloneWindows64,
             options = BuildOptions.None
@@ -288,6 +299,77 @@ public static class V0SceneBuilder
         }
 
         return cube;
+    }
+
+    private static void CreateMainMenuScene(Material brassMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material glowMaterial, Material floorMaterial)
+    {
+        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+
+        RenderSettings.ambientLight = new Color(0.28f, 0.24f, 0.2f);
+
+        GameObject cameraObject = new GameObject("Main Menu Camera");
+        cameraObject.transform.position = new Vector3(0f, 1.85f, -7f);
+        cameraObject.transform.rotation = Quaternion.Euler(8f, 0f, 0f);
+        Camera camera = cameraObject.AddComponent<Camera>();
+        camera.clearFlags = CameraClearFlags.SolidColor;
+        camera.backgroundColor = new Color(0.045f, 0.038f, 0.032f);
+
+        GameObject lightObject = new GameObject("Menu Furnace Key Light");
+        lightObject.transform.position = new Vector3(-1.8f, 3.2f, -3f);
+        Light light = lightObject.AddComponent<Light>();
+        light.type = LightType.Point;
+        light.color = new Color(1f, 0.58f, 0.16f);
+        light.intensity = 3.5f;
+        light.range = 8f;
+
+        GameObject propRoot = new GameObject("Menu Brassworks Backdrop");
+        CreateCube("Menu Oil Stone Floor", new Vector3(0f, -0.18f, -0.2f), new Vector3(8f, 0.18f, 5f), floorMaterial, propRoot.transform);
+        CreateCube("Menu Iron Rear Plate", new Vector3(0f, 1.45f, 0.2f), new Vector3(7.4f, 3.2f, 0.2f), ironMaterial, propRoot.transform);
+        CreateCube("Menu Brass Lower Pipe", new Vector3(0f, 0.55f, -0.05f), new Vector3(6.6f, 0.12f, 0.12f), brassMaterial, propRoot.transform);
+        CreateCube("Menu Brass Upper Pipe", new Vector3(0f, 2.45f, -0.05f), new Vector3(6.2f, 0.1f, 0.1f), brassMaterial, propRoot.transform);
+
+        GameObject wheel = CreateLocalPrimitive("Menu Center Gear", PrimitiveType.Cylinder, propRoot.transform, new Vector3(0f, 1.55f, -0.02f), new Vector3(0.85f, 0.07f, 0.85f), brassMaterial);
+        wheel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        for (int i = 0; i < 10; i++)
+        {
+            float angle = i * 36f;
+            float radians = angle * Mathf.Deg2Rad;
+            Vector3 toothPosition = new Vector3(Mathf.Sin(radians) * 0.88f, 1.55f + Mathf.Cos(radians) * 0.88f, -0.05f);
+            GameObject tooth = CreateLocalCube("Menu Gear Tooth " + i, propRoot.transform, toothPosition, new Vector3(0.18f, 0.2f, 0.09f), brassMaterial);
+            tooth.transform.localRotation = Quaternion.Euler(0f, 0f, -angle);
+        }
+
+        GameObject gauge = CreateLocalPrimitive("Menu Pressure Gauge", PrimitiveType.Cylinder, propRoot.transform, new Vector3(-2.35f, 1.65f, -0.12f), new Vector3(0.46f, 0.04f, 0.46f), gaugeFaceMaterial);
+        gauge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube("Menu Gauge Needle", propRoot.transform, new Vector3(-2.24f, 1.65f, -0.16f), new Vector3(0.28f, 0.025f, 0.025f), glowMaterial);
+
+        GameObject canvasObject = new GameObject("Main Menu Canvas");
+        Canvas canvas = canvasObject.AddComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvasObject.AddComponent<CanvasScaler>();
+        canvasObject.AddComponent<GraphicRaycaster>();
+
+        Font font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        if (font == null)
+        {
+            font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        }
+
+        CreateAnchoredImage("Menu Soot Vignette", canvasObject.transform, new Color(0.01f, 0.008f, 0.006f, 0.36f), Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero, false);
+        CreateText("Menu Title", canvasObject.transform, font, GameBranding.WorkingTitle.ToUpperInvariant(), 58, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 150f), new Vector2(860f, 92f));
+        Text subtitle = CreateText("Menu Subtitle", canvasObject.transform, font, "PRESSURE BELOW. BRASS ABOVE.", 24, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 94f), new Vector2(620f, 46f));
+        subtitle.color = new Color(1f, 0.78f, 0.42f);
+
+        MainMenuController mainMenu = canvasObject.AddComponent<MainMenuController>();
+        mainMenu.startButton = CreatePauseButton("Start Button", "START GAME", canvasObject.transform, font, new Vector2(0f, 10f));
+        mainMenu.quitButton = CreatePauseButton("Quit Button", "QUIT", canvasObject.transform, font, new Vector2(0f, -58f));
+        CreateText("Menu Version", canvasObject.transform, font, GameBranding.BuildVersion, 18, TextAnchor.LowerRight, new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-18f, 12f), new Vector2(220f, 32f));
+
+        GameObject eventSystemObject = new GameObject("EventSystem");
+        eventSystemObject.AddComponent<EventSystem>();
+        eventSystemObject.AddComponent<StandaloneInputModule>();
+
+        EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), MainMenuScenePath);
     }
 
     private static HUDController CreateHud()

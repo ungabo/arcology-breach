@@ -186,3 +186,26 @@ Verification completed:
 Build executable:
 
 `Builds/Windows/v0.0.13/BrassworksBreach_v0.0.13.exe`
+
+## 2026-05-23 10:36 -04:00
+
+Completed `v0.0.14` main menu flow.
+
+Added:
+
+- Generated `MainMenu` scene with steampunk backdrop, start button, quit button, and version label.
+- Added `MainMenuController`.
+- Updated build scene order so real builds start at the menu and automated test runs route into `Level01`.
+
+Verification completed:
+
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.14/BrassworksBreach_v0.0.14.exe`

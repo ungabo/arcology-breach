@@ -34,9 +34,9 @@
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.13`.
+Latest fully verified build: `v0.0.14`.
 
-Current `v0.0.13` verification:
+Current `v0.0.14` verification:
 
 - Editor smoke test: passed.
 - Windows build: passed.
@@ -58,7 +58,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.13\BrassworksBreach_v0.0.13.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.14\BrassworksBreach_v0.0.14.exe`
 
 ## Latest Build Verification
 
@@ -110,8 +110,15 @@ Current target:
 - `2026-05-23 10:27 -04:00`: `v0.0.13` packaged auto-playthrough passed.
 - `2026-05-23 10:27 -04:00`: `v0.0.13` packaged combat smoke passed.
 - `2026-05-23 10:27 -04:00`: `v0.0.13` packaged pause-flow smoke passed.
+- `2026-05-23 10:32 -04:00`: `v0.0.14` scene rebuild passed.
+- `2026-05-23 10:33 -04:00`: `v0.0.14` editor smoke passed.
+- `2026-05-23 10:34 -04:00`: `v0.0.14` Windows build passed.
+- `2026-05-23 10:35 -04:00`: `v0.0.14` packaged runtime smoke passed.
+- `2026-05-23 10:36 -04:00`: `v0.0.14` packaged auto-playthrough passed.
+- `2026-05-23 10:36 -04:00`: `v0.0.14` packaged combat smoke passed.
+- `2026-05-23 10:36 -04:00`: `v0.0.14` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.14`, `v0.0.15`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.15`, `v0.0.16`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
@@ -122,6 +129,5 @@ Future builds should increment as `v0.0.14`, `v0.0.15`, etc. when meaningful pro
 - Scrapper attack windup is smoke-tested but still needs manual feel tuning.
 - Audio is procedural placeholder content and still needs a human listen/tuning pass.
 - No generated texture/sprite pass yet.
-- No main menu.
 - No settings screen.
 - Android, browser/WebGL, SteamVR/OpenXR, and Meta Quest builds are planned but deferred.
