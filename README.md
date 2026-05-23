@@ -2,6 +2,10 @@
 
 Current state: playable v0/v0.1 proof of concept.
 
+Public repository:
+
+`https://github.com/ungabo/unity-doom-experiment`
+
 This Unity project contains a simple first-person greybox dungeon crawler/shooter for Windows. It is intentionally minimal: primitive geometry, plain materials, text HUD, basic hitscan shooting, melee enemies, a key, a locked door, and an exit.
 
 ## How to Open
@@ -109,3 +113,11 @@ After the v0.0 loop passed, a small presentation pass added:
 - Add low-resolution wall/floor textures.
 - Replace primitive enemy visuals with a billboard sprite.
 - Replace the blocky weapon with a centered sprite.
+
+## Planning Docs
+
+- `Documentation/AAA_VISION_AND_ROADMAP.md`
+- `Documentation/AAA_ASSET_CATALOG.md`
+- `Documentation/PRODUCTION_TRACKING_METHOD.md`
+- `Documentation/WORK_LEDGER.md`
+- `Documentation/HANDOFF.md`
