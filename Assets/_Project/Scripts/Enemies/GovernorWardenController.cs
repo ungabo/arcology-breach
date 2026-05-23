@@ -245,8 +245,9 @@ public class GovernorWardenController : MonoBehaviour, IDamageable
     private void Die()
     {
         dead = true;
+        WardenShutdownVfx.Spawn(transform.position + Vector3.up * 0.45f);
         SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyDeath, transform.position);
-        HUDController.Instance?.ShowTemporaryMessage("Governor Warden down", 0.8f);
+        HUDController.Instance?.ShowTemporaryMessage("Governor Warden vented", 0.9f);
         HUDController.Instance?.HideBossHealth();
         Destroy(gameObject);
     }

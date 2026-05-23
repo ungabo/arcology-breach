@@ -51,6 +51,7 @@ Near-term:
 - Level05 master override hoist is locked until the Governor Warden is destroyed, then triggers the win state.
 - Auto-playthrough covers Level01 key/gate/lift, transition to Level02, transition to Level03, locked-foundry-lift rejection, Boilerheart pressure valve, transition to Level04, transition to Level05, locked-master-hoist rejection, Warden defeat, unlock, and the Level05 master override hoist.
 - Warden combat now surfaces a top-center boss health HUD so the final guardian objective reads clearly during the Governor Core fight.
+- Warden defeat now gets a visible shutdown burst so the final lock release has readable cause and effect.
 - Hazard smoke covers Level03 steam damage and Level04 furnace-heat damage without ending the run from one tick/pulse. Level05 also includes validated steam and furnace-heat hazards.
 - Each current level now has a scene-specific objective briefing at spawn.
 - Venting the Boilerheart pressure valve shuts down the linked Level03 steam hazards.
@@ -355,6 +356,12 @@ v0.0.53 implementation notes:
 - `GovernorWardenController` shows, updates, and hides the boss gauge as the Warden takes damage and dies.
 - Level validation and runtime smoke require the boss HUD fields to be wired.
 - `RuntimeWardenCombatTest` verifies the boss bar appears and drops after damage.
+
+v0.0.54 implementation notes:
+
+- Added `WardenShutdownVfx`.
+- Governor Warden death now spawns steam jets, brass sparks, and an expanding pressure ring.
+- Warden combat smoke verifies the shutdown effect exists and has visible primitive pieces.
 
 ## Map Documentation Template
 

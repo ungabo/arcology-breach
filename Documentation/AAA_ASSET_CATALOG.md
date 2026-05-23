@@ -92,7 +92,7 @@ Every major asset should eventually have three quality targets:
 | ENEMY-004 | Lancer | P1 | verified | Thin ranged valve-rifle automaton with primitive tripod silhouette, pressure-bolt attack, and data-driven definition asset. |
 | ENEMY-005 | Bulwark | P2 | prototype | Primitive furnace-plated machine with boiler body, hammer arms, data-driven definition, Level04/Level05 placement, and combat smoke coverage. |
 | ENEMY-006 | Bellows Node | P2 | planned | Stationary pressure amplifier that buffs nearby machines. |
-| ENEMY-007 | Governor Warden | P1 | prototype | Final guardian prototype with data-driven definition, Level05 placement, stomp attack, pressure-bolt attack, enraged half-health behavior, primitive core body/furnace heart/pressure crown/pressure cannon silhouette, boss health HUD integration, validation, and combat smoke coverage. |
+| ENEMY-007 | Governor Warden | P1 | prototype | Final guardian prototype with data-driven definition, Level05 placement, stomp attack, pressure-bolt attack, enraged half-health behavior, primitive core body/furnace heart/pressure crown/pressure cannon silhouette, boss health HUD integration, shutdown VFX, validation, and combat smoke coverage. |
 
 ## 6. Animations
 
@@ -115,7 +115,8 @@ Every major asset should eventually have three quality targets:
 | VFX-002 | Pressure muzzle flash | P1 | planned | Hot spark and steam puff. |
 | VFX-003 | Impact sparks | P1 | prototype | Short primitive metal spark burst at weapon impact point. |
 | VFX-004 | Machine hit effect | P1 | planned | Sparks, oil flecks, small steam release. |
-| VFX-005 | Machine death effect | P1 | planned | Shutdown flash, pressure vent, smoke. |
+| VFX-005 | Machine death effect | P1 | prototype | Warden shutdown prototype now spawns steam jets, brass sparks, and an expanding pressure ring; generic machine death variants remain planned. |
+| VFX-005B | Warden shutdown burst | P1 | prototype | Boss-specific shutdown effect spawned by `GovernorWardenController`, verified by Warden combat smoke. |
 | VFX-006 | Gear-key pickup effect | P1 | planned | Amber click/gear spin effect. |
 | VFX-007 | Pressure gate open effect | P2 | planned | Red lamps vent to green/amber, steam optional. |
 | VFX-008 | Service lift activation | P1 | planned | Green pressure-restored cue. |

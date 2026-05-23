@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.53`.
+Current state: `v0.0.54`.
 
 Implemented:
 
@@ -61,6 +61,7 @@ Implemented:
 - First Governor Warden final guardian with data-driven definition, primitive boss silhouette, stomp attack, pressure-bolt attack, enraged half-health state, Level05 placement, validation, and packaged Warden combat smoke.
 - Guardian-gated finale where the Level05 master override hoist remains locked until the Governor Warden is destroyed.
 - Warden boss health HUD with brass backplate, red pressure fill, boss label, runtime visibility, validation, and packaged Warden combat smoke damage feedback coverage.
+- Warden shutdown VFX with steam jets, brass sparks, expanding pressure ring, and packaged Warden combat smoke coverage.
 
 ## 3. Target Platform
 

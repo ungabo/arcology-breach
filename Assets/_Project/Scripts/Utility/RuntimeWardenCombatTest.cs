@@ -70,6 +70,13 @@ public class RuntimeWardenCombatTest : MonoBehaviour
             yield break;
         }
 
+        WardenShutdownVfx shutdownVfx = UnityEngine.Object.FindAnyObjectByType<WardenShutdownVfx>();
+        if (shutdownVfx == null || shutdownVfx.PieceCount < 12)
+        {
+            Fail("Warden combat smoke failed: shutdown VFX did not spawn with enough visible pieces.");
+            yield break;
+        }
+
         Debug.Log("V0_WARDEN_COMBAT_PASS");
         Application.Quit(0);
     }

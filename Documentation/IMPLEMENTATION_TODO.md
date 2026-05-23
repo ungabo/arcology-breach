@@ -811,6 +811,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.54 Warden Shutdown VFX Pass
+
+- [x] Add `WardenShutdownVfx` runtime effect.
+- [x] Spawn Warden shutdown steam, brass sparks, and pressure ring on defeat.
+- [x] Update Warden defeat message to match the vented pressure-machine fantasy.
+- [x] Expand Warden combat smoke to verify shutdown VFX visible pieces.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.54`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
