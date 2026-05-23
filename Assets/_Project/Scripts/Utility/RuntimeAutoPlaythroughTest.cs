@@ -315,7 +315,7 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
             yield break;
         }
 
-        if (RunStats.TotalSecrets < 2)
+        if (RunStats.TotalSecrets < 3)
         {
             Fail("Auto-playthrough failed: multi-level run secret totals did not persist to win state.");
             yield break;

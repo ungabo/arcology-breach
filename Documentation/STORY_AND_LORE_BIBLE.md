@@ -167,4 +167,5 @@ These short interactable plaques are optional environmental lore beats. They sho
 - Green exit trigger: `Service Lift`.
 - Short readable archive plaques: `LorePlaque`.
 - Pipeworks pressure-routing switch: `Pipeworks Routing Valve Objective`.
+- Hidden Pipeworks resource cache: `Secret - Pipeworks Cartridge Cache`.
 - First level: `Brassworks Intake`.

@@ -70,9 +70,11 @@ Near-term:
 - Each current level now has a scene-specific objective briefing at spawn.
 - Venting the Boilerheart pressure valve shuts down the linked Level03 steam hazards.
 - Level01 includes the first secret pressure cache reward space.
+- Level02 includes a Pipeworks cartridge-cache secret reward space.
 - Level04 includes a second foundry coal-cache secret reward space.
 - Run secret stats persist across the current multi-level route and can display at win.
 - Auto-playthrough validates that multi-level secret totals survive to final win.
+- Auto-playthrough now expects at least three registered secrets across the current route.
 - Health and ammo persist across scene transitions.
 - Future weapon inventory and campaign flags still need expanded persistence.
 
@@ -133,7 +135,7 @@ New mechanics:
 
 - Current prototype: pressure-routing valve objective that unlocks the Boilerheart lift, inter-level transition to `Level03`, and first ranged Lancer enemy.
 - Planned: expanded ranged `Lancer` encounter routes.
-- Planned: optional ammo cache secret.
+- Current prototype: optional cartridge-cache secret.
 
 v0.0.70 implementation notes:
 
@@ -141,6 +143,13 @@ v0.0.70 implementation notes:
 - `Pipeworks Service Lift To Boilerheart` now starts pressure-locked until the routing valve is complete.
 - The Level02 objective text now starts with routing pipe pressure before riding the Boilerheart lift.
 - Auto-playthrough verifies the locked lift, valve completion, objective update, and transition to Level03.
+
+v0.0.71 implementation notes:
+
+- Added `Secret - Pipeworks Cartridge Cache` near the south-west pipe run.
+- Added secret health and pressure-cartridge rewards plus pipe-rack/cache visual props.
+- Level validation now requires the Level02 secret cache and pressure-cartridge reward.
+- Auto-playthrough verifies at least three registered secrets persist to the final win state.
 
 ### Level 03: Boilerheart Core
 

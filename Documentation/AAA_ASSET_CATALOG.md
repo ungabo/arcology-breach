@@ -68,7 +68,7 @@ Every major asset should eventually have three quality targets:
 | PROP-011 | Coal furnace | P2 | prototype | Primitive environmental landmark and light source. |
 | PROP-012 | Copper pipe bundle | P1 | verified | Procedural three-pipe bundle with brackets used in intake, gate, final, and pipeworks spaces. |
 | PROP-013 | Work order board | P2 | verified | Environmental storytelling board with iron backboard, cream sheet, brass header clip, and compact work-order text. |
-| PROP-014 | Secret cache props | P2 | prototype | Intake pressure cache and Foundry coal cache with reward pickups and validation. |
+| PROP-014 | Secret cache props | P2 | prototype | Intake pressure cache, Pipeworks cartridge cache, and Foundry coal cache with reward pickups and validation. |
 | PROP-015 | Warden lock signal | P2 | prototype | Red/green guardian-lock signal props driven by `GuardianDefeatObjective` near the Governor Core master override hoist. |
 | PROP-016 | Animated machinery spinner set | P1 | prototype | Pressure-gate gears, service-lift pulleys, valve wheels, and menu gear now use `SteamworksSpinner`; final art should upgrade these into richer gear trains, belts, flywheels, and linked piston assemblies. |
 | PROP-017 | Archive lore plaques | P1 | prototype | Interactable brass/enamel plaques in each current gameplay level. They deliver short HUD-readable Brassworks lore and are verified by level validation plus interaction smoke. |

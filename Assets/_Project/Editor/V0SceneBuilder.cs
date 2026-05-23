@@ -819,6 +819,7 @@ public static class V0SceneBuilder
         boilerheartLift.lockedPrompt = "route pipe pressure first";
         boilerheartLift.lockedMessage = "The Boilerheart lift is pressure-locked. Route the Pipeworks valve first.";
         CreatePipeworksDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
+        CreatePipeworksSecretCache(brassMaterial, ironMaterial, warningMaterial, healthMaterial, glassMaterial, fluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
         CreatePointLight("Pipeworks Exit Green Light", new Vector3(0f, 2.4f, 22.7f), new Color(0.1f, 1f, 0.3f), 2.8f, 7f);
         CreatePointLight("Pipeworks Furnace Light", new Vector3(-4.1f, 1.6f, 16f), new Color(1f, 0.36f, 0.08f), 2.2f, 5f);
 
@@ -1973,6 +1974,32 @@ public static class V0SceneBuilder
         CreateHealthVialPickup("Pickup - Secret Health Vial", new Vector3(-5.15f, 0.65f, 17.95f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
         CreatePressureCartridgePickup("Pickup - Secret Pressure Cartridge Pack", new Vector3(-5.15f, 0.55f, 19.25f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
         CreateWorldLabel("Label - Secret Cache", "CACHE", new Vector3(-5.25f, 1.85f, 18.6f), new Color(1f, 0.72f, 0.28f), 0.18f);
+    }
+
+    private static void CreatePipeworksSecretCache(Material brassMaterial, Material ironMaterial, Material warningMaterial, Material healthMaterial, Material glassMaterial, Material fluidMaterial, Material ammoMaterial, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition)
+    {
+        GameObject secretRoot = new GameObject("Secret - Pipeworks Cartridge Cache");
+        secretRoot.transform.position = new Vector3(-4.35f, 0.78f, 5.4f);
+
+        BoxCollider trigger = secretRoot.AddComponent<BoxCollider>();
+        trigger.size = new Vector3(1.65f, 1.55f, 1.65f);
+        trigger.isTrigger = true;
+
+        SecretArea secret = secretRoot.AddComponent<SecretArea>();
+        secret.secretId = "pipeworks-cartridge-cache";
+        secret.discoveryMessage = "SECRET PIPEWORKS CACHE FOUND";
+
+        CreateLocalCube("Secret Pipeworks Cache Brass Floor Plate", secretRoot.transform, new Vector3(0f, -0.77f, 0f), new Vector3(1.45f, 0.05f, 1.45f), brassMaterial);
+        CreateLocalCube("Secret Pipeworks Cache Iron Pipe Rack", secretRoot.transform, new Vector3(-0.48f, 0.02f, 0f), new Vector3(0.12f, 0.9f, 1.28f), ironMaterial);
+        CreateLocalCube("Secret Pipeworks Cache Warning Strip", secretRoot.transform, new Vector3(0f, -0.7f, -0.52f), new Vector3(1.35f, 0.06f, 0.12f), warningMaterial);
+        GameObject sparePipeA = CreateLocalPrimitive("Secret Pipeworks Cache Spare Pipe A", PrimitiveType.Cylinder, secretRoot.transform, new Vector3(-0.1f, -0.36f, -0.22f), new Vector3(0.055f, 0.42f, 0.055f), brassMaterial);
+        sparePipeA.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject sparePipeB = CreateLocalPrimitive("Secret Pipeworks Cache Spare Pipe B", PrimitiveType.Cylinder, secretRoot.transform, new Vector3(0.18f, -0.36f, 0.1f), new Vector3(0.055f, 0.36f, 0.055f), brassMaterial);
+        sparePipeB.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+
+        CreateHealthVialPickup("Pickup - Pipeworks Secret Health Vial", new Vector3(-4.2f, 0.65f, 4.75f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
+        CreatePressureCartridgePickup("Pickup - Pipeworks Secret Pressure Cartridge Pack", new Vector3(-4.2f, 0.55f, 6.05f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
+        CreateWorldLabel("Label - Pipeworks Secret Cache", "CARTRIDGE CACHE", new Vector3(-4.35f, 1.85f, 5.4f), new Color(1f, 0.72f, 0.28f), 0.14f);
     }
 
     private static void CreateFoundrySecretCache(Material brassMaterial, Material ironMaterial, Material warningMaterial, Material healthMaterial, Material glassMaterial, Material fluidMaterial, Material ammoMaterial, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition)

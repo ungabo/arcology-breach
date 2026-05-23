@@ -440,7 +440,7 @@ public static class V0LevelValidator
     private static void ValidateSecrets(string sceneName)
     {
         SecretArea[] secrets = UnityEngine.Object.FindObjectsByType<SecretArea>(FindObjectsSortMode.None);
-        if ((sceneName == "Level01" || sceneName == "Level04") && secrets.Length == 0)
+        if ((sceneName == "Level01" || sceneName == "Level02" || sceneName == "Level04") && secrets.Length == 0)
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " is missing SecretArea.");
         }
@@ -592,6 +592,9 @@ public static class V0LevelValidator
             RequireNamed("Pipeworks Routing Valve Wheel", sceneName + " Pipeworks routing valve wheel visual");
             RequireNamed("Pipeworks Routing Valve Vented Lamp", sceneName + " Pipeworks routing valve vented signal");
             RequireNamed("Pipeworks Triple Pipe Bundle", sceneName + " pipeworks pipe-bundle visual");
+            RequireNamed("Secret - Pipeworks Cartridge Cache", sceneName + " pipeworks secret cache");
+            RequireNamed("Secret Pipeworks Cache Brass Floor Plate", sceneName + " pipeworks secret cache floor plate");
+            RequireNamed("Pickup - Pipeworks Secret Pressure Cartridge Pack", sceneName + " pipeworks secret ammo reward");
         }
         else if (sceneName == "Level03")
         {

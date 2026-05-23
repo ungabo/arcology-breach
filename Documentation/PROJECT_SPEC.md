@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.70`.
+Current state: `v0.0.71`.
 
 Implemented:
 
@@ -78,6 +78,7 @@ Implemented:
 - `PlayerDamageVfx` first-person pressure/heat/brass hurt burst on player damage, with combat-edge smoke coverage.
 - `LorePlaque` archive plaques placed in every current gameplay level, with level validation and interaction smoke coverage.
 - Pipeworks routing valve objective that locks the Level02 Boilerheart lift until pipe pressure is routed, with auto-playthrough coverage.
+- Pipeworks cartridge-cache secret, bringing the current registered secret total to three.
 
 ## 3. Target Platform
 
@@ -182,6 +183,7 @@ Current:
 - Service lift exit.
 - Short readable archive plaques in each current level.
 - Required Pipeworks routing valve before the Level02 Boilerheart lift.
+- Three current secret caches across Level01, Level02, and Level04.
 
 Future:
 
