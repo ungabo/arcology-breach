@@ -157,7 +157,7 @@ Every major asset should eventually have three quality targets:
 | LVL-003 | Brassworks Intake art pass | P1 | prototype | First procedural dressing pass: oil-stone patches, pipe runs, boiler stacks, hazard strips. |
 | LVL-004 | Pipeworks Annex prototype | P2 | prototype | Generated second level with pipeworks blockout, Scrapper/Lancer pressure, pickups, dressing, and service-lift transition. |
 | LVL-005 | Gauge Hall concept | P2 | planned | Valve/gauge lock sequence level concept. |
-| LVL-006 | Furnace Foundry prototype | P2 | prototype | Generated fourth level with foundry blockout, mixed enemy pressure, steam hazards, furnace-row dressing, and emergency-hoist win. |
+| LVL-006 | Furnace Foundry prototype | P2 | prototype | Generated fourth level with foundry blockout, mixed enemy pressure, steam hazards, pulsing furnace heat lanes, furnace-row dressing, and emergency-hoist win. |
 
 ## 11. Platform Variants
 

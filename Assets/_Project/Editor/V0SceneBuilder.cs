@@ -181,6 +181,7 @@ public static class V0SceneBuilder
         RequireObject<RangedEnemyController>("Level04 RangedEnemyController");
         RequireObject<ExitTrigger>("Level04 ExitTrigger");
         RequireObject<SteamHazard>("Level04 SteamHazard");
+        RequireObject<FurnaceHeatHazard>("Level04 FurnaceHeatHazard");
 
         EditorSceneManager.OpenScene(MainMenuScenePath);
         RequireObject<MainMenuController>("MainMenuController");
@@ -831,6 +832,8 @@ public static class V0SceneBuilder
         CreateSteamVent("Foundry Steam Vent B", new Vector3(3.65f, 0.05f, 21.5f), brassMaterial, steamMaterial, parent.transform);
         SteamHazard castingLeak = CreateSteamHazard("Foundry Steam Hazard - Casting Leak", new Vector3(-4.7f, 0.75f, 14.2f), new Vector3(1.25f, 1.5f, 1.25f), ironMaterial, steamMaterial, warningMaterial, parent.transform);
         SteamHazard crucibleBleed = CreateSteamHazard("Foundry Steam Hazard - Crucible Bleed", new Vector3(3.65f, 0.75f, 21.5f), new Vector3(1.2f, 1.5f, 1.2f), ironMaterial, steamMaterial, warningMaterial, parent.transform);
+        CreateFurnaceHeatHazard("Foundry Furnace Heat Hazard - Pour Lane", new Vector3(0f, 0.75f, 16.7f), new Vector3(4.6f, 1.5f, 1.35f), ironMaterial, glowMaterial, warningMaterial, parent.transform, 0f);
+        CreateFurnaceHeatHazard("Foundry Furnace Heat Hazard - Hoist Lane", new Vector3(0f, 0.75f, 23.6f), new Vector3(4.2f, 1.5f, 1.25f), ironMaterial, glowMaterial, warningMaterial, parent.transform, 1.65f);
         CreateFoundryFurnaceRow(ironMaterial, brassMaterial, glowMaterial, parent.transform);
         CreateWorkOrderBoard("Work Order Board - Foundry", "FOUNDRY ORDER\nHOIST ROUTE OPEN\nKEEP FIRES FED", new Vector3(-6.45f, 1.55f, 16.1f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
 
@@ -899,6 +902,34 @@ public static class V0SceneBuilder
         CreateLocalPrimitive(name + " Steam Puff Low", PrimitiveType.Sphere, hazardRoot.transform, new Vector3(-0.12f, -0.15f, 0.04f), new Vector3(0.38f, 0.32f, 0.38f), steamMaterial);
         CreateLocalPrimitive(name + " Steam Puff High", PrimitiveType.Sphere, hazardRoot.transform, new Vector3(0.16f, 0.38f, -0.05f), new Vector3(0.3f, 0.46f, 0.3f), steamMaterial);
         CreateLocalCube(name + " Brass Vent Grate", hazardRoot.transform, new Vector3(0f, -0.68f, 0f), new Vector3(triggerSize.x * 0.68f, 0.08f, triggerSize.z * 0.68f), ironMaterial);
+
+        return hazard;
+    }
+
+    private static FurnaceHeatHazard CreateFurnaceHeatHazard(string name, Vector3 position, Vector3 triggerSize, Material ironMaterial, Material glowMaterial, Material warningMaterial, Transform parent, float phaseOffset)
+    {
+        GameObject hazardRoot = new GameObject(name);
+        hazardRoot.transform.SetParent(parent);
+        hazardRoot.transform.position = position;
+
+        BoxCollider trigger = hazardRoot.AddComponent<BoxCollider>();
+        trigger.size = triggerSize;
+        trigger.isTrigger = true;
+
+        FurnaceHeatHazard hazard = hazardRoot.AddComponent<FurnaceHeatHazard>();
+        hazard.damagePerTick = GameBalance.FurnaceHeatHazardDamage;
+        hazard.tickInterval = GameBalance.FurnaceHeatHazardTickInterval;
+        hazard.warningDuration = GameBalance.FurnaceHeatHazardWarningDuration;
+        hazard.activeDuration = GameBalance.FurnaceHeatHazardActiveDuration;
+        hazard.cooldownDuration = GameBalance.FurnaceHeatHazardCooldownDuration;
+        hazard.phaseOffset = phaseOffset;
+
+        CreateLocalCube(name + " Iron Pour Trough", hazardRoot.transform, new Vector3(0f, -0.72f, 0f), new Vector3(triggerSize.x, 0.08f, triggerSize.z * 0.86f), ironMaterial);
+        CreateLocalCube(name + " Brass Warning Strip A", hazardRoot.transform, new Vector3(0f, -0.65f, -triggerSize.z * 0.42f), new Vector3(triggerSize.x, 0.06f, 0.08f), warningMaterial);
+        CreateLocalCube(name + " Brass Warning Strip B", hazardRoot.transform, new Vector3(0f, -0.65f, triggerSize.z * 0.42f), new Vector3(triggerSize.x, 0.06f, 0.08f), warningMaterial);
+        hazard.warningSignal = CreateLocalCube(name + " Amber Warning Signal", hazardRoot.transform, new Vector3(0f, -0.54f, 0f), new Vector3(triggerSize.x * 0.62f, 0.06f, triggerSize.z * 0.48f), warningMaterial);
+        hazard.activeSignal = CreateLocalCube(name + " Furnace Glow Plate", hazardRoot.transform, new Vector3(0f, -0.5f, 0f), new Vector3(triggerSize.x * 0.7f, 0.08f, triggerSize.z * 0.56f), glowMaterial);
+        hazard.safeSignal = CreateLocalCube(name + " Closed Iron Damper", hazardRoot.transform, new Vector3(0f, -0.46f, 0f), new Vector3(triggerSize.x * 0.46f, 0.06f, triggerSize.z * 0.32f), ironMaterial);
 
         return hazard;
     }

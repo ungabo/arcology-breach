@@ -49,7 +49,7 @@ Near-term:
 - Level03 foundry service lift is pressure-locked until the Boilerheart pressure valve is vented, then loads `Level04`.
 - Level04 emergency hoist currently triggers the win state.
 - Auto-playthrough covers Level01 key/gate/lift, transition to Level02, transition to Level03, locked-foundry-lift rejection, Boilerheart pressure valve, transition to Level04, and Level04 emergency hoist.
-- Hazard smoke covers Level03 steam hazard damage without ending the run from one tick.
+- Hazard smoke covers Level03 steam damage and Level04 furnace-heat damage without ending the run from one tick/pulse.
 - Each current level now has a scene-specific objective briefing at spawn.
 - Venting the Boilerheart pressure valve shuts down the linked Level03 steam hazards.
 - Level01 includes the first secret pressure cache reward space.
@@ -219,7 +219,7 @@ Approximate footprint:
 
 New mechanics:
 
-- Current prototype: foundry steam hazards, mixed melee/ranged pressure, and emergency-hoist win state.
+- Current prototype: foundry steam hazards, pulsing furnace heat-surge lanes, mixed melee/ranged pressure, and emergency-hoist win state.
 - Planned: crusher or furnace hazard lanes.
 - Planned: first `Bulwark` heavy enemy.
 - Optional weapon route.
@@ -252,6 +252,13 @@ v0.0.46 implementation notes:
 - Added `Foundry Steam Hazard - Casting Leak` and `Foundry Steam Hazard - Crucible Bleed`.
 - Added `Foundry Emergency Hoist` as the current campaign win device.
 - Auto-playthrough validates the four-level route.
+
+v0.0.47 implementation notes:
+
+- Added reusable `FurnaceHeatHazard`.
+- Added `Foundry Furnace Heat Hazard - Pour Lane` and `Foundry Furnace Heat Hazard - Hoist Lane`.
+- Furnace heat hazards cycle through warning, active glow, and safe damper visuals.
+- Hazard smoke now validates both Boilerheart steam damage and Foundry furnace-heat damage.
 
 ### Level 05: Governor Core
 

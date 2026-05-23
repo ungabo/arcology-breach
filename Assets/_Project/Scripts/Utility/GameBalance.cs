@@ -24,4 +24,10 @@ public static class GameBalance
 
     public const int SteamHazardDamage = 6;
     public const float SteamHazardTickInterval = 0.75f;
+
+    public const int FurnaceHeatHazardDamage = 10;
+    public const float FurnaceHeatHazardTickInterval = 0.9f;
+    public const float FurnaceHeatHazardWarningDuration = 1f;
+    public const float FurnaceHeatHazardActiveDuration = 1.25f;
+    public const float FurnaceHeatHazardCooldownDuration = 1.4f;
 }

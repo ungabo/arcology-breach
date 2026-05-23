@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.46` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.47` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -8,7 +8,7 @@ Public repository:
 
 Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged enemies, steam hazards, a secret cache, a gear key, a pressure gate, service-lift transitions, a Boilerheart pressure valve that unlocks the foundry lift, and a Furnace Foundry finale with an emergency hoist.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged enemies, steam hazards, pulsing furnace-heat hazards, a secret cache, a gear key, a pressure gate, service-lift transitions, a Boilerheart pressure valve that unlocks the foundry lift, and a Furnace Foundry finale with an emergency hoist.
 
 Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
 
@@ -61,7 +61,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.46\BrassworksBreach_v0.0.46.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.47\BrassworksBreach_v0.0.47.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -241,6 +241,12 @@ Individual Unity entry points remain available:
 - Level03 Boilerheart lift is now pressure-locked until valve venting, then transitions to Level04.
 - Level04 adds foundry hazards, mixed Scrapper/Lancer pressure, pickups, furnace-row dressing, and the current emergency-hoist win state.
 - Full build matrix remains green with the four-level auto-playthrough.
+
+## What v0.0.47 Adds
+
+- Reusable pulsing `FurnaceHeatHazard`.
+- Two Furnace Foundry heat-surge lanes with warning/active/safe phase visuals.
+- Hazard smoke now verifies both Boilerheart steam damage and foundry furnace-heat damage.
 
 ## Good Next Steps
 

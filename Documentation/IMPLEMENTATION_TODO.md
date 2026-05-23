@@ -703,6 +703,21 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.47 Furnace Heat Hazard Pass
+
+- [x] Add reusable `FurnaceHeatHazard`.
+- [x] Add furnace heat balance values.
+- [x] Place two pulsing Furnace Foundry heat-surge lanes.
+- [x] Add warning, active, and safe phase visuals.
+- [x] Add level validation for furnace hazard setup and visuals.
+- [x] Expand packaged hazard smoke to verify Level03 steam damage and Level04 furnace-heat damage.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.47`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

@@ -1209,3 +1209,40 @@ Build executable:
 `Builds/Windows/v0.0.46/BrassworksBreach_v0.0.46.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 15:41 -04:00
+
+Completed `v0.0.47` Furnace Heat Hazard pass.
+
+Added:
+
+- Reusable `FurnaceHeatHazard` with warning, active, and safe phases.
+- Furnace heat balance values in `GameBalance`.
+- Two pulsing Furnace Foundry heat-surge lanes.
+- Phase visuals for warning signal, furnace glow, and closed damper states.
+- Level validation for Furnace Foundry heat hazards.
+- Expanded hazard smoke to verify Level03 steam damage and Level04 furnace-heat damage.
+- Versioned Windows build `v0.0.47`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.47/BrassworksBreach_v0.0.47.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

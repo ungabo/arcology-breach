@@ -260,6 +260,26 @@ public static class V0LevelValidator
             RequireEqual(hazard.damagePerTick, GameBalance.SteamHazardDamage, sceneName + " steam hazard damage " + hazard.name);
             RequireApprox(hazard.tickInterval, GameBalance.SteamHazardTickInterval, sceneName + " steam hazard tick interval " + hazard.name);
         }
+
+        FurnaceHeatHazard[] furnaceHazards = UnityEngine.Object.FindObjectsByType<FurnaceHeatHazard>(FindObjectsSortMode.None);
+        if (sceneName == "Level04" && furnaceHazards.Length == 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " is missing FurnaceHeatHazard.");
+        }
+
+        foreach (FurnaceHeatHazard hazard in furnaceHazards)
+        {
+            RequireTrigger(hazard.gameObject, sceneName + " furnace heat hazard trigger " + hazard.name);
+            RequireEqual(hazard.damagePerTick, GameBalance.FurnaceHeatHazardDamage, sceneName + " furnace heat hazard damage " + hazard.name);
+            RequireApprox(hazard.tickInterval, GameBalance.FurnaceHeatHazardTickInterval, sceneName + " furnace heat hazard tick interval " + hazard.name);
+            RequireApprox(hazard.warningDuration, GameBalance.FurnaceHeatHazardWarningDuration, sceneName + " furnace heat warning duration " + hazard.name);
+            RequireApprox(hazard.activeDuration, GameBalance.FurnaceHeatHazardActiveDuration, sceneName + " furnace heat active duration " + hazard.name);
+            RequireApprox(hazard.cooldownDuration, GameBalance.FurnaceHeatHazardCooldownDuration, sceneName + " furnace heat cooldown duration " + hazard.name);
+            if (hazard.warningSignal == null || hazard.activeSignal == null || hazard.safeSignal == null)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " furnace heat hazard is missing phase signals.");
+            }
+        }
     }
 
     private static void ValidateSecrets(string sceneName)
@@ -412,6 +432,9 @@ public static class V0LevelValidator
             RequireNamed("Foundry Furnace Row", sceneName + " foundry furnace row visual");
             RequireNamed("Foundry Steam Hazard - Casting Leak", sceneName + " foundry steam hazard");
             RequireNamed("Foundry Steam Hazard - Crucible Bleed", sceneName + " foundry steam hazard");
+            RequireNamed("Foundry Furnace Heat Hazard - Pour Lane", sceneName + " foundry furnace heat hazard");
+            RequireNamed("Foundry Furnace Heat Hazard - Hoist Lane", sceneName + " foundry furnace heat hazard");
+            RequireNamed("Foundry Furnace Heat Hazard - Pour Lane Furnace Glow Plate", sceneName + " foundry heat glow signal");
             RequireNamed("Foundry Emergency Hoist", sceneName + " emergency hoist visual");
         }
 

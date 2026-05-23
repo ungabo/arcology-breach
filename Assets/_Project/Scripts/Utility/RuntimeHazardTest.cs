@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 public class RuntimeHazardTest : MonoBehaviour
 {
     private const string HazardArgument = "-v0HazardSmoke";
-    private const string HazardSceneName = "Level03";
+    private const string SteamHazardSceneName = "Level03";
+    private const string FurnaceHazardSceneName = "Level04";
+
+    private static bool steamHazardVerified;
 
     private bool failed;
 
@@ -19,12 +22,43 @@ public class RuntimeHazardTest : MonoBehaviour
 
         yield return null;
 
-        if (SceneManager.GetActiveScene().name != HazardSceneName)
+        if (!steamHazardVerified)
         {
-            SceneManager.LoadScene(HazardSceneName);
+            if (SceneManager.GetActiveScene().name != SteamHazardSceneName)
+            {
+                SceneManager.LoadScene(SteamHazardSceneName);
+                yield break;
+            }
+
+            yield return VerifySteamHazard();
+            if (failed)
+            {
+                yield break;
+            }
+
+            steamHazardVerified = true;
+            SceneManager.LoadScene(FurnaceHazardSceneName);
             yield break;
         }
 
+        if (SceneManager.GetActiveScene().name != FurnaceHazardSceneName)
+        {
+            SceneManager.LoadScene(FurnaceHazardSceneName);
+            yield break;
+        }
+
+        yield return VerifyFurnaceHeatHazard();
+        if (failed)
+        {
+            yield break;
+        }
+
+        Debug.Log("V0_HAZARD_PASS");
+        Application.Quit(0);
+    }
+
+    private IEnumerator VerifySteamHazard()
+    {
         DisableEnemies();
 
         PlayerController player = Require<PlayerController>("PlayerController");
@@ -42,14 +76,28 @@ public class RuntimeHazardTest : MonoBehaviour
         }
 
         RequireState(gameState.State == GameRunState.Playing, "hazard should not end the run from one tick");
+    }
 
+    private IEnumerator VerifyFurnaceHeatHazard()
+    {
+        DisableEnemies();
+
+        PlayerController player = Require<PlayerController>("PlayerController");
+        PlayerHealth health = Require<PlayerHealth>("PlayerHealth");
+        GameStateController gameState = Require<GameStateController>("GameStateController");
+        FurnaceHeatHazard hazard = Require<FurnaceHeatHazard>("FurnaceHeatHazard");
+
+        int healthBeforeHazard = health.CurrentHealth;
+        Teleport(player, hazard.transform.position);
+        hazard.ForceActiveForTest(0.75f);
+        hazard.TryDamage(player.gameObject);
+        yield return WaitUntilOrFail(() => health.CurrentHealth < healthBeforeHazard, "furnace heat hazard damage", 1f);
         if (failed)
         {
             yield break;
         }
 
-        Debug.Log("V0_HAZARD_PASS");
-        Application.Quit(0);
+        RequireState(gameState.State == GameRunState.Playing, "furnace heat should not end the run from one pulse");
     }
 
     private static void DisableEnemies()
