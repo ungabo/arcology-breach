@@ -54,6 +54,21 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Run packaged pause-flow smoke.
 - [x] Commit and push `v0.0.8`.
 
+## v0.0.9 Brass Gauge HUD Pass
+
+- [x] Add HUD backplates.
+- [x] Add health gauge fill.
+- [x] Add ammo gauge fill.
+- [x] Add gear-key status lamp.
+- [x] Rebuild generated scene.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.9`.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

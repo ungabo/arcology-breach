@@ -305,6 +305,12 @@ public static class V0SceneBuilder
         }
 
         hud.damageFlashImage = CreateScreenImage("Damage Flash", canvasObject.transform, new Color(1f, 0f, 0f, 0f));
+        CreateAnchoredImage("Health Gauge Backplate", canvasObject.transform, new Color(0.16f, 0.085f, 0.035f, 0.86f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(14f, 14f), new Vector2(370f, 58f), false);
+        hud.healthFillImage = CreateAnchoredImage("Health Gauge Fill", canvasObject.transform, new Color(0.78f, 0.08f, 0.04f, 0.88f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(24f, 20f), new Vector2(210f, 12f), true);
+        CreateAnchoredImage("Ammo Gauge Backplate", canvasObject.transform, new Color(0.16f, 0.085f, 0.035f, 0.86f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-14f, 14f), new Vector2(370f, 58f), false);
+        hud.ammoFillImage = CreateAnchoredImage("Ammo Gauge Fill", canvasObject.transform, new Color(0.85f, 0.55f, 0.16f, 0.88f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-24f, 20f), new Vector2(210f, 12f), true);
+        CreateAnchoredImage("Gear Key Backplate", canvasObject.transform, new Color(0.16f, 0.085f, 0.035f, 0.86f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0f, 14f), new Vector2(320f, 56f), false);
+        hud.keyLampImage = CreateAnchoredImage("Gear Key Lamp", canvasObject.transform, new Color(0.95f, 0.55f, 0.08f, 0.95f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(-128f, 30f), new Vector2(24f, 24f), false);
         hud.healthText = CreateText("Health Text", canvasObject.transform, font, "HEALTH 100/100", 24, TextAnchor.LowerLeft, new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(18f, 16f), new Vector2(360f, 50f));
         hud.ammoText = CreateText("Ammo Text", canvasObject.transform, font, "AMMO 30", 24, TextAnchor.LowerRight, new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-18f, 16f), new Vector2(360f, 50f));
         hud.keyText = CreateText("Gear Key Text", canvasObject.transform, font, "GEAR KEY NO", 22, TextAnchor.LowerCenter, new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0f, 18f), new Vector2(300f, 45f));
@@ -393,6 +399,33 @@ public static class V0SceneBuilder
         Image image = imageObject.AddComponent<Image>();
         image.color = color;
         image.raycastTarget = false;
+
+        return image;
+    }
+
+    private static Image CreateAnchoredImage(string name, Transform parent, Color color, Vector2 anchorMin, Vector2 anchorMax, Vector2 pivot, Vector2 anchoredPosition, Vector2 rectSize, bool fillHorizontal)
+    {
+        GameObject imageObject = new GameObject(name);
+        imageObject.transform.SetParent(parent, false);
+
+        RectTransform rectTransform = imageObject.AddComponent<RectTransform>();
+        rectTransform.anchorMin = anchorMin;
+        rectTransform.anchorMax = anchorMax;
+        rectTransform.pivot = pivot;
+        rectTransform.anchoredPosition = anchoredPosition;
+        rectTransform.sizeDelta = rectSize;
+
+        Image image = imageObject.AddComponent<Image>();
+        image.color = color;
+        image.raycastTarget = false;
+
+        if (fillHorizontal)
+        {
+            image.type = Image.Type.Filled;
+            image.fillMethod = Image.FillMethod.Horizontal;
+            image.fillOrigin = (int)Image.OriginHorizontal.Left;
+            image.fillAmount = 1f;
+        }
 
         return image;
     }

@@ -69,3 +69,27 @@ Verification completed:
 Build executable:
 
 `Builds/Windows/v0.0.8/BrassworksBreach_v0.0.8.exe`
+
+## 2026-05-23 01:02 -04:00
+
+Completed `v0.0.9` brass gauge HUD pass.
+
+Added:
+
+- HUD backplates.
+- Health fill gauge.
+- Ammo fill gauge.
+- Gear-key status lamp.
+
+Verification completed:
+
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.9/BrassworksBreach_v0.0.9.exe`

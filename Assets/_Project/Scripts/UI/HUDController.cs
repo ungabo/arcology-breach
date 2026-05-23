@@ -11,10 +11,14 @@ public class HUDController : MonoBehaviour
     public Text keyText;
     public Text messageText;
     public Image damageFlashImage;
+    public Image healthFillImage;
+    public Image ammoFillImage;
+    public Image keyLampImage;
 
     private float messageTimer;
     private bool messageIsPersistent;
     private float damageFlashAlpha;
+    private int highestAmmoSeen = 1;
 
     private void Awake()
     {
@@ -71,13 +75,24 @@ public class HUDController : MonoBehaviour
         {
             healthText.text = $"HEALTH {current}/{max}";
         }
+
+        if (healthFillImage != null && max > 0)
+        {
+            healthFillImage.fillAmount = Mathf.Clamp01(current / (float)max);
+        }
     }
 
     public void SetAmmo(int ammo)
     {
+        highestAmmoSeen = Mathf.Max(highestAmmoSeen, ammo);
         if (ammoText != null)
         {
             ammoText.text = $"AMMO {ammo}";
+        }
+
+        if (ammoFillImage != null)
+        {
+            ammoFillImage.fillAmount = Mathf.Clamp01(ammo / (float)highestAmmoSeen);
         }
     }
 
@@ -86,6 +101,11 @@ public class HUDController : MonoBehaviour
         if (keyText != null)
         {
             keyText.text = hasKey ? "GEAR KEY YES" : "GEAR KEY NO";
+        }
+
+        if (keyLampImage != null)
+        {
+            keyLampImage.color = hasKey ? new Color(0.25f, 0.95f, 0.35f, 0.95f) : new Color(0.95f, 0.55f, 0.08f, 0.95f);
         }
     }
 

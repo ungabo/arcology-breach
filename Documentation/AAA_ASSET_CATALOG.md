@@ -141,8 +141,8 @@ Every major asset should eventually have three quality targets:
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
 | UI-001 | Text HUD | P0 | prototype | Existing plain HUD. |
-| UI-002 | Brass gauge HUD frame | P1 | planned | Compact instrument-panel style HUD. |
-| UI-003 | Gear-key indicator | P1 | planned | Amber gear icon/status. |
+| UI-002 | Brass gauge HUD frame | P1 | prototype | Primitive instrument-panel HUD backplates and fill gauges. |
+| UI-003 | Gear-key indicator | P1 | prototype | Primitive amber/green gear-key status lamp. |
 | UI-004 | Damage pressure overlay | P1 | prototype | Existing red damage flash can become pressure warning overlay. |
 | UI-005 | Pressure warning prompt | P1 | prototype | Clear denied/key-required feedback through HUD text, gate audio, and world label. |
 | UI-006 | Main menu | P2 | planned | Start/settings/quit with brass panel styling. |
