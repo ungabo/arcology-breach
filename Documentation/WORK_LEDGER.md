@@ -46,6 +46,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | CODE-009 | Pickup/inventory cleanup | code | P1 | verified | v0.0.34 | PickupDefinition assets drive health, ammo, and gear-key pickups; validation enforces active values. |
 | CODE-010 | Level transition controller | code | P1 | verified | v0.0.35 | LevelTransitionController routes service-lift loads and restarts while preserving run-state tests. |
 | PLAT-005 | Platform quality profiles | platform | P1 | verified | v0.0.36 | Windows, Android, WebGL, PC VR, and Meta Quest PlatformQualityProfile assets exist; Windows profile applies at runtime. |
+| TEST-008 | Expanded combat automation harness | test | P1 | verified | v0.0.37 | Combat scenario smoke verifies cooldown rejection, ammo accounting, expected shot count, and final-hit kill timing. |
 
 ## Ready Next
 
@@ -135,3 +136,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.34` data-driven pickup definition build created at `Builds/Windows/v0.0.34/BrassworksBreach_v0.0.34.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.35` level transition controller build created at `Builds/Windows/v0.0.35/BrassworksBreach_v0.0.35.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.36` platform quality profile build created at `Builds/Windows/v0.0.36/BrassworksBreach_v0.0.36.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.37` expanded combat automation build created at `Builds/Windows/v0.0.37/BrassworksBreach_v0.0.37.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.

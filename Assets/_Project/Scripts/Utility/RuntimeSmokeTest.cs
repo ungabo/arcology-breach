@@ -28,6 +28,7 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<RuntimeAutoPlaythroughTest>("RuntimeAutoPlaythroughTest");
         Require<RuntimeCombatTest>("RuntimeCombatTest");
         Require<RuntimeInteractionTest>("RuntimeInteractionTest");
+        Require<RuntimeCombatScenarioTest>("RuntimeCombatScenarioTest");
         Require<RuntimePauseFlowTest>("RuntimePauseFlowTest");
         Require<HUDController>("HUDController");
         Require<EnemyController>("EnemyController");

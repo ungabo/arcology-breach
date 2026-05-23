@@ -63,6 +63,7 @@ public static class V0LevelValidator
 
         Require<PauseMenuController>(sceneName + " PauseMenuController");
         Require<RuntimeInteractionTest>(sceneName + " RuntimeInteractionTest");
+        Require<RuntimeCombatScenarioTest>(sceneName + " RuntimeCombatScenarioTest");
         Require<EnemyController>(sceneName + " EnemyController");
         Require<Pickup>(sceneName + " Pickup");
 

@@ -1100,6 +1100,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeAutoPlaythroughTest>();
         stateObject.AddComponent<RuntimeCombatTest>();
         stateObject.AddComponent<RuntimeCombatEdgeTest>();
+        stateObject.AddComponent<RuntimeCombatScenarioTest>();
         stateObject.AddComponent<RuntimeRangedCombatTest>();
         stateObject.AddComponent<RuntimeInteractionTest>();
         stateObject.AddComponent<RuntimePauseFlowTest>();

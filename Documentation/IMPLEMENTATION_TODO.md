@@ -555,6 +555,23 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.37 Expanded Combat Automation Pass
+
+- [x] Add `RuntimeCombatScenarioTest`.
+- [x] Verify pressure-pistol cooldown rejection preserves ammo.
+- [x] Verify ammo decreases once per valid shot.
+- [x] Verify Scrapper survives until the final expected shot.
+- [x] Verify final expected shot destroys the Scrapper.
+- [x] Add `V0_COMBAT_SCENARIO_PASS` to the build matrix runner.
+- [x] Add combat scenario automation routing from the main menu.
+- [x] Expand runtime smoke and level validation to require the scenario test component.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.37`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -591,7 +608,7 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Pickup/inventory cleanup.
 - [x] Level transition controller.
 - [x] Level validation tool.
-- [ ] Expand combat automation harness.
+- [x] Expand combat automation harness.
 - [x] Build automation cleanup.
 - [x] Platform asset-quality settings.
 

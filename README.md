@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.36` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.37` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -57,7 +57,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.36\BrassworksBreach_v0.0.36.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.37\BrassworksBreach_v0.0.37.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -73,6 +73,7 @@ The project test matrix includes:
 - Packaged auto-playthrough objective-chain test.
 - Packaged combat smoke test.
 - Packaged combat-edge smoke test.
+- Packaged combat-scenario smoke test.
 - Packaged ranged-combat smoke test.
 - Packaged interaction smoke test.
 - Packaged pause-flow smoke test.
@@ -86,6 +87,7 @@ Smoke pass markers:
 - `V0_AUTO_PLAYTHROUGH_PASS`
 - `V0_COMBAT_SMOKE_PASS`
 - `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
 - `V0_RANGED_COMBAT_PASS`
 - `V0_INTERACTION_SMOKE_PASS`
 - `V0_PAUSE_FLOW_PASS`
@@ -172,6 +174,11 @@ Individual Unity entry points remain available:
 - Platform quality profile assets for Windows, Android, WebGL, PC VR, and Meta Quest.
 - Windows runtime profile now applies from a data asset.
 - Runtime smoke and validation coverage for the active Windows quality profile.
+
+## What v0.0.37 Adds
+
+- Combat scenario smoke test for cooldown rejection, ammo accounting, and expected kill timing.
+- New `V0_COMBAT_SCENARIO_PASS` marker in the full build matrix.
 
 ## Good Next Steps
 
