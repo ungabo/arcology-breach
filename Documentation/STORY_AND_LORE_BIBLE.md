@@ -140,6 +140,16 @@ Environmental beats:
 - Gate seen before key, so the lock/key relationship is clear.
 - Final service lift with green restored-pressure cue.
 
+## Current Archive Plaques
+
+These short interactable plaques are optional environmental lore beats. They should be brief enough to read during play and should never block combat or progression.
+
+- `Intake Archive`: The Brassworks sealed itself when the master governor jammed and every service machine obeyed the wrong pressure order.
+- `Pipeworks Archive`: The bolt feed carried messages before it carried weapons; now every valve-rifle repeats the shutdown command.
+- `Boilerheart Archive`: The heart valve was built to save workers from overload. Vented by hand, it can still break a pressure lock.
+- `Foundry Archive`: The foundry made the Bulwarks as rescue frames. Their hammers remember only containment.
+- `Governor Archive`: The Warden protects the stalled governor because no order ever told it the workers were worth more than the machine.
+
 ## Writing Rules
 
 - Keep text short in gameplay.
@@ -155,4 +165,5 @@ Environmental beats:
 - Key pickup: `Gear Key`.
 - Locked door: `Pressure Gate`.
 - Green exit trigger: `Service Lift`.
+- Short readable archive plaques: `LorePlaque`.
 - First level: `Brassworks Intake`.

@@ -1022,6 +1022,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.69 Lore Plaque Pass
+
+- [x] Add reusable `LorePlaque` interactable.
+- [x] Place compact archive plaques in Level01 through Level05.
+- [x] Add short Brassworks lore text to each plaque.
+- [x] Add level validation for plaque triggers, prompts, and narrative text.
+- [x] Expand interaction smoke to read a plaque and verify HUD text.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.69`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

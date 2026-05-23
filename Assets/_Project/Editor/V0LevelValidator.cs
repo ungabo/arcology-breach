@@ -100,6 +100,7 @@ public static class V0LevelValidator
         ValidateHazards(sceneName);
         ValidateSecrets(sceneName);
         ValidateEnvironmentPropVisuals(sceneName);
+        ValidateLorePlaques(sceneName);
         ValidateMachineryMotion(sceneName);
 
         if (requirePressureGate)
@@ -556,6 +557,7 @@ public static class V0LevelValidator
         if (sceneName == "Level01")
         {
             RequireNamed("Work Order Board - Intake", sceneName + " intake work-order board visual");
+            RequireNamed("Lore Plaque - Intake Archive", sceneName + " intake lore plaque visual");
             RequireNamed("Work Order Board - Gate", sceneName + " gate work-order board visual");
             RequireNamed("Pipe Bundle - Gate Manifold", sceneName + " gate pipe-bundle visual");
             RequireNamed("Secret - Intake Pressure Cache", sceneName + " secret pressure cache");
@@ -564,11 +566,13 @@ public static class V0LevelValidator
         else if (sceneName == "Level02")
         {
             RequireNamed("Work Order Board - Pipeworks", sceneName + " pipeworks work-order board visual");
+            RequireNamed("Lore Plaque - Pipeworks Archive", sceneName + " pipeworks lore plaque visual");
             RequireNamed("Pipeworks Triple Pipe Bundle", sceneName + " pipeworks pipe-bundle visual");
         }
         else if (sceneName == "Level03")
         {
             RequireNamed("Work Order Board - Boilerheart", sceneName + " boilerheart work-order board visual");
+            RequireNamed("Lore Plaque - Boilerheart Archive", sceneName + " boilerheart lore plaque visual");
             RequireNamed("Boilerheart Triple Pipe Bundle", sceneName + " boilerheart pipe-bundle visual");
             RequireNamed("Boilerheart Furnace Core", sceneName + " boilerheart furnace core visual");
             RequireNamed("Boilerheart Pressure Valve Objective", sceneName + " boilerheart pressure valve objective");
@@ -580,6 +584,7 @@ public static class V0LevelValidator
         else if (sceneName == "Level04")
         {
             RequireNamed("Work Order Board - Foundry", sceneName + " foundry work-order board visual");
+            RequireNamed("Lore Plaque - Foundry Archive", sceneName + " foundry lore plaque visual");
             RequireNamed("Foundry Triple Pipe Bundle", sceneName + " foundry pipe-bundle visual");
             RequireNamed("Foundry Furnace Row", sceneName + " foundry furnace row visual");
             RequireNamed("Foundry Steam Hazard - Casting Leak", sceneName + " foundry steam hazard");
@@ -599,6 +604,7 @@ public static class V0LevelValidator
         else if (sceneName == "Level05")
         {
             RequireNamed("Work Order Board - Governor Core", sceneName + " governor core work-order board visual");
+            RequireNamed("Lore Plaque - Governor Archive", sceneName + " governor lore plaque visual");
             RequireNamed("Governor Core Triple Pipe Bundle", sceneName + " governor core pipe-bundle visual");
             RequireNamed("Governor Core Regulator Pillar", sceneName + " governor core regulator visual");
             RequireNamed("Governor Core Steam Hazard - Regulator Leak", sceneName + " governor core steam hazard");
@@ -622,6 +628,26 @@ public static class V0LevelValidator
             RequireNamed("Repair Bay Cover Boiler Left", sceneName + " repair bay cover visual");
             RequireNamed("Repair Bay Cover Crate Right", sceneName + " repair bay cover visual");
             RequireNamed("Final Room Cover Stack West", sceneName + " final room cover visual");
+        }
+    }
+
+    private static void ValidateLorePlaques(string sceneName)
+    {
+        LorePlaque[] plaques = UnityEngine.Object.FindObjectsByType<LorePlaque>(FindObjectsSortMode.None);
+        if (plaques.Length == 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " is missing a LorePlaque.");
+        }
+
+        foreach (LorePlaque plaque in plaques)
+        {
+            RequireTrigger(plaque.gameObject, sceneName + " lore plaque trigger " + plaque.name);
+            RequireInteractable(plaque, sceneName + " lore plaque interactable " + plaque.name);
+
+            if (string.IsNullOrWhiteSpace(plaque.plaqueId) || string.IsNullOrWhiteSpace(plaque.title) || string.IsNullOrWhiteSpace(plaque.body))
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " lore plaque " + plaque.name + " is missing narrative text.");
+            }
         }
     }
 

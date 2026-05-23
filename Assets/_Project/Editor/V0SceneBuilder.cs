@@ -937,6 +937,7 @@ public static class V0SceneBuilder
         CreateSteamHazard("Governor Core Steam Hazard - Regulator Leak", new Vector3(-4.8f, 0.75f, 20.8f), new Vector3(1.25f, 1.5f, 1.25f), ironMaterial, steamMaterial, warningMaterial, parent.transform);
         CreateFurnaceHeatHazard("Governor Core Furnace Heat Hazard - Regulator Surge", new Vector3(0f, 0.75f, 18.9f), new Vector3(4.4f, 1.5f, 1.25f), ironMaterial, glowMaterial, warningMaterial, parent.transform, 0.8f);
         CreateWorkOrderBoard("Work Order Board - Governor Core", "GOVERNOR CORE\nMASTER OVERRIDE\nDO NOT STALL", new Vector3(-6.95f, 1.55f, 15.4f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+        CreateLorePlaque("Lore Plaque - Governor Archive", "Governor Archive", "The Warden protects the stalled governor because no order ever told it the workers were worth more than the machine.", new Vector3(-6.95f, 1.55f, 17.8f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
     }
 
     private static void CreateFurnaceFoundryBlockout(Material wallMaterial, Material floorMaterial)
@@ -976,6 +977,7 @@ public static class V0SceneBuilder
         CreateFurnaceHeatHazard("Foundry Furnace Heat Hazard - Hoist Lane", new Vector3(0f, 0.75f, 23.6f), new Vector3(4.2f, 1.5f, 1.25f), ironMaterial, glowMaterial, warningMaterial, parent.transform, 1.65f);
         CreateFoundryFurnaceRow(ironMaterial, brassMaterial, glowMaterial, parent.transform);
         CreateWorkOrderBoard("Work Order Board - Foundry", "FOUNDRY ORDER\nHOIST ROUTE OPEN\nKEEP FIRES FED", new Vector3(-6.45f, 1.55f, 16.1f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+        CreateLorePlaque("Lore Plaque - Foundry Archive", "Foundry Archive", "The foundry made the Bulwarks as rescue frames. Their hammers remember only containment.", new Vector3(-6.45f, 1.55f, 18.5f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
 
         return new[] { castingLeak, crucibleBleed };
     }
@@ -1020,6 +1022,7 @@ public static class V0SceneBuilder
         SteamHazard furnaceLeak = CreateSteamHazard("Boilerheart Steam Hazard - Furnace Leak", new Vector3(-4.8f, 0.75f, 20.8f), new Vector3(1.25f, 1.5f, 1.25f), ironMaterial, steamMaterial, warningMaterial, parent.transform);
         SteamHazard coreBleed = CreateSteamHazard("Boilerheart Steam Hazard - Core Bleed", new Vector3(2.35f, 0.75f, 15.4f), new Vector3(1.15f, 1.5f, 1.15f), ironMaterial, steamMaterial, warningMaterial, parent.transform);
         CreateWorkOrderBoard("Work Order Board - Boilerheart", "BOILERHEART ORDER\nCORE PRESSURE HIGH\nFINAL LIFT LIVE", new Vector3(5.95f, 1.55f, 10.6f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+        CreateLorePlaque("Lore Plaque - Boilerheart Archive", "Boilerheart Archive", "The heart valve was built to save workers from overload. Vented by hand, it can still break a pressure lock.", new Vector3(5.95f, 1.55f, 13f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
 
         return new[] { furnaceLeak, coreBleed };
     }
@@ -1143,6 +1146,7 @@ public static class V0SceneBuilder
         CreateSteamVent("Pipeworks Steam Vent A", new Vector3(3.8f, 0.05f, 5.5f), brassMaterial, steamMaterial, parent.transform);
         CreatePipeBundle("Pipeworks Triple Pipe Bundle", new Vector3(0f, 2.35f, 23.72f), Quaternion.Euler(0f, 90f, 0f), 3.6f, brassMaterial, ironMaterial, parent.transform);
         CreateWorkOrderBoard("Work Order Board - Pipeworks", "PIPEWORKS NOTICE\nBOLT FEED LIVE\nKEEP DISTANCE", new Vector3(4.95f, 1.55f, 12f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+        CreateLorePlaque("Lore Plaque - Pipeworks Archive", "Pipeworks Archive", "The bolt feed carried messages before it carried weapons; now every valve-rifle repeats the shutdown command.", new Vector3(4.95f, 1.55f, 14.4f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
     }
 
     private static void Wall(string name, float x, float z, float length, bool horizontal, Material material, Transform parent)
@@ -1989,6 +1993,7 @@ public static class V0SceneBuilder
         CreatePipeBundle("Pipe Bundle - Gate Manifold", new Vector3(-2.65f, 2.55f, 22.05f), Quaternion.Euler(0f, 90f, 0f), 2.25f, brassMaterial, rivetedIronMaterial, parent.transform);
         CreatePipeBundle("Pipe Bundle - Final Boiler Feed", new Vector3(5.96f, 2.25f, 31.2f), Quaternion.identity, 3.2f, brassMaterial, rivetedIronMaterial, parent.transform);
         CreateWorkOrderBoard("Work Order Board - Intake", "ORDER 17\nSEAL MAIN\nWATCH PSI", new Vector3(-5.92f, 1.55f, 10.8f), Quaternion.Euler(0f, 90f, 0f), rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+        CreateLorePlaque("Lore Plaque - Intake Archive", "Intake Archive", "The Brassworks sealed itself when the master governor jammed and every service machine obeyed the wrong pressure order.", new Vector3(-5.92f, 1.55f, 13.2f), Quaternion.Euler(0f, 90f, 0f), rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateWorkOrderBoard("Work Order Board - Gate", "KEY CREW\nBLEED LOCK\nNO OPEN FLAME", new Vector3(1.45f, 1.75f, 22.15f), Quaternion.Euler(0f, 180f, 0f), rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
     }
 
@@ -2038,6 +2043,44 @@ public static class V0SceneBuilder
         textMesh.characterSize = 0.075f;
         textMesh.fontSize = 42;
         textMesh.color = new Color(0.14f, 0.055f, 0.025f);
+    }
+
+    private static LorePlaque CreateLorePlaque(string name, string title, string body, Vector3 position, Quaternion rotation, Material boardMaterial, Material plateMaterial, Material accentMaterial, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+        root.transform.rotation = rotation;
+
+        BoxCollider trigger = root.AddComponent<BoxCollider>();
+        trigger.size = new Vector3(1.2f, 0.72f, 0.18f);
+        trigger.isTrigger = true;
+
+        LorePlaque plaque = root.AddComponent<LorePlaque>();
+        plaque.plaqueId = name;
+        plaque.title = title;
+        plaque.body = body;
+        plaque.prompt = "E - read plaque";
+
+        CreateLocalCube(name + " Riveted Backplate", root.transform, Vector3.zero, new Vector3(1.2f, 0.72f, 0.08f), boardMaterial);
+        CreateLocalCube(name + " Enamel Story Plate", root.transform, new Vector3(0f, 0f, -0.055f), new Vector3(0.96f, 0.5f, 0.025f), plateMaterial);
+        CreateLocalCube(name + " Brass Archive Strip", root.transform, new Vector3(0f, 0.31f, -0.08f), new Vector3(1.04f, 0.07f, 0.04f), accentMaterial);
+        CreateLocalPrimitive(name + " Left Rivet", PrimitiveType.Sphere, root.transform, new Vector3(-0.52f, 0.29f, -0.1f), new Vector3(0.055f, 0.055f, 0.025f), accentMaterial);
+        CreateLocalPrimitive(name + " Right Rivet", PrimitiveType.Sphere, root.transform, new Vector3(0.52f, 0.29f, -0.1f), new Vector3(0.055f, 0.055f, 0.025f), accentMaterial);
+
+        GameObject textObject = new GameObject(name + " Text");
+        textObject.transform.SetParent(root.transform, false);
+        textObject.transform.localPosition = new Vector3(-0.38f, 0.14f, -0.095f);
+        textObject.transform.localRotation = Quaternion.identity;
+        TextMesh textMesh = textObject.AddComponent<TextMesh>();
+        textMesh.text = "ARCHIVE\n" + title.ToUpperInvariant();
+        textMesh.anchor = TextAnchor.UpperLeft;
+        textMesh.alignment = TextAlignment.Left;
+        textMesh.characterSize = 0.058f;
+        textMesh.fontSize = 36;
+        textMesh.color = new Color(0.14f, 0.055f, 0.025f);
+
+        return plaque;
     }
 
     private static void CreatePressureGauge(string name, Vector3 position, Quaternion rotation, Material brassMaterial, Material faceMaterial, Material needleMaterial, Transform parent)

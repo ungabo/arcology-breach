@@ -71,6 +71,7 @@ Every major asset should eventually have three quality targets:
 | PROP-014 | Secret cache props | P2 | prototype | Intake pressure cache and Foundry coal cache with reward pickups and validation. |
 | PROP-015 | Warden lock signal | P2 | prototype | Red/green guardian-lock signal props driven by `GuardianDefeatObjective` near the Governor Core master override hoist. |
 | PROP-016 | Animated machinery spinner set | P1 | prototype | Pressure-gate gears, service-lift pulleys, valve wheels, and menu gear now use `SteamworksSpinner`; final art should upgrade these into richer gear trains, belts, flywheels, and linked piston assemblies. |
+| PROP-017 | Archive lore plaques | P1 | prototype | Interactable brass/enamel plaques in each current gameplay level. They deliver short HUD-readable Brassworks lore and are verified by level validation plus interaction smoke. |
 
 ## 4. Weapons
 

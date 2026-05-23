@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.68`.
+Current state: `v0.0.69`.
 
 Implemented:
 
@@ -76,6 +76,7 @@ Implemented:
 - `PressureBoltVfx` glow/trail/spark projectile readability for Lancer and Governor Warden pressure bolts, with ranged-combat smoke coverage.
 - `ImpactDecalVfx` pressure-pistol impact decal and spark feedback, with combat-scenario smoke coverage.
 - `PlayerDamageVfx` first-person pressure/heat/brass hurt burst on player damage, with combat-edge smoke coverage.
+- `LorePlaque` archive plaques placed in every current gameplay level, with level validation and interaction smoke coverage.
 
 ## 3. Target Platform
 
@@ -112,7 +113,7 @@ A pressure-runner enters the sealed Brassworks after the master governor jams, t
 
 5. Story through environment
    - Minimal forced exposition.
-   - Use signage, work orders, speaking tubes, stamped warnings, machinery layout, and room composition.
+   - Use signage, short archive plaques, work orders, speaking tubes, stamped warnings, machinery layout, and room composition.
 
 ## 6. v0.2 Target
 
@@ -178,6 +179,7 @@ Current:
 - Gear-key pickup.
 - Pressure gate.
 - Service lift exit.
+- Short readable archive plaques in each current level.
 
 Future:
 

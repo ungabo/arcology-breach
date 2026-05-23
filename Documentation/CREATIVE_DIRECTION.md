@@ -96,6 +96,7 @@ Story should be present but light during play.
 Use:
 
 - Signage.
+- Short archive plaques.
 - Short intercom or speaking-tube lines.
 - Environmental clues.
 - Work orders.

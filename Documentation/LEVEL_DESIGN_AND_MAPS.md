@@ -62,6 +62,7 @@ Near-term:
 - Lancer pressure bolts now carry visible glow/trail/spark VFX, with shared VFX also attached to Warden pressure bolts.
 - Pressure-pistol hits now leave short-lived scorch/brass impact decal VFX, verified by combat-scenario smoke.
 - Player damage now triggers first-person pressure/heat/brass hurt VFX, verified by combat-edge smoke.
+- Each current gameplay level now includes an interactable archive plaque for short environmental lore, verified by level validation and interaction smoke.
 - Steam hazards now use animated low/high puffs and are verified by level validation and hazard smoke.
 - Furnace heat hazards now pulse their phase signals and show active heat ripples, verified by level validation and hazard smoke.
 - Hazard smoke covers Level03 steam damage and Level04 furnace-heat damage without ending the run from one tick/pulse. Level05 also includes validated steam and furnace-heat hazards.
@@ -394,6 +395,12 @@ v0.0.57 implementation notes:
 - Added `SteamworksSpinner` for simple looping local-axis machinery motion.
 - Attached spinner motion to pressure-gate gears, service-lift pulley gears, environment valve wheels, the Boilerheart pressure valve wheel, and the main-menu gear.
 - Level validation and runtime smoke now require configured spinner components so the machinery-motion pass stays present in generated scenes.
+
+v0.0.69 implementation notes:
+
+- Added `Lore Plaque - Intake Archive`, `Lore Plaque - Pipeworks Archive`, `Lore Plaque - Boilerheart Archive`, `Lore Plaque - Foundry Archive`, and `Lore Plaque - Governor Archive`.
+- Plaques are optional route flavor, not mandatory progression stops.
+- Interaction smoke verifies at least one plaque can be read and shows archive text on the HUD.
 
 ## Map Documentation Template
 
