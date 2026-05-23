@@ -82,6 +82,17 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Run packaged pause-flow smoke.
 - [x] Commit and push `v0.0.10`.
 
+## v0.0.11 Impact Spark Pass
+
+- [x] Replace yellow hit-marker sphere with spark-burst impact feedback.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.11`.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -104,7 +115,7 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [ ] Generate service-lift visual.
 - [x] Generate primitive `Scrapper` visual.
 - [ ] Generate `Pressure Pistol` visual.
-- [ ] Replace placeholder hit marker with spark/steam impact VFX.
+- [x] Replace placeholder hit marker with primitive spark impact VFX.
 - [ ] Add gauges, valve wheels, furnace props, pipe bundles, and work-order signs.
 - [ ] Verify scene readability after art pass.
 

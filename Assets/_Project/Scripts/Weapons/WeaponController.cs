@@ -75,23 +75,33 @@ public class WeaponController : MonoBehaviour
 
     private static void SpawnHitMarker(Vector3 point, Vector3 normal)
     {
-        GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        marker.name = "Hit Marker";
-        marker.transform.position = point + normal * 0.04f;
-        marker.transform.localScale = Vector3.one * 0.12f;
+        GameObject root = new GameObject("Impact Sparks");
+        root.transform.position = point + normal * 0.04f;
+        root.transform.rotation = Quaternion.LookRotation(normal);
 
-        Collider markerCollider = marker.GetComponent<Collider>();
-        if (markerCollider != null)
+        for (int i = 0; i < 6; i++)
         {
-            Destroy(markerCollider);
+            float side = i - 2.5f;
+            GameObject spark = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            spark.name = "Impact Spark " + i;
+            spark.transform.SetParent(root.transform, false);
+            spark.transform.localPosition = new Vector3(side * 0.025f, Mathf.Abs(side) * 0.015f, 0.03f + i * 0.012f);
+            spark.transform.localRotation = Quaternion.Euler(0f, 0f, side * 19f);
+            spark.transform.localScale = new Vector3(0.018f, 0.018f, 0.16f + i * 0.012f);
+
+            Collider sparkCollider = spark.GetComponent<Collider>();
+            if (sparkCollider != null)
+            {
+                Destroy(sparkCollider);
+            }
+
+            Renderer sparkRenderer = spark.GetComponent<Renderer>();
+            if (sparkRenderer != null)
+            {
+                sparkRenderer.material.color = i % 2 == 0 ? new Color(1f, 0.62f, 0.08f) : new Color(1f, 0.92f, 0.32f);
+            }
         }
 
-        Renderer renderer = marker.GetComponent<Renderer>();
-        if (renderer != null)
-        {
-            renderer.material.color = Color.yellow;
-        }
-
-        Destroy(marker, 0.2f);
+        Destroy(root, 0.25f);
     }
 }

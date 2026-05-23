@@ -120,3 +120,24 @@ Verification completed:
 Build executable:
 
 `Builds/Windows/v0.0.10/BrassworksBreach_v0.0.10.exe`
+
+## 2026-05-23 01:09 -04:00
+
+Completed `v0.0.11` impact spark pass.
+
+Added:
+
+- Replaced yellow hit-marker sphere with a short-lived hot spark cluster at raycast impact points.
+
+Verification completed:
+
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.11/BrassworksBreach_v0.0.11.exe`

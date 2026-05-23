@@ -19,7 +19,7 @@ Current constants:
 - `WorkingTitle = "Brassworks Breach"`
 - `ExecutableStem = "BrassworksBreach"`
 - `RepositoryName = "arcology-breach"`
-- `BuildVersion = "v0.0.10"`
+- `BuildVersion = "v0.0.11"`
 
 ## Known Title Locations
 

@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.10` proof of concept.
+Current state: playable `v0.0.11` proof of concept.
 
 Public repository:
 
@@ -57,7 +57,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.10\BrassworksBreach_v0.0.10.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.11\BrassworksBreach_v0.0.11.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -88,43 +88,43 @@ Smoke pass markers:
 Rebuild the generated scene:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v010-scene.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v011-scene.log'
 ```
 
 Run editor smoke test:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v010-smoke-test.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v011-smoke-test.log'
 ```
 
 Build Windows player:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v010-windows-build.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v011-windows-build.log'
 ```
 
 Run packaged runtime smoke:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.10\BrassworksBreach_v0.0.10.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v010-runtime-smoke.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.11\BrassworksBreach_v0.0.11.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v011-runtime-smoke.log'
 ```
 
 Run packaged auto-playthrough:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.10\BrassworksBreach_v0.0.10.exe' -batchmode -nographics -v0AutoPlaythrough -logFile 'D:\__MY APPS\Unity Doom\Logs\v010-auto-playthrough.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.11\BrassworksBreach_v0.0.11.exe' -batchmode -nographics -v0AutoPlaythrough -logFile 'D:\__MY APPS\Unity Doom\Logs\v011-auto-playthrough.log'
 ```
 
 Run packaged combat smoke:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.10\BrassworksBreach_v0.0.10.exe' -batchmode -nographics -v0CombatSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v010-combat-smoke.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.11\BrassworksBreach_v0.0.11.exe' -batchmode -nographics -v0CombatSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v011-combat-smoke.log'
 ```
 
 Run packaged pause flow:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.10\BrassworksBreach_v0.0.10.exe' -batchmode -nographics -v0PauseFlow -logFile 'D:\__MY APPS\Unity Doom\Logs\v010-pause-flow.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.11\BrassworksBreach_v0.0.11.exe' -batchmode -nographics -v0PauseFlow -logFile 'D:\__MY APPS\Unity Doom\Logs\v011-pause-flow.log'
 ```
 
 ## What v0.0.7 Adds
@@ -152,6 +152,10 @@ Run packaged pause flow:
 
 - Primitive clockwork Scrapper silhouette.
 - Boiler torso, brass chest plate, furnace eye, pressure tank, piston arms, cutter blades, and blocky feet.
+
+## What v0.0.11 Adds
+
+- Spark-burst impact feedback replacing the yellow hit-marker sphere.
 
 ## Good Next Steps
 

@@ -49,7 +49,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | ART-004 | Generate Pressure Pistol visual | art | P1 | backlog | v0.3 | Replace blocky gun. |
 | ART-005 | Generate service-lift visual | art | P1 | backlog | v0.3 | Replace green exit cube. |
 | ART-006 | Build first primitive brassworks prop silhouettes | art | P1 | verified | v0.0.8 | Gear key, gauges, valve wheels, steam vents, furnace. |
-| VFX-001 | Replace hit marker sphere with impact sparks/steam | vfx | P1 | backlog | v0.3 | Wall and machine impact readability. |
+| VFX-001 | Replace hit marker sphere with impact sparks/steam | vfx | P1 | verified | v0.0.11 | Primitive spark-burst impact feedback. |
 | UI-001 | Replace text HUD with brass gauge HUD | ui | P2 | verified | v0.0.9 | Primitive brass panels, health/ammo fills, gear-key lamp. |
 | LVL-001 | Rework Level01 into Brassworks Intake combat slice | level | P1 | backlog | v0.2 | Keep small, add better arena loops. |
 | LVL-003 | Create LevelTransitionController | code | P2 | backlog | v0.4 | Load next scene from diegetic lift/tram, preserve durable player state later. |
@@ -92,3 +92,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.8` brassworks prop silhouette build created at `Builds/Windows/v0.0.8/BrassworksBreach_v0.0.8.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
 - `2026-05-23`: `v0.0.9` brass gauge HUD build created at `Builds/Windows/v0.0.9/BrassworksBreach_v0.0.9.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
 - `2026-05-23`: `v0.0.10` primitive Scrapper visual build created at `Builds/Windows/v0.0.10/BrassworksBreach_v0.0.10.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
+- `2026-05-23`: `v0.0.11` impact spark build created at `Builds/Windows/v0.0.11/BrassworksBreach_v0.0.11.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
