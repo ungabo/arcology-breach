@@ -55,17 +55,17 @@ Every major asset should eventually have three quality targets:
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
-| PROP-001 | Gear key placeholder | P0 | prototype | Existing yellow pickup cube. |
-| PROP-002 | Pressure gate placeholder | P0 | prototype | Existing sliding gate. |
-| PROP-003 | Service lift placeholder | P0 | prototype | Existing green exit object. |
+| PROP-001 | Gear key placeholder | P0 | prototype | Existing primitive gear-key pickup with teeth, hub, shaft, and bit. |
+| PROP-002 | Pressure gate placeholder | P0 | prototype | Existing sliding gate with primitive rails, gear wheel, and gauge. |
+| PROP-003 | Service lift placeholder | P0 | prototype | Existing green exit object with primitive cage rails and gauge. |
 | PROP-004 | Health vial | P1 | planned | Glass-and-brass healing pickup. |
 | PROP-005 | Pressure cartridge pack | P1 | planned | Ammo pickup for pressure weapons. |
 | PROP-006 | Gear key final | P1 | planned | Brass gear/clockwork key pickup. |
 | PROP-007 | Pressure gate final | P1 | planned | Heavy gear-driven gate with gauges and red pressure lamps. |
 | PROP-008 | Service lift final | P1 | planned | Green-lit lift cage or brass service elevator. |
-| PROP-009 | Wall pressure gauge | P1 | planned | Readable environment prop and possible UI motif. |
-| PROP-010 | Valve wheel | P1 | planned | Future interactable/switch prop. |
-| PROP-011 | Coal furnace | P2 | planned | Environmental landmark and light source. |
+| PROP-009 | Wall pressure gauge | P1 | prototype | Primitive wall gauge prop for environment readability. |
+| PROP-010 | Valve wheel | P1 | prototype | Primitive valve wheel prop; future interactable/switch candidate. |
+| PROP-011 | Coal furnace | P2 | prototype | Primitive environmental landmark and light source. |
 | PROP-012 | Copper pipe bundle | P1 | planned | Modular dressing prop. |
 | PROP-013 | Work order board | P2 | planned | Environmental storytelling prop. |
 

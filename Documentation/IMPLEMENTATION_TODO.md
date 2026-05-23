@@ -24,7 +24,7 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Generate and import steampunk north-star concept art.
 - [x] Retheme working title/product metadata to `Brassworks Breach`.
 
-## Current Priority: v0.0.7 Steampunk Retheme and Pause Flow
+## v0.0.7 Steampunk Retheme and Pause Flow
 
 - [x] Remove old build/version wording from active progress/to-do docs.
 - [x] Add pause menu with resume, restart, and quit.
@@ -40,6 +40,20 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Run packaged pause-flow smoke.
 - [x] Commit and push `v0.0.7`.
 
+## Current Priority: v0.0.8 Brassworks Prop Pass
+
+- [x] Add gear-shaped key pickup.
+- [x] Add pressure-gauge details to weapon, gate, and service lift.
+- [x] Add valve wheels, steam vents, and coal furnace prop.
+- [x] Rebuild generated scene.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.8`.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -53,6 +67,7 @@ This checklist tracks implementation work. Detailed production tracking lives in
 
 ## v0.3 Art Direction Slice
 
+- [x] Add first primitive brassworks prop silhouettes.
 - [ ] Generate oil-dark stone material.
 - [ ] Generate riveted iron wall material.
 - [ ] Generate brass/copper pipe material.

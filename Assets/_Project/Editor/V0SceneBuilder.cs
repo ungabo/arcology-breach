@@ -36,6 +36,9 @@ public static class V0SceneBuilder
         Material rivetedIronMaterial = CreateMaterial("M_Steam_RivetedIron", new Color(0.075f, 0.07f, 0.065f));
         Material oilStoneMaterial = CreateMaterial("M_Steam_OilDarkStone", new Color(0.065f, 0.055f, 0.045f));
         Material brassHazardMaterial = CreateMaterial("M_Steam_BrassHazard", new Color(0.95f, 0.54f, 0.08f));
+        Material gaugeFaceMaterial = CreateMaterial("M_Steam_CreamGaugeFace", new Color(0.86f, 0.78f, 0.58f));
+        Material steamPuffMaterial = CreateMaterial("M_Steam_SteamPuff", new Color(0.72f, 0.72f, 0.68f));
+        Material furnaceGlowMaterial = CreateMaterial("M_Steam_FurnaceGlow", new Color(1f, 0.36f, 0.08f));
 
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -45,19 +48,19 @@ public static class V0SceneBuilder
         CreateGreyboxLevel(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
         CreateGameState(hud);
-        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial);
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial);
         CreateEnemy("Enemy - First Room", new Vector3(0f, 1f, 16.5f), enemyMaterial, enemyEyeMaterial);
         CreateEnemy("Enemy - Key Room", new Vector3(14.5f, 1f, 17f), enemyMaterial, enemyEyeMaterial);
         CreateEnemy("Enemy - Final Left", new Vector3(-3.2f, 1f, 30.5f), enemyMaterial, enemyEyeMaterial);
         CreateEnemy("Enemy - Final Right", new Vector3(3.2f, 1f, 32.5f), enemyMaterial, enemyEyeMaterial);
         CreatePickup("Pickup - Health", PickupKind.Health, new Vector3(-3.6f, 0.45f, 20f), Vector3.one * 0.7f, healthMaterial, 25);
         CreatePickup("Pickup - Ammo", PickupKind.Ammo, new Vector3(4.2f, 0.45f, 19f), Vector3.one * 0.7f, ammoMaterial, 15);
-        CreatePickup("Pickup - Gear Key", PickupKind.Key, new Vector3(16f, 0.55f, 17f), Vector3.one * 0.9f, keyMaterial, 0);
-        CreateLockedDoor(doorMaterial);
-        CreateExit(exitMaterial);
+        CreateGearKeyPickup("Pickup - Gear Key", new Vector3(16f, 0.55f, 17f), Vector3.one * 1.1f, keyMaterial, rivetedIronMaterial);
+        CreateLockedDoor(doorMaterial, brassGuideMaterial, gaugeFaceMaterial, pressureWarningMaterial);
+        CreateExit(exitMaterial, rivetedIronMaterial, brassGuideMaterial, gaugeFaceMaterial);
         CreateAccentLights();
         CreateObjectiveGuides(brassGuideMaterial, pressureWarningMaterial, keyMaterial, exitMaterial);
-        CreateSteamworksDressing(rivetedIronMaterial, oilStoneMaterial, brassGuideMaterial, pressureWarningMaterial, brassHazardMaterial);
+        CreateSteamworksDressing(rivetedIronMaterial, oilStoneMaterial, brassGuideMaterial, pressureWarningMaterial, brassHazardMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
         EditorBuildSettings.scenes = new[]
@@ -435,7 +438,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimePauseFlowTest>();
     }
 
-    private static void CreatePlayer(Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial)
+    private static void CreatePlayer(Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial)
     {
         GameObject player = new GameObject("Player");
         player.transform.position = new Vector3(0f, 0f, 0f);
@@ -470,11 +473,11 @@ public static class V0SceneBuilder
         weapon.damage = 25;
         weapon.fireCooldown = 0.23f;
 
-        WeaponView weaponView = CreateWeaponView(cameraObject.transform, gunMaterial, gunTrimMaterial, muzzleFlashMaterial);
+        WeaponView weaponView = CreateWeaponView(cameraObject.transform, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial);
         weapon.weaponView = weaponView;
     }
 
-    private static WeaponView CreateWeaponView(Transform cameraTransform, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial)
+    private static WeaponView CreateWeaponView(Transform cameraTransform, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial)
     {
         GameObject weaponRoot = new GameObject("Pressure Pistol Placeholder");
         weaponRoot.transform.SetParent(cameraTransform, false);
@@ -484,6 +487,9 @@ public static class V0SceneBuilder
         CreateLocalCube("Pressure Pistol Body", weaponRoot.transform, new Vector3(0f, 0f, 0f), new Vector3(0.42f, 0.22f, 0.42f), gunMaterial);
         CreateLocalCube("Pressure Pistol Brass Barrel", weaponRoot.transform, new Vector3(0f, 0.04f, 0.36f), new Vector3(0.2f, 0.16f, 0.5f), gunTrimMaterial);
         CreateLocalCube("Pressure Pistol Walnut Grip", weaponRoot.transform, new Vector3(0f, -0.24f, -0.12f), new Vector3(0.2f, 0.36f, 0.18f), gunMaterial);
+        GameObject gauge = CreateLocalPrimitive("Pressure Pistol Gauge", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(0f, 0.17f, 0.08f), new Vector3(0.18f, 0.035f, 0.18f), gaugeFaceMaterial);
+        gauge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube("Pressure Pistol Gauge Needle", weaponRoot.transform, new Vector3(0.03f, 0.17f, 0.055f), new Vector3(0.12f, 0.012f, 0.012f), gunTrimMaterial);
         GameObject flash = CreateLocalCube("Muzzle Flash", weaponRoot.transform, new Vector3(0f, 0.04f, 0.68f), new Vector3(0.45f, 0.45f, 0.08f), muzzleFlashMaterial);
         flash.SetActive(false);
 
@@ -543,7 +549,7 @@ public static class V0SceneBuilder
         textMesh.color = color;
     }
 
-    private static void CreateSteamworksDressing(Material rivetedIronMaterial, Material oilStoneMaterial, Material brassMaterial, Material warningMaterial, Material amberMaterial)
+    private static void CreateSteamworksDressing(Material rivetedIronMaterial, Material oilStoneMaterial, Material brassMaterial, Material warningMaterial, Material amberMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial)
     {
         GameObject parent = new GameObject("Steamworks Dressing - Brassworks Intake");
 
@@ -564,6 +570,65 @@ public static class V0SceneBuilder
         CreateDecoCube("Amber Hazard Stripe - Gate Left", new Vector3(-1.85f, 0.05f, 22.05f), new Vector3(0.18f, 0.06f, 1.2f), amberMaterial, parent.transform);
         CreateDecoCube("Amber Hazard Stripe - Gate Right", new Vector3(1.85f, 0.05f, 22.05f), new Vector3(0.18f, 0.06f, 1.2f), amberMaterial, parent.transform);
         CreateDecoCube("Riveted Iron Gate Header", new Vector3(0f, 3.25f, 22.12f), new Vector3(3.8f, 0.28f, 0.18f), rivetedIronMaterial, parent.transform);
+
+        CreatePressureGauge("Pressure Gauge - Intake", new Vector3(-5.92f, 1.65f, 8.2f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+        CreatePressureGauge("Pressure Gauge - Gate", new Vector3(-1.25f, 2.35f, 22.16f), Quaternion.Euler(0f, 180f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+        CreateValveWheel("Valve Wheel - Main West", new Vector3(-5.95f, 1.2f, 13.2f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, warningMaterial, parent.transform);
+        CreateValveWheel("Valve Wheel - Key Room", new Vector3(13.1f, 1.25f, 20.05f), Quaternion.Euler(0f, 0f, 0f), brassMaterial, warningMaterial, parent.transform);
+        CreateSteamVent("Steam Vent - Intake", new Vector3(2.7f, 0.25f, 7.6f), rivetedIronMaterial, steamPuffMaterial, parent.transform);
+        CreateSteamVent("Steam Vent - Final", new Vector3(-4.2f, 0.25f, 31.4f), rivetedIronMaterial, steamPuffMaterial, parent.transform);
+        CreateFurnace("Coal Furnace - Final Room", new Vector3(4.95f, 0.95f, 29.7f), rivetedIronMaterial, brassMaterial, furnaceGlowMaterial, parent.transform);
+    }
+
+    private static void CreatePressureGauge(string name, Vector3 position, Quaternion rotation, Material brassMaterial, Material faceMaterial, Material needleMaterial, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+        root.transform.rotation = rotation;
+
+        GameObject bezel = CreateLocalPrimitive(name + " Brass Bezel", PrimitiveType.Cylinder, root.transform, Vector3.zero, new Vector3(0.42f, 0.045f, 0.42f), brassMaterial);
+        bezel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject face = CreateLocalPrimitive(name + " Face", PrimitiveType.Cylinder, root.transform, new Vector3(0f, 0f, -0.035f), new Vector3(0.34f, 0.025f, 0.34f), faceMaterial);
+        face.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube(name + " Needle", root.transform, new Vector3(0.08f, 0f, -0.07f), new Vector3(0.23f, 0.018f, 0.018f), needleMaterial);
+    }
+
+    private static void CreateValveWheel(string name, Vector3 position, Quaternion rotation, Material brassMaterial, Material warningMaterial, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+        root.transform.rotation = rotation;
+
+        GameObject wheel = CreateLocalPrimitive(name + " Wheel", PrimitiveType.Cylinder, root.transform, Vector3.zero, new Vector3(0.5f, 0.04f, 0.5f), brassMaterial);
+        wheel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube(name + " Spoke Horizontal", root.transform, Vector3.zero, new Vector3(0.88f, 0.045f, 0.04f), warningMaterial);
+        CreateLocalCube(name + " Spoke Vertical", root.transform, Vector3.zero, new Vector3(0.04f, 0.045f, 0.88f), warningMaterial);
+        CreateLocalPrimitive(name + " Hub", PrimitiveType.Sphere, root.transform, new Vector3(0f, 0f, -0.05f), new Vector3(0.14f, 0.14f, 0.14f), brassMaterial);
+    }
+
+    private static void CreateSteamVent(string name, Vector3 position, Material ironMaterial, Material steamMaterial, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+
+        CreateDecoCube(name + " Grate", position, new Vector3(0.82f, 0.12f, 0.82f), ironMaterial, root.transform);
+        CreateLocalPrimitive(name + " Puff Low", PrimitiveType.Sphere, root.transform, new Vector3(-0.1f, 0.5f, 0.02f), new Vector3(0.42f, 0.28f, 0.42f), steamMaterial);
+        CreateLocalPrimitive(name + " Puff High", PrimitiveType.Sphere, root.transform, new Vector3(0.12f, 0.9f, -0.05f), new Vector3(0.34f, 0.46f, 0.34f), steamMaterial);
+    }
+
+    private static void CreateFurnace(string name, Vector3 position, Material ironMaterial, Material brassMaterial, Material glowMaterial, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+
+        CreateLocalCube(name + " Body", root.transform, Vector3.zero, new Vector3(1.15f, 1.55f, 0.65f), ironMaterial);
+        CreateLocalCube(name + " Brass Header", root.transform, new Vector3(0f, 0.62f, -0.36f), new Vector3(1.25f, 0.16f, 0.08f), brassMaterial);
+        CreateLocalCube(name + " Furnace Mouth", root.transform, new Vector3(0f, -0.1f, -0.38f), new Vector3(0.82f, 0.52f, 0.08f), glowMaterial);
+        CreateLocalCube(name + " Chimney", root.transform, new Vector3(0f, 1.05f, 0f), new Vector3(0.38f, 0.72f, 0.38f), ironMaterial);
     }
 
     private static void CreateCableRun(string name, Vector3 position, Vector3 scale, Material material, Transform parent)
@@ -638,14 +703,53 @@ public static class V0SceneBuilder
         pickupComponent.amount = amount;
     }
 
-    private static void CreateLockedDoor(Material material)
+    private static void CreateGearKeyPickup(string name, Vector3 position, Vector3 scale, Material brassMaterial, Material ironMaterial)
+    {
+        GameObject pickup = new GameObject(name);
+        pickup.transform.position = position;
+
+        BoxCollider trigger = pickup.AddComponent<BoxCollider>();
+        trigger.size = scale;
+        trigger.isTrigger = true;
+
+        Pickup pickupComponent = pickup.AddComponent<Pickup>();
+        pickupComponent.kind = PickupKind.Key;
+        pickupComponent.amount = 0;
+
+        CreateLocalPrimitive(name + " Gear Disc", PrimitiveType.Cylinder, pickup.transform, Vector3.zero, new Vector3(0.42f, 0.08f, 0.42f), brassMaterial);
+        CreateLocalPrimitive(name + " Iron Hub", PrimitiveType.Cylinder, pickup.transform, new Vector3(0f, 0.07f, 0f), new Vector3(0.16f, 0.16f, 0.16f), ironMaterial);
+        CreateLocalCube(name + " Key Shaft", pickup.transform, new Vector3(0f, -0.02f, 0.52f), new Vector3(0.16f, 0.12f, 0.74f), brassMaterial);
+        CreateLocalCube(name + " Key Bit", pickup.transform, new Vector3(0.18f, -0.02f, 0.86f), new Vector3(0.34f, 0.12f, 0.16f), brassMaterial);
+
+        for (int i = 0; i < 8; i++)
+        {
+            float angle = i * 45f;
+            float radians = angle * Mathf.Deg2Rad;
+            Vector3 toothPosition = new Vector3(Mathf.Sin(radians) * 0.43f, 0f, Mathf.Cos(radians) * 0.43f);
+            GameObject tooth = CreateLocalCube(name + " Tooth " + i, pickup.transform, toothPosition, new Vector3(0.16f, 0.1f, 0.16f), brassMaterial);
+            tooth.transform.localRotation = Quaternion.Euler(0f, angle, 0f);
+        }
+    }
+
+    private static void CreateLockedDoor(Material material, Material brassMaterial, Material gaugeFaceMaterial, Material warningMaterial)
     {
         GameObject door = CreateCube("Pressure Gate", new Vector3(0f, 1.5f, 22.5f), new Vector3(3f, 3f, 0.5f), material);
         LockedDoor lockedDoor = door.AddComponent<LockedDoor>();
         lockedDoor.openDistance = 2.3f;
+
+        CreateLocalCube("Pressure Gate Upper Brass Rail", door.transform, new Vector3(0f, 0.92f, -0.28f), new Vector3(1.05f, 0.06f, 0.08f), brassMaterial);
+        CreateLocalCube("Pressure Gate Lower Brass Rail", door.transform, new Vector3(0f, -0.92f, -0.28f), new Vector3(1.05f, 0.06f, 0.08f), brassMaterial);
+        CreateLocalCube("Pressure Gate Left Brace", door.transform, new Vector3(-0.36f, 0f, -0.28f), new Vector3(0.07f, 1.62f, 0.08f), brassMaterial);
+        CreateLocalCube("Pressure Gate Right Brace", door.transform, new Vector3(0.36f, 0f, -0.28f), new Vector3(0.07f, 1.62f, 0.08f), brassMaterial);
+
+        GameObject gear = CreateLocalPrimitive("Pressure Gate Gear Wheel", PrimitiveType.Cylinder, door.transform, new Vector3(0f, 0.04f, -0.31f), new Vector3(0.36f, 0.045f, 0.36f), brassMaterial);
+        gear.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject gauge = CreateLocalPrimitive("Pressure Gate Gauge Face", PrimitiveType.Cylinder, door.transform, new Vector3(-0.32f, 0.58f, -0.32f), new Vector3(0.18f, 0.025f, 0.18f), gaugeFaceMaterial);
+        gauge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube("Pressure Gate Gauge Needle", door.transform, new Vector3(-0.28f, 0.58f, -0.35f), new Vector3(0.12f, 0.014f, 0.014f), warningMaterial);
     }
 
-    private static void CreateExit(Material material)
+    private static void CreateExit(Material material, Material ironMaterial, Material brassMaterial, Material gaugeFaceMaterial)
     {
         GameObject exit = CreateCube("Service Lift Trigger", new Vector3(0f, 1.1f, 34.6f), new Vector3(2.4f, 2.2f, 0.35f), material);
         Collider exitCollider = exit.GetComponent<Collider>();
@@ -653,6 +757,13 @@ public static class V0SceneBuilder
         {
             exitCollider.isTrigger = true;
         }
+
+        CreateLocalCube("Service Lift Cage Top", exit.transform, new Vector3(0f, 0.55f, -0.24f), new Vector3(1.1f, 0.08f, 0.08f), ironMaterial);
+        CreateLocalCube("Service Lift Cage Bottom", exit.transform, new Vector3(0f, -0.55f, -0.24f), new Vector3(1.1f, 0.08f, 0.08f), ironMaterial);
+        CreateLocalCube("Service Lift Left Rail", exit.transform, new Vector3(-0.42f, 0f, -0.24f), new Vector3(0.05f, 1.1f, 0.08f), brassMaterial);
+        CreateLocalCube("Service Lift Right Rail", exit.transform, new Vector3(0.42f, 0f, -0.24f), new Vector3(0.05f, 1.1f, 0.08f), brassMaterial);
+        GameObject liftGauge = CreateLocalPrimitive("Service Lift Pressure Gauge", PrimitiveType.Cylinder, exit.transform, new Vector3(0f, 0.25f, -0.27f), new Vector3(0.18f, 0.025f, 0.18f), gaugeFaceMaterial);
+        liftGauge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
 
         exit.AddComponent<ExitTrigger>();
     }

@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.7` versioned build for `Brassworks Breach`.
+`v0.0.8` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build rethemes the project to the steampunk north star and adds pause/quit flow.
+`v0.0` core loop is complete. The current build adds a first readable steampunk prop pass on top of the retheme and pause/quit flow.
 
 ## Completed
 
@@ -23,6 +23,7 @@
 - Scrapper obstacle probing and simple side-steering.
 - In-world labels and floor guide strips for gear key, pressure gate, and service lift.
 - Procedural steampunk dressing: oil-dark stone patches, pipe runs, boiler stacks, and gate hazard details.
+- First readable steampunk prop pass: gear-key visual, pressure gauges, valve wheels, steam vents, and furnace prop.
 - Packaged automated playthrough test for the key/gate/lift objective chain.
 - Packaged combat smoke test for pressure-pistol damage against a Scrapper.
 - Pause menu with resume, restart, and quit.
@@ -30,9 +31,9 @@
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.7`.
+Latest fully verified build: `v0.0.8`.
 
-Current `v0.0.7` verification:
+Current `v0.0.8` verification:
 
 - Editor smoke test: passed.
 - Windows build: passed.
@@ -54,7 +55,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.7\BrassworksBreach_v0.0.7.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.8\BrassworksBreach_v0.0.8.exe`
 
 ## Latest Build Verification
 
@@ -65,8 +66,15 @@ Current target:
 - `2026-05-23 00:50 -04:00`: `v0.0.7` packaged auto-playthrough passed.
 - `2026-05-23 00:50 -04:00`: `v0.0.7` packaged combat smoke passed.
 - `2026-05-23 00:50 -04:00`: `v0.0.7` packaged pause-flow smoke passed.
+- `2026-05-23 00:55 -04:00`: `v0.0.8` scene rebuild passed.
+- `2026-05-23 00:55 -04:00`: `v0.0.8` editor smoke passed.
+- `2026-05-23 00:55 -04:00`: `v0.0.8` Windows build passed.
+- `2026-05-23 00:56 -04:00`: `v0.0.8` packaged runtime smoke passed.
+- `2026-05-23 00:56 -04:00`: `v0.0.8` packaged auto-playthrough passed.
+- `2026-05-23 00:56 -04:00`: `v0.0.8` packaged combat smoke passed.
+- `2026-05-23 00:56 -04:00`: `v0.0.8` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.8`, `v0.0.9`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.9`, `v0.0.10`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

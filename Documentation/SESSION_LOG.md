@@ -43,3 +43,29 @@ Build executable:
 - `v0.0.5`: packaged combat smoke.
 - `v0.0.6`: first procedural dressing pass.
 - `v0.0.7`: steampunk retheme, concept-art north star, pause/quit menu, and pause-flow automation.
+
+## 2026-05-23 00:56 -04:00
+
+Completed `v0.0.8` brassworks prop silhouette pass.
+
+Added:
+
+- Gear-shaped key pickup.
+- Pressure gauges on the weapon, gate, and lift.
+- Valve wheels.
+- Steam vents.
+- Coal furnace prop.
+- New simple materials for gauge faces, steam puffs, and furnace glow.
+
+Verification completed:
+
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.8/BrassworksBreach_v0.0.8.exe`
