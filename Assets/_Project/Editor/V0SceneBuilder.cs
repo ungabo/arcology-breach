@@ -49,10 +49,10 @@ public static class V0SceneBuilder
         HUDController hud = CreateHud();
         CreateGameState(hud);
         CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial);
-        CreateEnemy("Enemy - First Room", new Vector3(0f, 1f, 16.5f), enemyMaterial, enemyEyeMaterial);
-        CreateEnemy("Enemy - Key Room", new Vector3(14.5f, 1f, 17f), enemyMaterial, enemyEyeMaterial);
-        CreateEnemy("Enemy - Final Left", new Vector3(-3.2f, 1f, 30.5f), enemyMaterial, enemyEyeMaterial);
-        CreateEnemy("Enemy - Final Right", new Vector3(3.2f, 1f, 32.5f), enemyMaterial, enemyEyeMaterial);
+        CreateEnemy("Enemy - First Room", new Vector3(0f, 1f, 16.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
+        CreateEnemy("Enemy - Key Room", new Vector3(14.5f, 1f, 17f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
+        CreateEnemy("Enemy - Final Left", new Vector3(-3.2f, 1f, 30.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
+        CreateEnemy("Enemy - Final Right", new Vector3(3.2f, 1f, 32.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
         CreatePickup("Pickup - Health", PickupKind.Health, new Vector3(-3.6f, 0.45f, 20f), Vector3.one * 0.7f, healthMaterial, 25);
         CreatePickup("Pickup - Ammo", PickupKind.Ammo, new Vector3(4.2f, 0.45f, 19f), Vector3.one * 0.7f, ammoMaterial, 15);
         CreateGearKeyPickup("Pickup - Gear Key", new Vector3(16f, 0.55f, 17f), Vector3.one * 1.1f, keyMaterial, rivetedIronMaterial);
@@ -531,15 +531,13 @@ public static class V0SceneBuilder
         return weaponView;
     }
 
-    private static void CreateEnemy(string name, Vector3 position, Material material, Material eyeMaterial)
+    private static void CreateEnemy(string name, Vector3 position, Material material, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material bladeMaterial)
     {
         GameObject enemy = new GameObject(name);
         enemy.name = name;
         enemy.transform.position = position;
 
-        CreateLocalPrimitive("Body", PrimitiveType.Capsule, enemy.transform, Vector3.zero, Vector3.one, material);
-        CreateLocalCube("Left Eye", enemy.transform, new Vector3(-0.16f, 0.35f, 0.43f), new Vector3(0.12f, 0.1f, 0.04f), eyeMaterial);
-        CreateLocalCube("Right Eye", enemy.transform, new Vector3(0.16f, 0.35f, 0.43f), new Vector3(0.12f, 0.1f, 0.04f), eyeMaterial);
+        CreateScrapperVisual(enemy.transform, material, eyeMaterial, brassMaterial, ironMaterial, bladeMaterial);
 
         CharacterController controller = enemy.AddComponent<CharacterController>();
         controller.height = 2f;
@@ -553,6 +551,31 @@ public static class V0SceneBuilder
         enemyController.attackDamage = 9;
         enemyController.attackWindup = 0.42f;
         enemyController.obstacleProbeDistance = 1.15f;
+    }
+
+    private static void CreateScrapperVisual(Transform parent, Material bodyMaterial, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material bladeMaterial)
+    {
+        CreateLocalCube("Scrapper Boiler Torso", parent, new Vector3(0f, 0.05f, 0f), new Vector3(0.72f, 0.78f, 0.52f), bodyMaterial);
+        CreateLocalCube("Scrapper Brass Chest Plate", parent, new Vector3(0f, 0.1f, 0.31f), new Vector3(0.5f, 0.48f, 0.08f), brassMaterial);
+        CreateLocalCube("Scrapper Furnace Eye", parent, new Vector3(0f, 0.42f, 0.37f), new Vector3(0.34f, 0.14f, 0.06f), eyeMaterial);
+        CreateLocalCube("Scrapper Jaw Guard", parent, new Vector3(0f, -0.22f, 0.36f), new Vector3(0.48f, 0.08f, 0.08f), ironMaterial);
+
+        GameObject backTank = CreateLocalPrimitive("Scrapper Pressure Tank", PrimitiveType.Cylinder, parent, new Vector3(0f, 0.1f, -0.34f), new Vector3(0.28f, 0.62f, 0.28f), ironMaterial);
+        backTank.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+
+        CreateLocalCube("Scrapper Left Shoulder", parent, new Vector3(-0.48f, 0.22f, 0.05f), new Vector3(0.2f, 0.18f, 0.2f), brassMaterial);
+        CreateLocalCube("Scrapper Right Shoulder", parent, new Vector3(0.48f, 0.22f, 0.05f), new Vector3(0.2f, 0.18f, 0.2f), brassMaterial);
+        CreateLocalCube("Scrapper Left Piston Arm", parent, new Vector3(-0.68f, -0.08f, 0.18f), new Vector3(0.14f, 0.62f, 0.14f), ironMaterial);
+        CreateLocalCube("Scrapper Right Piston Arm", parent, new Vector3(0.68f, -0.08f, 0.18f), new Vector3(0.14f, 0.62f, 0.14f), ironMaterial);
+        GameObject leftBlade = CreateLocalCube("Scrapper Left Cutter", parent, new Vector3(-0.76f, -0.45f, 0.42f), new Vector3(0.16f, 0.36f, 0.08f), bladeMaterial);
+        leftBlade.transform.localRotation = Quaternion.Euler(0f, 0f, -18f);
+        GameObject rightBlade = CreateLocalCube("Scrapper Right Cutter", parent, new Vector3(0.76f, -0.45f, 0.42f), new Vector3(0.16f, 0.36f, 0.08f), bladeMaterial);
+        rightBlade.transform.localRotation = Quaternion.Euler(0f, 0f, 18f);
+
+        CreateLocalCube("Scrapper Left Leg", parent, new Vector3(-0.24f, -0.56f, 0f), new Vector3(0.18f, 0.48f, 0.18f), ironMaterial);
+        CreateLocalCube("Scrapper Right Leg", parent, new Vector3(0.24f, -0.56f, 0f), new Vector3(0.18f, 0.48f, 0.18f), ironMaterial);
+        CreateLocalCube("Scrapper Left Foot", parent, new Vector3(-0.24f, -0.84f, 0.16f), new Vector3(0.34f, 0.12f, 0.38f), brassMaterial);
+        CreateLocalCube("Scrapper Right Foot", parent, new Vector3(0.24f, -0.84f, 0.16f), new Vector3(0.34f, 0.12f, 0.38f), brassMaterial);
     }
 
     private static void CreateObjectiveGuides(Material brassMaterial, Material warningMaterial, Material keyMaterial, Material exitMaterial)

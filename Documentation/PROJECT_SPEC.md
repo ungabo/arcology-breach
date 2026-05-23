@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.9`.
+Current state: `v0.0.10`.
 
 Implemented:
 
@@ -29,6 +29,7 @@ Implemented:
 - Procedural steampunk dressing pass with oil-dark stone patches, copper pipes, boiler stacks, and gate hazard details.
 - First readable steampunk prop silhouette pass with gear key, pressure gauges, valve wheels, steam vents, and furnace prop.
 - First brass instrument-panel HUD pass with health/ammo gauges and gear-key status lamp.
+- First clockwork Scrapper silhouette pass with brass/iron body parts and cutter arms.
 - Packaged auto-playthrough for the gear-key, pressure-gate, and service-lift objective chain.
 - Packaged combat smoke for pressure-pistol damage and Scrapper death.
 - Packaged pause-flow smoke for pause/resume/restart/quit.

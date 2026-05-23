@@ -93,3 +93,30 @@ Verification completed:
 Build executable:
 
 `Builds/Windows/v0.0.9/BrassworksBreach_v0.0.9.exe`
+
+## 2026-05-23 01:06 -04:00
+
+Completed `v0.0.10` primitive Scrapper visual pass.
+
+Added:
+
+- Boiler torso.
+- Brass chest plate.
+- Furnace eye.
+- Pressure tank.
+- Piston arms.
+- Cutter blades.
+- Blocky feet.
+
+Verification completed:
+
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.10/BrassworksBreach_v0.0.10.exe`

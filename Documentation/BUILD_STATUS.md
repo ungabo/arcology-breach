@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.9` versioned build for `Brassworks Breach`.
+`v0.0.10` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds a first brass gauge HUD pass on top of the retheme, pause/quit flow, and prop silhouettes.
+`v0.0` core loop is complete. The current build adds a primitive clockwork Scrapper silhouette on top of the retheme, pause/quit flow, prop silhouettes, and brass HUD.
 
 ## Completed
 
@@ -25,6 +25,7 @@
 - Procedural steampunk dressing: oil-dark stone patches, pipe runs, boiler stacks, and gate hazard details.
 - First readable steampunk prop pass: gear-key visual, pressure gauges, valve wheels, steam vents, and furnace prop.
 - Brass HUD backplates, health/ammo fill gauges, and gear-key status lamp.
+- Primitive clockwork Scrapper silhouette with boiler torso, brass chest plate, furnace eye, pressure tank, piston arms, cutter blades, and blocky feet.
 - Packaged automated playthrough test for the key/gate/lift objective chain.
 - Packaged combat smoke test for pressure-pistol damage against a Scrapper.
 - Pause menu with resume, restart, and quit.
@@ -32,9 +33,9 @@
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.9`.
+Latest fully verified build: `v0.0.10`.
 
-Current `v0.0.9` verification:
+Current `v0.0.10` verification:
 
 - Editor smoke test: passed.
 - Windows build: passed.
@@ -56,7 +57,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.9\BrassworksBreach_v0.0.9.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.10\BrassworksBreach_v0.0.10.exe`
 
 ## Latest Build Verification
 
@@ -81,8 +82,15 @@ Current target:
 - `2026-05-23 01:02 -04:00`: `v0.0.9` packaged auto-playthrough passed.
 - `2026-05-23 01:02 -04:00`: `v0.0.9` packaged combat smoke passed.
 - `2026-05-23 01:02 -04:00`: `v0.0.9` packaged pause-flow smoke passed.
+- `2026-05-23 01:05 -04:00`: `v0.0.10` scene rebuild passed.
+- `2026-05-23 01:05 -04:00`: `v0.0.10` editor smoke passed.
+- `2026-05-23 01:05 -04:00`: `v0.0.10` Windows build passed.
+- `2026-05-23 01:06 -04:00`: `v0.0.10` packaged runtime smoke passed.
+- `2026-05-23 01:06 -04:00`: `v0.0.10` packaged auto-playthrough passed.
+- `2026-05-23 01:06 -04:00`: `v0.0.10` packaged combat smoke passed.
+- `2026-05-23 01:06 -04:00`: `v0.0.10` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.10`, `v0.0.11`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.11`, `v0.0.12`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

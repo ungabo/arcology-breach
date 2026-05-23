@@ -84,7 +84,7 @@ Every major asset should eventually have three quality targets:
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
-| ENEMY-001 | Primitive Scrapper | P0 | prototype | Existing capsule/cube mechanical melee placeholder. |
+| ENEMY-001 | Primitive Scrapper | P0 | prototype | Existing primitive clockwork silhouette with boiler torso, brass plate, furnace eye, pressure tank, piston arms, cutters, and blocky feet. |
 | ENEMY-002 | Scrapper final | P1 | planned | Maintenance frame with cutter arms, brass plating, pistons, and furnace eyes. |
 | ENEMY-003 | Boiler Tick | P1 | planned | Squat scout with clockwork legs and pressure tank body. |
 | ENEMY-004 | Lancer | P1 | planned | Thin ranged valve-rifle automaton. |
