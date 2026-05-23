@@ -360,6 +360,28 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.27 Environment Prop and Signage Pass
+
+- [x] Add reusable procedural pipe-bundle helper.
+- [x] Add reusable procedural work-order board helper.
+- [x] Add intake and pressure-gate work-order boards to Level01.
+- [x] Add gate/final pipe bundles to Level01.
+- [x] Add pipeworks work-order board and triple pipe bundle to Level02.
+- [x] Expand level validation to require the new environment prop visuals.
+- [x] Rebuild generated scenes.
+- [x] Run standalone level validation.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged combat-edge smoke.
+- [x] Run packaged ranged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.27`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -383,7 +405,7 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Generate primitive `Scrapper` visual.
 - [x] Generate primitive `Pressure Pistol` visual.
 - [x] Replace placeholder hit marker with primitive spark impact VFX.
-- [ ] Add gauges, valve wheels, furnace props, pipe bundles, and work-order signs.
+- [x] Add gauges, valve wheels, furnace props, pipe bundles, and work-order signs.
 - [ ] Verify scene readability after art pass.
 
 ## v0.4 Systems Foundation

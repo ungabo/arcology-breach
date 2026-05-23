@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.26` versioned build for `Brassworks Breach`.
+`v0.0.27` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build improves the first-person Pressure Pistol with a stronger steampunk silhouette on top of the service-lift, gear-key/gate art passes, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build adds steampunk environment signage and richer pipe-bundle dressing on top of the first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -38,12 +38,13 @@
 - Upright clockwork gear-key visual and heavy pressure-gate visual with keyed socket, riveted slabs, frame, header gear, lamps, and validation coverage.
 - Brass service-lift cage visuals with platform deck, grate, rails, chains, pulley gear, call box, signal lamps, and validation coverage.
 - Pressure Pistol viewmodel visual pass with pressure tank, muzzle crown, sights, steam vent, bolt handle, walnut grip plates, red pressure line, rivets, and validation coverage.
+- Environmental work-order boards and three-pipe bundles in Level01 and Level02, with validation coverage.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.26`.
+Latest fully verified build: `v0.0.27`.
 
-Current `v0.0.26` verification:
+Current `v0.0.27` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -71,7 +72,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.26\BrassworksBreach_v0.0.26.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.27\BrassworksBreach_v0.0.27.exe`
 
 ## Latest Build Verification
 
@@ -234,8 +235,18 @@ Current target:
 - `2026-05-23 12:23 -04:00`: `v0.0.26` packaged combat-edge smoke passed.
 - `2026-05-23 12:23 -04:00`: `v0.0.26` packaged ranged combat smoke passed.
 - `2026-05-23 12:23 -04:00`: `v0.0.26` packaged pause-flow smoke passed.
+- `2026-05-23 12:28 -04:00`: `v0.0.27` scene rebuild passed.
+- `2026-05-23 12:28 -04:00`: `v0.0.27` level validation passed.
+- `2026-05-23 12:28 -04:00`: `v0.0.27` editor smoke passed.
+- `2026-05-23 12:28 -04:00`: `v0.0.27` Windows build passed.
+- `2026-05-23 12:28 -04:00`: `v0.0.27` packaged runtime smoke passed.
+- `2026-05-23 12:28 -04:00`: `v0.0.27` packaged auto-playthrough passed.
+- `2026-05-23 12:28 -04:00`: `v0.0.27` packaged combat smoke passed.
+- `2026-05-23 12:28 -04:00`: `v0.0.27` packaged combat-edge smoke passed.
+- `2026-05-23 12:28 -04:00`: `v0.0.27` packaged ranged combat smoke passed.
+- `2026-05-23 12:28 -04:00`: `v0.0.27` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.27`, `v0.0.28`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.28`, `v0.0.29`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

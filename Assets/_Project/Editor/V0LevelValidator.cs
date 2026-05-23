@@ -56,6 +56,7 @@ public static class V0LevelValidator
 
         ValidatePickups(sceneName);
         ValidateEnemies(sceneName);
+        ValidateEnvironmentPropVisuals(sceneName);
 
         if (requirePressureGate)
         {
@@ -163,6 +164,21 @@ public static class V0LevelValidator
         RequireNamed("Pressure Pistol Muzzle Crown", sceneName + " pressure pistol muzzle crown visual");
         RequireNamed("Pressure Pistol Steam Vent Chimney", sceneName + " pressure pistol steam vent visual");
         RequireNamed("Pressure Pistol Front Sight", sceneName + " pressure pistol front sight visual");
+    }
+
+    private static void ValidateEnvironmentPropVisuals(string sceneName)
+    {
+        if (sceneName == "Level01")
+        {
+            RequireNamed("Work Order Board - Intake", sceneName + " intake work-order board visual");
+            RequireNamed("Work Order Board - Gate", sceneName + " gate work-order board visual");
+            RequireNamed("Pipe Bundle - Gate Manifold", sceneName + " gate pipe-bundle visual");
+        }
+        else if (sceneName == "Level02")
+        {
+            RequireNamed("Work Order Board - Pipeworks", sceneName + " pipeworks work-order board visual");
+            RequireNamed("Pipeworks Triple Pipe Bundle", sceneName + " pipeworks pipe-bundle visual");
+        }
     }
 
     private static void RequireCollider(GameObject gameObject, string label)

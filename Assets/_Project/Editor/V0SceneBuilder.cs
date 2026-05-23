@@ -473,6 +473,8 @@ public static class V0SceneBuilder
         CreatePressureGauge("Pipeworks Gauge A", new Vector3(4.95f, 1.65f, 7f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateValveWheel("Pipeworks Valve A", new Vector3(-4.95f, 1.45f, 20f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, warningMaterial, parent.transform);
         CreateSteamVent("Pipeworks Steam Vent A", new Vector3(3.8f, 0.05f, 5.5f), brassMaterial, steamMaterial, parent.transform);
+        CreatePipeBundle("Pipeworks Triple Pipe Bundle", new Vector3(0f, 2.35f, 23.72f), Quaternion.Euler(0f, 90f, 0f), 3.6f, brassMaterial, ironMaterial, parent.transform);
+        CreateWorkOrderBoard("Work Order Board - Pipeworks", "PIPEWORKS NOTICE\nBOLT FEED LIVE\nKEEP DISTANCE", new Vector3(4.95f, 1.55f, 12f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
     }
 
     private static void Wall(string name, float x, float z, float length, bool horizontal, Material material, Transform parent)
@@ -1094,6 +1096,58 @@ public static class V0SceneBuilder
         CreateSteamVent("Steam Vent - Intake", new Vector3(2.7f, 0.25f, 7.6f), rivetedIronMaterial, steamPuffMaterial, parent.transform);
         CreateSteamVent("Steam Vent - Final", new Vector3(-4.2f, 0.25f, 31.4f), rivetedIronMaterial, steamPuffMaterial, parent.transform);
         CreateFurnace("Coal Furnace - Final Room", new Vector3(4.95f, 0.95f, 29.7f), rivetedIronMaterial, brassMaterial, furnaceGlowMaterial, parent.transform);
+        CreatePipeBundle("Pipe Bundle - Gate Manifold", new Vector3(-2.65f, 2.55f, 22.05f), Quaternion.Euler(0f, 90f, 0f), 2.25f, brassMaterial, rivetedIronMaterial, parent.transform);
+        CreatePipeBundle("Pipe Bundle - Final Boiler Feed", new Vector3(5.96f, 2.25f, 31.2f), Quaternion.identity, 3.2f, brassMaterial, rivetedIronMaterial, parent.transform);
+        CreateWorkOrderBoard("Work Order Board - Intake", "ORDER 17\nSEAL MAIN\nWATCH PSI", new Vector3(-5.92f, 1.55f, 10.8f), Quaternion.Euler(0f, 90f, 0f), rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+        CreateWorkOrderBoard("Work Order Board - Gate", "KEY CREW\nBLEED LOCK\nNO OPEN FLAME", new Vector3(1.45f, 1.75f, 22.15f), Quaternion.Euler(0f, 180f, 0f), rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+    }
+
+    private static void CreatePipeBundle(string name, Vector3 position, Quaternion rotation, float length, Material pipeMaterial, Material bracketMaterial, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+        root.transform.rotation = rotation;
+
+        Vector3[] offsets =
+        {
+            new Vector3(-0.16f, 0f, 0f),
+            new Vector3(0f, 0.12f, 0f),
+            new Vector3(0.16f, 0f, 0f)
+        };
+
+        for (int i = 0; i < offsets.Length; i++)
+        {
+            GameObject pipe = CreateLocalPrimitive(name + " Pipe " + i, PrimitiveType.Cylinder, root.transform, offsets[i], new Vector3(0.055f, length * 0.5f, 0.055f), pipeMaterial);
+            pipe.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        }
+
+        CreateLocalCube(name + " Bracket A", root.transform, new Vector3(0f, 0.02f, -length * 0.5f), new Vector3(0.52f, 0.08f, 0.08f), bracketMaterial);
+        CreateLocalCube(name + " Bracket B", root.transform, new Vector3(0f, 0.02f, length * 0.5f), new Vector3(0.52f, 0.08f, 0.08f), bracketMaterial);
+    }
+
+    private static void CreateWorkOrderBoard(string name, string text, Vector3 position, Quaternion rotation, Material boardMaterial, Material paperMaterial, Material inkMaterial, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+        root.transform.rotation = rotation;
+
+        CreateLocalCube(name + " Iron Backboard", root.transform, Vector3.zero, new Vector3(1.34f, 0.78f, 0.08f), boardMaterial);
+        CreateLocalCube(name + " Cream Work Sheet", root.transform, new Vector3(0f, 0f, -0.055f), new Vector3(1.06f, 0.58f, 0.025f), paperMaterial);
+        CreateLocalCube(name + " Brass Header Clip", root.transform, new Vector3(0f, 0.34f, -0.08f), new Vector3(1.12f, 0.08f, 0.04f), inkMaterial);
+
+        GameObject textObject = new GameObject(name + " Text");
+        textObject.transform.SetParent(root.transform, false);
+        textObject.transform.localPosition = new Vector3(-0.46f, 0.12f, -0.095f);
+        textObject.transform.localRotation = Quaternion.identity;
+        TextMesh textMesh = textObject.AddComponent<TextMesh>();
+        textMesh.text = text;
+        textMesh.anchor = TextAnchor.UpperLeft;
+        textMesh.alignment = TextAlignment.Left;
+        textMesh.characterSize = 0.075f;
+        textMesh.fontSize = 42;
+        textMesh.color = new Color(0.14f, 0.055f, 0.025f);
     }
 
     private static void CreatePressureGauge(string name, Vector3 position, Quaternion rotation, Material brassMaterial, Material faceMaterial, Material needleMaterial, Transform parent)

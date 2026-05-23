@@ -548,3 +548,34 @@ Build executable:
 `Builds/Windows/v0.0.26/BrassworksBreach_v0.0.26.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 12:28 -04:00
+
+Completed `v0.0.27` environment prop and signage pass.
+
+Added:
+
+- Reusable procedural pipe-bundle helper.
+- Reusable procedural work-order board helper.
+- Intake and pressure-gate work-order boards in Level01.
+- Gate/final pipe bundles in Level01.
+- Pipeworks work-order board and triple pipe bundle in Level02.
+- Level validation requirements for the new environment prop visuals.
+
+Verification completed:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.27/BrassworksBreach_v0.0.27.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

@@ -66,8 +66,8 @@ Every major asset should eventually have three quality targets:
 | PROP-009 | Wall pressure gauge | P1 | prototype | Primitive wall gauge prop for environment readability. |
 | PROP-010 | Valve wheel | P1 | prototype | Primitive valve wheel prop; future interactable/switch candidate. |
 | PROP-011 | Coal furnace | P2 | prototype | Primitive environmental landmark and light source. |
-| PROP-012 | Copper pipe bundle | P1 | planned | Modular dressing prop. |
-| PROP-013 | Work order board | P2 | planned | Environmental storytelling prop. |
+| PROP-012 | Copper pipe bundle | P1 | verified | Procedural three-pipe bundle with brackets used in intake, gate, final, and pipeworks spaces. |
+| PROP-013 | Work order board | P2 | verified | Environmental storytelling board with iron backboard, cream sheet, brass header clip, and compact work-order text. |
 
 ## 4. Weapons
 
