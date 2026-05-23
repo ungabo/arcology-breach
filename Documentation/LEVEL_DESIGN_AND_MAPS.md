@@ -88,7 +88,7 @@ v0.2 map tasks:
 
 - Keep the current generated layout small.
 - Tune distances so the player sees the gate before finding the key.
-- Add cover and obstacle shapes that do not break enemy movement.
+- Add cover and obstacle shapes that do not break enemy movement. First collision-cover pass added in `v0.0.28`.
 - Make the service lift direction visually green and unambiguous.
 
 ### Level 02: Pipeworks Annex

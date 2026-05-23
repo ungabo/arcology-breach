@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.27` versioned build for `Brassworks Breach`.
+`v0.0.28` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds steampunk environment signage and richer pipe-bundle dressing on top of the first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build adds collision cover to the Level01 repair bay, key room, and final room on top of the steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -39,12 +39,13 @@
 - Brass service-lift cage visuals with platform deck, grate, rails, chains, pulley gear, call box, signal lamps, and validation coverage.
 - Pressure Pistol viewmodel visual pass with pressure tank, muzzle crown, sights, steam vent, bolt handle, walnut grip plates, red pressure line, rivets, and validation coverage.
 - Environmental work-order boards and three-pipe bundles in Level01 and Level02, with validation coverage.
+- Level01 collision-cover pass for repair bay, key room, and final room, with validation coverage and objective auto-playthrough retained.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.27`.
+Latest fully verified build: `v0.0.28`.
 
-Current `v0.0.27` verification:
+Current `v0.0.28` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -72,7 +73,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.27\BrassworksBreach_v0.0.27.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.28\BrassworksBreach_v0.0.28.exe`
 
 ## Latest Build Verification
 
@@ -245,8 +246,18 @@ Current target:
 - `2026-05-23 12:28 -04:00`: `v0.0.27` packaged combat-edge smoke passed.
 - `2026-05-23 12:28 -04:00`: `v0.0.27` packaged ranged combat smoke passed.
 - `2026-05-23 12:28 -04:00`: `v0.0.27` packaged pause-flow smoke passed.
+- `2026-05-23 12:33 -04:00`: `v0.0.28` scene rebuild passed.
+- `2026-05-23 12:33 -04:00`: `v0.0.28` level validation passed.
+- `2026-05-23 12:33 -04:00`: `v0.0.28` editor smoke passed.
+- `2026-05-23 12:33 -04:00`: `v0.0.28` Windows build passed.
+- `2026-05-23 12:33 -04:00`: `v0.0.28` packaged runtime smoke passed.
+- `2026-05-23 12:33 -04:00`: `v0.0.28` packaged auto-playthrough passed.
+- `2026-05-23 12:33 -04:00`: `v0.0.28` packaged combat smoke passed.
+- `2026-05-23 12:33 -04:00`: `v0.0.28` packaged combat-edge smoke passed.
+- `2026-05-23 12:33 -04:00`: `v0.0.28` packaged ranged combat smoke passed.
+- `2026-05-23 12:33 -04:00`: `v0.0.28` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.28`, `v0.0.29`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.29`, `v0.0.30`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

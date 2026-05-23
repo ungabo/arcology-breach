@@ -382,10 +382,31 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.28 Level01 Combat-Space Cover Pass
+
+- [x] Add repair-bay boiler/crate/low-pipe cover.
+- [x] Add key-room workbench cover.
+- [x] Add final-room west/east stack cover and low center barrier.
+- [x] Expand level validation to require the new Level01 cover objects.
+- [x] Rebuild generated scenes.
+- [x] Run standalone level validation.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged combat-edge smoke.
+- [x] Run packaged ranged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.28`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
 - [ ] Record tuning notes in `WORK_LEDGER.md`.
+- [x] Add first collision-cover pass to `Brassworks Intake`.
 - [ ] Tune player movement speed and camera feel.
 - [ ] Tune `Pressure Pistol` damage, fire rate, ammo, and feedback.
 - [ ] Tune `Scrapper` speed, detection range, damage, and attack cooldown.

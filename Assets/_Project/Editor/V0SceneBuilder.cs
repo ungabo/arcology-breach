@@ -422,6 +422,19 @@ public static class V0SceneBuilder
         Wall("Final West", -7.25f, 31f, 10.5f, false, wallMaterial, parent.transform);
         Wall("Final East", 7.25f, 31f, 10.5f, false, wallMaterial, parent.transform);
         Wall("Final North", 0f, 36.25f, 14.5f, true, wallMaterial, parent.transform);
+
+        CreateIntakeCombatCover(wallMaterial, parent.transform);
+    }
+
+    private static void CreateIntakeCombatCover(Material material, Transform parent)
+    {
+        CreateCube("Repair Bay Cover Boiler Left", new Vector3(-3.2f, 0.62f, 15.2f), new Vector3(1.25f, 1.24f, 1.45f), material, parent);
+        CreateCube("Repair Bay Cover Crate Right", new Vector3(3.05f, 0.48f, 18.7f), new Vector3(1.35f, 0.96f, 1.15f), material, parent);
+        CreateCube("Repair Bay Low Pipe Barrier", new Vector3(-0.2f, 0.42f, 19.8f), new Vector3(2.35f, 0.84f, 0.55f), material, parent);
+        CreateCube("Key Room Cover Workbench", new Vector3(14.2f, 0.48f, 15.3f), new Vector3(1.8f, 0.96f, 0.65f), material, parent);
+        CreateCube("Final Room Cover Stack West", new Vector3(-3.25f, 0.58f, 30.1f), new Vector3(1.45f, 1.16f, 1.45f), material, parent);
+        CreateCube("Final Room Cover Stack East", new Vector3(3.15f, 0.58f, 32.3f), new Vector3(1.45f, 1.16f, 1.45f), material, parent);
+        CreateCube("Final Room Low Center Barrier", new Vector3(0f, 0.42f, 32.2f), new Vector3(2.1f, 0.84f, 0.58f), material, parent);
     }
 
     private static void CreatePipeworksAnnexScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial)

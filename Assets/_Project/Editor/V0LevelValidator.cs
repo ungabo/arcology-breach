@@ -179,6 +179,13 @@ public static class V0LevelValidator
             RequireNamed("Work Order Board - Pipeworks", sceneName + " pipeworks work-order board visual");
             RequireNamed("Pipeworks Triple Pipe Bundle", sceneName + " pipeworks pipe-bundle visual");
         }
+
+        if (sceneName == "Level01")
+        {
+            RequireNamed("Repair Bay Cover Boiler Left", sceneName + " repair bay cover visual");
+            RequireNamed("Repair Bay Cover Crate Right", sceneName + " repair bay cover visual");
+            RequireNamed("Final Room Cover Stack West", sceneName + " final room cover visual");
+        }
     }
 
     private static void RequireCollider(GameObject gameObject, string label)
