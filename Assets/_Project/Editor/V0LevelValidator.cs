@@ -150,6 +150,14 @@ public static class V0LevelValidator
         RequireEqual(playerInventory.startingAmmo, GameBalance.StartingAmmo, sceneName + " starting ammo balance");
         RequireEqual(weaponController.damage, GameBalance.PressurePistolDamage, sceneName + " pistol damage balance");
         RequireApprox(weaponController.fireCooldown, GameBalance.PressurePistolCooldown, sceneName + " pistol cooldown balance");
+        if (weaponController.definition == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " WeaponController is missing a WeaponDefinition.");
+        }
+
+        RequireEqual(weaponController.definition.damage, GameBalance.PressurePistolDamage, sceneName + " weapon definition damage");
+        RequireApprox(weaponController.definition.fireCooldown, GameBalance.PressurePistolCooldown, sceneName + " weapon definition cooldown");
+        RequireApprox(weaponController.definition.range, weaponController.range, sceneName + " weapon definition range");
     }
 
     private static T Require<T>(string label) where T : UnityEngine.Object

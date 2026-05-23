@@ -424,6 +424,27 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.30 Data-Driven Weapon Definition Pass
+
+- [x] Add `WeaponDefinition` ScriptableObject type.
+- [x] Add generated `PressurePistolDefinition.asset`.
+- [x] Assign the weapon definition to both gameplay-scene `WeaponController` instances.
+- [x] Keep serialized weapon fallback fields backward-compatible.
+- [x] Expand level validation to require the weapon definition and its active values.
+- [x] Rebuild generated scenes.
+- [x] Run standalone level validation.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged combat-edge smoke.
+- [x] Run packaged ranged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.30`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -454,7 +475,7 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 ## v0.4 Systems Foundation
 
-- [ ] Data-driven weapon definitions.
+- [x] Data-driven weapon definitions.
 - [ ] Data-driven enemy definitions.
 - [ ] Interaction system.
 - [ ] Pickup/inventory cleanup.

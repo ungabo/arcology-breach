@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
+    public WeaponDefinition definition;
     public Camera aimCamera;
     public PlayerInventory inventory;
     public float range = 40f;
@@ -28,6 +29,20 @@ public class WeaponController : MonoBehaviour
         {
             weaponView = GetComponentInChildren<WeaponView>();
         }
+
+        ApplyDefinition();
+    }
+
+    private void ApplyDefinition()
+    {
+        if (definition == null)
+        {
+            return;
+        }
+
+        range = definition.range;
+        damage = definition.damage;
+        fireCooldown = definition.fireCooldown;
     }
 
     private void Update()

@@ -15,6 +15,7 @@ public static class V0SceneBuilder
     private const string Level02ScenePath = "Assets/_Project/Scenes/Level02.unity";
     private const string MaterialFolder = "Assets/_Project/Materials";
     private const string TextureFolder = "Assets/_Project/Textures";
+    private const string DataFolder = "Assets/_Project/Data";
     private const string WindowsBuildFolder = "Builds/Windows";
 
     private enum ProceduralTextureKind
@@ -55,6 +56,7 @@ public static class V0SceneBuilder
         ApplyProceduralTexture(rivetedIronMaterial, "T_Steam_RivetedIron", ProceduralTextureKind.RivetedIron);
         ApplyProceduralTexture(brassGuideMaterial, "T_Steam_BrassPipe", ProceduralTextureKind.BrassPipe);
         ApplyProceduralTexture(brassHazardMaterial, "T_Steam_BrassHazardPipe", ProceduralTextureKind.BrassPipe);
+        WeaponDefinition pressurePistolDefinition = CreatePressurePistolDefinition();
 
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -64,7 +66,7 @@ public static class V0SceneBuilder
         CreateGreyboxLevel(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
         CreateGameState(hud);
-        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, rivetedIronMaterial, pressureWarningMaterial);
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, rivetedIronMaterial, pressureWarningMaterial, pressurePistolDefinition);
         CreateEnemy("Enemy - First Room", new Vector3(0f, 1f, 16.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
         CreateEnemy("Enemy - Key Room", new Vector3(14.5f, 1f, 17f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
         CreateEnemy("Enemy - Final Left", new Vector3(-3.2f, 1f, 30.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
@@ -79,7 +81,7 @@ public static class V0SceneBuilder
         CreateSteamworksDressing(rivetedIronMaterial, oilStoneMaterial, brassGuideMaterial, pressureWarningMaterial, brassHazardMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
-        CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial);
+        CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition);
         CreateMainMenuScene(brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, furnaceGlowMaterial, oilStoneMaterial);
         EditorBuildSettings.scenes = new[]
         {
@@ -190,7 +192,8 @@ public static class V0SceneBuilder
             "Assets/_Project/Scripts",
             "Assets/_Project/Prefabs",
             MaterialFolder,
-            TextureFolder
+            TextureFolder,
+            DataFolder
         };
 
         foreach (string folder in folders)
@@ -231,6 +234,24 @@ public static class V0SceneBuilder
 
         EditorUtility.SetDirty(material);
         return material;
+    }
+
+    private static WeaponDefinition CreatePressurePistolDefinition()
+    {
+        string path = $"{DataFolder}/PressurePistolDefinition.asset";
+        WeaponDefinition definition = AssetDatabase.LoadAssetAtPath<WeaponDefinition>(path);
+        if (definition == null)
+        {
+            definition = ScriptableObject.CreateInstance<WeaponDefinition>();
+            AssetDatabase.CreateAsset(definition, path);
+        }
+
+        definition.displayName = "Pressure Pistol";
+        definition.damage = GameBalance.PressurePistolDamage;
+        definition.fireCooldown = GameBalance.PressurePistolCooldown;
+        definition.range = 40f;
+        EditorUtility.SetDirty(definition);
+        return definition;
     }
 
     private static void ApplyProceduralTexture(Material material, string textureName, ProceduralTextureKind kind)
@@ -437,7 +458,7 @@ public static class V0SceneBuilder
         CreateCube("Final Room Low Center Barrier", new Vector3(0f, 0.42f, 32.2f), new Vector3(2.1f, 0.84f, 0.58f), material, parent);
     }
 
-    private static void CreatePipeworksAnnexScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial)
+    private static void CreatePipeworksAnnexScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition)
     {
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -447,7 +468,7 @@ public static class V0SceneBuilder
         CreatePipeworksAnnexBlockout(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
         CreateGameState(hud);
-        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial);
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition);
 
         CreateEnemy("Enemy - Pipeworks Gatehouse", new Vector3(-2.2f, 1f, 9.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial);
         CreateLancerEnemy("Enemy - Pipeworks Lancer", new Vector3(2.2f, 1f, 17.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial);
@@ -852,7 +873,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimePauseFlowTest>();
     }
 
-    private static void CreatePlayer(Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial, Material ironMaterial, Material warningMaterial)
+    private static void CreatePlayer(Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial, Material ironMaterial, Material warningMaterial, WeaponDefinition weaponDefinition)
     {
         GameObject player = new GameObject("Player");
         player.transform.position = new Vector3(0f, 0f, 0f);
@@ -884,6 +905,7 @@ public static class V0SceneBuilder
         player.AddComponent<RunProgressApplier>();
 
         WeaponController weapon = player.AddComponent<WeaponController>();
+        weapon.definition = weaponDefinition;
         weapon.aimCamera = camera;
         weapon.inventory = inventory;
         weapon.damage = GameBalance.PressurePistolDamage;
