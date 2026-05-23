@@ -398,3 +398,34 @@ Verification completed:
 Build executable:
 
 `Builds/Windows/v0.0.21/BrassworksBreach_v0.0.21.exe`
+
+## 2026-05-23 11:54 -04:00
+
+Completed `v0.0.22` level validation tool.
+
+Added:
+
+- `V0LevelValidator`.
+- Build scene order validation.
+- Main menu wiring validation.
+- Gameplay scene validation for player, HUD, game state, enemies, pickups, doors, transitions, final exit, and performance profile.
+- Pickup trigger checks.
+- Enemy character-controller checks.
+- Lancer muzzle wiring check.
+- Editor smoke now runs the validator.
+
+Verification completed:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.22/BrassworksBreach_v0.0.22.exe`

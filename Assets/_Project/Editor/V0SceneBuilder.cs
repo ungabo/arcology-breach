@@ -131,6 +131,8 @@ public static class V0SceneBuilder
         RequireObject<MainMenuController>("MainMenuController");
         RequireObject<RuntimePerformanceProfile>("MainMenu RuntimePerformanceProfile");
 
+        V0LevelValidator.ValidateProjectScenes();
+
         if (EditorBuildSettings.scenes.Length < 3 || EditorBuildSettings.scenes[0].path != MainMenuScenePath || EditorBuildSettings.scenes[1].path != ScenePath || EditorBuildSettings.scenes[2].path != Level02ScenePath)
         {
             throw new InvalidOperationException("MainMenu, Level01, and Level02 are not the first enabled build scenes.");

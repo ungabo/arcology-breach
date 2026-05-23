@@ -255,6 +255,27 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Run packaged pause-flow smoke.
 - [x] Commit and push `v0.0.21`.
 
+## v0.0.22 Level Validation Tool
+
+- [x] Add `V0LevelValidator`.
+- [x] Validate build scene order.
+- [x] Validate main menu wiring.
+- [x] Validate gameplay scene player, HUD, game state, enemies, pickups, doors, transitions, final exit, and performance profile.
+- [x] Validate pickup trigger colliders.
+- [x] Validate enemy character controllers and Lancer muzzle wiring.
+- [x] Integrate validator into editor smoke.
+- [x] Run standalone level validation.
+- [x] Rebuild generated scenes.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged combat-edge smoke.
+- [x] Run packaged ranged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.22`.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -288,7 +309,7 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [ ] Interaction system.
 - [ ] Pickup/inventory cleanup.
 - [ ] Level transition controller.
-- [ ] Level validation tool.
+- [x] Level validation tool.
 - [ ] Expand combat automation harness.
 - [ ] Build automation cleanup.
 - [ ] Platform asset-quality settings.

@@ -37,10 +37,11 @@
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.21`.
+Latest fully verified build: `v0.0.22`.
 
-Current `v0.0.21` verification:
+Current `v0.0.22` verification:
 
+- Editor level validation: passed.
 - Editor smoke test: passed.
 - Windows build: passed.
 - Packaged runtime smoke test: passed.
@@ -60,12 +61,13 @@ Pass markers:
 - `V0_COMBAT_EDGE_PASS`
 - `V0_RANGED_COMBAT_PASS`
 - `V0_PAUSE_FLOW_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
 
 ## Build Path
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.21\BrassworksBreach_v0.0.21.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.22\BrassworksBreach_v0.0.22.exe`
 
 ## Latest Build Verification
 
@@ -178,8 +180,18 @@ Current target:
 - `2026-05-23 11:44 -04:00`: `v0.0.21` packaged combat-edge smoke passed.
 - `2026-05-23 11:45 -04:00`: `v0.0.21` packaged ranged combat smoke passed.
 - `2026-05-23 11:45 -04:00`: `v0.0.21` packaged pause-flow smoke passed.
+- `2026-05-23 11:48 -04:00`: `v0.0.22` scene rebuild passed.
+- `2026-05-23 11:49 -04:00`: `v0.0.22` level validation passed.
+- `2026-05-23 11:50 -04:00`: `v0.0.22` editor smoke passed.
+- `2026-05-23 11:51 -04:00`: `v0.0.22` Windows build passed.
+- `2026-05-23 11:52 -04:00`: `v0.0.22` packaged runtime smoke passed.
+- `2026-05-23 11:52 -04:00`: `v0.0.22` packaged auto-playthrough passed.
+- `2026-05-23 11:53 -04:00`: `v0.0.22` packaged combat smoke passed.
+- `2026-05-23 11:53 -04:00`: `v0.0.22` packaged combat-edge smoke passed.
+- `2026-05-23 11:54 -04:00`: `v0.0.22` packaged ranged combat smoke passed.
+- `2026-05-23 11:54 -04:00`: `v0.0.22` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.22`, `v0.0.23`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.23`, `v0.0.24`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
