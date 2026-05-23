@@ -23,6 +23,7 @@ Implemented:
 - Plain HUD and crosshair.
 - Blocky `Pulse Pistol` placeholder.
 - Muzzle flash, damage flash, bobbing pickups, sliding gate, colored accent lights.
+- Procedural cyberpunk audio cues for firing, pickups, enemy hits/death, player hurt, gate feedback, and win.
 - Unity editor smoke test, Windows build, and runtime smoke test.
 
 ## 3. Target Platform
@@ -69,7 +70,7 @@ Required:
 - Manual Windows playthrough.
 - Movement/enemy/combat tuning.
 - Better mechanical enemy chase/attack readability.
-- Simple cyberpunk audio set.
+- Manual listen/tuning pass for the simple cyberpunk audio set.
 - Clearer access-shard and lockdown-gate feedback.
 - Updated objective text and object names.
 
@@ -258,7 +259,7 @@ Manual:
 - Mechanical enemy combat feels fair enough for iteration.
 - Access shard and lockdown gate are understandable.
 - Cyberpunk objective text and presentation are in place.
-- First audio feedback pass exists.
+- First audio feedback pass exists and has been manually tuned.
 - Handoff, build status, and work ledger are updated.
 
 ## 14. Non-Goals for Next Milestone

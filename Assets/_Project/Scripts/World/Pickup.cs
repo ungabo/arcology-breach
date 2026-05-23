@@ -77,13 +77,16 @@ public class Pickup : MonoBehaviour
         {
             case PickupKind.Health:
                 health?.Heal(amount);
+                CyberpunkAudio.Play(CyberpunkAudioCue.HealthPickup);
                 HUDController.Instance?.ShowTemporaryMessage($"+{amount} health", 1f);
                 break;
             case PickupKind.Ammo:
                 inventory?.AddAmmo(amount);
+                CyberpunkAudio.Play(CyberpunkAudioCue.AmmoPickup);
                 break;
             case PickupKind.Key:
                 inventory?.AddKey();
+                CyberpunkAudio.Play(CyberpunkAudioCue.AccessShard);
                 break;
         }
 

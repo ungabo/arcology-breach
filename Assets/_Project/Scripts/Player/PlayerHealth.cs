@@ -25,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         CurrentHealth = Mathf.Max(0, CurrentHealth - amount);
+        CyberpunkAudio.Play(CyberpunkAudioCue.PlayerHurt);
         HUDController.Instance?.SetHealth(CurrentHealth, maxHealth);
         HUDController.Instance?.FlashDamage();
 

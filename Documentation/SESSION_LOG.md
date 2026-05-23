@@ -94,3 +94,30 @@ Actions:
 - Added planned campaign map ladder from `Aster Gate Intake` through `Interdict Core`.
 - Added future `LevelTransitionController` direction and VR-safe transition notes.
 - Updated spec, roadmap, to-do, work ledger, and handoff references.
+
+## 2026-05-22 21:05:09 -04:00
+
+Completed `v0.0.2` procedural audio checkpoint.
+
+Implementation:
+
+- Added `CyberpunkAudio` procedural cue generator.
+- Wired cues into weapon fire/empty, health/ammo/access-shard pickups, Scrapper hit/death, player hurt, gate denied/open, and emergency lift win.
+- Updated `GameBranding.CheckpointVersion` to `v0.0.2`.
+- Regenerated `Level01` so the `Game State` object includes `CyberpunkAudio`.
+
+Verification:
+
+- Scene rebuild passed: `Logs\build-v002-scene.log`.
+- Editor smoke passed: `V0_SMOKE_TEST_PASS`.
+- Windows build passed: `V0_WINDOWS_BUILD_PASS`.
+- Runtime smoke passed: `V0_RUNTIME_SMOKE_PASS`.
+
+Checkpoint executable:
+
+`Builds/Windows/v0.0.2/ArcologyBreach_v0.0.2.exe`
+
+Notes:
+
+- Audio is procedural placeholder content.
+- A manual listen/tuning pass is still needed.

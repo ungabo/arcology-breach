@@ -19,7 +19,7 @@ Current constants:
 - `WorkingTitle = "Arcology Breach"`
 - `ExecutableStem = "ArcologyBreach"`
 - `RepositoryName = "arcology-breach"`
-- `CheckpointVersion = "v0.0.1"`
+- `CheckpointVersion = "v0.0.2"`
 
 ## Known Title Locations
 

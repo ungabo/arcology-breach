@@ -119,17 +119,17 @@ Every major asset should eventually have three quality targets:
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
-| AUD-001 | Pulse Pistol fire | P1 | planned | Sharp synthetic snap with capacitor tail. |
-| AUD-002 | Empty weapon click | P1 | planned | Dry failed discharge sound. |
-| AUD-003 | Scrapper hurt | P1 | planned | Servo strain and spark crackle. |
-| AUD-004 | Scrapper death | P1 | planned | Shutdown whine and metal drop. |
-| AUD-005 | Player hurt | P1 | planned | Suit impact thud and glitch pulse. |
-| AUD-006 | Health pickup | P1 | planned | Medical injector chirp. |
-| AUD-007 | Ammo pickup | P1 | planned | Capacitor charge tick. |
-| AUD-008 | Access shard pickup | P1 | planned | Amber data unlock cue. |
-| AUD-009 | Gate open | P1 | planned | Heavy mag-lock release and motor slide. |
-| AUD-010 | Gate denied | P1 | planned | Corporate denial buzzer. |
-| AUD-011 | Exit/win cue | P1 | planned | Emergency lift chime/data unlock. |
+| AUD-001 | Pulse Pistol fire | P1 | prototype | Procedural synthetic snap with capacitor tail. |
+| AUD-002 | Empty weapon click | P1 | prototype | Procedural dry failed discharge sound. |
+| AUD-003 | Scrapper hurt | P1 | prototype | Procedural servo strain and spark crackle. |
+| AUD-004 | Scrapper death | P1 | prototype | Procedural shutdown whine and metal drop impression. |
+| AUD-005 | Player hurt | P1 | prototype | Procedural suit impact thud and glitch pulse. |
+| AUD-006 | Health pickup | P1 | prototype | Procedural medical injector chirp. |
+| AUD-007 | Ammo pickup | P1 | prototype | Procedural capacitor charge tick. |
+| AUD-008 | Access shard pickup | P1 | prototype | Procedural amber data unlock cue. |
+| AUD-009 | Gate open | P1 | prototype | Procedural mag-lock release and motor slide. |
+| AUD-010 | Gate denied | P1 | prototype | Procedural corporate denial buzzer. |
+| AUD-011 | Exit/win cue | P1 | prototype | Procedural emergency lift chime/data unlock. |
 | AUD-012 | Arcology ambience | P2 | planned | Rain, hum, distant servos, ads, vents. |
 
 ## 9. UI and HUD

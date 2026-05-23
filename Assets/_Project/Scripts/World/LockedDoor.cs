@@ -56,6 +56,7 @@ public class LockedDoor : MonoBehaviour
         else if (Time.time >= nextLockedMessageTime)
         {
             nextLockedMessageTime = Time.time + 1f;
+            CyberpunkAudio.Play(CyberpunkAudioCue.DoorDenied);
             HUDController.Instance?.ShowTemporaryMessage("Access shard required", 0.8f);
         }
     }
@@ -68,6 +69,7 @@ public class LockedDoor : MonoBehaviour
             doorCollider.enabled = false;
         }
 
+        CyberpunkAudio.Play(CyberpunkAudioCue.DoorOpen);
         HUDController.Instance?.ShowTemporaryMessage("Lockdown gate opened", 1f);
     }
 }

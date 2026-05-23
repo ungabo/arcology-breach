@@ -44,7 +44,7 @@ Current `v0.1` keeps the game simple but now points toward the original cyberpun
 
 - Rename visible gameplay language to access shard, lockdown gate, emergency lift.
 - Tune combat through manual play.
-- Add simple cyberpunk audio.
+- Tune the first procedural cyberpunk audio pass.
 - Improve mechanical enemy readability.
 - Confirm `Aster Gate Intake` room scale and objective flow.
 - Add first neon material pass only after combat tuning.

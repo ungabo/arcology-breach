@@ -31,12 +31,13 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [ ] Tune `Scrapper` speed, detection range, damage, and attack cooldown.
 - [ ] Make lockdown gate and access shard feedback clearer.
 - [ ] Confirm `Aster Gate Intake` scale and room flow against `LEVEL_DESIGN_AND_MAPS.md`.
-- [ ] Add first cyberpunk audio set.
+- [x] Add first cyberpunk audio set.
 - [ ] Improve enemy navigation or obstacle handling.
 - [ ] Add first cyberpunk material pass if combat feel is stable.
 - [ ] Rebuild Windows player.
 - [ ] Update `BUILD_STATUS.md`.
 - [ ] Update `HANDOFF.md`.
+- [ ] Manual listen pass for procedural audio levels and tone.
 
 ## v0.3 Art Direction Slice
 

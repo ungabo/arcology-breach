@@ -1,12 +1,12 @@
 # Arcology Breach
 
-Current state: playable v0/v0.1 proof of concept.
+Current state: playable `v0.0.2` proof of concept.
 
 Public repository:
 
 `https://github.com/ungabo/arcology-breach`
 
-This Unity project contains a simple first-person greybox cyberpunk dungeon crawler/shooter for Windows. It is intentionally minimal: primitive geometry, plain materials, text HUD, basic hitscan shooting, mechanical melee enemies, an access shard, a corporate lockdown gate, and an emergency exit.
+This Unity project contains a simple first-person greybox cyberpunk dungeon crawler/shooter for Windows. It is intentionally minimal: primitive geometry, plain materials, text HUD, basic hitscan shooting, procedural cyberpunk audio cues, mechanical melee enemies, an access shard, a corporate lockdown gate, and an emergency exit.
 
 Long-term direction: an original heavily stylized cyberpunk action game set inside a sealed corporate arcology where autonomous security systems have turned civic machines into predatory mechanical bodies.
 
@@ -45,7 +45,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.1\ArcologyBreach_v0.0.1.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.2\ArcologyBreach_v0.0.2.exe`
 
 Checkpoint builds will use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -61,10 +61,10 @@ The project has passed:
 
 Useful logs:
 
-- `Logs\build-v001-scene.log`
-- `Logs\v001-smoke-test.log`
-- `Logs\v001-windows-build.log`
-- `Logs\v001-runtime-smoke.log`
+- `Logs\build-v002-scene.log`
+- `Logs\v002-smoke-test.log`
+- `Logs\v002-windows-build.log`
+- `Logs\v002-runtime-smoke.log`
 
 Smoke pass markers:
 
@@ -77,25 +77,25 @@ Smoke pass markers:
 Rebuild the generated scene:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v001-scene.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v002-scene.log'
 ```
 
 Run editor smoke test:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v001-smoke-test.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v002-smoke-test.log'
 ```
 
 Build Windows player:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v001-windows-build.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v002-windows-build.log'
 ```
 
 Run packaged runtime smoke:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.1\ArcologyBreach_v0.0.1.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v001-runtime-smoke.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.2\ArcologyBreach_v0.0.2.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v002-runtime-smoke.log'
 ```
 
 ## What v0.1 Added
@@ -110,10 +110,20 @@ After the v0.0 loop passed, a small presentation pass added:
 - Colored access-shard/gate/exit lights.
 - Primitive mechanical enemies with simple lens markers.
 
+## What v0.0.2 Added
+
+- Procedural cyberpunk audio system.
+- Pulse pistol fire and empty-click sounds.
+- Health, ammo, and access-shard pickup sounds.
+- Scrapper hit and shutdown sounds.
+- Player hurt sound.
+- Lockdown gate denied/open sounds.
+- Emergency lift win cue.
+
 ## Good Next Steps
 
 - Manually play through the Windows build and tune movement/enemy balance.
-- Add cyberpunk audio feedback.
+- Tune cyberpunk audio levels after a manual listen pass.
 - Add stylized neon wall/floor materials.
 - Replace primitive enemy visuals with mechanical `Scrapper` art.
 - Replace the blocky weapon with a stylized `Pulse Pistol`.

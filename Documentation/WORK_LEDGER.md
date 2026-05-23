@@ -20,6 +20,7 @@ Primary goal: make the current Windows prototype feel good and point clearly at 
 | DOC-004 | Add deferred Android, browser, and VR platform notes | docs | P1 | verified | v0.2 | doc review |
 | DOC-005 | Add level map and transition planning | docs | P0 | verified | v0.2 | doc review |
 | DOC-006 | Review locally cached Unity Asset Store packs | docs | P1 | verified | v0.2 | doc review |
+| AUD-001 | Add first cyberpunk audio set | audio | P1 | verified | v0.2 | editor/build/runtime smoke |
 
 ## Ready Next
 
@@ -27,7 +28,6 @@ Primary goal: make the current Windows prototype feel good and point clearly at 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | TEST-001 | Manual Windows playthrough | test | P0 | ready | v0.2 | Complete start-to-exit, confirm death/restart, note tuning issues. | manual-playtest |
 | CODE-003 | Tune movement/combat values | code | P0 | ready | v0.2 | Movement, enemy pressure, ammo, and health feel fair. | manual-playtest |
-| AUD-001 | Add first cyberpunk audio set | audio | P1 | ready | v0.2 | Weapon, pickup, enemy, gate, hurt, and win sounds play correctly. | scene-smoke + manual-playtest |
 | CODE-004 | Improve Scrapper navigation and attack readability | code | P1 | ready | v0.2 | Scrappers pursue without obvious wall pushing and show attack timing. | manual-playtest |
 | CODE-005 | Improve access-shard/gate feedback | code | P1 | ready | v0.2 | Player understands the blocked route and success state. | manual-playtest |
 | LVL-002 | Confirm Aster Gate Intake scale and flow | level | P0 | ready | v0.2 | Gate is seen before shard, route loops cleanly, exit is readable, rooms fit scale rules. | manual-playtest |
@@ -60,6 +60,7 @@ Primary goal: make the current Windows prototype feel good and point clearly at 
 | DISC-001 | Decide when GitHub Issues should mirror this ledger | GitHub publish | backlog | Probably after v0.2 manual playtest. |
 | DISC-002 | Decide whether local folder should remain `Unity Doom` or be renamed | rebrand | backlog | Repo and product name are becoming `Arcology Breach`; local path can stay for now. |
 | DISC-003 | Inspect Unity account-only Asset Store packs in Package Manager | asset review | backlog | Local cache was reviewed; account-owned packs that are not downloaded need Editor/Package Manager access. |
+| DISC-004 | Manual listen pass for procedural audio | audio | backlog | v0.0.2 smoke confirms cues exist, but a human needs to tune volume and tone in play. |
 
 ## Recently Verified
 
@@ -70,3 +71,4 @@ Primary goal: make the current Windows prototype feel good and point clearly at 
 - `2026-05-22`: `v0.0.1` checkpoint build created at `Builds/Windows/v0.0.1/ArcologyBreach_v0.0.1.exe` and passed editor/build/runtime smoke.
 - `2026-05-22`: Level scale/progression planning added in `LEVEL_DESIGN_AND_MAPS.md`.
 - `2026-05-22`: Local Asset Store cache reviewed and candidate packs recorded in `ASSET_PACK_REVIEW.md`.
+- `2026-05-22`: `v0.0.2` procedural audio checkpoint created at `Builds/Windows/v0.0.2/ArcologyBreach_v0.0.2.exe` and passed editor/build/runtime smoke.

@@ -78,6 +78,7 @@ public static class V0SceneBuilder
         RequireObject<PlayerInventory>("PlayerInventory");
         RequireObject<WeaponController>("WeaponController");
         RequireObject<GameStateController>("GameStateController");
+        RequireObject<CyberpunkAudio>("CyberpunkAudio");
         RequireObject<HUDController>("HUDController");
         RequireObject<EnemyController>("EnemyController");
         RequireObject<Pickup>("Pickup");
@@ -355,6 +356,7 @@ public static class V0SceneBuilder
         GameObject stateObject = new GameObject("Game State");
         GameStateController state = stateObject.AddComponent<GameStateController>();
         state.hud = hud;
+        stateObject.AddComponent<CyberpunkAudio>();
         stateObject.AddComponent<RuntimeSmokeTest>();
     }
 

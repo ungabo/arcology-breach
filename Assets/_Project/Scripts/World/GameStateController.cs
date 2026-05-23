@@ -98,6 +98,7 @@ public class GameStateController : MonoBehaviour
         State = GameRunState.Won;
         Time.timeScale = 1f;
         SetCursorLocked(false);
+        CyberpunkAudio.Play(CyberpunkAudioCue.Win);
         hud?.ShowPersistentMessage("EMERGENCY LIFT REACHED\nPress R to run again");
     }
 
