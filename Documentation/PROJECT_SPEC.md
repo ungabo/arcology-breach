@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.64`.
+Current state: `v0.0.65`.
 
 Implemented:
 
@@ -72,6 +72,7 @@ Implemented:
 - `ResourcePickupVfx` feedback when health and ammo pickups are collected, with auto-playthrough coverage.
 - `SteamHazardVfx` animated low/high steam puffs on generated steam hazards, with validation and hazard smoke coverage.
 - `FurnaceHeatHazardVfx` animated phase signals and active heat ripples on generated furnace heat hazards, with validation and hazard smoke coverage.
+- `MachineMotionVfx` procedural enemy body, limb, and pressure-part animation for Scrappers, Lancers, Bulwarks, and the Governor Warden, with validation and runtime smoke coverage.
 
 ## 3. Target Platform
 

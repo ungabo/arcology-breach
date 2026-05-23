@@ -101,13 +101,14 @@ Every major asset should eventually have three quality targets:
 | --- | --- | --- | --- | --- |
 | ANIM-001 | Pressure Pistol idle/fire | P1 | prototype | Existing recoil/flash can be expanded. |
 | ANIM-002 | Pressure Pistol reload/check | P2 | planned | Optional if reloads become part of gameplay. |
-| ANIM-003 | Scrapper idle/chase | P1 | planned | Piston-driven movement, clear forward pressure. |
+| ANIM-003 | Scrapper idle/chase | P1 | prototype | `MachineMotionVfx` now gives Scrappers baseline boiler bob, piston/cutter motion, and pressure pulsing; final pass should replace it with authored stride/attack clips. |
 | ANIM-004 | Scrapper attack tell | P1 | planned | Cutter arm windup before damage. |
 | ANIM-005 | Scrapper hit/death | P1 | planned | Sparks, stagger, collapse, or shutdown. |
 | ANIM-006 | Lancer aim/fire | P1 | planned | Valve charge tell and shot release. |
 | ANIM-007 | Gate open/close | P1 | prototype | Existing sliding motion, needs gear-driven animation. |
 | ANIM-008 | Pickup bob/spin | P1 | prototype | Existing bobbing/spin can become clockwork hover or plinth animation. |
 | ANIM-009 | Machinery spinner loop | P1 | prototype | Reusable local-axis spinner loop for pressure gates, service lifts, valve wheels, and menu steamworks motion; final pass should vary speed, timing, linkage, and sound. |
+| ANIM-010 | Shared machine enemy motion | P1 | prototype | `MachineMotionVfx` applies reusable procedural body, limb, and pressure-part motion to Scrappers, Lancers, Bulwarks, and the Governor Warden. |
 
 ## 7. VFX
 

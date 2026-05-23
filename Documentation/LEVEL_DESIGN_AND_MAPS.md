@@ -58,6 +58,7 @@ Near-term:
 - Warden combat now surfaces a top-center boss health HUD so the final guardian objective reads clearly during the Governor Core fight.
 - Warden defeat now gets a visible shutdown burst so the final lock release has readable cause and effect.
 - Animated machinery spinners now add motion to pressure gates, service lifts, valve wheels, and the menu steamworks gear.
+- Procedural machine motion now gives Scrappers, Lancers, Bulwarks, and the Warden moving body/limb/pressure-part silhouettes.
 - Steam hazards now use animated low/high puffs and are verified by level validation and hazard smoke.
 - Furnace heat hazards now pulse their phase signals and show active heat ripples, verified by level validation and hazard smoke.
 - Hazard smoke covers Level03 steam damage and Level04 furnace-heat damage without ending the run from one tick/pulse. Level05 also includes validated steam and furnace-heat hazards.

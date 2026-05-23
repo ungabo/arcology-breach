@@ -267,6 +267,7 @@ public static class V0LevelValidator
             RequireEqual(enemy.definition.maxHealth, GameBalance.ScrapperHealth, sceneName + " Scrapper definition health");
             RequireApprox(enemy.definition.moveSpeed, GameBalance.ScrapperMoveSpeed, sceneName + " Scrapper definition speed");
             RequireEqual(enemy.definition.attackDamage, GameBalance.ScrapperAttackDamage, sceneName + " Scrapper definition damage");
+            RequireMachineMotion(enemy.gameObject, sceneName + " Scrapper machine motion");
         }
 
         RangedEnemyController[] rangedEnemies = UnityEngine.Object.FindObjectsByType<RangedEnemyController>(FindObjectsSortMode.None);
@@ -294,6 +295,7 @@ public static class V0LevelValidator
             RequireEqual(enemy.definition.maxHealth, GameBalance.LancerHealth, sceneName + " Lancer definition health");
             RequireApprox(enemy.definition.fireCooldown, GameBalance.LancerFireCooldown, sceneName + " Lancer definition cooldown");
             RequireEqual(enemy.definition.projectileDamage, GameBalance.LancerProjectileDamage, sceneName + " Lancer definition projectile damage");
+            RequireMachineMotion(enemy.gameObject, sceneName + " Lancer machine motion");
         }
 
         BulwarkEnemyController[] bulwarks = UnityEngine.Object.FindObjectsByType<BulwarkEnemyController>(FindObjectsSortMode.None);
@@ -320,6 +322,7 @@ public static class V0LevelValidator
             RequireEqual(enemy.definition.maxHealth, GameBalance.BulwarkHealth, sceneName + " Bulwark definition health");
             RequireApprox(enemy.definition.moveSpeed, GameBalance.BulwarkMoveSpeed, sceneName + " Bulwark definition speed");
             RequireEqual(enemy.definition.attackDamage, GameBalance.BulwarkAttackDamage, sceneName + " Bulwark definition damage");
+            RequireMachineMotion(enemy.gameObject, sceneName + " Bulwark machine motion");
         }
 
         GovernorWardenController[] wardens = UnityEngine.Object.FindObjectsByType<GovernorWardenController>(FindObjectsSortMode.None);
@@ -352,6 +355,16 @@ public static class V0LevelValidator
             RequireApprox(enemy.definition.moveSpeed, GameBalance.GovernorWardenMoveSpeed, sceneName + " Governor Warden definition speed");
             RequireEqual(enemy.definition.attackDamage, GameBalance.GovernorWardenStompDamage, sceneName + " Governor Warden definition damage");
             RequireEqual(enemy.definition.projectileDamage, GameBalance.GovernorWardenProjectileDamage, sceneName + " Governor Warden definition projectile damage");
+            RequireMachineMotion(enemy.gameObject, sceneName + " Governor Warden machine motion");
+        }
+    }
+
+    private static void RequireMachineMotion(GameObject enemy, string label)
+    {
+        MachineMotionVfx motion = enemy.GetComponent<MachineMotionVfx>();
+        if (motion == null || !motion.IsConfigured)
+        {
+            throw new InvalidOperationException("Level validation failed: " + label + " is missing configured MachineMotionVfx.");
         }
     }
 

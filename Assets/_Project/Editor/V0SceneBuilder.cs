@@ -1647,6 +1647,11 @@ public static class V0SceneBuilder
         enemy.transform.position = position;
 
         CreateScrapperVisual(enemy.transform, material, eyeMaterial, brassMaterial, ironMaterial, bladeMaterial);
+        AddMachineMotion(enemy, 1f,
+            "Scrapper Boiler Torso",
+            new[] { "Scrapper Left Piston Arm", "Scrapper Left Cutter", "Scrapper Left Leg", "Scrapper Left Foot" },
+            new[] { "Scrapper Right Piston Arm", "Scrapper Right Cutter", "Scrapper Right Leg", "Scrapper Right Foot" },
+            new[] { "Scrapper Furnace Eye", "Scrapper Pressure Tank" });
 
         CharacterController controller = enemy.AddComponent<CharacterController>();
         controller.height = 2f;
@@ -1669,6 +1674,11 @@ public static class V0SceneBuilder
         enemy.transform.position = position;
 
         Transform muzzle = CreateLancerVisual(enemy.transform, material, eyeMaterial, brassMaterial, ironMaterial, warningMaterial);
+        AddMachineMotion(enemy, 0.85f,
+            "Lancer Narrow Boiler Torso",
+            new[] { "Lancer Left Tripod Leg" },
+            new[] { "Lancer Right Tripod Leg", "Lancer Valve Rifle Barrel" },
+            new[] { "Lancer Furnace Lens", "Lancer Hot Pressure Coil", "Lancer Back Pressure Tank" });
 
         CharacterController controller = enemy.AddComponent<CharacterController>();
         controller.height = 2f;
@@ -1694,6 +1704,11 @@ public static class V0SceneBuilder
         enemy.transform.position = position;
 
         CreateBulwarkVisual(enemy.transform, material, eyeMaterial, brassMaterial, ironMaterial, warningMaterial);
+        AddMachineMotion(enemy, 1.25f,
+            "Bulwark Riveted Boiler Body",
+            new[] { "Bulwark Left Hammer Arm", "Bulwark Left Hammer Head", "Bulwark Left Piston Leg", "Bulwark Left Heavy Foot" },
+            new[] { "Bulwark Right Hammer Arm", "Bulwark Right Hammer Head", "Bulwark Right Piston Leg", "Bulwark Right Heavy Foot" },
+            new[] { "Bulwark Furnace Belly", "Bulwark Back Pressure Tank" });
 
         CharacterController controller = enemy.AddComponent<CharacterController>();
         controller.height = 2.35f;
@@ -1717,6 +1732,11 @@ public static class V0SceneBuilder
         enemy.transform.position = position;
 
         Transform muzzle = CreateGovernorWardenVisual(enemy.transform, material, eyeMaterial, brassMaterial, ironMaterial, warningMaterial);
+        AddMachineMotion(enemy, 1.55f,
+            "Governor Warden Core Body",
+            new[] { "Governor Warden Left Piston Arm", "Governor Warden Left Stomp Plate" },
+            new[] { "Governor Warden Right Piston Arm", "Governor Warden Right Stomp Plate", "Governor Warden Pressure Cannon Muzzle" },
+            new[] { "Governor Warden Furnace Heart", "Governor Warden Pressure Crown", "Governor Warden Back Boiler" });
 
         CharacterController controller = enemy.AddComponent<CharacterController>();
         controller.height = 2.9f;
@@ -1739,6 +1759,29 @@ public static class V0SceneBuilder
         warden.projectileDamage = GameBalance.GovernorWardenProjectileDamage;
         warden.projectileSpeed = GameBalance.GovernorWardenProjectileSpeed;
         return warden;
+    }
+
+    private static void AddMachineMotion(GameObject machine, float scale, string bodyName, string[] leftPartNames, string[] rightPartNames, string[] pulsePartNames)
+    {
+        MachineMotionVfx motion = machine.AddComponent<MachineMotionVfx>();
+        motion.body = machine.transform.Find(bodyName);
+        motion.leftMotionParts = FindDirectChildren(machine.transform, leftPartNames);
+        motion.rightMotionParts = FindDirectChildren(machine.transform, rightPartNames);
+        motion.pulseParts = FindDirectChildren(machine.transform, pulsePartNames);
+        motion.idleBob = 0.035f * scale;
+        motion.swingDegrees = 7f * scale;
+        motion.pressurePulse = 0.035f * scale;
+    }
+
+    private static Transform[] FindDirectChildren(Transform parent, string[] names)
+    {
+        Transform[] children = new Transform[names.Length];
+        for (int i = 0; i < names.Length; i++)
+        {
+            children[i] = parent.Find(names[i]);
+        }
+
+        return children;
     }
 
     private static GuardianDefeatObjective CreateGovernorWardenDefeatObjective(GovernorWardenController target, Material ironMaterial, Material brassMaterial, Material warningMaterial)

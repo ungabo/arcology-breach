@@ -35,6 +35,13 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<RuntimeSecretTest>("RuntimeSecretTest");
         Require<RuntimePauseFlowTest>("RuntimePauseFlowTest");
         Require<SteamworksSpinner>("SteamworksSpinner");
+        MachineMotionVfx machineMotion = Require<MachineMotionVfx>("MachineMotionVfx");
+        if (!machineMotion.IsConfigured)
+        {
+            Debug.LogError("Runtime smoke test failed: machine motion VFX is not configured.");
+            Application.Quit(1);
+        }
+
         HUDController hud = Require<HUDController>("HUDController");
         if (hud.bossNameText == null || hud.bossBackplateImage == null || hud.bossFillImage == null)
         {
