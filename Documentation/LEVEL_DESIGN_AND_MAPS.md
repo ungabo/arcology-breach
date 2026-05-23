@@ -49,6 +49,7 @@ Near-term:
 - Level03 final service lift is pressure-locked until the Boilerheart pressure valve is vented, then triggers the current win state.
 - Auto-playthrough covers Level01 key/gate/lift, transition to Level02, transition to Level03, locked-final-lift rejection, Boilerheart pressure valve, and Level03 final lift.
 - Hazard smoke covers Level03 steam hazard damage without ending the run from one tick.
+- Each current level now has a scene-specific objective briefing at spawn.
 - Health and ammo persist across scene transitions.
 - Future weapon inventory and campaign flags still need expanded persistence.
 

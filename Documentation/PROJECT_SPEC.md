@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.40`.
+Current state: `v0.0.41`.
 
 Implemented:
 
@@ -48,6 +48,7 @@ Implemented:
 - Three-level service-lift campaign chain ending at Level03 Boilerheart Core.
 - Boilerheart pressure-valve objective that locks the Level03 final lift until vented.
 - Steam hazard trigger volumes with packaged hazard smoke coverage.
+- Scene-specific objective briefing messages for the current three-level route.
 
 ## 3. Target Platform
 

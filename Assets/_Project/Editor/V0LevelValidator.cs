@@ -55,7 +55,8 @@ public static class V0LevelValidator
         ValidateBalanceValues(sceneName, playerController, playerInventory, weaponController);
         ValidateInteractionSystem(sceneName, playerController, playerInteraction);
         ValidateWeaponVisuals(sceneName);
-        Require<GameStateController>(sceneName + " GameStateController");
+        GameStateController gameState = Require<GameStateController>(sceneName + " GameStateController");
+        ValidateStartMessage(sceneName, gameState);
         Require<LevelTransitionController>(sceneName + " LevelTransitionController");
         RuntimePerformanceProfile performanceProfile = Require<RuntimePerformanceProfile>(sceneName + " RuntimePerformanceProfile");
         ValidatePlatformQualityProfile(sceneName, performanceProfile);
@@ -278,6 +279,27 @@ public static class V0LevelValidator
         if (profile.allowCameraMsaa || profile.allowDynamicResolution)
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " Windows profile must disable camera MSAA and dynamic resolution.");
+        }
+    }
+
+    private static void ValidateStartMessage(string sceneName, GameStateController gameState)
+    {
+        string expectedMessage = sceneName == "Level01"
+            ? "Find the gear key. Open the pressure gate."
+            : sceneName == "Level02"
+                ? "Survive the Pipeworks. Ride the lift to the Boilerheart."
+                : sceneName == "Level03"
+                    ? "Vent the Boilerheart pressure valve. Reach the final service lift."
+                    : string.Empty;
+
+        if (string.IsNullOrWhiteSpace(expectedMessage))
+        {
+            return;
+        }
+
+        if (gameState.startMessage != expectedMessage)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " start message is not scene-specific.");
         }
     }
 

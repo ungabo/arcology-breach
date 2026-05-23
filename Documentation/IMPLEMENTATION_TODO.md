@@ -620,6 +620,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.41 Scene Objective Briefing Pass
+
+- [x] Add `GameStateController.startMessage`.
+- [x] Generate Level01 objective briefing.
+- [x] Generate Level02 objective briefing.
+- [x] Generate Level03 objective briefing.
+- [x] Validate scene-specific briefing messages.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.41`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

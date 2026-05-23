@@ -72,7 +72,7 @@ public static class V0SceneBuilder
         CreateLighting();
         CreateGreyboxLevel(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
-        CreateGameState(hud, windowsQualityProfile);
+        CreateGameState(hud, windowsQualityProfile, "Find the gear key. Open the pressure gate.");
         CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, rivetedIronMaterial, pressureWarningMaterial, pressurePistolDefinition);
         CreateEnemy("Enemy - First Room", new Vector3(0f, 1f, 16.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
         CreateEnemy("Enemy - Key Room", new Vector3(14.5f, 1f, 17f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
@@ -710,7 +710,7 @@ public static class V0SceneBuilder
         CreateLighting();
         CreatePipeworksAnnexBlockout(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
-        CreateGameState(hud, windowsQualityProfile);
+        CreateGameState(hud, windowsQualityProfile, "Survive the Pipeworks. Ride the lift to the Boilerheart.");
         CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition);
 
         CreateEnemy("Enemy - Pipeworks Gatehouse", new Vector3(-2.2f, 1f, 9.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
@@ -734,7 +734,7 @@ public static class V0SceneBuilder
         CreateLighting();
         CreateBoilerheartBlockout(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
-        CreateGameState(hud, windowsQualityProfile);
+        CreateGameState(hud, windowsQualityProfile, "Vent the Boilerheart pressure valve. Reach the final service lift.");
         CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition);
 
         CreateEnemy("Enemy - Boilerheart Floor Guard", new Vector3(-2.6f, 1f, 12.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
@@ -1215,12 +1215,13 @@ public static class V0SceneBuilder
         return text;
     }
 
-    private static void CreateGameState(HUDController hud, PlatformQualityProfile qualityProfile)
+    private static void CreateGameState(HUDController hud, PlatformQualityProfile qualityProfile, string startMessage)
     {
         GameObject stateObject = new GameObject("Game State");
         GameStateController state = stateObject.AddComponent<GameStateController>();
         state.hud = hud;
         state.pauseMenu = UnityEngine.Object.FindAnyObjectByType<PauseMenuController>();
+        state.startMessage = startMessage;
         stateObject.AddComponent<LevelTransitionController>();
         stateObject.AddComponent<SteamworksAudio>();
         RuntimePerformanceProfile performanceProfile = stateObject.AddComponent<RuntimePerformanceProfile>();

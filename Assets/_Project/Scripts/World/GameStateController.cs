@@ -15,6 +15,7 @@ public class GameStateController : MonoBehaviour
 
     public HUDController hud;
     public PauseMenuController pauseMenu;
+    public string startMessage = "Find the gear key. Open the pressure gate.";
     public bool suppressQuitForAutomation;
     public bool suppressRestartForAutomation;
 
@@ -46,7 +47,10 @@ public class GameStateController : MonoBehaviour
     private void Start()
     {
         ResumeGameplay();
-        hud?.ShowTemporaryMessage("Find the gear key. Open the pressure gate.", 3f);
+        if (!string.IsNullOrWhiteSpace(startMessage))
+        {
+            hud?.ShowTemporaryMessage(startMessage, 3f);
+        }
     }
 
     private void Update()

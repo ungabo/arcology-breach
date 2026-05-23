@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.40` versioned build for `Brassworks Breach`.
+`v0.0.41` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds reusable steam hazard volumes and packaged hazard smoke coverage on top of the Level03 Boilerheart pressure-valve objective, locked final lift, Level03 Boilerheart Core, the three-level service-lift campaign chain, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build adds level-specific objective briefing messages on top of reusable steam hazard volumes, packaged hazard smoke coverage, the Level03 Boilerheart pressure-valve objective, locked final lift, Level03 Boilerheart Core, the three-level service-lift campaign chain, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -52,12 +52,13 @@
 - Generated `Level03` Boilerheart Core scene, Level02-to-Level03 service-lift transition, four-scene build order, and three-level auto-playthrough coverage.
 - Level03 Boilerheart pressure valve objective that locks the final lift until the player vents pressure.
 - Reusable `SteamHazard` trigger volumes with Boilerheart hazard placement and packaged hazard smoke coverage.
+- Scene-specific objective briefing messages for Level01, Level02, and Level03.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.40`.
+Latest fully verified build: `v0.0.41`.
 
-Current `v0.0.40` verification:
+Current `v0.0.41` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -93,7 +94,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.40\BrassworksBreach_v0.0.40.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.41\BrassworksBreach_v0.0.41.exe`
 
 ## Latest Build Verification
 
@@ -418,8 +419,22 @@ Current target:
 - `2026-05-23 13:52 -04:00`: `v0.0.40` packaged interaction smoke passed.
 - `2026-05-23 13:52 -04:00`: `v0.0.40` packaged hazard smoke passed.
 - `2026-05-23 13:52 -04:00`: `v0.0.40` packaged pause-flow smoke passed.
+- `2026-05-23 13:56 -04:00`: `v0.0.41` one-command build matrix runner passed.
+- `2026-05-23 13:56 -04:00`: `v0.0.41` scene rebuild passed.
+- `2026-05-23 13:56 -04:00`: `v0.0.41` level validation passed.
+- `2026-05-23 13:56 -04:00`: `v0.0.41` editor smoke passed.
+- `2026-05-23 13:56 -04:00`: `v0.0.41` Windows build passed.
+- `2026-05-23 13:56 -04:00`: `v0.0.41` packaged runtime smoke passed.
+- `2026-05-23 13:56 -04:00`: `v0.0.41` packaged auto-playthrough passed.
+- `2026-05-23 13:56 -04:00`: `v0.0.41` packaged combat smoke passed.
+- `2026-05-23 13:56 -04:00`: `v0.0.41` packaged combat-edge smoke passed.
+- `2026-05-23 13:56 -04:00`: `v0.0.41` packaged combat-scenario smoke passed.
+- `2026-05-23 13:56 -04:00`: `v0.0.41` packaged ranged combat smoke passed.
+- `2026-05-23 13:56 -04:00`: `v0.0.41` packaged interaction smoke passed.
+- `2026-05-23 13:56 -04:00`: `v0.0.41` packaged hazard smoke passed.
+- `2026-05-23 13:56 -04:00`: `v0.0.41` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.41`, `v0.0.42`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.42`, `v0.0.43`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

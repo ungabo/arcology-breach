@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.40` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.41` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -59,7 +59,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.40\BrassworksBreach_v0.0.40.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.41\BrassworksBreach_v0.0.41.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -200,6 +200,12 @@ Individual Unity entry points remain available:
 - Reusable steam hazard trigger system.
 - Two Boilerheart steam hazard volumes with primitive vent/puff visuals.
 - Packaged hazard smoke test added to the one-command matrix.
+
+## What v0.0.41 Adds
+
+- Scene-specific objective briefing messages.
+- Validation coverage for Level01, Level02, and Level03 objective text.
+- Full matrix remains green with the updated scene messaging.
 
 ## Good Next Steps
 

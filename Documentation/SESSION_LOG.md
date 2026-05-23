@@ -1001,3 +1001,37 @@ Build executable:
 `Builds/Windows/v0.0.40/BrassworksBreach_v0.0.40.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 13:56 -04:00
+
+Completed `v0.0.41` scene objective briefing pass.
+
+Added:
+
+- `GameStateController.startMessage`.
+- Level01 objective message: find the gear key and open the pressure gate.
+- Level02 objective message: survive the Pipeworks and ride to the Boilerheart.
+- Level03 objective message: vent the Boilerheart pressure valve and reach the final lift.
+- Level validation for scene-specific briefing messages.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.41/BrassworksBreach_v0.0.41.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
