@@ -141,3 +141,26 @@ Verification completed:
 Build executable:
 
 `Builds/Windows/v0.0.11/BrassworksBreach_v0.0.11.exe`
+
+## 2026-05-23 10:21 -04:00
+
+Completed `v0.0.12` pickup visual pass.
+
+Added:
+
+- Replaced the cube health pickup with a brass-and-glass medicinal vial.
+- Replaced the cube ammo pickup with a brass pressure-cartridge pack.
+- Added frosted glass and red medicinal fluid materials.
+
+Verification completed:
+
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.12/BrassworksBreach_v0.0.12.exe`

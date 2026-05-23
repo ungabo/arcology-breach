@@ -93,6 +93,19 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Run packaged pause-flow smoke.
 - [x] Commit and push `v0.0.11`.
 
+## v0.0.12 Pickup Visual Pass
+
+- [x] Replace cube health pickup with brass-and-glass medicinal vial.
+- [x] Replace cube ammo pickup with brass pressure-cartridge pack.
+- [x] Rebuild generated scene.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.12`.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

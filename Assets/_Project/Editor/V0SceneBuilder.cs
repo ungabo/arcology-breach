@@ -27,7 +27,7 @@ public static class V0SceneBuilder
         Material enemyMaterial = CreateMaterial("M_Greybox_ClockworkEnemy", new Color(0.8f, 0.42f, 0.14f));
         Material enemyEyeMaterial = CreateMaterial("M_Greybox_FurnaceEyes", new Color(1f, 0.55f, 0.12f));
         Material healthMaterial = CreateMaterial("M_Greybox_Health", new Color(0.95f, 0.1f, 0.1f));
-        Material ammoMaterial = CreateMaterial("M_Greybox_Ammo", new Color(0.15f, 0.45f, 1f));
+        Material ammoMaterial = CreateMaterial("M_Greybox_Ammo", new Color(0.84f, 0.54f, 0.18f));
         Material gunMaterial = CreateMaterial("M_Greybox_WalnutGrip", new Color(0.22f, 0.12f, 0.055f));
         Material gunTrimMaterial = CreateMaterial("M_Greybox_BrassTrim", new Color(0.86f, 0.58f, 0.24f));
         Material muzzleFlashMaterial = CreateMaterial("M_Greybox_MuzzleFlash", new Color(1f, 0.72f, 0.08f));
@@ -39,6 +39,8 @@ public static class V0SceneBuilder
         Material gaugeFaceMaterial = CreateMaterial("M_Steam_CreamGaugeFace", new Color(0.86f, 0.78f, 0.58f));
         Material steamPuffMaterial = CreateMaterial("M_Steam_SteamPuff", new Color(0.72f, 0.72f, 0.68f));
         Material furnaceGlowMaterial = CreateMaterial("M_Steam_FurnaceGlow", new Color(1f, 0.36f, 0.08f));
+        Material glassVialMaterial = CreateMaterial("M_Steam_FrostedGlassVial", new Color(0.58f, 0.78f, 0.8f));
+        Material medicinalFluidMaterial = CreateMaterial("M_Steam_RedMedicinalFluid", new Color(0.82f, 0.05f, 0.04f));
 
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -53,8 +55,8 @@ public static class V0SceneBuilder
         CreateEnemy("Enemy - Key Room", new Vector3(14.5f, 1f, 17f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
         CreateEnemy("Enemy - Final Left", new Vector3(-3.2f, 1f, 30.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
         CreateEnemy("Enemy - Final Right", new Vector3(3.2f, 1f, 32.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
-        CreatePickup("Pickup - Health", PickupKind.Health, new Vector3(-3.6f, 0.45f, 20f), Vector3.one * 0.7f, healthMaterial, 25);
-        CreatePickup("Pickup - Ammo", PickupKind.Ammo, new Vector3(4.2f, 0.45f, 19f), Vector3.one * 0.7f, ammoMaterial, 15);
+        CreateHealthVialPickup("Pickup - Health Vial", new Vector3(-3.6f, 0.65f, 20f), healthMaterial, glassVialMaterial, medicinalFluidMaterial, brassGuideMaterial, 25);
+        CreatePressureCartridgePickup("Pickup - Pressure Cartridge Pack", new Vector3(4.2f, 0.55f, 19f), ammoMaterial, rivetedIronMaterial, brassGuideMaterial, 15);
         CreateGearKeyPickup("Pickup - Gear Key", new Vector3(16f, 0.55f, 17f), Vector3.one * 1.1f, keyMaterial, rivetedIronMaterial);
         CreateLockedDoor(doorMaterial, brassGuideMaterial, gaugeFaceMaterial, pressureWarningMaterial);
         CreateExit(exitMaterial, rivetedIronMaterial, brassGuideMaterial, gaugeFaceMaterial);
@@ -745,20 +747,6 @@ public static class V0SceneBuilder
         return CreateLocalPrimitive(name, PrimitiveType.Cube, parent, localPosition, localScale, material);
     }
 
-    private static void CreatePickup(string name, PickupKind kind, Vector3 position, Vector3 scale, Material material, int amount)
-    {
-        GameObject pickup = CreateCube(name, position, scale, material);
-        Collider pickupCollider = pickup.GetComponent<Collider>();
-        if (pickupCollider != null)
-        {
-            pickupCollider.isTrigger = true;
-        }
-
-        Pickup pickupComponent = pickup.AddComponent<Pickup>();
-        pickupComponent.kind = kind;
-        pickupComponent.amount = amount;
-    }
-
     private static void CreateGearKeyPickup(string name, Vector3 position, Vector3 scale, Material brassMaterial, Material ironMaterial)
     {
         GameObject pickup = new GameObject(name);
@@ -785,6 +773,63 @@ public static class V0SceneBuilder
             GameObject tooth = CreateLocalCube(name + " Tooth " + i, pickup.transform, toothPosition, new Vector3(0.16f, 0.1f, 0.16f), brassMaterial);
             tooth.transform.localRotation = Quaternion.Euler(0f, angle, 0f);
         }
+    }
+
+    private static void CreateHealthVialPickup(string name, Vector3 position, Material crossMaterial, Material glassMaterial, Material fluidMaterial, Material brassMaterial, int amount)
+    {
+        GameObject pickup = new GameObject(name);
+        pickup.transform.position = position;
+
+        BoxCollider trigger = pickup.AddComponent<BoxCollider>();
+        trigger.size = new Vector3(0.95f, 1.2f, 0.95f);
+        trigger.isTrigger = true;
+
+        Pickup pickupComponent = pickup.AddComponent<Pickup>();
+        pickupComponent.kind = PickupKind.Health;
+        pickupComponent.amount = amount;
+
+        CreateLocalPrimitive(name + " Frosted Glass", PrimitiveType.Cylinder, pickup.transform, new Vector3(0f, 0f, 0f), new Vector3(0.24f, 0.46f, 0.24f), glassMaterial);
+        CreateLocalPrimitive(name + " Red Fluid", PrimitiveType.Cylinder, pickup.transform, new Vector3(0f, -0.12f, 0f), new Vector3(0.18f, 0.27f, 0.18f), fluidMaterial);
+        CreateLocalPrimitive(name + " Top Brass Cap", PrimitiveType.Cylinder, pickup.transform, new Vector3(0f, 0.49f, 0f), new Vector3(0.28f, 0.07f, 0.28f), brassMaterial);
+        CreateLocalPrimitive(name + " Bottom Brass Cap", PrimitiveType.Cylinder, pickup.transform, new Vector3(0f, -0.49f, 0f), new Vector3(0.28f, 0.07f, 0.28f), brassMaterial);
+        CreateLocalCube(name + " Front Red Cross Vertical", pickup.transform, new Vector3(0f, 0.03f, 0.25f), new Vector3(0.08f, 0.36f, 0.035f), crossMaterial);
+        CreateLocalCube(name + " Front Red Cross Horizontal", pickup.transform, new Vector3(0f, 0.03f, 0.27f), new Vector3(0.3f, 0.08f, 0.035f), crossMaterial);
+        CreateLocalCube(name + " Brass Side Strap Left", pickup.transform, new Vector3(-0.3f, -0.03f, 0f), new Vector3(0.05f, 0.76f, 0.08f), brassMaterial);
+        CreateLocalCube(name + " Brass Side Strap Right", pickup.transform, new Vector3(0.3f, -0.03f, 0f), new Vector3(0.05f, 0.76f, 0.08f), brassMaterial);
+    }
+
+    private static void CreatePressureCartridgePickup(string name, Vector3 position, Material cartridgeMaterial, Material ironMaterial, Material brassMaterial, int amount)
+    {
+        GameObject pickup = new GameObject(name);
+        pickup.transform.position = position;
+
+        BoxCollider trigger = pickup.AddComponent<BoxCollider>();
+        trigger.size = new Vector3(1.25f, 1f, 1.05f);
+        trigger.isTrigger = true;
+
+        Pickup pickupComponent = pickup.AddComponent<Pickup>();
+        pickupComponent.kind = PickupKind.Ammo;
+        pickupComponent.amount = amount;
+
+        CreateLocalCube(name + " Brass Crate Base", pickup.transform, new Vector3(0f, -0.3f, 0f), new Vector3(0.9f, 0.16f, 0.58f), brassMaterial);
+        CreateLocalCube(name + " Iron Strap Front", pickup.transform, new Vector3(0f, -0.16f, 0.33f), new Vector3(1.02f, 0.08f, 0.07f), ironMaterial);
+        CreateLocalCube(name + " Iron Strap Back", pickup.transform, new Vector3(0f, -0.16f, -0.33f), new Vector3(1.02f, 0.08f, 0.07f), ironMaterial);
+
+        for (int i = 0; i < 3; i++)
+        {
+            float x = (i - 1) * 0.28f;
+            GameObject cartridge = CreateLocalPrimitive(name + " Pressure Cartridge " + i, PrimitiveType.Cylinder, pickup.transform, new Vector3(x, 0f, 0f), new Vector3(0.11f, 0.45f, 0.11f), cartridgeMaterial);
+            cartridge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+
+            GameObject nozzle = CreateLocalPrimitive(name + " Iron Nozzle " + i, PrimitiveType.Cylinder, pickup.transform, new Vector3(x, 0f, 0.47f), new Vector3(0.085f, 0.08f, 0.085f), ironMaterial);
+            nozzle.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+
+            GameObject cap = CreateLocalPrimitive(name + " Brass Valve Cap " + i, PrimitiveType.Cylinder, pickup.transform, new Vector3(x, 0f, -0.47f), new Vector3(0.13f, 0.08f, 0.13f), brassMaterial);
+            cap.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        }
+
+        CreateLocalPrimitive(name + " Pressure Gauge", PrimitiveType.Cylinder, pickup.transform, new Vector3(0f, 0.28f, 0.02f), new Vector3(0.18f, 0.035f, 0.18f), brassMaterial);
+        CreateLocalCube(name + " Gauge Needle", pickup.transform, new Vector3(0.04f, 0.3f, 0.02f), new Vector3(0.14f, 0.025f, 0.025f), ironMaterial);
     }
 
     private static void CreateLockedDoor(Material material, Material brassMaterial, Material gaugeFaceMaterial, Material warningMaterial)

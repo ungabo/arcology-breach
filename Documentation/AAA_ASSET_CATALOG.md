@@ -58,8 +58,8 @@ Every major asset should eventually have three quality targets:
 | PROP-001 | Gear key placeholder | P0 | prototype | Existing primitive gear-key pickup with teeth, hub, shaft, and bit. |
 | PROP-002 | Pressure gate placeholder | P0 | prototype | Existing sliding gate with primitive rails, gear wheel, and gauge. |
 | PROP-003 | Service lift placeholder | P0 | prototype | Existing green exit object with primitive cage rails and gauge. |
-| PROP-004 | Health vial | P1 | planned | Glass-and-brass healing pickup. |
-| PROP-005 | Pressure cartridge pack | P1 | planned | Ammo pickup for pressure weapons. |
+| PROP-004 | Health vial | P1 | prototype | Primitive brass-and-glass healing pickup with red medicinal fluid and cross mark. |
+| PROP-005 | Pressure cartridge pack | P1 | prototype | Primitive brass cartridge bundle with iron nozzles, straps, and pressure gauge. |
 | PROP-006 | Gear key final | P1 | planned | Brass gear/clockwork key pickup. |
 | PROP-007 | Pressure gate final | P1 | planned | Heavy gear-driven gate with gauges and red pressure lamps. |
 | PROP-008 | Service lift final | P1 | planned | Green-lit lift cage or brass service elevator. |
@@ -111,7 +111,7 @@ Every major asset should eventually have three quality targets:
 | --- | --- | --- | --- | --- |
 | VFX-001 | Muzzle flash placeholder | P0 | prototype | Existing primitive flash. |
 | VFX-002 | Pressure muzzle flash | P1 | planned | Hot spark and steam puff. |
-| VFX-003 | Impact sparks | P1 | planned | Short metal spark burst. |
+| VFX-003 | Impact sparks | P1 | prototype | Short primitive metal spark burst at weapon impact point. |
 | VFX-004 | Machine hit effect | P1 | planned | Sparks, oil flecks, small steam release. |
 | VFX-005 | Machine death effect | P1 | planned | Shutdown flash, pressure vent, smoke. |
 | VFX-006 | Gear-key pickup effect | P1 | planned | Amber click/gear spin effect. |
