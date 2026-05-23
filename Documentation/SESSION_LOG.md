@@ -1940,3 +1940,42 @@ Build executable:
 `Builds/Windows/v0.0.65/BrassworksBreach_v0.0.65.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 18:16 -04:00
+
+Completed `v0.0.66` pressure-bolt VFX pass.
+
+Added:
+
+- `PressureBoltVfx` reusable projectile readability component.
+- Core glow, trailing pressure puffs, and side sparks on pressure bolts.
+- Travel-direction orientation for pressure bolts.
+- Lancer projectile VFX wiring.
+- Governor Warden projectile VFX wiring.
+- Ranged-combat smoke coverage requiring visible pressure-bolt VFX before damage.
+- Versioned Windows build `v0.0.66`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.66/BrassworksBreach_v0.0.66.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

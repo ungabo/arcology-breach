@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.65`.
+Current state: `v0.0.66`.
 
 Implemented:
 
@@ -73,6 +73,7 @@ Implemented:
 - `SteamHazardVfx` animated low/high steam puffs on generated steam hazards, with validation and hazard smoke coverage.
 - `FurnaceHeatHazardVfx` animated phase signals and active heat ripples on generated furnace heat hazards, with validation and hazard smoke coverage.
 - `MachineMotionVfx` procedural enemy body, limb, and pressure-part animation for Scrappers, Lancers, Bulwarks, and the Governor Warden, with validation and runtime smoke coverage.
+- `PressureBoltVfx` glow/trail/spark projectile readability for Lancer and Governor Warden pressure bolts, with ranged-combat smoke coverage.
 
 ## 3. Target Platform
 

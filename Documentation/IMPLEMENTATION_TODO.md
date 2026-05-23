@@ -983,6 +983,21 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.66 Pressure Bolt VFX Pass
+
+- [x] Add reusable `PressureBoltVfx`.
+- [x] Orient pressure bolts along travel direction.
+- [x] Add pressure-bolt glow/trail/spark pieces.
+- [x] Wire projectile VFX for Lancers.
+- [x] Wire projectile VFX for the Governor Warden.
+- [x] Expand ranged-combat smoke to verify visible pressure-bolt VFX.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.66`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

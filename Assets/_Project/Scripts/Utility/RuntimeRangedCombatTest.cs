@@ -40,7 +40,7 @@ public class RuntimeRangedCombatTest : MonoBehaviour
             characterController.enabled = false;
         }
 
-        player.transform.position = lancer.transform.position + Vector3.back * 6f;
+        player.transform.position = lancer.transform.position + Vector3.back * 8f;
 
         if (characterController != null)
         {
@@ -48,6 +48,12 @@ public class RuntimeRangedCombatTest : MonoBehaviour
         }
 
         int startingHealth = health.CurrentHealth;
+        yield return WaitUntilOrFail(HasPressureBoltVfx, "Lancer pressure bolt VFX", 5f);
+        if (failed)
+        {
+            yield break;
+        }
+
         yield return WaitUntilOrFail(() => health.CurrentHealth < startingHealth, "Lancer pressure bolt damage", 5f);
         if (failed)
         {
@@ -56,6 +62,12 @@ public class RuntimeRangedCombatTest : MonoBehaviour
 
         Debug.Log("V0_RANGED_COMBAT_PASS");
         Application.Quit(0);
+    }
+
+    private static bool HasPressureBoltVfx()
+    {
+        PressureBoltVfx boltVfx = UnityEngine.Object.FindAnyObjectByType<PressureBoltVfx>();
+        return boltVfx != null && boltVfx.VisiblePieceCount >= 5;
     }
 
     private IEnumerator WaitUntilOrFail(Func<bool> predicate, string step, float timeoutSeconds)

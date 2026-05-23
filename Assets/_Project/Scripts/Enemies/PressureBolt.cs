@@ -16,6 +16,7 @@ public class PressureBolt : MonoBehaviour
         direction = fireDirection.sqrMagnitude > 0.001f ? fireDirection.normalized : Vector3.forward;
         damage = boltDamage;
         speed = boltSpeed;
+        transform.rotation = Quaternion.LookRotation(direction);
     }
 
     private void Start()

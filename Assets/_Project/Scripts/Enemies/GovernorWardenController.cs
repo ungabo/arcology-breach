@@ -223,13 +223,15 @@ public class GovernorWardenController : MonoBehaviour, IDamageable
         }
 
         Renderer boltRenderer = boltObject.GetComponent<Renderer>();
+        Color boltColor = enraged ? enragedColor : attackTellColor;
         if (boltRenderer != null)
         {
-            boltRenderer.material.color = enraged ? enragedColor : attackTellColor;
+            boltRenderer.material.color = boltColor;
         }
 
         PressureBolt bolt = boltObject.AddComponent<PressureBolt>();
         bolt.Initialize(direction, projectileDamage, projectileSpeed);
+        PressureBoltVfx.Attach(boltObject, boltColor, 1.35f);
     }
 
     private void CancelAction()

@@ -127,6 +127,7 @@ Every major asset should eventually have three quality targets:
 | VFX-008 | Service lift activation | P1 | prototype | `LiftActivationVfx` spawns a green floor pressure ring, center steam pulse, and brass/green contact sparks before level-transition scene loads. |
 | VFX-009 | Steam hazard field | P2 | prototype | `SteamHazardVfx` animates low/high steam puffs on generated steam hazards; final pass should add denser particles, sound sync, and wind direction. |
 | VFX-010 | Furnace heat field | P2 | prototype | `FurnaceHeatHazardVfx` pulses phase signals and animates active heat ripples on generated furnace hazards; final pass should add heat shimmer particles, distortion, and furnace audio sync. |
+| VFX-011 | Pressure-bolt projectile trail | P1 | prototype | `PressureBoltVfx` adds core glow, trailing pressure puffs, and side sparks to Lancer and Governor Warden pressure bolts. |
 
 ## 8. Audio
 

@@ -167,13 +167,15 @@ public class RangedEnemyController : MonoBehaviour, IDamageable
         }
 
         Renderer boltRenderer = boltObject.GetComponent<Renderer>();
+        Color boltColor = new Color(1f, 0.52f, 0.12f);
         if (boltRenderer != null)
         {
-            boltRenderer.material.color = new Color(1f, 0.52f, 0.12f);
+            boltRenderer.material.color = boltColor;
         }
 
         PressureBolt bolt = boltObject.AddComponent<PressureBolt>();
         bolt.Initialize(direction, projectileDamage, projectileSpeed);
+        PressureBoltVfx.Attach(boltObject, boltColor, 1f);
     }
 
     private void CancelFireWindup()
