@@ -37,15 +37,16 @@
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.19`.
+Latest fully verified build: `v0.0.20`.
 
-Current `v0.0.19` verification:
+Current `v0.0.20` verification:
 
 - Editor smoke test: passed.
 - Windows build: passed.
 - Packaged runtime smoke test: passed.
 - Packaged auto-playthrough test: passed.
 - Packaged combat smoke test: passed.
+- Packaged combat-edge smoke test: passed.
 - Packaged ranged combat smoke test: passed.
 - Packaged pause-flow smoke test: passed.
 
@@ -56,6 +57,7 @@ Pass markers:
 - `V0_RUNTIME_SMOKE_PASS`
 - `V0_AUTO_PLAYTHROUGH_PASS`
 - `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
 - `V0_RANGED_COMBAT_PASS`
 - `V0_PAUSE_FLOW_PASS`
 
@@ -63,7 +65,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.19\BrassworksBreach_v0.0.19.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.20\BrassworksBreach_v0.0.20.exe`
 
 ## Latest Build Verification
 
@@ -158,13 +160,22 @@ Current target:
 - `2026-05-23 11:16 -04:00`: `v0.0.19` packaged combat smoke passed.
 - `2026-05-23 11:17 -04:00`: `v0.0.19` packaged ranged combat smoke passed.
 - `2026-05-23 11:17 -04:00`: `v0.0.19` packaged pause-flow smoke passed.
+- `2026-05-23 11:32 -04:00`: `v0.0.20` scene rebuild passed.
+- `2026-05-23 11:33 -04:00`: `v0.0.20` editor smoke passed.
+- `2026-05-23 11:35 -04:00`: `v0.0.20` Windows build passed.
+- `2026-05-23 11:36 -04:00`: `v0.0.20` packaged runtime smoke passed.
+- `2026-05-23 11:36 -04:00`: `v0.0.20` packaged auto-playthrough passed.
+- `2026-05-23 11:37 -04:00`: `v0.0.20` packaged combat smoke passed.
+- `2026-05-23 11:37 -04:00`: `v0.0.20` packaged combat-edge smoke passed.
+- `2026-05-23 11:38 -04:00`: `v0.0.20` packaged ranged combat smoke passed.
+- `2026-05-23 11:38 -04:00`: `v0.0.20` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.20`, `v0.0.21`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.21`, `v0.0.22`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
 - Runtime smoke test verifies boot/object presence. Auto-playthrough verifies the current two-level objective flow but not human combat feel.
-- Combat smoke verifies weapon raycast damage and enemy death; ranged combat smoke verifies Lancer projectile damage.
+- Combat smoke verifies weapon raycast damage and enemy death; combat-edge smoke verifies empty ammo, Scrapper melee damage, and player death state; ranged combat smoke verifies Lancer projectile damage.
 - Visual dressing is still procedural primitive art, not final generated assets.
 - Enemy pathing uses simple side-steering, not NavMesh.
 - Scrapper attack windup is smoke-tested but still needs manual feel tuning.

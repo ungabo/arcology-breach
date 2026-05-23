@@ -220,6 +220,24 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Run packaged pause-flow smoke.
 - [x] Commit and push `v0.0.19`.
 
+## v0.0.20 Combat Edge Smoke
+
+- [x] Add `RuntimeCombatEdgeTest`.
+- [x] Add menu automation routing for `-v0CombatEdgeSmoke`.
+- [x] Verify empty-ammo weapon behavior.
+- [x] Verify Scrapper melee damage.
+- [x] Verify player death state disables gameplay.
+- [x] Rebuild generated scenes.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged combat-edge smoke.
+- [x] Run packaged ranged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.20`.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

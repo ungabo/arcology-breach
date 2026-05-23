@@ -333,3 +333,30 @@ Verification completed:
 Build executable:
 
 `Builds/Windows/v0.0.19/BrassworksBreach_v0.0.19.exe`
+
+## 2026-05-23 11:38 -04:00
+
+Completed `v0.0.20` combat-edge smoke test.
+
+Added:
+
+- `RuntimeCombatEdgeTest`.
+- Main menu automation routing for `-v0CombatEdgeSmoke`.
+- Packaged verification for empty-ammo weapon behavior.
+- Packaged verification for Scrapper melee damage.
+- Packaged verification for player death state and gameplay disable.
+
+Verification completed:
+
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.20/BrassworksBreach_v0.0.20.exe`

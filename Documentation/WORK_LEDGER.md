@@ -30,6 +30,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | TEST-003 | Add packaged combat smoke | test | P1 | verified | v0.2 | V0_COMBAT_SMOKE_PASS |
 | TEST-004 | Add packaged pause-flow smoke | test | P1 | verified | v0.0.7 | V0_PAUSE_FLOW_PASS |
 | TEST-007 | Add packaged ranged-combat smoke | test | P1 | verified | v0.0.19 | V0_RANGED_COMBAT_PASS |
+| TEST-006 | Expand combat automation harness | test | P1 | verified | v0.0.20 | Empty ammo, Scrapper melee damage, and player death state covered by V0_COMBAT_EDGE_PASS. |
 | ART-001 | Add first procedural steampunk dressing pass | art | P1 | verified | v0.0.7 | editor/build/runtime/autoplay/combat smoke |
 
 ## Ready Next
@@ -66,7 +67,6 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | CODE-006 | Data-driven weapon definitions | code | P2 | backlog | v0.4 | Needed before more weapons. |
 | CODE-007 | Data-driven enemy definitions | code | P2 | backlog | v0.4 | Needed before expanding beyond Scrapper/Lancer prototypes. |
 | TOOL-001 | Level validation checks | tool | P2 | backlog | v0.4 | Missing colliders, required objects, objective chain. |
-| TEST-006 | Expand combat automation harness | test | P1 | backlog | v0.2 | Add player-damage, enemy attack windup, and ammo-empty scenarios. |
 | PLAT-001 | Windows mid/low PC quality profile | platform | P1 | backlog | v0.4 | Quality settings and performance budgets. |
 | PLAT-002 | Android port prototype plan | platform | P2 | deferred | post-Windows | Do not build until Windows game is complete. |
 | PLAT-003 | Browser/WebGL port prototype plan | platform | P2 | deferred | post-Windows | Do not build until Windows game is complete. |
@@ -110,3 +110,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.17` durable run-state build created at `Builds/Windows/v0.0.17/BrassworksBreach_v0.0.17.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
 - `2026-05-23`: `v0.0.18` Lancer ranged enemy build created at `Builds/Windows/v0.0.18/BrassworksBreach_v0.0.18.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
 - `2026-05-23`: `v0.0.19` ranged-combat smoke build created at `Builds/Windows/v0.0.19/BrassworksBreach_v0.0.19.exe` and passed editor/build/runtime/auto-playthrough/combat/ranged-combat/pause-flow smoke.
+- `2026-05-23`: `v0.0.20` combat-edge smoke build created at `Builds/Windows/v0.0.20/BrassworksBreach_v0.0.20.exe` and passed editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke.
