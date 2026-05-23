@@ -5,6 +5,12 @@ public static class GameBalance
 
     public const int PressurePistolDamage = 25;
     public const float PressurePistolCooldown = 0.21f;
+    public const int PressureBurstDamage = 5;
+    public const int PressureBurstPelletCount = 4;
+    public const int PressureBurstAmmoCost = 3;
+    public const float PressureBurstCooldown = 0.72f;
+    public const float PressureBurstRange = 18f;
+    public const float PressureBurstSpread = 0.032f;
 
     public const int ScrapperHealth = 50;
     public const float ScrapperMoveSpeed = 2.5f;

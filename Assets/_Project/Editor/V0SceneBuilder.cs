@@ -317,6 +317,12 @@ public static class V0SceneBuilder
         definition.damage = GameBalance.PressurePistolDamage;
         definition.fireCooldown = GameBalance.PressurePistolCooldown;
         definition.range = 40f;
+        definition.secondaryDamage = GameBalance.PressureBurstDamage;
+        definition.secondaryPelletCount = GameBalance.PressureBurstPelletCount;
+        definition.secondaryAmmoCost = GameBalance.PressureBurstAmmoCost;
+        definition.secondaryCooldown = GameBalance.PressureBurstCooldown;
+        definition.secondaryRange = GameBalance.PressureBurstRange;
+        definition.secondarySpread = GameBalance.PressureBurstSpread;
         EditorUtility.SetDirty(definition);
         return definition;
     }
@@ -1608,6 +1614,12 @@ public static class V0SceneBuilder
         weapon.inventory = inventory;
         weapon.damage = GameBalance.PressurePistolDamage;
         weapon.fireCooldown = GameBalance.PressurePistolCooldown;
+        weapon.secondaryDamage = GameBalance.PressureBurstDamage;
+        weapon.secondaryPelletCount = GameBalance.PressureBurstPelletCount;
+        weapon.secondaryAmmoCost = GameBalance.PressureBurstAmmoCost;
+        weapon.secondaryCooldown = GameBalance.PressureBurstCooldown;
+        weapon.secondaryRange = GameBalance.PressureBurstRange;
+        weapon.secondarySpread = GameBalance.PressureBurstSpread;
 
         WeaponView weaponView = CreateWeaponView(cameraObject.transform, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial);
         weapon.weaponView = weaponView;

@@ -1076,6 +1076,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.73 Pressure Burst Alternate Fire Pass
+
+- [x] Add secondary Pressure Burst tuning to `GameBalance` and `WeaponDefinition`.
+- [x] Add right-mouse secondary fire to `WeaponController`.
+- [x] Make Pressure Burst consume three cartridges and fire a short-range deterministic pellet pattern.
+- [x] Add level validation for controller and definition secondary-fire values.
+- [x] Expand combat-scenario smoke to verify secondary burst ammo use before the primary-shot kill flow.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.73`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

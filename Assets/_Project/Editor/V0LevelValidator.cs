@@ -480,6 +480,12 @@ public static class V0LevelValidator
         RequireEqual(playerInventory.startingAmmo, GameBalance.StartingAmmo, sceneName + " starting ammo balance");
         RequireEqual(weaponController.damage, GameBalance.PressurePistolDamage, sceneName + " pistol damage balance");
         RequireApprox(weaponController.fireCooldown, GameBalance.PressurePistolCooldown, sceneName + " pistol cooldown balance");
+        RequireEqual(weaponController.secondaryDamage, GameBalance.PressureBurstDamage, sceneName + " pressure burst damage balance");
+        RequireEqual(weaponController.secondaryPelletCount, GameBalance.PressureBurstPelletCount, sceneName + " pressure burst pellet balance");
+        RequireEqual(weaponController.secondaryAmmoCost, GameBalance.PressureBurstAmmoCost, sceneName + " pressure burst ammo-cost balance");
+        RequireApprox(weaponController.secondaryCooldown, GameBalance.PressureBurstCooldown, sceneName + " pressure burst cooldown balance");
+        RequireApprox(weaponController.secondaryRange, GameBalance.PressureBurstRange, sceneName + " pressure burst range balance");
+        RequireApprox(weaponController.secondarySpread, GameBalance.PressureBurstSpread, sceneName + " pressure burst spread balance");
         if (weaponController.definition == null)
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " WeaponController is missing a WeaponDefinition.");
@@ -488,6 +494,12 @@ public static class V0LevelValidator
         RequireEqual(weaponController.definition.damage, GameBalance.PressurePistolDamage, sceneName + " weapon definition damage");
         RequireApprox(weaponController.definition.fireCooldown, GameBalance.PressurePistolCooldown, sceneName + " weapon definition cooldown");
         RequireApprox(weaponController.definition.range, weaponController.range, sceneName + " weapon definition range");
+        RequireEqual(weaponController.definition.secondaryDamage, GameBalance.PressureBurstDamage, sceneName + " weapon definition secondary damage");
+        RequireEqual(weaponController.definition.secondaryPelletCount, GameBalance.PressureBurstPelletCount, sceneName + " weapon definition secondary pellet count");
+        RequireEqual(weaponController.definition.secondaryAmmoCost, GameBalance.PressureBurstAmmoCost, sceneName + " weapon definition secondary ammo cost");
+        RequireApprox(weaponController.definition.secondaryCooldown, GameBalance.PressureBurstCooldown, sceneName + " weapon definition secondary cooldown");
+        RequireApprox(weaponController.definition.secondaryRange, GameBalance.PressureBurstRange, sceneName + " weapon definition secondary range");
+        RequireApprox(weaponController.definition.secondarySpread, GameBalance.PressureBurstSpread, sceneName + " weapon definition secondary spread");
     }
 
     private static void ValidatePlatformQualityProfile(string sceneName, RuntimePerformanceProfile performanceProfile)

@@ -28,7 +28,26 @@ public class RuntimeCombatScenarioTest : MonoBehaviour
         target.enabled = false;
 
         int startingAmmo = inventory.Ammo;
-        int expectedShotsToKill = Mathf.CeilToInt(target.maxHealth / (float)weapon.damage);
+        if (!weapon.FireSecondary())
+        {
+            Fail("Combat scenario failed: secondary pressure burst did not fire.");
+            yield break;
+        }
+
+        RequireEqual(inventory.Ammo, startingAmmo - weapon.secondaryAmmoCost, "ammo after secondary pressure burst");
+        yield return null;
+
+        if (target == null)
+        {
+            Fail("Combat scenario failed: secondary pressure burst killed enemy before primary-shot verification.");
+            yield break;
+        }
+
+        yield return new WaitForSeconds(weapon.secondaryCooldown + 0.05f);
+
+        int primaryStartingAmmo = inventory.Ammo;
+        int expectedSecondaryDamage = weapon.secondaryDamage * weapon.secondaryPelletCount;
+        int expectedShotsToKill = Mathf.CeilToInt((target.maxHealth - expectedSecondaryDamage) / (float)weapon.damage);
 
         if (expectedShotsToKill < 2)
         {
@@ -43,7 +62,7 @@ public class RuntimeCombatScenarioTest : MonoBehaviour
         }
 
         int ammoAfterFirstShot = inventory.Ammo;
-        RequireEqual(ammoAfterFirstShot, startingAmmo - 1, "ammo after first shot");
+        RequireEqual(ammoAfterFirstShot, primaryStartingAmmo - 1, "ammo after first shot");
         yield return null;
 
         MachineHitVfx hitVfx = UnityEngine.Object.FindAnyObjectByType<MachineHitVfx>();
@@ -77,7 +96,7 @@ public class RuntimeCombatScenarioTest : MonoBehaviour
                 yield break;
             }
 
-            RequireEqual(inventory.Ammo, startingAmmo - shotIndex, "ammo after shot " + shotIndex);
+            RequireEqual(inventory.Ammo, primaryStartingAmmo - shotIndex, "ammo after shot " + shotIndex);
             yield return null;
 
             if (target == null)
@@ -95,7 +114,7 @@ public class RuntimeCombatScenarioTest : MonoBehaviour
             yield break;
         }
 
-        RequireEqual(inventory.Ammo, startingAmmo - expectedShotsToKill, "ammo after final shot");
+        RequireEqual(inventory.Ammo, primaryStartingAmmo - expectedShotsToKill, "ammo after final shot");
         yield return WaitUntilOrFail(() => target == null, "enemy death after final shot", 2f);
         if (failed)
         {

@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.72`.
+Current state: `v0.0.73`.
 
 Implemented:
 
@@ -80,6 +80,7 @@ Implemented:
 - Pipeworks routing valve objective that locks the Level02 Boilerheart lift until pipe pressure is routed, with auto-playthrough coverage.
 - Pipeworks cartridge-cache secret, bringing the current registered secret total to three.
 - Procedural brassworks ambience loop through `SteamworksAudio`, with level validation and runtime smoke coverage.
+- Pressure Pistol right-mouse `Pressure Burst` alternate fire, with ammo-cost/cooldown/spread values, level validation, and combat-scenario smoke coverage.
 
 ## 3. Target Platform
 
@@ -152,10 +153,11 @@ Current:
 - Ammo consumption.
 - Fire cooldown.
 - Muzzle flash and hit marker.
+- Right-mouse `Pressure Burst` alternate fire for short-range burst damage.
 
 Future:
 
-- Final brass-and-walnut `Pressure Pistol`.
+- Final brass-and-walnut `Pressure Pistol` polish and alternate-fire animation/audio treatment.
 - Steam scattergun.
 - Arc-valve rifle or rivet launcher.
 - Data-driven weapon definitions.

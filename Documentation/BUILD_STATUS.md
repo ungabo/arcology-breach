@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.72` versioned build for `Brassworks Breach`.
+`v0.0.73` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds a procedural brassworks ambience loop through `SteamworksAudio`, verified in runtime smoke. This sits on top of the Level02 Pipeworks cartridge-cache secret, Pipeworks routing valve objective, interactable lore plaques, first-person player damage VFX, pressure-pistol impact decal VFX, visible pressure-bolt projectile VFX, reusable procedural machine motion, animated furnace heat-ripple readability, animated steam hazard puffs, health/ammo/key pickup VFX, service-lift activation VFX, pressure-gate opening VFX, non-lethal machine hit VFX, animated steampunk machinery, standard machine death VFX, persistent objective HUD guidance, Warden shutdown VFX, the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build adds right-mouse `Pressure Burst` alternate fire to the Pressure Pistol, verified in combat-scenario smoke. This sits on top of the procedural brassworks ambience loop, Level02 Pipeworks cartridge-cache secret, Pipeworks routing valve objective, interactable lore plaques, first-person player damage VFX, pressure-pistol impact decal VFX, visible pressure-bolt projectile VFX, reusable procedural machine motion, animated furnace heat-ripple readability, animated steam hazard puffs, health/ammo/key pickup VFX, service-lift activation VFX, pressure-gate opening VFX, non-lethal machine hit VFX, animated steampunk machinery, standard machine death VFX, persistent objective HUD guidance, Warden shutdown VFX, the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -87,12 +87,13 @@
 - Level02 now has a required Pipeworks routing valve that unlocks the Boilerheart lift, verified by level validation and auto-playthrough.
 - Level02 now has `Secret - Pipeworks Cartridge Cache`, verified by level validation, secret smoke, and final run-stat auto-playthrough coverage.
 - `SteamworksAudio` now loops procedural brassworks ambience, verified by level validation and runtime smoke.
+- Pressure Pistol now has a short-range right-mouse `Pressure Burst` alternate fire with ammo-cost, cooldown, spread, validation, and combat-scenario smoke coverage.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.72`.
+Latest fully verified build: `v0.0.73`.
 
-Current `v0.0.72` verification:
+Current `v0.0.73` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -134,7 +135,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.72\BrassworksBreach_v0.0.72.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.73\BrassworksBreach_v0.0.73.exe`
 
 ## Latest Build Verification
 
@@ -984,13 +985,30 @@ Current target:
 - `2026-05-23 18:55 -04:00`: `v0.0.72` packaged hazard smoke passed.
 - `2026-05-23 18:55 -04:00`: `v0.0.72` packaged secret smoke passed.
 - `2026-05-23 18:55 -04:00`: `v0.0.72` packaged pause-flow smoke passed.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` one-command build matrix runner passed.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` scene rebuild passed.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` level validation passed.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` editor smoke passed.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` Windows build passed.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` packaged runtime smoke passed.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` packaged auto-playthrough passed.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` packaged combat smoke passed.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` packaged combat-edge smoke passed.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` packaged combat-scenario smoke passed with secondary Pressure Burst coverage.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` packaged ranged combat smoke passed.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` packaged Bulwark combat smoke passed.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` packaged Warden combat smoke passed.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` packaged interaction smoke passed.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` packaged hazard smoke passed.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` packaged secret smoke passed.
+- `2026-05-23 19:05 -04:00`: `v0.0.73` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.73`, `v0.0.74`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.74`, `v0.0.75`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
 - Runtime smoke test verifies boot/object presence. Auto-playthrough verifies the current five-level objective flow but not human combat feel.
-- Combat smoke verifies weapon raycast damage, enemy death, and Scrapper death VFX; combat-edge smoke verifies empty ammo, Scrapper melee damage, player damage VFX, and player death state; combat-scenario smoke verifies cooldown, ammo accounting, expected shot count, enemy survival until final hit, non-lethal Scrapper hit VFX, and pressure-pistol impact decal VFX; ranged combat smoke verifies Lancer projectile damage and pressure-bolt VFX; Bulwark combat smoke verifies heavy enemy durability/death, scaled hit VFX, and scaled death VFX; Warden combat smoke verifies final guardian durability/death, boss health HUD damage feedback, hit VFX, and shutdown VFX spawn; interaction smoke verifies gate/lift prompts plus lore-plaque HUD read feedback; auto-playthrough verifies health pickup VFX, ammo pickup VFX, gear-key pickup VFX, pressure-gate open VFX, service-lift activation VFX, Pipeworks routing-valve lock/unlock, at least three registered secrets, and downstream level transitions; hazard smoke verifies steam damage, animated steam puffs, furnace-heat hazard damage, and active furnace heat ripples; secret smoke verifies secret discovery; runtime smoke verifies brassworks ambience is active. Editor/runtime smoke also requires the current machinery spinner and machine motion passes.
+- Combat smoke verifies weapon raycast damage, enemy death, and Scrapper death VFX; combat-edge smoke verifies empty ammo, Scrapper melee damage, player damage VFX, and player death state; combat-scenario smoke verifies cooldown, primary/secondary ammo accounting, Pressure Burst alternate fire, expected shot count, enemy survival until final hit, non-lethal Scrapper hit VFX, and pressure-pistol impact decal VFX; ranged combat smoke verifies Lancer projectile damage and pressure-bolt VFX; Bulwark combat smoke verifies heavy enemy durability/death, scaled hit VFX, and scaled death VFX; Warden combat smoke verifies final guardian durability/death, boss health HUD damage feedback, hit VFX, and shutdown VFX spawn; interaction smoke verifies gate/lift prompts plus lore-plaque HUD read feedback; auto-playthrough verifies health pickup VFX, ammo pickup VFX, gear-key pickup VFX, pressure-gate open VFX, service-lift activation VFX, Pipeworks routing-valve lock/unlock, at least three registered secrets, and downstream level transitions; hazard smoke verifies steam damage, animated steam puffs, furnace-heat hazard damage, and active furnace heat ripples; secret smoke verifies secret discovery; runtime smoke verifies brassworks ambience is active. Editor/runtime smoke also requires the current machinery spinner and machine motion passes.
 - Visual dressing is still procedural primitive art, though the objective props now have stronger final-direction silhouettes.
 - Windows runtime performance profile exists, but visible performance profiling still needs a real play session.
 - Enemy pathing uses simple side-steering, not NavMesh.
