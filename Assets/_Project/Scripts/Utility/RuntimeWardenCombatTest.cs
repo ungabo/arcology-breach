@@ -42,6 +42,7 @@ public class RuntimeWardenCombatTest : MonoBehaviour
         }
 
         bool sawDamagedBossHud = false;
+        bool sawHitVfx = false;
         for (int shotIndex = 1; shotIndex <= expectedShotsToKill; shotIndex++)
         {
             if (!weapon.FireOnce())
@@ -55,12 +56,20 @@ public class RuntimeWardenCombatTest : MonoBehaviour
             if (shotIndex == 1)
             {
                 sawDamagedBossHud = hud.bossNameText != null && hud.bossNameText.enabled && hud.bossFillImage != null && hud.bossFillImage.enabled && hud.bossFillImage.fillAmount < 0.999f;
+                MachineHitVfx hitVfx = UnityEngine.Object.FindAnyObjectByType<MachineHitVfx>();
+                sawHitVfx = hitVfx != null && hitVfx.PieceCount >= 6;
             }
         }
 
         if (!sawDamagedBossHud)
         {
             Fail("Warden combat smoke failed: boss health HUD did not show damage.");
+            yield break;
+        }
+
+        if (!sawHitVfx)
+        {
+            Fail("Warden combat smoke failed: non-lethal machine hit VFX did not spawn with enough visible pieces.");
             yield break;
         }
 

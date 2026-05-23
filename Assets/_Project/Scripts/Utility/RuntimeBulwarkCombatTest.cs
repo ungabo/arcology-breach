@@ -40,6 +40,7 @@ public class RuntimeBulwarkCombatTest : MonoBehaviour
             yield break;
         }
 
+        bool sawHitVfx = false;
         for (int shotIndex = 1; shotIndex <= expectedShotsToKill; shotIndex++)
         {
             if (!weapon.FireOnce())
@@ -49,6 +50,18 @@ public class RuntimeBulwarkCombatTest : MonoBehaviour
             }
 
             yield return new WaitForSeconds(weapon.fireCooldown + 0.05f);
+
+            if (shotIndex == 1)
+            {
+                MachineHitVfx hitVfx = UnityEngine.Object.FindAnyObjectByType<MachineHitVfx>();
+                sawHitVfx = hitVfx != null && hitVfx.PieceCount >= 6;
+            }
+        }
+
+        if (!sawHitVfx)
+        {
+            Fail("Bulwark combat smoke failed: non-lethal machine hit VFX did not spawn with enough visible pieces.");
+            yield break;
         }
 
         yield return WaitUntilOrFail(() => target == null, "Bulwark death from pressure pistol fire", 2f);

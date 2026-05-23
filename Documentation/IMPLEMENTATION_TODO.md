@@ -870,6 +870,23 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.58 Machine Hit VFX Pass
+
+- [x] Add reusable `MachineHitVfx` runtime effect.
+- [x] Spawn hit VFX for non-lethal Scrapper damage.
+- [x] Spawn hit VFX for non-lethal Lancer damage.
+- [x] Spawn scaled hit VFX for non-lethal Bulwark damage.
+- [x] Spawn scaled hit VFX for non-lethal Governor Warden damage.
+- [x] Expand combat-scenario smoke to verify Scrapper hit VFX.
+- [x] Expand Bulwark combat smoke to verify heavy-machine hit VFX.
+- [x] Expand Warden combat smoke to verify boss hit VFX.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.58`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

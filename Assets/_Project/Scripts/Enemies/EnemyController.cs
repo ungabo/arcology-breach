@@ -133,6 +133,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         }
         else
         {
+            MachineHitVfx.Spawn(transform.position + Vector3.up * 0.65f);
             SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyHit, transform.position);
             StartCoroutine(FlashHit());
         }

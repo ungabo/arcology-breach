@@ -124,6 +124,7 @@ public class BulwarkEnemyController : MonoBehaviour, IDamageable
             return;
         }
 
+        MachineHitVfx.Spawn(transform.position + Vector3.up * 0.85f, 1.25f);
         SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyHit, transform.position);
         StartCoroutine(FlashHit());
     }

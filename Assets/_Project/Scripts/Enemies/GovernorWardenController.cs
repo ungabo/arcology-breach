@@ -165,6 +165,7 @@ public class GovernorWardenController : MonoBehaviour, IDamageable
             HUDController.Instance?.ShowTemporaryMessage("GOVERNOR PRESSURE RISING", 0.9f);
         }
 
+        MachineHitVfx.Spawn(transform.position + Vector3.up * 1.1f, 1.45f);
         SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyHit, transform.position);
         StartCoroutine(FlashHit());
     }

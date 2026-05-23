@@ -44,6 +44,14 @@ public class RuntimeCombatScenarioTest : MonoBehaviour
 
         int ammoAfterFirstShot = inventory.Ammo;
         RequireEqual(ammoAfterFirstShot, startingAmmo - 1, "ammo after first shot");
+        yield return null;
+
+        MachineHitVfx hitVfx = UnityEngine.Object.FindAnyObjectByType<MachineHitVfx>();
+        if (hitVfx == null || hitVfx.PieceCount < 6)
+        {
+            Fail("Combat scenario failed: non-lethal machine hit VFX did not spawn with enough visible pieces.");
+            yield break;
+        }
 
         if (weapon.FireOnce())
         {

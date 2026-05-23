@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.57`.
+Current state: `v0.0.58`.
 
 Implemented:
 
@@ -65,6 +65,7 @@ Implemented:
 - Persistent objective HUD with key, gate, valve, Warden defeat, death, and win-state updates plus auto-playthrough coverage.
 - Standard machine death VFX for Scrappers, Lancers, and Bulwarks with combat smoke coverage.
 - Reusable `SteamworksSpinner` component animating pressure-gate gears, service-lift pulleys, valve wheels, and the main-menu gear with validation/runtime smoke coverage.
+- Non-lethal `MachineHitVfx` impact feedback for Scrappers, Lancers, Bulwarks, and the Governor Warden with combat automation coverage.
 
 ## 3. Target Platform
 

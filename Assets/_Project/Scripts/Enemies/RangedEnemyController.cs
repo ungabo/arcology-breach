@@ -125,6 +125,7 @@ public class RangedEnemyController : MonoBehaviour, IDamageable
         }
         else
         {
+            MachineHitVfx.Spawn(transform.position + Vector3.up * 0.72f);
             SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyHit, transform.position);
             StartCoroutine(FlashHit());
         }
