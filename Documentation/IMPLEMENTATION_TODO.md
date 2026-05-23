@@ -505,6 +505,23 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.34 Data-Driven Pickup Definition Pass
+
+- [x] Add `PickupDefinition` ScriptableObject type.
+- [x] Add generated `HealthVialDefinition.asset`.
+- [x] Add generated `PressureCartridgeDefinition.asset`.
+- [x] Add generated `GearKeyDefinition.asset`.
+- [x] Assign pickup definitions to all active pickups.
+- [x] Move pickup message/audio configuration into definitions.
+- [x] Keep `PlayerInventory` direct add methods backward-compatible.
+- [x] Expand level validation to require pickup definitions and active values.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.34`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -538,7 +555,7 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Data-driven weapon definitions.
 - [x] Data-driven enemy definitions.
 - [x] Interaction system.
-- [ ] Pickup/inventory cleanup.
+- [x] Pickup/inventory cleanup.
 - [ ] Level transition controller.
 - [x] Level validation tool.
 - [ ] Expand combat automation harness.

@@ -9,6 +9,7 @@ public enum PickupKind
 
 public class Pickup : MonoBehaviour
 {
+    public PickupDefinition definition;
     public PickupKind kind;
     public int amount = 25;
     public float collectRadius = 0.9f;
@@ -22,6 +23,8 @@ public class Pickup : MonoBehaviour
 
     private void Awake()
     {
+        ApplyDefinition();
+
         Collider pickupCollider = GetComponent<Collider>();
         if (pickupCollider != null)
         {
@@ -73,23 +76,86 @@ public class Pickup : MonoBehaviour
 
         collected = true;
 
+        ApplyPickup(inventory, health);
+        SteamworksAudio.Play(GetAudioCue());
+
+        string collectMessage = GetCollectMessage();
+        if (!string.IsNullOrWhiteSpace(collectMessage))
+        {
+            HUDController.Instance?.ShowTemporaryMessage(collectMessage, 1f);
+        }
+
+        Destroy(gameObject);
+    }
+
+    private void ApplyDefinition()
+    {
+        if (definition == null)
+        {
+            return;
+        }
+
+        kind = definition.kind;
+        amount = definition.amount;
+        collectRadius = definition.collectRadius;
+        spinDegreesPerSecond = definition.spinDegreesPerSecond;
+        bobAmplitude = definition.bobAmplitude;
+        bobSpeed = definition.bobSpeed;
+    }
+
+    private void ApplyPickup(PlayerInventory inventory, PlayerHealth health)
+    {
         switch (kind)
         {
             case PickupKind.Health:
                 health?.Heal(amount);
-                SteamworksAudio.Play(SteamworksAudioCue.HealthPickup);
-                HUDController.Instance?.ShowTemporaryMessage($"+{amount} health", 1f);
                 break;
             case PickupKind.Ammo:
-                inventory?.AddAmmo(amount);
-                SteamworksAudio.Play(SteamworksAudioCue.AmmoPickup);
+                inventory?.AddAmmo(amount, showMessage: false);
                 break;
             case PickupKind.Key:
-                inventory?.AddKey();
-                SteamworksAudio.Play(SteamworksAudioCue.GearKey);
+                inventory?.AddKey(showMessage: false);
                 break;
         }
+    }
 
-        Destroy(gameObject);
+    private SteamworksAudioCue GetAudioCue()
+    {
+        if (definition != null)
+        {
+            return definition.audioCue;
+        }
+
+        switch (kind)
+        {
+            case PickupKind.Health:
+                return SteamworksAudioCue.HealthPickup;
+            case PickupKind.Ammo:
+                return SteamworksAudioCue.AmmoPickup;
+            case PickupKind.Key:
+                return SteamworksAudioCue.GearKey;
+            default:
+                return SteamworksAudioCue.AmmoPickup;
+        }
+    }
+
+    private string GetCollectMessage()
+    {
+        if (definition != null && !string.IsNullOrWhiteSpace(definition.collectMessage))
+        {
+            return definition.collectMessage;
+        }
+
+        switch (kind)
+        {
+            case PickupKind.Health:
+                return $"+{amount} health";
+            case PickupKind.Ammo:
+                return $"+{amount} ammo";
+            case PickupKind.Key:
+                return "Gear key acquired";
+            default:
+                return string.Empty;
+        }
     }
 }

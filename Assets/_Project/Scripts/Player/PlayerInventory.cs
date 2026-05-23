@@ -34,7 +34,7 @@ public class PlayerInventory : MonoBehaviour
         return true;
     }
 
-    public void AddAmmo(int amount)
+    public void AddAmmo(int amount, bool showMessage = true)
     {
         if (amount <= 0)
         {
@@ -43,14 +43,20 @@ public class PlayerInventory : MonoBehaviour
 
         Ammo += amount;
         UpdateHud();
-        HUDController.Instance?.ShowTemporaryMessage($"+{amount} ammo", 1f);
+        if (showMessage)
+        {
+            HUDController.Instance?.ShowTemporaryMessage($"+{amount} ammo", 1f);
+        }
     }
 
-    public void AddKey()
+    public void AddKey(bool showMessage = true)
     {
         HasKey = true;
         UpdateHud();
-        HUDController.Instance?.ShowTemporaryMessage("Gear key acquired", 1.5f);
+        if (showMessage)
+        {
+            HUDController.Instance?.ShowTemporaryMessage("Gear key acquired", 1.5f);
+        }
     }
 
     public void RestoreForTransition(int ammo)

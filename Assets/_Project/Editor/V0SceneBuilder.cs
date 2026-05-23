@@ -59,6 +59,9 @@ public static class V0SceneBuilder
         WeaponDefinition pressurePistolDefinition = CreatePressurePistolDefinition();
         EnemyDefinition scrapperDefinition = CreateScrapperDefinition();
         EnemyDefinition lancerDefinition = CreateLancerDefinition();
+        PickupDefinition healthPickupDefinition = CreateHealthPickupDefinition();
+        PickupDefinition ammoPickupDefinition = CreateAmmoPickupDefinition();
+        PickupDefinition gearKeyDefinition = CreateGearKeyDefinition();
 
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -73,9 +76,9 @@ public static class V0SceneBuilder
         CreateEnemy("Enemy - Key Room", new Vector3(14.5f, 1f, 17f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
         CreateEnemy("Enemy - Final Left", new Vector3(-3.2f, 1f, 30.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
         CreateEnemy("Enemy - Final Right", new Vector3(3.2f, 1f, 32.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
-        CreateHealthVialPickup("Pickup - Health Vial", new Vector3(-3.6f, 0.65f, 20f), healthMaterial, glassVialMaterial, medicinalFluidMaterial, brassGuideMaterial, 25);
-        CreatePressureCartridgePickup("Pickup - Pressure Cartridge Pack", new Vector3(4.2f, 0.55f, 19f), ammoMaterial, rivetedIronMaterial, brassGuideMaterial, 15);
-        CreateGearKeyPickup("Pickup - Gear Key", new Vector3(16f, 0.55f, 17f), Vector3.one * 1.1f, keyMaterial, rivetedIronMaterial);
+        CreateHealthVialPickup("Pickup - Health Vial", new Vector3(-3.6f, 0.65f, 20f), healthMaterial, glassVialMaterial, medicinalFluidMaterial, brassGuideMaterial, healthPickupDefinition);
+        CreatePressureCartridgePickup("Pickup - Pressure Cartridge Pack", new Vector3(4.2f, 0.55f, 19f), ammoMaterial, rivetedIronMaterial, brassGuideMaterial, ammoPickupDefinition);
+        CreateGearKeyPickup("Pickup - Gear Key", new Vector3(16f, 0.55f, 17f), Vector3.one * 1.1f, keyMaterial, rivetedIronMaterial, gearKeyDefinition);
         CreateLockedDoor(doorMaterial, brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, pressureWarningMaterial);
         CreateLevelTransitionLift(exitMaterial, rivetedIronMaterial, brassGuideMaterial, gaugeFaceMaterial, "Level02");
         CreateAccentLights();
@@ -83,7 +86,7 @@ public static class V0SceneBuilder
         CreateSteamworksDressing(rivetedIronMaterial, oilStoneMaterial, brassGuideMaterial, pressureWarningMaterial, brassHazardMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
-        CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition);
+        CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, healthPickupDefinition, ammoPickupDefinition);
         CreateMainMenuScene(brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, furnaceGlowMaterial, oilStoneMaterial);
         EditorBuildSettings.scenes = new[]
         {
@@ -304,6 +307,75 @@ public static class V0SceneBuilder
         return definition;
     }
 
+    private static PickupDefinition CreateHealthPickupDefinition()
+    {
+        string path = $"{DataFolder}/HealthVialDefinition.asset";
+        PickupDefinition definition = AssetDatabase.LoadAssetAtPath<PickupDefinition>(path);
+        if (definition == null)
+        {
+            definition = ScriptableObject.CreateInstance<PickupDefinition>();
+            AssetDatabase.CreateAsset(definition, path);
+        }
+
+        definition.displayName = "Health Vial";
+        definition.kind = PickupKind.Health;
+        definition.amount = 25;
+        definition.collectRadius = 0.9f;
+        definition.spinDegreesPerSecond = 82f;
+        definition.bobAmplitude = 0.1f;
+        definition.bobSpeed = 3f;
+        definition.audioCue = SteamworksAudioCue.HealthPickup;
+        definition.collectMessage = "+25 health";
+        EditorUtility.SetDirty(definition);
+        return definition;
+    }
+
+    private static PickupDefinition CreateAmmoPickupDefinition()
+    {
+        string path = $"{DataFolder}/PressureCartridgeDefinition.asset";
+        PickupDefinition definition = AssetDatabase.LoadAssetAtPath<PickupDefinition>(path);
+        if (definition == null)
+        {
+            definition = ScriptableObject.CreateInstance<PickupDefinition>();
+            AssetDatabase.CreateAsset(definition, path);
+        }
+
+        definition.displayName = "Pressure Cartridge Pack";
+        definition.kind = PickupKind.Ammo;
+        definition.amount = 15;
+        definition.collectRadius = 0.9f;
+        definition.spinDegreesPerSecond = 74f;
+        definition.bobAmplitude = 0.1f;
+        definition.bobSpeed = 2.8f;
+        definition.audioCue = SteamworksAudioCue.AmmoPickup;
+        definition.collectMessage = "+15 ammo";
+        EditorUtility.SetDirty(definition);
+        return definition;
+    }
+
+    private static PickupDefinition CreateGearKeyDefinition()
+    {
+        string path = $"{DataFolder}/GearKeyDefinition.asset";
+        PickupDefinition definition = AssetDatabase.LoadAssetAtPath<PickupDefinition>(path);
+        if (definition == null)
+        {
+            definition = ScriptableObject.CreateInstance<PickupDefinition>();
+            AssetDatabase.CreateAsset(definition, path);
+        }
+
+        definition.displayName = "Clockwork Gear Key";
+        definition.kind = PickupKind.Key;
+        definition.amount = 0;
+        definition.collectRadius = 1f;
+        definition.spinDegreesPerSecond = 64f;
+        definition.bobAmplitude = 0.12f;
+        definition.bobSpeed = 2.6f;
+        definition.audioCue = SteamworksAudioCue.GearKey;
+        definition.collectMessage = "Gear key acquired";
+        EditorUtility.SetDirty(definition);
+        return definition;
+    }
+
     private static void ApplyProceduralTexture(Material material, string textureName, ProceduralTextureKind kind)
     {
         Texture2D texture = CreateProceduralTexture(textureName, kind);
@@ -508,7 +580,7 @@ public static class V0SceneBuilder
         CreateCube("Final Room Low Center Barrier", new Vector3(0f, 0.42f, 32.2f), new Vector3(2.1f, 0.84f, 0.58f), material, parent);
     }
 
-    private static void CreatePipeworksAnnexScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition)
+    private static void CreatePipeworksAnnexScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition)
     {
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -522,8 +594,8 @@ public static class V0SceneBuilder
 
         CreateEnemy("Enemy - Pipeworks Gatehouse", new Vector3(-2.2f, 1f, 9.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateLancerEnemy("Enemy - Pipeworks Lancer", new Vector3(2.2f, 1f, 17.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, lancerDefinition);
-        CreateHealthVialPickup("Pickup - Annex Health Vial", new Vector3(-3.2f, 0.65f, 14f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, 25);
-        CreatePressureCartridgePickup("Pickup - Annex Pressure Cartridge Pack", new Vector3(3.2f, 0.55f, 13.5f), ammoMaterial, ironMaterial, brassMaterial, 15);
+        CreateHealthVialPickup("Pickup - Annex Health Vial", new Vector3(-3.2f, 0.65f, 14f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
+        CreatePressureCartridgePickup("Pickup - Annex Pressure Cartridge Pack", new Vector3(3.2f, 0.55f, 13.5f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
         CreateExitAt("Pipeworks Service Lift Trigger", new Vector3(0f, 1.1f, 23.2f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial);
         CreatePipeworksDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreatePointLight("Pipeworks Exit Green Light", new Vector3(0f, 2.4f, 22.7f), new Color(0.1f, 1f, 0.3f), 2.8f, 7f);
@@ -1351,7 +1423,7 @@ public static class V0SceneBuilder
         return CreateLocalPrimitive(name, PrimitiveType.Cube, parent, localPosition, localScale, material);
     }
 
-    private static void CreateGearKeyPickup(string name, Vector3 position, Vector3 scale, Material brassMaterial, Material ironMaterial)
+    private static void CreateGearKeyPickup(string name, Vector3 position, Vector3 scale, Material brassMaterial, Material ironMaterial, PickupDefinition definition)
     {
         GameObject pickup = new GameObject(name);
         pickup.transform.position = position;
@@ -1362,8 +1434,7 @@ public static class V0SceneBuilder
         trigger.isTrigger = true;
 
         Pickup pickupComponent = pickup.AddComponent<Pickup>();
-        pickupComponent.kind = PickupKind.Key;
-        pickupComponent.amount = 0;
+        ConfigurePickup(pickupComponent, definition, PickupKind.Key, 0);
 
         GameObject visualRoot = new GameObject(name + " Clockwork Key Visual");
         visualRoot.transform.SetParent(pickup.transform, false);
@@ -1405,7 +1476,7 @@ public static class V0SceneBuilder
         }
     }
 
-    private static void CreateHealthVialPickup(string name, Vector3 position, Material crossMaterial, Material glassMaterial, Material fluidMaterial, Material brassMaterial, int amount)
+    private static void CreateHealthVialPickup(string name, Vector3 position, Material crossMaterial, Material glassMaterial, Material fluidMaterial, Material brassMaterial, PickupDefinition definition)
     {
         GameObject pickup = new GameObject(name);
         pickup.transform.position = position;
@@ -1415,8 +1486,7 @@ public static class V0SceneBuilder
         trigger.isTrigger = true;
 
         Pickup pickupComponent = pickup.AddComponent<Pickup>();
-        pickupComponent.kind = PickupKind.Health;
-        pickupComponent.amount = amount;
+        ConfigurePickup(pickupComponent, definition, PickupKind.Health, 25);
 
         CreateLocalPrimitive(name + " Frosted Glass", PrimitiveType.Cylinder, pickup.transform, new Vector3(0f, 0f, 0f), new Vector3(0.24f, 0.46f, 0.24f), glassMaterial);
         CreateLocalPrimitive(name + " Red Fluid", PrimitiveType.Cylinder, pickup.transform, new Vector3(0f, -0.12f, 0f), new Vector3(0.18f, 0.27f, 0.18f), fluidMaterial);
@@ -1428,7 +1498,7 @@ public static class V0SceneBuilder
         CreateLocalCube(name + " Brass Side Strap Right", pickup.transform, new Vector3(0.3f, -0.03f, 0f), new Vector3(0.05f, 0.76f, 0.08f), brassMaterial);
     }
 
-    private static void CreatePressureCartridgePickup(string name, Vector3 position, Material cartridgeMaterial, Material ironMaterial, Material brassMaterial, int amount)
+    private static void CreatePressureCartridgePickup(string name, Vector3 position, Material cartridgeMaterial, Material ironMaterial, Material brassMaterial, PickupDefinition definition)
     {
         GameObject pickup = new GameObject(name);
         pickup.transform.position = position;
@@ -1438,8 +1508,7 @@ public static class V0SceneBuilder
         trigger.isTrigger = true;
 
         Pickup pickupComponent = pickup.AddComponent<Pickup>();
-        pickupComponent.kind = PickupKind.Ammo;
-        pickupComponent.amount = amount;
+        ConfigurePickup(pickupComponent, definition, PickupKind.Ammo, 15);
 
         CreateLocalCube(name + " Brass Crate Base", pickup.transform, new Vector3(0f, -0.3f, 0f), new Vector3(0.9f, 0.16f, 0.58f), brassMaterial);
         CreateLocalCube(name + " Iron Strap Front", pickup.transform, new Vector3(0f, -0.16f, 0.33f), new Vector3(1.02f, 0.08f, 0.07f), ironMaterial);
@@ -1460,6 +1529,22 @@ public static class V0SceneBuilder
 
         CreateLocalPrimitive(name + " Pressure Gauge", PrimitiveType.Cylinder, pickup.transform, new Vector3(0f, 0.28f, 0.02f), new Vector3(0.18f, 0.035f, 0.18f), brassMaterial);
         CreateLocalCube(name + " Gauge Needle", pickup.transform, new Vector3(0.04f, 0.3f, 0.02f), new Vector3(0.14f, 0.025f, 0.025f), ironMaterial);
+    }
+
+    private static void ConfigurePickup(Pickup pickup, PickupDefinition definition, PickupKind fallbackKind, int fallbackAmount)
+    {
+        pickup.definition = definition;
+        pickup.kind = definition != null ? definition.kind : fallbackKind;
+        pickup.amount = definition != null ? definition.amount : fallbackAmount;
+        if (definition == null)
+        {
+            return;
+        }
+
+        pickup.collectRadius = definition.collectRadius;
+        pickup.spinDegreesPerSecond = definition.spinDegreesPerSecond;
+        pickup.bobAmplitude = definition.bobAmplitude;
+        pickup.bobSpeed = definition.bobSpeed;
     }
 
     private static void CreateLockedDoor(Material material, Material brassMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material warningMaterial)

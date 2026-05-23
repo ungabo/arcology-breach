@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.33` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.34` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -57,7 +57,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.33\BrassworksBreach_v0.0.33.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.34\BrassworksBreach_v0.0.34.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -155,10 +155,16 @@ Individual Unity entry points remain available:
 - Interactable pressure gate, service lift, and final lift hooks.
 - Packaged interaction smoke test in the full build matrix.
 
+## What v0.0.34 Adds
+
+- Data-driven pickup definitions for health, ammo, and gear key.
+- Definition-driven pickup messages, audio cues, and collect tuning.
+- Pickup definition validation in the full build matrix.
+
 ## Good Next Steps
 
 - Continue replacing procedural placeholder geometry with steampunk assets from the asset catalog.
-- Clean up pickup and inventory architecture.
+- Add level transition controller cleanup.
 - Add reusable valve/switch objective mechanics on top of the interaction system.
 - Continue Level01 combat/readability tuning.
 

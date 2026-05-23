@@ -763,3 +763,37 @@ Build executable:
 `Builds/Windows/v0.0.33/BrassworksBreach_v0.0.33.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 13:12 -04:00
+
+Completed `v0.0.34` data-driven pickup definition pass.
+
+Added:
+
+- `PickupDefinition` ScriptableObject type.
+- Generated `Assets/_Project/Data/HealthVialDefinition.asset`.
+- Generated `Assets/_Project/Data/PressureCartridgeDefinition.asset`.
+- Generated `Assets/_Project/Data/GearKeyDefinition.asset`.
+- Definition assignment for all active health, ammo, and gear-key pickups.
+- Definition-driven pickup messages, audio cues, bob/spin values, and collect radii.
+- Level validation requirements for assigned pickup definitions and active values.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.34/BrassworksBreach_v0.0.34.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

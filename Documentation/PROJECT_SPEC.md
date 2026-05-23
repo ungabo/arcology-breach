@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.33`.
+Current state: `v0.0.34`.
 
 Implemented:
 
@@ -41,6 +41,7 @@ Implemented:
 - Data-driven Pressure Pistol, Scrapper, and Lancer definitions.
 - One-command V0 Windows build matrix runner.
 - First-person interaction scanner, HUD prompt, and interactable gate/lift hooks.
+- Data-driven health, ammo, and gear-key pickup definitions.
 
 ## 3. Target Platform
 

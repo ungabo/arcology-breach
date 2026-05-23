@@ -58,8 +58,8 @@ Every major asset should eventually have three quality targets:
 | PROP-001 | Gear key placeholder | P0 | prototype | Existing primitive gear-key pickup with teeth, hub, shaft, and bit. |
 | PROP-002 | Pressure gate placeholder | P0 | prototype | Existing sliding gate with primitive rails, gear wheel, and gauge. |
 | PROP-003 | Service lift placeholder | P0 | prototype | Existing green exit object with primitive cage rails and gauge. |
-| PROP-004 | Health vial | P1 | prototype | Primitive brass-and-glass healing pickup with red medicinal fluid and cross mark. |
-| PROP-005 | Pressure cartridge pack | P1 | prototype | Primitive brass cartridge bundle with iron nozzles, straps, and pressure gauge. |
+| PROP-004 | Health vial | P1 | verified | Primitive brass-and-glass healing pickup with red medicinal fluid, cross mark, and data-driven pickup definition. |
+| PROP-005 | Pressure cartridge pack | P1 | verified | Primitive brass cartridge bundle with iron nozzles, straps, pressure gauge, and data-driven pickup definition. |
 | PROP-006 | Gear key final | P1 | verified | Upright procedural brass clockwork key with gear face, teeth, spokes, stem, bit, hub, and pins. |
 | PROP-007 | Pressure gate final | P1 | verified | Heavy procedural pressure gate with keyed socket, riveted slabs, gear wheel, gauge, pressure cylinders, warning lamps, and brass frame. |
 | PROP-008 | Service lift final | P1 | verified | Green-lit brass service elevator visual shared by level transitions and final exits. |
@@ -78,7 +78,7 @@ Every major asset should eventually have three quality targets:
 | WPN-003 | Steam Scattergun | P1 | planned | Close-range breaching weapon with chunky pressure release. |
 | WPN-004 | Rivet Launcher | P2 | planned | Mechanical precision weapon for stronger machines. |
 | WPN-005 | Weapon pickup shells | P2 | planned | World pickup visuals for weapons. |
-| WPN-006 | Ammo family | P1 | planned | Pressure cartridges, rivet bundles, boiler caps. |
+| WPN-006 | Ammo family | P1 | prototype | Pressure cartridge pack exists with data-driven pickup definition; rivet bundles and boiler caps remain planned. |
 
 ## 5. Mechanical Enemies
 

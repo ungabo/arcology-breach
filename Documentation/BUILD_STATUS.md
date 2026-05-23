@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.33` versioned build for `Brassworks Breach`.
+`v0.0.34` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds an interaction system foundation on top of the one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build adds data-driven pickup definitions and cleaner pickup/inventory application on top of the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -45,12 +45,13 @@
 - Data-driven `ScrapperDefinition.asset`, `LancerDefinition.asset`, and `EnemyDefinition` script, with validation coverage.
 - One-command V0 build matrix runner at `Tools/RunV0BuildMatrix.ps1`, covering scene rebuild, level validation, editor smoke, Windows build, and packaged runtime tests.
 - `IInteractable`, `PlayerInteraction`, HUD interaction prompts, interactable pressure gate/service lift/final lift hooks, and packaged interaction smoke coverage.
+- Data-driven `HealthVialDefinition.asset`, `PressureCartridgeDefinition.asset`, `GearKeyDefinition.asset`, and `PickupDefinition` script, with pickup validation coverage.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.33`.
+Latest fully verified build: `v0.0.34`.
 
-Current `v0.0.33` verification:
+Current `v0.0.34` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -82,7 +83,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.33\BrassworksBreach_v0.0.33.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.34\BrassworksBreach_v0.0.34.exe`
 
 ## Latest Build Verification
 
@@ -318,8 +319,20 @@ Current target:
 - `2026-05-23 13:05 -04:00`: `v0.0.33` packaged ranged combat smoke passed.
 - `2026-05-23 13:05 -04:00`: `v0.0.33` packaged interaction smoke passed.
 - `2026-05-23 13:05 -04:00`: `v0.0.33` packaged pause-flow smoke passed.
+- `2026-05-23 13:12 -04:00`: `v0.0.34` one-command build matrix runner passed.
+- `2026-05-23 13:12 -04:00`: `v0.0.34` scene rebuild passed.
+- `2026-05-23 13:12 -04:00`: `v0.0.34` level validation passed.
+- `2026-05-23 13:12 -04:00`: `v0.0.34` editor smoke passed.
+- `2026-05-23 13:12 -04:00`: `v0.0.34` Windows build passed.
+- `2026-05-23 13:12 -04:00`: `v0.0.34` packaged runtime smoke passed.
+- `2026-05-23 13:12 -04:00`: `v0.0.34` packaged auto-playthrough passed.
+- `2026-05-23 13:12 -04:00`: `v0.0.34` packaged combat smoke passed.
+- `2026-05-23 13:12 -04:00`: `v0.0.34` packaged combat-edge smoke passed.
+- `2026-05-23 13:12 -04:00`: `v0.0.34` packaged ranged combat smoke passed.
+- `2026-05-23 13:12 -04:00`: `v0.0.34` packaged interaction smoke passed.
+- `2026-05-23 13:12 -04:00`: `v0.0.34` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.34`, `v0.0.35`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.35`, `v0.0.36`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

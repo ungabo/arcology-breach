@@ -115,6 +115,18 @@ public static class V0LevelValidator
         foreach (Pickup pickup in pickups)
         {
             RequireTrigger(pickup.gameObject, sceneName + " pickup trigger " + pickup.name);
+            if (pickup.definition == null)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " pickup " + pickup.name + " is missing a PickupDefinition.");
+            }
+
+            RequireEqual((int)pickup.kind, (int)pickup.definition.kind, sceneName + " pickup kind definition " + pickup.name);
+            RequireEqual(pickup.amount, pickup.definition.amount, sceneName + " pickup amount definition " + pickup.name);
+            RequireApprox(pickup.collectRadius, pickup.definition.collectRadius, sceneName + " pickup collect radius definition " + pickup.name);
+            if (string.IsNullOrWhiteSpace(pickup.definition.collectMessage))
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " pickup " + pickup.name + " definition has no collect message.");
+            }
         }
     }
 
