@@ -76,6 +76,7 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 | VFX-010 | Add furnace heat field effect | vfx/code/test | P1 | verified | v0.0.64 | FurnaceHeatHazardVfx, phase signal pulsing, active heat ripples, level validation, and hazard smoke verification are complete. |
 | ANIM-003 | Add procedural machine enemy motion | animation/code/test | P1 | verified | v0.0.65 | MachineMotionVfx drives Scrapper/Lancer/Bulwark/Warden body bob, limb motion, and pressure-part pulsing with validation and runtime smoke. |
 | VFX-011 | Add pressure-bolt projectile VFX | vfx/code/test | P1 | verified | v0.0.66 | PressureBoltVfx adds glow, trail, and spark pieces to Lancer/Warden projectiles, with ranged-combat smoke verification. |
+| VFX-012 | Add pressure-pistol impact decal VFX | vfx/code/test | P1 | verified | v0.0.67 | ImpactDecalVfx adds scorch disc, brass impact plate, and sparks to pressure-pistol hits, with combat-scenario smoke verification. |
 
 ## Ready Next
 
@@ -195,3 +196,4 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 - `2026-05-23`: `v0.0.64` furnace heat VFX build created at `Builds/Windows/v0.0.64/BrassworksBreach_v0.0.64.exe` and passed the complete V0 matrix, including active heat-ripple hazard smoke coverage, through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.65` procedural machine motion build created at `Builds/Windows/v0.0.65/BrassworksBreach_v0.0.65.exe` and passed the complete V0 matrix, including enemy motion validation and runtime smoke coverage, through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.66` pressure-bolt VFX build created at `Builds/Windows/v0.0.66/BrassworksBreach_v0.0.66.exe` and passed the complete V0 matrix, including ranged-combat pressure-bolt VFX coverage, through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.67` pressure-pistol impact decal build created at `Builds/Windows/v0.0.67/BrassworksBreach_v0.0.67.exe` and passed the complete V0 matrix, including combat-scenario impact decal VFX coverage, through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.

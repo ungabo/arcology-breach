@@ -998,6 +998,18 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.67 Pressure Pistol Impact Decal Pass
+
+- [x] Add reusable `ImpactDecalVfx`.
+- [x] Replace spark-only hit marker with scorch/brass/spark impact decal VFX.
+- [x] Expand combat-scenario smoke to verify impact decal VFX on a non-lethal hit.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.67`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

@@ -53,6 +53,13 @@ public class RuntimeCombatScenarioTest : MonoBehaviour
             yield break;
         }
 
+        ImpactDecalVfx impactVfx = UnityEngine.Object.FindAnyObjectByType<ImpactDecalVfx>();
+        if (impactVfx == null || impactVfx.PieceCount < 8)
+        {
+            Fail("Combat scenario failed: pressure-pistol impact decal VFX did not spawn with enough visible pieces.");
+            yield break;
+        }
+
         if (weapon.FireOnce())
         {
             Fail("Combat scenario failed: weapon fired again during cooldown.");

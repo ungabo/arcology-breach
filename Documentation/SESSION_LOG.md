@@ -1979,3 +1979,40 @@ Build executable:
 `Builds/Windows/v0.0.66/BrassworksBreach_v0.0.66.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 18:21 -04:00
+
+Completed `v0.0.67` pressure-pistol impact decal VFX pass.
+
+Added:
+
+- `ImpactDecalVfx` reusable pressure-pistol hit effect.
+- Short-lived scorch disc and brass impact plate on raycast hits.
+- Preserved brass spark burst as part of the new decal VFX.
+- Combat-scenario smoke coverage requiring impact decal VFX on the first non-lethal hit.
+- Versioned Windows build `v0.0.67`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.67/BrassworksBreach_v0.0.67.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
