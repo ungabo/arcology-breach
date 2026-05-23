@@ -6,10 +6,15 @@ public class LevelTransitionTrigger : MonoBehaviour, IInteractable
     public string targetSceneName = "Level02";
     public string transitionMessage = "Service lift engaged";
     public string prompt = "E - engage service lift";
+    public string lockedPrompt = "vent boiler pressure first";
+    public string lockedMessage = "The service lift is pressure-locked. Vent the Boilerheart first.";
+    public SteamValveObjective requiredValve;
 
     private bool loading;
+    private float lastLockedFeedbackTime = -10f;
 
-    public string Prompt => loading ? string.Empty : prompt;
+    public bool IsLocked => requiredValve != null && !requiredValve.IsComplete;
+    public string Prompt => loading ? string.Empty : IsLocked ? lockedPrompt : prompt;
 
     private void Awake()
     {
@@ -54,6 +59,12 @@ public class LevelTransitionTrigger : MonoBehaviour, IInteractable
             return;
         }
 
+        if (IsLocked)
+        {
+            ShowLockedFeedback();
+            return;
+        }
+
         loading = true;
         LevelTransitionController controller = LevelTransitionController.Instance != null ? LevelTransitionController.Instance : Object.FindAnyObjectByType<LevelTransitionController>();
         if (controller != null)
@@ -67,5 +78,17 @@ public class LevelTransitionTrigger : MonoBehaviour, IInteractable
         HUDController.Instance?.ShowTemporaryMessage(transitionMessage, 0.5f);
         SteamworksAudio.Play(SteamworksAudioCue.Win);
         SceneManager.LoadScene(targetSceneName);
+    }
+
+    private void ShowLockedFeedback()
+    {
+        if (Time.unscaledTime - lastLockedFeedbackTime < 1f)
+        {
+            return;
+        }
+
+        lastLockedFeedbackTime = Time.unscaledTime;
+        HUDController.Instance?.ShowTemporaryMessage(lockedMessage, 1.4f);
+        SteamworksAudio.Play(SteamworksAudioCue.GateDenied);
     }
 }

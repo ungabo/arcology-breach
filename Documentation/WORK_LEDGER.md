@@ -47,14 +47,15 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | CODE-010 | Level transition controller | code | P1 | verified | v0.0.35 | LevelTransitionController routes service-lift loads and restarts while preserving run-state tests. |
 | PLAT-005 | Platform quality profiles | platform | P1 | verified | v0.0.36 | Windows, Android, WebGL, PC VR, and Meta Quest PlatformQualityProfile assets exist; Windows profile applies at runtime. |
 | TEST-008 | Expanded combat automation harness | test | P1 | verified | v0.0.37 | Combat scenario smoke verifies cooldown rejection, ammo accounting, expected shot count, and final-hit kill timing. |
-| LVL-005 | Add Level03 Boilerheart Core foundation | level | P1 | verified | v0.0.38 | Level03 scene, Level02 transition, four-scene build order, and three-level auto-playthrough are verified. |
-| LVL-006 | Add Boilerheart pressure-valve objective | level/code | P1 | verified | v0.0.39 | Level03 final lift is locked until the valve is vented; auto-playthrough verifies locked rejection, valve venting, and final win. |
+| LVL-005 | Add Level03 Boilerheart Core foundation | level | P1 | verified | v0.0.38 | Level03 scene, Level02 transition, and Boilerheart routing are verified. |
+| LVL-006 | Add Boilerheart pressure-valve objective | level/code | P1 | verified | v0.0.39 | Level03 foundry lift is locked until the valve is vented; auto-playthrough verifies locked rejection, valve venting, and transition unlock. |
 | HAZ-001 | Add steam hazard foundation | code/level/test | P1 | verified | v0.0.40 | Reusable SteamHazard, Boilerheart hazard placement, validation, and V0_HAZARD_PASS matrix coverage are verified. |
 | UI-004 | Add scene-specific objective briefings | ui/code | P1 | verified | v0.0.41 | GameStateController start messages are generated and validated per current level. |
-| HAZ-002 | Link Boilerheart valve to steam hazards | code/level/test | P1 | verified | v0.0.42 | Valve venting disables linked Boilerheart hazards; auto-playthrough validates shutdown before final lift completion. |
+| HAZ-002 | Link Boilerheart valve to steam hazards | code/level/test | P1 | verified | v0.0.42 | Valve venting disables linked Boilerheart hazards; auto-playthrough validates shutdown before foundry lift transition. |
 | SEC-001 | Add secret area foundation | code/level/test | P1 | verified | v0.0.43 | SecretArea, Intake pressure cache, validation, and V0_SECRET_PASS matrix coverage are verified. |
 | SEC-002 | Add run secret stats | code/ui/test | P1 | verified | v0.0.44 | RunStats tracks secret totals/discoveries and win message can report secret progress. |
 | TEST-009 | Verify secret stats in auto-playthrough | test | P1 | verified | v0.0.45 | Auto-playthrough asserts run secret totals persist to final win state. |
+| LVL-007 | Add Level04 Furnace Foundry foundation | level/code/test | P1 | verified | v0.0.46 | Level04 scene, valve-gated Level03 transition, five-scene build order, foundry hazards, emergency-hoist win, and four-level auto-playthrough are verified. |
 
 ## Ready Next
 
@@ -153,3 +154,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.43` secret area foundation build created at `Builds/Windows/v0.0.43/BrassworksBreach_v0.0.43.exe` and passed the complete V0 matrix, including secret smoke, through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.44` run secret stats build created at `Builds/Windows/v0.0.44/BrassworksBreach_v0.0.44.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.45` secret-stat auto-playthrough build created at `Builds/Windows/v0.0.45/BrassworksBreach_v0.0.45.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.46` Furnace Foundry foundation build created at `Builds/Windows/v0.0.46/BrassworksBreach_v0.0.46.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.

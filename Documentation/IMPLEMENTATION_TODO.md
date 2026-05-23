@@ -687,6 +687,22 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.46 Level04 Furnace Foundry Foundation Pass
+
+- [x] Add generated `Assets/_Project/Scenes/Level04.unity`.
+- [x] Convert Level03 final win lift into a valve-gated transition to `Level04`.
+- [x] Add lock support to `LevelTransitionTrigger`.
+- [x] Add Furnace Foundry blockout, enemies, pickups, steam hazards, furnace-row dressing, work-order board, and emergency-hoist win.
+- [x] Expand build scene order to MainMenu, Level01, Level02, Level03, Level04.
+- [x] Expand level validation and editor smoke for Level04.
+- [x] Expand auto-playthrough to validate Level01 -> Level02 -> Level03 -> Level04 -> win.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.46`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

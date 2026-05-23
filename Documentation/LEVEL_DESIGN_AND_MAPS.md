@@ -46,8 +46,9 @@ Near-term:
 
 - Level01 service lift now loads `Level02` through `LevelTransitionTrigger`.
 - Level02 service lift now loads `Level03` through `LevelTransitionTrigger`.
-- Level03 final service lift is pressure-locked until the Boilerheart pressure valve is vented, then triggers the current win state.
-- Auto-playthrough covers Level01 key/gate/lift, transition to Level02, transition to Level03, locked-final-lift rejection, Boilerheart pressure valve, and Level03 final lift.
+- Level03 foundry service lift is pressure-locked until the Boilerheart pressure valve is vented, then loads `Level04`.
+- Level04 emergency hoist currently triggers the win state.
+- Auto-playthrough covers Level01 key/gate/lift, transition to Level02, transition to Level03, locked-foundry-lift rejection, Boilerheart pressure valve, transition to Level04, and Level04 emergency hoist.
 - Hazard smoke covers Level03 steam hazard damage without ending the run from one tick.
 - Each current level now has a scene-specific objective briefing at spawn.
 - Venting the Boilerheart pressure valve shuts down the linked Level03 steam hazards.
@@ -121,17 +122,17 @@ New mechanics:
 
 Purpose:
 
-- Add the first boilerheart/furnace pressure chamber and extend the campaign chain to a three-level playable route.
+- Add the first boilerheart/furnace pressure chamber and gate the descent into the foundry.
 
 Approximate footprint:
 
 - Current prototype: about `13 x 28` meters.
 - Production target: `65 x 55` meters.
-- Current rooms: arrival floor, furnace-core chamber, baffle lane, final service lift.
+- Current rooms: arrival floor, furnace-core chamber, baffle lane, foundry service lift.
 
 New mechanics:
 
-- Current prototype: three-level transition chain, Boilerheart pressure-valve objective, and locked final lift win state.
+- Current prototype: Boilerheart pressure-valve objective, locked foundry lift, and linked hazard shutdown.
 - Planned: expanded valve/gauge lock sequence.
 - Planned: `Bellows Node` support enemy.
 - Current prototype: steam hazard zones with vent/puff visuals.
@@ -141,7 +142,7 @@ Current top-down sketch:
 ```text
           N
   +----------------------+
-  |      FINAL LIFT      |
+  |    FOUNDRY LIFT      |
   |   pipes/signage      |
   |          |           |
   |  cover   |   cover   |
@@ -159,15 +160,15 @@ Current top-down sketch:
 v0.0.38 implementation notes:
 
 - Generated at `Assets/_Project/Scenes/Level03.unity`.
-- Build order is MainMenu, Level01, Level02, Level03.
+- Build order was MainMenu, Level01, Level02, Level03 at introduction.
 - Level02 lift targets Level03.
-- Level03 final lift triggers the current win state.
-- Auto-playthrough validates the three-level chain.
+- Level03 final lift originally triggered the win state before Level04 existed.
+- Auto-playthrough validated the three-level chain at that point.
 
 v0.0.39 implementation notes:
 
 - Added `Boilerheart Pressure Valve Objective`.
-- Final service lift remains pressure-locked until the valve is vented.
+- Final service lift remained pressure-locked until the valve was vented.
 - Auto-playthrough validates that the final lift does not win early, vents the valve, then completes the run.
 
 v0.0.40 implementation notes:
@@ -196,6 +197,13 @@ v0.0.45 implementation notes:
 
 - Auto-playthrough validates secret totals persist to the final win state.
 
+v0.0.46 implementation notes:
+
+- Level03 final win lift was converted into `Boilerheart Service Lift To Foundry`.
+- The foundry lift remains pressure-locked until the Boilerheart pressure valve is vented.
+- After venting, the foundry lift transitions to `Level04`.
+- Auto-playthrough validates the locked lift, valve venting, hazard shutdown, and transition to the foundry.
+
 ### Level 04: Furnace Foundry
 
 Purpose:
@@ -204,14 +212,46 @@ Purpose:
 
 Approximate footprint:
 
-- `80 x 60` meters.
-- Assembly floor, furnace lanes, overhead gantry visuals, shutdown room.
+- Current prototype: about `14 x 32` meters.
+- Production target: `80 x 60` meters.
+- Current rooms: arrival floor, furnace baffle lane, mixed Scrapper/Lancer foundry floor, emergency hoist.
+- Production target: assembly floor, furnace lanes, overhead gantry visuals, shutdown room.
 
 New mechanics:
 
-- Crusher or furnace hazard lanes.
-- First `Bulwark` heavy enemy.
+- Current prototype: foundry steam hazards, mixed melee/ranged pressure, and emergency-hoist win state.
+- Planned: crusher or furnace hazard lanes.
+- Planned: first `Bulwark` heavy enemy.
 - Optional weapon route.
+
+Current top-down sketch:
+
+```text
+          N
+  +------------------------+
+  |    EMERGENCY HOIST     |
+  |  pipe bundle / green   |
+  |       low barrier      |
+  |   scrapper pressure    |
+  |          |             |
+  |  furnace lane + steam  |
+  |    lancer sightline    |
+  |          |             |
+  |  health      ammo      |
+  |          |             |
+  |       ARRIVAL          |
+  +------------------------+
+          S
+```
+
+v0.0.46 implementation notes:
+
+- Generated at `Assets/_Project/Scenes/Level04.unity`.
+- Build order is MainMenu, Level01, Level02, Level03, Level04.
+- Level03 foundry lift targets Level04 after Boilerheart valve completion.
+- Added `Foundry Steam Hazard - Casting Leak` and `Foundry Steam Hazard - Crucible Bleed`.
+- Added `Foundry Emergency Hoist` as the current campaign win device.
+- Auto-playthrough validates the four-level route.
 
 ### Level 05: Governor Core
 

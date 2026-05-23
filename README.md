@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.45` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.46` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -8,7 +8,7 @@ Public repository:
 
 Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged enemies, steam hazards, a secret cache, a gear key, a pressure gate, service-lift transitions, and a Boilerheart pressure valve that unlocks the current final lift.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged enemies, steam hazards, a secret cache, a gear key, a pressure gate, service-lift transitions, a Boilerheart pressure valve that unlocks the foundry lift, and a Furnace Foundry finale with an emergency hoist.
 
 Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
 
@@ -53,13 +53,15 @@ Goal:
 3. Let the gate open.
 4. Ride the service lifts into the Boilerheart.
 5. Vent the Boilerheart pressure valve.
-6. Engage the final service lift.
+6. Ride the foundry lift.
+7. Cross the Furnace Foundry.
+8. Engage the emergency hoist.
 
 ## Build
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.45\BrassworksBreach_v0.0.45.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.46\BrassworksBreach_v0.0.46.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -94,6 +96,8 @@ Smoke pass markers:
 - `V0_COMBAT_SCENARIO_PASS`
 - `V0_RANGED_COMBAT_PASS`
 - `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
 - `V0_PAUSE_FLOW_PASS`
 - `V0_LEVEL_VALIDATION_PASS`
 - `V0_BUILD_MATRIX_PASS`
@@ -231,12 +235,19 @@ Individual Unity entry points remain available:
 - Auto-playthrough now verifies secret totals persist to the final win state.
 - Full build matrix remains green with secret persistence coverage.
 
+## What v0.0.46 Adds
+
+- Generated Level04 Furnace Foundry scene.
+- Level03 Boilerheart lift is now pressure-locked until valve venting, then transitions to Level04.
+- Level04 adds foundry hazards, mixed Scrapper/Lancer pressure, pickups, furnace-row dressing, and the current emergency-hoist win state.
+- Full build matrix remains green with the four-level auto-playthrough.
+
 ## Good Next Steps
 
 - Continue replacing procedural placeholder geometry with steampunk assets from the asset catalog.
 - Add platform asset-quality settings.
-- Add reusable valve/switch objective mechanics on top of the interaction system.
-- Continue Level01 combat/readability tuning.
+- Add more reusable valve/switch objective mechanics on top of the interaction system.
+- Continue combat/readability tuning across the current four-level route.
 
 ## Planning Docs
 

@@ -19,9 +19,15 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         yield return null;
 
         string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "Level04")
+        {
+            yield return RunLevel04Exit();
+            yield break;
+        }
+
         if (sceneName == "Level03")
         {
-            yield return RunLevel03Exit();
+            yield return RunLevel03Transition();
             yield break;
         }
 
@@ -110,39 +116,62 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         }
     }
 
-    private IEnumerator RunLevel03Exit()
+    private IEnumerator RunLevel03Transition()
     {
         DisableEnemiesForDeterministicObjectiveTest();
 
         PlayerController player = Require<PlayerController>("PlayerController");
         PlayerInventory inventory = Require<PlayerInventory>("PlayerInventory");
-        ExitTrigger exit = Require<ExitTrigger>("ExitTrigger");
+        LevelTransitionTrigger transition = Require<LevelTransitionTrigger>("LevelTransitionTrigger");
         SteamValveObjective valve = Require<SteamValveObjective>("SteamValveObjective");
-        GameStateController gameState = Require<GameStateController>("GameStateController");
         if (!RunProgress.HasSnapshot || inventory.Ammo != RunProgress.Ammo)
         {
             Fail("Auto-playthrough failed: run progress did not persist into Level03.");
             yield break;
         }
 
-        Teleport(player, exit.transform.position);
+        string startingSceneName = SceneManager.GetActiveScene().name;
+        Teleport(player, transition.transform.position);
         yield return new WaitForSeconds(0.35f);
-        if (gameState.State == GameRunState.Won)
+        if (SceneManager.GetActiveScene().name != startingSceneName || !transition.IsLocked)
         {
-            Fail("Auto-playthrough failed: final lift unlocked before Boilerheart pressure valve.");
+            Fail("Auto-playthrough failed: foundry lift unlocked before Boilerheart pressure valve.");
             yield break;
         }
 
         Teleport(player, valve.transform.position);
         valve.Interact(player.gameObject);
-        yield return WaitUntilOrFail(() => valve.IsComplete && !exit.IsLocked && LinkedHazardsDisabled(valve), "boilerheart pressure valve venting", 2f);
+        yield return WaitUntilOrFail(() => valve.IsComplete && !transition.IsLocked && LinkedHazardsDisabled(valve), "boilerheart pressure valve venting", 2f);
         if (failed)
         {
             yield break;
         }
 
+        string targetSceneName = transition.targetSceneName;
+        Teleport(player, transition.transform.position);
+        yield return WaitUntilOrFail(() => SceneManager.GetActiveScene().name == targetSceneName, "level 03 foundry lift transition", 2f);
+        if (failed)
+        {
+            yield break;
+        }
+    }
+
+    private IEnumerator RunLevel04Exit()
+    {
+        DisableEnemiesForDeterministicObjectiveTest();
+
+        PlayerController player = Require<PlayerController>("PlayerController");
+        PlayerInventory inventory = Require<PlayerInventory>("PlayerInventory");
+        ExitTrigger exit = Require<ExitTrigger>("ExitTrigger");
+        GameStateController gameState = Require<GameStateController>("GameStateController");
+        if (!RunProgress.HasSnapshot || inventory.Ammo != RunProgress.Ammo)
+        {
+            Fail("Auto-playthrough failed: run progress did not persist into Level04.");
+            yield break;
+        }
+
         Teleport(player, exit.transform.position);
-        yield return WaitUntilOrFail(() => gameState.State == GameRunState.Won, "level 03 service lift win state", 2f);
+        yield return WaitUntilOrFail(() => gameState.State == GameRunState.Won, "level 04 emergency hoist win state", 2f);
         if (failed)
         {
             yield break;

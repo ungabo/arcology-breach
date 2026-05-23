@@ -9,6 +9,7 @@ public static class V0LevelValidator
     private const string Level01ScenePath = "Assets/_Project/Scenes/Level01.unity";
     private const string Level02ScenePath = "Assets/_Project/Scenes/Level02.unity";
     private const string Level03ScenePath = "Assets/_Project/Scenes/Level03.unity";
+    private const string Level04ScenePath = "Assets/_Project/Scenes/Level04.unity";
 
     [MenuItem("Project Tools/Validate v0 Levels")]
     public static void RunValidation()
@@ -33,15 +34,18 @@ public static class V0LevelValidator
         ValidateGameplayScene("Level02", requirePressureGate: false, requireTransition: true, requireFinalExit: false, requireRangedEnemy: true);
 
         EditorSceneManager.OpenScene(Level03ScenePath);
-        ValidateGameplayScene("Level03", requirePressureGate: false, requireTransition: false, requireFinalExit: true, requireRangedEnemy: false);
+        ValidateGameplayScene("Level03", requirePressureGate: false, requireTransition: true, requireFinalExit: false, requireRangedEnemy: false);
+
+        EditorSceneManager.OpenScene(Level04ScenePath);
+        ValidateGameplayScene("Level04", requirePressureGate: false, requireTransition: false, requireFinalExit: true, requireRangedEnemy: true);
     }
 
     private static void ValidateBuildSceneOrder()
     {
         EditorBuildSettingsScene[] scenes = EditorBuildSettings.scenes;
-        if (scenes.Length < 4 || scenes[0].path != MainMenuScenePath || scenes[1].path != Level01ScenePath || scenes[2].path != Level02ScenePath || scenes[3].path != Level03ScenePath)
+        if (scenes.Length < 5 || scenes[0].path != MainMenuScenePath || scenes[1].path != Level01ScenePath || scenes[2].path != Level02ScenePath || scenes[3].path != Level03ScenePath || scenes[4].path != Level04ScenePath)
         {
-            throw new InvalidOperationException("Level validation failed: build scenes must be MainMenu, Level01, Level02, Level03.");
+            throw new InvalidOperationException("Level validation failed: build scenes must be MainMenu, Level01, Level02, Level03, Level04.");
         }
     }
 
@@ -102,6 +106,27 @@ public static class V0LevelValidator
             {
                 throw new InvalidOperationException("Level validation failed: " + sceneName + " transition has no target scene.");
             }
+
+            if (sceneName == "Level03")
+            {
+                SteamValveObjective valve = Require<SteamValveObjective>(sceneName + " SteamValveObjective");
+                RequireTrigger(valve.gameObject, sceneName + " SteamValveObjective trigger");
+                RequireInteractable(valve, sceneName + " boilerheart pressure valve interactable");
+                if (transition.requiredValve != valve)
+                {
+                    throw new InvalidOperationException("Level validation failed: " + sceneName + " foundry lift is not linked to the Boilerheart pressure valve.");
+                }
+
+                if (!transition.IsLocked)
+                {
+                    throw new InvalidOperationException("Level validation failed: " + sceneName + " foundry lift must start pressure-locked.");
+                }
+
+                if (valve.hazardsToDisableOnComplete == null || valve.hazardsToDisableOnComplete.Length < 2)
+                {
+                    throw new InvalidOperationException("Level validation failed: " + sceneName + " Boilerheart pressure valve is not linked to steam hazards.");
+                }
+            }
         }
 
         if (requireFinalExit)
@@ -110,21 +135,6 @@ public static class V0LevelValidator
             RequireTrigger(exit.gameObject, sceneName + " ExitTrigger trigger");
             RequireInteractable(exit, sceneName + " final lift interactable");
             ValidateServiceLiftVisuals(exit.gameObject, sceneName + " final service lift");
-            if (sceneName == "Level03")
-            {
-                SteamValveObjective valve = Require<SteamValveObjective>(sceneName + " SteamValveObjective");
-                RequireTrigger(valve.gameObject, sceneName + " SteamValveObjective trigger");
-                RequireInteractable(valve, sceneName + " boilerheart pressure valve interactable");
-                if (exit.requiredValve != valve)
-                {
-                    throw new InvalidOperationException("Level validation failed: " + sceneName + " final lift is not linked to the Boilerheart pressure valve.");
-                }
-
-                if (valve.hazardsToDisableOnComplete == null || valve.hazardsToDisableOnComplete.Length < 2)
-                {
-                    throw new InvalidOperationException("Level validation failed: " + sceneName + " Boilerheart pressure valve is not linked to steam hazards.");
-                }
-            }
         }
 
         if (requireRangedEnemy)
@@ -239,7 +249,7 @@ public static class V0LevelValidator
     private static void ValidateHazards(string sceneName)
     {
         SteamHazard[] hazards = UnityEngine.Object.FindObjectsByType<SteamHazard>(FindObjectsSortMode.None);
-        if (sceneName == "Level03" && hazards.Length == 0)
+        if ((sceneName == "Level03" || sceneName == "Level04") && hazards.Length == 0)
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " is missing SteamHazard.");
         }
@@ -314,8 +324,10 @@ public static class V0LevelValidator
             : sceneName == "Level02"
                 ? "Survive the Pipeworks. Ride the lift to the Boilerheart."
                 : sceneName == "Level03"
-                    ? "Vent the Boilerheart pressure valve. Reach the final service lift."
-                    : string.Empty;
+                    ? "Vent the Boilerheart pressure valve. Ride the foundry lift."
+                    : sceneName == "Level04"
+                        ? "Cross the Furnace Foundry. Reach the emergency hoist."
+                        : string.Empty;
 
         if (string.IsNullOrWhiteSpace(expectedMessage))
         {
@@ -392,6 +404,15 @@ public static class V0LevelValidator
             RequireNamed("Boilerheart Valve Vented Lamp", sceneName + " boilerheart valve vented signal");
             RequireNamed("Boilerheart Steam Hazard - Furnace Leak", sceneName + " boilerheart steam hazard");
             RequireNamed("Boilerheart Steam Hazard - Core Bleed", sceneName + " boilerheart steam hazard");
+        }
+        else if (sceneName == "Level04")
+        {
+            RequireNamed("Work Order Board - Foundry", sceneName + " foundry work-order board visual");
+            RequireNamed("Foundry Triple Pipe Bundle", sceneName + " foundry pipe-bundle visual");
+            RequireNamed("Foundry Furnace Row", sceneName + " foundry furnace row visual");
+            RequireNamed("Foundry Steam Hazard - Casting Leak", sceneName + " foundry steam hazard");
+            RequireNamed("Foundry Steam Hazard - Crucible Bleed", sceneName + " foundry steam hazard");
+            RequireNamed("Foundry Emergency Hoist", sceneName + " emergency hoist visual");
         }
 
         if (sceneName == "Level01")

@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.45`.
+Current state: `v0.0.46`.
 
 Implemented:
 
@@ -35,7 +35,7 @@ Implemented:
 - Packaged combat smoke for pressure-pistol damage and Scrapper death.
 - Packaged pause-flow smoke for pause/resume/restart/quit.
 - Unity editor smoke test, Windows build, and runtime smoke test.
-- Two-level flow with Level01 and Level02.
+- Early multi-level flow foundation that has since expanded into the current four-level route.
 - Ranged Lancer enemy prototype and ranged-combat smoke test.
 - Centralized `GameBalance` values.
 - Data-driven Pressure Pistol, Scrapper, and Lancer definitions.
@@ -45,14 +45,15 @@ Implemented:
 - Reusable level transition controller for service lifts and restarts.
 - Data-driven platform quality profiles for Windows, Android, WebGL, PC VR, and Meta Quest.
 - Expanded combat scenario automation for cooldowns, ammo accounting, and expected kill timing.
-- Three-level service-lift campaign chain ending at Level03 Boilerheart Core.
-- Boilerheart pressure-valve objective that locks the Level03 final lift until vented.
+- Four-level service-lift campaign chain ending at Level04 Furnace Foundry.
+- Boilerheart pressure-valve objective that locks the Level03 foundry lift until vented.
 - Steam hazard trigger volumes with packaged hazard smoke coverage.
-- Scene-specific objective briefing messages for the current three-level route.
+- Scene-specific objective briefing messages for the current four-level route.
 - Boilerheart pressure valve shuts down linked steam hazards when vented.
 - Secret area foundation with the first Intake pressure cache and packaged secret smoke coverage.
 - Persistent run secret stats and final win-message secret progress.
 - Auto-playthrough coverage for secret total persistence through the final win state.
+- Level04 Furnace Foundry foundation with foundry blockout, mixed Scrapper/Lancer pressure, steam hazards, pickups, furnace-row dressing, and current emergency-hoist win state.
 
 ## 3. Target Platform
 
