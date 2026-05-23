@@ -68,7 +68,7 @@ Enemies are work machines forced into hostile routines:
 - `Lancer`: valve-rifle frame that fires compressed rivets or steam bolts.
 - `Bulwark`: heavy furnace-plated machine guarding key rooms.
 - `Bellows Node`: stationary amplifier that overpressurizes nearby machines.
-- `Governor Warden`: later elite machine assembled from multiple service frames.
+- `Governor Warden`: elite final guardian machine assembled from multiple service frames.
 
 Enemies should read as practical machines with recognizable jobs before the disaster.
 

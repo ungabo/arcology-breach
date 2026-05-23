@@ -1361,3 +1361,44 @@ Build executable:
 `Builds/Windows/v0.0.50/BrassworksBreach_v0.0.50.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 16:20 -04:00
+
+Completed `v0.0.51` Governor Warden guardian pass.
+
+Added:
+
+- `GovernorWardenController`.
+- Governor Warden balance values and `GovernorWardenDefinition.asset`.
+- Primitive Governor Warden silhouette with core body, furnace heart, pressure crown, back boiler, piston arms, stomp plates, and pressure cannon muzzle.
+- First Warden placement in `Level05`.
+- Warden stomp, pressure-bolt, and enraged half-health behavior.
+- Validation for Warden definition, balance, muzzle wiring, and visual pieces.
+- `RuntimeWardenCombatTest` and `V0_WARDEN_COMBAT_PASS`.
+- Warden combat smoke in the one-command matrix.
+- Versioned Windows build `v0.0.51`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.51/BrassworksBreach_v0.0.51.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

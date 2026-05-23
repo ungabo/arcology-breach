@@ -253,6 +253,12 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         {
             enemy.gameObject.SetActive(false);
         }
+
+        GovernorWardenController[] wardens = UnityEngine.Object.FindObjectsByType<GovernorWardenController>();
+        foreach (GovernorWardenController enemy in wardens)
+        {
+            enemy.gameObject.SetActive(false);
+        }
     }
 
     private static Pickup FindPickup(PickupKind kind)

@@ -30,6 +30,19 @@ public static class GameBalance
     public const float BulwarkAttackCooldown = 1.9f;
     public const float BulwarkAttackWindup = 0.85f;
 
+    public const int GovernorWardenHealth = 250;
+    public const float GovernorWardenDetectionRange = 18f;
+    public const float GovernorWardenMoveSpeed = 0.85f;
+    public const float GovernorWardenStompRange = 2.2f;
+    public const int GovernorWardenStompDamage = 22;
+    public const float GovernorWardenStompCooldown = 2.4f;
+    public const float GovernorWardenStompWindup = 1.05f;
+    public const float GovernorWardenFireRange = 13f;
+    public const float GovernorWardenFireCooldown = 2.1f;
+    public const float GovernorWardenFireWindup = 0.75f;
+    public const int GovernorWardenProjectileDamage = 10;
+    public const float GovernorWardenProjectileSpeed = 6.5f;
+
     public const int SteamHazardDamage = 6;
     public const float SteamHazardTickInterval = 0.75f;
 

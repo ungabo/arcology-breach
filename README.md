@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.50` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.51` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -8,7 +8,7 @@ Public repository:
 
 Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged/heavy enemies, steam hazards, pulsing furnace-heat hazards, multi-level secret caches, a gear key, a pressure gate, service-lift transitions, a Boilerheart pressure valve that unlocks the foundry lift, a Furnace Foundry route, and a Governor Core finale with a master override hoist.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged/heavy/boss enemies, steam hazards, pulsing furnace-heat hazards, multi-level secret caches, a gear key, a pressure gate, service-lift transitions, a Boilerheart pressure valve that unlocks the foundry lift, a Furnace Foundry route, and a Governor Core finale with a master override hoist.
 
 Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
 
@@ -62,7 +62,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.50\BrassworksBreach_v0.0.50.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.51\BrassworksBreach_v0.0.51.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -81,6 +81,7 @@ The project test matrix includes:
 - Packaged combat-scenario smoke test.
 - Packaged ranged-combat smoke test.
 - Packaged Bulwark-combat smoke test.
+- Packaged Warden-combat smoke test.
 - Packaged interaction smoke test.
 - Packaged hazard smoke test.
 - Packaged secret smoke test.
@@ -98,6 +99,7 @@ Smoke pass markers:
 - `V0_COMBAT_SCENARIO_PASS`
 - `V0_RANGED_COMBAT_PASS`
 - `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
 - `V0_INTERACTION_SMOKE_PASS`
 - `V0_HAZARD_PASS`
 - `V0_SECRET_PASS`
@@ -270,6 +272,14 @@ Individual Unity entry points remain available:
 - Level04 emergency hoist now transitions into Level05 instead of ending the run.
 - Level05 adds mixed Scrapper/Lancer/Bulwark pressure, steam and furnace-heat hazards, Governor Core dressing, and the master override hoist win state.
 - Build order and auto-playthrough now cover MainMenu, Level01, Level02, Level03, Level04, and Level05.
+
+## What v0.0.51 Adds
+
+- First `Governor Warden` final guardian prototype in Level05.
+- Data-driven `GovernorWardenDefinition.asset`.
+- Primitive Warden silhouette with core body, furnace heart, pressure crown, back boiler, piston arms, stomp plates, and pressure cannon muzzle.
+- Warden controller with durable boss health, stomp attack, pressure-bolt attack, and enraged half-health state.
+- New packaged Warden combat smoke in the full build matrix.
 
 ## Good Next Steps
 

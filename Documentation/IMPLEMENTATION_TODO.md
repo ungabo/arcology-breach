@@ -765,6 +765,23 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.51 Governor Warden Guardian Pass
+
+- [x] Add `GovernorWardenController`.
+- [x] Add Governor Warden balance values and `GovernorWardenDefinition.asset`.
+- [x] Add primitive Governor Warden silhouette with core body, furnace heart, pressure crown, back boiler, piston arms, stomp plates, and pressure cannon muzzle.
+- [x] Place the first Governor Warden in `Level05`.
+- [x] Add Warden stomp, pressure-bolt, and enraged half-health behavior.
+- [x] Add validation for Warden definition, balance, muzzle wiring, and visual pieces.
+- [x] Add packaged Warden combat smoke.
+- [x] Add Warden combat smoke to the one-command build matrix.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.51`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

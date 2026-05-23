@@ -91,7 +91,7 @@ Every major asset should eventually have three quality targets:
 | ENEMY-004 | Lancer | P1 | verified | Thin ranged valve-rifle automaton with primitive tripod silhouette, pressure-bolt attack, and data-driven definition asset. |
 | ENEMY-005 | Bulwark | P2 | prototype | Primitive furnace-plated machine with boiler body, hammer arms, data-driven definition, Level04/Level05 placement, and combat smoke coverage. |
 | ENEMY-006 | Bellows Node | P2 | planned | Stationary pressure amplifier that buffs nearby machines. |
-| ENEMY-007 | Governor Warden | P3 | deferred | Later boss or mini-boss encounter. |
+| ENEMY-007 | Governor Warden | P1 | prototype | Final guardian prototype with data-driven definition, Level05 placement, stomp attack, pressure-bolt attack, enraged half-health behavior, primitive core body/furnace heart/pressure crown/pressure cannon silhouette, validation, and combat smoke coverage. |
 
 ## 6. Animations
 
@@ -159,7 +159,7 @@ Every major asset should eventually have three quality targets:
 | LVL-004 | Pipeworks Annex prototype | P2 | prototype | Generated second level with pipeworks blockout, Scrapper/Lancer pressure, pickups, dressing, and service-lift transition. |
 | LVL-005 | Gauge Hall concept | P2 | planned | Valve/gauge lock sequence level concept. |
 | LVL-006 | Furnace Foundry prototype | P2 | prototype | Generated fourth level with foundry blockout, mixed Scrapper/Lancer/Bulwark pressure, steam hazards, pulsing furnace heat lanes, secret coal cache, furnace-row dressing, and emergency-hoist transition to Level05. |
-| LVL-007 | Governor Core prototype | P2 | prototype | Generated fifth level with core-ring blockout, mixed Scrapper/Lancer/Bulwark pressure, steam hazard, furnace-heat surge, regulator dressing, and master override hoist win. |
+| LVL-007 | Governor Core prototype | P2 | prototype | Generated fifth level with core-ring blockout, mixed Scrapper/Lancer/Bulwark/Warden pressure, steam hazard, furnace-heat surge, regulator dressing, and master override hoist win. |
 
 ## 11. Platform Variants
 

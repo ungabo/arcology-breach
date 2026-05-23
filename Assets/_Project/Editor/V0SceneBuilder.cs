@@ -63,6 +63,7 @@ public static class V0SceneBuilder
         EnemyDefinition scrapperDefinition = CreateScrapperDefinition();
         EnemyDefinition lancerDefinition = CreateLancerDefinition();
         EnemyDefinition bulwarkDefinition = CreateBulwarkDefinition();
+        EnemyDefinition governorWardenDefinition = CreateGovernorWardenDefinition();
         PickupDefinition healthPickupDefinition = CreateHealthPickupDefinition();
         PickupDefinition ammoPickupDefinition = CreateAmmoPickupDefinition();
         PickupDefinition gearKeyDefinition = CreateGearKeyDefinition();
@@ -95,7 +96,7 @@ public static class V0SceneBuilder
         CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
         CreateBoilerheartScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
         CreateFurnaceFoundryScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, bulwarkDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
-        CreateGovernorCoreScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, bulwarkDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
+        CreateGovernorCoreScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, bulwarkDefinition, governorWardenDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
         CreateMainMenuScene(brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, furnaceGlowMaterial, oilStoneMaterial, windowsQualityProfile);
         EditorBuildSettings.scenes = new[]
         {
@@ -160,6 +161,7 @@ public static class V0SceneBuilder
         RequireObject<RuntimeCombatEdgeTest>("RuntimeCombatEdgeTest");
         RequireObject<RuntimeRangedCombatTest>("RuntimeRangedCombatTest");
         RequireObject<RuntimeBulwarkCombatTest>("RuntimeBulwarkCombatTest");
+        RequireObject<RuntimeWardenCombatTest>("RuntimeWardenCombatTest");
         RequireObject<RuntimeHazardTest>("RuntimeHazardTest");
         RequireObject<RuntimeSecretTest>("RuntimeSecretTest");
         RequireObject<RuntimePauseFlowTest>("RuntimePauseFlowTest");
@@ -200,6 +202,7 @@ public static class V0SceneBuilder
         RequireObject<EnemyController>("Level05 EnemyController");
         RequireObject<RangedEnemyController>("Level05 RangedEnemyController");
         RequireObject<BulwarkEnemyController>("Level05 BulwarkEnemyController");
+        RequireObject<GovernorWardenController>("Level05 GovernorWardenController");
         RequireObject<ExitTrigger>("Level05 ExitTrigger");
         RequireObject<SteamHazard>("Level05 SteamHazard");
         RequireObject<FurnaceHeatHazard>("Level05 FurnaceHeatHazard");
@@ -384,6 +387,34 @@ public static class V0SceneBuilder
         definition.attackDamage = GameBalance.BulwarkAttackDamage;
         definition.attackCooldown = GameBalance.BulwarkAttackCooldown;
         definition.attackWindup = GameBalance.BulwarkAttackWindup;
+        EditorUtility.SetDirty(definition);
+        return definition;
+    }
+
+    private static EnemyDefinition CreateGovernorWardenDefinition()
+    {
+        string path = $"{DataFolder}/GovernorWardenDefinition.asset";
+        EnemyDefinition definition = AssetDatabase.LoadAssetAtPath<EnemyDefinition>(path);
+        if (definition == null)
+        {
+            definition = ScriptableObject.CreateInstance<EnemyDefinition>();
+            AssetDatabase.CreateAsset(definition, path);
+        }
+
+        definition.displayName = "Governor Warden";
+        definition.attackStyle = EnemyAttackStyle.Boss;
+        definition.maxHealth = GameBalance.GovernorWardenHealth;
+        definition.detectionRange = GameBalance.GovernorWardenDetectionRange;
+        definition.moveSpeed = GameBalance.GovernorWardenMoveSpeed;
+        definition.attackRange = GameBalance.GovernorWardenStompRange;
+        definition.attackDamage = GameBalance.GovernorWardenStompDamage;
+        definition.attackCooldown = GameBalance.GovernorWardenStompCooldown;
+        definition.attackWindup = GameBalance.GovernorWardenStompWindup;
+        definition.fireRange = GameBalance.GovernorWardenFireRange;
+        definition.fireCooldown = GameBalance.GovernorWardenFireCooldown;
+        definition.fireWindup = GameBalance.GovernorWardenFireWindup;
+        definition.projectileDamage = GameBalance.GovernorWardenProjectileDamage;
+        definition.projectileSpeed = GameBalance.GovernorWardenProjectileSpeed;
         EditorUtility.SetDirty(definition);
         return definition;
     }
@@ -845,7 +876,7 @@ public static class V0SceneBuilder
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), Level04ScenePath);
     }
 
-    private static void CreateGovernorCoreScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition, EnemyDefinition bulwarkDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PlatformQualityProfile windowsQualityProfile)
+    private static void CreateGovernorCoreScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition, EnemyDefinition bulwarkDefinition, EnemyDefinition governorWardenDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PlatformQualityProfile windowsQualityProfile)
     {
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -859,7 +890,8 @@ public static class V0SceneBuilder
 
         CreateEnemy("Enemy - Governor Core Intake Scrapper", new Vector3(-2.9f, 1f, 8.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateLancerEnemy("Enemy - Governor Core Lancer", new Vector3(3.2f, 1f, 15.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, lancerDefinition);
-        CreateBulwarkEnemy("Enemy - Governor Core Bulwark", new Vector3(-2.6f, 1.15f, 22.2f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, bulwarkDefinition);
+        CreateBulwarkEnemy("Enemy - Governor Core Bulwark", new Vector3(-3.15f, 1.15f, 21f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, bulwarkDefinition);
+        CreateGovernorWardenEnemy("Enemy - Governor Core Warden", new Vector3(0f, 1.45f, 24.1f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, governorWardenDefinition);
         CreateHealthVialPickup("Pickup - Governor Health Vial", new Vector3(-4.55f, 0.65f, 13.5f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
         CreatePressureCartridgePickup("Pickup - Governor Pressure Cartridge Pack", new Vector3(4.45f, 0.55f, 20.2f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
         CreateGovernorCoreDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
@@ -1464,6 +1496,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeCombatScenarioTest>();
         stateObject.AddComponent<RuntimeRangedCombatTest>();
         stateObject.AddComponent<RuntimeBulwarkCombatTest>();
+        stateObject.AddComponent<RuntimeWardenCombatTest>();
         stateObject.AddComponent<RuntimeInteractionTest>();
         stateObject.AddComponent<RuntimeHazardTest>();
         stateObject.AddComponent<RuntimeSecretTest>();
@@ -1655,6 +1688,35 @@ public static class V0SceneBuilder
         bulwark.attackWindup = GameBalance.BulwarkAttackWindup;
     }
 
+    private static void CreateGovernorWardenEnemy(string name, Vector3 position, Material material, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial, EnemyDefinition definition)
+    {
+        GameObject enemy = new GameObject(name);
+        enemy.transform.position = position;
+
+        Transform muzzle = CreateGovernorWardenVisual(enemy.transform, material, eyeMaterial, brassMaterial, ironMaterial, warningMaterial);
+
+        CharacterController controller = enemy.AddComponent<CharacterController>();
+        controller.height = 2.9f;
+        controller.radius = 0.8f;
+        controller.center = Vector3.zero;
+
+        GovernorWardenController warden = enemy.AddComponent<GovernorWardenController>();
+        warden.definition = definition;
+        warden.muzzle = muzzle;
+        warden.maxHealth = GameBalance.GovernorWardenHealth;
+        warden.detectionRange = GameBalance.GovernorWardenDetectionRange;
+        warden.moveSpeed = GameBalance.GovernorWardenMoveSpeed;
+        warden.stompRange = GameBalance.GovernorWardenStompRange;
+        warden.stompDamage = GameBalance.GovernorWardenStompDamage;
+        warden.stompCooldown = GameBalance.GovernorWardenStompCooldown;
+        warden.stompWindup = GameBalance.GovernorWardenStompWindup;
+        warden.fireRange = GameBalance.GovernorWardenFireRange;
+        warden.fireCooldown = GameBalance.GovernorWardenFireCooldown;
+        warden.fireWindup = GameBalance.GovernorWardenFireWindup;
+        warden.projectileDamage = GameBalance.GovernorWardenProjectileDamage;
+        warden.projectileSpeed = GameBalance.GovernorWardenProjectileSpeed;
+    }
+
     private static void CreateBulwarkVisual(Transform parent, Material bodyMaterial, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial)
     {
         CreateLocalCube("Bulwark Riveted Boiler Body", parent, new Vector3(0f, 0.1f, 0f), new Vector3(1.05f, 1.22f, 0.74f), bodyMaterial);
@@ -1672,6 +1734,26 @@ public static class V0SceneBuilder
         CreateLocalCube("Bulwark Right Piston Leg", parent, new Vector3(0.36f, -0.78f, 0f), new Vector3(0.26f, 0.7f, 0.26f), ironMaterial);
         CreateLocalCube("Bulwark Left Heavy Foot", parent, new Vector3(-0.36f, -1.2f, 0.18f), new Vector3(0.5f, 0.16f, 0.48f), brassMaterial);
         CreateLocalCube("Bulwark Right Heavy Foot", parent, new Vector3(0.36f, -1.2f, 0.18f), new Vector3(0.5f, 0.16f, 0.48f), brassMaterial);
+    }
+
+    private static Transform CreateGovernorWardenVisual(Transform parent, Material bodyMaterial, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial)
+    {
+        CreateLocalCube("Governor Warden Core Body", parent, new Vector3(0f, 0.08f, 0f), new Vector3(1.45f, 1.7f, 0.95f), bodyMaterial);
+        CreateLocalCube("Governor Warden Furnace Heart", parent, new Vector3(0f, 0.08f, 0.54f), new Vector3(0.82f, 0.62f, 0.08f), eyeMaterial);
+        CreateLocalCube("Governor Warden Brass Rib Clamp", parent, new Vector3(0f, 0.62f, 0.58f), new Vector3(1.18f, 0.18f, 0.08f), brassMaterial);
+        CreateLocalCube("Governor Warden Iron Jaw", parent, new Vector3(0f, -0.58f, 0.56f), new Vector3(1.05f, 0.24f, 0.1f), ironMaterial);
+        CreateLocalPrimitive("Governor Warden Pressure Crown", PrimitiveType.Cylinder, parent, new Vector3(0f, 1.12f, 0f), new Vector3(0.72f, 0.22f, 0.72f), brassMaterial);
+        CreateLocalPrimitive("Governor Warden Back Boiler", PrimitiveType.Cylinder, parent, new Vector3(0f, 0.1f, -0.62f), new Vector3(0.58f, 1.35f, 0.58f), ironMaterial).transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube("Governor Warden Left Shoulder Governor", parent, new Vector3(-1.05f, 0.5f, 0.04f), new Vector3(0.38f, 0.48f, 0.42f), brassMaterial);
+        CreateLocalCube("Governor Warden Right Shoulder Governor", parent, new Vector3(1.05f, 0.5f, 0.04f), new Vector3(0.38f, 0.48f, 0.42f), brassMaterial);
+        CreateLocalCube("Governor Warden Left Piston Arm", parent, new Vector3(-1.32f, -0.18f, 0.18f), new Vector3(0.24f, 1.2f, 0.24f), ironMaterial).transform.localRotation = Quaternion.Euler(0f, 0f, -7f);
+        CreateLocalCube("Governor Warden Right Piston Arm", parent, new Vector3(1.32f, -0.18f, 0.18f), new Vector3(0.24f, 1.2f, 0.24f), ironMaterial).transform.localRotation = Quaternion.Euler(0f, 0f, 7f);
+        CreateLocalCube("Governor Warden Left Stomp Plate", parent, new Vector3(-0.48f, -1.32f, 0.2f), new Vector3(0.62f, 0.18f, 0.62f), warningMaterial);
+        CreateLocalCube("Governor Warden Right Stomp Plate", parent, new Vector3(0.48f, -1.32f, 0.2f), new Vector3(0.62f, 0.18f, 0.62f), warningMaterial);
+        CreateLocalCube("Governor Warden Spine Pressure Pipe", parent, new Vector3(0f, 0.82f, -0.82f), new Vector3(0.22f, 1.1f, 0.16f), brassMaterial);
+        GameObject muzzle = CreateLocalPrimitive("Governor Warden Pressure Cannon Muzzle", PrimitiveType.Cylinder, parent, new Vector3(0f, 0.42f, 0.86f), new Vector3(0.16f, 0.42f, 0.16f), warningMaterial);
+        muzzle.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        return muzzle.transform;
     }
 
     private static Transform CreateLancerVisual(Transform parent, Material bodyMaterial, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial)

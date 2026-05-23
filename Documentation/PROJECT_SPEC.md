@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.50`.
+Current state: `v0.0.51`.
 
 Implemented:
 
@@ -58,6 +58,7 @@ Implemented:
 - First Bulwark heavy enemy role with data-driven definition, primitive visual silhouette, Level04 placement, validation, and packaged combat smoke coverage.
 - Multi-level secret tracking with Level01 and Level04 secret caches and auto-playthrough verification that at least two registered secrets persist to win.
 - Level05 Governor Core foundation with core-ring blockout, mixed Scrapper/Lancer/Bulwark pressure, steam hazard, furnace-heat hazard, regulator dressing, and master override hoist win state.
+- First Governor Warden final guardian with data-driven definition, primitive boss silhouette, stomp attack, pressure-bolt attack, enraged half-health state, Level05 placement, validation, and packaged Warden combat smoke.
 
 ## 3. Target Platform
 
@@ -150,6 +151,7 @@ Future enemy family:
 - `Boiler Tick`: small pressure scout.
 - `Lancer`: ranged valve-rifle automaton.
 - `Bulwark`: heavy furnace-plated machine.
+- `Governor Warden`: final guardian pressure engine.
 - `Bellows Node`: stationary pressure amplifier.
 
 ### World

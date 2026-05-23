@@ -297,7 +297,7 @@ Approximate footprint:
 New mechanics:
 
 - Current prototype: final master override hoist win state.
-- Current prototype: mixed Scrapper/Lancer/Bulwark pressure.
+- Current prototype: mixed Scrapper/Lancer/Bulwark pressure plus the first Governor Warden final guardian.
 - Current prototype: steam hazard and pulsing furnace-heat surge inside the regulator lane.
 - Planned: multi-stage objective unlock.
 - Planned: boss or mini-boss encounter if scope allows.
@@ -333,6 +333,13 @@ v0.0.50 implementation notes:
 - Added `Enemy - Governor Core Bulwark` plus Scrapper/Lancer support.
 - Added `Governor Core Master Override Hoist` as the current final win device.
 - Auto-playthrough validates the five-level route through the Governor Core win state.
+
+v0.0.51 implementation notes:
+
+- Added `Enemy - Governor Core Warden` as the first final guardian prototype.
+- Added Warden stomp, pressure-bolt, and enraged half-health behavior.
+- Added Warden primitive silhouette pieces: core body, furnace heart, pressure crown, back boiler, piston arms, stomp plates, and pressure cannon muzzle.
+- Added `RuntimeWardenCombatTest` to validate Warden durability/death in the packaged matrix.
 
 ## Map Documentation Template
 

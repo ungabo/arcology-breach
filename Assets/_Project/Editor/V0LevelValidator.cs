@@ -78,6 +78,7 @@ public static class V0LevelValidator
         Require<RuntimeInteractionTest>(sceneName + " RuntimeInteractionTest");
         Require<RuntimeCombatScenarioTest>(sceneName + " RuntimeCombatScenarioTest");
         Require<RuntimeBulwarkCombatTest>(sceneName + " RuntimeBulwarkCombatTest");
+        Require<RuntimeWardenCombatTest>(sceneName + " RuntimeWardenCombatTest");
         Require<RuntimeHazardTest>(sceneName + " RuntimeHazardTest");
         Require<RuntimeSecretTest>(sceneName + " RuntimeSecretTest");
         Require<EnemyController>(sceneName + " EnemyController");
@@ -154,6 +155,15 @@ public static class V0LevelValidator
         if (sceneName == "Level04" || sceneName == "Level05")
         {
             Require<BulwarkEnemyController>(sceneName + " BulwarkEnemyController");
+        }
+
+        if (sceneName == "Level05")
+        {
+            GovernorWardenController warden = Require<GovernorWardenController>(sceneName + " GovernorWardenController");
+            if (warden.muzzle == null)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " GovernorWardenController is missing muzzle.");
+            }
         }
     }
 
@@ -279,6 +289,38 @@ public static class V0LevelValidator
             RequireEqual(enemy.definition.maxHealth, GameBalance.BulwarkHealth, sceneName + " Bulwark definition health");
             RequireApprox(enemy.definition.moveSpeed, GameBalance.BulwarkMoveSpeed, sceneName + " Bulwark definition speed");
             RequireEqual(enemy.definition.attackDamage, GameBalance.BulwarkAttackDamage, sceneName + " Bulwark definition damage");
+        }
+
+        GovernorWardenController[] wardens = UnityEngine.Object.FindObjectsByType<GovernorWardenController>(FindObjectsSortMode.None);
+        foreach (GovernorWardenController enemy in wardens)
+        {
+            if (enemy.GetComponent<CharacterController>() == null)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " Governor Warden missing CharacterController.");
+            }
+
+            RequireEqual(enemy.maxHealth, GameBalance.GovernorWardenHealth, sceneName + " Governor Warden health balance");
+            RequireApprox(enemy.detectionRange, GameBalance.GovernorWardenDetectionRange, sceneName + " Governor Warden detection balance");
+            RequireApprox(enemy.moveSpeed, GameBalance.GovernorWardenMoveSpeed, sceneName + " Governor Warden speed balance");
+            RequireApprox(enemy.stompRange, GameBalance.GovernorWardenStompRange, sceneName + " Governor Warden stomp range balance");
+            RequireEqual(enemy.stompDamage, GameBalance.GovernorWardenStompDamage, sceneName + " Governor Warden stomp damage balance");
+            RequireApprox(enemy.stompCooldown, GameBalance.GovernorWardenStompCooldown, sceneName + " Governor Warden stomp cooldown balance");
+            RequireApprox(enemy.stompWindup, GameBalance.GovernorWardenStompWindup, sceneName + " Governor Warden stomp windup balance");
+            RequireApprox(enemy.fireRange, GameBalance.GovernorWardenFireRange, sceneName + " Governor Warden fire range balance");
+            RequireApprox(enemy.fireCooldown, GameBalance.GovernorWardenFireCooldown, sceneName + " Governor Warden fire cooldown balance");
+            RequireApprox(enemy.fireWindup, GameBalance.GovernorWardenFireWindup, sceneName + " Governor Warden fire windup balance");
+            RequireEqual(enemy.projectileDamage, GameBalance.GovernorWardenProjectileDamage, sceneName + " Governor Warden projectile damage balance");
+            RequireApprox(enemy.projectileSpeed, GameBalance.GovernorWardenProjectileSpeed, sceneName + " Governor Warden projectile speed balance");
+            if (enemy.definition == null)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " Governor Warden is missing an EnemyDefinition.");
+            }
+
+            RequireEqual((int)enemy.definition.attackStyle, (int)EnemyAttackStyle.Boss, sceneName + " Governor Warden definition style");
+            RequireEqual(enemy.definition.maxHealth, GameBalance.GovernorWardenHealth, sceneName + " Governor Warden definition health");
+            RequireApprox(enemy.definition.moveSpeed, GameBalance.GovernorWardenMoveSpeed, sceneName + " Governor Warden definition speed");
+            RequireEqual(enemy.definition.attackDamage, GameBalance.GovernorWardenStompDamage, sceneName + " Governor Warden definition damage");
+            RequireEqual(enemy.definition.projectileDamage, GameBalance.GovernorWardenProjectileDamage, sceneName + " Governor Warden definition projectile damage");
         }
     }
 
@@ -491,9 +533,14 @@ public static class V0LevelValidator
             RequireNamed("Governor Core Furnace Heat Hazard - Regulator Surge", sceneName + " governor core furnace heat hazard");
             RequireNamed("Governor Core Master Override Hoist", sceneName + " governor core final hoist visual");
             RequireNamed("Enemy - Governor Core Bulwark", sceneName + " governor core Bulwark enemy");
+            RequireNamed("Enemy - Governor Core Warden", sceneName + " governor core Warden enemy");
             RequireNamed("Bulwark Riveted Boiler Body", sceneName + " Bulwark body visual");
             RequireNamed("Bulwark Furnace Belly", sceneName + " Bulwark furnace belly visual");
             RequireNamed("Bulwark Right Hammer Head", sceneName + " Bulwark hammer visual");
+            RequireNamed("Governor Warden Core Body", sceneName + " Governor Warden body visual");
+            RequireNamed("Governor Warden Furnace Heart", sceneName + " Governor Warden furnace heart visual");
+            RequireNamed("Governor Warden Pressure Crown", sceneName + " Governor Warden crown visual");
+            RequireNamed("Governor Warden Pressure Cannon Muzzle", sceneName + " Governor Warden pressure cannon visual");
         }
 
         if (sceneName == "Level01")
