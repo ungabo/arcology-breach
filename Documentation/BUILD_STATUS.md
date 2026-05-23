@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.23` versioned build for `Brassworks Breach`.
+`v0.0.24` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds generated oil-dark stone, riveted-iron, and brass/copper pipe textures on top of the two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, prop silhouettes, brass HUD, pickup visuals, pressure-pistol viewmodel, and impact sparks.
+`v0.0` core loop is complete. The current build adds a more distinctive upright clockwork gear key and heavy keyed pressure-gate assembly on top of generated material textures, the two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, pressure-pistol viewmodel, and impact sparks.
 
 ## Completed
 
@@ -35,12 +35,13 @@
 - Service lift transition from Level01 into Level02.
 - Windows standalone build flow.
 - Procedural texture assets for oil-dark stone floors, riveted-iron panels, and brass/copper pipe materials.
+- Upright clockwork gear-key visual and heavy pressure-gate visual with keyed socket, riveted slabs, frame, header gear, lamps, and validation coverage.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.23`.
+Latest fully verified build: `v0.0.24`.
 
-Current `v0.0.23` verification:
+Current `v0.0.24` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -68,7 +69,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.23\BrassworksBreach_v0.0.23.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.24\BrassworksBreach_v0.0.24.exe`
 
 ## Latest Build Verification
 
@@ -201,14 +202,24 @@ Current target:
 - `2026-05-23 12:03 -04:00`: `v0.0.23` packaged combat-edge smoke passed.
 - `2026-05-23 12:03 -04:00`: `v0.0.23` packaged ranged combat smoke passed.
 - `2026-05-23 12:03 -04:00`: `v0.0.23` packaged pause-flow smoke passed.
+- `2026-05-23 12:12 -04:00`: `v0.0.24` scene rebuild passed.
+- `2026-05-23 12:12 -04:00`: `v0.0.24` level validation passed.
+- `2026-05-23 12:12 -04:00`: `v0.0.24` editor smoke passed.
+- `2026-05-23 12:12 -04:00`: `v0.0.24` Windows build passed.
+- `2026-05-23 12:12 -04:00`: `v0.0.24` packaged runtime smoke passed.
+- `2026-05-23 12:12 -04:00`: `v0.0.24` packaged auto-playthrough passed.
+- `2026-05-23 12:12 -04:00`: `v0.0.24` packaged combat smoke passed.
+- `2026-05-23 12:12 -04:00`: `v0.0.24` packaged combat-edge smoke passed.
+- `2026-05-23 12:12 -04:00`: `v0.0.24` packaged ranged combat smoke passed.
+- `2026-05-23 12:12 -04:00`: `v0.0.24` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.24`, `v0.0.25`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.25`, `v0.0.26`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
 - Runtime smoke test verifies boot/object presence. Auto-playthrough verifies the current two-level objective flow but not human combat feel.
 - Combat smoke verifies weapon raycast damage and enemy death; combat-edge smoke verifies empty ammo, Scrapper melee damage, and player death state; ranged combat smoke verifies Lancer projectile damage.
-- Visual dressing is still procedural primitive art, not final generated assets.
+- Visual dressing is still procedural primitive art, though the key and gate now have a stronger final-direction silhouette.
 - Windows runtime performance profile exists, but visible performance profiling still needs a real play session.
 - Enemy pathing uses simple side-steering, not NavMesh.
 - Scrapper attack windup is smoke-tested but still needs manual feel tuning.

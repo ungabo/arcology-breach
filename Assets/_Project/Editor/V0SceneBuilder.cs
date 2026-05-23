@@ -72,7 +72,7 @@ public static class V0SceneBuilder
         CreateHealthVialPickup("Pickup - Health Vial", new Vector3(-3.6f, 0.65f, 20f), healthMaterial, glassVialMaterial, medicinalFluidMaterial, brassGuideMaterial, 25);
         CreatePressureCartridgePickup("Pickup - Pressure Cartridge Pack", new Vector3(4.2f, 0.55f, 19f), ammoMaterial, rivetedIronMaterial, brassGuideMaterial, 15);
         CreateGearKeyPickup("Pickup - Gear Key", new Vector3(16f, 0.55f, 17f), Vector3.one * 1.1f, keyMaterial, rivetedIronMaterial);
-        CreateLockedDoor(doorMaterial, brassGuideMaterial, gaugeFaceMaterial, pressureWarningMaterial);
+        CreateLockedDoor(doorMaterial, brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, pressureWarningMaterial);
         CreateLevelTransitionLift(exitMaterial, rivetedIronMaterial, brassGuideMaterial, gaugeFaceMaterial, "Level02");
         CreateAccentLights();
         CreateObjectiveGuides(brassGuideMaterial, pressureWarningMaterial, keyMaterial, exitMaterial);
@@ -1184,25 +1184,51 @@ public static class V0SceneBuilder
         pickup.transform.position = position;
 
         BoxCollider trigger = pickup.AddComponent<BoxCollider>();
-        trigger.size = scale;
+        trigger.size = new Vector3(Mathf.Max(scale.x, 1.35f), Mathf.Max(scale.y, 1.7f), Mathf.Max(scale.z, 1.35f));
+        trigger.center = new Vector3(0f, 0.25f, 0f);
         trigger.isTrigger = true;
 
         Pickup pickupComponent = pickup.AddComponent<Pickup>();
         pickupComponent.kind = PickupKind.Key;
         pickupComponent.amount = 0;
 
-        CreateLocalPrimitive(name + " Gear Disc", PrimitiveType.Cylinder, pickup.transform, Vector3.zero, new Vector3(0.42f, 0.08f, 0.42f), brassMaterial);
-        CreateLocalPrimitive(name + " Iron Hub", PrimitiveType.Cylinder, pickup.transform, new Vector3(0f, 0.07f, 0f), new Vector3(0.16f, 0.16f, 0.16f), ironMaterial);
-        CreateLocalCube(name + " Key Shaft", pickup.transform, new Vector3(0f, -0.02f, 0.52f), new Vector3(0.16f, 0.12f, 0.74f), brassMaterial);
-        CreateLocalCube(name + " Key Bit", pickup.transform, new Vector3(0.18f, -0.02f, 0.86f), new Vector3(0.34f, 0.12f, 0.16f), brassMaterial);
+        GameObject visualRoot = new GameObject(name + " Clockwork Key Visual");
+        visualRoot.transform.SetParent(pickup.transform, false);
+        visualRoot.transform.localPosition = Vector3.zero;
+        visualRoot.transform.localRotation = Quaternion.Euler(0f, -18f, 0f);
 
-        for (int i = 0; i < 8; i++)
+        GameObject gearDisc = CreateLocalPrimitive(name + " Gear Face", PrimitiveType.Cylinder, visualRoot.transform, new Vector3(0f, 0.34f, 0f), new Vector3(0.48f, 0.065f, 0.48f), brassMaterial);
+        gearDisc.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject innerHub = CreateLocalPrimitive(name + " Iron Hub", PrimitiveType.Cylinder, visualRoot.transform, new Vector3(0f, 0.34f, -0.06f), new Vector3(0.18f, 0.055f, 0.18f), ironMaterial);
+        innerHub.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+
+        CreateLocalCube(name + " Spoke Horizontal", visualRoot.transform, new Vector3(0f, 0.34f, -0.07f), new Vector3(0.72f, 0.055f, 0.045f), ironMaterial);
+        CreateLocalCube(name + " Spoke Vertical", visualRoot.transform, new Vector3(0f, 0.34f, -0.07f), new Vector3(0.055f, 0.72f, 0.045f), ironMaterial);
+        GameObject spokeDiagonalA = CreateLocalCube(name + " Spoke Diagonal A", visualRoot.transform, new Vector3(0f, 0.34f, -0.075f), new Vector3(0.6f, 0.045f, 0.045f), ironMaterial);
+        spokeDiagonalA.transform.localRotation = Quaternion.Euler(0f, 0f, 45f);
+        GameObject spokeDiagonalB = CreateLocalCube(name + " Spoke Diagonal B", visualRoot.transform, new Vector3(0f, 0.34f, -0.075f), new Vector3(0.6f, 0.045f, 0.045f), ironMaterial);
+        spokeDiagonalB.transform.localRotation = Quaternion.Euler(0f, 0f, -45f);
+
+        CreateLocalCube(name + " Key Shaft", visualRoot.transform, new Vector3(0f, -0.14f, -0.03f), new Vector3(0.15f, 0.72f, 0.1f), brassMaterial);
+        CreateLocalCube(name + " Key Bit Lower", visualRoot.transform, new Vector3(0.18f, -0.54f, -0.03f), new Vector3(0.36f, 0.12f, 0.1f), brassMaterial);
+        CreateLocalCube(name + " Key Bit Upper", visualRoot.transform, new Vector3(-0.14f, -0.35f, -0.03f), new Vector3(0.28f, 0.1f, 0.1f), brassMaterial);
+        CreateLocalCube(name + " Iron Stem Collar", visualRoot.transform, new Vector3(0f, 0.01f, -0.08f), new Vector3(0.28f, 0.1f, 0.06f), ironMaterial);
+
+        for (int i = 0; i < 12; i++)
         {
-            float angle = i * 45f;
+            float angle = i * 30f;
             float radians = angle * Mathf.Deg2Rad;
-            Vector3 toothPosition = new Vector3(Mathf.Sin(radians) * 0.43f, 0f, Mathf.Cos(radians) * 0.43f);
-            GameObject tooth = CreateLocalCube(name + " Tooth " + i, pickup.transform, toothPosition, new Vector3(0.16f, 0.1f, 0.16f), brassMaterial);
-            tooth.transform.localRotation = Quaternion.Euler(0f, angle, 0f);
+            Vector3 toothPosition = new Vector3(Mathf.Sin(radians) * 0.52f, 0.34f + Mathf.Cos(radians) * 0.52f, -0.03f);
+            GameObject tooth = CreateLocalCube(name + " Tooth " + i, visualRoot.transform, toothPosition, new Vector3(0.12f, 0.18f, 0.09f), brassMaterial);
+            tooth.transform.localRotation = Quaternion.Euler(0f, 0f, -angle);
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            float angle = i * 120f + 20f;
+            float radians = angle * Mathf.Deg2Rad;
+            Vector3 pinPosition = new Vector3(Mathf.Sin(radians) * 0.28f, 0.34f + Mathf.Cos(radians) * 0.28f, -0.11f);
+            CreateLocalPrimitive(name + " Iron Pin " + i, PrimitiveType.Sphere, visualRoot.transform, pinPosition, new Vector3(0.055f, 0.055f, 0.055f), ironMaterial);
         }
     }
 
@@ -1263,22 +1289,70 @@ public static class V0SceneBuilder
         CreateLocalCube(name + " Gauge Needle", pickup.transform, new Vector3(0.04f, 0.3f, 0.02f), new Vector3(0.14f, 0.025f, 0.025f), ironMaterial);
     }
 
-    private static void CreateLockedDoor(Material material, Material brassMaterial, Material gaugeFaceMaterial, Material warningMaterial)
+    private static void CreateLockedDoor(Material material, Material brassMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material warningMaterial)
     {
+        GameObject frameRoot = new GameObject("Pressure Gate Frame Assembly");
+        CreateDecoCube("Pressure Gate Frame Left Post", new Vector3(-1.88f, 1.67f, 22.45f), new Vector3(0.28f, 3.35f, 0.72f), ironMaterial, frameRoot.transform);
+        CreateDecoCube("Pressure Gate Frame Right Post", new Vector3(1.88f, 1.67f, 22.45f), new Vector3(0.28f, 3.35f, 0.72f), ironMaterial, frameRoot.transform);
+        CreateDecoCube("Pressure Gate Frame Header", new Vector3(0f, 3.38f, 22.42f), new Vector3(3.95f, 0.32f, 0.72f), ironMaterial, frameRoot.transform);
+        CreateDecoCube("Pressure Gate Brass Floor Track", new Vector3(0f, 0.12f, 22.17f), new Vector3(3.82f, 0.08f, 0.18f), brassMaterial, frameRoot.transform);
+
+        GameObject headerGear = CreateLocalPrimitive("Pressure Gate Header Gear", PrimitiveType.Cylinder, frameRoot.transform, new Vector3(0f, 3.58f, 22.04f), new Vector3(0.34f, 0.045f, 0.34f), brassMaterial);
+        headerGear.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        for (int i = 0; i < 10; i++)
+        {
+            float angle = i * 36f;
+            float radians = angle * Mathf.Deg2Rad;
+            Vector3 toothPosition = new Vector3(Mathf.Sin(radians) * 0.38f, 3.58f + Mathf.Cos(radians) * 0.38f, 22.02f);
+            GameObject tooth = CreateLocalCube("Pressure Gate Header Gear Tooth " + i, frameRoot.transform, toothPosition, new Vector3(0.08f, 0.14f, 0.07f), brassMaterial);
+            tooth.transform.localRotation = Quaternion.Euler(0f, 0f, -angle);
+        }
+
+        CreateLocalPrimitive("Pressure Gate Warning Lamp Left", PrimitiveType.Sphere, frameRoot.transform, new Vector3(-1.38f, 3.08f, 22.02f), new Vector3(0.13f, 0.13f, 0.13f), warningMaterial);
+        CreateLocalPrimitive("Pressure Gate Warning Lamp Right", PrimitiveType.Sphere, frameRoot.transform, new Vector3(1.38f, 3.08f, 22.02f), new Vector3(0.13f, 0.13f, 0.13f), warningMaterial);
+
         GameObject door = CreateCube("Pressure Gate", new Vector3(0f, 1.5f, 22.5f), new Vector3(3f, 3f, 0.5f), material);
         LockedDoor lockedDoor = door.AddComponent<LockedDoor>();
         lockedDoor.openDistance = 2.3f;
 
-        CreateLocalCube("Pressure Gate Upper Brass Rail", door.transform, new Vector3(0f, 0.92f, -0.28f), new Vector3(1.05f, 0.06f, 0.08f), brassMaterial);
-        CreateLocalCube("Pressure Gate Lower Brass Rail", door.transform, new Vector3(0f, -0.92f, -0.28f), new Vector3(1.05f, 0.06f, 0.08f), brassMaterial);
-        CreateLocalCube("Pressure Gate Left Brace", door.transform, new Vector3(-0.36f, 0f, -0.28f), new Vector3(0.07f, 1.62f, 0.08f), brassMaterial);
-        CreateLocalCube("Pressure Gate Right Brace", door.transform, new Vector3(0.36f, 0f, -0.28f), new Vector3(0.07f, 1.62f, 0.08f), brassMaterial);
+        CreateLocalCube("Pressure Gate Left Riveted Slab", door.transform, new Vector3(-0.55f, 0f, -0.29f), new Vector3(0.82f, 1.76f, 0.07f), ironMaterial);
+        CreateLocalCube("Pressure Gate Right Riveted Slab", door.transform, new Vector3(0.55f, 0f, -0.29f), new Vector3(0.82f, 1.76f, 0.07f), ironMaterial);
+        CreateLocalCube("Pressure Gate Upper Brass Rail", door.transform, new Vector3(0f, 0.96f, -0.34f), new Vector3(1.34f, 0.08f, 0.09f), brassMaterial);
+        CreateLocalCube("Pressure Gate Lower Brass Rail", door.transform, new Vector3(0f, -0.96f, -0.34f), new Vector3(1.34f, 0.08f, 0.09f), brassMaterial);
+        CreateLocalCube("Pressure Gate Left Brace", door.transform, new Vector3(-0.45f, 0f, -0.36f), new Vector3(0.08f, 1.82f, 0.09f), brassMaterial);
+        CreateLocalCube("Pressure Gate Right Brace", door.transform, new Vector3(0.45f, 0f, -0.36f), new Vector3(0.08f, 1.82f, 0.09f), brassMaterial);
+        CreateLocalCube("Pressure Gate Center Lock Housing", door.transform, new Vector3(0f, 0.02f, -0.4f), new Vector3(0.78f, 0.66f, 0.12f), brassMaterial);
 
-        GameObject gear = CreateLocalPrimitive("Pressure Gate Gear Wheel", PrimitiveType.Cylinder, door.transform, new Vector3(0f, 0.04f, -0.31f), new Vector3(0.36f, 0.045f, 0.36f), brassMaterial);
+        GameObject socket = CreateLocalPrimitive("Pressure Gate Key Socket", PrimitiveType.Cylinder, door.transform, new Vector3(0f, 0.02f, -0.48f), new Vector3(0.31f, 0.04f, 0.31f), ironMaterial);
+        socket.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube("Pressure Gate Socket Vertical Slot", door.transform, new Vector3(0f, -0.08f, -0.53f), new Vector3(0.07f, 0.48f, 0.035f), warningMaterial);
+        CreateLocalCube("Pressure Gate Socket Bit Slot", door.transform, new Vector3(0.14f, -0.28f, -0.535f), new Vector3(0.31f, 0.07f, 0.035f), warningMaterial);
+
+        GameObject gear = CreateLocalPrimitive("Pressure Gate Gear Wheel", PrimitiveType.Cylinder, door.transform, new Vector3(0f, 0.04f, -0.55f), new Vector3(0.43f, 0.045f, 0.43f), brassMaterial);
         gear.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
-        GameObject gauge = CreateLocalPrimitive("Pressure Gate Gauge Face", PrimitiveType.Cylinder, door.transform, new Vector3(-0.32f, 0.58f, -0.32f), new Vector3(0.18f, 0.025f, 0.18f), gaugeFaceMaterial);
+        for (int i = 0; i < 12; i++)
+        {
+            float angle = i * 30f;
+            float radians = angle * Mathf.Deg2Rad;
+            Vector3 toothPosition = new Vector3(Mathf.Sin(radians) * 0.45f, 0.04f + Mathf.Cos(radians) * 0.45f, -0.56f);
+            GameObject tooth = CreateLocalCube("Pressure Gate Gear Tooth " + i, door.transform, toothPosition, new Vector3(0.09f, 0.15f, 0.07f), brassMaterial);
+            tooth.transform.localRotation = Quaternion.Euler(0f, 0f, -angle);
+        }
+
+        GameObject gauge = CreateLocalPrimitive("Pressure Gate Gauge Face", PrimitiveType.Cylinder, door.transform, new Vector3(-0.58f, 0.62f, -0.47f), new Vector3(0.2f, 0.025f, 0.2f), gaugeFaceMaterial);
         gauge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
-        CreateLocalCube("Pressure Gate Gauge Needle", door.transform, new Vector3(-0.28f, 0.58f, -0.35f), new Vector3(0.12f, 0.014f, 0.014f), warningMaterial);
+        CreateLocalCube("Pressure Gate Gauge Needle", door.transform, new Vector3(-0.53f, 0.62f, -0.51f), new Vector3(0.14f, 0.014f, 0.014f), warningMaterial);
+
+        CreateLocalPrimitive("Pressure Gate Left Pressure Cylinder", PrimitiveType.Cylinder, door.transform, new Vector3(-1.04f, 0f, -0.4f), new Vector3(0.08f, 0.88f, 0.08f), brassMaterial);
+        CreateLocalPrimitive("Pressure Gate Right Pressure Cylinder", PrimitiveType.Cylinder, door.transform, new Vector3(1.04f, 0f, -0.4f), new Vector3(0.08f, 0.88f, 0.08f), brassMaterial);
+        CreateLocalCube("Pressure Gate Red Pressure Pipe", door.transform, new Vector3(0.68f, 0.64f, -0.48f), new Vector3(0.5f, 0.055f, 0.055f), warningMaterial);
+
+        for (int row = 0; row < 4; row++)
+        {
+            float y = -0.72f + row * 0.48f;
+            CreateLocalPrimitive("Pressure Gate Left Rivet " + row, PrimitiveType.Sphere, door.transform, new Vector3(-0.92f, y, -0.47f), new Vector3(0.06f, 0.06f, 0.06f), brassMaterial);
+            CreateLocalPrimitive("Pressure Gate Right Rivet " + row, PrimitiveType.Sphere, door.transform, new Vector3(0.92f, y, -0.47f), new Vector3(0.06f, 0.06f, 0.06f), brassMaterial);
+        }
     }
 
     private static void CreateExit(Material material, Material ironMaterial, Material brassMaterial, Material gaugeFaceMaterial)

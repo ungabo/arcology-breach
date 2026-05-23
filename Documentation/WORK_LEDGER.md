@@ -33,6 +33,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | TEST-006 | Expand combat automation harness | test | P1 | verified | v0.0.20 | Empty ammo, Scrapper melee damage, and player death state covered by V0_COMBAT_EDGE_PASS. |
 | ART-001 | Add first procedural steampunk dressing pass | art | P1 | verified | v0.0.7 | editor/build/runtime/autoplay/combat smoke |
 | ART-001B | Generate final oil-stone, riveted-iron, and brass-pipe materials | art | P1 | verified | v0.0.23 | Procedural texture assets generated and assigned to active steampunk materials. |
+| ART-002 | Generate gear-key and pressure-gate visuals | art | P1 | verified | v0.0.24 | Procedural key/gate visual pass with level validation and full smoke matrix. |
 
 ## Ready Next
 
@@ -47,7 +48,6 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 
 | ID | Task | Type | Priority | Status | Milestone | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| ART-002 | Generate gear-key and pressure-gate visuals | art | P1 | backlog | v0.3 | Replace cube/gate placeholders. |
 | ART-003 | Generate Scrapper enemy visual | art | P1 | verified | v0.0.10 | Primitive clockwork silhouette; final asset still needed later. |
 | ART-004 | Generate Pressure Pistol visual | art | P1 | backlog | v0.3 | Replace blocky gun. |
 | ART-005 | Generate service-lift visual | art | P1 | backlog | v0.3 | Replace green exit cube. |
@@ -114,3 +114,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.21` Windows runtime performance profile build created at `Builds/Windows/v0.0.21/BrassworksBreach_v0.0.21.exe` and passed editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke.
 - `2026-05-23`: `v0.0.22` level validation tool build created at `Builds/Windows/v0.0.22/BrassworksBreach_v0.0.22.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke.
 - `2026-05-23`: `v0.0.23` procedural material texture build created at `Builds/Windows/v0.0.23/BrassworksBreach_v0.0.23.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.24` gear-key and pressure-gate visual build created at `Builds/Windows/v0.0.24/BrassworksBreach_v0.0.24.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.

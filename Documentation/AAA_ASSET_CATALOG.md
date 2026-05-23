@@ -43,7 +43,7 @@ Every major asset should eventually have three quality targets:
 | GEO-001 | Greybox blockout kit | P0 | prototype | Existing cube-based walls/floor. |
 | GEO-002 | Brassworks corridor module | P1 | planned | Soot brick, riveted panels, pipe bundles. |
 | GEO-003 | Repair bay room kit | P1 | planned | Combat room modules with benches, gantries, and machine bays. |
-| GEO-004 | Pressure gate frame | P1 | planned | Gear-driven locked gate. |
+| GEO-004 | Pressure gate frame | P1 | verified | Procedural heavy frame with header gear, lamps, brass floor track, and static supports. |
 | GEO-005 | Gear-key plinth | P1 | planned | Objective station that visually explains the key. |
 | GEO-006 | Service lift frame | P1 | planned | Exit destination object. |
 | GEO-007 | Furnace control console | P2 | planned | Final-room landmark prop/geometry hybrid. |
@@ -60,8 +60,8 @@ Every major asset should eventually have three quality targets:
 | PROP-003 | Service lift placeholder | P0 | prototype | Existing green exit object with primitive cage rails and gauge. |
 | PROP-004 | Health vial | P1 | prototype | Primitive brass-and-glass healing pickup with red medicinal fluid and cross mark. |
 | PROP-005 | Pressure cartridge pack | P1 | prototype | Primitive brass cartridge bundle with iron nozzles, straps, and pressure gauge. |
-| PROP-006 | Gear key final | P1 | planned | Brass gear/clockwork key pickup. |
-| PROP-007 | Pressure gate final | P1 | planned | Heavy gear-driven gate with gauges and red pressure lamps. |
+| PROP-006 | Gear key final | P1 | verified | Upright procedural brass clockwork key with gear face, teeth, spokes, stem, bit, hub, and pins. |
+| PROP-007 | Pressure gate final | P1 | verified | Heavy procedural pressure gate with keyed socket, riveted slabs, gear wheel, gauge, pressure cylinders, warning lamps, and brass frame. |
 | PROP-008 | Service lift final | P1 | planned | Green-lit lift cage or brass service elevator. |
 | PROP-009 | Wall pressure gauge | P1 | prototype | Primitive wall gauge prop for environment readability. |
 | PROP-010 | Valve wheel | P1 | prototype | Primitive valve wheel prop; future interactable/switch candidate. |

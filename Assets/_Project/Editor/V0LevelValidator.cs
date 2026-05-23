@@ -60,6 +60,11 @@ public static class V0LevelValidator
         {
             LockedDoor door = Require<LockedDoor>(sceneName + " LockedDoor");
             RequireCollider(door.gameObject, sceneName + " LockedDoor collider");
+            RequireNamed("Pressure Gate Frame Assembly", sceneName + " pressure gate frame visual");
+            RequireNamed("Pressure Gate Key Socket", sceneName + " pressure gate key socket visual");
+            RequireNamed("Pressure Gate Warning Lamp Left", sceneName + " pressure gate warning lamp visual");
+            RequireNamed("Pickup - Gear Key Clockwork Key Visual", sceneName + " gear-key visual root");
+            RequireNamed("Pickup - Gear Key Key Bit Lower", sceneName + " gear-key bit visual");
         }
 
         if (requireTransition)
@@ -124,6 +129,17 @@ public static class V0LevelValidator
         if (value == null)
         {
             throw new InvalidOperationException("Level validation failed: missing " + label + ".");
+        }
+
+        return value;
+    }
+
+    private static GameObject RequireNamed(string objectName, string label)
+    {
+        GameObject value = GameObject.Find(objectName);
+        if (value == null)
+        {
+            throw new InvalidOperationException("Level validation failed: missing " + label + " (" + objectName + ").");
         }
 
         return value;

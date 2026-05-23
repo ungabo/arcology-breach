@@ -461,3 +461,32 @@ Build executable:
 `Builds/Windows/v0.0.23/BrassworksBreach_v0.0.23.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 12:12 -04:00
+
+Completed `v0.0.24` gear-key and pressure-gate visual pass.
+
+Added:
+
+- Upright clockwork gear-key pickup with gear face, teeth, spokes, stem, bit, hub, and iron pins.
+- Heavy pressure-gate frame with static side posts, header, header gear, lamps, and brass track.
+- Pressure-gate face details: riveted slabs, keyed socket, key-bit slot, center gear, gauge, pressure cylinders, red pressure pipe, and rivets.
+- Level validation requirements for the new key and gate visual objects.
+
+Verification completed:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.24/BrassworksBreach_v0.0.24.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
