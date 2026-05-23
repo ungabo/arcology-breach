@@ -20,6 +20,7 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<PlayerInventory>("PlayerInventory");
         Require<WeaponController>("WeaponController");
         Require<GameStateController>("GameStateController");
+        Require<CyberpunkAudio>("CyberpunkAudio");
         Require<HUDController>("HUDController");
         Require<EnemyController>("EnemyController");
         Require<Pickup>("Pickup");
@@ -46,7 +47,7 @@ public class RuntimeSmokeTest : MonoBehaviour
 
     private static void Require<T>(string label) where T : UnityEngine.Object
     {
-        if (UnityEngine.Object.FindFirstObjectByType<T>() == null)
+        if (UnityEngine.Object.FindAnyObjectByType<T>() == null)
         {
             Debug.LogError("Runtime smoke test failed: missing " + label);
             Application.Quit(1);

@@ -1,6 +1,6 @@
 # Arcology Breach
 
-Current state: playable `v0.0.2` proof of concept.
+Current state: playable `v0.0.3` proof of concept.
 
 Public repository:
 
@@ -45,7 +45,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.2\ArcologyBreach_v0.0.2.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.3\ArcologyBreach_v0.0.3.exe`
 
 Checkpoint builds will use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -61,10 +61,10 @@ The project has passed:
 
 Useful logs:
 
-- `Logs\build-v002-scene.log`
-- `Logs\v002-smoke-test.log`
-- `Logs\v002-windows-build.log`
-- `Logs\v002-runtime-smoke.log`
+- `Logs\build-v003-scene.log`
+- `Logs\v003-smoke-test.log`
+- `Logs\v003-windows-build.log`
+- `Logs\v003-runtime-smoke.log`
 
 Smoke pass markers:
 
@@ -77,25 +77,25 @@ Smoke pass markers:
 Rebuild the generated scene:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v002-scene.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v003-scene.log'
 ```
 
 Run editor smoke test:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v002-smoke-test.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v003-smoke-test.log'
 ```
 
 Build Windows player:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v002-windows-build.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v003-windows-build.log'
 ```
 
 Run packaged runtime smoke:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.2\ArcologyBreach_v0.0.2.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v002-runtime-smoke.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.3\ArcologyBreach_v0.0.3.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v003-runtime-smoke.log'
 ```
 
 ## What v0.1 Added
@@ -119,6 +119,15 @@ After the v0.0 loop passed, a small presentation pass added:
 - Player hurt sound.
 - Lockdown gate denied/open sounds.
 - Emergency lift win cue.
+
+## What v0.0.3 Added
+
+- Scrapper attack windup with magenta attack tell.
+- Player shots interrupt Scrapper windup.
+- Access shard pedestal.
+- Floor guide strips for shard route, lockdown gate, and emergency lift.
+- In-world labels for access shard, lockdown gate, and emergency lift.
+- Deprecated Unity object lookup calls replaced.
 
 ## Good Next Steps
 

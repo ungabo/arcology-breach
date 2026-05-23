@@ -31,6 +31,8 @@ Every major asset should eventually have three quality targets:
 | MAT-011 | Graffiti decal set | P2 | planned | Lowline tags, resistance marks, access hints, and warnings. |
 | MAT-012 | Signal glitch decal set | P2 | planned | Magenta hostile-signal noise and corrupted display patterns. |
 | MAT-013 | Scorch and impact decals | P2 | planned | Combat feedback decals for walls, floor, and enemies. |
+| MAT-014 | Cyan guide material | P1 | prototype | Simple emissive-feeling floor/objective guide material. |
+| MAT-015 | Magenta warning material | P1 | prototype | Simple hostile/lockdown guide material and Scrapper tell color. |
 
 ## 2. Modular Geometry
 
@@ -140,7 +142,7 @@ Every major asset should eventually have three quality targets:
 | UI-002 | Runner HUD frame | P1 | planned | Compact cyan/magenta cyberpunk HUD. |
 | UI-003 | Access shard indicator | P1 | planned | Amber shard icon/status. |
 | UI-004 | Damage glitch overlay | P1 | prototype | Existing red damage flash can become glitch overlay. |
-| UI-005 | Lockdown warning prompt | P1 | planned | Clear denied/access-required feedback. |
+| UI-005 | Lockdown warning prompt | P1 | prototype | Clear denied/access-required feedback through HUD text, gate audio, and world label. |
 | UI-006 | Main menu | P2 | planned | Stylized start/settings/quit. |
 | UI-007 | Settings and accessibility | P2 | planned | Sensitivity, volume, resolution, flash intensity, color readability. |
 
@@ -149,7 +151,7 @@ Every major asset should eventually have three quality targets:
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
 | LVL-001 | Aster Gate Intake greybox | P0 | prototype | Current generated `Level01`. |
-| LVL-002 | Aster Gate combat slice | P1 | planned | Retuned version of current layout. |
+| LVL-002 | Aster Gate combat slice | P1 | prototype | Current layout now has objective guide strips, world labels, and Scrapper attack tells. |
 | LVL-003 | Aster Gate art pass | P1 | planned | First cyberpunk material, prop, lighting, and signage pass. |
 | LVL-004 | Data Stack concept | P2 | planned | Server-heavy second level concept. |
 | LVL-005 | Transit Spine concept | P2 | planned | Rail/transit themed level concept. |

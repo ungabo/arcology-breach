@@ -4,7 +4,7 @@ Last updated: 2026-05-22
 
 ## Project
 
-`Arcology Breach` is an original cyberpunk first-person dungeon crawler/shooter proof of concept. It now has a working checkpoint build flow, a story/lore bible, level-map planning, asset-pack review notes, and a first procedural audio pass.
+`Arcology Breach` is an original cyberpunk first-person dungeon crawler/shooter proof of concept. It now has a working checkpoint build flow, a story/lore bible, level-map planning, asset-pack review notes, a first procedural audio pass, and initial objective/combat readability improvements.
 
 Local path:
 
@@ -36,12 +36,13 @@ The project contains:
 - Text HUD and crosshair.
 - v0.1 polish: blocky `Pulse Pistol`, muzzle flash, damage flash, bobbing pickups, sliding gate, colored lights, enemy lens markers.
 - v0.0.2 audio: procedural pulse pistol, empty click, pickup, enemy hit/death, player hurt, gate, and win cues.
+- v0.0.3 readability: Scrapper attack windup, objective labels, floor guide strips, and access-shard pedestal.
 
 ## Build
 
 Windows executable path:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.2\ArcologyBreach_v0.0.2.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.3\ArcologyBreach_v0.0.3.exe`
 
 The build folder is ignored by git. Rebuild it locally when needed.
 
@@ -55,16 +56,16 @@ Latest known pass markers:
 
 Latest checkpoint:
 
-- `v0.0.2`
-- Build: `Builds/Windows/v0.0.2/ArcologyBreach_v0.0.2.exe`
-- Verified by editor smoke, Windows build, and runtime smoke on 2026-05-22 at 21:05 -04:00.
+- `v0.0.3`
+- Build: `Builds/Windows/v0.0.3/ArcologyBreach_v0.0.3.exe`
+- Verified by editor smoke, Windows build, and runtime smoke on 2026-05-22 at 21:11 -04:00.
 
 Important logs:
 
-- `Logs\build-v002-scene.log`
-- `Logs\v002-smoke-test.log`
-- `Logs\v002-windows-build.log`
-- `Logs\v002-runtime-smoke.log`
+- `Logs\build-v003-scene.log`
+- `Logs\v003-smoke-test.log`
+- `Logs\v003-windows-build.log`
+- `Logs\v003-runtime-smoke.log`
 
 Logs are ignored by git.
 
@@ -99,25 +100,25 @@ Logs are ignored by git.
 Rebuild generated scene:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v002-scene.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v003-scene.log'
 ```
 
 Editor smoke:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v002-smoke-test.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v003-smoke-test.log'
 ```
 
 Windows build:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v002-windows-build.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v003-windows-build.log'
 ```
 
 Packaged runtime smoke:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.2\ArcologyBreach_v0.0.2.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v002-runtime-smoke.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.3\ArcologyBreach_v0.0.3.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v003-runtime-smoke.log'
 ```
 
 ## Next Best Work
@@ -126,7 +127,7 @@ Packaged runtime smoke:
 2. Record tuning issues in `WORK_LEDGER.md`.
 3. Tune movement, enemy speed, enemy damage, player health, ammo, and room layout.
 4. Manually listen to the procedural audio cues and tune levels/tones.
-5. Improve mechanical enemy navigation and attack readability.
+5. Improve mechanical enemy navigation and obstacle handling.
 6. Use `LEVEL_DESIGN_AND_MAPS.md` when changing room scale, objective flow, or future level transitions.
 7. Review `ASSET_PACK_REVIEW.md` before importing local Asset Store content.
 
@@ -147,6 +148,7 @@ The public GitHub repo should have:
 - Documentation expansion commit.
 - Arcology Breach rebrand/platform planning/checkpoint commit.
 - v0.0.2 procedural audio checkpoint commit.
+- v0.0.3 combat/objective readability checkpoint commit.
 
 Before starting new work, run:
 

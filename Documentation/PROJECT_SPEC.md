@@ -24,6 +24,8 @@ Implemented:
 - Blocky `Pulse Pistol` placeholder.
 - Muzzle flash, damage flash, bobbing pickups, sliding gate, colored accent lights.
 - Procedural cyberpunk audio cues for firing, pickups, enemy hits/death, player hurt, gate feedback, and win.
+- Scrapper attack windup with magenta attack tell.
+- Access-shard pedestal, gate/exit guide strips, and world labels.
 - Unity editor smoke test, Windows build, and runtime smoke test.
 
 ## 3. Target Platform
@@ -69,9 +71,9 @@ Required:
 
 - Manual Windows playthrough.
 - Movement/enemy/combat tuning.
-- Better mechanical enemy chase/attack readability.
+- Better mechanical enemy navigation/obstacle handling.
 - Manual listen/tuning pass for the simple cyberpunk audio set.
-- Clearer access-shard and lockdown-gate feedback.
+- Manual readability pass for Scrapper attack tells and objective labels.
 - Updated objective text and object names.
 
 ## 7. Gameplay Systems

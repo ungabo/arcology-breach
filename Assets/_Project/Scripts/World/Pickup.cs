@@ -33,7 +33,7 @@ public class Pickup : MonoBehaviour
     {
         basePosition = transform.position;
 
-        PlayerController playerController = Object.FindFirstObjectByType<PlayerController>();
+        PlayerController playerController = Object.FindAnyObjectByType<PlayerController>();
         if (playerController != null)
         {
             player = playerController.transform;

@@ -10,7 +10,9 @@ public class EnemyController : MonoBehaviour, IDamageable
     public float attackRange = 1.35f;
     public int attackDamage = 10;
     public float attackCooldown = 1f;
+    public float attackWindup = 0.38f;
     public Color hitFlashColor = Color.white;
+    public Color attackTellColor = new Color(1f, 0.08f, 0.7f);
 
     private CharacterController characterController;
     private PlayerHealth playerHealth;
@@ -18,12 +20,14 @@ public class EnemyController : MonoBehaviour, IDamageable
     private Color[] originalColors;
     private int currentHealth;
     private float nextAttackTime;
+    private float attackResolveTime;
     private bool dead;
+    private bool windingUpAttack;
 
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        playerHealth = Object.FindFirstObjectByType<PlayerHealth>();
+        playerHealth = Object.FindAnyObjectByType<PlayerHealth>();
         renderers = GetComponentsInChildren<Renderer>();
         originalColors = new Color[renderers.Length];
 
@@ -58,17 +62,35 @@ public class EnemyController : MonoBehaviour, IDamageable
 
         if (distance > attackRange)
         {
+            CancelAttackWindup();
             Vector3 direction = toPlayer.normalized;
             if (direction.sqrMagnitude > 0.001f)
             {
                 transform.rotation = Quaternion.LookRotation(direction);
                 characterController.Move(direction * moveSpeed * Time.deltaTime);
             }
+
+            return;
         }
-        else if (Time.time >= nextAttackTime)
+
+        if (toPlayer.sqrMagnitude > 0.001f)
         {
-            nextAttackTime = Time.time + attackCooldown;
-            playerHealth.TakeDamage(attackDamage);
+            transform.rotation = Quaternion.LookRotation(toPlayer.normalized);
+        }
+
+        if (windingUpAttack)
+        {
+            if (Time.time >= attackResolveTime)
+            {
+                ResolveAttack(distance);
+            }
+
+            return;
+        }
+
+        if (Time.time >= nextAttackTime)
+        {
+            StartAttackWindup();
         }
     }
 
@@ -81,6 +103,7 @@ public class EnemyController : MonoBehaviour, IDamageable
 
         currentHealth -= amount;
         StopAllCoroutines();
+        CancelAttackWindup();
 
         if (currentHealth <= 0)
         {
@@ -106,6 +129,36 @@ public class EnemyController : MonoBehaviour, IDamageable
         CyberpunkAudio.PlayAt(CyberpunkAudioCue.EnemyDeath, transform.position);
         HUDController.Instance?.ShowTemporaryMessage("Enemy down", 0.6f);
         Destroy(gameObject);
+    }
+
+    private void StartAttackWindup()
+    {
+        windingUpAttack = true;
+        attackResolveTime = Time.time + attackWindup;
+        SetColor(attackTellColor);
+    }
+
+    private void ResolveAttack(float distance)
+    {
+        windingUpAttack = false;
+        nextAttackTime = Time.time + attackCooldown;
+        RestoreColors();
+
+        if (distance <= attackRange + 0.25f)
+        {
+            playerHealth.TakeDamage(attackDamage);
+        }
+    }
+
+    private void CancelAttackWindup()
+    {
+        if (!windingUpAttack)
+        {
+            return;
+        }
+
+        windingUpAttack = false;
+        RestoreColors();
     }
 
     private void SetColor(Color color)

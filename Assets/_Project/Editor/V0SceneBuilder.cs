@@ -31,6 +31,8 @@ public static class V0SceneBuilder
         Material gunMaterial = CreateMaterial("M_Greybox_Gun", new Color(0.08f, 0.08f, 0.09f));
         Material gunTrimMaterial = CreateMaterial("M_Greybox_GunTrim", new Color(0.42f, 0.42f, 0.46f));
         Material muzzleFlashMaterial = CreateMaterial("M_Greybox_MuzzleFlash", new Color(1f, 0.72f, 0.08f));
+        Material cyanGuideMaterial = CreateMaterial("M_Greybox_CyanGuide", new Color(0.05f, 0.85f, 1f));
+        Material magentaGuideMaterial = CreateMaterial("M_Greybox_MagentaGuide", new Color(1f, 0.08f, 0.7f));
 
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -51,6 +53,7 @@ public static class V0SceneBuilder
         CreateLockedDoor(doorMaterial);
         CreateExit(exitMaterial);
         CreateAccentLights();
+        CreateObjectiveGuides(cyanGuideMaterial, magentaGuideMaterial, keyMaterial, exitMaterial);
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
         EditorBuildSettings.scenes = new[]
@@ -437,6 +440,34 @@ public static class V0SceneBuilder
         enemyController.moveSpeed = 2.65f;
         enemyController.detectionRange = 13f;
         enemyController.attackDamage = 9;
+        enemyController.attackWindup = 0.42f;
+    }
+
+    private static void CreateObjectiveGuides(Material cyanMaterial, Material magentaMaterial, Material keyMaterial, Material exitMaterial)
+    {
+        CreateCube("Access Shard Pedestal", new Vector3(16f, 0.15f, 17f), new Vector3(1.35f, 0.3f, 1.35f), cyanMaterial);
+        CreateCube("Gate Warning Floor Strip", new Vector3(0f, 0.015f, 21.25f), new Vector3(3.4f, 0.03f, 0.28f), magentaMaterial);
+        CreateCube("Emergency Lift Floor Strip", new Vector3(0f, 0.015f, 33.15f), new Vector3(3.6f, 0.03f, 0.28f), exitMaterial);
+        CreateCube("Shard Route Floor Strip", new Vector3(8.1f, 0.015f, 17f), new Vector3(3.6f, 0.03f, 0.22f), keyMaterial);
+
+        CreateWorldLabel("Label - Access Shard", "ACCESS SHARD", new Vector3(16f, 2.2f, 16.25f), new Color(1f, 0.85f, 0.15f), 0.28f);
+        CreateWorldLabel("Label - Lockdown Gate", "LOCKDOWN: SHARD REQUIRED", new Vector3(0f, 2.9f, 21.95f), new Color(1f, 0.08f, 0.7f), 0.22f);
+        CreateWorldLabel("Label - Emergency Lift", "EMERGENCY LIFT", new Vector3(0f, 2.75f, 33.95f), new Color(0.2f, 1f, 0.45f), 0.26f);
+    }
+
+    private static void CreateWorldLabel(string name, string text, Vector3 position, Color color, float characterSize)
+    {
+        GameObject label = new GameObject(name);
+        label.transform.position = position;
+        label.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+
+        TextMesh textMesh = label.AddComponent<TextMesh>();
+        textMesh.text = text;
+        textMesh.anchor = TextAnchor.MiddleCenter;
+        textMesh.alignment = TextAlignment.Center;
+        textMesh.characterSize = characterSize;
+        textMesh.fontSize = 48;
+        textMesh.color = color;
     }
 
     private static GameObject CreateLocalPrimitive(string name, PrimitiveType type, Transform parent, Vector3 localPosition, Vector3 localScale, Material material)
@@ -503,7 +534,7 @@ public static class V0SceneBuilder
 
     private static T RequireObject<T>(string label) where T : UnityEngine.Object
     {
-        T value = UnityEngine.Object.FindFirstObjectByType<T>();
+        T value = UnityEngine.Object.FindAnyObjectByType<T>();
         if (value == null)
         {
             throw new InvalidOperationException($"Smoke test failed: missing {label}.");

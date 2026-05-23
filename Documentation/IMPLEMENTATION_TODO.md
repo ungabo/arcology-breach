@@ -29,10 +29,11 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [ ] Tune player movement speed and camera feel.
 - [ ] Tune `Pulse Pistol` damage, fire rate, ammo, and feedback.
 - [ ] Tune `Scrapper` speed, detection range, damage, and attack cooldown.
-- [ ] Make lockdown gate and access shard feedback clearer.
+- [x] Make lockdown gate and access shard feedback clearer.
 - [ ] Confirm `Aster Gate Intake` scale and room flow against `LEVEL_DESIGN_AND_MAPS.md`.
 - [x] Add first cyberpunk audio set.
 - [ ] Improve enemy navigation or obstacle handling.
+- [ ] Manual readability pass for Scrapper attack tells and world labels.
 - [ ] Add first cyberpunk material pass if combat feel is stable.
 - [ ] Rebuild Windows player.
 - [ ] Update `BUILD_STATUS.md`.

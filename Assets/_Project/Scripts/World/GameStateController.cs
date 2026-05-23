@@ -29,7 +29,7 @@ public class GameStateController : MonoBehaviour
         Instance = this;
         if (hud == null)
         {
-            hud = Object.FindFirstObjectByType<HUDController>();
+            hud = Object.FindAnyObjectByType<HUDController>();
         }
     }
 

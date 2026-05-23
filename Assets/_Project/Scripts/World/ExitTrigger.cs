@@ -9,7 +9,7 @@ public class ExitTrigger : MonoBehaviour
 
     private void Start()
     {
-        PlayerController playerController = Object.FindFirstObjectByType<PlayerController>();
+        PlayerController playerController = Object.FindAnyObjectByType<PlayerController>();
         if (playerController != null)
         {
             player = playerController.transform;

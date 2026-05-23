@@ -17,7 +17,7 @@ public class LockedDoor : MonoBehaviour
     {
         closedPosition = transform.position;
         doorCollider = GetComponent<Collider>();
-        playerInventory = Object.FindFirstObjectByType<PlayerInventory>();
+        playerInventory = Object.FindAnyObjectByType<PlayerInventory>();
         if (playerInventory != null)
         {
             player = playerInventory.transform;

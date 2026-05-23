@@ -121,3 +121,34 @@ Notes:
 
 - Audio is procedural placeholder content.
 - A manual listen/tuning pass is still needed.
+
+## 2026-05-22 21:11:21 -04:00
+
+Completed `v0.0.3` combat/objective readability checkpoint.
+
+Implementation:
+
+- Added Scrapper attack windup with magenta warning color.
+- Player damage now occurs after the windup if the player remains in range.
+- Shooting a Scrapper interrupts its windup.
+- Added access-shard pedestal.
+- Added floor guide strips for shard route, lockdown gate, and emergency lift.
+- Added world labels for access shard, lockdown gate, and emergency lift.
+- Replaced deprecated `FindFirstObjectByType` calls with `FindAnyObjectByType`.
+- Updated `GameBranding.CheckpointVersion` to `v0.0.3`.
+
+Verification:
+
+- Scene rebuild passed: `Logs\build-v003-scene.log`.
+- Editor smoke passed: `V0_SMOKE_TEST_PASS`.
+- Windows build passed: `V0_WINDOWS_BUILD_PASS`.
+- Runtime smoke passed: `V0_RUNTIME_SMOKE_PASS`.
+
+Checkpoint executable:
+
+`Builds/Windows/v0.0.3/ArcologyBreach_v0.0.3.exe`
+
+Notes:
+
+- Runtime smoke verifies object presence only.
+- A manual playthrough should confirm label readability, attack tell timing, and enemy navigation feel.
