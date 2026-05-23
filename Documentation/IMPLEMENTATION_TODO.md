@@ -402,11 +402,34 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.29 Movement and Combat Balance Pass
+
+- [x] Add centralized `GameBalance` profile.
+- [x] Apply tuned player movement speed and starting ammo from `GameBalance`.
+- [x] Apply tuned Pressure Pistol damage and fire cadence from `GameBalance`.
+- [x] Apply tuned Scrapper speed, damage, windup, and obstacle probing from `GameBalance`.
+- [x] Apply tuned Lancer fire cadence, projectile speed, and projectile damage from `GameBalance`.
+- [x] Expand level validation to require active balance values.
+- [x] Rebuild generated scenes.
+- [x] Run standalone level validation.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged combat-edge smoke.
+- [x] Run packaged ranged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.29`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
 - [ ] Record tuning notes in `WORK_LEDGER.md`.
 - [x] Add first collision-cover pass to `Brassworks Intake`.
+- [x] Add initial automated movement/combat balance profile.
 - [ ] Tune player movement speed and camera feel.
 - [ ] Tune `Pressure Pistol` damage, fire rate, ammo, and feedback.
 - [ ] Tune `Scrapper` speed, detection range, damage, and attack cooldown.

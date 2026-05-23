@@ -874,19 +874,20 @@ public static class V0SceneBuilder
 
         PlayerController playerController = player.AddComponent<PlayerController>();
         playerController.playerCamera = cameraObject.transform;
+        playerController.moveSpeed = GameBalance.PlayerMoveSpeed;
 
         PlayerHealth health = player.AddComponent<PlayerHealth>();
         health.maxHealth = 100;
 
         PlayerInventory inventory = player.AddComponent<PlayerInventory>();
-        inventory.startingAmmo = 35;
+        inventory.startingAmmo = GameBalance.StartingAmmo;
         player.AddComponent<RunProgressApplier>();
 
         WeaponController weapon = player.AddComponent<WeaponController>();
         weapon.aimCamera = camera;
         weapon.inventory = inventory;
-        weapon.damage = 25;
-        weapon.fireCooldown = 0.23f;
+        weapon.damage = GameBalance.PressurePistolDamage;
+        weapon.fireCooldown = GameBalance.PressurePistolCooldown;
 
         WeaponView weaponView = CreateWeaponView(cameraObject.transform, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial);
         weapon.weaponView = weaponView;
@@ -976,12 +977,12 @@ public static class V0SceneBuilder
         controller.center = Vector3.zero;
 
         EnemyController enemyController = enemy.AddComponent<EnemyController>();
-        enemyController.maxHealth = 50;
-        enemyController.moveSpeed = 2.65f;
-        enemyController.detectionRange = 13f;
-        enemyController.attackDamage = 9;
-        enemyController.attackWindup = 0.42f;
-        enemyController.obstacleProbeDistance = 1.15f;
+        enemyController.maxHealth = GameBalance.ScrapperHealth;
+        enemyController.moveSpeed = GameBalance.ScrapperMoveSpeed;
+        enemyController.detectionRange = GameBalance.ScrapperDetectionRange;
+        enemyController.attackDamage = GameBalance.ScrapperAttackDamage;
+        enemyController.attackWindup = GameBalance.ScrapperAttackWindup;
+        enemyController.obstacleProbeDistance = GameBalance.ScrapperObstacleProbeDistance;
     }
 
     private static void CreateLancerEnemy(string name, Vector3 position, Material material, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial)
@@ -998,14 +999,14 @@ public static class V0SceneBuilder
 
         RangedEnemyController ranged = enemy.AddComponent<RangedEnemyController>();
         ranged.muzzle = muzzle;
-        ranged.maxHealth = 40;
-        ranged.detectionRange = 18f;
-        ranged.fireRange = 14f;
-        ranged.moveSpeed = 1.7f;
-        ranged.fireCooldown = 1.35f;
-        ranged.fireWindup = 0.45f;
-        ranged.projectileDamage = 8;
-        ranged.projectileSpeed = 8.5f;
+        ranged.maxHealth = GameBalance.LancerHealth;
+        ranged.detectionRange = GameBalance.LancerDetectionRange;
+        ranged.fireRange = GameBalance.LancerFireRange;
+        ranged.moveSpeed = GameBalance.LancerMoveSpeed;
+        ranged.fireCooldown = GameBalance.LancerFireCooldown;
+        ranged.fireWindup = GameBalance.LancerFireWindup;
+        ranged.projectileDamage = GameBalance.LancerProjectileDamage;
+        ranged.projectileSpeed = GameBalance.LancerProjectileSpeed;
     }
 
     private static Transform CreateLancerVisual(Transform parent, Material bodyMaterial, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial)

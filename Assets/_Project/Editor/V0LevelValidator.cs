@@ -42,10 +42,11 @@ public static class V0LevelValidator
 
     private static void ValidateGameplayScene(string sceneName, bool requirePressureGate, bool requireTransition, bool requireFinalExit, bool requireRangedEnemy)
     {
-        Require<PlayerController>(sceneName + " PlayerController");
+        PlayerController playerController = Require<PlayerController>(sceneName + " PlayerController");
         Require<PlayerHealth>(sceneName + " PlayerHealth");
-        Require<PlayerInventory>(sceneName + " PlayerInventory");
-        Require<WeaponController>(sceneName + " WeaponController");
+        PlayerInventory playerInventory = Require<PlayerInventory>(sceneName + " PlayerInventory");
+        WeaponController weaponController = Require<WeaponController>(sceneName + " WeaponController");
+        ValidateBalanceValues(sceneName, playerController, playerInventory, weaponController);
         ValidateWeaponVisuals(sceneName);
         Require<GameStateController>(sceneName + " GameStateController");
         Require<RuntimePerformanceProfile>(sceneName + " RuntimePerformanceProfile");
@@ -115,6 +116,13 @@ public static class V0LevelValidator
             {
                 throw new InvalidOperationException("Level validation failed: " + sceneName + " Scrapper missing CharacterController.");
             }
+
+            RequireEqual(enemy.maxHealth, GameBalance.ScrapperHealth, sceneName + " Scrapper health balance");
+            RequireApprox(enemy.moveSpeed, GameBalance.ScrapperMoveSpeed, sceneName + " Scrapper speed balance");
+            RequireApprox(enemy.detectionRange, GameBalance.ScrapperDetectionRange, sceneName + " Scrapper detection balance");
+            RequireEqual(enemy.attackDamage, GameBalance.ScrapperAttackDamage, sceneName + " Scrapper damage balance");
+            RequireApprox(enemy.attackWindup, GameBalance.ScrapperAttackWindup, sceneName + " Scrapper windup balance");
+            RequireApprox(enemy.obstacleProbeDistance, GameBalance.ScrapperObstacleProbeDistance, sceneName + " Scrapper obstacle probe balance");
         }
 
         RangedEnemyController[] rangedEnemies = UnityEngine.Object.FindObjectsByType<RangedEnemyController>(FindObjectsSortMode.None);
@@ -124,7 +132,24 @@ public static class V0LevelValidator
             {
                 throw new InvalidOperationException("Level validation failed: " + sceneName + " Lancer missing CharacterController.");
             }
+
+            RequireEqual(enemy.maxHealth, GameBalance.LancerHealth, sceneName + " Lancer health balance");
+            RequireApprox(enemy.detectionRange, GameBalance.LancerDetectionRange, sceneName + " Lancer detection balance");
+            RequireApprox(enemy.fireRange, GameBalance.LancerFireRange, sceneName + " Lancer fire range balance");
+            RequireApprox(enemy.moveSpeed, GameBalance.LancerMoveSpeed, sceneName + " Lancer speed balance");
+            RequireApprox(enemy.fireCooldown, GameBalance.LancerFireCooldown, sceneName + " Lancer cooldown balance");
+            RequireApprox(enemy.fireWindup, GameBalance.LancerFireWindup, sceneName + " Lancer windup balance");
+            RequireEqual(enemy.projectileDamage, GameBalance.LancerProjectileDamage, sceneName + " Lancer projectile damage balance");
+            RequireApprox(enemy.projectileSpeed, GameBalance.LancerProjectileSpeed, sceneName + " Lancer projectile speed balance");
         }
+    }
+
+    private static void ValidateBalanceValues(string sceneName, PlayerController playerController, PlayerInventory playerInventory, WeaponController weaponController)
+    {
+        RequireApprox(playerController.moveSpeed, GameBalance.PlayerMoveSpeed, sceneName + " player speed balance");
+        RequireEqual(playerInventory.startingAmmo, GameBalance.StartingAmmo, sceneName + " starting ammo balance");
+        RequireEqual(weaponController.damage, GameBalance.PressurePistolDamage, sceneName + " pistol damage balance");
+        RequireApprox(weaponController.fireCooldown, GameBalance.PressurePistolCooldown, sceneName + " pistol cooldown balance");
     }
 
     private static T Require<T>(string label) where T : UnityEngine.Object
@@ -202,6 +227,22 @@ public static class V0LevelValidator
         if (trigger == null || !trigger.isTrigger)
         {
             throw new InvalidOperationException("Level validation failed: missing trigger collider for " + label + ".");
+        }
+    }
+
+    private static void RequireEqual(int actual, int expected, string label)
+    {
+        if (actual != expected)
+        {
+            throw new InvalidOperationException("Level validation failed: " + label + " expected " + expected + " but found " + actual + ".");
+        }
+    }
+
+    private static void RequireApprox(float actual, float expected, string label)
+    {
+        if (!Mathf.Approximately(actual, expected))
+        {
+            throw new InvalidOperationException("Level validation failed: " + label + " expected " + expected + " but found " + actual + ".");
         }
     }
 }

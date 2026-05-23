@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.28` versioned build for `Brassworks Breach`.
+`v0.0.29` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds collision cover to the Level01 repair bay, key room, and final room on top of the steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build adds an explicit `GameBalance` profile and initial movement/combat tuning on top of the Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -40,12 +40,13 @@
 - Pressure Pistol viewmodel visual pass with pressure tank, muzzle crown, sights, steam vent, bolt handle, walnut grip plates, red pressure line, rivets, and validation coverage.
 - Environmental work-order boards and three-pipe bundles in Level01 and Level02, with validation coverage.
 - Level01 collision-cover pass for repair bay, key room, and final room, with validation coverage and objective auto-playthrough retained.
+- Centralized `GameBalance` profile for player speed, starting ammo, pistol cadence, Scrapper pressure, and Lancer pressure, with validation coverage.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.28`.
+Latest fully verified build: `v0.0.29`.
 
-Current `v0.0.28` verification:
+Current `v0.0.29` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -73,7 +74,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.28\BrassworksBreach_v0.0.28.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.29\BrassworksBreach_v0.0.29.exe`
 
 ## Latest Build Verification
 
@@ -256,8 +257,18 @@ Current target:
 - `2026-05-23 12:33 -04:00`: `v0.0.28` packaged combat-edge smoke passed.
 - `2026-05-23 12:33 -04:00`: `v0.0.28` packaged ranged combat smoke passed.
 - `2026-05-23 12:33 -04:00`: `v0.0.28` packaged pause-flow smoke passed.
+- `2026-05-23 12:40 -04:00`: `v0.0.29` scene rebuild passed.
+- `2026-05-23 12:40 -04:00`: `v0.0.29` level validation passed.
+- `2026-05-23 12:40 -04:00`: `v0.0.29` editor smoke passed.
+- `2026-05-23 12:40 -04:00`: `v0.0.29` Windows build passed.
+- `2026-05-23 12:40 -04:00`: `v0.0.29` packaged runtime smoke passed.
+- `2026-05-23 12:40 -04:00`: `v0.0.29` packaged auto-playthrough passed.
+- `2026-05-23 12:40 -04:00`: `v0.0.29` packaged combat smoke passed.
+- `2026-05-23 12:40 -04:00`: `v0.0.29` packaged combat-edge smoke passed.
+- `2026-05-23 12:40 -04:00`: `v0.0.29` packaged ranged combat smoke passed.
+- `2026-05-23 12:40 -04:00`: `v0.0.29` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.29`, `v0.0.30`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.30`, `v0.0.31`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
@@ -267,6 +278,7 @@ Future builds should increment as `v0.0.29`, `v0.0.30`, etc. when meaningful pro
 - Windows runtime performance profile exists, but visible performance profiling still needs a real play session.
 - Enemy pathing uses simple side-steering, not NavMesh.
 - Scrapper attack windup is smoke-tested but still needs manual feel tuning.
+- Balance values have an initial automated pass; human feel tuning is still needed.
 - Audio is procedural placeholder content and still needs a human listen/tuning pass.
 - Generated material textures exist; sprites, decals, and final raster art still need production passes.
 - Health and ammo persist across level transitions; future weapon inventory and campaign flags still need expansion.

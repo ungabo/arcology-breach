@@ -38,6 +38,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | ART-004 | Generate Pressure Pistol visual | art | P1 | verified | v0.0.26 | Procedural first-person pistol pass with pressure tank, muzzle crown, sights, vent, rivets, and validation. |
 | ART-009 | Add environment prop and signage pass | art | P1 | verified | v0.0.27 | Work-order boards and pipe bundles added to Level01/Level02 with validation. |
 | LVL-001A | Add Level01 combat-space cover pass | level | P1 | verified | v0.0.28 | Repair bay, key room, and final room cover added with validation and full smoke matrix. |
+| CODE-003A | Add initial movement/combat balance profile | code | P1 | verified | v0.0.29 | GameBalance drives player/pistol/Scrapper/Lancer values and validator enforces them. |
 
 ## Ready Next
 
@@ -121,3 +122,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.26` Pressure Pistol visual build created at `Builds/Windows/v0.0.26/BrassworksBreach_v0.0.26.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.27` environment prop/signage build created at `Builds/Windows/v0.0.27/BrassworksBreach_v0.0.27.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.28` Level01 combat-space cover build created at `Builds/Windows/v0.0.28/BrassworksBreach_v0.0.28.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.29` movement/combat balance build created at `Builds/Windows/v0.0.29/BrassworksBreach_v0.0.29.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.
