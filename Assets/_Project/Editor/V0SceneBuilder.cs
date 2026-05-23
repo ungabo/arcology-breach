@@ -691,6 +691,7 @@ public static class V0SceneBuilder
         hud.ammoText = CreateText("Ammo Text", canvasObject.transform, font, "AMMO 30", 24, TextAnchor.LowerRight, new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-18f, 16f), new Vector2(360f, 50f));
         hud.keyText = CreateText("Gear Key Text", canvasObject.transform, font, "GEAR KEY NO", 22, TextAnchor.LowerCenter, new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0f, 18f), new Vector2(300f, 45f));
         CreateText("Crosshair", canvasObject.transform, font, "+", 34, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(80f, 80f));
+        hud.interactionText = CreateText("Interaction Prompt Text", canvasObject.transform, font, string.Empty, 24, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -92f), new Vector2(620f, 54f));
         hud.messageText = CreateText("Message Text", canvasObject.transform, font, string.Empty, 34, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 80f), new Vector2(760f, 220f));
         CreatePauseMenu(canvasObject.transform, font);
 
@@ -920,6 +921,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeCombatTest>();
         stateObject.AddComponent<RuntimeCombatEdgeTest>();
         stateObject.AddComponent<RuntimeRangedCombatTest>();
+        stateObject.AddComponent<RuntimeInteractionTest>();
         stateObject.AddComponent<RuntimePauseFlowTest>();
     }
 
@@ -952,6 +954,8 @@ public static class V0SceneBuilder
 
         PlayerInventory inventory = player.AddComponent<PlayerInventory>();
         inventory.startingAmmo = GameBalance.StartingAmmo;
+        PlayerInteraction interaction = player.AddComponent<PlayerInteraction>();
+        interaction.viewTransform = cameraObject.transform;
         player.AddComponent<RunProgressApplier>();
 
         WeaponController weapon = player.AddComponent<WeaponController>();

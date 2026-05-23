@@ -45,13 +45,21 @@ public static class V0LevelValidator
         PlayerController playerController = Require<PlayerController>(sceneName + " PlayerController");
         Require<PlayerHealth>(sceneName + " PlayerHealth");
         PlayerInventory playerInventory = Require<PlayerInventory>(sceneName + " PlayerInventory");
+        PlayerInteraction playerInteraction = Require<PlayerInteraction>(sceneName + " PlayerInteraction");
         WeaponController weaponController = Require<WeaponController>(sceneName + " WeaponController");
         ValidateBalanceValues(sceneName, playerController, playerInventory, weaponController);
+        ValidateInteractionSystem(sceneName, playerController, playerInteraction);
         ValidateWeaponVisuals(sceneName);
         Require<GameStateController>(sceneName + " GameStateController");
         Require<RuntimePerformanceProfile>(sceneName + " RuntimePerformanceProfile");
-        Require<HUDController>(sceneName + " HUDController");
+        HUDController hud = Require<HUDController>(sceneName + " HUDController");
+        if (hud.interactionText == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " HUDController is missing interaction prompt text.");
+        }
+
         Require<PauseMenuController>(sceneName + " PauseMenuController");
+        Require<RuntimeInteractionTest>(sceneName + " RuntimeInteractionTest");
         Require<EnemyController>(sceneName + " EnemyController");
         Require<Pickup>(sceneName + " Pickup");
 
@@ -63,6 +71,7 @@ public static class V0LevelValidator
         {
             LockedDoor door = Require<LockedDoor>(sceneName + " LockedDoor");
             RequireCollider(door.gameObject, sceneName + " LockedDoor collider");
+            RequireInteractable(door, sceneName + " pressure gate interactable");
             RequireNamed("Pressure Gate Frame Assembly", sceneName + " pressure gate frame visual");
             RequireNamed("Pressure Gate Key Socket", sceneName + " pressure gate key socket visual");
             RequireNamed("Pressure Gate Warning Lamp Left", sceneName + " pressure gate warning lamp visual");
@@ -74,6 +83,7 @@ public static class V0LevelValidator
         {
             LevelTransitionTrigger transition = Require<LevelTransitionTrigger>(sceneName + " LevelTransitionTrigger");
             RequireTrigger(transition.gameObject, sceneName + " LevelTransitionTrigger trigger");
+            RequireInteractable(transition, sceneName + " service lift interactable");
             ValidateServiceLiftVisuals(transition.gameObject, sceneName + " transition lift");
             if (string.IsNullOrWhiteSpace(transition.targetSceneName))
             {
@@ -85,6 +95,7 @@ public static class V0LevelValidator
         {
             ExitTrigger exit = Require<ExitTrigger>(sceneName + " ExitTrigger");
             RequireTrigger(exit.gameObject, sceneName + " ExitTrigger trigger");
+            RequireInteractable(exit, sceneName + " final lift interactable");
             ValidateServiceLiftVisuals(exit.gameObject, sceneName + " final service lift");
         }
 
@@ -104,6 +115,29 @@ public static class V0LevelValidator
         foreach (Pickup pickup in pickups)
         {
             RequireTrigger(pickup.gameObject, sceneName + " pickup trigger " + pickup.name);
+        }
+    }
+
+    private static void ValidateInteractionSystem(string sceneName, PlayerController playerController, PlayerInteraction playerInteraction)
+    {
+        if (playerInteraction.viewTransform == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " PlayerInteraction is missing viewTransform.");
+        }
+
+        if (playerController.playerCamera != null && playerInteraction.viewTransform != playerController.playerCamera)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " PlayerInteraction viewTransform does not match player camera.");
+        }
+
+        if (playerInteraction.interactKey != KeyCode.E)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " PlayerInteraction interact key must be E.");
+        }
+
+        if (playerInteraction.interactionRange < 2.5f)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " PlayerInteraction range is too short.");
         }
     }
 
@@ -253,6 +287,19 @@ public static class V0LevelValidator
         if (trigger == null || !trigger.isTrigger)
         {
             throw new InvalidOperationException("Level validation failed: missing trigger collider for " + label + ".");
+        }
+    }
+
+    private static void RequireInteractable(IInteractable interactable, string label)
+    {
+        if (interactable == null)
+        {
+            throw new InvalidOperationException("Level validation failed: missing " + label + ".");
+        }
+
+        if (string.IsNullOrWhiteSpace(interactable.Prompt))
+        {
+            throw new InvalidOperationException("Level validation failed: " + label + " has no prompt.");
         }
     }
 

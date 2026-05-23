@@ -18,6 +18,7 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<PlayerController>("PlayerController");
         Require<PlayerHealth>("PlayerHealth");
         Require<PlayerInventory>("PlayerInventory");
+        Require<PlayerInteraction>("PlayerInteraction");
         Require<WeaponController>("WeaponController");
         Require<GameStateController>("GameStateController");
         Require<PauseMenuController>("PauseMenuController");
@@ -25,6 +26,7 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<RuntimePerformanceProfile>("RuntimePerformanceProfile");
         Require<RuntimeAutoPlaythroughTest>("RuntimeAutoPlaythroughTest");
         Require<RuntimeCombatTest>("RuntimeCombatTest");
+        Require<RuntimeInteractionTest>("RuntimeInteractionTest");
         Require<RuntimePauseFlowTest>("RuntimePauseFlowTest");
         Require<HUDController>("HUDController");
         Require<EnemyController>("EnemyController");

@@ -487,6 +487,24 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.33 Interaction System Foundation Pass
+
+- [x] Add `IInteractable` contract.
+- [x] Add `PlayerInteraction` camera scanner using the `E` key.
+- [x] Add HUD interaction prompt text.
+- [x] Make the pressure gate interactable while retaining key proximity auto-open behavior.
+- [x] Make the Level01 service lift interactable while retaining trigger transition behavior.
+- [x] Make the Level02 final lift interactable while retaining trigger completion behavior.
+- [x] Add packaged interaction smoke test.
+- [x] Add interaction smoke to the one-command V0 matrix runner.
+- [x] Expand level validation for player interaction wiring and interactable prompts.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.33`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -519,7 +537,7 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 - [x] Data-driven weapon definitions.
 - [x] Data-driven enemy definitions.
-- [ ] Interaction system.
+- [x] Interaction system.
 - [ ] Pickup/inventory cleanup.
 - [ ] Level transition controller.
 - [x] Level validation tool.

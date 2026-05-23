@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.32` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.33` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -57,7 +57,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.32\BrassworksBreach_v0.0.32.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.33\BrassworksBreach_v0.0.33.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -74,6 +74,7 @@ The project test matrix includes:
 - Packaged combat smoke test.
 - Packaged combat-edge smoke test.
 - Packaged ranged-combat smoke test.
+- Packaged interaction smoke test.
 - Packaged pause-flow smoke test.
 - One-command build matrix runner.
 
@@ -86,6 +87,7 @@ Smoke pass markers:
 - `V0_COMBAT_SMOKE_PASS`
 - `V0_COMBAT_EDGE_PASS`
 - `V0_RANGED_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
 - `V0_PAUSE_FLOW_PASS`
 - `V0_LEVEL_VALIDATION_PASS`
 - `V0_BUILD_MATRIX_PASS`
@@ -146,11 +148,18 @@ Individual Unity entry points remain available:
 - Automatic version detection from `GameBranding.BuildVersion`.
 - Full pass-marker validation for scene rebuild, level validation, editor smoke, Windows build, runtime smoke, auto-playthrough, combat, combat-edge, ranged combat, and pause flow.
 
+## What v0.0.33 Adds
+
+- First-person `E` interaction scanner.
+- HUD interaction prompt.
+- Interactable pressure gate, service lift, and final lift hooks.
+- Packaged interaction smoke test in the full build matrix.
+
 ## Good Next Steps
 
 - Continue replacing procedural placeholder geometry with steampunk assets from the asset catalog.
-- Add the interaction system foundation.
 - Clean up pickup and inventory architecture.
+- Add reusable valve/switch objective mechanics on top of the interaction system.
 - Continue Level01 combat/readability tuning.
 
 ## Planning Docs

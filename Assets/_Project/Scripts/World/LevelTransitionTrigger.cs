@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelTransitionTrigger : MonoBehaviour
+public class LevelTransitionTrigger : MonoBehaviour, IInteractable
 {
     public string targetSceneName = "Level02";
     public string transitionMessage = "Service lift engaged";
+    public string prompt = "E - engage service lift";
 
     private bool loading;
+
+    public string Prompt => loading ? string.Empty : prompt;
 
     private void Awake()
     {
@@ -21,6 +24,32 @@ public class LevelTransitionTrigger : MonoBehaviour
     {
         PlayerController player = other.GetComponentInParent<PlayerController>();
         if (loading || player == null)
+        {
+            return;
+        }
+
+        BeginTransition(player);
+    }
+
+    public bool CanInteract(GameObject interactor)
+    {
+        return !loading && interactor.GetComponentInParent<PlayerController>() != null;
+    }
+
+    public void Interact(GameObject interactor)
+    {
+        PlayerController player = interactor.GetComponentInParent<PlayerController>();
+        if (player == null)
+        {
+            return;
+        }
+
+        BeginTransition(player);
+    }
+
+    private void BeginTransition(PlayerController player)
+    {
+        if (loading)
         {
             return;
         }

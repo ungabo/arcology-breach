@@ -10,6 +10,7 @@ public class HUDController : MonoBehaviour
     public Text ammoText;
     public Text keyText;
     public Text messageText;
+    public Text interactionText;
     public Image damageFlashImage;
     public Image healthFillImage;
     public Image ammoFillImage;
@@ -24,6 +25,7 @@ public class HUDController : MonoBehaviour
     {
         Instance = this;
         ClearMessage();
+        ClearInteractionPrompt();
     }
 
     private void Update()
@@ -144,6 +146,32 @@ public class HUDController : MonoBehaviour
         {
             messageText.text = string.Empty;
             messageText.enabled = false;
+        }
+    }
+
+    public void SetInteractionPrompt(string prompt)
+    {
+        if (interactionText == null)
+        {
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(prompt))
+        {
+            ClearInteractionPrompt();
+            return;
+        }
+
+        interactionText.text = prompt;
+        interactionText.enabled = true;
+    }
+
+    public void ClearInteractionPrompt()
+    {
+        if (interactionText != null)
+        {
+            interactionText.text = string.Empty;
+            interactionText.enabled = false;
         }
     }
 }

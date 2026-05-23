@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.32` versioned build for `Brassworks Breach`.
+`v0.0.33` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds a one-command V0 build matrix runner on top of data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build adds an interaction system foundation on top of the one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -44,12 +44,13 @@
 - Data-driven `PressurePistolDefinition.asset` and `WeaponDefinition` script, with validation coverage.
 - Data-driven `ScrapperDefinition.asset`, `LancerDefinition.asset`, and `EnemyDefinition` script, with validation coverage.
 - One-command V0 build matrix runner at `Tools/RunV0BuildMatrix.ps1`, covering scene rebuild, level validation, editor smoke, Windows build, and packaged runtime tests.
+- `IInteractable`, `PlayerInteraction`, HUD interaction prompts, interactable pressure gate/service lift/final lift hooks, and packaged interaction smoke coverage.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.32`.
+Latest fully verified build: `v0.0.33`.
 
-Current `v0.0.32` verification:
+Current `v0.0.33` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -59,6 +60,7 @@ Current `v0.0.32` verification:
 - Packaged combat smoke test: passed.
 - Packaged combat-edge smoke test: passed.
 - Packaged ranged combat smoke test: passed.
+- Packaged interaction smoke test: passed.
 - Packaged pause-flow smoke test: passed.
 - Full matrix runner: passed.
 
@@ -71,6 +73,7 @@ Pass markers:
 - `V0_COMBAT_SMOKE_PASS`
 - `V0_COMBAT_EDGE_PASS`
 - `V0_RANGED_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
 - `V0_PAUSE_FLOW_PASS`
 - `V0_LEVEL_VALIDATION_PASS`
 - `V0_BUILD_MATRIX_PASS`
@@ -79,7 +82,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.32\BrassworksBreach_v0.0.32.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.33\BrassworksBreach_v0.0.33.exe`
 
 ## Latest Build Verification
 
@@ -303,8 +306,20 @@ Current target:
 - `2026-05-23 12:57 -04:00`: `v0.0.32` packaged combat-edge smoke passed.
 - `2026-05-23 12:57 -04:00`: `v0.0.32` packaged ranged combat smoke passed.
 - `2026-05-23 12:57 -04:00`: `v0.0.32` packaged pause-flow smoke passed.
+- `2026-05-23 13:05 -04:00`: `v0.0.33` one-command build matrix runner passed.
+- `2026-05-23 13:05 -04:00`: `v0.0.33` scene rebuild passed.
+- `2026-05-23 13:05 -04:00`: `v0.0.33` level validation passed.
+- `2026-05-23 13:05 -04:00`: `v0.0.33` editor smoke passed.
+- `2026-05-23 13:05 -04:00`: `v0.0.33` Windows build passed.
+- `2026-05-23 13:05 -04:00`: `v0.0.33` packaged runtime smoke passed.
+- `2026-05-23 13:05 -04:00`: `v0.0.33` packaged auto-playthrough passed.
+- `2026-05-23 13:05 -04:00`: `v0.0.33` packaged combat smoke passed.
+- `2026-05-23 13:05 -04:00`: `v0.0.33` packaged combat-edge smoke passed.
+- `2026-05-23 13:05 -04:00`: `v0.0.33` packaged ranged combat smoke passed.
+- `2026-05-23 13:05 -04:00`: `v0.0.33` packaged interaction smoke passed.
+- `2026-05-23 13:05 -04:00`: `v0.0.33` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.33`, `v0.0.34`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.34`, `v0.0.35`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

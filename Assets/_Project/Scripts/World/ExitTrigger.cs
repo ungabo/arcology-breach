@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class ExitTrigger : MonoBehaviour
+public class ExitTrigger : MonoBehaviour, IInteractable
 {
     public float fallbackWinRadius = 1.25f;
+    public string prompt = "E - engage final lift";
 
     private Transform player;
     private bool triggered;
+
+    public string Prompt => triggered ? string.Empty : prompt;
 
     private void Start()
     {
@@ -27,6 +30,16 @@ public class ExitTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         TriggerWin(other.gameObject);
+    }
+
+    public bool CanInteract(GameObject interactor)
+    {
+        return !triggered && interactor.GetComponentInParent<PlayerController>() != null;
+    }
+
+    public void Interact(GameObject interactor)
+    {
+        TriggerWin(interactor);
     }
 
     private void TriggerWin(GameObject other)

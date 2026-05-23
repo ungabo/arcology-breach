@@ -1,10 +1,12 @@
 using UnityEngine;
 
-public class LockedDoor : MonoBehaviour
+public class LockedDoor : MonoBehaviour, IInteractable
 {
     public float openDistance = 2.2f;
     public float openHeight = 3.25f;
     public float openSpeed = 4.5f;
+    public string unlockedPrompt = "E - crank pressure gate";
+    public string lockedPrompt = "Gear key required";
 
     private PlayerInventory playerInventory;
     private Transform player;
@@ -12,6 +14,20 @@ public class LockedDoor : MonoBehaviour
     private Vector3 closedPosition;
     private float nextLockedMessageTime;
     private bool opened;
+
+    public string Prompt
+    {
+        get
+        {
+            if (opened)
+            {
+                return string.Empty;
+            }
+
+            PlayerInventory inventory = playerInventory != null ? playerInventory : Object.FindAnyObjectByType<PlayerInventory>();
+            return inventory != null && inventory.HasKey ? unlockedPrompt : lockedPrompt;
+        }
+    }
 
     private void Start()
     {
@@ -55,10 +71,37 @@ public class LockedDoor : MonoBehaviour
         }
         else if (Time.time >= nextLockedMessageTime)
         {
-            nextLockedMessageTime = Time.time + 1f;
-            SteamworksAudio.Play(SteamworksAudioCue.GateDenied);
-            HUDController.Instance?.ShowTemporaryMessage("Gear key required", 0.8f);
+            ShowLockedFeedback();
         }
+    }
+
+    public bool CanInteract(GameObject interactor)
+    {
+        return !opened && interactor.GetComponentInParent<PlayerController>() != null;
+    }
+
+    public void Interact(GameObject interactor)
+    {
+        if (opened || GameStateController.Instance != null && !GameStateController.Instance.IsGameplayActive)
+        {
+            return;
+        }
+
+        PlayerInventory inventory = interactor.GetComponentInParent<PlayerInventory>();
+        if (inventory != null && inventory.HasKey)
+        {
+            Open();
+            return;
+        }
+
+        ShowLockedFeedback();
+    }
+
+    private void ShowLockedFeedback()
+    {
+        nextLockedMessageTime = Time.time + 1f;
+        SteamworksAudio.Play(SteamworksAudioCue.GateDenied);
+        HUDController.Instance?.ShowTemporaryMessage(lockedPrompt, 0.8f);
     }
 
     private void Open()
