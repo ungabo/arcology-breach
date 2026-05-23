@@ -692,7 +692,7 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Add generated `Assets/_Project/Scenes/Level04.unity`.
 - [x] Convert Level03 final win lift into a valve-gated transition to `Level04`.
 - [x] Add lock support to `LevelTransitionTrigger`.
-- [x] Add Furnace Foundry blockout, enemies, pickups, steam hazards, furnace-row dressing, work-order board, and emergency-hoist win.
+- [x] Add Furnace Foundry blockout, enemies, pickups, steam hazards, furnace-row dressing, work-order board, and first emergency-hoist route.
 - [x] Expand build scene order to MainMenu, Level01, Level02, Level03, Level04.
 - [x] Expand level validation and editor smoke for Level04.
 - [x] Expand auto-playthrough to validate Level01 -> Level02 -> Level03 -> Level04 -> win.
@@ -745,6 +745,23 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Build Windows player through the runner.
 - [x] Run full packaged smoke matrix through the runner.
 - [x] Commit and push `v0.0.49`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## v0.0.50 Governor Core Foundation Pass
+
+- [x] Add generated `Assets/_Project/Scenes/Level05.unity`.
+- [x] Convert Level04 `Foundry Emergency Hoist` from final win device into a transition to `Level05`.
+- [x] Add Governor Core blockout, regulator dressing, work-order board, pipe bundle, steam hazard, and furnace-heat hazard.
+- [x] Add mixed Scrapper/Lancer/Bulwark enemy pressure in Level05.
+- [x] Add Level05 master override hoist as the current final win device.
+- [x] Expand build scene order to MainMenu, Level01, Level02, Level03, Level04, Level05.
+- [x] Expand level validation and editor smoke for Level05.
+- [x] Expand auto-playthrough to validate Level01 -> Level02 -> Level03 -> Level04 -> Level05 -> win.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.50`.
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 

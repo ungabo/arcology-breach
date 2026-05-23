@@ -4,9 +4,9 @@ Status values: `backlog`, `ready`, `in-progress`, `blocked`, `review`, `verified
 
 ## Active Milestone
 
-Current target: `v0.2 Steampunk Combat Feel Slice`.
+Current target: `v1.0 Windows Complete Build`.
 
-Primary goal: tune the current Windows prototype until the core combat and objective flow feel good before the larger asset pass.
+Primary goal: keep turning the current Windows prototype into a complete distributable steampunk FPS through sequential versioned builds, automated verification, and regular commits without stopping for review gates.
 
 ## Current State
 
@@ -55,10 +55,11 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | SEC-001 | Add secret area foundation | code/level/test | P1 | verified | v0.0.43 | SecretArea, Intake pressure cache, validation, and V0_SECRET_PASS matrix coverage are verified. |
 | SEC-002 | Add run secret stats | code/ui/test | P1 | verified | v0.0.44 | RunStats tracks secret totals/discoveries and win message can report secret progress. |
 | TEST-009 | Verify secret stats in auto-playthrough | test | P1 | verified | v0.0.45 | Auto-playthrough asserts run secret totals persist to final win state. |
-| LVL-007 | Add Level04 Furnace Foundry foundation | level/code/test | P1 | verified | v0.0.46 | Level04 scene, valve-gated Level03 transition, five-scene build order, foundry hazards, emergency-hoist win, and four-level auto-playthrough are verified. |
+| LVL-007 | Add Level04 Furnace Foundry foundation | level/code/test | P1 | verified | v0.0.46 | Level04 scene, valve-gated Level03 transition, five-scene build order at introduction, foundry hazards, and four-level auto-playthrough were verified. |
 | HAZ-003 | Add Furnace Foundry heat hazards | code/level/test | P1 | verified | v0.0.47 | Reusable FurnaceHeatHazard, two foundry heat-surge lanes, validation, and expanded V0_HAZARD_PASS coverage are verified. |
 | ENEMY-005 | Add Bulwark heavy enemy prototype | code/art/test | P1 | verified | v0.0.48 | BulwarkEnemyController, BulwarkDefinition, Level04 placement, primitive heavy visual, validation, and V0_BULWARK_COMBAT_PASS are verified. |
 | SEC-003 | Add Foundry secret cache | level/test | P1 | verified | v0.0.49 | Level04 foundry coal cache, rewards, visuals, validation, and multi-level secret total auto-playthrough coverage are verified. |
+| LVL-008 | Add Level05 Governor Core foundation | level/code/test | P1 | verified | v0.0.50 | Level05 scene, Level04-to-Level05 transition, Governor Core hazards/dressing, final hoist win state, six-scene build order, and five-level auto-playthrough are verified. |
 
 ## Ready Next
 
@@ -161,3 +162,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.47` furnace heat hazard build created at `Builds/Windows/v0.0.47/BrassworksBreach_v0.0.47.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.48` Bulwark heavy enemy build created at `Builds/Windows/v0.0.48/BrassworksBreach_v0.0.48.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.49` Foundry secret cache build created at `Builds/Windows/v0.0.49/BrassworksBreach_v0.0.49.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.50` Governor Core foundation build created at `Builds/Windows/v0.0.50/BrassworksBreach_v0.0.50.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.

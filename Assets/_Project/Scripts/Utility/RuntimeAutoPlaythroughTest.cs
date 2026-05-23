@@ -19,9 +19,15 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         yield return null;
 
         string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "Level05")
+        {
+            yield return RunLevel05Exit();
+            yield break;
+        }
+
         if (sceneName == "Level04")
         {
-            yield return RunLevel04Exit();
+            yield return RunLevel04Transition();
             yield break;
         }
 
@@ -156,7 +162,29 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         }
     }
 
-    private IEnumerator RunLevel04Exit()
+    private IEnumerator RunLevel04Transition()
+    {
+        DisableEnemiesForDeterministicObjectiveTest();
+
+        PlayerController player = Require<PlayerController>("PlayerController");
+        PlayerInventory inventory = Require<PlayerInventory>("PlayerInventory");
+        LevelTransitionTrigger transition = Require<LevelTransitionTrigger>("LevelTransitionTrigger");
+        if (!RunProgress.HasSnapshot || inventory.Ammo != RunProgress.Ammo)
+        {
+            Fail("Auto-playthrough failed: run progress did not persist into Level04.");
+            yield break;
+        }
+
+        string targetSceneName = transition.targetSceneName;
+        Teleport(player, transition.transform.position);
+        yield return WaitUntilOrFail(() => SceneManager.GetActiveScene().name == targetSceneName, "level 04 emergency hoist transition", 2f);
+        if (failed)
+        {
+            yield break;
+        }
+    }
+
+    private IEnumerator RunLevel05Exit()
     {
         DisableEnemiesForDeterministicObjectiveTest();
 
@@ -166,12 +194,12 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         GameStateController gameState = Require<GameStateController>("GameStateController");
         if (!RunProgress.HasSnapshot || inventory.Ammo != RunProgress.Ammo)
         {
-            Fail("Auto-playthrough failed: run progress did not persist into Level04.");
+            Fail("Auto-playthrough failed: run progress did not persist into Level05.");
             yield break;
         }
 
         Teleport(player, exit.transform.position);
-        yield return WaitUntilOrFail(() => gameState.State == GameRunState.Won, "level 04 emergency hoist win state", 2f);
+        yield return WaitUntilOrFail(() => gameState.State == GameRunState.Won, "level 05 master override hoist win state", 2f);
         if (failed)
         {
             yield break;

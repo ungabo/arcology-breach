@@ -47,9 +47,10 @@ Near-term:
 - Level01 service lift now loads `Level02` through `LevelTransitionTrigger`.
 - Level02 service lift now loads `Level03` through `LevelTransitionTrigger`.
 - Level03 foundry service lift is pressure-locked until the Boilerheart pressure valve is vented, then loads `Level04`.
-- Level04 emergency hoist currently triggers the win state.
-- Auto-playthrough covers Level01 key/gate/lift, transition to Level02, transition to Level03, locked-foundry-lift rejection, Boilerheart pressure valve, transition to Level04, and Level04 emergency hoist.
-- Hazard smoke covers Level03 steam damage and Level04 furnace-heat damage without ending the run from one tick/pulse.
+- Level04 emergency hoist now loads `Level05`.
+- Level05 master override hoist currently triggers the win state.
+- Auto-playthrough covers Level01 key/gate/lift, transition to Level02, transition to Level03, locked-foundry-lift rejection, Boilerheart pressure valve, transition to Level04, transition to Level05, and the Level05 master override hoist.
+- Hazard smoke covers Level03 steam damage and Level04 furnace-heat damage without ending the run from one tick/pulse. Level05 also includes validated steam and furnace-heat hazards.
 - Each current level now has a scene-specific objective briefing at spawn.
 - Venting the Boilerheart pressure valve shuts down the linked Level03 steam hazards.
 - Level01 includes the first secret pressure cache reward space.
@@ -220,7 +221,7 @@ Approximate footprint:
 
 New mechanics:
 
-- Current prototype: foundry steam hazards, pulsing furnace heat-surge lanes, mixed melee/ranged/heavy pressure, and emergency-hoist win state.
+- Current prototype: foundry steam hazards, pulsing furnace heat-surge lanes, mixed melee/ranged/heavy pressure, and emergency-hoist transition to `Level05`.
 - Planned: crusher or furnace hazard lanes.
 - Current prototype: first `Bulwark` heavy enemy.
 - Optional weapon route.
@@ -248,11 +249,11 @@ Current top-down sketch:
 v0.0.46 implementation notes:
 
 - Generated at `Assets/_Project/Scenes/Level04.unity`.
-- Build order is MainMenu, Level01, Level02, Level03, Level04.
+- Build order at introduction was MainMenu, Level01, Level02, Level03, Level04.
 - Level03 foundry lift targets Level04 after Boilerheart valve completion.
 - Added `Foundry Steam Hazard - Casting Leak` and `Foundry Steam Hazard - Crucible Bleed`.
 - Added `Foundry Emergency Hoist` as the current campaign win device.
-- Auto-playthrough validates the four-level route.
+- Auto-playthrough validated the four-level route at introduction.
 
 v0.0.47 implementation notes:
 
@@ -275,6 +276,11 @@ v0.0.49 implementation notes:
 - Level validation now requires a Level04 secret and foundry cache visuals.
 - Auto-playthrough requires at least two registered secrets at the final win state.
 
+v0.0.50 implementation notes:
+
+- Converted `Foundry Emergency Hoist` into a `LevelTransitionTrigger` targeting `Level05`.
+- Auto-playthrough now treats Level04 as a transition level, not the final win level.
+
 ### Level 05: Governor Core
 
 Purpose:
@@ -283,14 +289,50 @@ Purpose:
 
 Approximate footprint:
 
-- `75 x 75` meters.
-- Core access ring, gear chambers, emergency bypass, final guardian room.
+- Current prototype: about `15 x 32` meters.
+- Production target: `75 x 75` meters.
+- Current rooms: arrival floor, regulator ring, mixed enemy pressure lane, master override hoist.
+- Production target: core access ring, gear chambers, emergency bypass, final guardian room.
 
 New mechanics:
 
-- Multi-stage objective unlock.
-- Mixed enemy groups.
-- Boss or mini-boss encounter if scope allows.
+- Current prototype: final master override hoist win state.
+- Current prototype: mixed Scrapper/Lancer/Bulwark pressure.
+- Current prototype: steam hazard and pulsing furnace-heat surge inside the regulator lane.
+- Planned: multi-stage objective unlock.
+- Planned: boss or mini-boss encounter if scope allows.
+
+Current top-down sketch:
+
+```text
+          N
+  +-------------------------+
+  |  MASTER OVERRIDE HOIST  |
+  |  green signal / pipes   |
+  |          |              |
+  |    Bulwark pressure     |
+  |          |              |
+  |  [REGULATOR CORE RING]  |
+  |  heat surge / steam     |
+  |    lancer sightline     |
+  |          |              |
+  |  health      ammo       |
+  |          |              |
+  |       ARRIVAL           |
+  +-------------------------+
+          S
+```
+
+v0.0.50 implementation notes:
+
+- Generated at `Assets/_Project/Scenes/Level05.unity`.
+- Build order is MainMenu, Level01, Level02, Level03, Level04, Level05.
+- Level04 emergency hoist targets Level05.
+- Added `Governor Core Steam Hazard - Regulator Leak`.
+- Added `Governor Core Furnace Heat Hazard - Regulator Surge`.
+- Added `Enemy - Governor Core Bulwark` plus Scrapper/Lancer support.
+- Added `Governor Core Master Override Hoist` as the current final win device.
+- Auto-playthrough validates the five-level route through the Governor Core win state.
 
 ## Map Documentation Template
 

@@ -15,6 +15,7 @@ public static class V0SceneBuilder
     private const string Level02ScenePath = "Assets/_Project/Scenes/Level02.unity";
     private const string Level03ScenePath = "Assets/_Project/Scenes/Level03.unity";
     private const string Level04ScenePath = "Assets/_Project/Scenes/Level04.unity";
+    private const string Level05ScenePath = "Assets/_Project/Scenes/Level05.unity";
     private const string MaterialFolder = "Assets/_Project/Materials";
     private const string TextureFolder = "Assets/_Project/Textures";
     private const string DataFolder = "Assets/_Project/Data";
@@ -94,6 +95,7 @@ public static class V0SceneBuilder
         CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
         CreateBoilerheartScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
         CreateFurnaceFoundryScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, bulwarkDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
+        CreateGovernorCoreScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, bulwarkDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
         CreateMainMenuScene(brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, furnaceGlowMaterial, oilStoneMaterial, windowsQualityProfile);
         EditorBuildSettings.scenes = new[]
         {
@@ -101,13 +103,14 @@ public static class V0SceneBuilder
             new EditorBuildSettingsScene(ScenePath, true),
             new EditorBuildSettingsScene(Level02ScenePath, true),
             new EditorBuildSettingsScene(Level03ScenePath, true),
-            new EditorBuildSettingsScene(Level04ScenePath, true)
+            new EditorBuildSettingsScene(Level04ScenePath, true),
+            new EditorBuildSettingsScene(Level05ScenePath, true)
         };
 
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
-        Debug.Log("V0 scenes rebuilt at " + MainMenuScenePath + ", " + ScenePath + ", " + Level02ScenePath + ", " + Level03ScenePath + ", and " + Level04ScenePath);
+        Debug.Log("V0 scenes rebuilt at " + MainMenuScenePath + ", " + ScenePath + ", " + Level02ScenePath + ", " + Level03ScenePath + ", " + Level04ScenePath + ", and " + Level05ScenePath);
     }
 
     public static void RunSmokeTest()
@@ -135,6 +138,11 @@ public static class V0SceneBuilder
         if (!File.Exists(Level04ScenePath))
         {
             throw new FileNotFoundException("Missing level 04 scene", Level04ScenePath);
+        }
+
+        if (!File.Exists(Level05ScenePath))
+        {
+            throw new FileNotFoundException("Missing level 05 scene", Level05ScenePath);
         }
 
         EditorSceneManager.OpenScene(ScenePath);
@@ -182,9 +190,19 @@ public static class V0SceneBuilder
         RequireObject<EnemyController>("Level04 EnemyController");
         RequireObject<RangedEnemyController>("Level04 RangedEnemyController");
         RequireObject<BulwarkEnemyController>("Level04 BulwarkEnemyController");
-        RequireObject<ExitTrigger>("Level04 ExitTrigger");
+        RequireObject<LevelTransitionTrigger>("Level04 LevelTransitionTrigger");
         RequireObject<SteamHazard>("Level04 SteamHazard");
         RequireObject<FurnaceHeatHazard>("Level04 FurnaceHeatHazard");
+
+        EditorSceneManager.OpenScene(Level05ScenePath);
+        RequireObject<PlayerController>("Level05 PlayerController");
+        RequireObject<GameStateController>("Level05 GameStateController");
+        RequireObject<EnemyController>("Level05 EnemyController");
+        RequireObject<RangedEnemyController>("Level05 RangedEnemyController");
+        RequireObject<BulwarkEnemyController>("Level05 BulwarkEnemyController");
+        RequireObject<ExitTrigger>("Level05 ExitTrigger");
+        RequireObject<SteamHazard>("Level05 SteamHazard");
+        RequireObject<FurnaceHeatHazard>("Level05 FurnaceHeatHazard");
 
         EditorSceneManager.OpenScene(MainMenuScenePath);
         RequireObject<MainMenuController>("MainMenuController");
@@ -192,9 +210,9 @@ public static class V0SceneBuilder
 
         V0LevelValidator.ValidateProjectScenes();
 
-        if (EditorBuildSettings.scenes.Length < 5 || EditorBuildSettings.scenes[0].path != MainMenuScenePath || EditorBuildSettings.scenes[1].path != ScenePath || EditorBuildSettings.scenes[2].path != Level02ScenePath || EditorBuildSettings.scenes[3].path != Level03ScenePath || EditorBuildSettings.scenes[4].path != Level04ScenePath)
+        if (EditorBuildSettings.scenes.Length < 6 || EditorBuildSettings.scenes[0].path != MainMenuScenePath || EditorBuildSettings.scenes[1].path != ScenePath || EditorBuildSettings.scenes[2].path != Level02ScenePath || EditorBuildSettings.scenes[3].path != Level03ScenePath || EditorBuildSettings.scenes[4].path != Level04ScenePath || EditorBuildSettings.scenes[5].path != Level05ScenePath)
         {
-            throw new InvalidOperationException("MainMenu, Level01, Level02, Level03, and Level04 are not the first enabled build scenes.");
+            throw new InvalidOperationException("MainMenu, Level01, Level02, Level03, Level04, and Level05 are not the first enabled build scenes.");
         }
 
         Debug.Log("V0_SMOKE_TEST_PASS");
@@ -213,7 +231,7 @@ public static class V0SceneBuilder
 
         BuildPlayerOptions options = new BuildPlayerOptions
         {
-            scenes = new[] { MainMenuScenePath, ScenePath, Level02ScenePath, Level03ScenePath, Level04ScenePath },
+            scenes = new[] { MainMenuScenePath, ScenePath, Level02ScenePath, Level03ScenePath, Level04ScenePath, Level05ScenePath },
             locationPathName = executablePath,
             target = BuildTarget.StandaloneWindows64,
             options = BuildOptions.None
@@ -819,12 +837,69 @@ public static class V0SceneBuilder
         CreatePressureCartridgePickup("Pickup - Foundry Pressure Cartridge Pack", new Vector3(4.25f, 0.55f, 18.4f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
         CreateFoundrySecretCache(brassMaterial, ironMaterial, warningMaterial, healthMaterial, glassMaterial, fluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
         CreateFurnaceFoundryDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
-        CreateExitAt("Foundry Emergency Hoist", new Vector3(0f, 1.1f, 28.3f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial);
+        CreateLevelTransitionLiftAt("Foundry Emergency Hoist", new Vector3(0f, 1.1f, 28.3f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial, "Level05", "Emergency hoist rising toward the Governor Core");
         CreatePointLight("Foundry Furnace Light West", new Vector3(-4.65f, 2.1f, 14.8f), new Color(1f, 0.32f, 0.08f), 3.2f, 8f);
         CreatePointLight("Foundry Furnace Light East", new Vector3(4.65f, 2.1f, 20.4f), new Color(1f, 0.28f, 0.07f), 3.2f, 8f);
         CreatePointLight("Foundry Emergency Hoist Green Light", new Vector3(0f, 2.6f, 27.8f), new Color(0.1f, 1f, 0.35f), 2.8f, 7f);
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), Level04ScenePath);
+    }
+
+    private static void CreateGovernorCoreScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition, EnemyDefinition bulwarkDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PlatformQualityProfile windowsQualityProfile)
+    {
+        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+
+        RenderSettings.ambientLight = new Color(0.3f, 0.28f, 0.24f);
+
+        CreateLighting();
+        CreateGovernorCoreBlockout(wallMaterial, floorMaterial);
+        HUDController hud = CreateHud();
+        CreateGameState(hud, windowsQualityProfile, "Breach the Governor Core. Reach the master override hoist.");
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition);
+
+        CreateEnemy("Enemy - Governor Core Intake Scrapper", new Vector3(-2.9f, 1f, 8.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
+        CreateLancerEnemy("Enemy - Governor Core Lancer", new Vector3(3.2f, 1f, 15.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, lancerDefinition);
+        CreateBulwarkEnemy("Enemy - Governor Core Bulwark", new Vector3(-2.6f, 1.15f, 22.2f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, bulwarkDefinition);
+        CreateHealthVialPickup("Pickup - Governor Health Vial", new Vector3(-4.55f, 0.65f, 13.5f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
+        CreatePressureCartridgePickup("Pickup - Governor Pressure Cartridge Pack", new Vector3(4.45f, 0.55f, 20.2f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
+        CreateGovernorCoreDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
+        CreateExitAt("Governor Core Master Override Hoist", new Vector3(0f, 1.1f, 28.6f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial);
+        CreatePointLight("Governor Core Regulator Light", new Vector3(0f, 2.8f, 16.2f), new Color(1f, 0.36f, 0.08f), 4.2f, 10f);
+        CreatePointLight("Governor Core Hoist Green Light", new Vector3(0f, 2.6f, 28f), new Color(0.1f, 1f, 0.35f), 2.8f, 7f);
+
+        EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), Level05ScenePath);
+    }
+
+    private static void CreateGovernorCoreBlockout(Material wallMaterial, Material floorMaterial)
+    {
+        GameObject parent = new GameObject("Governor Core Blockout");
+
+        CreateCube("Governor Core Floor", new Vector3(0f, -0.1f, 14f), new Vector3(15f, 0.2f, 32f), floorMaterial, parent.transform);
+        CreateCube("Governor Core South Wall", new Vector3(0f, 1.5f, -2f), new Vector3(14.5f, 3f, 0.5f), wallMaterial, parent.transform);
+        CreateCube("Governor Core North Wall", new Vector3(0f, 1.5f, 30f), new Vector3(14.5f, 3f, 0.5f), wallMaterial, parent.transform);
+        CreateCube("Governor Core West Wall", new Vector3(-7.25f, 1.5f, 14f), new Vector3(0.5f, 3f, 32f), wallMaterial, parent.transform);
+        CreateCube("Governor Core East Wall", new Vector3(7.25f, 1.5f, 14f), new Vector3(0.5f, 3f, 32f), wallMaterial, parent.transform);
+        CreateCube("Governor Core Ring West", new Vector3(-3.5f, 1.5f, 15.4f), new Vector3(0.5f, 3f, 7.2f), wallMaterial, parent.transform);
+        CreateCube("Governor Core Ring East", new Vector3(3.5f, 1.5f, 18.8f), new Vector3(0.5f, 3f, 7.2f), wallMaterial, parent.transform);
+        CreateCube("Governor Core Low Gear Cover A", new Vector3(-1.8f, 0.5f, 13.6f), new Vector3(1.6f, 1f, 1.2f), wallMaterial, parent.transform);
+        CreateCube("Governor Core Low Gear Cover B", new Vector3(1.8f, 0.5f, 21.4f), new Vector3(1.6f, 1f, 1.2f), wallMaterial, parent.transform);
+    }
+
+    private static void CreateGovernorCoreDressing(Material ironMaterial, Material floorPatchMaterial, Material brassMaterial, Material warningMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial)
+    {
+        GameObject parent = new GameObject("Governor Core Dressing");
+
+        CreateCube("Governor Core Oil Ring", new Vector3(0f, 0.02f, 16.2f), new Vector3(4.6f, 0.04f, 4.6f), floorPatchMaterial, parent.transform);
+        CreateCube("Governor Core Regulator Pillar", new Vector3(0f, 1.25f, 16.2f), new Vector3(1.25f, 2.5f, 1.25f), ironMaterial, parent.transform);
+        CreateCube("Governor Core Regulator Glow A", new Vector3(0f, 1.3f, 15.55f), new Vector3(0.78f, 1.4f, 0.08f), glowMaterial, parent.transform);
+        CreateCube("Governor Core Regulator Glow B", new Vector3(0f, 1.3f, 16.85f), new Vector3(0.78f, 1.4f, 0.08f), glowMaterial, parent.transform);
+        CreatePipeBundle("Governor Core Triple Pipe Bundle", new Vector3(0f, 2.35f, 29.72f), Quaternion.Euler(0f, 90f, 0f), 4.8f, brassMaterial, ironMaterial, parent.transform);
+        CreatePressureGauge("Governor Core Gauge A", new Vector3(-6.95f, 1.65f, 12.4f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+        CreateValveWheel("Governor Core Valve A", new Vector3(6.95f, 1.35f, 20.4f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, warningMaterial, parent.transform);
+        CreateSteamVent("Governor Core Steam Vent A", new Vector3(-4.8f, 0.05f, 20.8f), brassMaterial, steamMaterial, parent.transform);
+        CreateSteamHazard("Governor Core Steam Hazard - Regulator Leak", new Vector3(-4.8f, 0.75f, 20.8f), new Vector3(1.25f, 1.5f, 1.25f), ironMaterial, steamMaterial, warningMaterial, parent.transform);
+        CreateFurnaceHeatHazard("Governor Core Furnace Heat Hazard - Regulator Surge", new Vector3(0f, 0.75f, 18.9f), new Vector3(4.4f, 1.5f, 1.25f), ironMaterial, glowMaterial, warningMaterial, parent.transform, 0.8f);
+        CreateWorkOrderBoard("Work Order Board - Governor Core", "GOVERNOR CORE\nMASTER OVERRIDE\nDO NOT STALL", new Vector3(-6.95f, 1.55f, 15.4f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
     }
 
     private static void CreateFurnaceFoundryBlockout(Material wallMaterial, Material floorMaterial)

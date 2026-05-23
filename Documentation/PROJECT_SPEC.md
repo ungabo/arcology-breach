@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.49`.
+Current state: `v0.0.50`.
 
 Implemented:
 
@@ -35,7 +35,7 @@ Implemented:
 - Packaged combat smoke for pressure-pistol damage and Scrapper death.
 - Packaged pause-flow smoke for pause/resume/restart/quit.
 - Unity editor smoke test, Windows build, and runtime smoke test.
-- Early multi-level flow foundation that has since expanded into the current four-level route.
+- Early multi-level flow foundation that has since expanded into the current five-level route.
 - Ranged Lancer enemy prototype and ranged-combat smoke test.
 - Centralized `GameBalance` values.
 - Data-driven Pressure Pistol, Scrapper, and Lancer definitions.
@@ -45,18 +45,19 @@ Implemented:
 - Reusable level transition controller for service lifts and restarts.
 - Data-driven platform quality profiles for Windows, Android, WebGL, PC VR, and Meta Quest.
 - Expanded combat scenario automation for cooldowns, ammo accounting, and expected kill timing.
-- Four-level service-lift campaign chain ending at Level04 Furnace Foundry.
+- Five-level service-lift campaign chain ending at Level05 Governor Core.
 - Boilerheart pressure-valve objective that locks the Level03 foundry lift until vented.
 - Steam hazard trigger volumes with packaged hazard smoke coverage.
-- Scene-specific objective briefing messages for the current four-level route.
+- Scene-specific objective briefing messages for the current five-level route.
 - Boilerheart pressure valve shuts down linked steam hazards when vented.
 - Secret area foundation with the first Intake pressure cache and packaged secret smoke coverage.
 - Persistent run secret stats and final win-message secret progress.
 - Auto-playthrough coverage for secret total persistence through the final win state.
-- Level04 Furnace Foundry foundation with foundry blockout, mixed Scrapper/Lancer pressure, steam hazards, pickups, furnace-row dressing, and current emergency-hoist win state.
+- Level04 Furnace Foundry foundation with foundry blockout, mixed Scrapper/Lancer/Bulwark pressure, steam hazards, pickups, furnace-row dressing, secret cache, and emergency-hoist transition to Level05.
 - Pulsing Furnace Foundry heat-surge hazards with warning/active/safe phase visuals and packaged hazard smoke coverage.
 - First Bulwark heavy enemy role with data-driven definition, primitive visual silhouette, Level04 placement, validation, and packaged combat smoke coverage.
 - Multi-level secret tracking with Level01 and Level04 secret caches and auto-playthrough verification that at least two registered secrets persist to win.
+- Level05 Governor Core foundation with core-ring blockout, mixed Scrapper/Lancer/Bulwark pressure, steam hazard, furnace-heat hazard, regulator dressing, and master override hoist win state.
 
 ## 3. Target Platform
 
@@ -231,23 +232,23 @@ Levels should be compact, readable FPS maps built around loops, locked routes, s
 
 Current level transition:
 
-- The service lift ends the level and triggers the win state.
+- Service lifts and hoists load the next scene through `LevelTransitionController` until the current final Governor Core hoist triggers the win state.
 
 Future level transition:
 
-- A diegetic lift, tram, or pressure elevator should load the next scene through a dedicated `LevelTransitionController`.
+- Additional diegetic lifts, trams, or pressure elevators should continue to load the next scene through `LevelTransitionController`.
 - Weapons and durable player state should carry forward.
 - Level-scoped gear keys should reset per map unless a story reason makes them campaign-scoped.
 - Android and browser versions may simplify level geometry and reduce encounter density.
 - VR versions need stable spawn orientation, fade transitions, and no required jumping or forced abrupt camera motion.
 
-Planned campaign map ladder:
+Current campaign map ladder:
 
 1. `Brassworks Intake`: tutorial/combat proof, gear key, pressure gate.
-2. `Pipeworks Spine`: longer sightlines, first ranged machine, pressure-routing objective.
-3. `Gauge Hall`: lock sequences, valve puzzles, support-node enemy.
+2. `Pipeworks Annex`: longer sightlines, first ranged machine, service-lift transition.
+3. `Boilerheart Core`: pressure-valve lock, steam hazards, foundry lift.
 4. `Furnace Foundry`: industrial hazards, heavy enemy introduction.
-5. `Governor Core`: final breach, mixed enemy groups, possible core guardian.
+5. `Governor Core`: final breach, mixed enemy groups, current master override win state.
 
 ## 11. Asset Direction
 

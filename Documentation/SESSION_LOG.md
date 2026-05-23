@@ -1183,7 +1183,7 @@ Added:
 - Generated `Level04` Furnace Foundry scene.
 - Converted Level03 from final win lift to valve-gated foundry transition.
 - Added lock support to `LevelTransitionTrigger`.
-- Added foundry blockout, mixed Scrapper/Lancer encounter pressure, pickups, steam hazards, furnace-row dressing, work-order board, and emergency-hoist win state.
+- Added foundry blockout, mixed Scrapper/Lancer encounter pressure, pickups, steam hazards, furnace-row dressing, work-order board, and first emergency-hoist route.
 - Expanded build order and auto-playthrough to MainMenu, Level01, Level02, Level03, Level04.
 - Versioned Windows build `v0.0.46`.
 
@@ -1320,5 +1320,44 @@ Verification completed through the runner:
 Build executable:
 
 `Builds/Windows/v0.0.49/BrassworksBreach_v0.0.49.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 16:07 -04:00
+
+Completed `v0.0.50` Governor Core foundation pass.
+
+Added:
+
+- Generated `Level05` Governor Core scene.
+- Converted Level04 `Foundry Emergency Hoist` into a transition to `Level05`.
+- Governor Core blockout, regulator pillar, pipe bundle, work-order board, steam hazard, and furnace-heat hazard.
+- Mixed Scrapper/Lancer/Bulwark enemy pressure in Level05.
+- `Governor Core Master Override Hoist` as the current final win state.
+- Level validation and editor smoke coverage for Level05.
+- Five-level auto-playthrough coverage through Level01, Level02, Level03, Level04, Level05, and win.
+- Versioned Windows build `v0.0.50`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.50/BrassworksBreach_v0.0.50.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.

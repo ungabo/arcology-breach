@@ -10,6 +10,7 @@ public static class V0LevelValidator
     private const string Level02ScenePath = "Assets/_Project/Scenes/Level02.unity";
     private const string Level03ScenePath = "Assets/_Project/Scenes/Level03.unity";
     private const string Level04ScenePath = "Assets/_Project/Scenes/Level04.unity";
+    private const string Level05ScenePath = "Assets/_Project/Scenes/Level05.unity";
 
     [MenuItem("Project Tools/Validate v0 Levels")]
     public static void RunValidation()
@@ -37,15 +38,18 @@ public static class V0LevelValidator
         ValidateGameplayScene("Level03", requirePressureGate: false, requireTransition: true, requireFinalExit: false, requireRangedEnemy: false);
 
         EditorSceneManager.OpenScene(Level04ScenePath);
-        ValidateGameplayScene("Level04", requirePressureGate: false, requireTransition: false, requireFinalExit: true, requireRangedEnemy: true);
+        ValidateGameplayScene("Level04", requirePressureGate: false, requireTransition: true, requireFinalExit: false, requireRangedEnemy: true);
+
+        EditorSceneManager.OpenScene(Level05ScenePath);
+        ValidateGameplayScene("Level05", requirePressureGate: false, requireTransition: false, requireFinalExit: true, requireRangedEnemy: true);
     }
 
     private static void ValidateBuildSceneOrder()
     {
         EditorBuildSettingsScene[] scenes = EditorBuildSettings.scenes;
-        if (scenes.Length < 5 || scenes[0].path != MainMenuScenePath || scenes[1].path != Level01ScenePath || scenes[2].path != Level02ScenePath || scenes[3].path != Level03ScenePath || scenes[4].path != Level04ScenePath)
+        if (scenes.Length < 6 || scenes[0].path != MainMenuScenePath || scenes[1].path != Level01ScenePath || scenes[2].path != Level02ScenePath || scenes[3].path != Level03ScenePath || scenes[4].path != Level04ScenePath || scenes[5].path != Level05ScenePath)
         {
-            throw new InvalidOperationException("Level validation failed: build scenes must be MainMenu, Level01, Level02, Level03, Level04.");
+            throw new InvalidOperationException("Level validation failed: build scenes must be MainMenu, Level01, Level02, Level03, Level04, Level05.");
         }
     }
 
@@ -147,7 +151,7 @@ public static class V0LevelValidator
             }
         }
 
-        if (sceneName == "Level04")
+        if (sceneName == "Level04" || sceneName == "Level05")
         {
             Require<BulwarkEnemyController>(sceneName + " BulwarkEnemyController");
         }
@@ -281,7 +285,7 @@ public static class V0LevelValidator
     private static void ValidateHazards(string sceneName)
     {
         SteamHazard[] hazards = UnityEngine.Object.FindObjectsByType<SteamHazard>(FindObjectsSortMode.None);
-        if ((sceneName == "Level03" || sceneName == "Level04") && hazards.Length == 0)
+        if ((sceneName == "Level03" || sceneName == "Level04" || sceneName == "Level05") && hazards.Length == 0)
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " is missing SteamHazard.");
         }
@@ -294,7 +298,7 @@ public static class V0LevelValidator
         }
 
         FurnaceHeatHazard[] furnaceHazards = UnityEngine.Object.FindObjectsByType<FurnaceHeatHazard>(FindObjectsSortMode.None);
-        if (sceneName == "Level04" && furnaceHazards.Length == 0)
+        if ((sceneName == "Level04" || sceneName == "Level05") && furnaceHazards.Length == 0)
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " is missing FurnaceHeatHazard.");
         }
@@ -379,7 +383,9 @@ public static class V0LevelValidator
                     ? "Vent the Boilerheart pressure valve. Ride the foundry lift."
                     : sceneName == "Level04"
                         ? "Cross the Furnace Foundry. Reach the emergency hoist."
-                        : string.Empty;
+                        : sceneName == "Level05"
+                            ? "Breach the Governor Core. Reach the master override hoist."
+                            : string.Empty;
 
         if (string.IsNullOrWhiteSpace(expectedMessage))
         {
@@ -475,6 +481,19 @@ public static class V0LevelValidator
             RequireNamed("Secret Foundry Cache Brass Floor Plate", sceneName + " foundry secret cache floor plate");
             RequireNamed("Secret Foundry Cache Coal Lump A", sceneName + " foundry secret coal prop");
             RequireNamed("Foundry Emergency Hoist", sceneName + " emergency hoist visual");
+        }
+        else if (sceneName == "Level05")
+        {
+            RequireNamed("Work Order Board - Governor Core", sceneName + " governor core work-order board visual");
+            RequireNamed("Governor Core Triple Pipe Bundle", sceneName + " governor core pipe-bundle visual");
+            RequireNamed("Governor Core Regulator Pillar", sceneName + " governor core regulator visual");
+            RequireNamed("Governor Core Steam Hazard - Regulator Leak", sceneName + " governor core steam hazard");
+            RequireNamed("Governor Core Furnace Heat Hazard - Regulator Surge", sceneName + " governor core furnace heat hazard");
+            RequireNamed("Governor Core Master Override Hoist", sceneName + " governor core final hoist visual");
+            RequireNamed("Enemy - Governor Core Bulwark", sceneName + " governor core Bulwark enemy");
+            RequireNamed("Bulwark Riveted Boiler Body", sceneName + " Bulwark body visual");
+            RequireNamed("Bulwark Furnace Belly", sceneName + " Bulwark furnace belly visual");
+            RequireNamed("Bulwark Right Hammer Head", sceneName + " Bulwark hammer visual");
         }
 
         if (sceneName == "Level01")

@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.49` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.50` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -8,7 +8,7 @@ Public repository:
 
 Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged/heavy enemies, steam hazards, pulsing furnace-heat hazards, multi-level secret caches, a gear key, a pressure gate, service-lift transitions, a Boilerheart pressure valve that unlocks the foundry lift, and a Furnace Foundry finale with an emergency hoist.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged/heavy enemies, steam hazards, pulsing furnace-heat hazards, multi-level secret caches, a gear key, a pressure gate, service-lift transitions, a Boilerheart pressure valve that unlocks the foundry lift, a Furnace Foundry route, and a Governor Core finale with a master override hoist.
 
 Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
 
@@ -55,13 +55,14 @@ Goal:
 5. Vent the Boilerheart pressure valve.
 6. Ride the foundry lift.
 7. Cross the Furnace Foundry.
-8. Engage the emergency hoist.
+8. Ride the emergency hoist to the Governor Core.
+9. Breach the Governor Core and engage the master override hoist.
 
 ## Build
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.49\BrassworksBreach_v0.0.49.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.50\BrassworksBreach_v0.0.50.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -241,8 +242,8 @@ Individual Unity entry points remain available:
 
 - Generated Level04 Furnace Foundry scene.
 - Level03 Boilerheart lift is now pressure-locked until valve venting, then transitions to Level04.
-- Level04 adds foundry hazards, mixed Scrapper/Lancer pressure, pickups, furnace-row dressing, and the current emergency-hoist win state.
-- Full build matrix remains green with the four-level auto-playthrough.
+- Level04 added foundry hazards, mixed Scrapper/Lancer pressure, pickups, furnace-row dressing, and an emergency-hoist route that later became the Level05 transition.
+- Full build matrix remained green with the four-level auto-playthrough at introduction.
 
 ## What v0.0.47 Adds
 
@@ -263,12 +264,19 @@ Individual Unity entry points remain available:
 - Foundry secret reward pickups and coal-bin visuals.
 - Auto-playthrough now verifies multi-level secret totals persist to the final win state.
 
+## What v0.0.50 Adds
+
+- Generated Level05 Governor Core scene.
+- Level04 emergency hoist now transitions into Level05 instead of ending the run.
+- Level05 adds mixed Scrapper/Lancer/Bulwark pressure, steam and furnace-heat hazards, Governor Core dressing, and the master override hoist win state.
+- Build order and auto-playthrough now cover MainMenu, Level01, Level02, Level03, Level04, and Level05.
+
 ## Good Next Steps
 
 - Continue replacing procedural placeholder geometry with steampunk assets from the asset catalog.
 - Add platform asset-quality settings.
 - Add more reusable valve/switch objective mechanics on top of the interaction system.
-- Continue combat/readability tuning across the current four-level route.
+- Continue combat/readability tuning across the current five-level route.
 
 ## Planning Docs
 
