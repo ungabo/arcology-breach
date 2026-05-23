@@ -71,6 +71,7 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
             yield break;
         }
 
+        inventory.TryUseAmmo(2);
         string targetSceneName = transition.targetSceneName;
         Teleport(player, transition.transform.position);
         yield return WaitUntilOrFail(() => SceneManager.GetActiveScene().name == targetSceneName, "service lift level transition", 2f);
@@ -85,8 +86,14 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         DisableEnemiesForDeterministicObjectiveTest();
 
         PlayerController player = Require<PlayerController>("PlayerController");
+        PlayerInventory inventory = Require<PlayerInventory>("PlayerInventory");
         ExitTrigger exit = Require<ExitTrigger>("ExitTrigger");
         GameStateController gameState = Require<GameStateController>("GameStateController");
+        if (!RunProgress.HasSnapshot || inventory.Ammo != RunProgress.Ammo)
+        {
+            Fail("Auto-playthrough failed: run progress did not persist into Level02.");
+            yield break;
+        }
 
         Teleport(player, exit.transform.position);
         yield return WaitUntilOrFail(() => gameState.State == GameRunState.Won, "level 02 service lift win state", 2f);

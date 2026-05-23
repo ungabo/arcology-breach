@@ -37,9 +37,9 @@
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.16`.
+Latest fully verified build: `v0.0.17`.
 
-Current `v0.0.16` verification:
+Current `v0.0.17` verification:
 
 - Editor smoke test: passed.
 - Windows build: passed.
@@ -61,7 +61,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.16\BrassworksBreach_v0.0.16.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.17\BrassworksBreach_v0.0.17.exe`
 
 ## Latest Build Verification
 
@@ -134,8 +134,15 @@ Current target:
 - `2026-05-23 10:52 -04:00`: `v0.0.16` packaged auto-playthrough passed.
 - `2026-05-23 10:53 -04:00`: `v0.0.16` packaged combat smoke passed.
 - `2026-05-23 10:53 -04:00`: `v0.0.16` packaged pause-flow smoke passed.
+- `2026-05-23 10:57 -04:00`: `v0.0.17` scene rebuild passed.
+- `2026-05-23 10:58 -04:00`: `v0.0.17` editor smoke passed.
+- `2026-05-23 10:59 -04:00`: `v0.0.17` Windows build passed.
+- `2026-05-23 11:00 -04:00`: `v0.0.17` packaged runtime smoke passed.
+- `2026-05-23 11:00 -04:00`: `v0.0.17` packaged auto-playthrough passed.
+- `2026-05-23 11:01 -04:00`: `v0.0.17` packaged combat smoke passed.
+- `2026-05-23 11:01 -04:00`: `v0.0.17` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.17`, `v0.0.18`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.18`, `v0.0.19`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
@@ -146,6 +153,6 @@ Future builds should increment as `v0.0.17`, `v0.0.18`, etc. when meaningful pro
 - Scrapper attack windup is smoke-tested but still needs manual feel tuning.
 - Audio is procedural placeholder content and still needs a human listen/tuning pass.
 - No generated texture/sprite pass yet.
-- Durable player state does not persist across level transitions yet.
+- Health and ammo persist across level transitions; future weapon inventory and campaign flags still need expansion.
 - Settings exist for sensitivity and master volume only; resolution, flash intensity, and color readability are still planned.
 - Android, browser/WebGL, SteamVR/OpenXR, and Meta Quest builds are planned but deferred.

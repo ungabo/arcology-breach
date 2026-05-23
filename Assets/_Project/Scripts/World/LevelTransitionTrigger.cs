@@ -19,12 +19,14 @@ public class LevelTransitionTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (loading || other.GetComponentInParent<PlayerController>() == null)
+        PlayerController player = other.GetComponentInParent<PlayerController>();
+        if (loading || player == null)
         {
             return;
         }
 
         loading = true;
+        RunProgress.Capture(player.GetComponent<PlayerHealth>(), player.GetComponent<PlayerInventory>());
         Time.timeScale = 1f;
         HUDController.Instance?.ShowTemporaryMessage(transitionMessage, 0.5f);
         SteamworksAudio.Play(SteamworksAudioCue.Win);

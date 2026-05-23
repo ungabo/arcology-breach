@@ -47,7 +47,8 @@ Near-term:
 - Level01 service lift now loads `Level02` through `LevelTransitionTrigger`.
 - Level02 final service lift triggers the current win state.
 - Auto-playthrough covers Level01 key/gate/lift, transition to Level02, and Level02 final lift.
-- Durable player state persistence across scenes is still planned.
+- Health and ammo persist across scene transitions.
+- Future weapon inventory and campaign flags still need expanded persistence.
 
 Production target:
 
@@ -182,4 +183,4 @@ For `v0.2`, this document is considered applied when:
 - `Brassworks Intake` stays playable at the intended scale.
 - Gate, key, and lift have clear spatial relationships.
 - Level01 transitions cleanly into the current `Pipeworks Annex` prototype.
-- Follow-up tasks for durable transition state and campaign map expansion exist in `WORK_LEDGER.md`.
+- Follow-up tasks for expanded run-state persistence and campaign map expansion exist in `WORK_LEDGER.md`.

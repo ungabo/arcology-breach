@@ -62,6 +62,7 @@ public class MainMenuController : MonoBehaviour
 
     public void StartGame()
     {
+        RunProgress.Reset();
         SceneManager.LoadScene(gameplaySceneName);
     }
 

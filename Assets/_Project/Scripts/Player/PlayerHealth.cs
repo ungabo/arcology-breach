@@ -50,4 +50,12 @@ public class PlayerHealth : MonoBehaviour
         CurrentHealth = Mathf.Min(maxHealth, CurrentHealth + amount);
         HUDController.Instance?.SetHealth(CurrentHealth, maxHealth);
     }
+
+    public void RestoreForTransition(int currentHealth, int restoredMaxHealth)
+    {
+        maxHealth = Mathf.Max(1, restoredMaxHealth);
+        CurrentHealth = Mathf.Clamp(currentHealth, 1, maxHealth);
+        IsDead = false;
+        HUDController.Instance?.SetHealth(CurrentHealth, maxHealth);
+    }
 }

@@ -725,6 +725,7 @@ public static class V0SceneBuilder
 
         PlayerInventory inventory = player.AddComponent<PlayerInventory>();
         inventory.startingAmmo = 35;
+        player.AddComponent<RunProgressApplier>();
 
         WeaponController weapon = player.AddComponent<WeaponController>();
         weapon.aimCamera = camera;

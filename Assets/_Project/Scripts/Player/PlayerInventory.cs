@@ -53,6 +53,13 @@ public class PlayerInventory : MonoBehaviour
         HUDController.Instance?.ShowTemporaryMessage("Gear key acquired", 1.5f);
     }
 
+    public void RestoreForTransition(int ammo)
+    {
+        Ammo = Mathf.Max(0, ammo);
+        HasKey = false;
+        UpdateHud();
+    }
+
     private void UpdateHud()
     {
         HUDController.Instance?.SetAmmo(Ammo);

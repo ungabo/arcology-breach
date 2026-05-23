@@ -167,6 +167,22 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Run packaged pause-flow smoke.
 - [x] Commit and push `v0.0.16`.
 
+## v0.0.17 Durable Run State
+
+- [x] Add `RunProgress` snapshot store.
+- [x] Capture player health and ammo before service-lift scene transition.
+- [x] Apply persisted health and ammo to the next scene's spawned player.
+- [x] Reset run progress on main-menu start.
+- [x] Expand auto-playthrough to spend ammo before transition and verify persistence in `Level02`.
+- [x] Rebuild generated scenes.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.17`.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

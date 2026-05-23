@@ -258,3 +258,29 @@ Verification completed:
 Build executable:
 
 `Builds/Windows/v0.0.16/BrassworksBreach_v0.0.16.exe`
+
+## 2026-05-23 11:01 -04:00
+
+Completed `v0.0.17` durable run-state pass.
+
+Added:
+
+- `RunProgress` snapshot store for transition state.
+- `RunProgressApplier` on generated players.
+- Health and ammo capture before service-lift scene loads.
+- Health and ammo restore in the destination scene.
+- Main-menu start now resets run progress.
+- Auto-playthrough now spends ammo before Level01 lift and verifies the lower ammo value persists into `Level02`.
+
+Verification completed:
+
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.17/BrassworksBreach_v0.0.17.exe`
