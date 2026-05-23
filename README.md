@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.42` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.43` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -8,7 +8,7 @@ Public repository:
 
 Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged enemies, steam hazards, a gear key, a pressure gate, service-lift transitions, and a Boilerheart pressure valve that unlocks the current final lift.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged enemies, steam hazards, a secret cache, a gear key, a pressure gate, service-lift transitions, and a Boilerheart pressure valve that unlocks the current final lift.
 
 Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
 
@@ -59,7 +59,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.42\BrassworksBreach_v0.0.42.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.43\BrassworksBreach_v0.0.43.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -79,6 +79,7 @@ The project test matrix includes:
 - Packaged ranged-combat smoke test.
 - Packaged interaction smoke test.
 - Packaged hazard smoke test.
+- Packaged secret smoke test.
 - Packaged pause-flow smoke test.
 - One-command build matrix runner.
 
@@ -212,6 +213,12 @@ Individual Unity entry points remain available:
 - Boilerheart pressure valve now shuts down linked steam hazards.
 - Auto-playthrough verifies valve completion, lift unlock, and hazard shutdown.
 - Validation ensures the valve is linked to Boilerheart hazards.
+
+## What v0.0.43 Adds
+
+- First reusable `SecretArea` foundation.
+- Intake pressure cache with health/ammo rewards.
+- Packaged secret smoke test added to the one-command matrix.
 
 ## Good Next Steps
 

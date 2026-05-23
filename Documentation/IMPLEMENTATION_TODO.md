@@ -647,6 +647,21 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.43 Secret Area Foundation Pass
+
+- [x] Add reusable `SecretArea`.
+- [x] Add Intake pressure cache secret.
+- [x] Add health/ammo rewards to the secret cache.
+- [x] Add validation for secret trigger and visuals.
+- [x] Add packaged secret smoke test.
+- [x] Add secret smoke to the one-command build matrix.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.43`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

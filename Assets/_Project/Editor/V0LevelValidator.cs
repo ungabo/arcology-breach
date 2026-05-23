@@ -70,12 +70,14 @@ public static class V0LevelValidator
         Require<RuntimeInteractionTest>(sceneName + " RuntimeInteractionTest");
         Require<RuntimeCombatScenarioTest>(sceneName + " RuntimeCombatScenarioTest");
         Require<RuntimeHazardTest>(sceneName + " RuntimeHazardTest");
+        Require<RuntimeSecretTest>(sceneName + " RuntimeSecretTest");
         Require<EnemyController>(sceneName + " EnemyController");
         Require<Pickup>(sceneName + " Pickup");
 
         ValidatePickups(sceneName);
         ValidateEnemies(sceneName);
         ValidateHazards(sceneName);
+        ValidateSecrets(sceneName);
         ValidateEnvironmentPropVisuals(sceneName);
 
         if (requirePressureGate)
@@ -250,6 +252,24 @@ public static class V0LevelValidator
         }
     }
 
+    private static void ValidateSecrets(string sceneName)
+    {
+        SecretArea[] secrets = UnityEngine.Object.FindObjectsByType<SecretArea>(FindObjectsSortMode.None);
+        if (sceneName == "Level01" && secrets.Length == 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " is missing SecretArea.");
+        }
+
+        foreach (SecretArea secret in secrets)
+        {
+            RequireTrigger(secret.gameObject, sceneName + " secret trigger " + secret.name);
+            if (string.IsNullOrWhiteSpace(secret.secretId) || string.IsNullOrWhiteSpace(secret.discoveryMessage))
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " secret is missing id or discovery message.");
+            }
+        }
+    }
+
     private static void ValidateBalanceValues(string sceneName, PlayerController playerController, PlayerInventory playerInventory, WeaponController weaponController)
     {
         RequireApprox(playerController.moveSpeed, GameBalance.PlayerMoveSpeed, sceneName + " player speed balance");
@@ -354,6 +374,8 @@ public static class V0LevelValidator
             RequireNamed("Work Order Board - Intake", sceneName + " intake work-order board visual");
             RequireNamed("Work Order Board - Gate", sceneName + " gate work-order board visual");
             RequireNamed("Pipe Bundle - Gate Manifold", sceneName + " gate pipe-bundle visual");
+            RequireNamed("Secret - Intake Pressure Cache", sceneName + " secret pressure cache");
+            RequireNamed("Secret Pressure Cache Brass Floor Plate", sceneName + " secret pressure cache floor plate");
         }
         else if (sceneName == "Level02")
         {

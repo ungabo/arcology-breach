@@ -51,6 +51,7 @@ Near-term:
 - Hazard smoke covers Level03 steam hazard damage without ending the run from one tick.
 - Each current level now has a scene-specific objective briefing at spawn.
 - Venting the Boilerheart pressure valve shuts down the linked Level03 steam hazards.
+- Level01 includes the first secret pressure cache reward space.
 - Health and ammo persist across scene transitions.
 - Future weapon inventory and campaign flags still need expanded persistence.
 
@@ -177,6 +178,12 @@ v0.0.42 implementation notes:
 
 - Linked the Boilerheart pressure valve to the two current steam hazards.
 - Auto-playthrough validates lift unlock and hazard shutdown after venting.
+
+v0.0.43 implementation notes:
+
+- Added reusable `SecretArea`.
+- Added `Secret - Intake Pressure Cache` with health and ammo rewards.
+- Added packaged secret smoke test and matrix coverage.
 
 ### Level 04: Furnace Foundry
 

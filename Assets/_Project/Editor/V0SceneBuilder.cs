@@ -86,6 +86,7 @@ public static class V0SceneBuilder
         CreateAccentLights();
         CreateObjectiveGuides(brassGuideMaterial, pressureWarningMaterial, keyMaterial, exitMaterial);
         CreateSteamworksDressing(rivetedIronMaterial, oilStoneMaterial, brassGuideMaterial, pressureWarningMaterial, brassHazardMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
+        CreateSecretCache(brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, healthMaterial, glassVialMaterial, medicinalFluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
         CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
@@ -142,12 +143,14 @@ public static class V0SceneBuilder
         RequireObject<RuntimeCombatEdgeTest>("RuntimeCombatEdgeTest");
         RequireObject<RuntimeRangedCombatTest>("RuntimeRangedCombatTest");
         RequireObject<RuntimeHazardTest>("RuntimeHazardTest");
+        RequireObject<RuntimeSecretTest>("RuntimeSecretTest");
         RequireObject<RuntimePauseFlowTest>("RuntimePauseFlowTest");
         RequireObject<HUDController>("HUDController");
         RequireObject<EnemyController>("EnemyController");
         RequireObject<Pickup>("Pickup");
         RequireObject<LockedDoor>("LockedDoor");
         RequireObject<LevelTransitionTrigger>("LevelTransitionTrigger");
+        RequireObject<SecretArea>("SecretArea");
 
         EditorSceneManager.OpenScene(Level02ScenePath);
         RequireObject<PlayerController>("Level02 PlayerController");
@@ -1237,6 +1240,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeRangedCombatTest>();
         stateObject.AddComponent<RuntimeInteractionTest>();
         stateObject.AddComponent<RuntimeHazardTest>();
+        stateObject.AddComponent<RuntimeSecretTest>();
         stateObject.AddComponent<RuntimePauseFlowTest>();
     }
 
@@ -1472,6 +1476,28 @@ public static class V0SceneBuilder
         textMesh.characterSize = characterSize;
         textMesh.fontSize = 48;
         textMesh.color = color;
+    }
+
+    private static void CreateSecretCache(Material brassMaterial, Material ironMaterial, Material warningMaterial, Material healthMaterial, Material glassMaterial, Material fluidMaterial, Material ammoMaterial, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition)
+    {
+        GameObject secretRoot = new GameObject("Secret - Intake Pressure Cache");
+        secretRoot.transform.position = new Vector3(-5.25f, 0.78f, 18.6f);
+
+        BoxCollider trigger = secretRoot.AddComponent<BoxCollider>();
+        trigger.size = new Vector3(1.65f, 1.55f, 1.65f);
+        trigger.isTrigger = true;
+
+        SecretArea secret = secretRoot.AddComponent<SecretArea>();
+        secret.secretId = "intake-pressure-cache";
+        secret.discoveryMessage = "SECRET PRESSURE CACHE FOUND";
+
+        CreateLocalCube("Secret Pressure Cache Brass Floor Plate", secretRoot.transform, new Vector3(0f, -0.77f, 0f), new Vector3(1.45f, 0.05f, 1.45f), brassMaterial);
+        CreateLocalCube("Secret Pressure Cache Iron Backplate", secretRoot.transform, new Vector3(-0.5f, 0.05f, 0f), new Vector3(0.08f, 1.05f, 1.32f), ironMaterial);
+        CreateLocalCube("Secret Pressure Cache Warning Strip", secretRoot.transform, new Vector3(0f, -0.7f, -0.52f), new Vector3(1.35f, 0.06f, 0.12f), warningMaterial);
+
+        CreateHealthVialPickup("Pickup - Secret Health Vial", new Vector3(-5.15f, 0.65f, 17.95f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
+        CreatePressureCartridgePickup("Pickup - Secret Pressure Cartridge Pack", new Vector3(-5.15f, 0.55f, 19.25f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
+        CreateWorldLabel("Label - Secret Cache", "CACHE", new Vector3(-5.25f, 1.85f, 18.6f), new Color(1f, 0.72f, 0.28f), 0.18f);
     }
 
     private static void CreateSteamworksDressing(Material rivetedIronMaterial, Material oilStoneMaterial, Material brassMaterial, Material warningMaterial, Material amberMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial)
