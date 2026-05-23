@@ -339,6 +339,27 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.26 Pressure-Pistol Visual Pass
+
+- [x] Add pressure tank, tank bands, and red pressure line to the viewmodel.
+- [x] Add muzzle crown, rear sight, and front sight.
+- [x] Add steam vent chimney, vent cap, bolt handle, and bolt knob.
+- [x] Add walnut grip plates and receiver rivets.
+- [x] Expand level validation to require pressure-pistol visual objects.
+- [x] Rebuild generated scenes.
+- [x] Run standalone level validation.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged combat-edge smoke.
+- [x] Run packaged ranged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.26`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

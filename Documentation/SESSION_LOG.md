@@ -519,3 +519,32 @@ Build executable:
 `Builds/Windows/v0.0.25/BrassworksBreach_v0.0.25.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 12:23 -04:00
+
+Completed `v0.0.26` Pressure Pistol visual pass.
+
+Added:
+
+- First-person pressure tank, brass tank bands, and red pressure line.
+- Muzzle crown, rear sight, front sight, steam vent chimney, vent cap, bolt handle, and bolt knob.
+- Walnut grip plates and receiver rivets.
+- Level validation requirements for the pressure tank, muzzle crown, steam vent, and front sight.
+
+Verification completed:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.26/BrassworksBreach_v0.0.26.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

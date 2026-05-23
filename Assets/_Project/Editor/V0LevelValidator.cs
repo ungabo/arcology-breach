@@ -46,6 +46,7 @@ public static class V0LevelValidator
         Require<PlayerHealth>(sceneName + " PlayerHealth");
         Require<PlayerInventory>(sceneName + " PlayerInventory");
         Require<WeaponController>(sceneName + " WeaponController");
+        ValidateWeaponVisuals(sceneName);
         Require<GameStateController>(sceneName + " GameStateController");
         Require<RuntimePerformanceProfile>(sceneName + " RuntimePerformanceProfile");
         Require<HUDController>(sceneName + " HUDController");
@@ -153,6 +154,15 @@ public static class V0LevelValidator
         RequireNamed(lift.name + " Overhead Pulley Gear", label + " pulley gear visual");
         RequireNamed(lift.name + " Brass Call Box", label + " call box visual");
         RequireNamed(lift.name + " Green Signal Lamp Left", label + " signal lamp visual");
+    }
+
+    private static void ValidateWeaponVisuals(string sceneName)
+    {
+        RequireNamed("Pressure Pistol Viewmodel", sceneName + " pressure pistol viewmodel");
+        RequireNamed("Pressure Pistol Pressure Tank", sceneName + " pressure pistol pressure tank visual");
+        RequireNamed("Pressure Pistol Muzzle Crown", sceneName + " pressure pistol muzzle crown visual");
+        RequireNamed("Pressure Pistol Steam Vent Chimney", sceneName + " pressure pistol steam vent visual");
+        RequireNamed("Pressure Pistol Front Sight", sceneName + " pressure pistol front sight visual");
     }
 
     private static void RequireCollider(GameObject gameObject, string label)

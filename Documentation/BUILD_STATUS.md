@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.25` versioned build for `Brassworks Breach`.
+`v0.0.26` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds a brass service-lift cage visual shared by the level transition and final exit on top of the gear-key/gate art pass, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, pressure-pistol viewmodel, and impact sparks.
+`v0.0` core loop is complete. The current build improves the first-person Pressure Pistol with a stronger steampunk silhouette on top of the service-lift, gear-key/gate art passes, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -37,12 +37,13 @@
 - Procedural texture assets for oil-dark stone floors, riveted-iron panels, and brass/copper pipe materials.
 - Upright clockwork gear-key visual and heavy pressure-gate visual with keyed socket, riveted slabs, frame, header gear, lamps, and validation coverage.
 - Brass service-lift cage visuals with platform deck, grate, rails, chains, pulley gear, call box, signal lamps, and validation coverage.
+- Pressure Pistol viewmodel visual pass with pressure tank, muzzle crown, sights, steam vent, bolt handle, walnut grip plates, red pressure line, rivets, and validation coverage.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.25`.
+Latest fully verified build: `v0.0.26`.
 
-Current `v0.0.25` verification:
+Current `v0.0.26` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -70,7 +71,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.25\BrassworksBreach_v0.0.25.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.26\BrassworksBreach_v0.0.26.exe`
 
 ## Latest Build Verification
 
@@ -223,8 +224,18 @@ Current target:
 - `2026-05-23 12:18 -04:00`: `v0.0.25` packaged combat-edge smoke passed.
 - `2026-05-23 12:18 -04:00`: `v0.0.25` packaged ranged combat smoke passed.
 - `2026-05-23 12:18 -04:00`: `v0.0.25` packaged pause-flow smoke passed.
+- `2026-05-23 12:23 -04:00`: `v0.0.26` scene rebuild passed.
+- `2026-05-23 12:23 -04:00`: `v0.0.26` level validation passed.
+- `2026-05-23 12:23 -04:00`: `v0.0.26` editor smoke passed.
+- `2026-05-23 12:23 -04:00`: `v0.0.26` Windows build passed.
+- `2026-05-23 12:23 -04:00`: `v0.0.26` packaged runtime smoke passed.
+- `2026-05-23 12:23 -04:00`: `v0.0.26` packaged auto-playthrough passed.
+- `2026-05-23 12:23 -04:00`: `v0.0.26` packaged combat smoke passed.
+- `2026-05-23 12:23 -04:00`: `v0.0.26` packaged combat-edge smoke passed.
+- `2026-05-23 12:23 -04:00`: `v0.0.26` packaged ranged combat smoke passed.
+- `2026-05-23 12:23 -04:00`: `v0.0.26` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.26`, `v0.0.27`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.27`, `v0.0.28`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

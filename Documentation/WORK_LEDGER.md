@@ -35,6 +35,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | ART-001B | Generate final oil-stone, riveted-iron, and brass-pipe materials | art | P1 | verified | v0.0.23 | Procedural texture assets generated and assigned to active steampunk materials. |
 | ART-002 | Generate gear-key and pressure-gate visuals | art | P1 | verified | v0.0.24 | Procedural key/gate visual pass with level validation and full smoke matrix. |
 | ART-005 | Generate service-lift visual | art | P1 | verified | v0.0.25 | Shared brass lift cage visual with platform, pulley, call box, lamps, and validation. |
+| ART-004 | Generate Pressure Pistol visual | art | P1 | verified | v0.0.26 | Procedural first-person pistol pass with pressure tank, muzzle crown, sights, vent, rivets, and validation. |
 
 ## Ready Next
 
@@ -50,7 +51,6 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | ID | Task | Type | Priority | Status | Milestone | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
 | ART-003 | Generate Scrapper enemy visual | art | P1 | verified | v0.0.10 | Primitive clockwork silhouette; final asset still needed later. |
-| ART-004 | Generate Pressure Pistol visual | art | P1 | backlog | v0.3 | Replace blocky gun. |
 | ART-006 | Build first primitive brassworks prop silhouettes | art | P1 | verified | v0.0.8 | Gear key, gauges, valve wheels, steam vents, furnace. |
 | ART-007 | Replace basic pickup cubes with steampunk prop silhouettes | art | P1 | verified | v0.0.12 | Health vial and pressure cartridge pack pass all automated tests. |
 | ART-008 | Improve Pressure Pistol first-person silhouette | art | P1 | verified | v0.0.13 | Primitive brass-and-walnut pneumatic sidearm viewmodel. |
@@ -116,3 +116,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.23` procedural material texture build created at `Builds/Windows/v0.0.23/BrassworksBreach_v0.0.23.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.24` gear-key and pressure-gate visual build created at `Builds/Windows/v0.0.24/BrassworksBreach_v0.0.24.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.25` service-lift visual build created at `Builds/Windows/v0.0.25/BrassworksBreach_v0.0.25.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.26` Pressure Pistol visual build created at `Builds/Windows/v0.0.26/BrassworksBreach_v0.0.26.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.
