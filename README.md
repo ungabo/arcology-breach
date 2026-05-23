@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.56` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.57` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -8,7 +8,7 @@ Public repository:
 
 Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD with persistent objective guidance and boss health readout, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged/heavy/boss enemies, steam hazards, pulsing furnace-heat hazards, multi-level secret caches, a gear key, a pressure gate, service-lift transitions, a Boilerheart pressure valve that unlocks the foundry lift, a Furnace Foundry route, machine shutdown VFX, and a Governor Core finale with a Warden shutdown effect and master override hoist.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, animated gears/valves/pulleys, brass HUD with persistent objective guidance and boss health readout, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged/heavy/boss enemies, steam hazards, pulsing furnace-heat hazards, multi-level secret caches, a gear key, a pressure gate, service-lift transitions, a Boilerheart pressure valve that unlocks the foundry lift, a Furnace Foundry route, machine shutdown VFX, and a Governor Core finale with a Warden shutdown effect and master override hoist.
 
 Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
 
@@ -62,7 +62,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.56\BrassworksBreach_v0.0.56.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.57\BrassworksBreach_v0.0.57.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -315,6 +315,13 @@ Individual Unity entry points remain available:
 - Scrappers, Lancers, and Bulwarks now vent steam and brass sparks on death.
 - Combat smoke verifies Scrapper death VFX visible pieces.
 - Bulwark combat smoke verifies scaled heavy-machine death VFX.
+
+## What v0.0.57 Adds
+
+- `SteamworksSpinner` reusable motion component for simple steampunk machinery loops.
+- Animated pressure-gate gears, valve wheels, service-lift pulley gears, and main-menu gear.
+- Level validation verifies active machinery spinners are present and configured.
+- Runtime smoke now requires the machinery-motion component.
 
 ## Good Next Steps
 

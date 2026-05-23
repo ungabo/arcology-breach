@@ -1090,11 +1090,12 @@ public static class V0SceneBuilder
         valve.completeMessage = "Boilerheart pressure vented. Final lift unlocked.";
 
         CreateLocalCube("Boilerheart Pressure Valve Backplate", valveRoot.transform, Vector3.zero, new Vector3(1.12f, 1.28f, 0.08f), ironMaterial);
-        GameObject wheel = CreateLocalPrimitive("Boilerheart Pressure Valve Wheel", PrimitiveType.Cylinder, valveRoot.transform, new Vector3(0f, 0.08f, -0.12f), new Vector3(0.5f, 0.045f, 0.5f), brassMaterial);
-        wheel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
-        CreateLocalCube("Boilerheart Pressure Valve Spoke Horizontal", valveRoot.transform, new Vector3(0f, 0.08f, -0.16f), new Vector3(0.92f, 0.045f, 0.045f), warningMaterial);
-        CreateLocalCube("Boilerheart Pressure Valve Spoke Vertical", valveRoot.transform, new Vector3(0f, 0.08f, -0.16f), new Vector3(0.045f, 0.92f, 0.045f), warningMaterial);
-        CreateLocalPrimitive("Boilerheart Pressure Valve Hub", PrimitiveType.Sphere, valveRoot.transform, new Vector3(0f, 0.08f, -0.2f), new Vector3(0.14f, 0.14f, 0.14f), brassMaterial);
+        GameObject wheelAssembly = CreateLocalEmpty("Boilerheart Pressure Valve Wheel Assembly", valveRoot.transform, new Vector3(0f, 0.08f, -0.12f), Quaternion.Euler(90f, 0f, 0f));
+        AddSpinner(wheelAssembly, 18f);
+        CreateLocalPrimitive("Boilerheart Pressure Valve Wheel", PrimitiveType.Cylinder, wheelAssembly.transform, Vector3.zero, new Vector3(0.5f, 0.045f, 0.5f), brassMaterial);
+        CreateLocalCube("Boilerheart Pressure Valve Spoke Horizontal", wheelAssembly.transform, new Vector3(0f, -0.04f, 0f), new Vector3(0.92f, 0.045f, 0.045f), warningMaterial);
+        CreateLocalCube("Boilerheart Pressure Valve Spoke Vertical", wheelAssembly.transform, new Vector3(0f, -0.04f, 0f), new Vector3(0.045f, 0.045f, 0.92f), warningMaterial);
+        CreateLocalPrimitive("Boilerheart Pressure Valve Hub", PrimitiveType.Sphere, wheelAssembly.transform, new Vector3(0f, -0.08f, 0f), new Vector3(0.14f, 0.14f, 0.14f), brassMaterial);
 
         GameObject gauge = CreateLocalPrimitive("Boilerheart Pressure Valve Gauge", PrimitiveType.Cylinder, valveRoot.transform, new Vector3(0.32f, 0.48f, -0.14f), new Vector3(0.2f, 0.03f, 0.2f), gaugeFaceMaterial);
         gauge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
@@ -1189,15 +1190,16 @@ public static class V0SceneBuilder
         CreateCube("Menu Brass Lower Pipe", new Vector3(0f, 0.55f, -0.05f), new Vector3(6.6f, 0.12f, 0.12f), brassMaterial, propRoot.transform);
         CreateCube("Menu Brass Upper Pipe", new Vector3(0f, 2.45f, -0.05f), new Vector3(6.2f, 0.1f, 0.1f), brassMaterial, propRoot.transform);
 
-        GameObject wheel = CreateLocalPrimitive("Menu Center Gear", PrimitiveType.Cylinder, propRoot.transform, new Vector3(0f, 1.55f, -0.02f), new Vector3(0.85f, 0.07f, 0.85f), brassMaterial);
-        wheel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject menuGear = CreateLocalEmpty("Menu Center Gear Assembly", propRoot.transform, new Vector3(0f, 1.55f, -0.02f), Quaternion.Euler(90f, 0f, 0f));
+        AddSpinner(menuGear, 12f);
+        CreateLocalPrimitive("Menu Center Gear", PrimitiveType.Cylinder, menuGear.transform, Vector3.zero, new Vector3(0.85f, 0.07f, 0.85f), brassMaterial);
         for (int i = 0; i < 10; i++)
         {
             float angle = i * 36f;
             float radians = angle * Mathf.Deg2Rad;
-            Vector3 toothPosition = new Vector3(Mathf.Sin(radians) * 0.88f, 1.55f + Mathf.Cos(radians) * 0.88f, -0.05f);
-            GameObject tooth = CreateLocalCube("Menu Gear Tooth " + i, propRoot.transform, toothPosition, new Vector3(0.18f, 0.2f, 0.09f), brassMaterial);
-            tooth.transform.localRotation = Quaternion.Euler(0f, 0f, -angle);
+            Vector3 toothPosition = new Vector3(Mathf.Sin(radians) * 0.88f, -0.03f, -Mathf.Cos(radians) * 0.88f);
+            GameObject tooth = CreateLocalCube("Menu Gear Tooth " + i, menuGear.transform, toothPosition, new Vector3(0.18f, 0.09f, 0.2f), brassMaterial);
+            tooth.transform.localRotation = Quaternion.Euler(0f, -angle, 0f);
         }
 
         GameObject gauge = CreateLocalPrimitive("Menu Pressure Gauge", PrimitiveType.Cylinder, propRoot.transform, new Vector3(-2.35f, 1.65f, -0.12f), new Vector3(0.46f, 0.04f, 0.46f), gaugeFaceMaterial);
@@ -2007,11 +2009,12 @@ public static class V0SceneBuilder
         root.transform.position = position;
         root.transform.rotation = rotation;
 
-        GameObject wheel = CreateLocalPrimitive(name + " Wheel", PrimitiveType.Cylinder, root.transform, Vector3.zero, new Vector3(0.5f, 0.04f, 0.5f), brassMaterial);
-        wheel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
-        CreateLocalCube(name + " Spoke Horizontal", root.transform, Vector3.zero, new Vector3(0.88f, 0.045f, 0.04f), warningMaterial);
-        CreateLocalCube(name + " Spoke Vertical", root.transform, Vector3.zero, new Vector3(0.04f, 0.045f, 0.88f), warningMaterial);
-        CreateLocalPrimitive(name + " Hub", PrimitiveType.Sphere, root.transform, new Vector3(0f, 0f, -0.05f), new Vector3(0.14f, 0.14f, 0.14f), brassMaterial);
+        GameObject wheelAssembly = CreateLocalEmpty(name + " Wheel Assembly", root.transform, Vector3.zero, Quaternion.Euler(90f, 0f, 0f));
+        AddSpinner(wheelAssembly, 22f);
+        CreateLocalPrimitive(name + " Wheel", PrimitiveType.Cylinder, wheelAssembly.transform, Vector3.zero, new Vector3(0.5f, 0.04f, 0.5f), brassMaterial);
+        CreateLocalCube(name + " Spoke Horizontal", wheelAssembly.transform, new Vector3(0f, -0.02f, 0f), new Vector3(0.88f, 0.045f, 0.04f), warningMaterial);
+        CreateLocalCube(name + " Spoke Vertical", wheelAssembly.transform, new Vector3(0f, -0.02f, 0f), new Vector3(0.04f, 0.045f, 0.88f), warningMaterial);
+        CreateLocalPrimitive(name + " Hub", PrimitiveType.Sphere, wheelAssembly.transform, new Vector3(0f, -0.05f, 0f), new Vector3(0.14f, 0.14f, 0.14f), brassMaterial);
     }
 
     private static void CreateSteamVent(string name, Vector3 position, Material ironMaterial, Material steamMaterial, Transform parent)
@@ -2064,6 +2067,15 @@ public static class V0SceneBuilder
         }
 
         return cube;
+    }
+
+    private static GameObject CreateLocalEmpty(string name, Transform parent, Vector3 localPosition, Quaternion localRotation)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent, false);
+        root.transform.localPosition = localPosition;
+        root.transform.localRotation = localRotation;
+        return root;
     }
 
     private static GameObject CreateLocalPrimitive(string name, PrimitiveType type, Transform parent, Vector3 localPosition, Vector3 localScale, Material material)
@@ -2227,15 +2239,16 @@ public static class V0SceneBuilder
         CreateDecoCube("Pressure Gate Frame Header", new Vector3(0f, 3.38f, 22.42f), new Vector3(3.95f, 0.32f, 0.72f), ironMaterial, frameRoot.transform);
         CreateDecoCube("Pressure Gate Brass Floor Track", new Vector3(0f, 0.12f, 22.17f), new Vector3(3.82f, 0.08f, 0.18f), brassMaterial, frameRoot.transform);
 
-        GameObject headerGear = CreateLocalPrimitive("Pressure Gate Header Gear", PrimitiveType.Cylinder, frameRoot.transform, new Vector3(0f, 3.58f, 22.04f), new Vector3(0.34f, 0.045f, 0.34f), brassMaterial);
-        headerGear.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject headerGearAssembly = CreateLocalEmpty("Pressure Gate Header Gear Assembly", frameRoot.transform, new Vector3(0f, 3.58f, 22.04f), Quaternion.Euler(90f, 0f, 0f));
+        AddSpinner(headerGearAssembly, -16f);
+        CreateLocalPrimitive("Pressure Gate Header Gear", PrimitiveType.Cylinder, headerGearAssembly.transform, Vector3.zero, new Vector3(0.34f, 0.045f, 0.34f), brassMaterial);
         for (int i = 0; i < 10; i++)
         {
             float angle = i * 36f;
             float radians = angle * Mathf.Deg2Rad;
-            Vector3 toothPosition = new Vector3(Mathf.Sin(radians) * 0.38f, 3.58f + Mathf.Cos(radians) * 0.38f, 22.02f);
-            GameObject tooth = CreateLocalCube("Pressure Gate Header Gear Tooth " + i, frameRoot.transform, toothPosition, new Vector3(0.08f, 0.14f, 0.07f), brassMaterial);
-            tooth.transform.localRotation = Quaternion.Euler(0f, 0f, -angle);
+            Vector3 toothPosition = new Vector3(Mathf.Sin(radians) * 0.38f, -0.02f, -Mathf.Cos(radians) * 0.38f);
+            GameObject tooth = CreateLocalCube("Pressure Gate Header Gear Tooth " + i, headerGearAssembly.transform, toothPosition, new Vector3(0.08f, 0.07f, 0.14f), brassMaterial);
+            tooth.transform.localRotation = Quaternion.Euler(0f, -angle, 0f);
         }
 
         CreateLocalPrimitive("Pressure Gate Warning Lamp Left", PrimitiveType.Sphere, frameRoot.transform, new Vector3(-1.38f, 3.08f, 22.02f), new Vector3(0.13f, 0.13f, 0.13f), warningMaterial);
@@ -2258,15 +2271,16 @@ public static class V0SceneBuilder
         CreateLocalCube("Pressure Gate Socket Vertical Slot", door.transform, new Vector3(0f, -0.08f, -0.53f), new Vector3(0.07f, 0.48f, 0.035f), warningMaterial);
         CreateLocalCube("Pressure Gate Socket Bit Slot", door.transform, new Vector3(0.14f, -0.28f, -0.535f), new Vector3(0.31f, 0.07f, 0.035f), warningMaterial);
 
-        GameObject gear = CreateLocalPrimitive("Pressure Gate Gear Wheel", PrimitiveType.Cylinder, door.transform, new Vector3(0f, 0.04f, -0.55f), new Vector3(0.43f, 0.045f, 0.43f), brassMaterial);
-        gear.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject gearAssembly = CreateLocalEmpty("Pressure Gate Gear Wheel Assembly", door.transform, new Vector3(0f, 0.04f, -0.55f), Quaternion.Euler(90f, 0f, 0f));
+        AddSpinner(gearAssembly, 28f);
+        CreateLocalPrimitive("Pressure Gate Gear Wheel", PrimitiveType.Cylinder, gearAssembly.transform, Vector3.zero, new Vector3(0.43f, 0.045f, 0.43f), brassMaterial);
         for (int i = 0; i < 12; i++)
         {
             float angle = i * 30f;
             float radians = angle * Mathf.Deg2Rad;
-            Vector3 toothPosition = new Vector3(Mathf.Sin(radians) * 0.45f, 0.04f + Mathf.Cos(radians) * 0.45f, -0.56f);
-            GameObject tooth = CreateLocalCube("Pressure Gate Gear Tooth " + i, door.transform, toothPosition, new Vector3(0.09f, 0.15f, 0.07f), brassMaterial);
-            tooth.transform.localRotation = Quaternion.Euler(0f, 0f, -angle);
+            Vector3 toothPosition = new Vector3(Mathf.Sin(radians) * 0.45f, -0.01f, -Mathf.Cos(radians) * 0.45f);
+            GameObject tooth = CreateLocalCube("Pressure Gate Gear Tooth " + i, gearAssembly.transform, toothPosition, new Vector3(0.09f, 0.07f, 0.15f), brassMaterial);
+            tooth.transform.localRotation = Quaternion.Euler(0f, -angle, 0f);
         }
 
         GameObject gauge = CreateLocalPrimitive("Pressure Gate Gauge Face", PrimitiveType.Cylinder, door.transform, new Vector3(-0.58f, 0.62f, -0.47f), new Vector3(0.2f, 0.025f, 0.2f), gaugeFaceMaterial);
@@ -2340,15 +2354,16 @@ public static class V0SceneBuilder
         CreateLocalCube(name + " Left Lift Chain", lift.transform, new Vector3(-0.34f, 0.25f, -0.72f), new Vector3(0.045f, 1.24f, 0.045f), ironMaterial);
         CreateLocalCube(name + " Right Lift Chain", lift.transform, new Vector3(0.34f, 0.25f, -0.72f), new Vector3(0.045f, 1.24f, 0.045f), ironMaterial);
 
-        GameObject pulley = CreateLocalPrimitive(name + " Overhead Pulley Gear", PrimitiveType.Cylinder, lift.transform, new Vector3(0f, 0.9f, -0.72f), new Vector3(0.3f, 0.045f, 0.3f), brassMaterial);
-        pulley.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject pulleyAssembly = CreateLocalEmpty(name + " Overhead Pulley Gear Assembly", lift.transform, new Vector3(0f, 0.9f, -0.72f), Quaternion.Euler(90f, 0f, 0f));
+        AddSpinner(pulleyAssembly, 24f);
+        CreateLocalPrimitive(name + " Overhead Pulley Gear", PrimitiveType.Cylinder, pulleyAssembly.transform, Vector3.zero, new Vector3(0.3f, 0.045f, 0.3f), brassMaterial);
         for (int i = 0; i < 10; i++)
         {
             float angle = i * 36f;
             float radians = angle * Mathf.Deg2Rad;
-            Vector3 toothPosition = new Vector3(Mathf.Sin(radians) * 0.34f, 0.9f + Mathf.Cos(radians) * 0.34f, -0.74f);
-            GameObject tooth = CreateLocalCube(name + " Pulley Tooth " + i, lift.transform, toothPosition, new Vector3(0.07f, 0.12f, 0.06f), brassMaterial);
-            tooth.transform.localRotation = Quaternion.Euler(0f, 0f, -angle);
+            Vector3 toothPosition = new Vector3(Mathf.Sin(radians) * 0.34f, -0.02f, -Mathf.Cos(radians) * 0.34f);
+            GameObject tooth = CreateLocalCube(name + " Pulley Tooth " + i, pulleyAssembly.transform, toothPosition, new Vector3(0.07f, 0.06f, 0.12f), brassMaterial);
+            tooth.transform.localRotation = Quaternion.Euler(0f, -angle, 0f);
         }
 
         CreateLocalCube(name + " Brass Call Box", lift.transform, new Vector3(0.78f, 0.08f, -0.68f), new Vector3(0.2f, 0.56f, 0.1f), brassMaterial);
@@ -2364,6 +2379,14 @@ public static class V0SceneBuilder
         CreateLocalCube(name + " Pressure Gauge Needle", lift.transform, new Vector3(0.05f, 0.25f, -0.83f), new Vector3(0.14f, 0.014f, 0.014f), ironMaterial);
 
         return lift;
+    }
+
+    private static SteamworksSpinner AddSpinner(GameObject target, float degreesPerSecond)
+    {
+        SteamworksSpinner spinner = target.AddComponent<SteamworksSpinner>();
+        spinner.localAxis = Vector3.up;
+        spinner.degreesPerSecond = degreesPerSecond;
+        return spinner;
     }
 
     private static T RequireObject<T>(string label) where T : UnityEngine.Object

@@ -854,6 +854,22 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.57 Steampunk Machinery Motion Pass
+
+- [x] Add reusable `SteamworksSpinner` component.
+- [x] Attach spinner motion to pressure-gate header and gear wheels.
+- [x] Attach spinner motion to service-lift pulley gears.
+- [x] Attach spinner motion to environment valve wheels and the Boilerheart pressure valve wheel.
+- [x] Attach spinner motion to the main-menu gear.
+- [x] Add level validation for spinner presence and nonzero motion settings.
+- [x] Add runtime smoke coverage for spinner component presence.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.57`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

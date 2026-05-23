@@ -34,6 +34,7 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<RuntimeHazardTest>("RuntimeHazardTest");
         Require<RuntimeSecretTest>("RuntimeSecretTest");
         Require<RuntimePauseFlowTest>("RuntimePauseFlowTest");
+        Require<SteamworksSpinner>("SteamworksSpinner");
         HUDController hud = Require<HUDController>("HUDController");
         if (hud.bossNameText == null || hud.bossBackplateImage == null || hud.bossFillImage == null)
         {

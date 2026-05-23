@@ -66,6 +66,7 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 | VFX-005B | Add Warden shutdown VFX | vfx/code/test | P1 | verified | v0.0.54 | WardenShutdownVfx steam jets, brass sparks, pressure ring, defeat hook, and Warden combat VFX spawn check are verified. |
 | UI-009 | Add persistent objective HUD | ui/code/test | P1 | verified | v0.0.55 | Objective HUD wiring, route-beat objective updates, runtime smoke, and auto-playthrough objective assertions are verified. |
 | VFX-005C | Add standard machine death VFX | vfx/code/test | P1 | verified | v0.0.56 | MachineDeathVfx, Scrapper/Lancer/Bulwark death hooks, combat smoke, and Bulwark combat VFX checks are verified. |
+| ART-010 | Add animated steampunk machinery props | art/code/test | P1 | verified | v0.0.57 | SteamworksSpinner, pressure gate gears, service-lift pulleys, valve wheels, menu gear, validation, and runtime smoke are verified. |
 
 ## Ready Next
 
@@ -175,3 +176,4 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 - `2026-05-23`: `v0.0.54` Warden shutdown VFX build created at `Builds/Windows/v0.0.54/BrassworksBreach_v0.0.54.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.55` persistent objective HUD build created at `Builds/Windows/v0.0.55/BrassworksBreach_v0.0.55.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.56` standard machine death VFX build created at `Builds/Windows/v0.0.56/BrassworksBreach_v0.0.56.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.57` steampunk machinery motion build created at `Builds/Windows/v0.0.57/BrassworksBreach_v0.0.57.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.

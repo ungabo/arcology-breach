@@ -53,6 +53,7 @@ Near-term:
 - Persistent objective HUD now tracks the active route beat and is verified through the auto-playthrough.
 - Warden combat now surfaces a top-center boss health HUD so the final guardian objective reads clearly during the Governor Core fight.
 - Warden defeat now gets a visible shutdown burst so the final lock release has readable cause and effect.
+- Animated machinery spinners now add motion to pressure gates, service lifts, valve wheels, and the menu steamworks gear.
 - Hazard smoke covers Level03 steam damage and Level04 furnace-heat damage without ending the run from one tick/pulse. Level05 also includes validated steam and furnace-heat hazards.
 - Each current level now has a scene-specific objective briefing at spawn.
 - Venting the Boilerheart pressure valve shuts down the linked Level03 steam hazards.
@@ -377,6 +378,12 @@ v0.0.56 implementation notes:
 - Scrappers and Lancers spawn a compact steam/spark burst on death.
 - Bulwarks spawn a scaled-up machine shutdown burst.
 - Combat and Bulwark combat smoke verify the death VFX exists with visible primitive pieces.
+
+v0.0.57 implementation notes:
+
+- Added `SteamworksSpinner` for simple looping local-axis machinery motion.
+- Attached spinner motion to pressure-gate gears, service-lift pulley gears, environment valve wheels, the Boilerheart pressure valve wheel, and the main-menu gear.
+- Level validation and runtime smoke now require configured spinner components so the machinery-motion pass stays present in generated scenes.
 
 ## Map Documentation Template
 

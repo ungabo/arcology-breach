@@ -27,6 +27,7 @@ public static class V0LevelValidator
         Require<MainMenuController>("MainMenuController");
         RuntimePerformanceProfile mainMenuPerformanceProfile = Require<RuntimePerformanceProfile>("MainMenu RuntimePerformanceProfile");
         ValidatePlatformQualityProfile("MainMenu", mainMenuPerformanceProfile);
+        Require<SteamworksSpinner>("MainMenu SteamworksSpinner");
 
         EditorSceneManager.OpenScene(Level01ScenePath);
         ValidateGameplayScene("Level01", requirePressureGate: true, requireTransition: true, requireFinalExit: false, requireRangedEnemy: false);
@@ -99,6 +100,7 @@ public static class V0LevelValidator
         ValidateHazards(sceneName);
         ValidateSecrets(sceneName);
         ValidateEnvironmentPropVisuals(sceneName);
+        ValidateMachineryMotion(sceneName);
 
         if (requirePressureGate)
         {
@@ -403,6 +405,23 @@ public static class V0LevelValidator
             if (string.IsNullOrWhiteSpace(secret.secretId) || string.IsNullOrWhiteSpace(secret.discoveryMessage))
             {
                 throw new InvalidOperationException("Level validation failed: " + sceneName + " secret is missing id or discovery message.");
+            }
+        }
+    }
+
+    private static void ValidateMachineryMotion(string sceneName)
+    {
+        SteamworksSpinner[] spinners = UnityEngine.Object.FindObjectsByType<SteamworksSpinner>(FindObjectsSortMode.None);
+        if (spinners.Length == 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " is missing animated machinery spinners.");
+        }
+
+        foreach (SteamworksSpinner spinner in spinners)
+        {
+            if (spinner.localAxis.sqrMagnitude <= 0.001f || Mathf.Approximately(spinner.degreesPerSecond, 0f))
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " has an inert machinery spinner.");
             }
         }
     }

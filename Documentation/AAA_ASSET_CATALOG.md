@@ -70,6 +70,7 @@ Every major asset should eventually have three quality targets:
 | PROP-013 | Work order board | P2 | verified | Environmental storytelling board with iron backboard, cream sheet, brass header clip, and compact work-order text. |
 | PROP-014 | Secret cache props | P2 | prototype | Intake pressure cache and Foundry coal cache with reward pickups and validation. |
 | PROP-015 | Warden lock signal | P2 | prototype | Red/green guardian-lock signal props driven by `GuardianDefeatObjective` near the Governor Core master override hoist. |
+| PROP-016 | Animated machinery spinner set | P1 | prototype | Pressure-gate gears, service-lift pulleys, valve wheels, and menu gear now use `SteamworksSpinner`; final art should upgrade these into richer gear trains, belts, flywheels, and linked piston assemblies. |
 
 ## 4. Weapons
 
@@ -106,6 +107,7 @@ Every major asset should eventually have three quality targets:
 | ANIM-006 | Lancer aim/fire | P1 | planned | Valve charge tell and shot release. |
 | ANIM-007 | Gate open/close | P1 | prototype | Existing sliding motion, needs gear-driven animation. |
 | ANIM-008 | Pickup bob/spin | P1 | prototype | Existing bobbing/spin can become clockwork hover or plinth animation. |
+| ANIM-009 | Machinery spinner loop | P1 | prototype | Reusable local-axis spinner loop for pressure gates, service lifts, valve wheels, and menu steamworks motion; final pass should vary speed, timing, linkage, and sound. |
 
 ## 7. VFX
 
