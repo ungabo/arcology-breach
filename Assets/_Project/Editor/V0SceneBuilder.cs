@@ -363,6 +363,10 @@ public static class V0SceneBuilder
         MainMenuController mainMenu = canvasObject.AddComponent<MainMenuController>();
         mainMenu.startButton = CreatePauseButton("Start Button", "START GAME", canvasObject.transform, font, new Vector2(0f, 10f));
         mainMenu.quitButton = CreatePauseButton("Quit Button", "QUIT", canvasObject.transform, font, new Vector2(0f, -58f));
+        mainMenu.sensitivitySlider = CreateSettingsSlider("Menu Sensitivity Slider", "MOUSE", canvasObject.transform, font, new Vector2(0f, -136f), 0.6f, 5f, GameSettings.DefaultMouseSensitivity, out Text menuSensitivityValue);
+        mainMenu.sensitivityValueText = menuSensitivityValue;
+        mainMenu.volumeSlider = CreateSettingsSlider("Menu Volume Slider", "VOLUME", canvasObject.transform, font, new Vector2(0f, -190f), 0f, 1f, GameSettings.DefaultMasterVolume, out Text menuVolumeValue);
+        mainMenu.volumeValueText = menuVolumeValue;
         CreateText("Menu Version", canvasObject.transform, font, GameBranding.BuildVersion, 18, TextAnchor.LowerRight, new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-18f, 12f), new Vector2(220f, 32f));
 
         GameObject eventSystemObject = new GameObject("EventSystem");
@@ -435,6 +439,10 @@ public static class V0SceneBuilder
         pauseMenu.resumeButton = CreatePauseButton("Resume Button", "RESUME", root.transform, font, new Vector2(0f, 32f));
         pauseMenu.restartButton = CreatePauseButton("Restart Button", "RESTART", root.transform, font, new Vector2(0f, -34f));
         pauseMenu.quitButton = CreatePauseButton("Quit Button", "QUIT", root.transform, font, new Vector2(0f, -100f));
+        pauseMenu.sensitivitySlider = CreateSettingsSlider("Pause Sensitivity Slider", "MOUSE", root.transform, font, new Vector2(0f, -174f), 0.6f, 5f, GameSettings.DefaultMouseSensitivity, out Text pauseSensitivityValue);
+        pauseMenu.sensitivityValueText = pauseSensitivityValue;
+        pauseMenu.volumeSlider = CreateSettingsSlider("Pause Volume Slider", "VOLUME", root.transform, font, new Vector2(0f, -226f), 0f, 1f, GameSettings.DefaultMasterVolume, out Text pauseVolumeValue);
+        pauseMenu.volumeValueText = pauseVolumeValue;
 
         return pauseMenu;
     }
@@ -466,6 +474,75 @@ public static class V0SceneBuilder
         buttonText.color = new Color(1f, 0.84f, 0.48f);
 
         return button;
+    }
+
+    private static Slider CreateSettingsSlider(string name, string label, Transform parent, Font font, Vector2 anchoredPosition, float minValue, float maxValue, float defaultValue, out Text valueText)
+    {
+        CreateText(name + " Label", parent, font, label, 18, TextAnchor.MiddleLeft, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), anchoredPosition + new Vector2(-190f, 0f), new Vector2(120f, 34f)).color = new Color(1f, 0.84f, 0.48f);
+        valueText = CreateText(name + " Value", parent, font, string.Empty, 18, TextAnchor.MiddleRight, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), anchoredPosition + new Vector2(190f, 0f), new Vector2(120f, 34f));
+        valueText.color = new Color(1f, 0.84f, 0.48f);
+
+        GameObject sliderObject = new GameObject(name);
+        sliderObject.transform.SetParent(parent, false);
+
+        RectTransform sliderRect = sliderObject.AddComponent<RectTransform>();
+        sliderRect.anchorMin = new Vector2(0.5f, 0.5f);
+        sliderRect.anchorMax = new Vector2(0.5f, 0.5f);
+        sliderRect.pivot = new Vector2(0.5f, 0.5f);
+        sliderRect.anchoredPosition = anchoredPosition;
+        sliderRect.sizeDelta = new Vector2(300f, 24f);
+
+        Slider slider = sliderObject.AddComponent<Slider>();
+        slider.minValue = minValue;
+        slider.maxValue = maxValue;
+        slider.value = defaultValue;
+
+        GameObject backgroundObject = new GameObject(name + " Track");
+        backgroundObject.transform.SetParent(sliderObject.transform, false);
+        RectTransform backgroundRect = backgroundObject.AddComponent<RectTransform>();
+        backgroundRect.anchorMin = new Vector2(0f, 0.35f);
+        backgroundRect.anchorMax = new Vector2(1f, 0.65f);
+        backgroundRect.offsetMin = Vector2.zero;
+        backgroundRect.offsetMax = Vector2.zero;
+        Image backgroundImage = backgroundObject.AddComponent<Image>();
+        backgroundImage.color = new Color(0.12f, 0.07f, 0.035f, 0.96f);
+
+        GameObject fillAreaObject = new GameObject(name + " Fill Area");
+        fillAreaObject.transform.SetParent(sliderObject.transform, false);
+        RectTransform fillAreaRect = fillAreaObject.AddComponent<RectTransform>();
+        fillAreaRect.anchorMin = new Vector2(0f, 0.35f);
+        fillAreaRect.anchorMax = new Vector2(1f, 0.65f);
+        fillAreaRect.offsetMin = Vector2.zero;
+        fillAreaRect.offsetMax = Vector2.zero;
+
+        GameObject fillObject = new GameObject(name + " Brass Fill");
+        fillObject.transform.SetParent(fillAreaObject.transform, false);
+        RectTransform fillRect = fillObject.AddComponent<RectTransform>();
+        fillRect.anchorMin = Vector2.zero;
+        fillRect.anchorMax = Vector2.one;
+        fillRect.offsetMin = Vector2.zero;
+        fillRect.offsetMax = Vector2.zero;
+        Image fillImage = fillObject.AddComponent<Image>();
+        fillImage.color = new Color(0.85f, 0.54f, 0.16f, 1f);
+
+        GameObject handleObject = new GameObject(name + " Valve Handle");
+        handleObject.transform.SetParent(sliderObject.transform, false);
+        RectTransform handleRect = handleObject.AddComponent<RectTransform>();
+        handleRect.sizeDelta = new Vector2(22f, 22f);
+        Image handleImage = handleObject.AddComponent<Image>();
+        handleImage.color = new Color(0.96f, 0.72f, 0.28f, 1f);
+
+        slider.fillRect = fillRect;
+        slider.handleRect = handleRect;
+        slider.targetGraphic = handleImage;
+
+        ColorBlock colors = slider.colors;
+        colors.normalColor = handleImage.color;
+        colors.highlightedColor = new Color(1f, 0.86f, 0.42f, 1f);
+        colors.pressedColor = new Color(1f, 0.58f, 0.18f, 1f);
+        slider.colors = colors;
+
+        return slider;
     }
 
     private static Image CreateScreenImage(string name, Transform parent, Color color)

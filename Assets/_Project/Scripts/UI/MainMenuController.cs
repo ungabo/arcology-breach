@@ -8,6 +8,10 @@ public class MainMenuController : MonoBehaviour
     public string gameplaySceneName = "Level01";
     public Button startButton;
     public Button quitButton;
+    public Slider sensitivitySlider;
+    public Slider volumeSlider;
+    public Text sensitivityValueText;
+    public Text volumeValueText;
 
     private static readonly string[] AutomationArguments =
     {
@@ -19,6 +23,8 @@ public class MainMenuController : MonoBehaviour
 
     private void Awake()
     {
+        GameSettings.Load();
+
         if (startButton != null)
         {
             startButton.onClick.AddListener(StartGame);
@@ -28,6 +34,18 @@ public class MainMenuController : MonoBehaviour
         {
             quitButton.onClick.AddListener(QuitGame);
         }
+
+        if (sensitivitySlider != null)
+        {
+            sensitivitySlider.onValueChanged.AddListener(SetMouseSensitivity);
+        }
+
+        if (volumeSlider != null)
+        {
+            volumeSlider.onValueChanged.AddListener(SetMasterVolume);
+        }
+
+        SyncSettingControls();
     }
 
     private void Start()
@@ -50,6 +68,46 @@ public class MainMenuController : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void SetMouseSensitivity(float value)
+    {
+        GameSettings.SetMouseSensitivity(value);
+        UpdateSettingLabels();
+    }
+
+    public void SetMasterVolume(float value)
+    {
+        GameSettings.SetMasterVolume(value);
+        UpdateSettingLabels();
+    }
+
+    private void SyncSettingControls()
+    {
+        if (sensitivitySlider != null)
+        {
+            sensitivitySlider.SetValueWithoutNotify(GameSettings.MouseSensitivity);
+        }
+
+        if (volumeSlider != null)
+        {
+            volumeSlider.SetValueWithoutNotify(GameSettings.MasterVolume);
+        }
+
+        UpdateSettingLabels();
+    }
+
+    private void UpdateSettingLabels()
+    {
+        if (sensitivityValueText != null)
+        {
+            sensitivityValueText.text = GameSettings.MouseSensitivity.ToString("0.0");
+        }
+
+        if (volumeValueText != null)
+        {
+            volumeValueText.text = Mathf.RoundToInt(GameSettings.MasterVolume * 100f) + "%";
+        }
     }
 
     private static bool HasAutomationArgument()

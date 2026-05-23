@@ -134,6 +134,22 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Run packaged pause-flow smoke.
 - [x] Commit and push `v0.0.14`.
 
+## v0.0.15 Settings Foundation
+
+- [x] Add persistent `GameSettings`.
+- [x] Add mouse sensitivity and master volume sliders to the main menu.
+- [x] Add mouse sensitivity and master volume sliders to the pause overlay.
+- [x] Apply mouse sensitivity through player look.
+- [x] Apply master volume through steamworks audio.
+- [x] Rebuild generated scenes.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.15`.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

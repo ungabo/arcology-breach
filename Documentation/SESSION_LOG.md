@@ -209,3 +209,27 @@ Verification completed:
 Build executable:
 
 `Builds/Windows/v0.0.14/BrassworksBreach_v0.0.14.exe`
+
+## 2026-05-23 10:43 -04:00
+
+Completed `v0.0.15` settings foundation.
+
+Added:
+
+- Persistent `GameSettings` for mouse sensitivity and master volume.
+- Main menu and pause overlay sliders for sensitivity and volume.
+- Player look now reads the stored sensitivity.
+- Steamworks audio now reads the stored master volume.
+
+Verification completed:
+
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.15/BrassworksBreach_v0.0.15.exe`

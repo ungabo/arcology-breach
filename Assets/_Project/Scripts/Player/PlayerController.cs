@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        GameSettings.Load();
         characterController = GetComponent<CharacterController>();
         if (playerCamera == null && Camera.main != null)
         {
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     private void Look()
     {
+        mouseSensitivity = GameSettings.MouseSensitivity;
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 

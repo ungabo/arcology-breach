@@ -31,6 +31,7 @@ public class SteamworksAudio : MonoBehaviour
 
     private void Awake()
     {
+        GameSettings.Load();
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -62,6 +63,7 @@ public class SteamworksAudio : MonoBehaviour
             return;
         }
 
+        masterVolume = GameSettings.MasterVolume;
         float volume = Mathf.Clamp01(masterVolume);
         if (position.HasValue)
         {
