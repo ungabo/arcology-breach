@@ -1402,3 +1402,42 @@ Build executable:
 `Builds/Windows/v0.0.51/BrassworksBreach_v0.0.51.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 16:28 -04:00
+
+Completed `v0.0.52` Warden-gated finale pass.
+
+Added:
+
+- `GuardianDefeatObjective`.
+- Guardian-lock support on `ExitTrigger`.
+- Level05 master override hoist linkage to the Governor Warden defeat objective.
+- Red/green Warden lock signal props near the final hoist.
+- Validation for Warden objective wiring and locked final hoist state.
+- Auto-playthrough coverage for locked final hoist rejection, Warden defeat, unlock, and win.
+- Versioned Windows build `v0.0.52`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.52/BrassworksBreach_v0.0.52.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

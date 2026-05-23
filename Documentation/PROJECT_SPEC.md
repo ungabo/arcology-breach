@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.51`.
+Current state: `v0.0.52`.
 
 Implemented:
 
@@ -57,8 +57,9 @@ Implemented:
 - Pulsing Furnace Foundry heat-surge hazards with warning/active/safe phase visuals and packaged hazard smoke coverage.
 - First Bulwark heavy enemy role with data-driven definition, primitive visual silhouette, Level04 placement, validation, and packaged combat smoke coverage.
 - Multi-level secret tracking with Level01 and Level04 secret caches and auto-playthrough verification that at least two registered secrets persist to win.
-- Level05 Governor Core foundation with core-ring blockout, mixed Scrapper/Lancer/Bulwark pressure, steam hazard, furnace-heat hazard, regulator dressing, and master override hoist win state.
+- Level05 Governor Core foundation with core-ring blockout, mixed Scrapper/Lancer/Bulwark pressure, steam hazard, furnace-heat hazard, regulator dressing, and master override hoist final win device.
 - First Governor Warden final guardian with data-driven definition, primitive boss silhouette, stomp attack, pressure-bolt attack, enraged half-health state, Level05 placement, validation, and packaged Warden combat smoke.
+- Guardian-gated finale where the Level05 master override hoist remains locked until the Governor Warden is destroyed.
 
 ## 3. Target Platform
 

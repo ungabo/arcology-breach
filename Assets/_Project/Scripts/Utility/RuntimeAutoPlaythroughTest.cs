@@ -186,12 +186,14 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
 
     private IEnumerator RunLevel05Exit()
     {
-        DisableEnemiesForDeterministicObjectiveTest();
+        DisableEnemiesForDeterministicObjectiveTest(keepWardenActive: true);
 
         PlayerController player = Require<PlayerController>("PlayerController");
         PlayerInventory inventory = Require<PlayerInventory>("PlayerInventory");
         ExitTrigger exit = Require<ExitTrigger>("ExitTrigger");
         GameStateController gameState = Require<GameStateController>("GameStateController");
+        GuardianDefeatObjective guardianObjective = Require<GuardianDefeatObjective>("GuardianDefeatObjective");
+        GovernorWardenController warden = Require<GovernorWardenController>("GovernorWardenController");
         if (!RunProgress.HasSnapshot || inventory.Ammo != RunProgress.Ammo)
         {
             Fail("Auto-playthrough failed: run progress did not persist into Level05.");
@@ -199,6 +201,20 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         }
 
         Teleport(player, exit.transform.position);
+        yield return new WaitForSeconds(0.35f);
+        if (gameState.State == GameRunState.Won || !exit.IsLocked)
+        {
+            Fail("Auto-playthrough failed: master override hoist unlocked before Governor Warden defeat.");
+            yield break;
+        }
+
+        warden.TakeDamage(GameBalance.GovernorWardenHealth);
+        yield return WaitUntilOrFail(() => guardianObjective.IsComplete && !exit.IsLocked, "Governor Warden defeat unlocking final hoist", 2f);
+        if (failed)
+        {
+            yield break;
+        }
+
         yield return WaitUntilOrFail(() => gameState.State == GameRunState.Won, "level 05 master override hoist win state", 2f);
         if (failed)
         {
@@ -234,7 +250,7 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         return true;
     }
 
-    private static void DisableEnemiesForDeterministicObjectiveTest()
+    private static void DisableEnemiesForDeterministicObjectiveTest(bool keepWardenActive = false)
     {
         EnemyController[] enemies = UnityEngine.Object.FindObjectsByType<EnemyController>();
         foreach (EnemyController enemy in enemies)
@@ -257,7 +273,14 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         GovernorWardenController[] wardens = UnityEngine.Object.FindObjectsByType<GovernorWardenController>();
         foreach (GovernorWardenController enemy in wardens)
         {
-            enemy.gameObject.SetActive(false);
+            if (keepWardenActive)
+            {
+                enemy.enabled = false;
+            }
+            else
+            {
+                enemy.gameObject.SetActive(false);
+            }
         }
     }
 

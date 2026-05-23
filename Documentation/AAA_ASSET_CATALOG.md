@@ -69,6 +69,7 @@ Every major asset should eventually have three quality targets:
 | PROP-012 | Copper pipe bundle | P1 | verified | Procedural three-pipe bundle with brackets used in intake, gate, final, and pipeworks spaces. |
 | PROP-013 | Work order board | P2 | verified | Environmental storytelling board with iron backboard, cream sheet, brass header clip, and compact work-order text. |
 | PROP-014 | Secret cache props | P2 | prototype | Intake pressure cache and Foundry coal cache with reward pickups and validation. |
+| PROP-015 | Warden lock signal | P2 | prototype | Red/green guardian-lock signal props driven by `GuardianDefeatObjective` near the Governor Core master override hoist. |
 
 ## 4. Weapons
 
@@ -159,7 +160,7 @@ Every major asset should eventually have three quality targets:
 | LVL-004 | Pipeworks Annex prototype | P2 | prototype | Generated second level with pipeworks blockout, Scrapper/Lancer pressure, pickups, dressing, and service-lift transition. |
 | LVL-005 | Gauge Hall concept | P2 | planned | Valve/gauge lock sequence level concept. |
 | LVL-006 | Furnace Foundry prototype | P2 | prototype | Generated fourth level with foundry blockout, mixed Scrapper/Lancer/Bulwark pressure, steam hazards, pulsing furnace heat lanes, secret coal cache, furnace-row dressing, and emergency-hoist transition to Level05. |
-| LVL-007 | Governor Core prototype | P2 | prototype | Generated fifth level with core-ring blockout, mixed Scrapper/Lancer/Bulwark/Warden pressure, steam hazard, furnace-heat surge, regulator dressing, and master override hoist win. |
+| LVL-007 | Governor Core prototype | P2 | prototype | Generated fifth level with core-ring blockout, mixed Scrapper/Lancer/Bulwark/Warden pressure, steam hazard, furnace-heat surge, regulator dressing, Warden-locked master override hoist, and win state. |
 
 ## 11. Platform Variants
 

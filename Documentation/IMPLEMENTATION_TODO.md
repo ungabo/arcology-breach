@@ -782,6 +782,21 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.52 Warden-Gated Finale Pass
+
+- [x] Add `GuardianDefeatObjective`.
+- [x] Extend `ExitTrigger` to support guardian-locked final exits.
+- [x] Link Level05 master override hoist to the Governor Warden defeat objective.
+- [x] Add Warden lock red/green signal props near the final hoist.
+- [x] Expand validation for guardian objective wiring and locked final hoist state.
+- [x] Expand auto-playthrough to verify locked final hoist rejection, Warden defeat, unlock, and win.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.52`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

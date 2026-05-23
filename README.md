@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.51` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.52` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -56,13 +56,13 @@ Goal:
 6. Ride the foundry lift.
 7. Cross the Furnace Foundry.
 8. Ride the emergency hoist to the Governor Core.
-9. Breach the Governor Core and engage the master override hoist.
+9. Defeat the Governor Warden and engage the master override hoist.
 
 ## Build
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.51\BrassworksBreach_v0.0.51.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.52\BrassworksBreach_v0.0.52.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -270,7 +270,7 @@ Individual Unity entry points remain available:
 
 - Generated Level05 Governor Core scene.
 - Level04 emergency hoist now transitions into Level05 instead of ending the run.
-- Level05 adds mixed Scrapper/Lancer/Bulwark pressure, steam and furnace-heat hazards, Governor Core dressing, and the master override hoist win state.
+- Level05 adds mixed Scrapper/Lancer/Bulwark pressure, steam and furnace-heat hazards, Governor Core dressing, and the master override hoist final win device.
 - Build order and auto-playthrough now cover MainMenu, Level01, Level02, Level03, Level04, and Level05.
 
 ## What v0.0.51 Adds
@@ -280,6 +280,13 @@ Individual Unity entry points remain available:
 - Primitive Warden silhouette with core body, furnace heart, pressure crown, back boiler, piston arms, stomp plates, and pressure cannon muzzle.
 - Warden controller with durable boss health, stomp attack, pressure-bolt attack, and enraged half-health state.
 - New packaged Warden combat smoke in the full build matrix.
+
+## What v0.0.52 Adds
+
+- `GuardianDefeatObjective` foundation.
+- Level05 master override hoist now starts locked until the Governor Warden is destroyed.
+- Red/green Warden lock signal props near the final hoist.
+- Auto-playthrough now verifies locked final hoist rejection, Warden defeat, final hoist unlock, and win.
 
 ## Good Next Steps
 

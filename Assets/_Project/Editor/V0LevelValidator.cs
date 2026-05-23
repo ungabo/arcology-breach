@@ -141,6 +141,25 @@ public static class V0LevelValidator
             RequireTrigger(exit.gameObject, sceneName + " ExitTrigger trigger");
             RequireInteractable(exit, sceneName + " final lift interactable");
             ValidateServiceLiftVisuals(exit.gameObject, sceneName + " final service lift");
+
+            if (sceneName == "Level05")
+            {
+                GuardianDefeatObjective guardianObjective = Require<GuardianDefeatObjective>(sceneName + " GuardianDefeatObjective");
+                if (exit.requiredGuardian != guardianObjective)
+                {
+                    throw new InvalidOperationException("Level validation failed: " + sceneName + " final hoist is not linked to the Governor Warden objective.");
+                }
+
+                if (!exit.IsLocked)
+                {
+                    throw new InvalidOperationException("Level validation failed: " + sceneName + " final hoist must start guardian-locked.");
+                }
+
+                if (guardianObjective.target == null || guardianObjective.lockedSignal == null || guardianObjective.clearedSignal == null)
+                {
+                    throw new InvalidOperationException("Level validation failed: " + sceneName + " Governor Warden objective is missing target or signals.");
+                }
+            }
         }
 
         if (requireRangedEnemy)
@@ -541,6 +560,8 @@ public static class V0LevelValidator
             RequireNamed("Governor Warden Furnace Heart", sceneName + " Governor Warden furnace heart visual");
             RequireNamed("Governor Warden Pressure Crown", sceneName + " Governor Warden crown visual");
             RequireNamed("Governor Warden Pressure Cannon Muzzle", sceneName + " Governor Warden pressure cannon visual");
+            RequireNamed("Governor Warden Defeat Objective", sceneName + " Governor Warden defeat objective");
+            RequireNamed("Governor Warden Lock Red Signal", sceneName + " Governor Warden locked signal");
         }
 
         if (sceneName == "Level01")

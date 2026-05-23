@@ -203,6 +203,7 @@ public static class V0SceneBuilder
         RequireObject<RangedEnemyController>("Level05 RangedEnemyController");
         RequireObject<BulwarkEnemyController>("Level05 BulwarkEnemyController");
         RequireObject<GovernorWardenController>("Level05 GovernorWardenController");
+        RequireObject<GuardianDefeatObjective>("Level05 GuardianDefeatObjective");
         RequireObject<ExitTrigger>("Level05 ExitTrigger");
         RequireObject<SteamHazard>("Level05 SteamHazard");
         RequireObject<FurnaceHeatHazard>("Level05 FurnaceHeatHazard");
@@ -891,11 +892,15 @@ public static class V0SceneBuilder
         CreateEnemy("Enemy - Governor Core Intake Scrapper", new Vector3(-2.9f, 1f, 8.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateLancerEnemy("Enemy - Governor Core Lancer", new Vector3(3.2f, 1f, 15.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, lancerDefinition);
         CreateBulwarkEnemy("Enemy - Governor Core Bulwark", new Vector3(-3.15f, 1.15f, 21f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, bulwarkDefinition);
-        CreateGovernorWardenEnemy("Enemy - Governor Core Warden", new Vector3(0f, 1.45f, 24.1f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, governorWardenDefinition);
+        GovernorWardenController warden = CreateGovernorWardenEnemy("Enemy - Governor Core Warden", new Vector3(0f, 1.45f, 24.1f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, governorWardenDefinition);
         CreateHealthVialPickup("Pickup - Governor Health Vial", new Vector3(-4.55f, 0.65f, 13.5f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
         CreatePressureCartridgePickup("Pickup - Governor Pressure Cartridge Pack", new Vector3(4.45f, 0.55f, 20.2f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
         CreateGovernorCoreDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
-        CreateExitAt("Governor Core Master Override Hoist", new Vector3(0f, 1.1f, 28.6f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial);
+        ExitTrigger finalHoist = CreateExitAt("Governor Core Master Override Hoist", new Vector3(0f, 1.1f, 28.6f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial).GetComponent<ExitTrigger>();
+        GuardianDefeatObjective guardianObjective = CreateGovernorWardenDefeatObjective(warden, ironMaterial, brassMaterial, warningMaterial);
+        finalHoist.requiredGuardian = guardianObjective;
+        finalHoist.guardianLockedPrompt = "defeat the Governor Warden first";
+        finalHoist.guardianLockedMessage = "The master override hoist is guarded. Destroy the Governor Warden first.";
         CreatePointLight("Governor Core Regulator Light", new Vector3(0f, 2.8f, 16.2f), new Color(1f, 0.36f, 0.08f), 4.2f, 10f);
         CreatePointLight("Governor Core Hoist Green Light", new Vector3(0f, 2.6f, 28f), new Color(0.1f, 1f, 0.35f), 2.8f, 7f);
 
@@ -1688,7 +1693,7 @@ public static class V0SceneBuilder
         bulwark.attackWindup = GameBalance.BulwarkAttackWindup;
     }
 
-    private static void CreateGovernorWardenEnemy(string name, Vector3 position, Material material, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial, EnemyDefinition definition)
+    private static GovernorWardenController CreateGovernorWardenEnemy(string name, Vector3 position, Material material, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial, EnemyDefinition definition)
     {
         GameObject enemy = new GameObject(name);
         enemy.transform.position = position;
@@ -1715,6 +1720,23 @@ public static class V0SceneBuilder
         warden.fireWindup = GameBalance.GovernorWardenFireWindup;
         warden.projectileDamage = GameBalance.GovernorWardenProjectileDamage;
         warden.projectileSpeed = GameBalance.GovernorWardenProjectileSpeed;
+        return warden;
+    }
+
+    private static GuardianDefeatObjective CreateGovernorWardenDefeatObjective(GovernorWardenController target, Material ironMaterial, Material brassMaterial, Material warningMaterial)
+    {
+        GameObject objective = new GameObject("Governor Warden Defeat Objective");
+        objective.transform.position = new Vector3(0f, 1.5f, 27.35f);
+
+        GuardianDefeatObjective guardianObjective = objective.AddComponent<GuardianDefeatObjective>();
+        guardianObjective.target = target;
+        guardianObjective.completeMessage = "Governor Warden destroyed. Master override hoist unlocked.";
+        guardianObjective.lockedSignal = CreateLocalCube("Governor Warden Lock Red Signal", objective.transform, new Vector3(-0.28f, 0f, 0f), new Vector3(0.18f, 0.18f, 0.18f), warningMaterial);
+        guardianObjective.clearedSignal = CreateLocalCube("Governor Warden Lock Green Signal", objective.transform, new Vector3(0.28f, 0f, 0f), new Vector3(0.18f, 0.18f, 0.18f), brassMaterial);
+        CreateLocalCube("Governor Warden Lock Iron Backplate", objective.transform, new Vector3(0f, 0f, -0.05f), new Vector3(0.86f, 0.32f, 0.08f), ironMaterial);
+        guardianObjective.lockedSignal.SetActive(true);
+        guardianObjective.clearedSignal.SetActive(false);
+        return guardianObjective;
     }
 
     private static void CreateBulwarkVisual(Transform parent, Material bodyMaterial, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial)

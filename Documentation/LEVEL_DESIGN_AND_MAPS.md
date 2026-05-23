@@ -48,8 +48,8 @@ Near-term:
 - Level02 service lift now loads `Level03` through `LevelTransitionTrigger`.
 - Level03 foundry service lift is pressure-locked until the Boilerheart pressure valve is vented, then loads `Level04`.
 - Level04 emergency hoist now loads `Level05`.
-- Level05 master override hoist currently triggers the win state.
-- Auto-playthrough covers Level01 key/gate/lift, transition to Level02, transition to Level03, locked-foundry-lift rejection, Boilerheart pressure valve, transition to Level04, transition to Level05, and the Level05 master override hoist.
+- Level05 master override hoist is locked until the Governor Warden is destroyed, then triggers the win state.
+- Auto-playthrough covers Level01 key/gate/lift, transition to Level02, transition to Level03, locked-foundry-lift rejection, Boilerheart pressure valve, transition to Level04, transition to Level05, locked-master-hoist rejection, Warden defeat, unlock, and the Level05 master override hoist.
 - Hazard smoke covers Level03 steam damage and Level04 furnace-heat damage without ending the run from one tick/pulse. Level05 also includes validated steam and furnace-heat hazards.
 - Each current level now has a scene-specific objective briefing at spawn.
 - Venting the Boilerheart pressure valve shuts down the linked Level03 steam hazards.
@@ -296,7 +296,7 @@ Approximate footprint:
 
 New mechanics:
 
-- Current prototype: final master override hoist win state.
+- Current prototype: final master override hoist is Warden-locked before win state.
 - Current prototype: mixed Scrapper/Lancer/Bulwark pressure plus the first Governor Warden final guardian.
 - Current prototype: steam hazard and pulsing furnace-heat surge inside the regulator lane.
 - Planned: multi-stage objective unlock.
@@ -340,6 +340,13 @@ v0.0.51 implementation notes:
 - Added Warden stomp, pressure-bolt, and enraged half-health behavior.
 - Added Warden primitive silhouette pieces: core body, furnace heart, pressure crown, back boiler, piston arms, stomp plates, and pressure cannon muzzle.
 - Added `RuntimeWardenCombatTest` to validate Warden durability/death in the packaged matrix.
+
+v0.0.52 implementation notes:
+
+- Added `GuardianDefeatObjective`.
+- Linked `Governor Core Master Override Hoist` to the Warden defeat objective.
+- Added `Governor Warden Lock Red Signal` and `Governor Warden Lock Green Signal`.
+- Auto-playthrough validates that the hoist stays locked before Warden defeat and unlocks afterward.
 
 ## Map Documentation Template
 

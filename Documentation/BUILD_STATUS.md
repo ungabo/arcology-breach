@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.51` versioned build for `Brassworks Breach`.
+`v0.0.52` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds the first Governor Warden final guardian prototype, with a data-driven definition, primitive boss silhouette, stomp/pressure-bolt behavior, and packaged Warden combat smoke, on top of Level05 Governor Core, the five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, pulsing Furnace Foundry heat-surge hazards, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, packaged secret smoke coverage, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, packaged hazard smoke coverage, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build adds a Warden-gated finale: the Level05 master override hoist now starts locked until the Governor Warden is destroyed, and auto-playthrough verifies locked rejection, guardian defeat, unlock, and win. This sits on top of the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, pulsing Furnace Foundry heat-surge hazards, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, packaged secret smoke coverage, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, packaged hazard smoke coverage, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -63,15 +63,16 @@
 - Two Foundry furnace heat-surge lanes and packaged hazard smoke coverage for both steam and furnace heat damage.
 - First `BulwarkEnemyController`, `BulwarkDefinition.asset`, primitive heavy enemy visual, Level04 placement, validation, and packaged Bulwark combat smoke coverage.
 - Second secret cache: `Secret - Foundry Coal Cache`, with reward pickups, coal-bin visuals, Level04 validation, and auto-playthrough proof that at least two secret totals persist to win.
-- Generated `Level05` Governor Core scene with core-ring blockout, mixed Scrapper/Lancer/Bulwark pressure, steam hazard, furnace-heat hazard, Governor Core regulator dressing, and master override hoist win state.
+- Generated `Level05` Governor Core scene with core-ring blockout, mixed Scrapper/Lancer/Bulwark pressure, steam hazard, furnace-heat hazard, Governor Core regulator dressing, and master override hoist final win device.
 - Build order is now MainMenu, Level01, Level02, Level03, Level04, Level05, with five-level auto-playthrough coverage.
 - First `GovernorWardenController`, `GovernorWardenDefinition.asset`, primitive boss visual, Level05 placement, validation, and packaged Warden combat smoke coverage.
+- `GuardianDefeatObjective` now locks the Level05 master override hoist until the Governor Warden is destroyed, with validation and auto-playthrough coverage.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.51`.
+Latest fully verified build: `v0.0.52`.
 
-Current `v0.0.51` verification:
+Current `v0.0.52` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -113,7 +114,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.51\BrassworksBreach_v0.0.51.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.52\BrassworksBreach_v0.0.52.exe`
 
 ## Latest Build Verification
 
@@ -606,8 +607,25 @@ Current target:
 - `2026-05-23 16:20 -04:00`: `v0.0.51` packaged hazard smoke passed.
 - `2026-05-23 16:20 -04:00`: `v0.0.51` packaged secret smoke passed.
 - `2026-05-23 16:20 -04:00`: `v0.0.51` packaged pause-flow smoke passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` one-command build matrix runner passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` scene rebuild passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` level validation passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` editor smoke passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` Windows build passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` packaged runtime smoke passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` packaged auto-playthrough passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` packaged combat smoke passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` packaged combat-edge smoke passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` packaged combat-scenario smoke passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` packaged ranged combat smoke passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` packaged Bulwark combat smoke passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` packaged Warden combat smoke passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` packaged interaction smoke passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` packaged hazard smoke passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` packaged secret smoke passed.
+- `2026-05-23 16:28 -04:00`: `v0.0.52` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.52`, `v0.0.53`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.53`, `v0.0.54`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
