@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.11` versioned build for `Brassworks Breach`.
+`v0.0.16` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds spark-burst impact feedback on top of the retheme, pause/quit flow, prop silhouettes, brass HUD, and Scrapper silhouette.
+`v0.0` core loop is complete. The current build adds a generated second level and service-lift transition flow on top of the retheme, menu/settings flow, prop silhouettes, brass HUD, Scrapper silhouette, pickup visuals, pressure-pistol viewmodel, and impact sparks.
 
 ## Completed
 
@@ -30,13 +30,16 @@
 - Packaged automated playthrough test for the key/gate/lift objective chain.
 - Packaged combat smoke test for pressure-pistol damage against a Scrapper.
 - Pause menu with resume, restart, and quit.
+- Main menu with start, quit, sensitivity, and volume controls.
+- Generated Level02 Pipeworks Annex scene.
+- Service lift transition from Level01 into Level02.
 - Windows standalone build flow.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.15`.
+Latest fully verified build: `v0.0.16`.
 
-Current `v0.0.15` verification:
+Current `v0.0.16` verification:
 
 - Editor smoke test: passed.
 - Windows build: passed.
@@ -58,7 +61,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.15\BrassworksBreach_v0.0.15.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.16\BrassworksBreach_v0.0.16.exe`
 
 ## Latest Build Verification
 
@@ -124,17 +127,25 @@ Current target:
 - `2026-05-23 10:42 -04:00`: `v0.0.15` packaged auto-playthrough passed.
 - `2026-05-23 10:43 -04:00`: `v0.0.15` packaged combat smoke passed.
 - `2026-05-23 10:43 -04:00`: `v0.0.15` packaged pause-flow smoke passed.
+- `2026-05-23 10:48 -04:00`: `v0.0.16` scene rebuild passed.
+- `2026-05-23 10:49 -04:00`: `v0.0.16` editor smoke passed.
+- `2026-05-23 10:51 -04:00`: `v0.0.16` Windows build passed.
+- `2026-05-23 10:52 -04:00`: `v0.0.16` packaged runtime smoke passed.
+- `2026-05-23 10:52 -04:00`: `v0.0.16` packaged auto-playthrough passed.
+- `2026-05-23 10:53 -04:00`: `v0.0.16` packaged combat smoke passed.
+- `2026-05-23 10:53 -04:00`: `v0.0.16` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.16`, `v0.0.17`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.17`, `v0.0.18`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
-- Runtime smoke test verifies boot/object presence. Auto-playthrough verifies objective flow but not human combat feel.
+- Runtime smoke test verifies boot/object presence. Auto-playthrough verifies the current two-level objective flow but not human combat feel.
 - Combat smoke verifies weapon raycast damage and enemy death, not full combat movement.
 - Visual dressing is still procedural primitive art, not final generated assets.
 - Enemy pathing uses simple side-steering, not NavMesh.
 - Scrapper attack windup is smoke-tested but still needs manual feel tuning.
 - Audio is procedural placeholder content and still needs a human listen/tuning pass.
 - No generated texture/sprite pass yet.
+- Durable player state does not persist across level transitions yet.
 - Settings exist for sensitivity and master volume only; resolution, flash intensity, and color readability are still planned.
 - Android, browser/WebGL, SteamVR/OpenXR, and Meta Quest builds are planned but deferred.

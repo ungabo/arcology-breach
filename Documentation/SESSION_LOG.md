@@ -233,3 +233,28 @@ Verification completed:
 Build executable:
 
 `Builds/Windows/v0.0.15/BrassworksBreach_v0.0.15.exe`
+
+## 2026-05-23 10:53 -04:00
+
+Completed `v0.0.16` level transition and Level02 foundation.
+
+Added:
+
+- Generated `Level02` Pipeworks Annex scene.
+- Added `LevelTransitionTrigger`.
+- Converted Level01 service lift into a transition to `Level02`.
+- Added a final service lift win state in `Level02`.
+- Expanded auto-playthrough to clear Level01, transition to Level02, and win from the second lift.
+
+Verification completed:
+
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.16/BrassworksBreach_v0.0.16.exe`

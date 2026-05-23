@@ -150,6 +150,23 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Run packaged pause-flow smoke.
 - [x] Commit and push `v0.0.15`.
 
+## v0.0.16 Level Transition and Level02 Foundation
+
+- [x] Add generated `Level02` Pipeworks Annex scene.
+- [x] Add `LevelTransitionTrigger`.
+- [x] Convert Level01 service lift into a transition to `Level02`.
+- [x] Add final service lift win state to `Level02`.
+- [x] Expand editor smoke to validate all three build scenes.
+- [x] Expand packaged auto-playthrough through Level01 transition and Level02 exit.
+- [x] Rebuild generated scenes.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.16`.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

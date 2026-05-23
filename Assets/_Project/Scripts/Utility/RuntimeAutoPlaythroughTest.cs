@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RuntimeAutoPlaythroughTest : MonoBehaviour
 {
@@ -17,13 +18,23 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
 
         yield return null;
 
+        if (SceneManager.GetActiveScene().name == "Level02")
+        {
+            yield return RunLevel02Exit();
+            yield break;
+        }
+
+        yield return RunLevel01Transition();
+    }
+
+    private IEnumerator RunLevel01Transition()
+    {
         DisableEnemiesForDeterministicObjectiveTest();
 
         PlayerController player = Require<PlayerController>("PlayerController");
         PlayerInventory inventory = Require<PlayerInventory>("PlayerInventory");
         LockedDoor door = Require<LockedDoor>("LockedDoor");
-        ExitTrigger exit = Require<ExitTrigger>("ExitTrigger");
-        GameStateController gameState = Require<GameStateController>("GameStateController");
+        LevelTransitionTrigger transition = Require<LevelTransitionTrigger>("LevelTransitionTrigger");
         Pickup gearKey = FindPickup(PickupKind.Key);
 
         Collider doorCollider = door.GetComponent<Collider>();
@@ -60,8 +71,25 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
             yield break;
         }
 
+        string targetSceneName = transition.targetSceneName;
+        Teleport(player, transition.transform.position);
+        yield return WaitUntilOrFail(() => SceneManager.GetActiveScene().name == targetSceneName, "service lift level transition", 2f);
+        if (failed)
+        {
+            yield break;
+        }
+    }
+
+    private IEnumerator RunLevel02Exit()
+    {
+        DisableEnemiesForDeterministicObjectiveTest();
+
+        PlayerController player = Require<PlayerController>("PlayerController");
+        ExitTrigger exit = Require<ExitTrigger>("ExitTrigger");
+        GameStateController gameState = Require<GameStateController>("GameStateController");
+
         Teleport(player, exit.transform.position);
-        yield return WaitUntilOrFail(() => gameState.State == GameRunState.Won, "service lift win state", 2f);
+        yield return WaitUntilOrFail(() => gameState.State == GameRunState.Won, "level 02 service lift win state", 2f);
         if (failed)
         {
             yield break;

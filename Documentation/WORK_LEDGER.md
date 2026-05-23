@@ -55,8 +55,9 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | UI-001 | Replace text HUD with brass gauge HUD | ui | P2 | verified | v0.0.9 | Primitive brass panels, health/ammo fills, gear-key lamp. |
 | UI-002 | Add main menu start/quit flow | ui | P1 | verified | v0.0.14 | MainMenu scene starts real builds and auto-routes test builds into gameplay. |
 | UI-003 | Add settings foundation | ui/code | P1 | verified | v0.0.15 | Main and pause menus expose sensitivity and volume sliders backed by PlayerPrefs. |
+| LVL-003 | Create level transition flow and Level02 foundation | level/code | P1 | verified | v0.0.16 | Level01 service lift loads Level02; Level02 final lift triggers win state. |
 | LVL-001 | Rework Level01 into Brassworks Intake combat slice | level | P1 | backlog | v0.2 | Keep small, add better arena loops. |
-| LVL-003 | Create LevelTransitionController | code | P2 | backlog | v0.4 | Load next scene from diegetic lift/tram, preserve durable player state later. |
+| LVL-003B | Persist durable state across level transitions | code | P2 | backlog | v0.4 | Preserve health, ammo, weapons, and selected difficulty/settings across scenes. |
 | LVL-004 | Draft top-down maps for first five campaign levels | level | P2 | backlog | v0.4 | Use `LEVEL_DESIGN_AND_MAPS.md` map ladder and template. |
 | CODE-006 | Data-driven weapon definitions | code | P2 | backlog | v0.4 | Needed before more weapons. |
 | CODE-007 | Data-driven enemy definitions | code | P2 | backlog | v0.4 | Needed before more enemy types. |
@@ -101,3 +102,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.13` pressure pistol viewmodel build created at `Builds/Windows/v0.0.13/BrassworksBreach_v0.0.13.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
 - `2026-05-23`: `v0.0.14` main menu build created at `Builds/Windows/v0.0.14/BrassworksBreach_v0.0.14.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
 - `2026-05-23`: `v0.0.15` settings foundation build created at `Builds/Windows/v0.0.15/BrassworksBreach_v0.0.15.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
+- `2026-05-23`: `v0.0.16` Level02 transition build created at `Builds/Windows/v0.0.16/BrassworksBreach_v0.0.16.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.

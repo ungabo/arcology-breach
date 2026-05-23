@@ -12,6 +12,7 @@ public static class V0SceneBuilder
 {
     private const string MainMenuScenePath = "Assets/_Project/Scenes/MainMenu.unity";
     private const string ScenePath = "Assets/_Project/Scenes/Level01.unity";
+    private const string Level02ScenePath = "Assets/_Project/Scenes/Level02.unity";
     private const string MaterialFolder = "Assets/_Project/Materials";
     private const string WindowsBuildFolder = "Builds/Windows";
 
@@ -60,23 +61,25 @@ public static class V0SceneBuilder
         CreatePressureCartridgePickup("Pickup - Pressure Cartridge Pack", new Vector3(4.2f, 0.55f, 19f), ammoMaterial, rivetedIronMaterial, brassGuideMaterial, 15);
         CreateGearKeyPickup("Pickup - Gear Key", new Vector3(16f, 0.55f, 17f), Vector3.one * 1.1f, keyMaterial, rivetedIronMaterial);
         CreateLockedDoor(doorMaterial, brassGuideMaterial, gaugeFaceMaterial, pressureWarningMaterial);
-        CreateExit(exitMaterial, rivetedIronMaterial, brassGuideMaterial, gaugeFaceMaterial);
+        CreateLevelTransitionLift(exitMaterial, rivetedIronMaterial, brassGuideMaterial, gaugeFaceMaterial, "Level02");
         CreateAccentLights();
         CreateObjectiveGuides(brassGuideMaterial, pressureWarningMaterial, keyMaterial, exitMaterial);
         CreateSteamworksDressing(rivetedIronMaterial, oilStoneMaterial, brassGuideMaterial, pressureWarningMaterial, brassHazardMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
+        CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial);
         CreateMainMenuScene(brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, furnaceGlowMaterial, oilStoneMaterial);
         EditorBuildSettings.scenes = new[]
         {
             new EditorBuildSettingsScene(MainMenuScenePath, true),
-            new EditorBuildSettingsScene(ScenePath, true)
+            new EditorBuildSettingsScene(ScenePath, true),
+            new EditorBuildSettingsScene(Level02ScenePath, true)
         };
 
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
-        Debug.Log("V0 scenes rebuilt at " + MainMenuScenePath + " and " + ScenePath);
+        Debug.Log("V0 scenes rebuilt at " + MainMenuScenePath + ", " + ScenePath + ", and " + Level02ScenePath);
     }
 
     public static void RunSmokeTest()
@@ -89,6 +92,11 @@ public static class V0SceneBuilder
         if (!File.Exists(ScenePath))
         {
             throw new FileNotFoundException("Missing v0 scene", ScenePath);
+        }
+
+        if (!File.Exists(Level02ScenePath))
+        {
+            throw new FileNotFoundException("Missing level 02 scene", Level02ScenePath);
         }
 
         EditorSceneManager.OpenScene(ScenePath);
@@ -107,14 +115,20 @@ public static class V0SceneBuilder
         RequireObject<EnemyController>("EnemyController");
         RequireObject<Pickup>("Pickup");
         RequireObject<LockedDoor>("LockedDoor");
-        RequireObject<ExitTrigger>("ExitTrigger");
+        RequireObject<LevelTransitionTrigger>("LevelTransitionTrigger");
+
+        EditorSceneManager.OpenScene(Level02ScenePath);
+        RequireObject<PlayerController>("Level02 PlayerController");
+        RequireObject<GameStateController>("Level02 GameStateController");
+        RequireObject<EnemyController>("Level02 EnemyController");
+        RequireObject<ExitTrigger>("Level02 ExitTrigger");
 
         EditorSceneManager.OpenScene(MainMenuScenePath);
         RequireObject<MainMenuController>("MainMenuController");
 
-        if (EditorBuildSettings.scenes.Length < 2 || EditorBuildSettings.scenes[0].path != MainMenuScenePath || EditorBuildSettings.scenes[1].path != ScenePath)
+        if (EditorBuildSettings.scenes.Length < 3 || EditorBuildSettings.scenes[0].path != MainMenuScenePath || EditorBuildSettings.scenes[1].path != ScenePath || EditorBuildSettings.scenes[2].path != Level02ScenePath)
         {
-            throw new InvalidOperationException("MainMenu and Level01 are not the first enabled build scenes.");
+            throw new InvalidOperationException("MainMenu, Level01, and Level02 are not the first enabled build scenes.");
         }
 
         Debug.Log("V0_SMOKE_TEST_PASS");
@@ -133,7 +147,7 @@ public static class V0SceneBuilder
 
         BuildPlayerOptions options = new BuildPlayerOptions
         {
-            scenes = new[] { MainMenuScenePath, ScenePath },
+            scenes = new[] { MainMenuScenePath, ScenePath, Level02ScenePath },
             locationPathName = executablePath,
             target = BuildTarget.StandaloneWindows64,
             options = BuildOptions.None
@@ -272,6 +286,57 @@ public static class V0SceneBuilder
         Wall("Final West", -7.25f, 31f, 10.5f, false, wallMaterial, parent.transform);
         Wall("Final East", 7.25f, 31f, 10.5f, false, wallMaterial, parent.transform);
         Wall("Final North", 0f, 36.25f, 14.5f, true, wallMaterial, parent.transform);
+    }
+
+    private static void CreatePipeworksAnnexScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial)
+    {
+        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+
+        RenderSettings.ambientLight = new Color(0.44f, 0.42f, 0.38f);
+
+        CreateLighting();
+        CreatePipeworksAnnexBlockout(wallMaterial, floorMaterial);
+        HUDController hud = CreateHud();
+        CreateGameState(hud);
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial);
+
+        CreateEnemy("Enemy - Pipeworks Gatehouse", new Vector3(-2.2f, 1f, 9.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial);
+        CreateEnemy("Enemy - Pipeworks Lift Guard", new Vector3(2.2f, 1f, 17.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial);
+        CreateHealthVialPickup("Pickup - Annex Health Vial", new Vector3(-3.2f, 0.65f, 14f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, 25);
+        CreatePressureCartridgePickup("Pickup - Annex Pressure Cartridge Pack", new Vector3(3.2f, 0.55f, 13.5f), ammoMaterial, ironMaterial, brassMaterial, 15);
+        CreateExitAt("Pipeworks Service Lift Trigger", new Vector3(0f, 1.1f, 23.2f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial);
+        CreatePipeworksDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
+        CreatePointLight("Pipeworks Exit Green Light", new Vector3(0f, 2.4f, 22.7f), new Color(0.1f, 1f, 0.3f), 2.8f, 7f);
+        CreatePointLight("Pipeworks Furnace Light", new Vector3(-4.1f, 1.6f, 16f), new Color(1f, 0.36f, 0.08f), 2.2f, 5f);
+
+        EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), Level02ScenePath);
+    }
+
+    private static void CreatePipeworksAnnexBlockout(Material wallMaterial, Material floorMaterial)
+    {
+        GameObject parent = new GameObject("Pipeworks Annex Blockout");
+
+        CreateCube("Pipeworks Floor", new Vector3(0f, -0.1f, 11f), new Vector3(12f, 0.2f, 26f), floorMaterial, parent.transform);
+        CreateCube("Pipeworks South Wall", new Vector3(0f, 1.5f, -2f), new Vector3(10.5f, 3f, 0.5f), wallMaterial, parent.transform);
+        CreateCube("Pipeworks North Wall", new Vector3(0f, 1.5f, 24f), new Vector3(10.5f, 3f, 0.5f), wallMaterial, parent.transform);
+        CreateCube("Pipeworks West Wall", new Vector3(-5.25f, 1.5f, 11f), new Vector3(0.5f, 3f, 26f), wallMaterial, parent.transform);
+        CreateCube("Pipeworks East Wall", new Vector3(5.25f, 1.5f, 11f), new Vector3(0.5f, 3f, 26f), wallMaterial, parent.transform);
+        CreateCube("Pipeworks Mid Left Baffle", new Vector3(-2.4f, 1.5f, 7f), new Vector3(0.5f, 3f, 5.2f), wallMaterial, parent.transform);
+        CreateCube("Pipeworks Mid Right Baffle", new Vector3(2.4f, 1.5f, 15.5f), new Vector3(0.5f, 3f, 5.6f), wallMaterial, parent.transform);
+    }
+
+    private static void CreatePipeworksDressing(Material ironMaterial, Material floorPatchMaterial, Material brassMaterial, Material warningMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial)
+    {
+        GameObject parent = new GameObject("Pipeworks Annex Dressing");
+        CreateCube("Pipeworks Oil Patch A", new Vector3(-2.9f, 0.02f, 6.5f), new Vector3(1.6f, 0.04f, 1.2f), floorPatchMaterial, parent.transform);
+        CreateCube("Pipeworks Oil Patch B", new Vector3(2.8f, 0.02f, 18.2f), new Vector3(1.8f, 0.04f, 1.4f), floorPatchMaterial, parent.transform);
+        CreateCube("Pipeworks Left Pipe Run", new Vector3(-5.05f, 1.2f, 10f), new Vector3(0.16f, 0.16f, 18f), brassMaterial, parent.transform);
+        CreateCube("Pipeworks Right Pipe Run", new Vector3(5.05f, 2f, 13f), new Vector3(0.14f, 0.14f, 16f), brassMaterial, parent.transform);
+        CreateCube("Pipeworks Furnace Body", new Vector3(-4.55f, 0.75f, 16f), new Vector3(0.8f, 1.3f, 1.1f), ironMaterial, parent.transform);
+        CreateCube("Pipeworks Furnace Glow", new Vector3(-4.1f, 0.75f, 16f), new Vector3(0.08f, 0.72f, 0.58f), glowMaterial, parent.transform);
+        CreatePressureGauge("Pipeworks Gauge A", new Vector3(4.95f, 1.65f, 7f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+        CreateValveWheel("Pipeworks Valve A", new Vector3(-4.95f, 1.45f, 20f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, warningMaterial, parent.transform);
+        CreateSteamVent("Pipeworks Steam Vent A", new Vector3(3.8f, 0.05f, 5.5f), brassMaterial, steamMaterial, parent.transform);
     }
 
     private static void Wall(string name, float x, float z, float length, bool horizontal, Material material, Transform parent)
@@ -1033,21 +1098,41 @@ public static class V0SceneBuilder
 
     private static void CreateExit(Material material, Material ironMaterial, Material brassMaterial, Material gaugeFaceMaterial)
     {
-        GameObject exit = CreateCube("Service Lift Trigger", new Vector3(0f, 1.1f, 34.6f), new Vector3(2.4f, 2.2f, 0.35f), material);
-        Collider exitCollider = exit.GetComponent<Collider>();
-        if (exitCollider != null)
+        GameObject exit = CreateServiceLiftShell("Service Lift Trigger", new Vector3(0f, 1.1f, 34.6f), material, ironMaterial, brassMaterial, gaugeFaceMaterial);
+        exit.AddComponent<ExitTrigger>();
+    }
+
+    private static void CreateExitAt(string name, Vector3 position, Material material, Material ironMaterial, Material brassMaterial, Material gaugeFaceMaterial)
+    {
+        GameObject exit = CreateServiceLiftShell(name, position, material, ironMaterial, brassMaterial, gaugeFaceMaterial);
+        exit.AddComponent<ExitTrigger>();
+    }
+
+    private static void CreateLevelTransitionLift(Material material, Material ironMaterial, Material brassMaterial, Material gaugeFaceMaterial, string targetSceneName)
+    {
+        GameObject lift = CreateServiceLiftShell("Service Lift To Pipeworks", new Vector3(0f, 1.1f, 34.6f), material, ironMaterial, brassMaterial, gaugeFaceMaterial);
+        LevelTransitionTrigger transition = lift.AddComponent<LevelTransitionTrigger>();
+        transition.targetSceneName = targetSceneName;
+        transition.transitionMessage = "Service lift descending to the Pipeworks Annex";
+    }
+
+    private static GameObject CreateServiceLiftShell(string name, Vector3 position, Material material, Material ironMaterial, Material brassMaterial, Material gaugeFaceMaterial)
+    {
+        GameObject lift = CreateCube(name, position, new Vector3(2.4f, 2.2f, 0.35f), material);
+        Collider liftCollider = lift.GetComponent<Collider>();
+        if (liftCollider != null)
         {
-            exitCollider.isTrigger = true;
+            liftCollider.isTrigger = true;
         }
 
-        CreateLocalCube("Service Lift Cage Top", exit.transform, new Vector3(0f, 0.55f, -0.24f), new Vector3(1.1f, 0.08f, 0.08f), ironMaterial);
-        CreateLocalCube("Service Lift Cage Bottom", exit.transform, new Vector3(0f, -0.55f, -0.24f), new Vector3(1.1f, 0.08f, 0.08f), ironMaterial);
-        CreateLocalCube("Service Lift Left Rail", exit.transform, new Vector3(-0.42f, 0f, -0.24f), new Vector3(0.05f, 1.1f, 0.08f), brassMaterial);
-        CreateLocalCube("Service Lift Right Rail", exit.transform, new Vector3(0.42f, 0f, -0.24f), new Vector3(0.05f, 1.1f, 0.08f), brassMaterial);
-        GameObject liftGauge = CreateLocalPrimitive("Service Lift Pressure Gauge", PrimitiveType.Cylinder, exit.transform, new Vector3(0f, 0.25f, -0.27f), new Vector3(0.18f, 0.025f, 0.18f), gaugeFaceMaterial);
+        CreateLocalCube(name + " Cage Top", lift.transform, new Vector3(0f, 0.55f, -0.24f), new Vector3(1.1f, 0.08f, 0.08f), ironMaterial);
+        CreateLocalCube(name + " Cage Bottom", lift.transform, new Vector3(0f, -0.55f, -0.24f), new Vector3(1.1f, 0.08f, 0.08f), ironMaterial);
+        CreateLocalCube(name + " Left Rail", lift.transform, new Vector3(-0.42f, 0f, -0.24f), new Vector3(0.05f, 1.1f, 0.08f), brassMaterial);
+        CreateLocalCube(name + " Right Rail", lift.transform, new Vector3(0.42f, 0f, -0.24f), new Vector3(0.05f, 1.1f, 0.08f), brassMaterial);
+        GameObject liftGauge = CreateLocalPrimitive(name + " Pressure Gauge", PrimitiveType.Cylinder, lift.transform, new Vector3(0f, 0.25f, -0.27f), new Vector3(0.18f, 0.025f, 0.18f), gaugeFaceMaterial);
         liftGauge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
 
-        exit.AddComponent<ExitTrigger>();
+        return lift;
     }
 
     private static T RequireObject<T>(string label) where T : UnityEngine.Object

@@ -29,7 +29,7 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<EnemyController>("EnemyController");
         Require<Pickup>("Pickup");
         Require<LockedDoor>("LockedDoor");
-        Require<ExitTrigger>("ExitTrigger");
+        Require<LevelTransitionTrigger>("LevelTransitionTrigger");
 
         Debug.Log("V0_RUNTIME_SMOKE_PASS");
         Application.Quit(0);

@@ -155,7 +155,7 @@ Every major asset should eventually have three quality targets:
 | LVL-001 | Brassworks Intake greybox | P0 | prototype | Current generated `Level01`. |
 | LVL-002 | Brassworks Intake combat slice | P1 | prototype | Current layout has objective guide strips, world labels, and Scrapper attack tells. |
 | LVL-003 | Brassworks Intake art pass | P1 | prototype | First procedural dressing pass: oil-stone patches, pipe runs, boiler stacks, hazard strips. |
-| LVL-004 | Pipeworks Spine concept | P2 | planned | Pipe/transit themed level concept. |
+| LVL-004 | Pipeworks Annex prototype | P2 | prototype | Generated second level with pipeworks blockout, two Scrappers, pickups, dressing, and final service lift. |
 | LVL-005 | Gauge Hall concept | P2 | planned | Valve/gauge lock sequence level concept. |
 | LVL-006 | Furnace Foundry concept | P3 | deferred | Later heavy machinery sequence. |
 

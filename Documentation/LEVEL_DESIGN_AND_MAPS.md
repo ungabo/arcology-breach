@@ -44,9 +44,10 @@ Each main level should include:
 
 Near-term:
 
-- Service lift ends the current level.
-- Runtime shows win state for v0/v0.1/v0.2.
-- Future transition can call a `LevelTransitionController` that loads the next scene by build index or scene reference.
+- Level01 service lift now loads `Level02` through `LevelTransitionTrigger`.
+- Level02 final service lift triggers the current win state.
+- Auto-playthrough covers Level01 key/gate/lift, transition to Level02, and Level02 final lift.
+- Durable player state persistence across scenes is still planned.
 
 Production target:
 
@@ -89,22 +90,24 @@ v0.2 map tasks:
 - Add cover and obstacle shapes that do not break enemy movement.
 - Make the service lift direction visually green and unambiguous.
 
-### Level 02: Pipeworks Spine
+### Level 02: Pipeworks Annex
 
 Purpose:
 
-- Introduce longer sightlines, pressure routing, moving machinery, and ranged enemies.
+- Introduce longer sightlines, pipeworks visual identity, and a second service-lift endpoint.
 
 Approximate footprint:
 
-- `70 x 45` meters.
-- Pipe bridge, maintenance side route, gauge booth, service lift.
+- Current prototype: about `12 x 26` meters.
+- Production target: `70 x 45` meters.
+- Current rooms: narrow pipeworks entry, baffle corridor, small encounter lane, service lift.
 
 New mechanics:
 
-- Valve wheel pressure-routing objective.
-- First ranged `Lancer` enemy.
-- Optional ammo cache secret.
+- Current prototype: no new mechanics beyond inter-level transition.
+- Planned: valve wheel pressure-routing objective.
+- Planned: first ranged `Lancer` enemy.
+- Planned: optional ammo cache secret.
 
 ### Level 03: Gauge Hall
 
@@ -178,4 +181,5 @@ For `v0.2`, this document is considered applied when:
 
 - `Brassworks Intake` stays playable at the intended scale.
 - Gate, key, and lift have clear spatial relationships.
-- Follow-up tasks for level transition code and campaign map planning exist in `WORK_LEDGER.md`.
+- Level01 transitions cleanly into the current `Pipeworks Annex` prototype.
+- Follow-up tasks for durable transition state and campaign map expansion exist in `WORK_LEDGER.md`.
