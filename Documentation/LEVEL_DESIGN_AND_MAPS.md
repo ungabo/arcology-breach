@@ -45,8 +45,9 @@ Each main level should include:
 Near-term:
 
 - Level01 service lift now loads `Level02` through `LevelTransitionTrigger`.
-- Level02 final service lift triggers the current win state.
-- Auto-playthrough covers Level01 key/gate/lift, transition to Level02, and Level02 final lift.
+- Level02 service lift now loads `Level03` through `LevelTransitionTrigger`.
+- Level03 final service lift triggers the current win state.
+- Auto-playthrough covers Level01 key/gate/lift, transition to Level02, transition to Level03, and Level03 final lift.
 - Health and ammo persist across scene transitions.
 - Future weapon inventory and campaign flags still need expanded persistence.
 
@@ -95,37 +96,67 @@ v0.2 map tasks:
 
 Purpose:
 
-- Introduce longer sightlines, pipeworks visual identity, and a second service-lift endpoint.
+- Introduce longer sightlines, pipeworks visual identity, first ranged pressure, and the second service-lift transition.
 
 Approximate footprint:
 
 - Current prototype: about `12 x 26` meters.
 - Production target: `70 x 45` meters.
-- Current rooms: narrow pipeworks entry, baffle corridor, small Scrapper/Lancer encounter lane, service lift.
+- Current rooms: narrow pipeworks entry, baffle corridor, small Scrapper/Lancer encounter lane, transition service lift.
 
 New mechanics:
 
-- Current prototype: inter-level transition and first ranged Lancer enemy.
+- Current prototype: inter-level transition to `Level03` and first ranged Lancer enemy.
 - Planned: valve wheel pressure-routing objective.
 - Planned: first ranged `Lancer` enemy.
 - Planned: optional ammo cache secret.
 
-### Level 03: Gauge Hall
+### Level 03: Boilerheart Core
 
 Purpose:
 
-- Introduce lock sequences and readable valve/gauge objectives while keeping gameplay mostly ground-plane friendly.
+- Add the first boilerheart/furnace pressure chamber and extend the campaign chain to a three-level playable route.
 
 Approximate footprint:
 
-- `65 x 55` meters.
-- Gauge aisles, pressure chamber, lock hub, bellows room.
+- Current prototype: about `13 x 28` meters.
+- Production target: `65 x 55` meters.
+- Current rooms: arrival floor, furnace-core chamber, baffle lane, final service lift.
 
 New mechanics:
 
-- Valve/gauge lock sequence.
-- `Bellows Node` support enemy.
-- Steam hazard zones.
+- Current prototype: three-level transition chain and final lift win state.
+- Planned: valve/gauge lock sequence.
+- Planned: `Bellows Node` support enemy.
+- Planned: steam hazard zones.
+
+Current top-down sketch:
+
+```text
+          N
+  +----------------------+
+  |      FINAL LIFT      |
+  |   pipes/signage      |
+  |          |           |
+  |  cover   |   cover   |
+  |          |           |
+  |    [FURNACE CORE]    |
+  |   glow/steam/gauge   |
+  |          |           |
+  |  health      ammo    |
+  |          |           |
+  |      ARRIVAL         |
+  +----------------------+
+          S
+```
+
+v0.0.38 implementation notes:
+
+- Generated at `Assets/_Project/Scenes/Level03.unity`.
+- Build order is MainMenu, Level01, Level02, Level03.
+- Level02 lift targets Level03.
+- Level03 final lift triggers the current win state.
+- Auto-playthrough validates the three-level chain.
 
 ### Level 04: Furnace Foundry
 

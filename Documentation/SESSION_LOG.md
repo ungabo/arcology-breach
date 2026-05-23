@@ -898,3 +898,38 @@ Build executable:
 `Builds/Windows/v0.0.37/BrassworksBreach_v0.0.37.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 13:34 -04:00
+
+Completed `v0.0.38` Level03 Boilerheart foundation pass.
+
+Added:
+
+- Generated `Assets/_Project/Scenes/Level03.unity`.
+- Boilerheart Core greybox with furnace core, baffles, cover, pickups, Scrappers, dressing, work-order board, pipe bundle, and final service lift.
+- Level02 service-lift transition into Level03.
+- Four-scene build order.
+- Level03 validation and editor smoke coverage.
+- Three-level auto-playthrough coverage for Level01 -> Level02 -> Level03 -> win.
+- Updated `LEVEL_DESIGN_AND_MAPS.md`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.38/BrassworksBreach_v0.0.38.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

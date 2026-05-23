@@ -572,6 +572,24 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.38 Level03 Boilerheart Foundation Pass
+
+- [x] Add generated `Assets/_Project/Scenes/Level03.unity`.
+- [x] Add Boilerheart Core blockout.
+- [x] Add Level03 enemies, pickups, dressing, work-order board, pipe bundle, and final lift.
+- [x] Change Level02 service lift from win exit to transition into Level03.
+- [x] Expand build scene order to MainMenu, Level01, Level02, Level03.
+- [x] Expand level validation for Level03 and four-scene order.
+- [x] Expand editor smoke for Level03.
+- [x] Expand auto-playthrough to validate Level01 -> Level02 -> Level03 -> win.
+- [x] Update `LEVEL_DESIGN_AND_MAPS.md`.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.38`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

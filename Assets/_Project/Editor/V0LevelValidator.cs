@@ -8,6 +8,7 @@ public static class V0LevelValidator
     private const string MainMenuScenePath = "Assets/_Project/Scenes/MainMenu.unity";
     private const string Level01ScenePath = "Assets/_Project/Scenes/Level01.unity";
     private const string Level02ScenePath = "Assets/_Project/Scenes/Level02.unity";
+    private const string Level03ScenePath = "Assets/_Project/Scenes/Level03.unity";
 
     [MenuItem("Project Tools/Validate v0 Levels")]
     public static void RunValidation()
@@ -29,15 +30,18 @@ public static class V0LevelValidator
         ValidateGameplayScene("Level01", requirePressureGate: true, requireTransition: true, requireFinalExit: false, requireRangedEnemy: false);
 
         EditorSceneManager.OpenScene(Level02ScenePath);
-        ValidateGameplayScene("Level02", requirePressureGate: false, requireTransition: false, requireFinalExit: true, requireRangedEnemy: true);
+        ValidateGameplayScene("Level02", requirePressureGate: false, requireTransition: true, requireFinalExit: false, requireRangedEnemy: true);
+
+        EditorSceneManager.OpenScene(Level03ScenePath);
+        ValidateGameplayScene("Level03", requirePressureGate: false, requireTransition: false, requireFinalExit: true, requireRangedEnemy: false);
     }
 
     private static void ValidateBuildSceneOrder()
     {
         EditorBuildSettingsScene[] scenes = EditorBuildSettings.scenes;
-        if (scenes.Length < 3 || scenes[0].path != MainMenuScenePath || scenes[1].path != Level01ScenePath || scenes[2].path != Level02ScenePath)
+        if (scenes.Length < 4 || scenes[0].path != MainMenuScenePath || scenes[1].path != Level01ScenePath || scenes[2].path != Level02ScenePath || scenes[3].path != Level03ScenePath)
         {
-            throw new InvalidOperationException("Level validation failed: build scenes must be MainMenu, Level01, Level02.");
+            throw new InvalidOperationException("Level validation failed: build scenes must be MainMenu, Level01, Level02, Level03.");
         }
     }
 
@@ -300,6 +304,12 @@ public static class V0LevelValidator
         {
             RequireNamed("Work Order Board - Pipeworks", sceneName + " pipeworks work-order board visual");
             RequireNamed("Pipeworks Triple Pipe Bundle", sceneName + " pipeworks pipe-bundle visual");
+        }
+        else if (sceneName == "Level03")
+        {
+            RequireNamed("Work Order Board - Boilerheart", sceneName + " boilerheart work-order board visual");
+            RequireNamed("Boilerheart Triple Pipe Bundle", sceneName + " boilerheart pipe-bundle visual");
+            RequireNamed("Boilerheart Furnace Core", sceneName + " boilerheart furnace core visual");
         }
 
         if (sceneName == "Level01")

@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.37` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.38` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -57,7 +57,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.37\BrassworksBreach_v0.0.37.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.38\BrassworksBreach_v0.0.38.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -179,6 +179,12 @@ Individual Unity entry points remain available:
 
 - Combat scenario smoke test for cooldown rejection, ammo accounting, and expected kill timing.
 - New `V0_COMBAT_SCENARIO_PASS` marker in the full build matrix.
+
+## What v0.0.38 Adds
+
+- Generated Level03 Boilerheart Core scene.
+- Level02 service lift now transitions into Level03.
+- Auto-playthrough now validates Level01 -> Level02 -> Level03 -> win.
 
 ## Good Next Steps
 

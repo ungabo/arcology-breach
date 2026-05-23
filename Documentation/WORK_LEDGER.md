@@ -47,6 +47,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | CODE-010 | Level transition controller | code | P1 | verified | v0.0.35 | LevelTransitionController routes service-lift loads and restarts while preserving run-state tests. |
 | PLAT-005 | Platform quality profiles | platform | P1 | verified | v0.0.36 | Windows, Android, WebGL, PC VR, and Meta Quest PlatformQualityProfile assets exist; Windows profile applies at runtime. |
 | TEST-008 | Expanded combat automation harness | test | P1 | verified | v0.0.37 | Combat scenario smoke verifies cooldown rejection, ammo accounting, expected shot count, and final-hit kill timing. |
+| LVL-005 | Add Level03 Boilerheart Core foundation | level | P1 | verified | v0.0.38 | Level03 scene, Level02 transition, four-scene build order, and three-level auto-playthrough are verified. |
 
 ## Ready Next
 
@@ -70,7 +71,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | UI-001 | Replace text HUD with brass gauge HUD | ui | P2 | verified | v0.0.9 | Primitive brass panels, health/ammo fills, gear-key lamp. |
 | UI-002 | Add main menu start/quit flow | ui | P1 | verified | v0.0.14 | MainMenu scene starts real builds and auto-routes test builds into gameplay. |
 | UI-003 | Add settings foundation | ui/code | P1 | verified | v0.0.15 | Main and pause menus expose sensitivity and volume sliders backed by PlayerPrefs. |
-| LVL-003 | Create level transition flow and Level02 foundation | level/code | P1 | verified | v0.0.16 | Level01 service lift loads Level02; Level02 final lift triggers win state. |
+| LVL-003 | Create level transition flow and Level02 foundation | level/code | P1 | verified | v0.0.16 | Level01 service lift loads Level02; later builds extend the service-lift chain through Level03 before the win state. |
 | LVL-003B | Persist durable state across level transitions | code | P1 | verified | v0.0.17 | Health and ammo persist through service-lift scene loads; level keys remain scoped. |
 | PLAT-001 | Windows mid/low PC quality profile | platform | P1 | verified | v0.0.21 | Runtime profile applies 60 FPS target, no MSAA, limited lights, and shorter shadow distance. |
 | TOOL-001 | Level validation checks | tool | P2 | verified | v0.0.22 | Editor validator checks build order, menu wiring, gameplay wiring, triggers, colliders, and Lancer muzzle. |
@@ -137,3 +138,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.35` level transition controller build created at `Builds/Windows/v0.0.35/BrassworksBreach_v0.0.35.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.36` platform quality profile build created at `Builds/Windows/v0.0.36/BrassworksBreach_v0.0.36.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.37` expanded combat automation build created at `Builds/Windows/v0.0.37/BrassworksBreach_v0.0.37.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.38` Level03 Boilerheart foundation build created at `Builds/Windows/v0.0.38/BrassworksBreach_v0.0.38.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.

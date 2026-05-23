@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.37` versioned build for `Brassworks Breach`.
+`v0.0.38` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds expanded combat scenario automation on top of data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build adds Level03 Boilerheart Core and a three-level service-lift campaign chain on top of expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -49,12 +49,13 @@
 - Scene-local `LevelTransitionController` for service-lift scene loads and restart routing, with validation/runtime smoke coverage.
 - Data-driven `PlatformQualityProfile` assets for Windows mid/low PC, Android phone, WebGL browser, PC VR, and Meta Quest targets; Windows runtime now applies the Windows profile asset.
 - Packaged combat scenario smoke test covering weapon cooldown rejection, ammo accounting, expected shot count, and enemy survival until the final hit.
+- Generated `Level03` Boilerheart Core scene, Level02-to-Level03 service-lift transition, four-scene build order, and three-level auto-playthrough coverage.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.37`.
+Latest fully verified build: `v0.0.38`.
 
-Current `v0.0.37` verification:
+Current `v0.0.38` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -88,7 +89,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.37\BrassworksBreach_v0.0.37.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.38\BrassworksBreach_v0.0.38.exe`
 
 ## Latest Build Verification
 
@@ -373,12 +374,25 @@ Current target:
 - `2026-05-23 13:27 -04:00`: `v0.0.37` packaged ranged combat smoke passed.
 - `2026-05-23 13:27 -04:00`: `v0.0.37` packaged interaction smoke passed.
 - `2026-05-23 13:27 -04:00`: `v0.0.37` packaged pause-flow smoke passed.
+- `2026-05-23 13:34 -04:00`: `v0.0.38` one-command build matrix runner passed.
+- `2026-05-23 13:34 -04:00`: `v0.0.38` scene rebuild passed.
+- `2026-05-23 13:34 -04:00`: `v0.0.38` level validation passed.
+- `2026-05-23 13:34 -04:00`: `v0.0.38` editor smoke passed.
+- `2026-05-23 13:34 -04:00`: `v0.0.38` Windows build passed.
+- `2026-05-23 13:34 -04:00`: `v0.0.38` packaged runtime smoke passed.
+- `2026-05-23 13:34 -04:00`: `v0.0.38` packaged auto-playthrough passed.
+- `2026-05-23 13:34 -04:00`: `v0.0.38` packaged combat smoke passed.
+- `2026-05-23 13:34 -04:00`: `v0.0.38` packaged combat-edge smoke passed.
+- `2026-05-23 13:34 -04:00`: `v0.0.38` packaged combat-scenario smoke passed.
+- `2026-05-23 13:34 -04:00`: `v0.0.38` packaged ranged combat smoke passed.
+- `2026-05-23 13:34 -04:00`: `v0.0.38` packaged interaction smoke passed.
+- `2026-05-23 13:34 -04:00`: `v0.0.38` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.38`, `v0.0.39`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.39`, `v0.0.40`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
-- Runtime smoke test verifies boot/object presence. Auto-playthrough verifies the current two-level objective flow but not human combat feel.
+- Runtime smoke test verifies boot/object presence. Auto-playthrough verifies the current three-level objective flow but not human combat feel.
 - Combat smoke verifies weapon raycast damage and enemy death; combat-edge smoke verifies empty ammo, Scrapper melee damage, and player death state; combat-scenario smoke verifies cooldown, ammo accounting, expected shot count, and enemy survival until final hit; ranged combat smoke verifies Lancer projectile damage.
 - Visual dressing is still procedural primitive art, though the objective props now have stronger final-direction silhouettes.
 - Windows runtime performance profile exists, but visible performance profiling still needs a real play session.

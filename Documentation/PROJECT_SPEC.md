@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.37`.
+Current state: `v0.0.38`.
 
 Implemented:
 
@@ -45,6 +45,7 @@ Implemented:
 - Reusable level transition controller for service lifts and restarts.
 - Data-driven platform quality profiles for Windows, Android, WebGL, PC VR, and Meta Quest.
 - Expanded combat scenario automation for cooldowns, ammo accounting, and expected kill timing.
+- Three-level service-lift campaign chain ending at Level03 Boilerheart Core.
 
 ## 3. Target Platform
 

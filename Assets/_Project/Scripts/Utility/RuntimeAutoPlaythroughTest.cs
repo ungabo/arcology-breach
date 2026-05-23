@@ -18,9 +18,16 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
 
         yield return null;
 
-        if (SceneManager.GetActiveScene().name == "Level02")
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "Level03")
         {
-            yield return RunLevel02Exit();
+            yield return RunLevel03Exit();
+            yield break;
+        }
+
+        if (sceneName == "Level02")
+        {
+            yield return RunLevel02Transition();
             yield break;
         }
 
@@ -81,7 +88,29 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         }
     }
 
-    private IEnumerator RunLevel02Exit()
+    private IEnumerator RunLevel02Transition()
+    {
+        DisableEnemiesForDeterministicObjectiveTest();
+
+        PlayerController player = Require<PlayerController>("PlayerController");
+        PlayerInventory inventory = Require<PlayerInventory>("PlayerInventory");
+        LevelTransitionTrigger transition = Require<LevelTransitionTrigger>("LevelTransitionTrigger");
+        if (!RunProgress.HasSnapshot || inventory.Ammo != RunProgress.Ammo)
+        {
+            Fail("Auto-playthrough failed: run progress did not persist into Level02.");
+            yield break;
+        }
+
+        string targetSceneName = transition.targetSceneName;
+        Teleport(player, transition.transform.position);
+        yield return WaitUntilOrFail(() => SceneManager.GetActiveScene().name == targetSceneName, "level 02 service lift transition", 2f);
+        if (failed)
+        {
+            yield break;
+        }
+    }
+
+    private IEnumerator RunLevel03Exit()
     {
         DisableEnemiesForDeterministicObjectiveTest();
 
@@ -91,12 +120,12 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         GameStateController gameState = Require<GameStateController>("GameStateController");
         if (!RunProgress.HasSnapshot || inventory.Ammo != RunProgress.Ammo)
         {
-            Fail("Auto-playthrough failed: run progress did not persist into Level02.");
+            Fail("Auto-playthrough failed: run progress did not persist into Level03.");
             yield break;
         }
 
         Teleport(player, exit.transform.position);
-        yield return WaitUntilOrFail(() => gameState.State == GameRunState.Won, "level 02 service lift win state", 2f);
+        yield return WaitUntilOrFail(() => gameState.State == GameRunState.Won, "level 03 service lift win state", 2f);
         if (failed)
         {
             yield break;

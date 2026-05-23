@@ -13,6 +13,7 @@ public static class V0SceneBuilder
     private const string MainMenuScenePath = "Assets/_Project/Scenes/MainMenu.unity";
     private const string ScenePath = "Assets/_Project/Scenes/Level01.unity";
     private const string Level02ScenePath = "Assets/_Project/Scenes/Level02.unity";
+    private const string Level03ScenePath = "Assets/_Project/Scenes/Level03.unity";
     private const string MaterialFolder = "Assets/_Project/Materials";
     private const string TextureFolder = "Assets/_Project/Textures";
     private const string DataFolder = "Assets/_Project/Data";
@@ -88,18 +89,20 @@ public static class V0SceneBuilder
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
         CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
+        CreateBoilerheartScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
         CreateMainMenuScene(brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, furnaceGlowMaterial, oilStoneMaterial, windowsQualityProfile);
         EditorBuildSettings.scenes = new[]
         {
             new EditorBuildSettingsScene(MainMenuScenePath, true),
             new EditorBuildSettingsScene(ScenePath, true),
-            new EditorBuildSettingsScene(Level02ScenePath, true)
+            new EditorBuildSettingsScene(Level02ScenePath, true),
+            new EditorBuildSettingsScene(Level03ScenePath, true)
         };
 
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
-        Debug.Log("V0 scenes rebuilt at " + MainMenuScenePath + ", " + ScenePath + ", and " + Level02ScenePath);
+        Debug.Log("V0 scenes rebuilt at " + MainMenuScenePath + ", " + ScenePath + ", " + Level02ScenePath + ", and " + Level03ScenePath);
     }
 
     public static void RunSmokeTest()
@@ -117,6 +120,11 @@ public static class V0SceneBuilder
         if (!File.Exists(Level02ScenePath))
         {
             throw new FileNotFoundException("Missing level 02 scene", Level02ScenePath);
+        }
+
+        if (!File.Exists(Level03ScenePath))
+        {
+            throw new FileNotFoundException("Missing level 03 scene", Level03ScenePath);
         }
 
         EditorSceneManager.OpenScene(ScenePath);
@@ -145,7 +153,13 @@ public static class V0SceneBuilder
         RequireObject<GameStateController>("Level02 GameStateController");
         RequireObject<EnemyController>("Level02 EnemyController");
         RequireObject<RangedEnemyController>("Level02 RangedEnemyController");
-        RequireObject<ExitTrigger>("Level02 ExitTrigger");
+        RequireObject<LevelTransitionTrigger>("Level02 LevelTransitionTrigger");
+
+        EditorSceneManager.OpenScene(Level03ScenePath);
+        RequireObject<PlayerController>("Level03 PlayerController");
+        RequireObject<GameStateController>("Level03 GameStateController");
+        RequireObject<EnemyController>("Level03 EnemyController");
+        RequireObject<ExitTrigger>("Level03 ExitTrigger");
 
         EditorSceneManager.OpenScene(MainMenuScenePath);
         RequireObject<MainMenuController>("MainMenuController");
@@ -153,9 +167,9 @@ public static class V0SceneBuilder
 
         V0LevelValidator.ValidateProjectScenes();
 
-        if (EditorBuildSettings.scenes.Length < 3 || EditorBuildSettings.scenes[0].path != MainMenuScenePath || EditorBuildSettings.scenes[1].path != ScenePath || EditorBuildSettings.scenes[2].path != Level02ScenePath)
+        if (EditorBuildSettings.scenes.Length < 4 || EditorBuildSettings.scenes[0].path != MainMenuScenePath || EditorBuildSettings.scenes[1].path != ScenePath || EditorBuildSettings.scenes[2].path != Level02ScenePath || EditorBuildSettings.scenes[3].path != Level03ScenePath)
         {
-            throw new InvalidOperationException("MainMenu, Level01, and Level02 are not the first enabled build scenes.");
+            throw new InvalidOperationException("MainMenu, Level01, Level02, and Level03 are not the first enabled build scenes.");
         }
 
         Debug.Log("V0_SMOKE_TEST_PASS");
@@ -174,7 +188,7 @@ public static class V0SceneBuilder
 
         BuildPlayerOptions options = new BuildPlayerOptions
         {
-            scenes = new[] { MainMenuScenePath, ScenePath, Level02ScenePath },
+            scenes = new[] { MainMenuScenePath, ScenePath, Level02ScenePath, Level03ScenePath },
             locationPathName = executablePath,
             target = BuildTarget.StandaloneWindows64,
             options = BuildOptions.None
@@ -701,12 +715,67 @@ public static class V0SceneBuilder
         CreateLancerEnemy("Enemy - Pipeworks Lancer", new Vector3(2.2f, 1f, 17.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, lancerDefinition);
         CreateHealthVialPickup("Pickup - Annex Health Vial", new Vector3(-3.2f, 0.65f, 14f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
         CreatePressureCartridgePickup("Pickup - Annex Pressure Cartridge Pack", new Vector3(3.2f, 0.55f, 13.5f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
-        CreateExitAt("Pipeworks Service Lift Trigger", new Vector3(0f, 1.1f, 23.2f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial);
+        CreateLevelTransitionLiftAt("Pipeworks Service Lift To Boilerheart", new Vector3(0f, 1.1f, 23.2f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial, "Level03", "Service lift grinding toward the Boilerheart");
         CreatePipeworksDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreatePointLight("Pipeworks Exit Green Light", new Vector3(0f, 2.4f, 22.7f), new Color(0.1f, 1f, 0.3f), 2.8f, 7f);
         CreatePointLight("Pipeworks Furnace Light", new Vector3(-4.1f, 1.6f, 16f), new Color(1f, 0.36f, 0.08f), 2.2f, 5f);
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), Level02ScenePath);
+    }
+
+    private static void CreateBoilerheartScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, EnemyDefinition scrapperDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PlatformQualityProfile windowsQualityProfile)
+    {
+        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+
+        RenderSettings.ambientLight = new Color(0.38f, 0.32f, 0.26f);
+
+        CreateLighting();
+        CreateBoilerheartBlockout(wallMaterial, floorMaterial);
+        HUDController hud = CreateHud();
+        CreateGameState(hud, windowsQualityProfile);
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition);
+
+        CreateEnemy("Enemy - Boilerheart Floor Guard", new Vector3(-2.6f, 1f, 12.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
+        CreateEnemy("Enemy - Boilerheart Lift Guard", new Vector3(2.4f, 1f, 19.2f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
+        CreateHealthVialPickup("Pickup - Boilerheart Health Vial", new Vector3(-3.6f, 0.65f, 9.4f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
+        CreatePressureCartridgePickup("Pickup - Boilerheart Pressure Cartridge Pack", new Vector3(3.4f, 0.55f, 9.8f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
+        CreateExitAt("Boilerheart Final Service Lift", new Vector3(0f, 1.1f, 24.3f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial);
+        CreateBoilerheartDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
+        CreatePointLight("Boilerheart Furnace Light", new Vector3(0f, 2.6f, 15.8f), new Color(1f, 0.32f, 0.08f), 4f, 10f);
+        CreatePointLight("Boilerheart Final Lift Green Light", new Vector3(0f, 2.6f, 23.8f), new Color(0.1f, 1f, 0.35f), 2.8f, 7f);
+
+        EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), Level03ScenePath);
+    }
+
+    private static void CreateBoilerheartBlockout(Material wallMaterial, Material floorMaterial)
+    {
+        GameObject parent = new GameObject("Boilerheart Blockout");
+
+        CreateCube("Boilerheart Floor", new Vector3(0f, -0.1f, 12f), new Vector3(13f, 0.2f, 28f), floorMaterial, parent.transform);
+        CreateCube("Boilerheart South Wall", new Vector3(0f, 1.5f, -2f), new Vector3(12.5f, 3f, 0.5f), wallMaterial, parent.transform);
+        CreateCube("Boilerheart North Wall", new Vector3(0f, 1.5f, 26f), new Vector3(12.5f, 3f, 0.5f), wallMaterial, parent.transform);
+        CreateCube("Boilerheart West Wall", new Vector3(-6.25f, 1.5f, 12f), new Vector3(0.5f, 3f, 28f), wallMaterial, parent.transform);
+        CreateCube("Boilerheart East Wall", new Vector3(6.25f, 1.5f, 12f), new Vector3(0.5f, 3f, 28f), wallMaterial, parent.transform);
+        CreateCube("Boilerheart Furnace Core", new Vector3(0f, 1.3f, 15.6f), new Vector3(2.2f, 2.6f, 2.2f), wallMaterial, parent.transform);
+        CreateCube("Boilerheart West Baffle", new Vector3(-3.5f, 1.5f, 8.4f), new Vector3(0.5f, 3f, 5.6f), wallMaterial, parent.transform);
+        CreateCube("Boilerheart East Baffle", new Vector3(3.5f, 1.5f, 18.4f), new Vector3(0.5f, 3f, 5.6f), wallMaterial, parent.transform);
+        CreateCube("Boilerheart Low Cover West", new Vector3(-2.6f, 0.5f, 14.2f), new Vector3(1.4f, 1f, 1.1f), wallMaterial, parent.transform);
+        CreateCube("Boilerheart Low Cover East", new Vector3(2.8f, 0.5f, 20.4f), new Vector3(1.4f, 1f, 1.1f), wallMaterial, parent.transform);
+    }
+
+    private static void CreateBoilerheartDressing(Material ironMaterial, Material floorPatchMaterial, Material brassMaterial, Material warningMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial)
+    {
+        GameObject parent = new GameObject("Boilerheart Dressing");
+
+        CreateCube("Boilerheart Core Glow Front", new Vector3(0f, 1.25f, 14.45f), new Vector3(1.2f, 1.5f, 0.08f), glowMaterial, parent.transform);
+        CreateCube("Boilerheart Core Glow Back", new Vector3(0f, 1.25f, 16.75f), new Vector3(1.2f, 1.5f, 0.08f), glowMaterial, parent.transform);
+        CreateCube("Boilerheart Oil Patch", new Vector3(-1.8f, 0.02f, 11.6f), new Vector3(2f, 0.04f, 1.4f), floorPatchMaterial, parent.transform);
+        CreateCube("Boilerheart Overhead Pipe", new Vector3(0f, 2.45f, 20.6f), new Vector3(9f, 0.16f, 0.16f), brassMaterial, parent.transform);
+        CreatePipeBundle("Boilerheart Triple Pipe Bundle", new Vector3(0f, 2.35f, 25.72f), Quaternion.Euler(0f, 90f, 0f), 4.2f, brassMaterial, ironMaterial, parent.transform);
+        CreatePressureGauge("Boilerheart Gauge A", new Vector3(-5.95f, 1.65f, 12.4f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+        CreateValveWheel("Boilerheart Valve A", new Vector3(5.95f, 1.45f, 17.4f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, warningMaterial, parent.transform);
+        CreateSteamVent("Boilerheart Steam Vent A", new Vector3(-4.8f, 0.05f, 20.8f), brassMaterial, steamMaterial, parent.transform);
+        CreateWorkOrderBoard("Work Order Board - Boilerheart", "BOILERHEART ORDER\nCORE PRESSURE HIGH\nFINAL LIFT LIVE", new Vector3(5.95f, 1.55f, 10.6f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
     }
 
     private static void CreatePipeworksAnnexBlockout(Material wallMaterial, Material floorMaterial)
@@ -1736,10 +1805,15 @@ public static class V0SceneBuilder
 
     private static void CreateLevelTransitionLift(Material material, Material ironMaterial, Material brassMaterial, Material gaugeFaceMaterial, string targetSceneName)
     {
-        GameObject lift = CreateServiceLiftShell("Service Lift To Pipeworks", new Vector3(0f, 1.1f, 34.6f), material, ironMaterial, brassMaterial, gaugeFaceMaterial);
+        CreateLevelTransitionLiftAt("Service Lift To Pipeworks", new Vector3(0f, 1.1f, 34.6f), material, ironMaterial, brassMaterial, gaugeFaceMaterial, targetSceneName, "Service lift descending to the Pipeworks Annex");
+    }
+
+    private static void CreateLevelTransitionLiftAt(string name, Vector3 position, Material material, Material ironMaterial, Material brassMaterial, Material gaugeFaceMaterial, string targetSceneName, string transitionMessage)
+    {
+        GameObject lift = CreateServiceLiftShell(name, position, material, ironMaterial, brassMaterial, gaugeFaceMaterial);
         LevelTransitionTrigger transition = lift.AddComponent<LevelTransitionTrigger>();
         transition.targetSceneName = targetSceneName;
-        transition.transitionMessage = "Service lift descending to the Pipeworks Annex";
+        transition.transitionMessage = transitionMessage;
     }
 
     private static GameObject CreateServiceLiftShell(string name, Vector3 position, Material material, Material ironMaterial, Material brassMaterial, Material gaugeFaceMaterial)
