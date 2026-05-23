@@ -80,7 +80,7 @@ Every major asset should eventually have three quality targets:
 | --- | --- | --- | --- | --- |
 | WPN-001 | Pressure Pistol prototype | P0 | prototype | Primitive first-person brass-and-walnut pneumatic sidearm with receiver, pressure tube, gauge, valve, trigger, and side pipes. |
 | WPN-002 | Pressure Pistol final | P1 | verified | Procedural brass-and-walnut pneumatic sidearm with pressure tank, muzzle crown, sights, vent, valve, gauge, pipes, rivets, recoil/flash feedback, right-mouse Pressure Burst alternate fire, and data-driven definition asset. |
-| WPN-003 | Steam Scattergun | P1 | planned | Close-range breaching weapon with chunky pressure release. |
+| WPN-003 | Steam Scattergun | P1 | prototype | Close-range breaching weapon prototype with data-driven pellet fire, slug alternate fire, Boilerheart pickup visual, unlock persistence, and weapon-switch smoke coverage. Final first-person model, audio, and animation remain planned. |
 | WPN-004 | Rivet Launcher | P2 | planned | Mechanical precision weapon for stronger machines. |
 | WPN-005 | Weapon pickup shells | P2 | planned | World pickup visuals for weapons. |
 | WPN-006 | Ammo family | P1 | prototype | Pressure cartridge pack exists with data-driven pickup definition; rivet bundles and boiler caps remain planned. |
@@ -133,6 +133,7 @@ Every major asset should eventually have three quality targets:
 | VFX-011 | Pressure-bolt projectile trail | P1 | prototype | `PressureBoltVfx` adds core glow, trailing pressure puffs, and side sparks to Lancer and Governor Warden pressure bolts. |
 | VFX-012 | Pressure-pistol impact decal | P1 | prototype | `ImpactDecalVfx` adds a scorch disc, brass impact plate, and short spark burst to pressure-pistol raycast hits. |
 | VFX-013 | Player damage burst | P1 | prototype | `PlayerDamageVfx` adds first-person pressure slashes, heat edges, and brass sparks on player damage. |
+| VFX-014 | Scattergun pressure blast | P1 | planned | Dedicated close-range muzzle steam and brass spark cone for the Steam Scattergun. Current prototype reuses the shared weapon view/fire feedback. |
 
 ## 8. Audio
 

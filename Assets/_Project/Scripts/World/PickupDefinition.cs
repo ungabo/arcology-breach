@@ -12,4 +12,5 @@ public class PickupDefinition : ScriptableObject
     public float bobSpeed = 3f;
     public SteamworksAudioCue audioCue = SteamworksAudioCue.AmmoPickup;
     public string collectMessage = "+1 ammo";
+    public string weaponUnlockId = string.Empty;
 }

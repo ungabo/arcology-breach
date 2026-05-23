@@ -2,12 +2,19 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
+    public const string PressurePistolId = "pressure_pistol";
+    public const string SteamScattergunId = "steam_scattergun";
+
     public WeaponDefinition definition;
+    public WeaponDefinition steamScattergunDefinition;
     public Camera aimCamera;
     public PlayerInventory inventory;
     public float range = 40f;
     public int damage = 25;
+    public int ammoCost = GameBalance.PressurePistolAmmoCost;
+    public int pelletCount = GameBalance.PressurePistolPelletCount;
     public float fireCooldown = 0.25f;
+    public float spread = GameBalance.PressurePistolSpread;
     public int secondaryDamage = GameBalance.PressureBurstDamage;
     public int secondaryPelletCount = GameBalance.PressureBurstPelletCount;
     public int secondaryAmmoCost = GameBalance.PressureBurstAmmoCost;
@@ -17,7 +24,14 @@ public class WeaponController : MonoBehaviour
     public LayerMask hitMask = ~0;
     public WeaponView weaponView;
 
+    private WeaponDefinition pressurePistolDefinition;
     private float nextFireTime;
+    private bool hasSteamScattergun;
+    private bool usingSteamScattergun;
+
+    public bool HasSteamScattergun => hasSteamScattergun;
+    public bool IsUsingSteamScattergun => usingSteamScattergun;
+    public string ActiveWeaponName => definition != null ? definition.displayName : "Pressure Pistol";
 
     private void Awake()
     {
@@ -36,6 +50,7 @@ public class WeaponController : MonoBehaviour
             weaponView = GetComponentInChildren<WeaponView>();
         }
 
+        pressurePistolDefinition = definition;
         ApplyDefinition();
     }
 
@@ -48,7 +63,10 @@ public class WeaponController : MonoBehaviour
 
         range = definition.range;
         damage = definition.damage;
+        ammoCost = definition.ammoCost;
+        pelletCount = definition.pelletCount;
         fireCooldown = definition.fireCooldown;
+        spread = definition.spread;
         secondaryDamage = definition.secondaryDamage;
         secondaryPelletCount = definition.secondaryPelletCount;
         secondaryAmmoCost = definition.secondaryAmmoCost;
@@ -64,6 +82,15 @@ public class WeaponController : MonoBehaviour
             return;
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            EquipPressurePistol();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            EquipSteamScattergun();
+        }
+
         if (Input.GetMouseButton(1))
         {
             FireSecondary();
@@ -76,12 +103,85 @@ public class WeaponController : MonoBehaviour
 
     public bool FireOnce()
     {
-        return FirePattern(1, damage, range, 1, 0f, fireCooldown, "No ammo");
+        return FirePattern(ammoCost, damage, range, pelletCount, spread, fireCooldown, "No ammo");
     }
 
     public bool FireSecondary()
     {
         return FirePattern(secondaryAmmoCost, secondaryDamage, secondaryRange, secondaryPelletCount, secondarySpread, secondaryCooldown, "Not enough pressure");
+    }
+
+    public void UnlockSteamScattergun(bool switchToWeapon = true, bool showMessage = true)
+    {
+        if (steamScattergunDefinition == null)
+        {
+            return;
+        }
+
+        hasSteamScattergun = true;
+        if (switchToWeapon)
+        {
+            EquipSteamScattergun(showMessage);
+        }
+        else if (showMessage)
+        {
+            HUDController.Instance?.ShowTemporaryMessage("Steam Scattergun unlocked", 1.1f);
+        }
+    }
+
+    public void SetSteamScattergunUnlocked(bool unlocked)
+    {
+        hasSteamScattergun = unlocked && steamScattergunDefinition != null;
+        if (!hasSteamScattergun && usingSteamScattergun)
+        {
+            EquipPressurePistol(showMessage: false);
+        }
+    }
+
+    public bool EquipPressurePistol(bool showMessage = true)
+    {
+        if (pressurePistolDefinition == null)
+        {
+            pressurePistolDefinition = definition;
+        }
+
+        if (pressurePistolDefinition == null)
+        {
+            return false;
+        }
+
+        usingSteamScattergun = false;
+        definition = pressurePistolDefinition;
+        ApplyDefinition();
+        if (showMessage)
+        {
+            HUDController.Instance?.ShowTemporaryMessage("Pressure Pistol ready", 0.9f);
+        }
+
+        return true;
+    }
+
+    public bool EquipSteamScattergun(bool showMessage = true)
+    {
+        if (!hasSteamScattergun || steamScattergunDefinition == null)
+        {
+            if (showMessage)
+            {
+                HUDController.Instance?.ShowTemporaryMessage("Steam Scattergun not acquired", 0.9f);
+            }
+
+            return false;
+        }
+
+        usingSteamScattergun = true;
+        definition = steamScattergunDefinition;
+        ApplyDefinition();
+        if (showMessage)
+        {
+            HUDController.Instance?.ShowTemporaryMessage("Steam Scattergun ready", 0.9f);
+        }
+
+        return true;
     }
 
     private bool FirePattern(int ammoCost, int shotDamage, float shotRange, int pelletCount, float spread, float cooldown, string emptyMessage)
@@ -132,6 +232,10 @@ public class WeaponController : MonoBehaviour
                 return Vector2.up;
             case 4:
                 return Vector2.down;
+            case 5:
+                return new Vector2(0.72f, 0.72f);
+            case 6:
+                return new Vector2(-0.72f, -0.72f);
             default:
                 return Vector2.zero;
         }

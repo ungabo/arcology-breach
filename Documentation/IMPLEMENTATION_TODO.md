@@ -1090,6 +1090,22 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.74 Steam Scattergun Prototype Pass
+
+- [x] Add Steam Scattergun balance values and data-driven weapon definition.
+- [x] Add generic primary pellet/ammo/spread fields to weapon definitions.
+- [x] Add weapon unlock state and transition persistence.
+- [x] Add `1`/`2` weapon switching.
+- [x] Add Boilerheart Steam Scattergun pickup definition and primitive pickup visual.
+- [x] Add packaged weapon-switch smoke test and matrix step.
+- [x] Add level validation for scattergun definition, pickup, and weapon-switch test wiring.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.74`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

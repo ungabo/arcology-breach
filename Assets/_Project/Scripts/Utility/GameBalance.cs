@@ -5,12 +5,27 @@ public static class GameBalance
 
     public const int PressurePistolDamage = 25;
     public const float PressurePistolCooldown = 0.21f;
+    public const int PressurePistolAmmoCost = 1;
+    public const int PressurePistolPelletCount = 1;
+    public const float PressurePistolSpread = 0f;
     public const int PressureBurstDamage = 5;
     public const int PressureBurstPelletCount = 4;
     public const int PressureBurstAmmoCost = 3;
     public const float PressureBurstCooldown = 0.72f;
     public const float PressureBurstRange = 18f;
     public const float PressureBurstSpread = 0.032f;
+    public const int SteamScattergunDamage = 14;
+    public const int SteamScattergunPelletCount = 6;
+    public const int SteamScattergunAmmoCost = 2;
+    public const float SteamScattergunCooldown = 0.82f;
+    public const float SteamScattergunRange = 16f;
+    public const float SteamScattergunSpread = 0.055f;
+    public const int SteamScattergunSlugDamage = 28;
+    public const int SteamScattergunSlugPelletCount = 1;
+    public const int SteamScattergunSlugAmmoCost = 3;
+    public const float SteamScattergunSlugCooldown = 0.95f;
+    public const float SteamScattergunSlugRange = 24f;
+    public const float SteamScattergunSlugSpread = 0f;
 
     public const int ScrapperHealth = 50;
     public const float ScrapperMoveSpeed = 2.5f;

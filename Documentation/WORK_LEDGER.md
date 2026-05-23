@@ -83,6 +83,7 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 | SEC-004 | Add Pipeworks secret cache | level/test | P1 | verified | v0.0.71 | Level02 Pipeworks cartridge cache, rewards, visuals, validation, and three-secret run total auto-playthrough coverage are verified. |
 | AUD-012 | Add brassworks ambience loop | audio/code/test | P1 | verified | v0.0.72 | SteamworksAudio generates a looping machinery bed with validation and runtime smoke coverage. |
 | WPN-007 | Add Pressure Burst alternate fire | weapon/code/test | P1 | verified | v0.0.73 | Pressure Pistol right-mouse burst consumes three cartridges, uses separate range/spread/cooldown tuning, and is verified by combat-scenario smoke. |
+| WPN-003 | Add Steam Scattergun prototype | weapon/code/level/test | P1 | verified | v0.0.74 | Steam Scattergun definition, Boilerheart pickup, unlock persistence, weapon switching, and V0_WEAPON_SWITCH_PASS coverage are verified. |
 
 ## Ready Next
 
@@ -209,3 +210,4 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 - `2026-05-23`: `v0.0.71` Pipeworks secret cache build created at `Builds/Windows/v0.0.71/BrassworksBreach_v0.0.71.exe` and passed the complete V0 matrix, including Level02 secret validation and auto-playthrough coverage for at least three registered secrets. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.72` brassworks ambience build created at `Builds/Windows/v0.0.72/BrassworksBreach_v0.0.72.exe` and passed the complete V0 matrix, including runtime smoke coverage that verifies the ambience loop is active. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.73` Pressure Burst alternate-fire build created at `Builds/Windows/v0.0.73/BrassworksBreach_v0.0.73.exe` and passed the complete V0 matrix, including combat-scenario coverage for right-mouse secondary burst ammo use. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.74` Steam Scattergun prototype build created at `Builds/Windows/v0.0.74/BrassworksBreach_v0.0.74.exe` and passed the complete V0 matrix, including V0_WEAPON_SWITCH_PASS coverage for scattergun unlock/equip/fire/re-equip flow. Next-step directive: continue immediately with the next highest-impact unfinished task.

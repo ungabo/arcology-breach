@@ -6,6 +6,7 @@ public class PlayerInventory : MonoBehaviour
 
     public int Ammo { get; private set; }
     public bool HasKey { get; private set; }
+    public bool HasSteamScattergun { get; private set; }
 
     private void Awake()
     {
@@ -59,10 +60,37 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    public void UnlockSteamScattergun(bool showMessage = true)
+    {
+        HasSteamScattergun = true;
+        WeaponController weapon = GetComponent<WeaponController>();
+        if (weapon != null)
+        {
+            weapon.UnlockSteamScattergun(switchToWeapon: true, showMessage: false);
+        }
+
+        if (showMessage)
+        {
+            HUDController.Instance?.ShowTemporaryMessage("Steam Scattergun acquired", 1.2f);
+        }
+    }
+
     public void RestoreForTransition(int ammo)
+    {
+        RestoreForTransition(ammo, HasSteamScattergun);
+    }
+
+    public void RestoreForTransition(int ammo, bool hasSteamScattergun)
     {
         Ammo = Mathf.Max(0, ammo);
         HasKey = false;
+        HasSteamScattergun = hasSteamScattergun;
+        WeaponController weapon = GetComponent<WeaponController>();
+        if (weapon != null)
+        {
+            weapon.SetSteamScattergunUnlocked(HasSteamScattergun);
+        }
+
         UpdateHud();
     }
 

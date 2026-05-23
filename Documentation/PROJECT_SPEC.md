@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.73`.
+Current state: `v0.0.74`.
 
 Implemented:
 
@@ -81,6 +81,7 @@ Implemented:
 - Pipeworks cartridge-cache secret, bringing the current registered secret total to three.
 - Procedural brassworks ambience loop through `SteamworksAudio`, with level validation and runtime smoke coverage.
 - Pressure Pistol right-mouse `Pressure Burst` alternate fire, with ammo-cost/cooldown/spread values, level validation, and combat-scenario smoke coverage.
+- Steam Scattergun prototype with data-driven definition, Boilerheart pickup, persisted unlock state, `1`/`2` weapon switching, pellet fire, and packaged weapon-switch smoke coverage.
 
 ## 3. Target Platform
 
@@ -154,11 +155,13 @@ Current:
 - Fire cooldown.
 - Muzzle flash and hit marker.
 - Right-mouse `Pressure Burst` alternate fire for short-range burst damage.
+- Unlockable `Steam Scattergun` prototype.
+- `1`/`2` weapon switching after the scattergun is acquired.
 
 Future:
 
 - Final brass-and-walnut `Pressure Pistol` polish and alternate-fire animation/audio treatment.
-- Steam scattergun.
+- Final Steam Scattergun viewmodel, pickup art, animation, audio, and balance polish.
 - Arc-valve rifle or rivet launcher.
 - Data-driven weapon definitions.
 

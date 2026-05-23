@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.73` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.74` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -8,7 +8,7 @@ Public repository:
 
 Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, readable lore plaques, animated gears/valves/pulleys, brass HUD with persistent objective guidance and boss health readout, hitscan pressure-pistol shooting with right-mouse pressure-burst alternate fire and impact decal VFX, first-person player damage VFX, procedural audio cues, procedural brassworks ambience, mechanical melee/ranged/heavy/boss enemies with procedural machine motion, animated pressure-bolt projectiles, animated steam hazards, animated furnace-heat hazards, three multi-level secret caches, health/ammo/key pickup VFX, a pressure gate with opening VFX, service-lift transitions with activation VFX, a Pipeworks routing valve, a Boilerheart pressure valve that unlocks the foundry lift, a Furnace Foundry route, machine hit/shutdown VFX, and a Governor Core finale with a Warden shutdown effect and master override hoist.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, readable lore plaques, animated gears/valves/pulleys, brass HUD with persistent objective guidance and boss health readout, hitscan pressure-pistol shooting with right-mouse pressure-burst alternate fire and impact decal VFX, Steam Scattergun weapon unlock/switching, first-person player damage VFX, procedural audio cues, procedural brassworks ambience, mechanical melee/ranged/heavy/boss enemies with procedural machine motion, animated pressure-bolt projectiles, animated steam hazards, animated furnace-heat hazards, three multi-level secret caches, health/ammo/key pickup VFX, a pressure gate with opening VFX, service-lift transitions with activation VFX, a Pipeworks routing valve, a Boilerheart pressure valve that unlocks the foundry lift, a Furnace Foundry route, machine hit/shutdown VFX, and a Governor Core finale with a Warden shutdown effect and master override hoist.
 
 Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
 
@@ -44,6 +44,7 @@ Main scene:
 - `Mouse`: Look
 - `Left Mouse`: Fire
 - `Right Mouse`: Pressure Burst alternate fire
+- `1` / `2`: Switch Pressure Pistol / Steam Scattergun after unlocked
 - `Escape`: Pause/resume
 - `R`: Restart after death or win
 
@@ -63,7 +64,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.73\BrassworksBreach_v0.0.73.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.74\BrassworksBreach_v0.0.74.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -80,6 +81,7 @@ The project test matrix includes:
 - Packaged combat smoke test.
 - Packaged combat-edge smoke test.
 - Packaged combat-scenario smoke test.
+- Packaged weapon-switch smoke test.
 - Packaged ranged-combat smoke test.
 - Packaged Bulwark-combat smoke test.
 - Packaged Warden-combat smoke test.
@@ -98,6 +100,7 @@ Smoke pass markers:
 - `V0_COMBAT_SMOKE_PASS`
 - `V0_COMBAT_EDGE_PASS`
 - `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
 - `V0_RANGED_COMBAT_PASS`
 - `V0_BULWARK_COMBAT_PASS`
 - `V0_WARDEN_COMBAT_PASS`
@@ -421,6 +424,13 @@ Individual Unity entry points remain available:
 - Pressure Pistol now has right-mouse `Pressure Burst` alternate fire.
 - Pressure Burst consumes three cartridges and fires a short-range deterministic pellet pattern.
 - Combat-scenario smoke verifies secondary-burst ammo use before the primary-shot kill flow.
+
+## What v0.0.74 Adds
+
+- First Steam Scattergun prototype with data-driven weapon definition.
+- Boilerheart includes a primitive Steam Scattergun pickup visual and unlock definition.
+- Weapon controller supports `1`/`2` switching, persisted scattergun unlock state, pellet primary fire, and scattergun slug secondary fire.
+- Full matrix includes packaged `V0_WEAPON_SWITCH_PASS` coverage.
 
 ## Good Next Steps
 

@@ -6,6 +6,7 @@ public static class RunProgress
     public static int CurrentHealth { get; private set; }
     public static int MaxHealth { get; private set; }
     public static int Ammo { get; private set; }
+    public static bool HasSteamScattergun { get; private set; }
 
     public static void Reset()
     {
@@ -13,6 +14,7 @@ public static class RunProgress
         CurrentHealth = 0;
         MaxHealth = 0;
         Ammo = 0;
+        HasSteamScattergun = false;
     }
 
     public static void Capture(PlayerHealth health, PlayerInventory inventory)
@@ -26,6 +28,7 @@ public static class RunProgress
         CurrentHealth = Mathf.Max(1, health.CurrentHealth);
         MaxHealth = Mathf.Max(1, health.maxHealth);
         Ammo = Mathf.Max(0, inventory.Ammo);
+        HasSteamScattergun = inventory.HasSteamScattergun;
     }
 
     public static void ApplyTo(PlayerHealth health, PlayerInventory inventory)
@@ -36,6 +39,6 @@ public static class RunProgress
         }
 
         health?.RestoreForTransition(CurrentHealth, MaxHealth);
-        inventory?.RestoreForTransition(Ammo);
+        inventory?.RestoreForTransition(Ammo, HasSteamScattergun);
     }
 }

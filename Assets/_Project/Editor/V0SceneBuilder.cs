@@ -60,6 +60,7 @@ public static class V0SceneBuilder
         ApplyProceduralTexture(brassGuideMaterial, "T_Steam_BrassPipe", ProceduralTextureKind.BrassPipe);
         ApplyProceduralTexture(brassHazardMaterial, "T_Steam_BrassHazardPipe", ProceduralTextureKind.BrassPipe);
         WeaponDefinition pressurePistolDefinition = CreatePressurePistolDefinition();
+        WeaponDefinition steamScattergunDefinition = CreateSteamScattergunDefinition();
         EnemyDefinition scrapperDefinition = CreateScrapperDefinition();
         EnemyDefinition lancerDefinition = CreateLancerDefinition();
         EnemyDefinition bulwarkDefinition = CreateBulwarkDefinition();
@@ -67,6 +68,7 @@ public static class V0SceneBuilder
         PickupDefinition healthPickupDefinition = CreateHealthPickupDefinition();
         PickupDefinition ammoPickupDefinition = CreateAmmoPickupDefinition();
         PickupDefinition gearKeyDefinition = CreateGearKeyDefinition();
+        PickupDefinition steamScattergunPickupDefinition = CreateSteamScattergunPickupDefinition();
         PlatformQualityProfile windowsQualityProfile = CreatePlatformQualityProfiles();
 
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
@@ -77,7 +79,7 @@ public static class V0SceneBuilder
         CreateGreyboxLevel(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
         CreateGameState(hud, windowsQualityProfile, "Find the gear key. Open the pressure gate.");
-        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, rivetedIronMaterial, pressureWarningMaterial, pressurePistolDefinition);
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, rivetedIronMaterial, pressureWarningMaterial, pressurePistolDefinition, steamScattergunDefinition);
         CreateEnemy("Enemy - First Room", new Vector3(0f, 1f, 16.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
         CreateEnemy("Enemy - Key Room", new Vector3(14.5f, 1f, 17f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
         CreateEnemy("Enemy - Final Left", new Vector3(-3.2f, 1f, 30.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
@@ -93,10 +95,10 @@ public static class V0SceneBuilder
         CreateSecretCache(brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, healthMaterial, glassVialMaterial, medicinalFluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
-        CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
-        CreateBoilerheartScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
-        CreateFurnaceFoundryScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, bulwarkDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
-        CreateGovernorCoreScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, bulwarkDefinition, governorWardenDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
+        CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, steamScattergunDefinition, scrapperDefinition, lancerDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
+        CreateBoilerheartScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, steamScattergunDefinition, scrapperDefinition, healthPickupDefinition, ammoPickupDefinition, steamScattergunPickupDefinition, windowsQualityProfile);
+        CreateFurnaceFoundryScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, steamScattergunDefinition, scrapperDefinition, lancerDefinition, bulwarkDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
+        CreateGovernorCoreScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, steamScattergunDefinition, scrapperDefinition, lancerDefinition, bulwarkDefinition, governorWardenDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
         CreateMainMenuScene(brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, furnaceGlowMaterial, oilStoneMaterial, windowsQualityProfile);
         EditorBuildSettings.scenes = new[]
         {
@@ -164,6 +166,7 @@ public static class V0SceneBuilder
         RequireObject<RuntimeWardenCombatTest>("RuntimeWardenCombatTest");
         RequireObject<RuntimeHazardTest>("RuntimeHazardTest");
         RequireObject<RuntimeSecretTest>("RuntimeSecretTest");
+        RequireObject<RuntimeWeaponSwitchTest>("RuntimeWeaponSwitchTest");
         RequireObject<RuntimePauseFlowTest>("RuntimePauseFlowTest");
         RequireObject<HUDController>("HUDController");
         RequireObject<EnemyController>("EnemyController");
@@ -314,15 +317,47 @@ public static class V0SceneBuilder
         }
 
         definition.displayName = "Pressure Pistol";
+        definition.weaponId = WeaponController.PressurePistolId;
         definition.damage = GameBalance.PressurePistolDamage;
+        definition.ammoCost = GameBalance.PressurePistolAmmoCost;
+        definition.pelletCount = GameBalance.PressurePistolPelletCount;
         definition.fireCooldown = GameBalance.PressurePistolCooldown;
         definition.range = 40f;
+        definition.spread = GameBalance.PressurePistolSpread;
         definition.secondaryDamage = GameBalance.PressureBurstDamage;
         definition.secondaryPelletCount = GameBalance.PressureBurstPelletCount;
         definition.secondaryAmmoCost = GameBalance.PressureBurstAmmoCost;
         definition.secondaryCooldown = GameBalance.PressureBurstCooldown;
         definition.secondaryRange = GameBalance.PressureBurstRange;
         definition.secondarySpread = GameBalance.PressureBurstSpread;
+        EditorUtility.SetDirty(definition);
+        return definition;
+    }
+
+    private static WeaponDefinition CreateSteamScattergunDefinition()
+    {
+        string path = $"{DataFolder}/SteamScattergunDefinition.asset";
+        WeaponDefinition definition = AssetDatabase.LoadAssetAtPath<WeaponDefinition>(path);
+        if (definition == null)
+        {
+            definition = ScriptableObject.CreateInstance<WeaponDefinition>();
+            AssetDatabase.CreateAsset(definition, path);
+        }
+
+        definition.displayName = "Steam Scattergun";
+        definition.weaponId = WeaponController.SteamScattergunId;
+        definition.damage = GameBalance.SteamScattergunDamage;
+        definition.ammoCost = GameBalance.SteamScattergunAmmoCost;
+        definition.pelletCount = GameBalance.SteamScattergunPelletCount;
+        definition.fireCooldown = GameBalance.SteamScattergunCooldown;
+        definition.range = GameBalance.SteamScattergunRange;
+        definition.spread = GameBalance.SteamScattergunSpread;
+        definition.secondaryDamage = GameBalance.SteamScattergunSlugDamage;
+        definition.secondaryPelletCount = GameBalance.SteamScattergunSlugPelletCount;
+        definition.secondaryAmmoCost = GameBalance.SteamScattergunSlugAmmoCost;
+        definition.secondaryCooldown = GameBalance.SteamScattergunSlugCooldown;
+        definition.secondaryRange = GameBalance.SteamScattergunSlugRange;
+        definition.secondarySpread = GameBalance.SteamScattergunSlugSpread;
         EditorUtility.SetDirty(definition);
         return definition;
     }
@@ -445,6 +480,7 @@ public static class V0SceneBuilder
         definition.bobSpeed = 3f;
         definition.audioCue = SteamworksAudioCue.HealthPickup;
         definition.collectMessage = "+25 health";
+        definition.weaponUnlockId = string.Empty;
         EditorUtility.SetDirty(definition);
         return definition;
     }
@@ -468,6 +504,7 @@ public static class V0SceneBuilder
         definition.bobSpeed = 2.8f;
         definition.audioCue = SteamworksAudioCue.AmmoPickup;
         definition.collectMessage = "+15 ammo";
+        definition.weaponUnlockId = string.Empty;
         EditorUtility.SetDirty(definition);
         return definition;
     }
@@ -491,6 +528,31 @@ public static class V0SceneBuilder
         definition.bobSpeed = 2.6f;
         definition.audioCue = SteamworksAudioCue.GearKey;
         definition.collectMessage = "Gear key acquired";
+        definition.weaponUnlockId = string.Empty;
+        EditorUtility.SetDirty(definition);
+        return definition;
+    }
+
+    private static PickupDefinition CreateSteamScattergunPickupDefinition()
+    {
+        string path = $"{DataFolder}/SteamScattergunPickupDefinition.asset";
+        PickupDefinition definition = AssetDatabase.LoadAssetAtPath<PickupDefinition>(path);
+        if (definition == null)
+        {
+            definition = ScriptableObject.CreateInstance<PickupDefinition>();
+            AssetDatabase.CreateAsset(definition, path);
+        }
+
+        definition.displayName = "Steam Scattergun";
+        definition.kind = PickupKind.Weapon;
+        definition.amount = 0;
+        definition.collectRadius = 1.15f;
+        definition.spinDegreesPerSecond = 44f;
+        definition.bobAmplitude = 0.08f;
+        definition.bobSpeed = 2.3f;
+        definition.audioCue = SteamworksAudioCue.AmmoPickup;
+        definition.collectMessage = "Steam Scattergun acquired";
+        definition.weaponUnlockId = WeaponController.SteamScattergunId;
         EditorUtility.SetDirty(definition);
         return definition;
     }
@@ -803,7 +865,7 @@ public static class V0SceneBuilder
         CreateCube("Final Room Low Center Barrier", new Vector3(0f, 0.42f, 32.2f), new Vector3(2.1f, 0.84f, 0.58f), material, parent);
     }
 
-    private static void CreatePipeworksAnnexScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PlatformQualityProfile windowsQualityProfile)
+    private static void CreatePipeworksAnnexScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, WeaponDefinition steamScattergunDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PlatformQualityProfile windowsQualityProfile)
     {
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -813,7 +875,7 @@ public static class V0SceneBuilder
         CreatePipeworksAnnexBlockout(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
         CreateGameState(hud, windowsQualityProfile, "Route pipe pressure. Ride the lift to the Boilerheart.");
-        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition);
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition, steamScattergunDefinition);
 
         CreateEnemy("Enemy - Pipeworks Gatehouse", new Vector3(-2.2f, 1f, 9.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateLancerEnemy("Enemy - Pipeworks Lancer", new Vector3(2.2f, 1f, 17.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, lancerDefinition);
@@ -832,7 +894,7 @@ public static class V0SceneBuilder
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), Level02ScenePath);
     }
 
-    private static void CreateBoilerheartScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, EnemyDefinition scrapperDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PlatformQualityProfile windowsQualityProfile)
+    private static void CreateBoilerheartScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, WeaponDefinition steamScattergunDefinition, EnemyDefinition scrapperDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PickupDefinition steamScattergunPickupDefinition, PlatformQualityProfile windowsQualityProfile)
     {
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -842,12 +904,13 @@ public static class V0SceneBuilder
         CreateBoilerheartBlockout(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
         CreateGameState(hud, windowsQualityProfile, "Vent the Boilerheart pressure valve. Ride the foundry lift.");
-        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition);
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition, steamScattergunDefinition);
 
         CreateEnemy("Enemy - Boilerheart Floor Guard", new Vector3(-2.6f, 1f, 12.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateEnemy("Enemy - Boilerheart Lift Guard", new Vector3(2.4f, 1f, 19.2f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateHealthVialPickup("Pickup - Boilerheart Health Vial", new Vector3(-3.6f, 0.65f, 9.4f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
         CreatePressureCartridgePickup("Pickup - Boilerheart Pressure Cartridge Pack", new Vector3(3.4f, 0.55f, 9.8f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
+        CreateSteamScattergunPickup("Pickup - Steam Scattergun", new Vector3(0f, 0.72f, 13.9f), gunMaterial, brassMaterial, ironMaterial, warningMaterial, steamScattergunPickupDefinition);
         SteamHazard[] boilerheartHazards = CreateBoilerheartDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         LevelTransitionTrigger foundryLift = CreateLevelTransitionLiftAt("Boilerheart Service Lift To Foundry", new Vector3(0f, 1.1f, 24.3f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial, "Level04", "Service lift climbing toward the Furnace Foundry").GetComponent<LevelTransitionTrigger>();
         SteamValveObjective pressureValve = CreateBoilerheartPressureValve(ironMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial);
@@ -860,7 +923,7 @@ public static class V0SceneBuilder
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), Level03ScenePath);
     }
 
-    private static void CreateFurnaceFoundryScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition, EnemyDefinition bulwarkDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PlatformQualityProfile windowsQualityProfile)
+    private static void CreateFurnaceFoundryScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, WeaponDefinition steamScattergunDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition, EnemyDefinition bulwarkDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PlatformQualityProfile windowsQualityProfile)
     {
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -870,7 +933,7 @@ public static class V0SceneBuilder
         CreateFurnaceFoundryBlockout(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
         CreateGameState(hud, windowsQualityProfile, "Cross the Furnace Foundry. Reach the emergency hoist.");
-        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition);
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition, steamScattergunDefinition);
 
         CreateEnemy("Enemy - Foundry Intake Scrapper", new Vector3(-2.9f, 1f, 9.2f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateLancerEnemy("Enemy - Foundry Catwalk Lancer", new Vector3(2.8f, 1f, 15.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, lancerDefinition);
@@ -888,7 +951,7 @@ public static class V0SceneBuilder
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), Level04ScenePath);
     }
 
-    private static void CreateGovernorCoreScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition, EnemyDefinition bulwarkDefinition, EnemyDefinition governorWardenDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PlatformQualityProfile windowsQualityProfile)
+    private static void CreateGovernorCoreScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, WeaponDefinition steamScattergunDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition, EnemyDefinition bulwarkDefinition, EnemyDefinition governorWardenDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PlatformQualityProfile windowsQualityProfile)
     {
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -898,7 +961,7 @@ public static class V0SceneBuilder
         CreateGovernorCoreBlockout(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
         CreateGameState(hud, windowsQualityProfile, "Breach the Governor Core. Reach the master override hoist.");
-        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition);
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition, steamScattergunDefinition);
 
         CreateEnemy("Enemy - Governor Core Intake Scrapper", new Vector3(-2.9f, 1f, 8.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateLancerEnemy("Enemy - Governor Core Lancer", new Vector3(3.2f, 1f, 15.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, lancerDefinition);
@@ -1573,9 +1636,10 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeHazardTest>();
         stateObject.AddComponent<RuntimeSecretTest>();
         stateObject.AddComponent<RuntimePauseFlowTest>();
+        stateObject.AddComponent<RuntimeWeaponSwitchTest>();
     }
 
-    private static void CreatePlayer(Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial, Material ironMaterial, Material warningMaterial, WeaponDefinition weaponDefinition)
+    private static void CreatePlayer(Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial, Material ironMaterial, Material warningMaterial, WeaponDefinition weaponDefinition, WeaponDefinition steamScattergunDefinition)
     {
         GameObject player = new GameObject("Player");
         player.transform.position = new Vector3(0f, 0f, 0f);
@@ -1610,10 +1674,14 @@ public static class V0SceneBuilder
 
         WeaponController weapon = player.AddComponent<WeaponController>();
         weapon.definition = weaponDefinition;
+        weapon.steamScattergunDefinition = steamScattergunDefinition;
         weapon.aimCamera = camera;
         weapon.inventory = inventory;
         weapon.damage = GameBalance.PressurePistolDamage;
+        weapon.ammoCost = GameBalance.PressurePistolAmmoCost;
+        weapon.pelletCount = GameBalance.PressurePistolPelletCount;
         weapon.fireCooldown = GameBalance.PressurePistolCooldown;
+        weapon.spread = GameBalance.PressurePistolSpread;
         weapon.secondaryDamage = GameBalance.PressureBurstDamage;
         weapon.secondaryPelletCount = GameBalance.PressureBurstPelletCount;
         weapon.secondaryAmmoCost = GameBalance.PressureBurstAmmoCost;
@@ -2387,6 +2455,47 @@ public static class V0SceneBuilder
         CreateLocalCube(name + " Gauge Needle", pickup.transform, new Vector3(0.04f, 0.3f, 0.02f), new Vector3(0.14f, 0.025f, 0.025f), ironMaterial);
     }
 
+    private static void CreateSteamScattergunPickup(string name, Vector3 position, Material gripMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial, PickupDefinition definition)
+    {
+        GameObject pickup = new GameObject(name);
+        pickup.transform.position = position;
+
+        BoxCollider trigger = pickup.AddComponent<BoxCollider>();
+        trigger.size = new Vector3(1.65f, 1.1f, 1.15f);
+        trigger.isTrigger = true;
+
+        Pickup pickupComponent = pickup.AddComponent<Pickup>();
+        ConfigurePickup(pickupComponent, definition, PickupKind.Weapon, 0);
+        pickupComponent.collectRadius = 1.15f;
+        pickupComponent.spinDegreesPerSecond = 44f;
+        pickupComponent.bobAmplitude = 0.08f;
+        pickupComponent.bobSpeed = 2.3f;
+        EditorUtility.SetDirty(pickupComponent);
+
+        GameObject visualRoot = new GameObject(name + " Weapon Visual");
+        visualRoot.transform.SetParent(pickup.transform, false);
+        visualRoot.transform.localPosition = Vector3.zero;
+        visualRoot.transform.localRotation = Quaternion.Euler(0f, 24f, 0f);
+
+        CreateLocalCube(name + " Walnut Stock", visualRoot.transform, new Vector3(0f, -0.18f, -0.38f), new Vector3(0.28f, 0.26f, 0.58f), gripMaterial);
+        CreateLocalCube(name + " Brass Receiver", visualRoot.transform, new Vector3(0f, -0.03f, 0f), new Vector3(0.54f, 0.34f, 0.42f), brassMaterial);
+        CreateLocalCube(name + " Iron Trigger Guard", visualRoot.transform, new Vector3(0f, -0.28f, -0.06f), new Vector3(0.32f, 0.08f, 0.24f), ironMaterial);
+
+        for (int i = 0; i < 3; i++)
+        {
+            float x = (i - 1) * 0.18f;
+            GameObject barrel = CreateLocalPrimitive(name + " Pressure Barrel " + i, PrimitiveType.Cylinder, visualRoot.transform, new Vector3(x, 0.08f, 0.42f), new Vector3(0.07f, 0.62f, 0.07f), ironMaterial);
+            barrel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+            GameObject muzzle = CreateLocalPrimitive(name + " Brass Muzzle Ring " + i, PrimitiveType.Cylinder, visualRoot.transform, new Vector3(x, 0.08f, 0.74f), new Vector3(0.095f, 0.045f, 0.095f), brassMaterial);
+            muzzle.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        }
+
+        GameObject pressureDrum = CreateLocalPrimitive(name + " Side Pressure Drum", PrimitiveType.Cylinder, visualRoot.transform, new Vector3(-0.38f, -0.02f, 0.04f), new Vector3(0.18f, 0.28f, 0.18f), ironMaterial);
+        pressureDrum.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        CreateLocalCube(name + " Red Pressure Line", visualRoot.transform, new Vector3(0.36f, -0.02f, 0.16f), new Vector3(0.045f, 0.06f, 0.72f), warningMaterial);
+        CreateLocalPrimitive(name + " Brass Gauge", PrimitiveType.Cylinder, visualRoot.transform, new Vector3(0.32f, 0.23f, -0.1f), new Vector3(0.13f, 0.035f, 0.13f), brassMaterial).transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+    }
+
     private static void ConfigurePickup(Pickup pickup, PickupDefinition definition, PickupKind fallbackKind, int fallbackAmount)
     {
         pickup.definition = definition;
@@ -2401,6 +2510,7 @@ public static class V0SceneBuilder
         pickup.spinDegreesPerSecond = definition.spinDegreesPerSecond;
         pickup.bobAmplitude = definition.bobAmplitude;
         pickup.bobSpeed = definition.bobSpeed;
+        EditorUtility.SetDirty(pickup);
     }
 
     private static void CreateLockedDoor(Material material, Material brassMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material warningMaterial)

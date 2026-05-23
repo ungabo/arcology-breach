@@ -4,9 +4,13 @@ using UnityEngine;
 public class WeaponDefinition : ScriptableObject
 {
     public string displayName = "Pressure Pistol";
+    public string weaponId = "pressure_pistol";
     public int damage = GameBalance.PressurePistolDamage;
+    public int ammoCost = GameBalance.PressurePistolAmmoCost;
+    public int pelletCount = GameBalance.PressurePistolPelletCount;
     public float fireCooldown = GameBalance.PressurePistolCooldown;
     public float range = 40f;
+    public float spread = GameBalance.PressurePistolSpread;
     public int secondaryDamage = GameBalance.PressureBurstDamage;
     public int secondaryPelletCount = GameBalance.PressureBurstPelletCount;
     public int secondaryAmmoCost = GameBalance.PressureBurstAmmoCost;

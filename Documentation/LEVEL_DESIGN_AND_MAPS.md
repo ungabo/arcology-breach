@@ -63,6 +63,7 @@ Near-term:
 - Lancer pressure bolts now carry visible glow/trail/spark VFX, with shared VFX also attached to Warden pressure bolts.
 - Pressure-pistol hits now leave short-lived scorch/brass impact decal VFX, verified by combat-scenario smoke.
 - The Pressure Pistol now includes a short-range right-mouse Pressure Burst alternate fire, giving close encounters a distinct ammo-cost tradeoff while keeping the core weapon VR-compatible.
+- Level03 now includes a Steam Scattergun pickup prototype, and the unlock persists through later service-lift transitions.
 - Player damage now triggers first-person pressure/heat/brass hurt VFX, verified by combat-edge smoke.
 - Each current gameplay level now includes an interactable archive plaque for short environmental lore, verified by level validation and interaction smoke.
 - Each current gameplay level now has a procedural brassworks ambience loop through `SteamworksAudio`, verified by runtime smoke.
@@ -168,6 +169,7 @@ Approximate footprint:
 New mechanics:
 
 - Current prototype: Boilerheart pressure-valve objective, locked foundry lift, and linked hazard shutdown.
+- Current prototype: first Steam Scattergun pickup, introducing close-range weapon switching before the foundry escalation.
 - Planned: expanded valve/gauge lock sequence.
 - Planned: `Bellows Node` support enemy.
 - Current prototype: steam hazard zones with vent/puff visuals.

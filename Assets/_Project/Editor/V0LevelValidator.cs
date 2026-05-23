@@ -94,6 +94,7 @@ public static class V0LevelValidator
         Require<RuntimeWardenCombatTest>(sceneName + " RuntimeWardenCombatTest");
         Require<RuntimeHazardTest>(sceneName + " RuntimeHazardTest");
         Require<RuntimeSecretTest>(sceneName + " RuntimeSecretTest");
+        Require<RuntimeWeaponSwitchTest>(sceneName + " RuntimeWeaponSwitchTest");
         Require<EnemyController>(sceneName + " EnemyController");
         Require<Pickup>(sceneName + " Pickup");
 
@@ -239,6 +240,11 @@ public static class V0LevelValidator
             if (string.IsNullOrWhiteSpace(pickup.definition.collectMessage))
             {
                 throw new InvalidOperationException("Level validation failed: " + sceneName + " pickup " + pickup.name + " definition has no collect message.");
+            }
+
+            if (pickup.kind == PickupKind.Weapon && string.IsNullOrWhiteSpace(pickup.definition.weaponUnlockId))
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " weapon pickup " + pickup.name + " has no weapon unlock id.");
             }
         }
     }
@@ -479,7 +485,10 @@ public static class V0LevelValidator
         RequireApprox(playerController.moveSpeed, GameBalance.PlayerMoveSpeed, sceneName + " player speed balance");
         RequireEqual(playerInventory.startingAmmo, GameBalance.StartingAmmo, sceneName + " starting ammo balance");
         RequireEqual(weaponController.damage, GameBalance.PressurePistolDamage, sceneName + " pistol damage balance");
+        RequireEqual(weaponController.ammoCost, GameBalance.PressurePistolAmmoCost, sceneName + " pistol ammo-cost balance");
+        RequireEqual(weaponController.pelletCount, GameBalance.PressurePistolPelletCount, sceneName + " pistol pellet-count balance");
         RequireApprox(weaponController.fireCooldown, GameBalance.PressurePistolCooldown, sceneName + " pistol cooldown balance");
+        RequireApprox(weaponController.spread, GameBalance.PressurePistolSpread, sceneName + " pistol spread balance");
         RequireEqual(weaponController.secondaryDamage, GameBalance.PressureBurstDamage, sceneName + " pressure burst damage balance");
         RequireEqual(weaponController.secondaryPelletCount, GameBalance.PressureBurstPelletCount, sceneName + " pressure burst pellet balance");
         RequireEqual(weaponController.secondaryAmmoCost, GameBalance.PressureBurstAmmoCost, sceneName + " pressure burst ammo-cost balance");
@@ -492,14 +501,28 @@ public static class V0LevelValidator
         }
 
         RequireEqual(weaponController.definition.damage, GameBalance.PressurePistolDamage, sceneName + " weapon definition damage");
+        RequireEqual(weaponController.definition.ammoCost, GameBalance.PressurePistolAmmoCost, sceneName + " weapon definition ammo cost");
+        RequireEqual(weaponController.definition.pelletCount, GameBalance.PressurePistolPelletCount, sceneName + " weapon definition pellet count");
         RequireApprox(weaponController.definition.fireCooldown, GameBalance.PressurePistolCooldown, sceneName + " weapon definition cooldown");
         RequireApprox(weaponController.definition.range, weaponController.range, sceneName + " weapon definition range");
+        RequireApprox(weaponController.definition.spread, GameBalance.PressurePistolSpread, sceneName + " weapon definition spread");
         RequireEqual(weaponController.definition.secondaryDamage, GameBalance.PressureBurstDamage, sceneName + " weapon definition secondary damage");
         RequireEqual(weaponController.definition.secondaryPelletCount, GameBalance.PressureBurstPelletCount, sceneName + " weapon definition secondary pellet count");
         RequireEqual(weaponController.definition.secondaryAmmoCost, GameBalance.PressureBurstAmmoCost, sceneName + " weapon definition secondary ammo cost");
         RequireApprox(weaponController.definition.secondaryCooldown, GameBalance.PressureBurstCooldown, sceneName + " weapon definition secondary cooldown");
         RequireApprox(weaponController.definition.secondaryRange, GameBalance.PressureBurstRange, sceneName + " weapon definition secondary range");
         RequireApprox(weaponController.definition.secondarySpread, GameBalance.PressureBurstSpread, sceneName + " weapon definition secondary spread");
+        if (weaponController.steamScattergunDefinition == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " WeaponController is missing a Steam Scattergun definition.");
+        }
+
+        RequireEqual(weaponController.steamScattergunDefinition.damage, GameBalance.SteamScattergunDamage, sceneName + " scattergun definition damage");
+        RequireEqual(weaponController.steamScattergunDefinition.ammoCost, GameBalance.SteamScattergunAmmoCost, sceneName + " scattergun definition ammo cost");
+        RequireEqual(weaponController.steamScattergunDefinition.pelletCount, GameBalance.SteamScattergunPelletCount, sceneName + " scattergun definition pellet count");
+        RequireApprox(weaponController.steamScattergunDefinition.fireCooldown, GameBalance.SteamScattergunCooldown, sceneName + " scattergun definition cooldown");
+        RequireApprox(weaponController.steamScattergunDefinition.range, GameBalance.SteamScattergunRange, sceneName + " scattergun definition range");
+        RequireApprox(weaponController.steamScattergunDefinition.spread, GameBalance.SteamScattergunSpread, sceneName + " scattergun definition spread");
     }
 
     private static void ValidatePlatformQualityProfile(string sceneName, RuntimePerformanceProfile performanceProfile)
@@ -627,6 +650,8 @@ public static class V0LevelValidator
             RequireNamed("Boilerheart Pressure Valve Objective", sceneName + " boilerheart pressure valve objective");
             RequireNamed("Boilerheart Pressure Valve Wheel", sceneName + " boilerheart pressure valve wheel visual");
             RequireNamed("Boilerheart Valve Vented Lamp", sceneName + " boilerheart valve vented signal");
+            RequireNamed("Pickup - Steam Scattergun", sceneName + " Steam Scattergun pickup");
+            RequireNamed("Pickup - Steam Scattergun Weapon Visual", sceneName + " Steam Scattergun pickup visual");
             RequireNamed("Boilerheart Steam Hazard - Furnace Leak", sceneName + " boilerheart steam hazard");
             RequireNamed("Boilerheart Steam Hazard - Core Bleed", sceneName + " boilerheart steam hazard");
         }

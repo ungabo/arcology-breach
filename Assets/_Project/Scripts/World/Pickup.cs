@@ -4,7 +4,8 @@ public enum PickupKind
 {
     Health,
     Ammo,
-    Key
+    Key,
+    Weapon
 }
 
 public class Pickup : MonoBehaviour
@@ -126,6 +127,12 @@ public class Pickup : MonoBehaviour
                 inventory?.AddKey(showMessage: false);
                 GameStateController.Instance?.SetObjective("Return to the pressure gate.");
                 break;
+            case PickupKind.Weapon:
+                if (inventory != null && IsSteamScattergunPickup())
+                {
+                    inventory.UnlockSteamScattergun(showMessage: false);
+                }
+                break;
         }
     }
 
@@ -144,6 +151,8 @@ public class Pickup : MonoBehaviour
                 return SteamworksAudioCue.AmmoPickup;
             case PickupKind.Key:
                 return SteamworksAudioCue.GearKey;
+            case PickupKind.Weapon:
+                return SteamworksAudioCue.AmmoPickup;
             default:
                 return SteamworksAudioCue.AmmoPickup;
         }
@@ -164,8 +173,15 @@ public class Pickup : MonoBehaviour
                 return $"+{amount} ammo";
             case PickupKind.Key:
                 return "Gear key acquired";
+            case PickupKind.Weapon:
+                return "Weapon acquired";
             default:
                 return string.Empty;
         }
+    }
+
+    private bool IsSteamScattergunPickup()
+    {
+        return definition == null || string.Equals(definition.weaponUnlockId, WeaponController.SteamScattergunId, System.StringComparison.OrdinalIgnoreCase);
     }
 }
