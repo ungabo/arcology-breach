@@ -50,6 +50,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | ART-005 | Generate service-lift visual | art | P1 | backlog | v0.3 | Replace green exit cube. |
 | ART-006 | Build first primitive brassworks prop silhouettes | art | P1 | verified | v0.0.8 | Gear key, gauges, valve wheels, steam vents, furnace. |
 | ART-007 | Replace basic pickup cubes with steampunk prop silhouettes | art | P1 | verified | v0.0.12 | Health vial and pressure cartridge pack pass all automated tests. |
+| ART-008 | Improve Pressure Pistol first-person silhouette | art | P1 | verified | v0.0.13 | Primitive brass-and-walnut pneumatic sidearm viewmodel. |
 | VFX-001 | Replace hit marker sphere with impact sparks/steam | vfx | P1 | verified | v0.0.11 | Primitive spark-burst impact feedback. |
 | UI-001 | Replace text HUD with brass gauge HUD | ui | P2 | verified | v0.0.9 | Primitive brass panels, health/ammo fills, gear-key lamp. |
 | LVL-001 | Rework Level01 into Brassworks Intake combat slice | level | P1 | backlog | v0.2 | Keep small, add better arena loops. |
@@ -95,3 +96,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.10` primitive Scrapper visual build created at `Builds/Windows/v0.0.10/BrassworksBreach_v0.0.10.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
 - `2026-05-23`: `v0.0.11` impact spark build created at `Builds/Windows/v0.0.11/BrassworksBreach_v0.0.11.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
 - `2026-05-23`: `v0.0.12` pickup visual build created at `Builds/Windows/v0.0.12/BrassworksBreach_v0.0.12.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
+- `2026-05-23`: `v0.0.13` pressure pistol viewmodel build created at `Builds/Windows/v0.0.13/BrassworksBreach_v0.0.13.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.

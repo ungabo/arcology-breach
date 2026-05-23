@@ -50,7 +50,7 @@ public static class V0SceneBuilder
         CreateGreyboxLevel(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
         CreateGameState(hud);
-        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial);
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, rivetedIronMaterial, pressureWarningMaterial);
         CreateEnemy("Enemy - First Room", new Vector3(0f, 1f, 16.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
         CreateEnemy("Enemy - Key Room", new Vector3(14.5f, 1f, 17f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
         CreateEnemy("Enemy - Final Left", new Vector3(-3.2f, 1f, 30.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
@@ -473,7 +473,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimePauseFlowTest>();
     }
 
-    private static void CreatePlayer(Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial)
+    private static void CreatePlayer(Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial, Material ironMaterial, Material warningMaterial)
     {
         GameObject player = new GameObject("Player");
         player.transform.position = new Vector3(0f, 0f, 0f);
@@ -508,24 +508,46 @@ public static class V0SceneBuilder
         weapon.damage = 25;
         weapon.fireCooldown = 0.23f;
 
-        WeaponView weaponView = CreateWeaponView(cameraObject.transform, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial);
+        WeaponView weaponView = CreateWeaponView(cameraObject.transform, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial);
         weapon.weaponView = weaponView;
     }
 
-    private static WeaponView CreateWeaponView(Transform cameraTransform, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial)
+    private static WeaponView CreateWeaponView(Transform cameraTransform, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial, Material ironMaterial, Material warningMaterial)
     {
-        GameObject weaponRoot = new GameObject("Pressure Pistol Placeholder");
+        GameObject weaponRoot = new GameObject("Pressure Pistol Viewmodel");
         weaponRoot.transform.SetParent(cameraTransform, false);
-        weaponRoot.transform.localPosition = new Vector3(0f, -0.55f, 0.82f);
-        weaponRoot.transform.localRotation = Quaternion.identity;
+        weaponRoot.transform.localPosition = new Vector3(0.22f, -0.55f, 0.82f);
+        weaponRoot.transform.localRotation = Quaternion.Euler(-2f, -4f, 0f);
 
-        CreateLocalCube("Pressure Pistol Body", weaponRoot.transform, new Vector3(0f, 0f, 0f), new Vector3(0.42f, 0.22f, 0.42f), gunMaterial);
-        CreateLocalCube("Pressure Pistol Brass Barrel", weaponRoot.transform, new Vector3(0f, 0.04f, 0.36f), new Vector3(0.2f, 0.16f, 0.5f), gunTrimMaterial);
-        CreateLocalCube("Pressure Pistol Walnut Grip", weaponRoot.transform, new Vector3(0f, -0.24f, -0.12f), new Vector3(0.2f, 0.36f, 0.18f), gunMaterial);
-        GameObject gauge = CreateLocalPrimitive("Pressure Pistol Gauge", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(0f, 0.17f, 0.08f), new Vector3(0.18f, 0.035f, 0.18f), gaugeFaceMaterial);
+        CreateLocalCube("Pressure Pistol Walnut Grip", weaponRoot.transform, new Vector3(-0.06f, -0.24f, -0.18f), new Vector3(0.22f, 0.44f, 0.18f), gunMaterial).transform.localRotation = Quaternion.Euler(-10f, 0f, 0f);
+        CreateLocalCube("Pressure Pistol Iron Trigger Guard", weaponRoot.transform, new Vector3(0f, -0.16f, 0.04f), new Vector3(0.28f, 0.08f, 0.22f), ironMaterial);
+        CreateLocalCube("Pressure Pistol Trigger", weaponRoot.transform, new Vector3(0f, -0.19f, 0.1f), new Vector3(0.05f, 0.18f, 0.04f), warningMaterial).transform.localRotation = Quaternion.Euler(-18f, 0f, 0f);
+        CreateLocalCube("Pressure Pistol Brass Receiver", weaponRoot.transform, new Vector3(0f, 0.01f, 0.06f), new Vector3(0.46f, 0.22f, 0.48f), gunTrimMaterial);
+        CreateLocalCube("Pressure Pistol Iron Backplate", weaponRoot.transform, new Vector3(0f, 0.01f, -0.23f), new Vector3(0.5f, 0.26f, 0.06f), ironMaterial);
+
+        GameObject upperBarrel = CreateLocalPrimitive("Pressure Pistol Upper Barrel", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(0f, 0.09f, 0.46f), new Vector3(0.08f, 0.5f, 0.08f), gunTrimMaterial);
+        upperBarrel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject lowerPressureTube = CreateLocalPrimitive("Pressure Pistol Lower Pressure Tube", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(0f, -0.08f, 0.38f), new Vector3(0.12f, 0.42f, 0.12f), ironMaterial);
+        lowerPressureTube.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject rearRing = CreateLocalPrimitive("Pressure Pistol Rear Barrel Ring", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(0f, 0.09f, 0.2f), new Vector3(0.13f, 0.04f, 0.13f), ironMaterial);
+        rearRing.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject frontRing = CreateLocalPrimitive("Pressure Pistol Front Barrel Ring", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(0f, 0.09f, 0.66f), new Vector3(0.13f, 0.04f, 0.13f), ironMaterial);
+        frontRing.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+
+        GameObject gaugeBezel = CreateLocalPrimitive("Pressure Pistol Gauge Bezel", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(-0.18f, 0.18f, 0.02f), new Vector3(0.2f, 0.03f, 0.2f), gunTrimMaterial);
+        gaugeBezel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject gauge = CreateLocalPrimitive("Pressure Pistol Gauge Face", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(-0.18f, 0.18f, -0.01f), new Vector3(0.16f, 0.02f, 0.16f), gaugeFaceMaterial);
         gauge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
-        CreateLocalCube("Pressure Pistol Gauge Needle", weaponRoot.transform, new Vector3(0.03f, 0.17f, 0.055f), new Vector3(0.12f, 0.012f, 0.012f), gunTrimMaterial);
-        GameObject flash = CreateLocalCube("Muzzle Flash", weaponRoot.transform, new Vector3(0f, 0.04f, 0.68f), new Vector3(0.45f, 0.45f, 0.08f), muzzleFlashMaterial);
+        CreateLocalCube("Pressure Pistol Gauge Needle", weaponRoot.transform, new Vector3(-0.14f, 0.18f, -0.035f), new Vector3(0.12f, 0.012f, 0.012f), warningMaterial).transform.localRotation = Quaternion.Euler(0f, 0f, 18f);
+
+        GameObject valveWheel = CreateLocalPrimitive("Pressure Pistol Valve Wheel", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(0.23f, 0.1f, 0.08f), new Vector3(0.12f, 0.025f, 0.12f), gunTrimMaterial);
+        valveWheel.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        CreateLocalCube("Pressure Pistol Valve Spoke A", weaponRoot.transform, new Vector3(0.25f, 0.1f, 0.08f), new Vector3(0.04f, 0.22f, 0.025f), ironMaterial);
+        CreateLocalCube("Pressure Pistol Valve Spoke B", weaponRoot.transform, new Vector3(0.25f, 0.1f, 0.08f), new Vector3(0.04f, 0.025f, 0.22f), ironMaterial);
+        CreateLocalCube("Pressure Pistol Steam Pipe Left", weaponRoot.transform, new Vector3(-0.27f, -0.03f, 0.21f), new Vector3(0.05f, 0.07f, 0.48f), ironMaterial);
+        CreateLocalCube("Pressure Pistol Steam Pipe Right", weaponRoot.transform, new Vector3(0.27f, -0.03f, 0.21f), new Vector3(0.05f, 0.07f, 0.48f), ironMaterial);
+
+        GameObject flash = CreateLocalCube("Muzzle Flash", weaponRoot.transform, new Vector3(0f, 0.09f, 0.91f), new Vector3(0.45f, 0.45f, 0.08f), muzzleFlashMaterial);
         flash.SetActive(false);
 
         WeaponView weaponView = weaponRoot.AddComponent<WeaponView>();

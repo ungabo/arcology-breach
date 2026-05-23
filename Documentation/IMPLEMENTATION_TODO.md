@@ -106,6 +106,19 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Run packaged pause-flow smoke.
 - [x] Commit and push `v0.0.12`.
 
+## v0.0.13 Pressure Pistol Viewmodel Pass
+
+- [x] Replace blocky pressure pistol with primitive brass-and-walnut pneumatic sidearm.
+- [x] Add barrel cylinders, pressure tube, brass receiver, iron backplate, trigger guard, trigger, gauge, valve wheel, and side pipes.
+- [x] Rebuild generated scene.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.13`.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -127,7 +140,7 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [ ] Generate pressure-gate visual.
 - [ ] Generate service-lift visual.
 - [x] Generate primitive `Scrapper` visual.
-- [ ] Generate `Pressure Pistol` visual.
+- [x] Generate primitive `Pressure Pistol` visual.
 - [x] Replace placeholder hit marker with primitive spark impact VFX.
 - [ ] Add gauges, valve wheels, furnace props, pipe bundles, and work-order signs.
 - [ ] Verify scene readability after art pass.

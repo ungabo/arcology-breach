@@ -73,7 +73,7 @@ Every major asset should eventually have three quality targets:
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
-| WPN-001 | Pressure Pistol placeholder | P0 | prototype | Existing blocky camera-mounted weapon. |
+| WPN-001 | Pressure Pistol prototype | P0 | prototype | Primitive first-person brass-and-walnut pneumatic sidearm with receiver, pressure tube, gauge, valve, trigger, and side pipes. |
 | WPN-002 | Pressure Pistol final | P1 | planned | Brass-and-walnut pneumatic sidearm with pressure gauge. |
 | WPN-003 | Steam Scattergun | P1 | planned | Close-range breaching weapon with chunky pressure release. |
 | WPN-004 | Rivet Launcher | P2 | planned | Mechanical precision weapon for stronger machines. |

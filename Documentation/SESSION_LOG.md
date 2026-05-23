@@ -164,3 +164,25 @@ Verification completed:
 Build executable:
 
 `Builds/Windows/v0.0.12/BrassworksBreach_v0.0.12.exe`
+
+## 2026-05-23 10:27 -04:00
+
+Completed `v0.0.13` pressure pistol viewmodel pass.
+
+Added:
+
+- Replaced the blocky pressure pistol viewmodel with a primitive brass-and-walnut pneumatic sidearm.
+- Added barrel cylinders, pressure tube, brass receiver, iron backplate, trigger guard, trigger, gauge, valve wheel, and side pipes.
+
+Verification completed:
+
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.13/BrassworksBreach_v0.0.13.exe`
