@@ -51,6 +51,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | ART-006 | Build first primitive brassworks prop silhouettes | art | P1 | verified | v0.0.8 | Gear key, gauges, valve wheels, steam vents, furnace. |
 | ART-007 | Replace basic pickup cubes with steampunk prop silhouettes | art | P1 | verified | v0.0.12 | Health vial and pressure cartridge pack pass all automated tests. |
 | ART-008 | Improve Pressure Pistol first-person silhouette | art | P1 | verified | v0.0.13 | Primitive brass-and-walnut pneumatic sidearm viewmodel. |
+| ENEMY-004 | Add Lancer ranged enemy prototype | code/art | P1 | verified | v0.0.18 | Level02 includes a primitive ranged clockwork Lancer with pressure-bolt attack. |
 | VFX-001 | Replace hit marker sphere with impact sparks/steam | vfx | P1 | verified | v0.0.11 | Primitive spark-burst impact feedback. |
 | UI-001 | Replace text HUD with brass gauge HUD | ui | P2 | verified | v0.0.9 | Primitive brass panels, health/ammo fills, gear-key lamp. |
 | UI-002 | Add main menu start/quit flow | ui | P1 | verified | v0.0.14 | MainMenu scene starts real builds and auto-routes test builds into gameplay. |
@@ -61,7 +62,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | LVL-003C | Persist expanded run state across level transitions | code | P2 | backlog | v0.4 | Preserve future weapon inventory, selected difficulty, and campaign flags across scenes. |
 | LVL-004 | Draft top-down maps for first five campaign levels | level | P2 | backlog | v0.4 | Use `LEVEL_DESIGN_AND_MAPS.md` map ladder and template. |
 | CODE-006 | Data-driven weapon definitions | code | P2 | backlog | v0.4 | Needed before more weapons. |
-| CODE-007 | Data-driven enemy definitions | code | P2 | backlog | v0.4 | Needed before more enemy types. |
+| CODE-007 | Data-driven enemy definitions | code | P2 | backlog | v0.4 | Needed before expanding beyond Scrapper/Lancer prototypes. |
 | TOOL-001 | Level validation checks | tool | P2 | backlog | v0.4 | Missing colliders, required objects, objective chain. |
 | TEST-006 | Expand combat automation harness | test | P1 | backlog | v0.2 | Add player-damage, enemy attack windup, and ammo-empty scenarios. |
 | PLAT-001 | Windows mid/low PC quality profile | platform | P1 | backlog | v0.4 | Quality settings and performance budgets. |
@@ -105,3 +106,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.15` settings foundation build created at `Builds/Windows/v0.0.15/BrassworksBreach_v0.0.15.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
 - `2026-05-23`: `v0.0.16` Level02 transition build created at `Builds/Windows/v0.0.16/BrassworksBreach_v0.0.16.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
 - `2026-05-23`: `v0.0.17` durable run-state build created at `Builds/Windows/v0.0.17/BrassworksBreach_v0.0.17.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
+- `2026-05-23`: `v0.0.18` Lancer ranged enemy build created at `Builds/Windows/v0.0.18/BrassworksBreach_v0.0.18.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.

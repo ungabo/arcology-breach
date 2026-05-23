@@ -101,11 +101,11 @@ Approximate footprint:
 
 - Current prototype: about `12 x 26` meters.
 - Production target: `70 x 45` meters.
-- Current rooms: narrow pipeworks entry, baffle corridor, small encounter lane, service lift.
+- Current rooms: narrow pipeworks entry, baffle corridor, small Scrapper/Lancer encounter lane, service lift.
 
 New mechanics:
 
-- Current prototype: no new mechanics beyond inter-level transition.
+- Current prototype: inter-level transition and first ranged Lancer enemy.
 - Planned: valve wheel pressure-routing objective.
 - Planned: first ranged `Lancer` enemy.
 - Planned: optional ammo cache secret.

@@ -121,6 +121,7 @@ public static class V0SceneBuilder
         RequireObject<PlayerController>("Level02 PlayerController");
         RequireObject<GameStateController>("Level02 GameStateController");
         RequireObject<EnemyController>("Level02 EnemyController");
+        RequireObject<RangedEnemyController>("Level02 RangedEnemyController");
         RequireObject<ExitTrigger>("Level02 ExitTrigger");
 
         EditorSceneManager.OpenScene(MainMenuScenePath);
@@ -301,7 +302,7 @@ public static class V0SceneBuilder
         CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial);
 
         CreateEnemy("Enemy - Pipeworks Gatehouse", new Vector3(-2.2f, 1f, 9.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial);
-        CreateEnemy("Enemy - Pipeworks Lift Guard", new Vector3(2.2f, 1f, 17.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial);
+        CreateLancerEnemy("Enemy - Pipeworks Lancer", new Vector3(2.2f, 1f, 17.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial);
         CreateHealthVialPickup("Pickup - Annex Health Vial", new Vector3(-3.2f, 0.65f, 14f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, 25);
         CreatePressureCartridgePickup("Pickup - Annex Pressure Cartridge Pack", new Vector3(3.2f, 0.55f, 13.5f), ammoMaterial, ironMaterial, brassMaterial, 15);
         CreateExitAt("Pipeworks Service Lift Trigger", new Vector3(0f, 1.1f, 23.2f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial);
@@ -800,6 +801,50 @@ public static class V0SceneBuilder
         enemyController.attackDamage = 9;
         enemyController.attackWindup = 0.42f;
         enemyController.obstacleProbeDistance = 1.15f;
+    }
+
+    private static void CreateLancerEnemy(string name, Vector3 position, Material material, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial)
+    {
+        GameObject enemy = new GameObject(name);
+        enemy.transform.position = position;
+
+        Transform muzzle = CreateLancerVisual(enemy.transform, material, eyeMaterial, brassMaterial, ironMaterial, warningMaterial);
+
+        CharacterController controller = enemy.AddComponent<CharacterController>();
+        controller.height = 2f;
+        controller.radius = 0.36f;
+        controller.center = Vector3.zero;
+
+        RangedEnemyController ranged = enemy.AddComponent<RangedEnemyController>();
+        ranged.muzzle = muzzle;
+        ranged.maxHealth = 40;
+        ranged.detectionRange = 18f;
+        ranged.fireRange = 14f;
+        ranged.moveSpeed = 1.7f;
+        ranged.fireCooldown = 1.35f;
+        ranged.fireWindup = 0.45f;
+        ranged.projectileDamage = 8;
+        ranged.projectileSpeed = 8.5f;
+    }
+
+    private static Transform CreateLancerVisual(Transform parent, Material bodyMaterial, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial)
+    {
+        CreateLocalCube("Lancer Narrow Boiler Torso", parent, new Vector3(0f, 0.04f, 0f), new Vector3(0.46f, 0.92f, 0.38f), bodyMaterial);
+        CreateLocalCube("Lancer Brass Rib Plate", parent, new Vector3(0f, 0.08f, 0.23f), new Vector3(0.34f, 0.64f, 0.06f), brassMaterial);
+        CreateLocalCube("Lancer Furnace Lens", parent, new Vector3(0f, 0.56f, 0.27f), new Vector3(0.28f, 0.12f, 0.06f), eyeMaterial);
+        CreateLocalPrimitive("Lancer Back Pressure Tank", PrimitiveType.Cylinder, parent, new Vector3(0f, 0.06f, -0.28f), new Vector3(0.2f, 0.58f, 0.2f), ironMaterial).transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube("Lancer Left Tripod Leg", parent, new Vector3(-0.25f, -0.58f, 0.02f), new Vector3(0.12f, 0.62f, 0.12f), ironMaterial).transform.localRotation = Quaternion.Euler(0f, 0f, -10f);
+        CreateLocalCube("Lancer Right Tripod Leg", parent, new Vector3(0.25f, -0.58f, 0.02f), new Vector3(0.12f, 0.62f, 0.12f), ironMaterial).transform.localRotation = Quaternion.Euler(0f, 0f, 10f);
+        CreateLocalCube("Lancer Rear Tripod Leg", parent, new Vector3(0f, -0.58f, -0.22f), new Vector3(0.12f, 0.58f, 0.12f), ironMaterial);
+        CreateLocalCube("Lancer Rifle Stock", parent, new Vector3(0.36f, 0.08f, 0.08f), new Vector3(0.22f, 0.16f, 0.3f), brassMaterial);
+        GameObject barrel = CreateLocalPrimitive("Lancer Valve Rifle Barrel", PrimitiveType.Cylinder, parent, new Vector3(0.36f, 0.14f, 0.58f), new Vector3(0.08f, 0.5f, 0.08f), ironMaterial);
+        barrel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube("Lancer Hot Pressure Coil", parent, new Vector3(0.36f, 0.03f, 0.48f), new Vector3(0.2f, 0.08f, 0.28f), warningMaterial);
+
+        GameObject muzzleObject = new GameObject("Lancer Muzzle");
+        muzzleObject.transform.SetParent(parent, false);
+        muzzleObject.transform.localPosition = new Vector3(0.36f, 0.14f, 1.08f);
+        return muzzleObject.transform;
     }
 
     private static void CreateScrapperVisual(Transform parent, Material bodyMaterial, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material bladeMaterial)

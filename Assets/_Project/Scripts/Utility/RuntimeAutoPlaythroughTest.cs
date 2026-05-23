@@ -113,6 +113,12 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         {
             enemy.gameObject.SetActive(false);
         }
+
+        RangedEnemyController[] rangedEnemies = UnityEngine.Object.FindObjectsByType<RangedEnemyController>();
+        foreach (RangedEnemyController enemy in rangedEnemies)
+        {
+            enemy.gameObject.SetActive(false);
+        }
     }
 
     private static Pickup FindPickup(PickupKind kind)

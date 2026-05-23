@@ -37,9 +37,9 @@
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.17`.
+Latest fully verified build: `v0.0.18`.
 
-Current `v0.0.17` verification:
+Current `v0.0.18` verification:
 
 - Editor smoke test: passed.
 - Windows build: passed.
@@ -61,7 +61,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.17\BrassworksBreach_v0.0.17.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.18\BrassworksBreach_v0.0.18.exe`
 
 ## Latest Build Verification
 
@@ -141,8 +141,15 @@ Current target:
 - `2026-05-23 11:00 -04:00`: `v0.0.17` packaged auto-playthrough passed.
 - `2026-05-23 11:01 -04:00`: `v0.0.17` packaged combat smoke passed.
 - `2026-05-23 11:01 -04:00`: `v0.0.17` packaged pause-flow smoke passed.
+- `2026-05-23 11:05 -04:00`: `v0.0.18` scene rebuild passed.
+- `2026-05-23 11:06 -04:00`: `v0.0.18` editor smoke passed.
+- `2026-05-23 11:07 -04:00`: `v0.0.18` Windows build passed.
+- `2026-05-23 11:08 -04:00`: `v0.0.18` packaged runtime smoke passed.
+- `2026-05-23 11:08 -04:00`: `v0.0.18` packaged auto-playthrough passed.
+- `2026-05-23 11:09 -04:00`: `v0.0.18` packaged combat smoke passed.
+- `2026-05-23 11:09 -04:00`: `v0.0.18` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.18`, `v0.0.19`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.19`, `v0.0.20`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

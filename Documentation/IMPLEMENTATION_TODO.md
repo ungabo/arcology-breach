@@ -183,6 +183,23 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Run packaged pause-flow smoke.
 - [x] Commit and push `v0.0.17`.
 
+## v0.0.18 Lancer Ranged Enemy Prototype
+
+- [x] Add `RangedEnemyController`.
+- [x] Add `PressureBolt` projectile.
+- [x] Add primitive Lancer visual with rifle barrel, pressure tank, furnace lens, and tripod legs.
+- [x] Place a Lancer in `Level02`.
+- [x] Expand editor smoke to require the Level02 ranged enemy.
+- [x] Keep auto-playthrough deterministic by disabling ranged enemies during objective automation.
+- [x] Rebuild generated scenes.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.18`.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

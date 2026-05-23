@@ -284,3 +284,28 @@ Verification completed:
 Build executable:
 
 `Builds/Windows/v0.0.17/BrassworksBreach_v0.0.17.exe`
+
+## 2026-05-23 11:09 -04:00
+
+Completed `v0.0.18` Lancer ranged enemy prototype.
+
+Added:
+
+- `RangedEnemyController`.
+- `PressureBolt` projectile.
+- Primitive Lancer visual with valve-rifle barrel, pressure tank, furnace lens, and tripod legs.
+- Lancer placement in `Level02`.
+- Editor smoke now requires the Level02 ranged enemy.
+
+Verification completed:
+
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.18/BrassworksBreach_v0.0.18.exe`
