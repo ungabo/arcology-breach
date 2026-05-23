@@ -2,6 +2,11 @@
 
 This checklist tracks implementation work. Detailed production tracking lives in `WORK_LEDGER.md`.
 
+## Operating Directive
+
+- [x] Maintain `CONTINUATION_DIRECTIVE.md`.
+- [x] At the end of each completed step, update records, verify, commit/push when appropriate, and immediately begin the next highest-impact unfinished task.
+
 ## Completed
 
 - [x] Create Unity project.

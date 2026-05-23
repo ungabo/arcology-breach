@@ -21,6 +21,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | DOC-005 | Add level map and transition planning | docs | P0 | verified | v0.2 | doc review |
 | DOC-006 | Review locally cached Unity Asset Store packs | docs | P1 | verified | v0.2 | doc review |
 | DOC-007 | Import steampunk north-star concept art | docs/art | P0 | verified | v0.0.7 | files present |
+| DOC-008 | Add continuation directive | docs | P0 | verified | v0.0.20 | Continue into the next highest-impact unfinished task after each completed step. |
 | AUD-001 | Add first steamworks audio set | audio | P1 | verified | v0.0.7 | editor/build/runtime smoke |
 | CODE-004 | Add Scrapper attack windup/readability | code | P1 | verified | v0.2 | editor/build/runtime smoke |
 | CODE-005 | Improve gear-key/pressure-gate feedback | code | P1 | verified | v0.0.7 | editor/build/runtime smoke |
