@@ -112,6 +112,12 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         inventory.TryUseAmmo(2);
         string targetSceneName = transition.targetSceneName;
         Teleport(player, transition.transform.position);
+        yield return WaitUntilOrFail(HasVisibleLiftActivationVfx, "service lift activation VFX", 0.4f);
+        if (failed)
+        {
+            yield break;
+        }
+
         yield return WaitUntilOrFail(() => SceneManager.GetActiveScene().name == targetSceneName, "service lift level transition", 2f);
         if (failed)
         {
@@ -295,6 +301,12 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
     {
         HUDController hud = UnityEngine.Object.FindAnyObjectByType<HUDController>();
         return hud != null && hud.CurrentObjective.IndexOf(expected, StringComparison.OrdinalIgnoreCase) >= 0;
+    }
+
+    private static bool HasVisibleLiftActivationVfx()
+    {
+        LiftActivationVfx vfx = UnityEngine.Object.FindAnyObjectByType<LiftActivationVfx>();
+        return vfx != null && vfx.PieceCount >= 8;
     }
 
     private static void DisableEnemiesForDeterministicObjectiveTest(bool keepWardenActive = false)

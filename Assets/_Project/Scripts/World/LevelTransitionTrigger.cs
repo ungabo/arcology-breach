@@ -66,6 +66,7 @@ public class LevelTransitionTrigger : MonoBehaviour, IInteractable
         }
 
         loading = true;
+        LiftActivationVfx.Spawn(transform.position + Vector3.up * 0.25f - transform.forward * 0.45f, transform.rotation);
         LevelTransitionController controller = LevelTransitionController.Instance != null ? LevelTransitionController.Instance : Object.FindAnyObjectByType<LevelTransitionController>();
         if (controller != null)
         {

@@ -51,6 +51,7 @@ Near-term:
 - Level05 master override hoist is locked until the Governor Warden is destroyed, then triggers the win state.
 - Auto-playthrough covers Level01 key/gate/lift, transition to Level02, transition to Level03, locked-foundry-lift rejection, Boilerheart pressure valve, transition to Level04, transition to Level05, locked-master-hoist rejection, Warden defeat, unlock, and the Level05 master override hoist.
 - Pressure-gate opening now spawns a visible green pressure/steam/spark burst and is verified by auto-playthrough.
+- Service-lift transitions now pause briefly for a visible green pressure/steam activation cue before loading the next level.
 - Persistent objective HUD now tracks the active route beat and is verified through the auto-playthrough.
 - Warden combat now surfaces a top-center boss health HUD so the final guardian objective reads clearly during the Governor Core fight.
 - Warden defeat now gets a visible shutdown burst so the final lock release has readable cause and effect.

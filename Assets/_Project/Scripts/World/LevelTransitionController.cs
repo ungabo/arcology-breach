@@ -1,9 +1,12 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelTransitionController : MonoBehaviour
 {
     public static LevelTransitionController Instance { get; private set; }
+
+    public float transitionDelay = 0.45f;
 
     public bool IsTransitioning { get; private set; }
 
@@ -52,6 +55,17 @@ public class LevelTransitionController : MonoBehaviour
         }
 
         SteamworksAudio.Play(SteamworksAudioCue.Win);
+        StartCoroutine(LoadSceneAfterCue(targetSceneName));
+    }
+
+    private IEnumerator LoadSceneAfterCue(string targetSceneName)
+    {
+        float delay = Mathf.Max(0f, transitionDelay);
+        if (delay > 0f)
+        {
+            yield return new WaitForSeconds(delay);
+        }
+
         SceneManager.LoadScene(targetSceneName);
     }
 
