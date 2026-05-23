@@ -126,6 +126,13 @@ public class GameStateController : MonoBehaviour
             return;
         }
 
+        LevelTransitionController transitionController = LevelTransitionController.Instance != null ? LevelTransitionController.Instance : Object.FindAnyObjectByType<LevelTransitionController>();
+        if (transitionController != null)
+        {
+            transitionController.RestartCurrentScene();
+            return;
+        }
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

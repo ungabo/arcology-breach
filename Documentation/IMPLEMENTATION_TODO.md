@@ -522,6 +522,21 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.35 Level Transition Controller Pass
+
+- [x] Add scene-local `LevelTransitionController`.
+- [x] Route service-lift scene loads through `LevelTransitionController`.
+- [x] Route gameplay restart through `LevelTransitionController` when present.
+- [x] Preserve fallback direct scene loading for safety.
+- [x] Add controller to generated gameplay scenes.
+- [x] Expand runtime smoke and level validation to require the controller.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.35`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -556,7 +571,7 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Data-driven enemy definitions.
 - [x] Interaction system.
 - [x] Pickup/inventory cleanup.
-- [ ] Level transition controller.
+- [x] Level transition controller.
 - [x] Level validation tool.
 - [ ] Expand combat automation harness.
 - [x] Build automation cleanup.

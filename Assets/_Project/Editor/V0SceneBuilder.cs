@@ -986,6 +986,7 @@ public static class V0SceneBuilder
         GameStateController state = stateObject.AddComponent<GameStateController>();
         state.hud = hud;
         state.pauseMenu = UnityEngine.Object.FindAnyObjectByType<PauseMenuController>();
+        stateObject.AddComponent<LevelTransitionController>();
         stateObject.AddComponent<SteamworksAudio>();
         stateObject.AddComponent<RuntimePerformanceProfile>();
         stateObject.AddComponent<RuntimeSmokeTest>();

@@ -51,6 +51,7 @@ public static class V0LevelValidator
         ValidateInteractionSystem(sceneName, playerController, playerInteraction);
         ValidateWeaponVisuals(sceneName);
         Require<GameStateController>(sceneName + " GameStateController");
+        Require<LevelTransitionController>(sceneName + " LevelTransitionController");
         Require<RuntimePerformanceProfile>(sceneName + " RuntimePerformanceProfile");
         HUDController hud = Require<HUDController>(sceneName + " HUDController");
         if (hud.interactionText == null)

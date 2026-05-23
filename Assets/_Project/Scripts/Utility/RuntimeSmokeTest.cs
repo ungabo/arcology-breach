@@ -21,6 +21,7 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<PlayerInteraction>("PlayerInteraction");
         Require<WeaponController>("WeaponController");
         Require<GameStateController>("GameStateController");
+        Require<LevelTransitionController>("LevelTransitionController");
         Require<PauseMenuController>("PauseMenuController");
         Require<SteamworksAudio>("SteamworksAudio");
         Require<RuntimePerformanceProfile>("RuntimePerformanceProfile");

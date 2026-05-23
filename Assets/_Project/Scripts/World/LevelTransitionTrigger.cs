@@ -55,6 +55,13 @@ public class LevelTransitionTrigger : MonoBehaviour, IInteractable
         }
 
         loading = true;
+        LevelTransitionController controller = LevelTransitionController.Instance != null ? LevelTransitionController.Instance : Object.FindAnyObjectByType<LevelTransitionController>();
+        if (controller != null)
+        {
+            controller.LoadSceneFromPlayer(targetSceneName, player, transitionMessage);
+            return;
+        }
+
         RunProgress.Capture(player.GetComponent<PlayerHealth>(), player.GetComponent<PlayerInventory>());
         Time.timeScale = 1f;
         HUDController.Instance?.ShowTemporaryMessage(transitionMessage, 0.5f);

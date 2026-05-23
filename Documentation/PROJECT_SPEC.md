@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.34`.
+Current state: `v0.0.35`.
 
 Implemented:
 
@@ -42,6 +42,7 @@ Implemented:
 - One-command V0 Windows build matrix runner.
 - First-person interaction scanner, HUD prompt, and interactable gate/lift hooks.
 - Data-driven health, ammo, and gear-key pickup definitions.
+- Reusable level transition controller for service lifts and restarts.
 
 ## 3. Target Platform
 
