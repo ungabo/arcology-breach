@@ -189,6 +189,7 @@ public class RangedEnemyController : MonoBehaviour, IDamageable
     private void Die()
     {
         dead = true;
+        MachineDeathVfx.Spawn(transform.position + Vector3.up * 0.65f);
         SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyDeath, transform.position);
         HUDController.Instance?.ShowTemporaryMessage("Lancer down", 0.6f);
         Destroy(gameObject);

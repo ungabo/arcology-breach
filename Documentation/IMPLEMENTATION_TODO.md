@@ -839,6 +839,21 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.56 Standard Machine Death VFX Pass
+
+- [x] Add `MachineDeathVfx` runtime effect.
+- [x] Spawn compact death VFX for Scrappers.
+- [x] Spawn compact death VFX for Lancers.
+- [x] Spawn scaled death VFX for Bulwarks.
+- [x] Expand combat smoke to verify Scrapper death VFX.
+- [x] Expand Bulwark combat smoke to verify heavy-machine death VFX.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.56`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

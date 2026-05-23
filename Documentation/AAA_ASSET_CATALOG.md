@@ -115,8 +115,9 @@ Every major asset should eventually have three quality targets:
 | VFX-002 | Pressure muzzle flash | P1 | planned | Hot spark and steam puff. |
 | VFX-003 | Impact sparks | P1 | prototype | Short primitive metal spark burst at weapon impact point. |
 | VFX-004 | Machine hit effect | P1 | planned | Sparks, oil flecks, small steam release. |
-| VFX-005 | Machine death effect | P1 | prototype | Warden shutdown prototype now spawns steam jets, brass sparks, and an expanding pressure ring; generic machine death variants remain planned. |
+| VFX-005 | Machine death effect | P1 | prototype | Standard machine shutdown now spawns steam puffs, brass sparks, and a pressure ring for Scrappers/Lancers/Bulwarks; final per-enemy variants remain planned. |
 | VFX-005B | Warden shutdown burst | P1 | prototype | Boss-specific shutdown effect spawned by `GovernorWardenController`, verified by Warden combat smoke. |
+| VFX-005C | Standard shutdown burst | P1 | prototype | Compact `MachineDeathVfx` used by Scrappers and Lancers, scaled up for Bulwarks, verified by combat smoke. |
 | VFX-006 | Gear-key pickup effect | P1 | planned | Amber click/gear spin effect. |
 | VFX-007 | Pressure gate open effect | P2 | planned | Red lamps vent to green/amber, steam optional. |
 | VFX-008 | Service lift activation | P1 | planned | Green pressure-restored cue. |

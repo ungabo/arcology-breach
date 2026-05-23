@@ -371,6 +371,13 @@ v0.0.55 implementation notes:
 - Runtime smoke validates active objective HUD wiring.
 - Auto-playthrough validates objective text changes across the current route.
 
+v0.0.56 implementation notes:
+
+- Added `MachineDeathVfx` for regular mechanical enemy shutdowns.
+- Scrappers and Lancers spawn a compact steam/spark burst on death.
+- Bulwarks spawn a scaled-up machine shutdown burst.
+- Combat and Bulwark combat smoke verify the death VFX exists with visible primitive pieces.
+
 ## Map Documentation Template
 
 Every future level should have:

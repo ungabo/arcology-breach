@@ -45,6 +45,13 @@ public class RuntimeCombatTest : MonoBehaviour
             yield break;
         }
 
+        MachineDeathVfx deathVfx = UnityEngine.Object.FindAnyObjectByType<MachineDeathVfx>();
+        if (deathVfx == null || deathVfx.PieceCount < 8)
+        {
+            Fail("Combat smoke failed: machine death VFX did not spawn with enough visible pieces.");
+            yield break;
+        }
+
         Debug.Log("V0_COMBAT_SMOKE_PASS");
         Application.Quit(0);
     }

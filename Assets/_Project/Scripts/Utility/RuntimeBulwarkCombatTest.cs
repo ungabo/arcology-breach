@@ -57,6 +57,13 @@ public class RuntimeBulwarkCombatTest : MonoBehaviour
             yield break;
         }
 
+        MachineDeathVfx deathVfx = UnityEngine.Object.FindAnyObjectByType<MachineDeathVfx>();
+        if (deathVfx == null || deathVfx.PieceCount < 8)
+        {
+            Fail("Bulwark combat smoke failed: machine death VFX did not spawn with enough visible pieces.");
+            yield break;
+        }
+
         Debug.Log("V0_BULWARK_COMBAT_PASS");
         Application.Quit(0);
     }

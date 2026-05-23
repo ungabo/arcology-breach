@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.55`.
+Current state: `v0.0.56`.
 
 Implemented:
 
@@ -63,6 +63,7 @@ Implemented:
 - Warden boss health HUD with brass backplate, red pressure fill, boss label, runtime visibility, validation, and packaged Warden combat smoke damage feedback coverage.
 - Warden shutdown VFX with steam jets, brass sparks, expanding pressure ring, and packaged Warden combat smoke coverage.
 - Persistent objective HUD with key, gate, valve, Warden defeat, death, and win-state updates plus auto-playthrough coverage.
+- Standard machine death VFX for Scrappers, Lancers, and Bulwarks with combat smoke coverage.
 
 ## 3. Target Platform
 
