@@ -1,14 +1,26 @@
-# Arcology Breach
+# Brassworks Breach
 
-Current state: playable `v0.0.6` proof of concept.
+Current state: playable `v0.0.7` proof of concept.
 
 Public repository:
 
 `https://github.com/ungabo/arcology-breach`
 
-This Unity project contains a simple first-person cyberpunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural cyberpunk dressing, text HUD, basic hitscan shooting, procedural audio cues, mechanical melee enemies, an access shard, a corporate lockdown gate, and an emergency exit.
+Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-Long-term direction: an original heavily stylized cyberpunk action game set inside a sealed corporate arcology where autonomous security systems have turned civic machines into predatory mechanical bodies.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, text HUD, basic hitscan shooting, procedural audio cues, mechanical melee enemies, a gear key, a pressure gate, and a service lift.
+
+Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
+
+## North Star
+
+Primary concept sheet:
+
+`Documentation/ConceptArt/north-star-steampunk-level-hud-enemies-props.png`
+
+Supporting concept sheet:
+
+`Documentation/ConceptArt/north-star-steampunk-brassworks-pressure-pistol.png`
 
 ## How to Open
 
@@ -36,22 +48,22 @@ Main scene:
 
 Goal:
 
-1. Find the access shard.
-2. Return to the red corporate lockdown gate.
+1. Find the gear key.
+2. Return to the pressure gate.
 3. Let the gate open.
-4. Reach the green emergency lift/data gate.
+4. Reach the service lift.
 
 ## Build
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.6\ArcologyBreach_v0.0.6.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.7\BrassworksBreach_v0.0.7.exe`
 
-Checkpoint builds will use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
+Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
 ## Verification
 
-The project has passed:
+The project test matrix includes:
 
 - Unity project creation/import.
 - Scene generation.
@@ -60,15 +72,7 @@ The project has passed:
 - Packaged runtime smoke test.
 - Packaged auto-playthrough objective-chain test.
 - Packaged combat smoke test.
-
-Useful logs:
-
-- `Logs\build-v006-scene.log`
-- `Logs\v006-smoke-test.log`
-- `Logs\v006-windows-build.log`
-- `Logs\v006-runtime-smoke.log`
-- `Logs\v006-auto-playthrough.log`
-- `Logs\v006-combat-smoke.log`
+- Packaged pause-flow smoke test.
 
 Smoke pass markers:
 
@@ -77,113 +81,77 @@ Smoke pass markers:
 - `V0_RUNTIME_SMOKE_PASS`
 - `V0_AUTO_PLAYTHROUGH_PASS`
 - `V0_COMBAT_SMOKE_PASS`
+- `V0_PAUSE_FLOW_PASS`
 
 ## Developer Commands
 
 Rebuild the generated scene:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v006-scene.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v007-scene.log'
 ```
 
 Run editor smoke test:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v006-smoke-test.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v007-smoke-test.log'
 ```
 
 Build Windows player:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v006-windows-build.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v007-windows-build.log'
 ```
 
 Run packaged runtime smoke:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.6\ArcologyBreach_v0.0.6.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v006-runtime-smoke.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.7\BrassworksBreach_v0.0.7.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v007-runtime-smoke.log'
 ```
 
 Run packaged auto-playthrough:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.6\ArcologyBreach_v0.0.6.exe' -batchmode -nographics -v0AutoPlaythrough -logFile 'D:\__MY APPS\Unity Doom\Logs\v006-auto-playthrough.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.7\BrassworksBreach_v0.0.7.exe' -batchmode -nographics -v0AutoPlaythrough -logFile 'D:\__MY APPS\Unity Doom\Logs\v007-auto-playthrough.log'
 ```
 
 Run packaged combat smoke:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.6\ArcologyBreach_v0.0.6.exe' -batchmode -nographics -v0CombatSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v006-combat-smoke.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.7\BrassworksBreach_v0.0.7.exe' -batchmode -nographics -v0CombatSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v007-combat-smoke.log'
 ```
 
-## What v0.1 Added
+Run packaged pause flow:
 
-After the v0.0 loop passed, a small presentation pass added:
+```powershell
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.7\BrassworksBreach_v0.0.7.exe' -batchmode -nographics -v0PauseFlow -logFile 'D:\__MY APPS\Unity Doom\Logs\v007-pause-flow.log'
+```
 
-- Blocky first-person `Pulse Pistol` placeholder.
-- Muzzle flash.
-- Damage flash.
-- Bobbing pickups.
-- Sliding corporate lockdown gate.
-- Colored access-shard/gate/exit lights.
-- Primitive mechanical enemies with simple lens markers.
+## What v0.0.7 Adds
 
-## What v0.0.2 Added
-
-- Procedural cyberpunk audio system.
-- Pulse pistol fire and empty-click sounds.
-- Health, ammo, and access-shard pickup sounds.
-- Scrapper hit and shutdown sounds.
-- Player hurt sound.
-- Lockdown gate denied/open sounds.
-- Emergency lift win cue.
-
-## What v0.0.3 Added
-
-- Scrapper attack windup with magenta attack tell.
-- Player shots interrupt Scrapper windup.
-- Access shard pedestal.
-- Floor guide strips for shard route, lockdown gate, and emergency lift.
-- In-world labels for access shard, lockdown gate, and emergency lift.
-- Deprecated Unity object lookup calls replaced.
-
-## What v0.0.4 Added
-
-- Packaged auto-playthrough test for shard/gate/exit objective flow.
-- Runtime smoke now verifies the auto-playthrough test component exists.
-- Scrapper obstacle probing and simple side-steering.
-
-## What v0.0.5 Added
-
-- Packaged combat smoke test for pulse-pistol damage against a Scrapper.
-- `WeaponController.FireOnce()` test hook.
-- Runtime smoke now verifies the combat test component exists.
-
-## What v0.0.6 Added
-
-- First procedural cyberpunk dressing pass.
-- Wet concrete floor patches.
-- Black-chrome server stacks with colored status lights.
-- Cyan and magenta cable trunks.
-- Amber gate hazard strips and black-chrome gate header.
+- Steampunk north-star concept art imported into repo.
+- Working title and Unity product metadata changed to `Brassworks Breach`.
+- Scene language shifted to gear key, pressure gate, service lift, pressure pistol, and steamworks dressing.
+- Pause menu with resume, restart, and quit buttons.
+- Packaged pause-flow automation.
 
 ## Good Next Steps
 
-- Manually play through the Windows build and tune movement/enemy balance.
-- Tune cyberpunk audio levels after a manual listen pass.
-- Add stylized neon wall/floor materials.
-- Replace primitive enemy visuals with mechanical `Scrapper` art.
-- Replace the blocky weapon with a stylized `Pulse Pistol`.
+- Run and fix the full `v0.0.7` test matrix.
+- Continue replacing procedural placeholder geometry with steampunk assets from the asset catalog.
+- Add first brass gauge HUD pass.
+- Add first Scrapper visual pass.
+- Add first Pressure Pistol visual pass.
 
 ## Planning Docs
 
+- `Documentation/STEAMPUNK_NORTH_STAR.md`
 - `Documentation/AAA_VISION_AND_ROADMAP.md`
 - `Documentation/AAA_ASSET_CATALOG.md`
-- `Documentation/CYBERPUNK_STORY_BIBLE.md`
+- `Documentation/STORY_AND_LORE_BIBLE.md`
 - `Documentation/LEVEL_DESIGN_AND_MAPS.md`
 - `Documentation/PRODUCTION_TRACKING_METHOD.md`
 - `Documentation/WORK_LEDGER.md`
-- `Documentation/HANDOFF.md`
 - `Documentation/ASSET_PACK_REVIEW.md`
 - `Documentation/TITLE_AND_BRANDING_TRACKER.md`
 - `Documentation/PLATFORM_WINDOWS_TARGET.md`

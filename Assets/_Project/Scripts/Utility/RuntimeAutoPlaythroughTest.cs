@@ -24,12 +24,12 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         LockedDoor door = Require<LockedDoor>("LockedDoor");
         ExitTrigger exit = Require<ExitTrigger>("ExitTrigger");
         GameStateController gameState = Require<GameStateController>("GameStateController");
-        Pickup accessShard = FindPickup(PickupKind.Key);
+        Pickup gearKey = FindPickup(PickupKind.Key);
 
         Collider doorCollider = door.GetComponent<Collider>();
         if (doorCollider == null)
         {
-            Fail("Auto-playthrough failed: lockdown gate is missing a collider.");
+            Fail("Auto-playthrough failed: pressure gate is missing a collider.");
             yield break;
         }
 
@@ -42,26 +42,26 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
 
         if (!doorCollider.enabled)
         {
-            Fail("Auto-playthrough failed: lockdown gate opened before access shard pickup.");
+            Fail("Auto-playthrough failed: pressure gate opened before gear key pickup.");
             yield break;
         }
 
-        Teleport(player, accessShard.transform.position);
-        yield return WaitUntilOrFail(() => inventory.HasKey, "access shard pickup", 2f);
+        Teleport(player, gearKey.transform.position);
+        yield return WaitUntilOrFail(() => inventory.HasKey, "gear key pickup", 2f);
         if (failed)
         {
             yield break;
         }
 
         Teleport(player, door.transform.position + Vector3.back * 1.2f);
-        yield return WaitUntilOrFail(() => doorCollider == null || !doorCollider.enabled, "lockdown gate opening", 2f);
+        yield return WaitUntilOrFail(() => doorCollider == null || !doorCollider.enabled, "pressure gate opening", 2f);
         if (failed)
         {
             yield break;
         }
 
         Teleport(player, exit.transform.position);
-        yield return WaitUntilOrFail(() => gameState.State == GameRunState.Won, "emergency lift win state", 2f);
+        yield return WaitUntilOrFail(() => gameState.State == GameRunState.Won, "service lift win state", 2f);
         if (failed)
         {
             yield break;

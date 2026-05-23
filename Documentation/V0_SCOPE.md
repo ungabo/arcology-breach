@@ -1,17 +1,18 @@
-# Arcology Breach - v0 Scope
+# Brassworks Breach - v0 Scope
 
 ## Purpose
 
 The original `v0.0` goal was to prove that the Unity FPS loop works on this machine. That goal is complete.
 
-Current `v0.1` keeps the game simple but now points toward the original cyberpunk identity:
+Current `v0.0.7` keeps the game simple but now points toward the steampunk north-star identity:
 
-- Greybox `Aster Gate Intake`.
+- Greybox `Brassworks Intake`.
 - Primitive mechanical `Scrapper` enemies.
-- Placeholder `Pulse Pistol`.
-- Access shard objective.
-- Red corporate lockdown gate.
-- Green emergency lift/data gate.
+- Placeholder `Pressure Pistol`.
+- Gear-key objective.
+- Pressure gate.
+- Service lift exit.
+- Pause menu with quit flow.
 
 ## v0.0 Complete
 
@@ -22,7 +23,7 @@ Current `v0.1` keeps the game simple but now points toward the original cyberpun
 - Ammo tracking.
 - Primitive melee enemy.
 - Text HUD.
-- Key/access pickup.
+- Key pickup.
 - Locked route.
 - Exit trigger.
 - Restart after death/win.
@@ -38,17 +39,16 @@ Current `v0.1` keeps the game simple but now points toward the original cyberpun
 - Colored point lights.
 - Enemy lens markers.
 
-## Active v0.2 Direction
+## Active v0.0.7 Direction
 
-`v0.2` should make the prototype feel like `Arcology Breach`, even before final art:
+`v0.0.7` should make the prototype feel like `Brassworks Breach`, even before final art:
 
-- Rename visible gameplay language to access shard, lockdown gate, emergency lift.
-- Tune combat through manual play.
-- Tune the first procedural cyberpunk audio pass.
-- Tune the new Scrapper attack tell and improve enemy navigation.
-- Confirm `Aster Gate Intake` room scale and objective flow.
-- Expand the first procedural neon/cyberpunk dressing pass only after current tests stay green.
-- Keep packaged runtime smoke and auto-playthrough tests passing.
+- Rename visible gameplay language to gear key, pressure gate, and service lift.
+- Add usable pause menu and quit flow.
+- Keep the procedural steamworks audio pass working.
+- Keep Scrapper attack tell and enemy navigation working.
+- Retheme first procedural dressing pass toward brass, copper, oil stone, and boiler machinery.
+- Keep packaged runtime smoke, auto-playthrough, combat smoke, and pause-flow smoke passing.
 
 ## Deferred
 

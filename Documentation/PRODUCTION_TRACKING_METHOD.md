@@ -20,7 +20,6 @@ Use these files as the source of truth:
 - `Documentation/ASSET_PACK_REVIEW.md`: local/available Unity Asset Store packs and import decisions.
 - `Documentation/LEVEL_DESIGN_AND_MAPS.md`: level scale, map ladder, and transition mechanics.
 - `Documentation/WORK_LEDGER.md`: active task ledger.
-- `Documentation/HANDOFF.md`: current handoff for future chats.
 
 GitHub should mirror this structure:
 
@@ -108,11 +107,10 @@ When priorities conflict, playable game loop comes first:
 
 At the start of a work session:
 
-1. Read `HANDOFF.md`.
-2. Check `git status --short --branch`.
-3. Check `BUILD_STATUS.md`.
-4. Pick the next `ready` P0/P1 task.
-5. Mark it `in-progress` in `WORK_LEDGER.md`.
+1. Check `git status --short --branch`.
+2. Check `BUILD_STATUS.md`.
+3. Pick the next `ready` P0/P1 task.
+4. Mark it `in-progress` in `WORK_LEDGER.md`.
 
 During work:
 
@@ -125,9 +123,8 @@ At the end of a session:
 
 1. Update `BUILD_STATUS.md`.
 2. Update `WORK_LEDGER.md`.
-3. Update `HANDOFF.md`.
-4. Commit meaningful changes.
-5. Push to GitHub.
+3. Commit meaningful changes.
+4. Push to GitHub.
 
 ## 8. Verification Levels
 
@@ -148,6 +145,7 @@ Current automated pass markers:
 - `V0_RUNTIME_SMOKE_PASS`
 - `V0_AUTO_PLAYTHROUGH_PASS`
 - `V0_COMBAT_SMOKE_PASS`
+- `V0_PAUSE_FLOW_PASS`
 
 ## 9. Change Control
 
@@ -206,16 +204,6 @@ Issue body template:
 ## Notes
 ```
 
-## 11. Handoff Rule
+## 11. Continuity Rule
 
-`HANDOFF.md` must always answer:
-
-- What is the project?
-- What works now?
-- What was last changed?
-- What should happen next?
-- What commands verify the build?
-- What files matter most?
-- What should a new chat avoid redoing?
-
-Update it before ending any substantial work session.
+Keep `BUILD_STATUS.md`, `WORK_LEDGER.md`, and `SESSION_LOG.md` current enough that development can continue without pausing. Use `HANDOFF.md` only if a future explicit handoff is requested.

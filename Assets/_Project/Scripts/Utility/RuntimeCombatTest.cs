@@ -39,7 +39,7 @@ public class RuntimeCombatTest : MonoBehaviour
             yield return new WaitForSeconds(weapon.fireCooldown + 0.05f);
         }
 
-        yield return WaitUntilOrFail(() => target == null, "Scrapper death from pulse pistol fire", 2f);
+        yield return WaitUntilOrFail(() => target == null, "Scrapper death from pressure pistol fire", 2f);
         if (failed)
         {
             yield break;

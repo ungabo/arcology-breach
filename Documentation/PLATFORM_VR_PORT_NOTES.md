@@ -2,7 +2,7 @@
 
 ## Role
 
-VR is a future platform family for `Arcology Breach`. The core Windows game should be built in a way that can support VR later, especially through clean input, interaction, camera, scale, and comfort decisions.
+VR is a future platform family for `Brassworks Breach`. The core Windows game should be built in a way that can support VR later, especially through clean input, interaction, camera, scale, and comfort decisions.
 
 Target stores:
 
@@ -61,7 +61,7 @@ The flat fast movement of the Windows game may need a VR-specific mode.
 
 Potential approaches:
 
-- Keep `Pulse Pistol` as a hand-held VR weapon.
+- Keep `Pressure Pistol` as a hand-held VR weapon.
 - Aim by controller pose, not screen center.
 - Separate hit logic from desktop crosshair logic.
 - Add reload/charge interaction only if it is fun and reliable.
@@ -76,7 +76,7 @@ VR-compatible UI should use:
 - Wrist display.
 - Weapon-mounted ammo display.
 - World-space objective prompts.
-- Diegetic access-shard/gate indicators.
+- Diegetic gear-key/pressure-gate indicators.
 
 ## SteamVR / PC VR
 

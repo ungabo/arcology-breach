@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.6` checkpoint build for `Arcology Breach`.
+`v0.0.7` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. A small `v0.1` presentation pass has also been added while keeping the project simple.
+`v0.0` core loop is complete. The current build rethemes the project to the steampunk north star and adds pause/quit flow.
 
 ## Completed
 
@@ -12,39 +12,34 @@
 - Main scene generated at `Assets/_Project/Scenes/Level01.unity`.
 - First-person player movement and mouse look.
 - Character collision with greybox walls.
-- Plain text HUD for health, ammo, and access-shard state.
-- Hitscan weapon with ammo and fire cooldown.
+- Plain text HUD for health, ammo, and gear-key state.
+- Hitscan pressure-pistol placeholder with ammo and fire cooldown.
 - Primitive mechanical melee enemies that chase, attack, take damage, and die.
-- Health, ammo, and access-shard pickups.
-- Red corporate lockdown gate requiring the access shard.
-- Green emergency exit trigger.
-- Procedural cyberpunk audio cues for weapon, pickups, enemies, player hurt, gate feedback, and win.
-- Scrapper attack windup with magenta attack tell.
+- Health, ammo, and gear-key pickups.
+- Pressure gate requiring the gear key.
+- Service lift exit trigger.
+- Procedural steamworks audio cues for weapon, pickups, enemies, player hurt, gate feedback, and win.
+- Scrapper attack windup with red-orange pressure tell.
 - Scrapper obstacle probing and simple side-steering.
-- In-world labels and floor guide strips for access shard, lockdown gate, and emergency lift.
-- Procedural cyberpunk dressing: wet concrete patches, cable trunks, server stacks, and gate hazard details.
-- Packaged automated playthrough test for the shard/gate/exit objective chain.
-- Packaged combat smoke test for pulse-pistol damage against a Scrapper.
-- Pause, death, win, and restart flow.
-- Windows standalone build.
-
-## v0.1 Presentation Additions
-
-- Blocky camera-mounted `Pulse Pistol` placeholder.
-- Muzzle flash.
-- Red damage flash.
-- Bobbing pickups.
-- Sliding corporate lockdown gate.
-- Colored point lights for access shard, gate, and exit.
-- Primitive mechanical enemies with simple lens markers.
+- In-world labels and floor guide strips for gear key, pressure gate, and service lift.
+- Procedural steampunk dressing: oil-dark stone patches, pipe runs, boiler stacks, and gate hazard details.
+- Packaged automated playthrough test for the key/gate/lift objective chain.
+- Packaged combat smoke test for pressure-pistol damage against a Scrapper.
+- Pause menu with resume, restart, and quit.
+- Windows standalone build flow.
 
 ## Verification Results
+
+Latest fully verified build: `v0.0.7`.
+
+Current `v0.0.7` verification:
 
 - Editor smoke test: passed.
 - Windows build: passed.
 - Packaged runtime smoke test: passed.
 - Packaged auto-playthrough test: passed.
 - Packaged combat smoke test: passed.
+- Packaged pause-flow smoke test: passed.
 
 Pass markers:
 
@@ -53,38 +48,25 @@ Pass markers:
 - `V0_RUNTIME_SMOKE_PASS`
 - `V0_AUTO_PLAYTHROUGH_PASS`
 - `V0_COMBAT_SMOKE_PASS`
-
-Latest checkpoint verification:
-
-- `2026-05-22 20:52 -04:00`: `v0.0.1` editor smoke passed.
-- `2026-05-22 20:52 -04:00`: `v0.0.1` Windows checkpoint build passed.
-- `2026-05-22 20:52 -04:00`: `v0.0.1` packaged runtime smoke passed.
-- `2026-05-22 21:05 -04:00`: `v0.0.2` editor smoke passed.
-- `2026-05-22 21:05 -04:00`: `v0.0.2` Windows checkpoint build passed.
-- `2026-05-22 21:05 -04:00`: `v0.0.2` packaged runtime smoke passed.
-- `2026-05-22 21:11 -04:00`: `v0.0.3` editor smoke passed.
-- `2026-05-22 21:11 -04:00`: `v0.0.3` Windows checkpoint build passed.
-- `2026-05-22 21:11 -04:00`: `v0.0.3` packaged runtime smoke passed.
-- `2026-05-22 23:29 -04:00`: `v0.0.4` editor smoke passed.
-- `2026-05-22 23:29 -04:00`: `v0.0.4` Windows checkpoint build passed.
-- `2026-05-22 23:29 -04:00`: `v0.0.4` packaged runtime smoke passed.
-- `2026-05-22 23:29 -04:00`: `v0.0.4` packaged auto-playthrough passed.
-- `2026-05-22 23:35 -04:00`: `v0.0.5` editor smoke passed.
-- `2026-05-22 23:35 -04:00`: `v0.0.5` Windows checkpoint build passed.
-- `2026-05-22 23:35 -04:00`: `v0.0.5` packaged runtime smoke passed.
-- `2026-05-22 23:35 -04:00`: `v0.0.5` packaged auto-playthrough passed.
-- `2026-05-22 23:35 -04:00`: `v0.0.5` packaged combat smoke passed.
-- `2026-05-22 23:39 -04:00`: `v0.0.6` editor smoke passed.
-- `2026-05-22 23:39 -04:00`: `v0.0.6` Windows checkpoint build passed.
-- `2026-05-22 23:39 -04:00`: `v0.0.6` packaged runtime smoke passed.
-- `2026-05-22 23:39 -04:00`: `v0.0.6` packaged auto-playthrough passed.
-- `2026-05-22 23:39 -04:00`: `v0.0.6` packaged combat smoke passed.
+- `V0_PAUSE_FLOW_PASS`
 
 ## Build Path
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.6\ArcologyBreach_v0.0.6.exe`
+Current target:
 
-Future checkpoints should increment as `v0.0.7`, `v0.0.8`, etc. when meaningful progress is ready for local playtesting.
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.7\BrassworksBreach_v0.0.7.exe`
+
+## Latest Build Verification
+
+- `2026-05-23 00:49 -04:00`: `v0.0.7` scene rebuild passed.
+- `2026-05-23 00:49 -04:00`: `v0.0.7` editor smoke passed.
+- `2026-05-23 00:49 -04:00`: `v0.0.7` Windows build passed.
+- `2026-05-23 00:50 -04:00`: `v0.0.7` packaged runtime smoke passed.
+- `2026-05-23 00:50 -04:00`: `v0.0.7` packaged auto-playthrough passed.
+- `2026-05-23 00:50 -04:00`: `v0.0.7` packaged combat smoke passed.
+- `2026-05-23 00:50 -04:00`: `v0.0.7` packaged pause-flow smoke passed.
+
+Future builds should increment as `v0.0.8`, `v0.0.9`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
@@ -98,16 +80,3 @@ Future checkpoints should increment as `v0.0.7`, `v0.0.8`, etc. when meaningful 
 - No main menu.
 - No settings screen.
 - Android, browser/WebGL, SteamVR/OpenXR, and Meta Quest builds are planned but deferred.
-
-## Recommended Next Manual Test
-
-Launch the Windows build and confirm:
-
-1. Mouse locks and look works.
-2. `WASD` movement feels comfortable.
-3. Left mouse fires and consumes ammo.
-4. Enemies can be killed before they kill the player.
-5. Access shard pickup works.
-6. Red lockdown gate opens after shard collection.
-7. Green emergency exit reaches win state.
-8. `R` restarts after death/win.

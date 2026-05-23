@@ -20,9 +20,11 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<PlayerInventory>("PlayerInventory");
         Require<WeaponController>("WeaponController");
         Require<GameStateController>("GameStateController");
-        Require<CyberpunkAudio>("CyberpunkAudio");
+        Require<PauseMenuController>("PauseMenuController");
+        Require<SteamworksAudio>("SteamworksAudio");
         Require<RuntimeAutoPlaythroughTest>("RuntimeAutoPlaythroughTest");
         Require<RuntimeCombatTest>("RuntimeCombatTest");
+        Require<RuntimePauseFlowTest>("RuntimePauseFlowTest");
         Require<HUDController>("HUDController");
         Require<EnemyController>("EnemyController");
         Require<Pickup>("Pickup");

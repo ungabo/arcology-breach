@@ -19,23 +19,23 @@ public static class V0SceneBuilder
     {
         EnsureFolders();
 
-        Material wallMaterial = CreateMaterial("M_Greybox_Wall", new Color(0.48f, 0.48f, 0.5f));
-        Material floorMaterial = CreateMaterial("M_Greybox_Floor", new Color(0.18f, 0.18f, 0.2f));
-        Material doorMaterial = CreateMaterial("M_Greybox_RedDoor", new Color(0.75f, 0.08f, 0.05f));
-        Material keyMaterial = CreateMaterial("M_Greybox_Key", new Color(1f, 0.82f, 0.05f));
-        Material exitMaterial = CreateMaterial("M_Greybox_Exit", new Color(0.1f, 0.9f, 0.25f));
-        Material enemyMaterial = CreateMaterial("M_Greybox_Enemy", new Color(1f, 0.22f, 0.05f));
-        Material enemyEyeMaterial = CreateMaterial("M_Greybox_EnemyEyes", new Color(1f, 0.95f, 0.25f));
+        Material wallMaterial = CreateMaterial("M_Greybox_SootBrickWall", new Color(0.34f, 0.26f, 0.2f));
+        Material floorMaterial = CreateMaterial("M_Greybox_OilStoneFloor", new Color(0.12f, 0.1f, 0.08f));
+        Material doorMaterial = CreateMaterial("M_Greybox_PressureGate", new Color(0.62f, 0.25f, 0.12f));
+        Material keyMaterial = CreateMaterial("M_Greybox_GearKey", new Color(1f, 0.72f, 0.18f));
+        Material exitMaterial = CreateMaterial("M_Greybox_ServiceLift", new Color(0.25f, 0.75f, 0.42f));
+        Material enemyMaterial = CreateMaterial("M_Greybox_ClockworkEnemy", new Color(0.8f, 0.42f, 0.14f));
+        Material enemyEyeMaterial = CreateMaterial("M_Greybox_FurnaceEyes", new Color(1f, 0.55f, 0.12f));
         Material healthMaterial = CreateMaterial("M_Greybox_Health", new Color(0.95f, 0.1f, 0.1f));
         Material ammoMaterial = CreateMaterial("M_Greybox_Ammo", new Color(0.15f, 0.45f, 1f));
-        Material gunMaterial = CreateMaterial("M_Greybox_Gun", new Color(0.08f, 0.08f, 0.09f));
-        Material gunTrimMaterial = CreateMaterial("M_Greybox_GunTrim", new Color(0.42f, 0.42f, 0.46f));
+        Material gunMaterial = CreateMaterial("M_Greybox_WalnutGrip", new Color(0.22f, 0.12f, 0.055f));
+        Material gunTrimMaterial = CreateMaterial("M_Greybox_BrassTrim", new Color(0.86f, 0.58f, 0.24f));
         Material muzzleFlashMaterial = CreateMaterial("M_Greybox_MuzzleFlash", new Color(1f, 0.72f, 0.08f));
-        Material cyanGuideMaterial = CreateMaterial("M_Greybox_CyanGuide", new Color(0.05f, 0.85f, 1f));
-        Material magentaGuideMaterial = CreateMaterial("M_Greybox_MagentaGuide", new Color(1f, 0.08f, 0.7f));
-        Material blackChromeMaterial = CreateMaterial("M_Cyber_BlackChrome", new Color(0.02f, 0.025f, 0.035f));
-        Material wetConcreteMaterial = CreateMaterial("M_Cyber_WetConcrete", new Color(0.06f, 0.07f, 0.08f));
-        Material amberHazardMaterial = CreateMaterial("M_Cyber_AmberHazard", new Color(1f, 0.58f, 0.06f));
+        Material brassGuideMaterial = CreateMaterial("M_Greybox_BrassGuide", new Color(0.85f, 0.56f, 0.22f));
+        Material pressureWarningMaterial = CreateMaterial("M_Greybox_PressureWarning", new Color(0.9f, 0.18f, 0.06f));
+        Material rivetedIronMaterial = CreateMaterial("M_Steam_RivetedIron", new Color(0.075f, 0.07f, 0.065f));
+        Material oilStoneMaterial = CreateMaterial("M_Steam_OilDarkStone", new Color(0.065f, 0.055f, 0.045f));
+        Material brassHazardMaterial = CreateMaterial("M_Steam_BrassHazard", new Color(0.95f, 0.54f, 0.08f));
 
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -52,12 +52,12 @@ public static class V0SceneBuilder
         CreateEnemy("Enemy - Final Right", new Vector3(3.2f, 1f, 32.5f), enemyMaterial, enemyEyeMaterial);
         CreatePickup("Pickup - Health", PickupKind.Health, new Vector3(-3.6f, 0.45f, 20f), Vector3.one * 0.7f, healthMaterial, 25);
         CreatePickup("Pickup - Ammo", PickupKind.Ammo, new Vector3(4.2f, 0.45f, 19f), Vector3.one * 0.7f, ammoMaterial, 15);
-        CreatePickup("Pickup - Access Shard", PickupKind.Key, new Vector3(16f, 0.55f, 17f), Vector3.one * 0.9f, keyMaterial, 0);
+        CreatePickup("Pickup - Gear Key", PickupKind.Key, new Vector3(16f, 0.55f, 17f), Vector3.one * 0.9f, keyMaterial, 0);
         CreateLockedDoor(doorMaterial);
         CreateExit(exitMaterial);
         CreateAccentLights();
-        CreateObjectiveGuides(cyanGuideMaterial, magentaGuideMaterial, keyMaterial, exitMaterial);
-        CreateCyberpunkDressing(blackChromeMaterial, wetConcreteMaterial, cyanGuideMaterial, magentaGuideMaterial, amberHazardMaterial);
+        CreateObjectiveGuides(brassGuideMaterial, pressureWarningMaterial, keyMaterial, exitMaterial);
+        CreateSteamworksDressing(rivetedIronMaterial, oilStoneMaterial, brassGuideMaterial, pressureWarningMaterial, brassHazardMaterial);
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
         EditorBuildSettings.scenes = new[]
@@ -85,9 +85,11 @@ public static class V0SceneBuilder
         RequireObject<PlayerInventory>("PlayerInventory");
         RequireObject<WeaponController>("WeaponController");
         RequireObject<GameStateController>("GameStateController");
-        RequireObject<CyberpunkAudio>("CyberpunkAudio");
+        RequireObject<PauseMenuController>("PauseMenuController");
+        RequireObject<SteamworksAudio>("SteamworksAudio");
         RequireObject<RuntimeAutoPlaythroughTest>("RuntimeAutoPlaythroughTest");
         RequireObject<RuntimeCombatTest>("RuntimeCombatTest");
+        RequireObject<RuntimePauseFlowTest>("RuntimePauseFlowTest");
         RequireObject<HUDController>("HUDController");
         RequireObject<EnemyController>("EnemyController");
         RequireObject<Pickup>("Pickup");
@@ -106,10 +108,10 @@ public static class V0SceneBuilder
     {
         RunSmokeTest();
 
-        string buildDirectory = Path.Combine(Directory.GetCurrentDirectory(), WindowsBuildFolder, GameBranding.CheckpointVersion);
+        string buildDirectory = Path.Combine(Directory.GetCurrentDirectory(), WindowsBuildFolder, GameBranding.BuildVersion);
         Directory.CreateDirectory(buildDirectory);
 
-        string executablePath = Path.Combine(buildDirectory, GameBranding.ExecutableStem + "_" + GameBranding.CheckpointVersion + ".exe");
+        string executablePath = Path.Combine(buildDirectory, GameBranding.ExecutableStem + "_" + GameBranding.BuildVersion + ".exe");
 
         EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows64);
 
@@ -211,7 +213,7 @@ public static class V0SceneBuilder
 
     private static void CreateGreyboxLevel(Material wallMaterial, Material floorMaterial)
     {
-        GameObject parent = new GameObject("Aster Gate Intake Blockout");
+        GameObject parent = new GameObject("Brassworks Intake Blockout");
 
         CreateCube("Floor", new Vector3(5f, -0.1f, 16f), new Vector3(36f, 0.2f, 46f), floorMaterial, parent.transform);
 
@@ -302,15 +304,75 @@ public static class V0SceneBuilder
         hud.damageFlashImage = CreateScreenImage("Damage Flash", canvasObject.transform, new Color(1f, 0f, 0f, 0f));
         hud.healthText = CreateText("Health Text", canvasObject.transform, font, "HEALTH 100/100", 24, TextAnchor.LowerLeft, new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(18f, 16f), new Vector2(360f, 50f));
         hud.ammoText = CreateText("Ammo Text", canvasObject.transform, font, "AMMO 30", 24, TextAnchor.LowerRight, new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-18f, 16f), new Vector2(360f, 50f));
-        hud.keyText = CreateText("Access Shard Text", canvasObject.transform, font, "SHARD NO", 22, TextAnchor.LowerCenter, new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0f, 18f), new Vector2(260f, 45f));
+        hud.keyText = CreateText("Gear Key Text", canvasObject.transform, font, "GEAR KEY NO", 22, TextAnchor.LowerCenter, new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0f, 18f), new Vector2(300f, 45f));
         CreateText("Crosshair", canvasObject.transform, font, "+", 34, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(80f, 80f));
         hud.messageText = CreateText("Message Text", canvasObject.transform, font, string.Empty, 34, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 80f), new Vector2(760f, 220f));
+        CreatePauseMenu(canvasObject.transform, font);
 
         GameObject eventSystemObject = new GameObject("EventSystem");
         eventSystemObject.AddComponent<EventSystem>();
         eventSystemObject.AddComponent<StandaloneInputModule>();
 
         return hud;
+    }
+
+    private static PauseMenuController CreatePauseMenu(Transform canvasTransform, Font font)
+    {
+        GameObject controllerObject = new GameObject("Pause Menu Controller");
+        controllerObject.transform.SetParent(canvasTransform, false);
+        PauseMenuController pauseMenu = controllerObject.AddComponent<PauseMenuController>();
+
+        GameObject root = new GameObject("Pause Menu");
+        root.transform.SetParent(controllerObject.transform, false);
+
+        RectTransform rootRect = root.AddComponent<RectTransform>();
+        rootRect.anchorMin = Vector2.zero;
+        rootRect.anchorMax = Vector2.one;
+        rootRect.pivot = new Vector2(0.5f, 0.5f);
+        rootRect.anchoredPosition = Vector2.zero;
+        rootRect.sizeDelta = Vector2.zero;
+
+        Image overlay = root.AddComponent<Image>();
+        overlay.color = new Color(0.01f, 0.012f, 0.018f, 0.82f);
+
+        CreateText("Pause Title", root.transform, font, GameBranding.WorkingTitle.ToUpperInvariant(), 42, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 150f), new Vector2(620f, 72f));
+        CreateText("Pause Subtitle", root.transform, font, "PRESSURE PAUSED", 24, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 100f), new Vector2(420f, 48f));
+
+        pauseMenu.root = root;
+        pauseMenu.resumeButton = CreatePauseButton("Resume Button", "RESUME", root.transform, font, new Vector2(0f, 32f));
+        pauseMenu.restartButton = CreatePauseButton("Restart Button", "RESTART", root.transform, font, new Vector2(0f, -34f));
+        pauseMenu.quitButton = CreatePauseButton("Quit Button", "QUIT", root.transform, font, new Vector2(0f, -100f));
+
+        return pauseMenu;
+    }
+
+    private static Button CreatePauseButton(string name, string label, Transform parent, Font font, Vector2 anchoredPosition)
+    {
+        GameObject buttonObject = new GameObject(name);
+        buttonObject.transform.SetParent(parent, false);
+
+        RectTransform rectTransform = buttonObject.AddComponent<RectTransform>();
+        rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+        rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+        rectTransform.pivot = new Vector2(0.5f, 0.5f);
+        rectTransform.anchoredPosition = anchoredPosition;
+        rectTransform.sizeDelta = new Vector2(260f, 48f);
+
+        Image image = buttonObject.AddComponent<Image>();
+        image.color = new Color(0.22f, 0.12f, 0.045f, 0.94f);
+
+        Button button = buttonObject.AddComponent<Button>();
+        ColorBlock colors = button.colors;
+        colors.normalColor = new Color(0.22f, 0.12f, 0.045f, 0.94f);
+        colors.highlightedColor = new Color(0.58f, 0.34f, 0.12f, 1f);
+        colors.pressedColor = new Color(0.95f, 0.63f, 0.2f, 1f);
+        colors.selectedColor = colors.highlightedColor;
+        button.colors = colors;
+
+        Text buttonText = CreateText(name + " Text", buttonObject.transform, font, label, 24, TextAnchor.MiddleCenter, new Vector2(0f, 0f), new Vector2(1f, 1f), new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
+        buttonText.color = new Color(1f, 0.84f, 0.48f);
+
+        return button;
     }
 
     private static Image CreateScreenImage(string name, Transform parent, Color color)
@@ -365,10 +427,12 @@ public static class V0SceneBuilder
         GameObject stateObject = new GameObject("Game State");
         GameStateController state = stateObject.AddComponent<GameStateController>();
         state.hud = hud;
-        stateObject.AddComponent<CyberpunkAudio>();
+        state.pauseMenu = UnityEngine.Object.FindAnyObjectByType<PauseMenuController>();
+        stateObject.AddComponent<SteamworksAudio>();
         stateObject.AddComponent<RuntimeSmokeTest>();
         stateObject.AddComponent<RuntimeAutoPlaythroughTest>();
         stateObject.AddComponent<RuntimeCombatTest>();
+        stateObject.AddComponent<RuntimePauseFlowTest>();
     }
 
     private static void CreatePlayer(Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial)
@@ -412,14 +476,14 @@ public static class V0SceneBuilder
 
     private static WeaponView CreateWeaponView(Transform cameraTransform, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial)
     {
-        GameObject weaponRoot = new GameObject("Pulse Pistol Placeholder");
+        GameObject weaponRoot = new GameObject("Pressure Pistol Placeholder");
         weaponRoot.transform.SetParent(cameraTransform, false);
         weaponRoot.transform.localPosition = new Vector3(0f, -0.55f, 0.82f);
         weaponRoot.transform.localRotation = Quaternion.identity;
 
-        CreateLocalCube("Gun Body", weaponRoot.transform, new Vector3(0f, 0f, 0f), new Vector3(0.42f, 0.22f, 0.42f), gunMaterial);
-        CreateLocalCube("Gun Barrel", weaponRoot.transform, new Vector3(0f, 0.04f, 0.36f), new Vector3(0.2f, 0.16f, 0.5f), gunTrimMaterial);
-        CreateLocalCube("Gun Grip", weaponRoot.transform, new Vector3(0f, -0.24f, -0.12f), new Vector3(0.2f, 0.36f, 0.18f), gunMaterial);
+        CreateLocalCube("Pressure Pistol Body", weaponRoot.transform, new Vector3(0f, 0f, 0f), new Vector3(0.42f, 0.22f, 0.42f), gunMaterial);
+        CreateLocalCube("Pressure Pistol Brass Barrel", weaponRoot.transform, new Vector3(0f, 0.04f, 0.36f), new Vector3(0.2f, 0.16f, 0.5f), gunTrimMaterial);
+        CreateLocalCube("Pressure Pistol Walnut Grip", weaponRoot.transform, new Vector3(0f, -0.24f, -0.12f), new Vector3(0.2f, 0.36f, 0.18f), gunMaterial);
         GameObject flash = CreateLocalCube("Muzzle Flash", weaponRoot.transform, new Vector3(0f, 0.04f, 0.68f), new Vector3(0.45f, 0.45f, 0.08f), muzzleFlashMaterial);
         flash.SetActive(false);
 
@@ -452,16 +516,16 @@ public static class V0SceneBuilder
         enemyController.obstacleProbeDistance = 1.15f;
     }
 
-    private static void CreateObjectiveGuides(Material cyanMaterial, Material magentaMaterial, Material keyMaterial, Material exitMaterial)
+    private static void CreateObjectiveGuides(Material brassMaterial, Material warningMaterial, Material keyMaterial, Material exitMaterial)
     {
-        CreateCube("Access Shard Pedestal", new Vector3(16f, 0.15f, 17f), new Vector3(1.35f, 0.3f, 1.35f), cyanMaterial);
-        CreateCube("Gate Warning Floor Strip", new Vector3(0f, 0.015f, 21.25f), new Vector3(3.4f, 0.03f, 0.28f), magentaMaterial);
-        CreateCube("Emergency Lift Floor Strip", new Vector3(0f, 0.015f, 33.15f), new Vector3(3.6f, 0.03f, 0.28f), exitMaterial);
-        CreateCube("Shard Route Floor Strip", new Vector3(8.1f, 0.015f, 17f), new Vector3(3.6f, 0.03f, 0.22f), keyMaterial);
+        CreateCube("Gear Key Pedestal", new Vector3(16f, 0.15f, 17f), new Vector3(1.35f, 0.3f, 1.35f), brassMaterial);
+        CreateCube("Pressure Gate Warning Strip", new Vector3(0f, 0.015f, 21.25f), new Vector3(3.4f, 0.03f, 0.28f), warningMaterial);
+        CreateCube("Service Lift Floor Strip", new Vector3(0f, 0.015f, 33.15f), new Vector3(3.6f, 0.03f, 0.28f), exitMaterial);
+        CreateCube("Gear Key Route Floor Strip", new Vector3(8.1f, 0.015f, 17f), new Vector3(3.6f, 0.03f, 0.22f), keyMaterial);
 
-        CreateWorldLabel("Label - Access Shard", "ACCESS SHARD", new Vector3(16f, 2.2f, 16.25f), new Color(1f, 0.85f, 0.15f), 0.28f);
-        CreateWorldLabel("Label - Lockdown Gate", "LOCKDOWN: SHARD REQUIRED", new Vector3(0f, 2.9f, 21.95f), new Color(1f, 0.08f, 0.7f), 0.22f);
-        CreateWorldLabel("Label - Emergency Lift", "EMERGENCY LIFT", new Vector3(0f, 2.75f, 33.95f), new Color(0.2f, 1f, 0.45f), 0.26f);
+        CreateWorldLabel("Label - Gear Key", "GEAR KEY", new Vector3(16f, 2.2f, 16.25f), new Color(1f, 0.82f, 0.28f), 0.28f);
+        CreateWorldLabel("Label - Pressure Gate", "PRESSURE GATE: KEY REQUIRED", new Vector3(0f, 2.9f, 21.95f), new Color(1f, 0.45f, 0.16f), 0.22f);
+        CreateWorldLabel("Label - Service Lift", "SERVICE LIFT", new Vector3(0f, 2.75f, 33.95f), new Color(0.45f, 1f, 0.52f), 0.26f);
     }
 
     private static void CreateWorldLabel(string name, string text, Vector3 position, Color color, float characterSize)
@@ -479,27 +543,27 @@ public static class V0SceneBuilder
         textMesh.color = color;
     }
 
-    private static void CreateCyberpunkDressing(Material blackChromeMaterial, Material wetConcreteMaterial, Material cyanMaterial, Material magentaMaterial, Material amberMaterial)
+    private static void CreateSteamworksDressing(Material rivetedIronMaterial, Material oilStoneMaterial, Material brassMaterial, Material warningMaterial, Material amberMaterial)
     {
-        GameObject parent = new GameObject("Cyberpunk Dressing - Aster Gate");
+        GameObject parent = new GameObject("Steamworks Dressing - Brassworks Intake");
 
-        CreateDecoCube("Wet Concrete Patch - Start", new Vector3(0f, 0.012f, 0f), new Vector3(5.8f, 0.024f, 5.2f), wetConcreteMaterial, parent.transform);
-        CreateDecoCube("Wet Concrete Patch - Fight", new Vector3(0f, 0.013f, 17f), new Vector3(10.5f, 0.026f, 8.5f), wetConcreteMaterial, parent.transform);
-        CreateDecoCube("Wet Concrete Patch - Final", new Vector3(0f, 0.014f, 31f), new Vector3(11.5f, 0.028f, 8.5f), wetConcreteMaterial, parent.transform);
+        CreateDecoCube("Oil Stone Patch - Start", new Vector3(0f, 0.012f, 0f), new Vector3(5.8f, 0.024f, 5.2f), oilStoneMaterial, parent.transform);
+        CreateDecoCube("Oil Stone Patch - Fight", new Vector3(0f, 0.013f, 17f), new Vector3(10.5f, 0.026f, 8.5f), oilStoneMaterial, parent.transform);
+        CreateDecoCube("Oil Stone Patch - Final", new Vector3(0f, 0.014f, 31f), new Vector3(11.5f, 0.028f, 8.5f), oilStoneMaterial, parent.transform);
 
-        CreateCableRun("Cyan Cable Trunk - Main West", new Vector3(-6.02f, 2.35f, 17f), new Vector3(0.08f, 0.16f, 8.4f), cyanMaterial, parent.transform);
-        CreateCableRun("Magenta Signal Trunk - Main East", new Vector3(6.02f, 2.15f, 17f), new Vector3(0.08f, 0.14f, 7.2f), magentaMaterial, parent.transform);
-        CreateCableRun("Cyan Cable Trunk - Key Room", new Vector3(14f, 2.25f, 20.02f), new Vector3(6.8f, 0.14f, 0.08f), cyanMaterial, parent.transform);
-        CreateCableRun("Magenta Lockdown Trunk - Gate", new Vector3(0f, 2.7f, 22.18f), new Vector3(3.2f, 0.12f, 0.08f), magentaMaterial, parent.transform);
-        CreateCableRun("Green Lift Power Trunk", new Vector3(0f, 2.55f, 34.08f), new Vector3(3.8f, 0.12f, 0.08f), cyanMaterial, parent.transform);
+        CreateCableRun("Copper Pipe Run - Main West", new Vector3(-6.02f, 2.35f, 17f), new Vector3(0.08f, 0.16f, 8.4f), brassMaterial, parent.transform);
+        CreateCableRun("Red Pressure Pipe - Main East", new Vector3(6.02f, 2.15f, 17f), new Vector3(0.08f, 0.14f, 7.2f), warningMaterial, parent.transform);
+        CreateCableRun("Copper Pipe Run - Key Room", new Vector3(14f, 2.25f, 20.02f), new Vector3(6.8f, 0.14f, 0.08f), brassMaterial, parent.transform);
+        CreateCableRun("Red Pressure Pipe - Gate", new Vector3(0f, 2.7f, 22.18f), new Vector3(3.2f, 0.12f, 0.08f), warningMaterial, parent.transform);
+        CreateCableRun("Service Lift Steam Pipe", new Vector3(0f, 2.55f, 34.08f), new Vector3(3.8f, 0.12f, 0.08f), brassMaterial, parent.transform);
 
-        CreateServerStack("Server Stack - Final West", new Vector3(-5.75f, 1.15f, 29.2f), blackChromeMaterial, cyanMaterial, magentaMaterial, parent.transform);
-        CreateServerStack("Server Stack - Final East", new Vector3(5.75f, 1.15f, 32.8f), blackChromeMaterial, cyanMaterial, magentaMaterial, parent.transform);
-        CreateServerStack("Server Stack - Key Room", new Vector3(17.25f, 1.15f, 15.2f), blackChromeMaterial, cyanMaterial, amberMaterial, parent.transform);
+        CreateServerStack("Boiler Stack - Final West", new Vector3(-5.75f, 1.15f, 29.2f), rivetedIronMaterial, brassMaterial, warningMaterial, parent.transform);
+        CreateServerStack("Boiler Stack - Final East", new Vector3(5.75f, 1.15f, 32.8f), rivetedIronMaterial, brassMaterial, warningMaterial, parent.transform);
+        CreateServerStack("Boiler Stack - Key Room", new Vector3(17.25f, 1.15f, 15.2f), rivetedIronMaterial, brassMaterial, amberMaterial, parent.transform);
 
         CreateDecoCube("Amber Hazard Stripe - Gate Left", new Vector3(-1.85f, 0.05f, 22.05f), new Vector3(0.18f, 0.06f, 1.2f), amberMaterial, parent.transform);
         CreateDecoCube("Amber Hazard Stripe - Gate Right", new Vector3(1.85f, 0.05f, 22.05f), new Vector3(0.18f, 0.06f, 1.2f), amberMaterial, parent.transform);
-        CreateDecoCube("Black Chrome Gate Header", new Vector3(0f, 3.25f, 22.12f), new Vector3(3.8f, 0.28f, 0.18f), blackChromeMaterial, parent.transform);
+        CreateDecoCube("Riveted Iron Gate Header", new Vector3(0f, 3.25f, 22.12f), new Vector3(3.8f, 0.28f, 0.18f), rivetedIronMaterial, parent.transform);
     }
 
     private static void CreateCableRun(string name, Vector3 position, Vector3 scale, Material material, Transform parent)
@@ -576,14 +640,14 @@ public static class V0SceneBuilder
 
     private static void CreateLockedDoor(Material material)
     {
-        GameObject door = CreateCube("Corporate Lockdown Gate", new Vector3(0f, 1.5f, 22.5f), new Vector3(3f, 3f, 0.5f), material);
+        GameObject door = CreateCube("Pressure Gate", new Vector3(0f, 1.5f, 22.5f), new Vector3(3f, 3f, 0.5f), material);
         LockedDoor lockedDoor = door.AddComponent<LockedDoor>();
         lockedDoor.openDistance = 2.3f;
     }
 
     private static void CreateExit(Material material)
     {
-        GameObject exit = CreateCube("Emergency Lift Trigger", new Vector3(0f, 1.1f, 34.6f), new Vector3(2.4f, 2.2f, 0.35f), material);
+        GameObject exit = CreateCube("Service Lift Trigger", new Vector3(0f, 1.1f, 34.6f), new Vector3(2.4f, 2.2f, 0.35f), material);
         Collider exitCollider = exit.GetComponent<Collider>();
         if (exitCollider != null)
         {

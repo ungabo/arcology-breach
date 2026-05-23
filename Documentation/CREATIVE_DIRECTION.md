@@ -1,103 +1,105 @@
-# Arcology Breach - Creative Direction
+# Brassworks Breach - Creative Direction
 
-## 1. Identity
+## Identity
 
-`Arcology Breach` is an original cyberpunk FPS. It should feel like a dangerous midnight run through sealed corporate infrastructure: rain-streaked concrete, black chrome, neon signage, holographic warnings, exposed cables, security cameras, and machines that have learned to hunt.
+`Brassworks Breach` is an original steampunk first-person dungeon crawler/shooter. The player pushes through a sealed underground industrial works full of riveted iron corridors, oil-dark stone floors, gaslight, pressure gauges, valve wheels, copper pipe bundles, furnace glow, and clockwork machines that have become hostile.
 
-Future visuals, writing, audio, enemy design, and UI should be cyberpunk-first.
+The two concept sheets in `Documentation/ConceptArt` are the current visual north star:
 
-## 2. Visual Pillars
+- `north-star-steampunk-level-hud-enemies-props.png`: primary target for level mood, HUD, enemies, and props.
+- `north-star-steampunk-brassworks-pressure-pistol.png`: supporting target for the intake corridor, Scrapper, and pressure pistol.
 
-- Dense neon city infrastructure.
-- Corporate cleanliness broken by lower-city graffiti.
+## Visual Pillars
+
+- Brass, copper, riveted iron, walnut, soot, oil, wet stone, and warm gaslight.
 - Mechanical enemies, not organic monsters.
-- Readable combat silhouettes.
-- Strong color coding.
-- Stylized forms over realism.
-- Wet surfaces, screen glow, and hard-edged shadows.
+- Clear silhouettes and readable combat tells.
+- Compact dungeon-like layouts with industrial purpose.
+- Steam, valves, gauges, flywheels, piston arms, furnace eyes, and gear-driven doors.
+- Stylized forms over realism; assets should be bold enough to read on mid/low PCs.
 
-## 3. Palette
+## Palette
 
-- Deep black and graphite for architecture.
-- Cyan for player tech and safe systems.
-- Magenta for hostile signal corruption.
-- Amber/yellow for pickups, warnings, and access shards.
-- Red for lockdown gates, denied access, and damage.
-- Green for exits and successful bypasses.
-- White chrome for Sable Meridian corporate hardware.
+- Deep iron, soot-black, and oil-brown for architecture.
+- Brass and copper for routes, interactables, weapon trim, and machinery.
+- Amber for keys, gauges, furnace light, and useful affordances.
+- Red-orange for pressure danger, gate denial, enemy attack tells, and damage.
+- Soft green for service lifts, safe exits, and restored machinery.
+- Cream glass and enamel for readable gauges and HUD inserts.
 
-## 4. Player Fantasy
+## Player Fantasy
 
-The player is `Vey`: a fast courier/intrusion runner with stolen corporate hardware. They should feel under-resourced but sharp, surviving through speed, precision, and knowledge of service spaces.
+The player is a hired pressure-runner: under-equipped, quick, and used to crawling through unsafe machinery spaces. They survive by moving fast, reading machinery tells, and turning unreliable industrial tools into weapons.
 
-## 5. Enemy Style
+## Enemy Style
 
-Enemies are machines:
+Enemies are tools transformed into threats:
 
-- Maintenance frames with cutter arms.
-- Security chassis with lens clusters.
-- Surgical drones with needle tools.
-- Riot-control frames with shield plating.
-- Server nodes that pulse hostile signal.
+- `Scrapper`: cutter-arm maintenance automaton.
+- `Boiler Tick`: squat pressure scout with clockwork legs.
+- `Lancer`: ranged valve-rifle security frame.
+- `Bulwark`: heavy furnace-plated riot machine.
+- `Bellows Node`: stationary pressure amplifier that strengthens nearby machines.
 
-They should be readable as tools transformed into threats.
+They should look practical, dangerous, and handmade: exposed pistons, valves, clockwork joints, chipped brass plates, furnace eyes, and oil leaks.
 
-## 6. Weapon Style
+## Weapon Style
 
-Starter weapon: `Pulse Pistol`.
+Starter weapon: `Pressure Pistol`.
 
-It should look like a compact black-market sidearm built from stolen corporate capacitor parts. Muzzle flash should be cyan/magenta hard-light, not a realistic firearm blast.
+It should look like a compact brass-and-walnut pneumatic sidearm with a pressure gauge, steam coil, short barrel, and worn iron casing. Muzzle feedback should feel like a compressed-air snap with hot sparks and a brief steam puff.
 
-## 7. Level Style
+## Level Style
 
-First level: `Aster Gate Intake`.
+First level: `Brassworks Intake`.
 
-The current greybox will become:
+The current greybox becomes:
 
-- Flooded service intake.
-- Cable-lined maintenance throat.
-- Robot repair bay.
-- Access-shard kiosk.
-- Corporate lockdown gate.
-- Transit control node.
-- Emergency lift/data gate.
+- Soot-brick service entry.
+- Copper-pipe maintenance throat.
+- Clockwork repair bay.
+- Gear-key plinth.
+- Gear-driven pressure gate.
+- Furnace control room.
+- Service lift exit.
 
-## 8. UI Style
+## UI Style
 
-The HUD should feel like hacked runner equipment:
+The HUD should feel like a small brass instrument panel:
 
 - Compact.
 - High contrast.
-- Slightly glitchy.
-- Cyan player data.
-- Red warning states.
+- Gauge and glass motifs.
+- Brass frames and cream labels.
+- Red pressure warnings.
 - Amber objective items.
 
-Avoid giant lore panels or decorative UI that blocks gameplay.
+Avoid large lore panels or decorative UI that blocks gameplay.
 
-## 9. Audio Style
+## Audio Style
 
-Audio should be sharp, synthetic, and urban:
+Audio should be mechanical, warm, and forceful:
 
-- Pulse weapon snaps.
-- Servo whines.
-- Hydraulic impacts.
-- Drone chirps.
-- Wet electrical hum.
-- Corporate intercom compression.
-- Low club-like industrial ambience, used sparingly.
+- Pneumatic weapon snaps.
+- Gear ticks.
+- Valve clanks.
+- Steam vents.
+- Furnace rumble.
+- Oil-slick metal impacts.
+- Bell and gauge confirmation tones.
+- Low boiler-room ambience, used sparingly.
 
-## 10. Story Delivery
+## Story Delivery
 
-Story should be present but not heavy-handed.
+Story should be present but light during play.
 
 Use:
 
 - Signage.
-- Short intercom lines.
+- Short intercom or speaking-tube lines.
 - Environmental clues.
-- Graffiti.
-- Data dead drops.
+- Work orders.
+- Maintenance stamps.
 - Objective text.
 
 Avoid:
@@ -106,11 +108,11 @@ Avoid:
 - Long reading requirements.
 - Frequent forced stops.
 
-## 11. Current Placeholder Mapping
+## Current Placeholder Mapping
 
 - Primitive enemy -> `Scrapper`.
-- Blocky weapon -> `Pulse Pistol`.
-- Yellow key cube -> access shard.
-- Red door -> corporate lockdown gate.
-- Green exit -> emergency lift/data gate.
-- Greybox dungeon -> Aster Gate service blockout.
+- Blocky weapon -> `Pressure Pistol`.
+- Yellow key cube -> `Gear Key`.
+- Red door -> `Pressure Gate`.
+- Green exit -> `Service Lift`.
+- Greybox dungeon -> `Brassworks Intake`.

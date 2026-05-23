@@ -1,6 +1,6 @@
-# Arcology Breach - Cyberpunk Asset Catalog
+# Brassworks Breach - Steampunk Asset Catalog
 
-This catalog tracks the assets needed to grow `Arcology Breach` from a greybox proof of concept into a stylized cyberpunk FPS. Assets should be created in milestone-sized sets, verified in-game, and downgraded as needed for Android and browser/WebGL ports.
+This catalog tracks the assets needed to grow `Brassworks Breach` from a greybox proof of concept into a stylized steampunk FPS. Assets should be created in milestone-sized sets, verified in-game, and downgraded as needed for Android and browser/WebGL ports.
 
 Status values: `planned`, `prototype`, `in-progress`, `review`, `approved`, `deferred`.
 
@@ -14,38 +14,40 @@ Every major asset should eventually have three quality targets:
 - `Android`: reduced texture size, fewer lights, simpler shaders, lower poly counts, compressed audio.
 - `Browser`: WebGL-friendly, small downloads, minimal memory, simple materials, short audio.
 
+## North-Star References
+
+- `Documentation/ConceptArt/north-star-steampunk-level-hud-enemies-props.png`
+- `Documentation/ConceptArt/north-star-steampunk-brassworks-pressure-pistol.png`
+
 ## 1. Environment Materials
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
 | MAT-001 | Greybox wall | P0 | prototype | Existing flat wall material for blockouts. |
 | MAT-002 | Greybox floor | P0 | prototype | Existing dark floor material for blockouts. |
-| MAT-003 | Wet black concrete | P1 | prototype | Procedural primitive wet-floor patches for Aster Gate service floors. |
-| MAT-004 | Black chrome wall panel | P1 | prototype | Black-chrome primitive server/gate pieces; final modular panels still needed. |
-| MAT-005 | Neon cable trunk | P1 | prototype | Primitive cyan/magenta cable strips; final cable geometry/materials still needed. |
-| MAT-006 | Holographic warning glass | P1 | planned | Transparent or translucent signage panels. |
-| MAT-007 | Corporate white composite | P2 | planned | Sable Meridian clean-room panels, scratched and vandalized. |
-| MAT-008 | Amber hazard strip | P1 | prototype | Gate hazard strips and warning accents. |
-| MAT-009 | Red lockdown surface | P1 | planned | Gate material with red denied-access lighting. |
-| MAT-010 | Green emergency exit surface | P1 | planned | Exit/elevator/data-gate material with green glow. |
-| MAT-011 | Graffiti decal set | P2 | planned | Lowline tags, resistance marks, access hints, and warnings. |
-| MAT-012 | Signal glitch decal set | P2 | planned | Magenta hostile-signal noise and corrupted display patterns. |
-| MAT-013 | Scorch and impact decals | P2 | planned | Combat feedback decals for walls, floor, and enemies. |
-| MAT-014 | Cyan guide material | P1 | prototype | Simple emissive-feeling floor/objective guide material. |
-| MAT-015 | Magenta warning material | P1 | prototype | Simple hostile/lockdown guide material and Scrapper tell color. |
+| MAT-003 | Oil-dark stone | P1 | prototype | Procedural primitive floor patches for Brassworks service floors. |
+| MAT-004 | Riveted iron panel | P1 | prototype | Dark iron primitive boiler/gate pieces; final modular panels still needed. |
+| MAT-005 | Brass/copper pipe material | P1 | prototype | Primitive pipe strips; final pipe geometry/materials still needed. |
+| MAT-006 | Soot-brick wall | P1 | planned | Primary corridor wall style. |
+| MAT-007 | Walnut grip/wood trim | P2 | planned | Weapon grips, tool handles, occasional prop trim. |
+| MAT-008 | Amber furnace glow | P1 | prototype | Gauge, furnace, and hazard accents. |
+| MAT-009 | Red pressure warning surface | P1 | planned | Gate denial and pressure danger material. |
+| MAT-010 | Green service-lift surface | P1 | planned | Exit/lift material with restored-pressure cue. |
+| MAT-011 | Gauge glass and cream enamel | P2 | planned | HUD, gauges, and readable labels. |
+| MAT-012 | Oil/scorch decal set | P2 | planned | Combat and machinery wear. |
 
 ## 2. Modular Geometry
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
 | GEO-001 | Greybox blockout kit | P0 | prototype | Existing cube-based walls/floor. |
-| GEO-002 | Service corridor module | P1 | planned | Narrow cyberpunk maintenance corridor with cable walls. |
-| GEO-003 | Repair bay room kit | P1 | planned | Combat room modules with work gantries and machine bays. |
-| GEO-004 | Lockdown gate frame | P1 | planned | Red corporate security gate frame. |
-| GEO-005 | Access kiosk | P1 | planned | Objective station that visually explains the access shard. |
-| GEO-006 | Emergency lift frame | P1 | planned | Green exit destination object. |
-| GEO-007 | Transit control console | P2 | planned | Final-room landmark prop/geometry hybrid. |
-| GEO-008 | Server stack wall | P2 | prototype | Primitive server stacks with colored status lights. |
+| GEO-002 | Brassworks corridor module | P1 | planned | Soot brick, riveted panels, pipe bundles. |
+| GEO-003 | Repair bay room kit | P1 | planned | Combat room modules with benches, gantries, and machine bays. |
+| GEO-004 | Pressure gate frame | P1 | planned | Gear-driven locked gate. |
+| GEO-005 | Gear-key plinth | P1 | planned | Objective station that visually explains the key. |
+| GEO-006 | Service lift frame | P1 | planned | Exit destination object. |
+| GEO-007 | Furnace control console | P2 | planned | Final-room landmark prop/geometry hybrid. |
+| GEO-008 | Boiler stack wall | P2 | prototype | Primitive boiler stacks with light strips. |
 | GEO-009 | Catwalk/rail kit | P2 | planned | Simple vertical-looking geometry, used carefully for readability. |
 | GEO-010 | Secret service hatch | P2 | planned | Hidden route/secret entry module. |
 
@@ -53,109 +55,109 @@ Every major asset should eventually have three quality targets:
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
-| PROP-001 | Access shard placeholder | P0 | prototype | Existing yellow pickup cube. |
-| PROP-002 | Lockdown gate placeholder | P0 | prototype | Existing sliding red gate. |
-| PROP-003 | Emergency exit placeholder | P0 | prototype | Existing green exit object. |
-| PROP-004 | Health injector | P1 | planned | Cyberpunk health pickup, bright red/white medical tech. |
-| PROP-005 | Ammo capacitor pack | P1 | planned | Blue/cyan energy-ammo pickup. |
-| PROP-006 | Access shard final | P1 | planned | Floating amber data shard or key chip. |
-| PROP-007 | Corporate lockdown gate final | P1 | planned | Heavy sliding security gate with red panels and status strips. |
-| PROP-008 | Emergency lift/data gate final | P1 | planned | Green-lit exit slab, lift door, or data corridor. |
-| PROP-009 | Security camera | P2 | planned | Surveillance prop and possible detection mechanic later. |
-| PROP-010 | Drone dock | P2 | planned | Enemy spawn/ambience prop. |
-| PROP-011 | Broken vending chassis | P2 | planned | Environmental storytelling prop. |
-| PROP-012 | Corpse/abandoned recovery rig | P2 | planned | Non-graphic evidence of failed recovery teams. |
-| PROP-013 | Hologram ad pillar | P2 | planned | Cyberpunk scene dressing and light source. |
+| PROP-001 | Gear key placeholder | P0 | prototype | Existing yellow pickup cube. |
+| PROP-002 | Pressure gate placeholder | P0 | prototype | Existing sliding gate. |
+| PROP-003 | Service lift placeholder | P0 | prototype | Existing green exit object. |
+| PROP-004 | Health vial | P1 | planned | Glass-and-brass healing pickup. |
+| PROP-005 | Pressure cartridge pack | P1 | planned | Ammo pickup for pressure weapons. |
+| PROP-006 | Gear key final | P1 | planned | Brass gear/clockwork key pickup. |
+| PROP-007 | Pressure gate final | P1 | planned | Heavy gear-driven gate with gauges and red pressure lamps. |
+| PROP-008 | Service lift final | P1 | planned | Green-lit lift cage or brass service elevator. |
+| PROP-009 | Wall pressure gauge | P1 | planned | Readable environment prop and possible UI motif. |
+| PROP-010 | Valve wheel | P1 | planned | Future interactable/switch prop. |
+| PROP-011 | Coal furnace | P2 | planned | Environmental landmark and light source. |
+| PROP-012 | Copper pipe bundle | P1 | planned | Modular dressing prop. |
+| PROP-013 | Work order board | P2 | planned | Environmental storytelling prop. |
 
 ## 4. Weapons
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
-| WPN-001 | Pulse Pistol placeholder | P0 | prototype | Existing blocky camera-mounted weapon. |
-| WPN-002 | Pulse Pistol final | P1 | planned | Compact black-market sidearm with cyan/magenta energy discharge. |
-| WPN-003 | Rail Shotgun | P1 | planned | Close-range breaching rail tool firing magnetic flechettes. |
-| WPN-004 | Arc Ripper | P2 | planned | Energy weapon that chains through mechanical targets. |
+| WPN-001 | Pressure Pistol placeholder | P0 | prototype | Existing blocky camera-mounted weapon. |
+| WPN-002 | Pressure Pistol final | P1 | planned | Brass-and-walnut pneumatic sidearm with pressure gauge. |
+| WPN-003 | Steam Scattergun | P1 | planned | Close-range breaching weapon with chunky pressure release. |
+| WPN-004 | Rivet Launcher | P2 | planned | Mechanical precision weapon for stronger machines. |
 | WPN-005 | Weapon pickup shells | P2 | planned | World pickup visuals for weapons. |
-| WPN-006 | Ammo family | P1 | planned | Capacitor packs, flechette bundles, charge cells. |
+| WPN-006 | Ammo family | P1 | planned | Pressure cartridges, rivet bundles, boiler caps. |
 
 ## 5. Mechanical Enemies
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
 | ENEMY-001 | Primitive Scrapper | P0 | prototype | Existing capsule/cube mechanical melee placeholder. |
-| ENEMY-002 | Scrapper final | P1 | planned | Maintenance frame with cutter arms, orange hazard plating, lens cluster. |
-| ENEMY-003 | Lancer | P1 | planned | Thin ranged security chassis with cyan targeting beam. |
-| ENEMY-004 | Bulwark | P2 | planned | Heavy riot-control frame with shield plating and weak rear components. |
-| ENEMY-005 | Needle Swarm | P2 | planned | Small surgical drones converted into fast melee/cutting threats. |
-| ENEMY-006 | Choir Node | P2 | planned | Stationary signal amplifier that buffs nearby machines. |
-| ENEMY-007 | Interdict Core Guardian | P3 | deferred | Later boss or mini-boss encounter. |
+| ENEMY-002 | Scrapper final | P1 | planned | Maintenance frame with cutter arms, brass plating, pistons, and furnace eyes. |
+| ENEMY-003 | Boiler Tick | P1 | planned | Squat scout with clockwork legs and pressure tank body. |
+| ENEMY-004 | Lancer | P1 | planned | Thin ranged valve-rifle automaton. |
+| ENEMY-005 | Bulwark | P2 | planned | Heavy furnace-plated machine with weak rear components. |
+| ENEMY-006 | Bellows Node | P2 | planned | Stationary pressure amplifier that buffs nearby machines. |
+| ENEMY-007 | Governor Warden | P3 | deferred | Later boss or mini-boss encounter. |
 
 ## 6. Animations
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
-| ANIM-001 | Pulse Pistol idle/fire | P1 | prototype | Existing recoil/flash can be expanded. |
-| ANIM-002 | Pulse Pistol reload/check | P2 | planned | Optional if reloads become part of gameplay. |
-| ANIM-003 | Scrapper idle/chase | P1 | planned | Mechanical servo movement, clear forward pressure. |
+| ANIM-001 | Pressure Pistol idle/fire | P1 | prototype | Existing recoil/flash can be expanded. |
+| ANIM-002 | Pressure Pistol reload/check | P2 | planned | Optional if reloads become part of gameplay. |
+| ANIM-003 | Scrapper idle/chase | P1 | planned | Piston-driven movement, clear forward pressure. |
 | ANIM-004 | Scrapper attack tell | P1 | planned | Cutter arm windup before damage. |
 | ANIM-005 | Scrapper hit/death | P1 | planned | Sparks, stagger, collapse, or shutdown. |
-| ANIM-006 | Lancer aim/fire | P1 | planned | Beam tell and shot release. |
-| ANIM-007 | Gate open/close | P1 | prototype | Existing sliding motion, needs styled animation. |
-| ANIM-008 | Pickup bob/glitch | P1 | prototype | Existing bobbing, can become holographic jitter. |
+| ANIM-006 | Lancer aim/fire | P1 | planned | Valve charge tell and shot release. |
+| ANIM-007 | Gate open/close | P1 | prototype | Existing sliding motion, needs gear-driven animation. |
+| ANIM-008 | Pickup bob/spin | P1 | prototype | Existing bobbing/spin can become clockwork hover or plinth animation. |
 
 ## 7. VFX
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
 | VFX-001 | Muzzle flash placeholder | P0 | prototype | Existing primitive flash. |
-| VFX-002 | Pulse muzzle flash | P1 | planned | Cyan/magenta hard-light burst. |
-| VFX-003 | Impact sparks | P1 | planned | Short metal spark or energy flicker. |
-| VFX-004 | Machine hit effect | P1 | planned | Sparks, oil flecks, small light burst. |
-| VFX-005 | Machine death effect | P1 | planned | Shutdown flash, capacitor pop, smoke. |
-| VFX-006 | Access shard pickup effect | P1 | planned | Amber data-glitch pickup effect. |
-| VFX-007 | Lockdown gate open effect | P2 | planned | Red strips change to green/white, sparks optional. |
-| VFX-008 | Emergency lift activation | P1 | planned | Green scan-line or data gate effect. |
-| VFX-009 | Hostile signal field | P2 | planned | Magenta glitch field for hazards/enemy buffs. |
+| VFX-002 | Pressure muzzle flash | P1 | planned | Hot spark and steam puff. |
+| VFX-003 | Impact sparks | P1 | planned | Short metal spark burst. |
+| VFX-004 | Machine hit effect | P1 | planned | Sparks, oil flecks, small steam release. |
+| VFX-005 | Machine death effect | P1 | planned | Shutdown flash, pressure vent, smoke. |
+| VFX-006 | Gear-key pickup effect | P1 | planned | Amber click/gear spin effect. |
+| VFX-007 | Pressure gate open effect | P2 | planned | Red lamps vent to green/amber, steam optional. |
+| VFX-008 | Service lift activation | P1 | planned | Green pressure-restored cue. |
+| VFX-009 | Steam hazard field | P2 | planned | Readable venting steam for hazards. |
 
 ## 8. Audio
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
-| AUD-001 | Pulse Pistol fire | P1 | prototype | Procedural synthetic snap with capacitor tail. |
-| AUD-002 | Empty weapon click | P1 | prototype | Procedural dry failed discharge sound. |
-| AUD-003 | Scrapper hurt | P1 | prototype | Procedural servo strain and spark crackle. |
+| AUD-001 | Pressure Pistol fire | P1 | prototype | Procedural pneumatic snap with noisy pressure tail. |
+| AUD-002 | Empty weapon click | P1 | prototype | Procedural dry mechanical click. |
+| AUD-003 | Scrapper hurt | P1 | prototype | Procedural metal strain and spark crackle. |
 | AUD-004 | Scrapper death | P1 | prototype | Procedural shutdown whine and metal drop impression. |
-| AUD-005 | Player hurt | P1 | prototype | Procedural suit impact thud and glitch pulse. |
-| AUD-006 | Health pickup | P1 | prototype | Procedural medical injector chirp. |
-| AUD-007 | Ammo pickup | P1 | prototype | Procedural capacitor charge tick. |
-| AUD-008 | Access shard pickup | P1 | prototype | Procedural amber data unlock cue. |
-| AUD-009 | Gate open | P1 | prototype | Procedural mag-lock release and motor slide. |
-| AUD-010 | Gate denied | P1 | prototype | Procedural corporate denial buzzer. |
-| AUD-011 | Exit/win cue | P1 | prototype | Procedural emergency lift chime/data unlock. |
-| AUD-012 | Arcology ambience | P2 | planned | Rain, hum, distant servos, ads, vents. |
+| AUD-005 | Player hurt | P1 | prototype | Procedural impact thud and pressure pulse. |
+| AUD-006 | Health pickup | P1 | prototype | Procedural glass/medical tick. |
+| AUD-007 | Ammo pickup | P1 | prototype | Procedural pressure-cartridge tick. |
+| AUD-008 | Gear-key pickup | P1 | prototype | Procedural gear-chime unlock cue. |
+| AUD-009 | Gate open | P1 | prototype | Procedural valve release and motor slide. |
+| AUD-010 | Gate denied | P1 | prototype | Procedural pressure denial buzzer. |
+| AUD-011 | Exit/win cue | P1 | prototype | Procedural service-lift chime. |
+| AUD-012 | Brassworks ambience | P2 | planned | Steam, furnace rumble, distant machinery, pipe knocks. |
 
 ## 9. UI and HUD
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
 | UI-001 | Text HUD | P0 | prototype | Existing plain HUD. |
-| UI-002 | Runner HUD frame | P1 | planned | Compact cyan/magenta cyberpunk HUD. |
-| UI-003 | Access shard indicator | P1 | planned | Amber shard icon/status. |
-| UI-004 | Damage glitch overlay | P1 | prototype | Existing red damage flash can become glitch overlay. |
-| UI-005 | Lockdown warning prompt | P1 | prototype | Clear denied/access-required feedback through HUD text, gate audio, and world label. |
-| UI-006 | Main menu | P2 | planned | Stylized start/settings/quit. |
+| UI-002 | Brass gauge HUD frame | P1 | planned | Compact instrument-panel style HUD. |
+| UI-003 | Gear-key indicator | P1 | planned | Amber gear icon/status. |
+| UI-004 | Damage pressure overlay | P1 | prototype | Existing red damage flash can become pressure warning overlay. |
+| UI-005 | Pressure warning prompt | P1 | prototype | Clear denied/key-required feedback through HUD text, gate audio, and world label. |
+| UI-006 | Main menu | P2 | planned | Start/settings/quit with brass panel styling. |
 | UI-007 | Settings and accessibility | P2 | planned | Sensitivity, volume, resolution, flash intensity, color readability. |
 
 ## 10. Level Assets
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
-| LVL-001 | Aster Gate Intake greybox | P0 | prototype | Current generated `Level01`. |
-| LVL-002 | Aster Gate combat slice | P1 | prototype | Current layout now has objective guide strips, world labels, and Scrapper attack tells. |
-| LVL-003 | Aster Gate art pass | P1 | prototype | First procedural dressing pass: floor patches, cable trunks, server stacks, hazard strips. |
-| LVL-004 | Data Stack concept | P2 | planned | Server-heavy second level concept. |
-| LVL-005 | Transit Spine concept | P2 | planned | Rail/transit themed level concept. |
-| LVL-006 | Lowline market approach | P3 | deferred | Later exterior/lower-city sequence. |
+| LVL-001 | Brassworks Intake greybox | P0 | prototype | Current generated `Level01`. |
+| LVL-002 | Brassworks Intake combat slice | P1 | prototype | Current layout has objective guide strips, world labels, and Scrapper attack tells. |
+| LVL-003 | Brassworks Intake art pass | P1 | prototype | First procedural dressing pass: oil-stone patches, pipe runs, boiler stacks, hazard strips. |
+| LVL-004 | Pipeworks Spine concept | P2 | planned | Pipe/transit themed level concept. |
+| LVL-005 | Gauge Hall concept | P2 | planned | Valve/gauge lock sequence level concept. |
+| LVL-006 | Furnace Foundry concept | P3 | deferred | Later heavy machinery sequence. |
 
 ## 11. Platform Variants
 
@@ -191,12 +193,9 @@ Local installed/downloaded Unity Asset Store packs are tracked in `ASSET_PACK_RE
 
 Near-term candidates:
 
-- Snaps Prototype Sci-Fi Industrial: modular blockout/reference kit for cyberpunk service corridors.
-- Snaps Prototype Sci-Fi Military Base: additional sci-fi modules for scale and room composition.
 - BlockOut Prototype Kit: fast layout and encounter scale testing.
-- Volumetric Lines: lasers, scanlines, targeting beams, holographic accents.
-- Unity Particle Pack / Particle Pack 5x: impact sparks, smoke, machine shutdown VFX.
-- Space Robot Kyle: robot placeholder/reference for mechanical enemy shape language.
-- FPS Microgame weapon add-ons: weapon-scale and material reference for the Pulse Pistol family.
+- Unity Particle Pack / Particle Pack 5x: sparks, smoke, pressure vents, machine shutdown VFX.
+- Medieval or industrial prop packs if present: possible source for stone, wood, metal, chains, barrels, or workshop props after art-direction review.
+- FPS Microgame weapon add-ons: weapon-scale reference only, not final style.
 
-Do not import large city, terrain, demo, or VR kits into the main project until a scoped task requires them.
+Do not import large unrelated demo kits into the main project until a scoped task requires them.

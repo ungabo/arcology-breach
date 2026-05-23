@@ -1,29 +1,29 @@
-# Arcology Breach - AAA-Style Vision and Roadmap
+# Brassworks Breach - AAA-Style Vision and Roadmap
 
 ## 1. Intent
 
-Grow the current Unity proof of concept into an original, heavily stylized cyberpunk first-person action game. The long-term target is not photorealism for its own sake; it is a polished, atmospheric, readable, high-impact cyberpunk shooter with strong mechanical enemy identity.
+Grow the current Unity proof of concept into an original, heavily stylized steampunk first-person action game. The target is a polished, atmospheric, readable shooter with strong mechanical enemy identity and a tactile brassworks world.
 
 ## 2. Target Experience
 
-The player enters sealed corporate arcologies, transit stacks, robot foundries, data vaults, and rain-slick service districts. Combat is fast and legible. Exploration is compact but layered. The world tells a story about corporate control, stolen memory, automated violence, and lower-city survival.
+The player enters sealed industrial works, pipe spines, gauge halls, foundries, lift shafts, and governor-core machine chambers. Combat is fast and legible. Exploration is compact but layered. The world tells a story about broken infrastructure, hidden workers, pressure logic, and tools turned violent.
 
 ## 3. Design Pillars
 
-1. Cyberpunk identity
-   - Neon, rain, corporate surveillance, black-market tech, holograms, robotics, and dense infrastructure.
+1. Steampunk identity
+   - Brass, copper, riveted iron, gaslight, soot, steam, gauges, valves, gears, and clockwork machines.
 
 2. Mechanical threat language
-   - Enemies are corrupted civic machines and security systems.
+   - Enemies are corrupted work machines and pressure systems.
 
 3. Movement-first combat
    - Combat arenas reward strafing, repositioning, and target priority.
 
 4. Environmental storytelling
-   - Lore is embedded in spaces, signs, logs, and machine behavior.
+   - Lore is embedded in spaces, signs, work orders, maintenance marks, and machine behavior.
 
 5. Production discipline
-   - Every feature, asset, and milestone is tracked, verified, and handed off.
+   - Every feature, asset, and milestone is tracked, verified, and kept tied to buildable slices.
 
 ## 4. Roadmap
 
@@ -31,7 +31,7 @@ The player enters sealed corporate arcologies, transit stacks, robot foundries, 
 
 - Greybox FPS loop.
 - Primitive enemy.
-- Access/key style objective.
+- Key/lock objective.
 - Locked route and exit.
 - Editor/build/runtime smoke tests.
 
@@ -45,25 +45,25 @@ The player enters sealed corporate arcologies, transit stacks, robot foundries, 
 - Sliding gate.
 - Accent lights.
 
-### v0.2 Target: Cyberpunk Combat Feel Slice
+### v0.2 Target: Steampunk Combat Feel Slice
 
 - Manual Windows playthrough.
-- Retheme all objective text to `Arcology Breach`.
+- Retheme all objective text and object names to the brassworks identity.
 - Tune player speed, weapon fire, ammo, enemy speed, and damage.
 - Improve mechanical enemy readability.
-- Add simple cyberpunk audio set.
-- Add clearer access-shard/gate feedback.
-- Confirm `Aster Gate Intake` scale, room flow, and gate/shard/exit spatial relationship.
+- Tune simple steamworks audio set.
+- Add clearer gear-key/pressure-gate feedback.
+- Confirm `Brassworks Intake` scale, room flow, and gate/key/lift spatial relationship.
 
-### v0.3 Target: Cyberpunk Art Direction Slice
+### v0.3 Target: Steampunk Art Direction Slice
 
-- First neon material kit.
-- Access shard visual.
-- Lockdown gate visual.
-- Emergency exit/data gate visual.
+- First brass/iron/oil-stone material kit.
+- Gear-key visual.
+- Pressure-gate visual.
+- Service-lift visual.
 - Scrapper enemy visual.
-- Pulse Pistol visual.
-- First VFX pass.
+- Pressure Pistol visual.
+- First steam/spark VFX pass.
 
 ### v0.4 Target: Systems Foundation
 
@@ -77,7 +77,7 @@ The player enters sealed corporate arcologies, transit stacks, robot foundries, 
 
 ### v0.5 Target: First Vertical Slice
 
-- One polished cyberpunk level.
+- One polished steampunk level.
 - Two weapons.
 - Three mechanical enemy types.
 - Secrets.
@@ -123,21 +123,22 @@ The player enters sealed corporate arcologies, transit stacks, robot foundries, 
 - Public source/docs are coherent.
 - Build instructions are reliable.
 - Release notes and known issues are written.
+- Windows build is playable end to end.
 
 ## 5. Campaign and Map Ladder
 
 Detailed map notes live in `LEVEL_DESIGN_AND_MAPS.md`. Current planned ladder:
 
-1. `Aster Gate Intake`: access shard, lockdown gate, emergency lift.
-2. `Transit Spine`: transit power, longer sightlines, first ranged enemy.
-3. `Data Stack`: data locks, server routes, support-node enemy.
-4. `Civic Machine Foundry`: industrial hazards and heavy machines.
-5. `Interdict Core`: final breach and mixed mechanical opposition.
+1. `Brassworks Intake`: gear key, pressure gate, service lift.
+2. `Pipeworks Spine`: pressure routing, longer sightlines, first ranged machine.
+3. `Gauge Hall`: lock sequences, valve puzzles, support-node enemy.
+4. `Furnace Foundry`: industrial hazards and heavy machines.
+5. `Governor Core`: final breach and mixed mechanical opposition.
 
 ## 6. Current Strategic Priority
 
-1. Manual playthrough.
-2. Cyberpunk retheme in-game.
-3. Combat tuning.
-4. First audio pass.
-5. First cyberpunk material/enemy/weapon visual pass.
+1. Retheme code, scene, and docs to the steampunk north star.
+2. Complete v0.0.7 pause/quit flow and automated test coverage.
+3. Build and test v0.0.7.
+4. Tune combat feel.
+5. Build first steampunk material/enemy/weapon visual pass.

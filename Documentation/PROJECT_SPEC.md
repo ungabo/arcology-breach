@@ -1,35 +1,35 @@
-# Arcology Breach - Project Specification
+# Brassworks Breach - Project Specification
 
 ## 1. Project Intent
 
-Build an original cyberpunk first-person action game in Unity for Windows. The current project is a working greybox proof of concept. The long-term game is `Arcology Breach`: a fast, stylized shooter set inside a sealed corporate arcology where autonomous security systems have converted civic machines into predatory mechanical bodies.
+Build an original steampunk first-person dungeon crawler/shooter in Unity for Windows. The current project is a working greybox proof of concept. The long-term game is `Brassworks Breach`: a fast, readable, stylized action game set inside a sealed industrial works where pressure systems and clockwork maintenance machines have turned lethal.
 
-The broad genre target is fast movement, readable combat, compact levels, keys/locks/objectives, secrets, and strong enemy silhouettes, all expressed through a unique cyberpunk machine-horror identity.
+The genre target remains compact classic FPS exploration: movement, shooting, keys, locks, secrets, strong silhouettes, and clear level routes.
 
 ## 2. Current Version
 
-Current state: `v0.1`.
+Current state: `v0.0.7` in progress.
 
 Implemented:
 
 - FPS movement and mouse look.
 - Character collision.
-- Hitscan weapon.
-- Ammo, health, death, restart.
+- Hitscan pressure-pistol placeholder.
+- Ammo, health, death, restart, pause, and quit flow.
 - Primitive mechanical melee enemies.
-- Access shard pickup.
-- Red corporate lockdown gate.
-- Green emergency exit trigger.
+- Gear-key pickup.
+- Pressure gate.
+- Service lift exit trigger.
 - Plain HUD and crosshair.
-- Blocky `Pulse Pistol` placeholder.
 - Muzzle flash, damage flash, bobbing pickups, sliding gate, colored accent lights.
-- Procedural cyberpunk audio cues for firing, pickups, enemy hits/death, player hurt, gate feedback, and win.
-- Scrapper attack windup with magenta attack tell.
+- Procedural steamworks audio cues for firing, pickups, enemy hits/death, player hurt, gate feedback, and win.
+- Scrapper attack windup with red-orange pressure tell.
 - Scrapper obstacle probing and simple side-steering.
-- Access-shard pedestal, gate/exit guide strips, and world labels.
-- Procedural cyberpunk dressing pass with wet concrete patches, cable trunks, server stacks, and gate hazard strips.
-- Packaged auto-playthrough for the access-shard, lockdown-gate, and emergency-lift objective chain.
-- Packaged combat smoke for pulse-pistol damage and Scrapper death.
+- Gear-key pedestal, gate/lift guide strips, and world labels.
+- Procedural steampunk dressing pass with oil-dark stone patches, copper pipes, boiler stacks, and gate hazard details.
+- Packaged auto-playthrough for the gear-key, pressure-gate, and service-lift objective chain.
+- Packaged combat smoke for pressure-pistol damage and Scrapper death.
+- Packaged pause-flow smoke for pause/resume/restart/quit.
 - Unity editor smoke test, Windows build, and runtime smoke test.
 
 ## 3. Target Platform
@@ -38,20 +38,22 @@ Implemented:
 - Engine: Unity `6000.4.6f1`.
 - Input: mouse and keyboard.
 - Build type: Windows x86_64 standalone.
-- Performance target: stable 60 FPS on a normal desktop machine.
-- Visual target: heavily stylized cyberpunk, not realism-first.
+- Performance target: stable 60 FPS on a mid-to-low level gaming PC.
+- Visual target: heavily stylized steampunk, not realism-first.
+
+Android, browser/WebGL, SteamVR, and Meta Quest are deferred platforms. Their constraints should still influence input, scale, comfort, and asset budgets.
 
 ## 4. Core Pitch
 
-A black-market courier called `Vey` breaks into `Aster Gate`, a quarantined corporate arcology owned by Sable Meridian. Inside, the autonomous security algorithm `INTERDICT` has reprinted maintenance machines, drones, surgical rigs, and security frames into mechanical hunters. Vey needs an access shard, a route through the lockdown gates, and a way to reach the control stack before the algorithm expands into the lower city.
+A pressure-runner enters the sealed Brassworks after the master governor jams, trapping workers below and turning maintenance automata into hostile enforcement machines. To descend deeper, the player must recover gear keys, open pressure gates, survive clockwork enemies, and reach service lifts before the entire works overloads.
 
 ## 5. Design Pillars
 
-1. Cyberpunk through and through
-   - Neon, black chrome, holograms, rain, cables, corporate signage, surveillance, graffiti, drones, and dense machine spaces.
+1. Steampunk through and through
+   - Brass, copper, riveted iron, soot, oil, gaslight, gauges, valves, gears, pistons, and steam.
 
 2. Mechanical enemy identity
-   - Enemies are corrupted infrastructure: service frames, drones, riot-control units, medical machines, and server nodes.
+   - Enemies are repurposed industrial tools: maintenance frames, boiler scouts, valve-rifle sentries, furnace-plated heavies, and pressure amplifiers.
 
 3. Fast readable combat
    - Movement matters.
@@ -59,26 +61,26 @@ A black-market courier called `Vey` breaks into `Aster Gate`, a quarantined corp
    - Attack tells and weak points are visible.
 
 4. Clear objective routing
-   - Access shard opens lockdown gate.
-   - Green exit path is visually distinct.
+   - Gear keys open pressure gates.
+   - Service lifts end levels.
    - Optional secrets can deepen the route without confusing the core path.
 
 5. Story through environment
    - Minimal forced exposition.
-   - Use signage, logs, intercom lines, graffiti, dead drops, and room composition.
+   - Use signage, work orders, speaking tubes, stamped warnings, machinery layout, and room composition.
 
 ## 6. v0.2 Target
 
-The next milestone is `v0.2 Combat Feel Slice`.
+The next gameplay milestone is `v0.2 Steampunk Combat Feel Slice`.
 
 Required:
 
 - Manual Windows playthrough.
 - Movement/enemy/combat tuning.
 - Better mechanical enemy navigation/obstacle handling.
-- Manual listen/tuning pass for the simple cyberpunk audio set.
+- Manual listen/tuning pass for the procedural steamworks audio set.
 - Manual readability pass for Scrapper attack tells and objective labels.
-- Updated objective text and object names.
+- Steampunk objective text and object names throughout the build.
 
 ## 7. Gameplay Systems
 
@@ -90,13 +92,13 @@ Required:
 - No jump for now.
 - Fast, clean movement.
 - Health and death.
-- Restart after death/win.
+- Pause, resume, restart, and quit.
 
 ### Weapons
 
 Current:
 
-- `Pulse Pistol` placeholder.
+- `Pressure Pistol` placeholder.
 - Hitscan raycast.
 - Ammo consumption.
 - Fire cooldown.
@@ -104,9 +106,9 @@ Current:
 
 Future:
 
-- Stylized cyberpunk `Pulse Pistol`.
-- Rail shotgun.
-- Arc weapon against drone swarms.
+- Final brass-and-walnut `Pressure Pistol`.
+- Steam scattergun.
+- Arc-valve rifle or rivet launcher.
 - Data-driven weapon definitions.
 
 ### Enemies
@@ -118,123 +120,121 @@ Current:
 Future enemy family:
 
 - `Scrapper`: maintenance frame melee unit.
-- `Lancer`: ranged security chassis.
-- `Bulwark`: heavy riot frame.
-- `Needle Swarm`: fast surgical drone group.
-- `Choir Node`: stationary control amplifier.
+- `Boiler Tick`: small pressure scout.
+- `Lancer`: ranged valve-rifle automaton.
+- `Bulwark`: heavy furnace-plated machine.
+- `Bellows Node`: stationary pressure amplifier.
 
 ### World
 
 Current:
 
-- Access shard pickup.
-- Red lockdown gate.
-- Green emergency exit.
+- Gear-key pickup.
+- Pressure gate.
+- Service lift exit.
 
 Future:
 
-- Switch panels.
-- Data locks.
-- Security shutters.
+- Valve wheels.
+- Pressure locks.
+- Gearboxes.
 - Secret service hatches.
-- Environmental hazards.
+- Steam and furnace hazards.
 
 ### UI
 
 Current:
 
-- Plain text health/ammo/access state.
+- Plain text health/ammo/key state.
 - Text crosshair.
-- Death/win/pause messages.
+- Pause/death/win messages.
 
 Future:
 
-- Diegetic cyberpunk HUD.
-- Glitch-style damage feedback.
-- Corporate objective prompts.
+- Brass gauge HUD.
+- Red pressure damage feedback.
+- Gear-key iconography.
 - Accessibility options.
 
 ## 8. Visual Direction
 
-The game should look like a stylized neon corporate machine-space, not a generic sci-fi shooter.
+Use the two north-star concept sheets in `Documentation/ConceptArt` as the visual target. The game should look like a compact industrial dungeon of brass, iron, oil, stone, and steam.
 
 Core visual elements:
 
-- Wet concrete.
-- Black chrome.
-- Cyan/magenta/amber neon.
-- Holographic ads and warning strips.
-- Sable Meridian corporate signage.
-- Exposed cable trunks.
-- Server heat vents.
-- Maintenance rails.
-- Surveillance cameras.
-- Machine lens clusters.
-- Graffiti from the lower-city resistance.
-- Glitch patterns and signal noise.
+- Soot brick.
+- Oil-dark stone.
+- Riveted iron.
+- Brass and copper pipes.
+- Valve wheels.
+- Pressure gauges.
+- Furnace glow.
+- Gear-driven doors.
+- Clockwork joints.
+- Steam vents.
+- Wet floors and oil puddles.
+- Mechanical instrument-panel UI.
 
 Gameplay color language:
 
-- Cyan: player tech and friendly systems.
-- Magenta: hostile signal corruption and elite threats.
-- Amber/yellow: access shards, pickups, warnings.
-- Red: locked, denied, damage.
-- Green: exits, restore, bypass success.
+- Brass/amber: objectives, keys, useful machinery.
+- Red-orange: danger, denied pressure locks, enemy attack tells, damage.
+- Green: exits, restored lift systems, success states.
+- Dark iron/oil brown: neutral architecture.
+- Cream enamel: readable labels and gauge faces.
 
 ## 9. First Level Retheme
 
-Current `Level01` becomes `Aster Gate Intake`.
+Current `Level01` becomes `Brassworks Intake`.
 
 Rooms:
 
-1. Flooded service intake.
-2. Cable-lined maintenance throat.
-3. Robot repair bay.
-4. Access-shard kiosk.
-5. Red corporate lockdown gate.
-6. Transit control node.
-7. Green emergency lift/data gate.
+1. Soot-brick service entry.
+2. Copper-pipe maintenance throat.
+3. Clockwork repair bay.
+4. Gear-key plinth.
+5. Pressure gate.
+6. Furnace control room.
+7. Service lift.
 
 Detailed level scale, map planning, and future level transition mechanics live in `LEVEL_DESIGN_AND_MAPS.md`.
 
 ## 10. Level and Progression Direction
 
-Levels should be compact, readable FPS maps built around loops, locked routes, secrets, and strong cyberpunk landmarks.
+Levels should be compact, readable FPS maps built around loops, locked routes, secrets, and strong steampunk landmarks.
 
 Current level transition:
 
-- The green emergency lift/data gate ends the level and triggers the win state.
+- The service lift ends the level and triggers the win state.
 
 Future level transition:
 
-- A diegetic transit device should load the next scene through a dedicated `LevelTransitionController`.
+- A diegetic lift, tram, or pressure elevator should load the next scene through a dedicated `LevelTransitionController`.
 - Weapons and durable player state should carry forward.
-- Level-scoped access shards should reset per map unless a story reason makes them campaign-scoped.
+- Level-scoped gear keys should reset per map unless a story reason makes them campaign-scoped.
 - Android and browser versions may simplify level geometry and reduce encounter density.
 - VR versions need stable spawn orientation, fade transitions, and no required jumping or forced abrupt camera motion.
 
 Planned campaign map ladder:
 
-1. `Aster Gate Intake`: tutorial/combat proof, access shard, lockdown gate.
-2. `Transit Spine`: longer sightlines, first ranged security chassis, transit power objective.
-3. `Data Stack`: server maze, data locks, support-node enemy.
-4. `Civic Machine Foundry`: industrial hazards, heavy enemy introduction.
-5. `Interdict Core`: final breach, mixed enemy groups, possible core guardian.
+1. `Brassworks Intake`: tutorial/combat proof, gear key, pressure gate.
+2. `Pipeworks Spine`: longer sightlines, first ranged machine, pressure-routing objective.
+3. `Gauge Hall`: lock sequences, valve puzzles, support-node enemy.
+4. `Furnace Foundry`: industrial hazards, heavy enemy introduction.
+5. `Governor Core`: final breach, mixed enemy groups, possible core guardian.
 
 ## 11. Asset Direction
 
-The project should generate assets in disciplined passes, not huge blind batches.
-
 Near-term assets:
 
-- Cyberpunk wall/floor material set.
-- Access shard pickup.
-- Lockdown gate.
-- Emergency lift/data gate.
+- Brass/iron/oil-stone material set.
+- Gear-key pickup.
+- Pressure gate.
+- Service lift.
 - Scrapper enemy visual.
-- Pulse Pistol visual.
-- Muzzle/impact VFX.
-- Simple cyberpunk audio set.
+- Pressure Pistol visual.
+- Steam/spark impact VFX.
+- Procedural steamworks audio set.
 
 Full asset detail lives in `AAA_ASSET_CATALOG.md`.
 
@@ -249,12 +249,13 @@ Automated:
 - Packaged runtime smoke.
 - Packaged auto-playthrough for objective progression.
 - Packaged combat smoke for weapon/enemy regression.
+- Packaged pause-flow smoke.
 
 Manual:
 
 - Full Windows playthrough.
-- Death/restart.
-- Access shard/gate flow.
+- Death/restart/pause/quit.
+- Gear-key/pressure-gate flow.
 - Enemy combat tuning.
 - HUD readability.
 - Mouse lock and input.
@@ -263,21 +264,20 @@ Manual:
 
 `v0.2` is complete when:
 
-- The Windows build can be manually completed from start to exit.
+- The Windows build can be manually completed from start to service lift.
 - The packaged auto-playthrough can complete the objective chain.
-- The packaged combat smoke verifies the pulse pistol can kill a Scrapper.
+- The packaged combat smoke verifies the pressure pistol can kill a Scrapper.
 - Mechanical enemy combat feels fair enough for iteration.
-- Access shard and lockdown gate are understandable.
-- Cyberpunk objective text and presentation are in place.
-- First lightweight cyberpunk dressing pass exists.
+- Gear key and pressure gate are understandable.
+- Steampunk objective text and presentation are in place.
+- First lightweight steampunk dressing pass exists.
 - First audio feedback pass exists and has been manually tuned.
-- Handoff, build status, and work ledger are updated.
 
 ## 14. Non-Goals for Next Milestone
 
 - Full campaign.
 - Complex cinematics.
-- Large asset batch generation.
+- Large blind asset batch generation.
 - Multiplayer.
 - Save system.
 - Final UI.
@@ -286,11 +286,11 @@ Manual:
 
 ## 15. Source Documents
 
-- `CYBERPUNK_STORY_BIBLE.md`
+- `STEAMPUNK_NORTH_STAR.md`
+- `STORY_AND_LORE_BIBLE.md`
 - `LEVEL_DESIGN_AND_MAPS.md`
 - `AAA_VISION_AND_ROADMAP.md`
 - `AAA_ASSET_CATALOG.md`
 - `ASSET_PACK_REVIEW.md`
 - `PRODUCTION_TRACKING_METHOD.md`
 - `WORK_LEDGER.md`
-- `HANDOFF.md`

@@ -54,12 +54,12 @@ public class WeaponController : MonoBehaviour
 
         if (inventory != null && !inventory.TryUseAmmo())
         {
-            CyberpunkAudio.Play(CyberpunkAudioCue.EmptyClick);
+            SteamworksAudio.Play(SteamworksAudioCue.EmptyClick);
             HUDController.Instance?.ShowTemporaryMessage("No ammo", 0.75f);
             return false;
         }
 
-        CyberpunkAudio.Play(CyberpunkAudioCue.PulseFire);
+        SteamworksAudio.Play(SteamworksAudioCue.PressureFire);
         weaponView?.PlayFire();
 
         Ray ray = aimCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));

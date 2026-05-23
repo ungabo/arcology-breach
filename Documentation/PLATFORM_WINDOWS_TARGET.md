@@ -2,7 +2,7 @@
 
 ## Role
 
-Windows is the primary development and quality target for `Arcology Breach`.
+Windows is the primary development and quality target for `Brassworks Breach`.
 
 Assume a mid-to-low level gaming PC, not a high-end showcase machine.
 
@@ -40,7 +40,7 @@ These are starting budgets, not final technical limits:
 Prioritize:
 
 - Strong silhouettes.
-- Stylized neon lighting.
+- Stylized gaslight, furnace glow, and warm pressure-gauge lighting.
 - Baked or mostly static light setups.
 - Limited post-processing.
 - Clear color coding.
@@ -73,7 +73,7 @@ Current build method:
 
 Current executable:
 
-`Builds/Windows/<version>/ArcologyBreach_<version>.exe`
+`Builds/Windows/<version>/BrassworksBreach_<version>.exe`
 
 ## Verification
 

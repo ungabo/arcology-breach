@@ -114,7 +114,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         }
         else
         {
-            CyberpunkAudio.PlayAt(CyberpunkAudioCue.EnemyHit, transform.position);
+            SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyHit, transform.position);
             StartCoroutine(FlashHit());
         }
     }
@@ -129,7 +129,7 @@ public class EnemyController : MonoBehaviour, IDamageable
     private void Die()
     {
         dead = true;
-        CyberpunkAudio.PlayAt(CyberpunkAudioCue.EnemyDeath, transform.position);
+        SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyDeath, transform.position);
         HUDController.Instance?.ShowTemporaryMessage("Enemy down", 0.6f);
         Destroy(gameObject);
     }

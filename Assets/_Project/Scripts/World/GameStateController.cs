@@ -14,9 +14,14 @@ public class GameStateController : MonoBehaviour
     public static GameStateController Instance { get; private set; }
 
     public HUDController hud;
+    public PauseMenuController pauseMenu;
+    public bool suppressQuitForAutomation;
+    public bool suppressRestartForAutomation;
 
     public GameRunState State { get; private set; } = GameRunState.Playing;
     public bool IsGameplayActive => State == GameRunState.Playing;
+    public bool QuitRequestedForAutomation { get; private set; }
+    public bool RestartRequestedForAutomation { get; private set; }
 
     private void Awake()
     {
@@ -31,12 +36,17 @@ public class GameStateController : MonoBehaviour
         {
             hud = Object.FindAnyObjectByType<HUDController>();
         }
+
+        if (pauseMenu == null)
+        {
+            pauseMenu = Object.FindAnyObjectByType<PauseMenuController>();
+        }
     }
 
     private void Start()
     {
         ResumeGameplay();
-        hud?.ShowTemporaryMessage("Find the access shard. Open the lockdown gate.", 3f);
+        hud?.ShowTemporaryMessage("Find the gear key. Open the pressure gate.", 3f);
     }
 
     private void Update()
@@ -64,7 +74,8 @@ public class GameStateController : MonoBehaviour
         State = GameRunState.Paused;
         Time.timeScale = 0f;
         SetCursorLocked(false);
-        hud?.ShowPersistentMessage("PAUSED\nEsc to resume");
+        hud?.ClearMessage();
+        pauseMenu?.SetVisible(true);
     }
 
     public void ResumeGameplay()
@@ -72,6 +83,7 @@ public class GameStateController : MonoBehaviour
         State = GameRunState.Playing;
         Time.timeScale = 1f;
         SetCursorLocked(true);
+        pauseMenu?.SetVisible(false);
         hud?.ClearMessage();
     }
 
@@ -85,6 +97,7 @@ public class GameStateController : MonoBehaviour
         State = GameRunState.Dead;
         Time.timeScale = 1f;
         SetCursorLocked(false);
+        pauseMenu?.SetVisible(false);
         hud?.ShowPersistentMessage("YOU DIED\nPress R to restart");
     }
 
@@ -98,14 +111,33 @@ public class GameStateController : MonoBehaviour
         State = GameRunState.Won;
         Time.timeScale = 1f;
         SetCursorLocked(false);
-        CyberpunkAudio.Play(CyberpunkAudioCue.Win);
-        hud?.ShowPersistentMessage("EMERGENCY LIFT REACHED\nPress R to run again");
+        pauseMenu?.SetVisible(false);
+        SteamworksAudio.Play(SteamworksAudioCue.Win);
+        hud?.ShowPersistentMessage("SERVICE LIFT REACHED\nPress R to run again");
     }
 
     public void RestartLevel()
     {
         Time.timeScale = 1f;
+        pauseMenu?.SetVisible(false);
+        RestartRequestedForAutomation = true;
+        if (suppressRestartForAutomation)
+        {
+            return;
+        }
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void QuitGame()
+    {
+        Time.timeScale = 1f;
+        pauseMenu?.SetVisible(false);
+        QuitRequestedForAutomation = true;
+        if (!suppressQuitForAutomation)
+        {
+            Application.Quit();
+        }
     }
 
     private static void SetCursorLocked(bool locked)

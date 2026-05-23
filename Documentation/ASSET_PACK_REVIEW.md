@@ -1,4 +1,4 @@
-# Arcology Breach - Local Asset Pack Review
+# Brassworks Breach - Local Asset Pack Review
 
 Last updated: 2026-05-22 20:54 -04:00
 
@@ -20,7 +20,7 @@ The cache contains downloaded `.unitypackage` files. Account-owned packs that ar
 - Prefer small prototype kits, single props, skyboxes, VFX, and audio utilities before large demo scenes.
 - Avoid importing complete projects into the main `Assets` tree unless they are isolated in a quarantine folder first.
 - Keep all third-party content under clear vendor folders and document license/source.
-- Re-skin and art-direct assets to the `Arcology Breach` cyberpunk language before using them as final content.
+- Re-skin and art-direct assets to the `Brassworks Breach` steampunk language before using them as final content.
 - Before committing, verify package imports did not add unnecessary sample scenes, docs, videos, or huge textures.
 - Android, browser/WebGL, and VR compatibility must be checked before adopting any asset as core.
 
@@ -28,19 +28,19 @@ The cache contains downloaded `.unitypackage` files. Account-owned packs that ar
 
 | Pack | Size | Use | Initial Decision |
 | --- | ---: | --- | --- |
-| Snaps Prototype Sci-Fi Industrial | 3.9 MB | Modular sci-fi blockout and corridor reference. | Strong candidate for v0.2/v0.3 layout prototyping. |
-| Snaps Prototype Sci-Fi Military Base | 3.9 MB | Additional modular sci-fi greybox pieces. | Strong candidate for level-kit reference. |
+| Snaps Prototype Sci-Fi Industrial | 3.9 MB | Modular industrial blockout and corridor reference. | Candidate for layout prototyping only; must be restyled heavily toward brass/iron/steam. |
+| Snaps Prototype Sci-Fi Military Base | 3.9 MB | Additional modular greybox pieces. | Candidate for scale/blockout reference, not final art. |
 | BlockOut Prototype Kit | 23.6 MB | General blockout shapes. | Useful for rapid level-map scale tests. |
-| Space Robot Kyle | 9.9 MB | Humanoid robot reference or temporary enemy body. | Candidate for Scrapper/Lancer placeholder study. |
-| Weapon Skins - FPS Microgame Add-Ons | 16.3 MB | Weapon material/skin reference. | Candidate for Pulse Pistol placeholder styling. |
+| Space Robot Kyle | 9.9 MB | Humanoid robot reference or temporary enemy body. | Low-fit candidate for Scrapper/Lancer placeholder study only. |
+| Weapon Skins - FPS Microgame Add-Ons | 16.3 MB | Weapon material/skin reference. | Candidate for Pressure Pistol scale study only; final style must be brass/walnut/pressure-gauge. |
 | Fireballer - FPS Microgame Add-Ons | 12.4 MB | FPS weapon/FX reference. | Candidate for weapon/VFX study only. |
 | Sniper Rifle - FPS Microgame Add-Ons | 0.4 MB | Weapon mesh reference. | Small candidate for weapon-scale study. |
 | Unity Particle Pack 5x | 97.3 MB | Sparks, smoke, impact VFX. | Candidate for impact and machine death VFX. |
 | Unity Particle Pack | 139.3 MB | Additional VFX samples. | Candidate, import selectively. |
-| Volumetric Lines | 0.7 MB | Laser beams, scanlines, neon accents. | Strong candidate for cyberpunk targeting and signage. |
+| Volumetric Lines | 0.7 MB | Line-rendering reference. | Low-fit now; use only if repurposed as gauge needles, pressure beams, or debug visualization. |
 | Camera Shake FX | 28.1 MB | Weapon and damage feedback. | Candidate if current custom camera shake is insufficient. |
 | Impact - Physics Interaction System | 21.9 MB | Hit feedback system. | Candidate for later physics-rich impacts, not v0.2 blocker. |
-| Japanese Alley | 425.3 MB | Cyberpunk-adjacent urban alley art reference. | Potential visual reference, import only if needed. |
+| Japanese Alley | 425.3 MB | Urban alley art reference. | Low-fit after steampunk pivot; defer. |
 | NYC Block 6 | 428.5 MB | Urban block reference. | Potential distant city/reference, not current indoor slice. |
 | Windridge City | 680.8 MB | City environment reference. | Defer due to size. |
 | Skybox Series Free | 274.9 MB | Skybox backgrounds. | Candidate for later exterior/transit levels. |
@@ -55,12 +55,12 @@ The cache contains downloaded `.unitypackage` files. Account-owned packs that ar
 
 ## Low-Fit or Deferred Packs
 
-- Large nature, terrain, medieval, fantasy, food, race track, and non-cyberpunk packs should not be imported into the main project unless a later level specifically needs them.
+- Large nature, terrain, food, race track, clean sci-fi, and non-steampunk packs should not be imported into the main project unless a later level specifically needs them. Some medieval/industrial props may become useful if they match stone, wood, iron, chains, barrels, or workshop dressing.
 - Full Unity demo projects are useful as references but should stay outside the game project unless a small, specific asset is selected.
 
 ## Next Review Steps
 
-1. For v0.2/v0.3, inspect the two Snaps Prototype Sci-Fi packs and `Volumetric Lines` first.
+1. For v0.2/v0.3, inspect BlockOut Prototype Kit and any locally available medieval/industrial prop packs first; use sci-fi packs only for greybox scale reference.
 2. If imported, place assets under a clearly named vendor folder and document the import in this file.
 3. Update `AAA_ASSET_CATALOG.md` rows when a pack becomes the source of an asset or prototype.
 4. Add any new work discovered during import to `WORK_LEDGER.md`.

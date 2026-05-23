@@ -2,15 +2,15 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CyberpunkAudioCue
+public enum SteamworksAudioCue
 {
-    PulseFire,
+    PressureFire,
     EmptyClick,
     HealthPickup,
     AmmoPickup,
-    AccessShard,
-    DoorOpen,
-    DoorDenied,
+    GearKey,
+    GateOpen,
+    GateDenied,
     EnemyHit,
     EnemyDeath,
     PlayerHurt,
@@ -18,15 +18,15 @@ public enum CyberpunkAudioCue
 }
 
 [RequireComponent(typeof(AudioSource))]
-public class CyberpunkAudio : MonoBehaviour
+public class SteamworksAudio : MonoBehaviour
 {
-    public static CyberpunkAudio Instance { get; private set; }
+    public static SteamworksAudio Instance { get; private set; }
 
     public float masterVolume = 0.55f;
 
     private const int SampleRate = 44100;
 
-    private readonly Dictionary<CyberpunkAudioCue, AudioClip> clips = new Dictionary<CyberpunkAudioCue, AudioClip>();
+    private readonly Dictionary<SteamworksAudioCue, AudioClip> clips = new Dictionary<SteamworksAudioCue, AudioClip>();
     private AudioSource source;
 
     private void Awake()
@@ -45,17 +45,17 @@ public class CyberpunkAudio : MonoBehaviour
         BuildClips();
     }
 
-    public static void Play(CyberpunkAudioCue cue)
+    public static void Play(SteamworksAudioCue cue)
     {
         Instance?.PlayCue(cue, null);
     }
 
-    public static void PlayAt(CyberpunkAudioCue cue, Vector3 position)
+    public static void PlayAt(SteamworksAudioCue cue, Vector3 position)
     {
         Instance?.PlayCue(cue, position);
     }
 
-    private void PlayCue(CyberpunkAudioCue cue, Vector3? position)
+    private void PlayCue(SteamworksAudioCue cue, Vector3? position)
     {
         if (!clips.TryGetValue(cue, out AudioClip clip) || clip == null)
         {
@@ -75,17 +75,17 @@ public class CyberpunkAudio : MonoBehaviour
 
     private void BuildClips()
     {
-        clips[CyberpunkAudioCue.PulseFire] = CreateClip("Pulse Fire", 0.16f, (t, _) => Tone(Slide(930f, 180f, t), t) * Envelope(t, 0.005f, 0.06f, 0.16f) + Noise(t) * 0.09f * Envelope(t, 0.001f, 0.04f, 0.16f));
-        clips[CyberpunkAudioCue.EmptyClick] = CreateClip("Empty Click", 0.09f, (t, _) => Noise(t) * 0.26f * Envelope(t, 0.001f, 0.025f, 0.09f));
-        clips[CyberpunkAudioCue.HealthPickup] = CreateClip("Health Pickup", 0.2f, (t, _) => Tone(Slide(520f, 780f, t), t) * Envelope(t, 0.005f, 0.08f, 0.2f));
-        clips[CyberpunkAudioCue.AmmoPickup] = CreateClip("Ammo Pickup", 0.18f, (t, _) => Tone(Slide(680f, 1180f, t), t) * Envelope(t, 0.003f, 0.07f, 0.18f));
-        clips[CyberpunkAudioCue.AccessShard] = CreateClip("Access Shard", 0.42f, AccessShardSample);
-        clips[CyberpunkAudioCue.DoorOpen] = CreateClip("Door Open", 0.65f, DoorOpenSample);
-        clips[CyberpunkAudioCue.DoorDenied] = CreateClip("Door Denied", 0.24f, (t, _) => Tone(110f, t) * 0.45f * Envelope(t, 0.002f, 0.12f, 0.24f) + Tone(55f, t) * 0.25f * Envelope(t, 0.002f, 0.16f, 0.24f));
-        clips[CyberpunkAudioCue.EnemyHit] = CreateClip("Enemy Hit", 0.18f, (t, _) => Noise(t) * 0.22f * Envelope(t, 0.001f, 0.07f, 0.18f) + Tone(330f, t) * 0.18f * Envelope(t, 0.002f, 0.09f, 0.18f));
-        clips[CyberpunkAudioCue.EnemyDeath] = CreateClip("Enemy Death", 0.55f, (t, _) => Tone(Slide(580f, 90f, t), t) * Envelope(t, 0.004f, 0.25f, 0.55f) + Noise(t) * 0.12f * Envelope(t, 0.02f, 0.35f, 0.55f));
-        clips[CyberpunkAudioCue.PlayerHurt] = CreateClip("Player Hurt", 0.24f, (t, _) => Tone(85f, t) * 0.5f * Envelope(t, 0.001f, 0.11f, 0.24f) + Noise(t) * 0.07f * Envelope(t, 0.002f, 0.06f, 0.24f));
-        clips[CyberpunkAudioCue.Win] = CreateClip("Win", 0.85f, WinSample);
+        clips[SteamworksAudioCue.PressureFire] = CreateClip("Pressure Fire", 0.16f, (t, _) => Tone(Slide(620f, 140f, t), t) * Envelope(t, 0.005f, 0.06f, 0.16f) + Noise(t) * 0.14f * Envelope(t, 0.001f, 0.04f, 0.16f));
+        clips[SteamworksAudioCue.EmptyClick] = CreateClip("Empty Click", 0.09f, (t, _) => Noise(t) * 0.26f * Envelope(t, 0.001f, 0.025f, 0.09f));
+        clips[SteamworksAudioCue.HealthPickup] = CreateClip("Health Pickup", 0.2f, (t, _) => Tone(Slide(520f, 780f, t), t) * Envelope(t, 0.005f, 0.08f, 0.2f));
+        clips[SteamworksAudioCue.AmmoPickup] = CreateClip("Ammo Pickup", 0.18f, (t, _) => Tone(Slide(410f, 760f, t), t) * Envelope(t, 0.003f, 0.07f, 0.18f));
+        clips[SteamworksAudioCue.GearKey] = CreateClip("Gear Key", 0.42f, GearKeySample);
+        clips[SteamworksAudioCue.GateOpen] = CreateClip("Pressure Gate Open", 0.65f, GateOpenSample);
+        clips[SteamworksAudioCue.GateDenied] = CreateClip("Pressure Gate Denied", 0.24f, (t, _) => Tone(110f, t) * 0.45f * Envelope(t, 0.002f, 0.12f, 0.24f) + Tone(55f, t) * 0.25f * Envelope(t, 0.002f, 0.16f, 0.24f));
+        clips[SteamworksAudioCue.EnemyHit] = CreateClip("Enemy Hit", 0.18f, (t, _) => Noise(t) * 0.22f * Envelope(t, 0.001f, 0.07f, 0.18f) + Tone(330f, t) * 0.18f * Envelope(t, 0.002f, 0.09f, 0.18f));
+        clips[SteamworksAudioCue.EnemyDeath] = CreateClip("Enemy Death", 0.55f, (t, _) => Tone(Slide(580f, 90f, t), t) * Envelope(t, 0.004f, 0.25f, 0.55f) + Noise(t) * 0.12f * Envelope(t, 0.02f, 0.35f, 0.55f));
+        clips[SteamworksAudioCue.PlayerHurt] = CreateClip("Player Hurt", 0.24f, (t, _) => Tone(85f, t) * 0.5f * Envelope(t, 0.001f, 0.11f, 0.24f) + Noise(t) * 0.07f * Envelope(t, 0.002f, 0.06f, 0.24f));
+        clips[SteamworksAudioCue.Win] = CreateClip("Win", 0.85f, WinSample);
     }
 
     private static AudioClip CreateClip(string name, float duration, Func<float, int, float> generator)
@@ -104,7 +104,7 @@ public class CyberpunkAudio : MonoBehaviour
         return clip;
     }
 
-    private static float AccessShardSample(float t, int sampleIndex)
+    private static float GearKeySample(float t, int sampleIndex)
     {
         float first = Tone(720f, t) * Envelope(t, 0.002f, 0.08f, 0.14f);
         float second = t > 0.11f ? Tone(960f, t - 0.11f) * Envelope(t - 0.11f, 0.002f, 0.08f, 0.14f) : 0f;
@@ -112,7 +112,7 @@ public class CyberpunkAudio : MonoBehaviour
         return (first + second + third) * 0.55f + Noise(sampleIndex * 0.0001f) * 0.025f * Envelope(t, 0.01f, 0.25f, 0.42f);
     }
 
-    private static float DoorOpenSample(float t, int sampleIndex)
+    private static float GateOpenSample(float t, int sampleIndex)
     {
         float motor = Tone(52f + Mathf.Sin(t * 18f) * 9f, t) * 0.42f;
         float servo = Tone(Slide(180f, 95f, t), t) * 0.18f;

@@ -1,4 +1,4 @@
-# Arcology Breach - Implementation To-Do
+# Brassworks Breach - Implementation To-Do
 
 This checklist tracks implementation work. Detailed production tracking lives in `WORK_LEDGER.md`.
 
@@ -11,51 +11,58 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Implement hitscan weapon.
 - [x] Implement health, ammo, death, restart.
 - [x] Implement primitive mechanical melee enemy.
-- [x] Implement access/key pickup.
+- [x] Implement key pickup.
 - [x] Implement locked gate.
 - [x] Implement exit trigger.
 - [x] Implement text HUD.
 - [x] Implement v0.1 presentation feedback.
 - [x] Create public GitHub repo.
-- [x] Add cyberpunk story bible.
-- [x] Add AAA-style roadmap, asset catalog, tracking, and handoff docs.
+- [x] Add story/lore bible.
+- [x] Add AAA-style roadmap, asset catalog, and tracking docs.
 - [x] Add level map/progression planning.
 - [x] Review locally cached Unity Asset Store packs.
+- [x] Generate and import steampunk north-star concept art.
+- [x] Retheme working title/product metadata to `Brassworks Breach`.
 
-## Current Priority: v0.2 Combat Feel Slice
+## Current Priority: v0.0.7 Steampunk Retheme and Pause Flow
+
+- [x] Remove old build/version wording from active progress/to-do docs.
+- [x] Add pause menu with resume, restart, and quit.
+- [x] Add packaged pause-flow automation.
+- [x] Retheme code vocabulary to pressure pistol, gear key, pressure gate, service lift, and steamworks audio.
+- [x] Retheme generated scene dressing toward brass, copper, iron, oil stone, pipes, and boiler stacks.
+- [x] Rebuild generated scene.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.7`.
+
+## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
 - [ ] Record tuning notes in `WORK_LEDGER.md`.
 - [ ] Tune player movement speed and camera feel.
-- [ ] Tune `Pulse Pistol` damage, fire rate, ammo, and feedback.
+- [ ] Tune `Pressure Pistol` damage, fire rate, ammo, and feedback.
 - [ ] Tune `Scrapper` speed, detection range, damage, and attack cooldown.
-- [x] Make lockdown gate and access shard feedback clearer.
-- [ ] Confirm `Aster Gate Intake` scale and room flow against `LEVEL_DESIGN_AND_MAPS.md`.
-- [x] Add first cyberpunk audio set.
-- [ ] Improve enemy navigation or obstacle handling.
-- [x] Add packaged objective-chain auto-playthrough.
-- [x] Add first Scrapper obstacle side-steering.
-- [x] Add packaged combat smoke test.
+- [ ] Confirm `Brassworks Intake` scale and room flow against `LEVEL_DESIGN_AND_MAPS.md`.
 - [ ] Manual readability pass for Scrapper attack tells and world labels.
-- [x] Add first cyberpunk material/dressing pass.
-- [ ] Replace procedural dressing with generated/imported final art assets.
-- [ ] Rebuild Windows player.
-- [ ] Update `BUILD_STATUS.md`.
-- [ ] Update `HANDOFF.md`.
 - [ ] Manual listen pass for procedural audio levels and tone.
 
 ## v0.3 Art Direction Slice
 
-- [ ] Generate wet concrete material.
-- [ ] Generate black chrome wall material.
-- [ ] Generate neon cable trunk material.
-- [ ] Generate access shard visual.
-- [ ] Generate lockdown gate visual.
-- [ ] Generate emergency lift/data gate visual.
+- [ ] Generate oil-dark stone material.
+- [ ] Generate riveted iron wall material.
+- [ ] Generate brass/copper pipe material.
+- [ ] Generate gear-key visual.
+- [ ] Generate pressure-gate visual.
+- [ ] Generate service-lift visual.
 - [ ] Generate `Scrapper` visual.
-- [ ] Generate `Pulse Pistol` visual.
-- [ ] Replace placeholder hit marker with cyberpunk impact VFX.
-- [ ] Add signage, graffiti, and holographic warning props.
+- [ ] Generate `Pressure Pistol` visual.
+- [ ] Replace placeholder hit marker with spark/steam impact VFX.
+- [ ] Add gauges, valve wheels, furnace props, pipe bundles, and work-order signs.
 - [ ] Verify scene readability after art pass.
 
 ## v0.4 Systems Foundation
@@ -89,6 +96,6 @@ Windows is the primary development target. Android, browser/WebGL, and VR are de
 - 2026-05-22: Unity FPS proof of concept implemented.
 - 2026-05-22: v0.1 presentation feedback added.
 - 2026-05-22: Public repo created.
-- 2026-05-22: Project pivoted to original cyberpunk identity: `Arcology Breach`.
 - 2026-05-22: Android, browser/WebGL, SteamVR/OpenXR, and Meta Quest planning added as deferred port tracks.
 - 2026-05-22: Level map planning and locally cached Asset Store pack review added.
+- 2026-05-23: Project art direction pivoted to heavy steampunk using the generated north-star concept sheets.
