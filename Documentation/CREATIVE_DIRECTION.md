@@ -87,7 +87,7 @@ Audio should be mechanical, warm, and forceful:
 - Furnace rumble.
 - Oil-slick metal impacts.
 - Bell and gauge confirmation tones.
-- Low boiler-room ambience, used sparingly.
+- Low boiler-room ambience, currently represented by a procedural looping machinery bed and later expanded with richer layers.
 
 ## Story Delivery
 

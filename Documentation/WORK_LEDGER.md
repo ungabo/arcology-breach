@@ -81,6 +81,7 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 | LORE-001 | Add interactable lore plaques | narrative/code/test | P1 | verified | v0.0.69 | LorePlaque archive props appear in Level01-Level05, with level validation and interaction-smoke HUD read verification. |
 | OBJ-003 | Add Pipeworks routing valve objective | level/code/test | P1 | verified | v0.0.70 | Level02 Boilerheart lift starts pressure-locked until the routing valve is turned, with validation and auto-playthrough coverage. |
 | SEC-004 | Add Pipeworks secret cache | level/test | P1 | verified | v0.0.71 | Level02 Pipeworks cartridge cache, rewards, visuals, validation, and three-secret run total auto-playthrough coverage are verified. |
+| AUD-012 | Add brassworks ambience loop | audio/code/test | P1 | verified | v0.0.72 | SteamworksAudio generates a looping machinery bed with validation and runtime smoke coverage. |
 
 ## Ready Next
 
@@ -205,3 +206,4 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 - `2026-05-23`: `v0.0.69` lore plaque build created at `Builds/Windows/v0.0.69/BrassworksBreach_v0.0.69.exe` and passed the complete V0 matrix, including level validation and interaction-smoke plaque HUD read coverage, through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.70` Pipeworks routing valve build created at `Builds/Windows/v0.0.70/BrassworksBreach_v0.0.70.exe` and passed the complete V0 matrix, including auto-playthrough coverage for the locked Boilerheart lift, routing valve, objective update, and Level02 transition. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.71` Pipeworks secret cache build created at `Builds/Windows/v0.0.71/BrassworksBreach_v0.0.71.exe` and passed the complete V0 matrix, including Level02 secret validation and auto-playthrough coverage for at least three registered secrets. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.72` brassworks ambience build created at `Builds/Windows/v0.0.72/BrassworksBreach_v0.0.72.exe` and passed the complete V0 matrix, including runtime smoke coverage that verifies the ambience loop is active. Next-step directive: continue immediately with the next highest-impact unfinished task.

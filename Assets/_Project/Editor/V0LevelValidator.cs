@@ -67,6 +67,8 @@ public static class V0LevelValidator
         GameStateController gameState = Require<GameStateController>(sceneName + " GameStateController");
         ValidateStartMessage(sceneName, gameState);
         Require<LevelTransitionController>(sceneName + " LevelTransitionController");
+        SteamworksAudio audio = Require<SteamworksAudio>(sceneName + " SteamworksAudio");
+        ValidateSteamworksAudio(sceneName, audio);
         RuntimePerformanceProfile performanceProfile = Require<RuntimePerformanceProfile>(sceneName + " RuntimePerformanceProfile");
         ValidatePlatformQualityProfile(sceneName, performanceProfile);
         HUDController hud = Require<HUDController>(sceneName + " HUDController");
@@ -506,6 +508,14 @@ public static class V0LevelValidator
         if (profile.allowCameraMsaa || profile.allowDynamicResolution)
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " Windows profile must disable camera MSAA and dynamic resolution.");
+        }
+    }
+
+    private static void ValidateSteamworksAudio(string sceneName, SteamworksAudio audio)
+    {
+        if (!audio.ambienceEnabled || audio.ambienceVolume <= 0f)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " SteamworksAudio ambience is not configured.");
         }
     }
 

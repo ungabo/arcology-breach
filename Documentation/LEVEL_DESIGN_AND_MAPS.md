@@ -64,6 +64,7 @@ Near-term:
 - Pressure-pistol hits now leave short-lived scorch/brass impact decal VFX, verified by combat-scenario smoke.
 - Player damage now triggers first-person pressure/heat/brass hurt VFX, verified by combat-edge smoke.
 - Each current gameplay level now includes an interactable archive plaque for short environmental lore, verified by level validation and interaction smoke.
+- Each current gameplay level now has a procedural brassworks ambience loop through `SteamworksAudio`, verified by runtime smoke.
 - Steam hazards now use animated low/high puffs and are verified by level validation and hazard smoke.
 - Furnace heat hazards now pulse their phase signals and show active heat ripples, verified by level validation and hazard smoke.
 - Hazard smoke covers Level03 steam damage and Level04 furnace-heat damage without ending the run from one tick/pulse. Level05 also includes validated steam and furnace-heat hazards.

@@ -1063,6 +1063,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.72 Brassworks Ambience Pass
+
+- [x] Add procedural looping brassworks ambience to `SteamworksAudio`.
+- [x] Apply ambience volume through the existing master-volume setting.
+- [x] Add level validation for ambience configuration.
+- [x] Expand runtime smoke to verify the packaged ambience loop is active.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.72`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

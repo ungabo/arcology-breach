@@ -23,7 +23,13 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<GameStateController>("GameStateController");
         Require<LevelTransitionController>("LevelTransitionController");
         Require<PauseMenuController>("PauseMenuController");
-        Require<SteamworksAudio>("SteamworksAudio");
+        SteamworksAudio audio = Require<SteamworksAudio>("SteamworksAudio");
+        if (!audio.AmbienceActive || audio.AmbienceSampleCount <= 0)
+        {
+            Debug.LogError("Runtime smoke test failed: brassworks ambience is not active.");
+            Application.Quit(1);
+        }
+
         Require<RuntimePerformanceProfile>("RuntimePerformanceProfile");
         Require<RuntimeAutoPlaythroughTest>("RuntimeAutoPlaythroughTest");
         Require<RuntimeCombatTest>("RuntimeCombatTest");

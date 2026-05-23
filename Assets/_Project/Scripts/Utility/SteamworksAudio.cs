@@ -23,11 +23,17 @@ public class SteamworksAudio : MonoBehaviour
     public static SteamworksAudio Instance { get; private set; }
 
     public float masterVolume = 0.55f;
+    public bool ambienceEnabled = true;
+    public float ambienceVolume = 0.16f;
 
     private const int SampleRate = 44100;
+    private const float AmbienceDuration = 4f;
 
     private readonly Dictionary<SteamworksAudioCue, AudioClip> clips = new Dictionary<SteamworksAudioCue, AudioClip>();
     private AudioSource source;
+
+    public bool AmbienceActive => source != null && source.loop && source.clip != null && source.isPlaying;
+    public int AmbienceSampleCount => source != null && source.clip != null ? source.clip.samples : 0;
 
     private void Awake()
     {
@@ -44,6 +50,15 @@ public class SteamworksAudio : MonoBehaviour
         source.spatialBlend = 0f;
 
         BuildClips();
+        StartAmbience();
+    }
+
+    private void Update()
+    {
+        if (source != null && source.loop)
+        {
+            source.volume = Mathf.Clamp01(GameSettings.MasterVolume * ambienceVolume);
+        }
     }
 
     public static void Play(SteamworksAudioCue cue)
@@ -90,6 +105,19 @@ public class SteamworksAudio : MonoBehaviour
         clips[SteamworksAudioCue.Win] = CreateClip("Win", 0.85f, WinSample);
     }
 
+    private void StartAmbience()
+    {
+        if (!ambienceEnabled)
+        {
+            return;
+        }
+
+        source.clip = CreateClip("Brassworks Ambience Loop", AmbienceDuration, AmbienceSample);
+        source.loop = true;
+        source.volume = Mathf.Clamp01(GameSettings.MasterVolume * ambienceVolume);
+        source.Play();
+    }
+
     private static AudioClip CreateClip(string name, float duration, Func<float, int, float> generator)
     {
         int sampleCount = Mathf.Max(1, Mathf.CeilToInt(duration * SampleRate));
@@ -128,6 +156,15 @@ public class SteamworksAudio : MonoBehaviour
         float b = t > 0.18f ? Tone(780f, t - 0.18f) * Envelope(t - 0.18f, 0.005f, 0.2f, 0.35f) : 0f;
         float c = t > 0.36f ? Tone(1040f, t - 0.36f) * Envelope(t - 0.36f, 0.005f, 0.28f, 0.48f) : 0f;
         return (a + b + c) * 0.38f + Noise(sampleIndex * 0.0001f) * 0.015f * Envelope(t, 0.02f, 0.3f, 0.85f);
+    }
+
+    private static float AmbienceSample(float t, int sampleIndex)
+    {
+        float rumble = Tone(38f, t) * 0.12f + Tone(64f, t) * 0.07f;
+        float flywheel = Tone(96f, t) * 0.035f * (0.65f + Mathf.Sin(Mathf.PI * 2f * 0.5f * t) * 0.35f);
+        float piston = Mathf.Max(0f, Mathf.Sin(Mathf.PI * 2f * 1.5f * t)) * Tone(118f, t) * 0.035f;
+        float steam = Noise(sampleIndex * 0.000035f) * 0.025f * (0.65f + Mathf.Sin(Mathf.PI * 2f * 0.25f * t) * 0.35f);
+        return Mathf.Clamp((rumble + flywheel + piston + steam) * 0.5f, -1f, 1f);
     }
 
     private static float Envelope(float t, float attack, float releaseStart, float duration)
