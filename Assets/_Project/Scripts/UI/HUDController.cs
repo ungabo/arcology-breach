@@ -11,10 +11,13 @@ public class HUDController : MonoBehaviour
     public Text keyText;
     public Text messageText;
     public Text interactionText;
+    public Text bossNameText;
     public Image damageFlashImage;
     public Image healthFillImage;
     public Image ammoFillImage;
     public Image keyLampImage;
+    public Image bossBackplateImage;
+    public Image bossFillImage;
 
     private float messageTimer;
     private bool messageIsPersistent;
@@ -26,6 +29,7 @@ public class HUDController : MonoBehaviour
         Instance = this;
         ClearMessage();
         ClearInteractionPrompt();
+        HideBossHealth();
     }
 
     private void Update()
@@ -108,6 +112,46 @@ public class HUDController : MonoBehaviour
         if (keyLampImage != null)
         {
             keyLampImage.color = hasKey ? new Color(0.25f, 0.95f, 0.35f, 0.95f) : new Color(0.95f, 0.55f, 0.08f, 0.95f);
+        }
+    }
+
+    public void ShowBossHealth(string bossName, int current, int max)
+    {
+        if (bossNameText != null)
+        {
+            bossNameText.text = bossName;
+            bossNameText.enabled = true;
+        }
+
+        if (bossBackplateImage != null)
+        {
+            bossBackplateImage.enabled = true;
+        }
+
+        if (bossFillImage != null)
+        {
+            bossFillImage.enabled = true;
+            bossFillImage.fillAmount = max > 0 ? Mathf.Clamp01(current / (float)max) : 0f;
+        }
+    }
+
+    public void HideBossHealth()
+    {
+        if (bossNameText != null)
+        {
+            bossNameText.text = string.Empty;
+            bossNameText.enabled = false;
+        }
+
+        if (bossBackplateImage != null)
+        {
+            bossBackplateImage.enabled = false;
+        }
+
+        if (bossFillImage != null)
+        {
+            bossFillImage.fillAmount = 0f;
+            bossFillImage.enabled = false;
         }
     }
 

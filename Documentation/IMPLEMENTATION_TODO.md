@@ -797,6 +797,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.53 Warden Boss Health HUD Pass
+
+- [x] Add hidden top-center boss health HUD fields and generated UI elements.
+- [x] Show/update/hide boss health from `GovernorWardenController`.
+- [x] Validate HUD boss health wiring in `V0LevelValidator`.
+- [x] Check HUD boss health wiring in packaged runtime smoke.
+- [x] Expand Warden combat smoke to verify the boss bar appears and drops after damage.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.53`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

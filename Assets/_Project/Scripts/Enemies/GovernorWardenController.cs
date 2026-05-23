@@ -78,6 +78,11 @@ public class GovernorWardenController : MonoBehaviour, IDamageable
         projectileSpeed = definition.projectileSpeed;
     }
 
+    private void Start()
+    {
+        UpdateBossHud();
+    }
+
     private void Update()
     {
         if (dead || playerHealth == null || playerHealth.IsDead)
@@ -151,6 +156,8 @@ public class GovernorWardenController : MonoBehaviour, IDamageable
             Die();
             return;
         }
+
+        UpdateBossHud();
 
         if (!enraged && currentHealth <= maxHealth / 2)
         {
@@ -240,7 +247,13 @@ public class GovernorWardenController : MonoBehaviour, IDamageable
         dead = true;
         SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyDeath, transform.position);
         HUDController.Instance?.ShowTemporaryMessage("Governor Warden down", 0.8f);
+        HUDController.Instance?.HideBossHealth();
         Destroy(gameObject);
+    }
+
+    private void UpdateBossHud()
+    {
+        HUDController.Instance?.ShowBossHealth("GOVERNOR WARDEN", currentHealth, maxHealth);
     }
 
     private void SetColor(Color color)

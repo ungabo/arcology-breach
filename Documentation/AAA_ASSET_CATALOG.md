@@ -92,7 +92,7 @@ Every major asset should eventually have three quality targets:
 | ENEMY-004 | Lancer | P1 | verified | Thin ranged valve-rifle automaton with primitive tripod silhouette, pressure-bolt attack, and data-driven definition asset. |
 | ENEMY-005 | Bulwark | P2 | prototype | Primitive furnace-plated machine with boiler body, hammer arms, data-driven definition, Level04/Level05 placement, and combat smoke coverage. |
 | ENEMY-006 | Bellows Node | P2 | planned | Stationary pressure amplifier that buffs nearby machines. |
-| ENEMY-007 | Governor Warden | P1 | prototype | Final guardian prototype with data-driven definition, Level05 placement, stomp attack, pressure-bolt attack, enraged half-health behavior, primitive core body/furnace heart/pressure crown/pressure cannon silhouette, validation, and combat smoke coverage. |
+| ENEMY-007 | Governor Warden | P1 | prototype | Final guardian prototype with data-driven definition, Level05 placement, stomp attack, pressure-bolt attack, enraged half-health behavior, primitive core body/furnace heart/pressure crown/pressure cannon silhouette, boss health HUD integration, validation, and combat smoke coverage. |
 
 ## 6. Animations
 
@@ -149,6 +149,7 @@ Every major asset should eventually have three quality targets:
 | UI-005 | Pressure warning prompt | P1 | prototype | Clear denied/key-required feedback through HUD text, gate audio, and world label. |
 | UI-006 | Main menu | P2 | prototype | Generated start/quit menu with brassworks backdrop and automated test routing into gameplay. |
 | UI-007 | Settings and accessibility | P2 | prototype | Mouse sensitivity and master volume sliders exist on main and pause menus; resolution, flash intensity, and color readability remain planned. |
+| UI-008 | Boss health gauge | P1 | prototype | Top-center brass backplate, red pressure fill, and boss label for the Governor Warden; validated in scene/runtime smoke and damage-checked by Warden combat smoke. |
 
 ## 10. Level Assets
 

@@ -34,7 +34,12 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<RuntimeHazardTest>("RuntimeHazardTest");
         Require<RuntimeSecretTest>("RuntimeSecretTest");
         Require<RuntimePauseFlowTest>("RuntimePauseFlowTest");
-        Require<HUDController>("HUDController");
+        HUDController hud = Require<HUDController>("HUDController");
+        if (hud.bossNameText == null || hud.bossBackplateImage == null || hud.bossFillImage == null)
+        {
+            Debug.LogError("Runtime smoke test failed: missing boss health HUD wiring.");
+            Application.Quit(1);
+        }
         Require<EnemyController>("EnemyController");
         Require<Pickup>("Pickup");
         Require<LockedDoor>("LockedDoor");
@@ -64,12 +69,15 @@ public class RuntimeSmokeTest : MonoBehaviour
         return false;
     }
 
-    private static void Require<T>(string label) where T : UnityEngine.Object
+    private static T Require<T>(string label) where T : UnityEngine.Object
     {
-        if (UnityEngine.Object.FindAnyObjectByType<T>() == null)
+        T value = UnityEngine.Object.FindAnyObjectByType<T>();
+        if (value == null)
         {
             Debug.LogError("Runtime smoke test failed: missing " + label);
             Application.Quit(1);
         }
+
+        return value;
     }
 }

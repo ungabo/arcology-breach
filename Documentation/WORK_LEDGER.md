@@ -62,6 +62,7 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 | LVL-008 | Add Level05 Governor Core foundation | level/code/test | P1 | verified | v0.0.50 | Level05 scene, Level04-to-Level05 transition, Governor Core hazards/dressing, final hoist win state, six-scene build order, and five-level auto-playthrough are verified. |
 | ENEMY-007 | Add Governor Warden final guardian prototype | code/art/test | P1 | verified | v0.0.51 | GovernorWardenController, GovernorWardenDefinition, Level05 placement, primitive boss visual, validation, and V0_WARDEN_COMBAT_PASS are verified. |
 | OBJ-002 | Lock final hoist behind Warden defeat | code/level/test | P1 | verified | v0.0.52 | GuardianDefeatObjective, guardian-locked ExitTrigger wiring, Level05 lock signals, validation, and auto-playthrough locked/unlocked finale coverage are verified. |
+| UI-005B | Add Warden boss health HUD | ui/code/test | P1 | verified | v0.0.53 | Boss health HUD wiring, Warden health updates, validation, runtime smoke, and Warden combat HUD damage check are verified. |
 
 ## Ready Next
 
@@ -167,3 +168,4 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 - `2026-05-23`: `v0.0.50` Governor Core foundation build created at `Builds/Windows/v0.0.50/BrassworksBreach_v0.0.50.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.51` Governor Warden guardian build created at `Builds/Windows/v0.0.51/BrassworksBreach_v0.0.51.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.52` Warden-gated finale build created at `Builds/Windows/v0.0.52/BrassworksBreach_v0.0.52.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.53` Warden boss health HUD build created at `Builds/Windows/v0.0.53/BrassworksBreach_v0.0.53.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.

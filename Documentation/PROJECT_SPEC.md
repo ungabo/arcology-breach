@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.52`.
+Current state: `v0.0.53`.
 
 Implemented:
 
@@ -60,6 +60,7 @@ Implemented:
 - Level05 Governor Core foundation with core-ring blockout, mixed Scrapper/Lancer/Bulwark pressure, steam hazard, furnace-heat hazard, regulator dressing, and master override hoist final win device.
 - First Governor Warden final guardian with data-driven definition, primitive boss silhouette, stomp attack, pressure-bolt attack, enraged half-health state, Level05 placement, validation, and packaged Warden combat smoke.
 - Guardian-gated finale where the Level05 master override hoist remains locked until the Governor Warden is destroyed.
+- Warden boss health HUD with brass backplate, red pressure fill, boss label, runtime visibility, validation, and packaged Warden combat smoke damage feedback coverage.
 
 ## 3. Target Platform
 
@@ -178,6 +179,7 @@ Current:
 - Plain text health/ammo/key state.
 - Text crosshair.
 - Pause/death/win messages.
+- Brass boss health HUD for the Governor Warden.
 
 Future:
 

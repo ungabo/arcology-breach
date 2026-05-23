@@ -27,6 +27,7 @@ public class RuntimeWardenCombatTest : MonoBehaviour
 
         PlayerController player = Require<PlayerController>("PlayerController");
         WeaponController weapon = Require<WeaponController>("WeaponController");
+        HUDController hud = Require<HUDController>("HUDController");
         GovernorWardenController target = Require<GovernorWardenController>("GovernorWardenController");
 
         DisableOtherEnemies(target);
@@ -40,6 +41,7 @@ public class RuntimeWardenCombatTest : MonoBehaviour
             yield break;
         }
 
+        bool sawDamagedBossHud = false;
         for (int shotIndex = 1; shotIndex <= expectedShotsToKill; shotIndex++)
         {
             if (!weapon.FireOnce())
@@ -49,6 +51,17 @@ public class RuntimeWardenCombatTest : MonoBehaviour
             }
 
             yield return new WaitForSeconds(weapon.fireCooldown + 0.05f);
+
+            if (shotIndex == 1)
+            {
+                sawDamagedBossHud = hud.bossNameText != null && hud.bossNameText.enabled && hud.bossFillImage != null && hud.bossFillImage.enabled && hud.bossFillImage.fillAmount < 0.999f;
+            }
+        }
+
+        if (!sawDamagedBossHud)
+        {
+            Fail("Warden combat smoke failed: boss health HUD did not show damage.");
+            yield break;
         }
 
         yield return WaitUntilOrFail(() => target == null, "Governor Warden death from pressure pistol fire", 2f);
