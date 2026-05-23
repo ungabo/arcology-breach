@@ -56,7 +56,7 @@ public class LockedDoor : MonoBehaviour
         else if (Time.time >= nextLockedMessageTime)
         {
             nextLockedMessageTime = Time.time + 1f;
-            HUDController.Instance?.ShowTemporaryMessage("Need the key", 0.8f);
+            HUDController.Instance?.ShowTemporaryMessage("Access shard required", 0.8f);
         }
     }
 
@@ -68,6 +68,6 @@ public class LockedDoor : MonoBehaviour
             doorCollider.enabled = false;
         }
 
-        HUDController.Instance?.ShowTemporaryMessage("Door opened", 1f);
+        HUDController.Instance?.ShowTemporaryMessage("Lockdown gate opened", 1f);
     }
 }

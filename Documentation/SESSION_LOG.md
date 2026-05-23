@@ -1,0 +1,96 @@
+# Session Log
+
+Timestamp format: local time, America/New_York.
+
+## 2026-05-22 20:48:37 -04:00
+
+Started v0.2 production loop after user approved continuing development.
+
+Current working goals:
+
+- Keep timestamped records.
+- Commit regularly.
+- Keep `HANDOFF.md` current.
+- Treat `Arcology Breach` as the placeholder working title.
+- Keep the title easy to swap via `GameBranding.cs` and `TITLE_AND_BRANDING_TRACKER.md`.
+- Preserve Windows as the primary build target for a mid-to-low level gaming PC.
+- Plan deferred Android, browser/WebGL, SteamVR/OpenXR, and Meta Quest paths without building them yet.
+
+Current implementation state:
+
+- In-progress rebrand from earlier placeholder title to `Arcology Breach`.
+- Cyberpunk story bible added.
+- Android, browser/WebGL, Windows, and VR planning docs added.
+- Unity code updated so future Windows builds use `GameBranding.ExecutableStem`.
+
+Next actions:
+
+1. Finish docs/tracker cleanup.
+2. Regenerate `Level01`.
+3. Run editor smoke.
+4. Build Windows.
+5. Run packaged runtime smoke.
+6. Commit and push.
+
+## 2026-05-22 20:50:00 -04:00
+
+User requested checkpoint executable builds as `v0.0.1`, `v0.0.2`, etc.
+
+Implementation decision:
+
+- Added `GameBranding.CheckpointVersion`.
+- Windows checkpoint builds should output to `Builds/Windows/<version>/ArcologyBreach_<version>.exe`.
+- Current checkpoint target is `v0.0.1`.
+
+## 2026-05-22 20:52:30 -04:00
+
+Completed first checkpoint build under the new placeholder title.
+
+Verification:
+
+- Scene regenerated successfully with cyberpunk object/HUD names.
+- Editor smoke passed with `V0_SMOKE_TEST_PASS`.
+- Windows build passed with `V0_WINDOWS_BUILD_PASS`.
+- Runtime smoke passed with `V0_RUNTIME_SMOKE_PASS`.
+
+Checkpoint executable:
+
+`Builds/Windows/v0.0.1/ArcologyBreach_v0.0.1.exe`
+
+Notes:
+
+- Build output remains gitignored.
+- Source changes and docs should be committed and pushed next.
+
+## 2026-05-22 20:54:56 -04:00
+
+Reviewed locally cached Unity Asset Store `.unitypackage` files under:
+
+`C:\Users\Gabe\AppData\Roaming\Unity\Asset Store-5.x`
+
+High-value near-term candidates:
+
+- Snaps Prototype Sci-Fi Industrial.
+- Snaps Prototype Sci-Fi Military Base.
+- BlockOut Prototype Kit.
+- Volumetric Lines.
+- Unity Particle Pack / Particle Pack 5x.
+- Space Robot Kyle.
+- FPS Microgame weapon add-ons.
+
+Decision:
+
+- Do not import asset packs blindly.
+- Track candidates in `ASSET_PACK_REVIEW.md`.
+- Import only scoped subsets when a milestone task needs them.
+
+## 2026-05-22 20:56:30 -04:00
+
+User reminded that level maps, scale, and mechanics for moving between levels must be planned in detail.
+
+Actions:
+
+- Added `LEVEL_DESIGN_AND_MAPS.md`.
+- Added planned campaign map ladder from `Aster Gate Intake` through `Interdict Core`.
+- Added future `LevelTransitionController` direction and VR-safe transition notes.
+- Updated spec, roadmap, to-do, work ledger, and handoff references.

@@ -2,7 +2,7 @@
 
 ## Current Version
 
-`v0.1` proof-of-concept build.
+`v0.0.1` checkpoint build for `Arcology Breach`.
 
 `v0.0` core loop is complete. A small `v0.1` presentation pass has also been added while keeping the project simple.
 
@@ -12,24 +12,24 @@
 - Main scene generated at `Assets/_Project/Scenes/Level01.unity`.
 - First-person player movement and mouse look.
 - Character collision with greybox walls.
-- Plain text HUD for health, ammo, and key state.
+- Plain text HUD for health, ammo, and access-shard state.
 - Hitscan weapon with ammo and fire cooldown.
-- Primitive melee enemies that chase, attack, take damage, and die.
-- Health, ammo, and key pickups.
-- Locked red door requiring key.
-- Green exit trigger.
+- Primitive mechanical melee enemies that chase, attack, take damage, and die.
+- Health, ammo, and access-shard pickups.
+- Red corporate lockdown gate requiring the access shard.
+- Green emergency exit trigger.
 - Pause, death, win, and restart flow.
 - Windows standalone build.
 
 ## v0.1 Presentation Additions
 
-- Blocky camera-mounted weapon placeholder.
+- Blocky camera-mounted `Pulse Pistol` placeholder.
 - Muzzle flash.
 - Red damage flash.
 - Bobbing pickups.
-- Sliding locked door.
-- Colored point lights for key, door, and exit.
-- Primitive enemies with simple eye markers.
+- Sliding corporate lockdown gate.
+- Colored point lights for access shard, gate, and exit.
+- Primitive mechanical enemies with simple lens markers.
 
 ## Verification Results
 
@@ -43,9 +43,17 @@ Pass markers:
 - `V0_WINDOWS_BUILD_PASS`
 - `V0_RUNTIME_SMOKE_PASS`
 
+Latest checkpoint verification:
+
+- `2026-05-22 20:52 -04:00`: `v0.0.1` editor smoke passed.
+- `2026-05-22 20:52 -04:00`: `v0.0.1` Windows checkpoint build passed.
+- `2026-05-22 20:52 -04:00`: `v0.0.1` packaged runtime smoke passed.
+
 ## Build Path
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\IronChapelV0.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.1\ArcologyBreach_v0.0.1.exe`
+
+Future checkpoints should increment as `v0.0.2`, `v0.0.3`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
@@ -55,6 +63,7 @@ Pass markers:
 - No generated texture/sprite pass yet.
 - No main menu.
 - No settings screen.
+- Android, browser/WebGL, SteamVR/OpenXR, and Meta Quest builds are planned but deferred.
 
 ## Recommended Next Manual Test
 
@@ -64,7 +73,7 @@ Launch the Windows build and confirm:
 2. `WASD` movement feels comfortable.
 3. Left mouse fires and consumes ammo.
 4. Enemies can be killed before they kill the player.
-5. Key pickup works.
-6. Red door opens after key collection.
-7. Green exit reaches win state.
+5. Access shard pickup works.
+6. Red lockdown gate opens after shard collection.
+7. Green emergency exit reaches win state.
 8. `R` restarts after death/win.

@@ -50,7 +50,7 @@ public class PlayerInventory : MonoBehaviour
     {
         HasKey = true;
         UpdateHud();
-        HUDController.Instance?.ShowTemporaryMessage("Key collected", 1.5f);
+        HUDController.Instance?.ShowTemporaryMessage("Access shard acquired", 1.5f);
     }
 
     private void UpdateHud()

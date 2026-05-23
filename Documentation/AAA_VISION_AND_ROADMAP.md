@@ -1,284 +1,143 @@
-# AAA-Style Vision and Roadmap
+# Arcology Breach - AAA-Style Vision and Roadmap
 
 ## 1. Intent
 
-The project has proven that a simple Unity FPS loop can be built and packaged on this machine. The next long-term direction is to grow the proof of concept into a modern, high-quality first-person action game while keeping the original design DNA: fast movement, clear combat, maze-like spaces, readable enemies, key/door progression, secrets, and strong atmosphere.
-
-This document does not pretend that a one-person prototype becomes a full AAA game overnight. It defines an AAA-style target so every later pass can move in a coherent direction.
+Grow the current Unity proof of concept into an original, heavily stylized cyberpunk first-person action game. The long-term target is not photorealism for its own sake; it is a polished, atmospheric, readable, high-impact cyberpunk shooter with strong mechanical enemy identity.
 
 ## 2. Target Experience
 
-Working title remains `Iron Chapel`.
-
-The player explores a hostile industrial cathedral complex where military machinery, gothic stonework, and occult energy have fused together. Combat should be immediate and aggressive. The game should reward movement, target prioritization, resource awareness, and exploration.
-
-The final target should feel:
-
-- Fast and physical.
-- Dark but readable.
-- Brutal without visual noise.
-- Heavy on atmosphere but light on downtime.
-- Built around tight combat arenas connected by exploration spaces.
-- Understandable on first play, deeper on repeated play.
+The player enters sealed corporate arcologies, transit stacks, robot foundries, data vaults, and rain-slick service districts. Combat is fast and legible. Exploration is compact but layered. The world tells a story about corporate control, stolen memory, automated violence, and lower-city survival.
 
 ## 3. Design Pillars
 
-1. Combat clarity
-   - Every enemy has a readable silhouette, attack tell, role, and counterplay.
-   - Projectiles, melee ranges, pickups, hazards, and exits must be legible under pressure.
+1. Cyberpunk identity
+   - Neon, rain, corporate surveillance, black-market tech, holograms, robotics, and dense infrastructure.
 
-2. Movement-first survival
-   - Standing still is dangerous.
-   - Combat arenas give room for strafing, flanking, and repositioning.
-   - Weapons and enemies are tuned around motion.
+2. Mechanical threat language
+   - Enemies are corrupted civic machines and security systems.
 
-3. Industrial gothic identity
-   - Rusted machine spaces and stone ritual architecture share the same world.
-   - Red, green, amber, steel, black, and bone tones are used with discipline.
+3. Movement-first combat
+   - Combat arenas reward strafing, repositioning, and target priority.
 
-4. Layered progression
-   - Core path is obvious enough to avoid frustration.
-   - Optional secrets reward close inspection.
-   - Keys, switches, shortcuts, and locked areas create structure.
+4. Environmental storytelling
+   - Lore is embedded in spaces, signs, logs, and machine behavior.
 
 5. Production discipline
-   - Every feature has an owner status, acceptance criteria, and verification path.
-   - New ideas go into the backlog before implementation.
-   - Handoff docs stay current enough for a new chat to resume work.
+   - Every feature, asset, and milestone is tracked, verified, and handed off.
 
-## 4. Game Scope Ladder
+## 4. Roadmap
 
 ### v0.0 Complete
 
-Proof of concept:
-
-- Greybox level.
-- FPS movement.
-- Hitscan weapon.
-- Primitive enemies.
-- Key, door, exit.
-- HUD, death, win, restart.
-- Windows build and smoke tests.
+- Greybox FPS loop.
+- Primitive enemy.
+- Access/key style objective.
+- Locked route and exit.
+- Editor/build/runtime smoke tests.
 
 ### v0.1 Complete
 
-Light presentation pass:
-
-- Blocky weapon placeholder.
+- Basic presentation feedback.
+- Blocky weapon.
 - Muzzle flash.
 - Damage flash.
 - Bobbing pickups.
-- Sliding door.
+- Sliding gate.
 - Accent lights.
-- Enemy eye markers.
 
-### v0.2 Target: Playable Combat Slice
+### v0.2 Target: Cyberpunk Combat Feel Slice
 
-Goal: make the game loop feel good before adding large content volume.
+- Manual Windows playthrough.
+- Retheme all objective text to `Arcology Breach`.
+- Tune player speed, weapon fire, ammo, enemy speed, and damage.
+- Improve mechanical enemy readability.
+- Add simple cyberpunk audio set.
+- Add clearer access-shard/gate feedback.
+- Confirm `Aster Gate Intake` scale, room flow, and gate/shard/exit spatial relationship.
 
-- Replace direct enemy movement with more robust navigation.
-- Add one polished basic enemy with placeholder animation states.
-- Add weapon spread, impact reactions, and recoil tuning.
-- Add simple sound effects.
-- Add combat arena with cover, loops, and resource placement.
-- Add manual playtest checklist and tuning notes.
+### v0.3 Target: Cyberpunk Art Direction Slice
 
-### v0.3 Target: Art Direction Slice
-
-Goal: replace greybox visuals with a cohesive prototype look.
-
-- Generate first tileable wall/floor/trim texture set.
-- Create first weapon sprite/model pass.
-- Create first enemy skin/sprite/model pass.
-- Add atmospheric lighting pass.
-- Add basic VFX for muzzle, impact, blood/sparks, pickups, door, exit.
-- Establish naming conventions and import settings for generated assets.
+- First neon material kit.
+- Access shard visual.
+- Lockdown gate visual.
+- Emergency exit/data gate visual.
+- Scrapper enemy visual.
+- Pulse Pistol visual.
+- First VFX pass.
 
 ### v0.4 Target: Systems Foundation
 
-Goal: make the project scalable.
-
-- Data-driven weapon definitions.
-- Data-driven enemy definitions.
-- Health, armor, ammo, and pickup system cleanup.
-- Damage type model.
+- Data-driven weapons.
+- Data-driven enemies.
 - Interaction system.
-- Save-free level state reset.
-- Better game state flow.
-- Build automation scripts.
+- Pickup and inventory cleanup.
+- Level transition controller.
+- Level validation tool.
+- Build automation cleanup.
 
 ### v0.5 Target: First Vertical Slice
 
-Goal: one level that represents the future game.
-
-- One complete level with beginning, middle, finale, and secrets.
+- One polished cyberpunk level.
 - Two weapons.
-- Three enemy types.
-- Health/ammo/armor economy.
-- Locked door/key/switch loop.
+- Three mechanical enemy types.
+- Secrets.
 - Audio pass.
 - Lighting pass.
-- Start/win/death/pause flow.
-- Windows build validated through full manual playthrough.
+- UI pass.
+- Full manual playthrough validation.
 
 ### v0.6 Target: Content Expansion
 
-Goal: prove the pipeline can make more than one level.
-
 - Second level.
-- Additional texture themes.
-- Additional enemy variant.
-- Additional weapon or alternate fire.
+- Additional mechanical enemy.
+- Additional weapon.
 - More props and environmental hazards.
 - Level transition flow.
 
 ### v0.7 Target: Feel and Presentation
 
-Goal: improve moment-to-moment quality.
-
 - Weapon animations.
-- Enemy animation and hit reactions.
-- Better enemy attack tells.
-- Camera shake and impulse tuning.
-- Footstep, weapon, monster, UI, and ambient audio.
-- More sophisticated HUD.
+- Enemy animations.
+- Better attack tells.
+- Camera impulse tuning.
+- Stronger audio mix.
 - Performance profiling.
 
 ### v0.8 Target: Beta-Style Content Lock
 
-Goal: stabilize a small complete game.
-
-- Finalize core mechanics.
-- Complete planned levels.
-- Complete core asset set.
+- Planned mechanics complete.
+- Core assets complete.
+- Known issues triaged.
 - Replace temporary code paths.
-- Validate all win/death/restart flows.
-- Full bug backlog triage.
 
 ### v0.9 Target: Release Candidate
 
-Goal: polish, optimize, and package.
-
-- Performance budget pass.
+- Optimization.
 - Bug fixing.
-- Accessibility options.
 - Settings menu.
-- Save/settings persistence.
-- Installer or packaged release folder.
-- Public release notes.
+- Accessibility options.
+- Release packaging.
 
 ### v1.0 Target: Public Prototype Release
 
-Goal: a complete, playable, public prototype.
+- Public source/docs are coherent.
+- Build instructions are reliable.
+- Release notes and known issues are written.
 
-- Public repo has source and docs.
-- Release build is attached through GitHub Releases or documented build steps.
-- Known issues are documented.
-- Future roadmap is clear.
+## 5. Campaign and Map Ladder
 
-## 5. AAA-Style Feature Domains
+Detailed map notes live in `LEVEL_DESIGN_AND_MAPS.md`. Current planned ladder:
 
-### Gameplay
+1. `Aster Gate Intake`: access shard, lockdown gate, emergency lift.
+2. `Transit Spine`: transit power, longer sightlines, first ranged enemy.
+3. `Data Stack`: data locks, server routes, support-node enemy.
+4. `Civic Machine Foundry`: industrial hazards and heavy machines.
+5. `Interdict Core`: final breach and mixed mechanical opposition.
 
-- Fast first-person movement.
-- Multiple weapons.
-- Multiple enemy roles.
-- Key/door/switch progression.
-- Secrets.
-- Resource economy.
-- Arena combat.
-- Environmental hazards.
-- Difficulty tuning.
+## 6. Current Strategic Priority
 
-### Level Design
-
-- Modular room and corridor kit.
-- Combat arenas.
-- Exploration spaces.
-- Landmark composition.
-- Shortcuts.
-- Secrets.
-- Level scripting.
-- Checkpoint/restart design.
-
-### AI
-
-- Enemy perception.
-- Navigation.
-- Attack selection.
-- Group pressure.
-- Stagger/hit reactions.
-- Spawn triggers.
-- Difficulty scaling.
-
-### Combat
-
-- Weapon handling.
-- Damage model.
-- Hit feedback.
-- Enemy reactions.
-- Player damage feedback.
-- Ammo economy.
-- Armor or mitigation model.
-
-### Presentation
-
-- Environment materials.
-- Enemy skins.
-- Weapon models/sprites.
-- Props.
-- VFX.
-- Lighting.
-- Post-processing.
-- UI/HUD.
-- Animation.
-- Audio.
-
-### Technical
-
-- Unity project structure.
-- Editor generation tools.
-- Data-driven content.
-- Build automation.
-- Smoke tests.
-- Manual test plans.
-- Profiling.
-- Version control hygiene.
-
-## 6. Quality Bars
-
-### Prototype Bar
-
-- Feature works.
-- Clear enough to test.
-- Can be rebuilt.
-- Does not block other work.
-
-### Vertical Slice Bar
-
-- Feature works in context.
-- Has readable visuals and audio.
-- Tuned enough for manual playtesting.
-- Has acceptance criteria.
-- Has basic regression coverage or a repeatable test.
-
-### AAA-Style Bar
-
-- Feature has final-ish art/audio direction.
-- Works across levels and edge cases.
-- Has debug tooling.
-- Has performance budget.
-- Has accessibility consideration.
-- Has documented owner/status/history.
-
-## 7. Current Strategic Priority
-
-Next priority after the current v0.1 state:
-
-1. Manual playthrough and tuning.
-2. Add simple audio.
-3. Improve enemy movement and attack readability.
-4. Create first material/texture set.
-5. Replace primitive weapon/enemy visuals with first stylized placeholders.
-
-Do not jump straight to large asset generation before the combat loop feels good.
+1. Manual playthrough.
+2. Cyberpunk retheme in-game.
+3. Combat tuning.
+4. First audio pass.
+5. First cyberpunk material/enemy/weapon visual pass.

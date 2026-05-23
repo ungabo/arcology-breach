@@ -12,6 +12,7 @@ public static class V0SceneBuilder
 {
     private const string ScenePath = "Assets/_Project/Scenes/Level01.unity";
     private const string MaterialFolder = "Assets/_Project/Materials";
+    private const string WindowsBuildFolder = "Builds/Windows";
 
     [MenuItem("Project Tools/Rebuild v0.0 Scene")]
     public static void BuildV0()
@@ -46,7 +47,7 @@ public static class V0SceneBuilder
         CreateEnemy("Enemy - Final Right", new Vector3(3.2f, 1f, 32.5f), enemyMaterial, enemyEyeMaterial);
         CreatePickup("Pickup - Health", PickupKind.Health, new Vector3(-3.6f, 0.45f, 20f), Vector3.one * 0.7f, healthMaterial, 25);
         CreatePickup("Pickup - Ammo", PickupKind.Ammo, new Vector3(4.2f, 0.45f, 19f), Vector3.one * 0.7f, ammoMaterial, 15);
-        CreatePickup("Pickup - Key", PickupKind.Key, new Vector3(16f, 0.55f, 17f), Vector3.one * 0.9f, keyMaterial, 0);
+        CreatePickup("Pickup - Access Shard", PickupKind.Key, new Vector3(16f, 0.55f, 17f), Vector3.one * 0.9f, keyMaterial, 0);
         CreateLockedDoor(doorMaterial);
         CreateExit(exitMaterial);
         CreateAccentLights();
@@ -95,10 +96,10 @@ public static class V0SceneBuilder
     {
         RunSmokeTest();
 
-        string buildDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Builds", "Windows");
+        string buildDirectory = Path.Combine(Directory.GetCurrentDirectory(), WindowsBuildFolder, GameBranding.CheckpointVersion);
         Directory.CreateDirectory(buildDirectory);
 
-        string executablePath = Path.Combine(buildDirectory, "IronChapelV0.exe");
+        string executablePath = Path.Combine(buildDirectory, GameBranding.ExecutableStem + "_" + GameBranding.CheckpointVersion + ".exe");
 
         EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows64);
 
@@ -200,7 +201,7 @@ public static class V0SceneBuilder
 
     private static void CreateGreyboxLevel(Material wallMaterial, Material floorMaterial)
     {
-        GameObject parent = new GameObject("Greybox Level");
+        GameObject parent = new GameObject("Aster Gate Intake Blockout");
 
         CreateCube("Floor", new Vector3(5f, -0.1f, 16f), new Vector3(36f, 0.2f, 46f), floorMaterial, parent.transform);
 
@@ -291,7 +292,7 @@ public static class V0SceneBuilder
         hud.damageFlashImage = CreateScreenImage("Damage Flash", canvasObject.transform, new Color(1f, 0f, 0f, 0f));
         hud.healthText = CreateText("Health Text", canvasObject.transform, font, "HEALTH 100/100", 24, TextAnchor.LowerLeft, new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(18f, 16f), new Vector2(360f, 50f));
         hud.ammoText = CreateText("Ammo Text", canvasObject.transform, font, "AMMO 30", 24, TextAnchor.LowerRight, new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-18f, 16f), new Vector2(360f, 50f));
-        hud.keyText = CreateText("Key Text", canvasObject.transform, font, "KEY NO", 22, TextAnchor.LowerCenter, new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0f, 18f), new Vector2(220f, 45f));
+        hud.keyText = CreateText("Access Shard Text", canvasObject.transform, font, "SHARD NO", 22, TextAnchor.LowerCenter, new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0f, 18f), new Vector2(260f, 45f));
         CreateText("Crosshair", canvasObject.transform, font, "+", 34, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(80f, 80f));
         hud.messageText = CreateText("Message Text", canvasObject.transform, font, string.Empty, 34, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 80f), new Vector2(760f, 220f));
 
@@ -398,7 +399,7 @@ public static class V0SceneBuilder
 
     private static WeaponView CreateWeaponView(Transform cameraTransform, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial)
     {
-        GameObject weaponRoot = new GameObject("Iron Pistol Placeholder");
+        GameObject weaponRoot = new GameObject("Pulse Pistol Placeholder");
         weaponRoot.transform.SetParent(cameraTransform, false);
         weaponRoot.transform.localPosition = new Vector3(0f, -0.55f, 0.82f);
         weaponRoot.transform.localRotation = Quaternion.identity;
@@ -481,14 +482,14 @@ public static class V0SceneBuilder
 
     private static void CreateLockedDoor(Material material)
     {
-        GameObject door = CreateCube("Locked Red Door", new Vector3(0f, 1.5f, 22.5f), new Vector3(3f, 3f, 0.5f), material);
+        GameObject door = CreateCube("Corporate Lockdown Gate", new Vector3(0f, 1.5f, 22.5f), new Vector3(3f, 3f, 0.5f), material);
         LockedDoor lockedDoor = door.AddComponent<LockedDoor>();
         lockedDoor.openDistance = 2.3f;
     }
 
     private static void CreateExit(Material material)
     {
-        GameObject exit = CreateCube("Green Exit Trigger", new Vector3(0f, 1.1f, 34.6f), new Vector3(2.4f, 2.2f, 0.35f), material);
+        GameObject exit = CreateCube("Emergency Lift Trigger", new Vector3(0f, 1.1f, 34.6f), new Vector3(2.4f, 2.2f, 0.35f), material);
         Collider exitCollider = exit.GetComponent<Collider>();
         if (exitCollider != null)
         {

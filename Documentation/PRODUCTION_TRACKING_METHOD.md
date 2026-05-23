@@ -17,6 +17,8 @@ Use these files as the source of truth:
 - `Documentation/IMPLEMENTATION_TODO.md`: detailed implementation checklist.
 - `Documentation/AAA_VISION_AND_ROADMAP.md`: long-term direction and milestone ladder.
 - `Documentation/AAA_ASSET_CATALOG.md`: required assets and status.
+- `Documentation/ASSET_PACK_REVIEW.md`: local/available Unity Asset Store packs and import decisions.
+- `Documentation/LEVEL_DESIGN_AND_MAPS.md`: level scale, map ladder, and transition mechanics.
 - `Documentation/WORK_LEDGER.md`: active task ledger.
 - `Documentation/HANDOFF.md`: current handoff for future chats.
 
@@ -65,6 +67,7 @@ Recommended task ID prefixes:
 - `AUD`: audio.
 - `VFX`: effects.
 - `UI`: HUD, menus, settings.
+- `TOOL`: build, validation, editor, and import tooling.
 - `BUG`: defects.
 - `DOC`: documentation.
 - `TEST`: validation and QA.

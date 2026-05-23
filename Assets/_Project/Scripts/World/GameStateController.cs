@@ -36,7 +36,7 @@ public class GameStateController : MonoBehaviour
     private void Start()
     {
         ResumeGameplay();
-        hud?.ShowTemporaryMessage("Find the key. Open the red door.", 3f);
+        hud?.ShowTemporaryMessage("Find the access shard. Open the lockdown gate.", 3f);
     }
 
     private void Update()
@@ -98,7 +98,7 @@ public class GameStateController : MonoBehaviour
         State = GameRunState.Won;
         Time.timeScale = 1f;
         SetCursorLocked(false);
-        hud?.ShowPersistentMessage("EXIT REACHED\nPress R to play again");
+        hud?.ShowPersistentMessage("EMERGENCY LIFT REACHED\nPress R to run again");
     }
 
     public void RestartLevel()

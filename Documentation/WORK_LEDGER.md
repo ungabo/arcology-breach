@@ -1,69 +1,72 @@
-# Work Ledger
+# Arcology Breach - Work Ledger
 
-This file tracks current and upcoming work. It should be updated as tasks are completed, discovered, blocked, or deferred.
-
-Status values:
-
-- `backlog`
-- `ready`
-- `in-progress`
-- `blocked`
-- `review`
-- `verified`
-- `deferred`
-- `cut`
+Status values: `backlog`, `ready`, `in-progress`, `blocked`, `review`, `verified`, `deferred`, `cut`.
 
 ## Active Milestone
 
-Current target: `v0.2 Combat Feel Slice`
+Current target: `v0.2 Cyberpunk Combat Feel Slice`.
 
-Primary goal: make the simple FPS loop feel good before major art expansion.
+Primary goal: make the current Windows prototype feel good and point clearly at the cyberpunk identity before a large art pass.
 
 ## Current State
 
 | ID | Task | Type | Priority | Status | Milestone | Verification |
 | --- | --- | --- | --- | --- | --- | --- |
-| CODE-001 | Build v0.0 proof of concept loop | code | P0 | verified | v0.0 | editor/build/runtime smoke |
-| CODE-002 | Add light v0.1 presentation feedback | code | P1 | verified | v0.1 | editor/build/runtime smoke |
+| CODE-001 | Build v0.0 FPS loop | code | P0 | verified | v0.0 | editor/build/runtime smoke |
+| CODE-002 | Add v0.1 presentation feedback | code | P1 | verified | v0.1 | editor/build/runtime smoke |
 | DOC-001 | Publish current project to GitHub | docs | P0 | verified | v0.1 | repo pushed |
-| DOC-002 | Add AAA roadmap and production tracking docs | docs | P0 | verified | v0.1 | doc review |
+| DOC-002 | Add production tracking docs | docs | P0 | verified | v0.1 | doc review |
+| DOC-003 | Pivot identity to original cyberpunk game | docs | P0 | verified | v0.2 | editor/build/runtime smoke |
+| DOC-004 | Add deferred Android, browser, and VR platform notes | docs | P1 | verified | v0.2 | doc review |
+| DOC-005 | Add level map and transition planning | docs | P0 | verified | v0.2 | doc review |
+| DOC-006 | Review locally cached Unity Asset Store packs | docs | P1 | verified | v0.2 | doc review |
 
 ## Ready Next
 
 | ID | Task | Type | Priority | Status | Milestone | Acceptance Criteria | Verification |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | TEST-001 | Manual Windows playthrough | test | P0 | ready | v0.2 | Complete start-to-exit, confirm death/restart, note tuning issues. | manual-playtest |
-| CODE-003 | Tune movement/enemy combat values | code | P0 | ready | v0.2 | Movement, enemy speed, damage, ammo, and health feel fair in manual test. | manual-playtest |
-| AUD-001 | Add first simple audio set | audio | P1 | ready | v0.2 | Weapon, pickup, enemy, door, hurt, and win sounds play at correct moments. | scene-smoke + manual-playtest |
-| CODE-004 | Improve enemy navigation and obstacle handling | code | P1 | ready | v0.2 | Enemies can pursue in current level without obvious wall pushing failures. | manual-playtest |
-| CODE-005 | Add interaction prompts and clearer locked door feedback | code | P1 | ready | v0.2 | Player understands why red door is locked and when it opens. | manual-playtest |
+| CODE-003 | Tune movement/combat values | code | P0 | ready | v0.2 | Movement, enemy pressure, ammo, and health feel fair. | manual-playtest |
+| AUD-001 | Add first cyberpunk audio set | audio | P1 | ready | v0.2 | Weapon, pickup, enemy, gate, hurt, and win sounds play correctly. | scene-smoke + manual-playtest |
+| CODE-004 | Improve Scrapper navigation and attack readability | code | P1 | ready | v0.2 | Scrappers pursue without obvious wall pushing and show attack timing. | manual-playtest |
+| CODE-005 | Improve access-shard/gate feedback | code | P1 | ready | v0.2 | Player understands the blocked route and success state. | manual-playtest |
+| LVL-002 | Confirm Aster Gate Intake scale and flow | level | P0 | ready | v0.2 | Gate is seen before shard, route loops cleanly, exit is readable, rooms fit scale rules. | manual-playtest |
 
 ## Backlog
 
 | ID | Task | Type | Priority | Status | Milestone | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| ART-001 | Generate first industrial wall/floor texture set | art | P1 | backlog | v0.3 | Use asset catalog MAT-003 through MAT-005. |
-| ART-002 | Generate red key and red door visuals | art | P1 | backlog | v0.3 | Replace cube placeholders. |
-| ART-003 | Generate first enemy visual | art | P1 | backlog | v0.3 | Ash Imp, readable melee enemy. |
-| ART-004 | Generate centered Iron Pistol visual | art | P1 | backlog | v0.3 | Replace blocky gun. |
-| VFX-001 | Replace hit marker sphere with impact spark | vfx | P1 | backlog | v0.3 | Wall and enemy impact readability. |
-| UI-001 | Replace text HUD with styled prototype HUD | ui | P2 | backlog | v0.3 | Keep compact and readable. |
-| LVL-001 | Rework Level01 into stronger combat slice | level | P1 | backlog | v0.2 | Keep small, add better arena loops. |
-| CODE-006 | Convert weapons to data-driven definitions | code | P2 | backlog | v0.4 | Useful before adding more weapons. |
-| CODE-007 | Convert enemies to data-driven definitions | code | P2 | backlog | v0.4 | Useful before adding more enemy types. |
-| TOOL-001 | Add level validation checks | tool | P2 | backlog | v0.4 | Missing colliders, required objects, objective chain. |
+| ART-001 | Generate wet concrete and black chrome materials | art | P1 | backlog | v0.3 | See `AAA_ASSET_CATALOG.md`. |
+| ART-002 | Generate access shard and lockdown gate visuals | art | P1 | backlog | v0.3 | Replace cube/gate placeholders. |
+| ART-003 | Generate Scrapper enemy visual | art | P1 | backlog | v0.3 | Mechanical maintenance-frame melee enemy. |
+| ART-004 | Generate Pulse Pistol visual | art | P1 | backlog | v0.3 | Replace blocky gun. |
+| VFX-001 | Replace hit marker sphere with impact sparks | vfx | P1 | backlog | v0.3 | Wall and machine impact readability. |
+| UI-001 | Replace text HUD with runner HUD | ui | P2 | backlog | v0.3 | Compact hacked-cyberdeck style. |
+| LVL-001 | Rework Level01 into Aster Gate combat slice | level | P1 | backlog | v0.2 | Keep small, add better arena loops. |
+| LVL-003 | Create LevelTransitionController | code | P2 | backlog | v0.4 | Load next scene from diegetic lift/data gate, preserve durable player state later. |
+| LVL-004 | Draft top-down maps for first five campaign levels | level | P2 | backlog | v0.4 | Use `LEVEL_DESIGN_AND_MAPS.md` map ladder and template. |
+| CODE-006 | Data-driven weapon definitions | code | P2 | backlog | v0.4 | Needed before more weapons. |
+| CODE-007 | Data-driven enemy definitions | code | P2 | backlog | v0.4 | Needed before more enemy types. |
+| TOOL-001 | Level validation checks | tool | P2 | backlog | v0.4 | Missing colliders, required objects, objective chain. |
+| PLAT-001 | Windows mid/low PC quality profile | platform | P1 | backlog | v0.4 | Quality settings and performance budgets. |
+| PLAT-002 | Android port prototype plan | platform | P2 | deferred | post-Windows | Do not build until Windows game is complete. |
+| PLAT-003 | Browser/WebGL port prototype plan | platform | P2 | deferred | post-Windows | Do not build until Windows game is complete. |
+| PLAT-004 | SteamVR/OpenXR and Meta Quest port plan | platform | P2 | deferred | post-Windows | Keep architecture VR-compatible now; do not build VR yet. |
 
 ## Discovered Follow-Ups
 
-Add new work here first, then triage it into Ready Next or Backlog.
-
 | ID | Task | Source | Status | Notes |
 | --- | --- | --- | --- | --- |
-| DISC-001 | Decide whether GitHub Issues should mirror this ledger now or after v0.2 | GitHub publish | backlog | Docs define labels/milestones, but issues have not been created yet. |
+| DISC-001 | Decide when GitHub Issues should mirror this ledger | GitHub publish | backlog | Probably after v0.2 manual playtest. |
+| DISC-002 | Decide whether local folder should remain `Unity Doom` or be renamed | rebrand | backlog | Repo and product name are becoming `Arcology Breach`; local path can stay for now. |
+| DISC-003 | Inspect Unity account-only Asset Store packs in Package Manager | asset review | backlog | Local cache was reviewed; account-owned packs that are not downloaded need Editor/Package Manager access. |
 
 ## Recently Verified
 
 - `2026-05-22`: v0.1 editor smoke passed with `V0_SMOKE_TEST_PASS`.
 - `2026-05-22`: v0.1 Windows build passed with `V0_WINDOWS_BUILD_PASS`.
 - `2026-05-22`: v0.1 packaged runtime smoke passed with `V0_RUNTIME_SMOKE_PASS`.
-- `2026-05-22`: AAA roadmap, asset catalog, production method, work ledger, and handoff docs created.
+- `2026-05-22`: Platform planning docs added for Windows mid/low PC, Android, browser/WebGL, and VR.
+- `2026-05-22`: `v0.0.1` checkpoint build created at `Builds/Windows/v0.0.1/ArcologyBreach_v0.0.1.exe` and passed editor/build/runtime smoke.
+- `2026-05-22`: Level scale/progression planning added in `LEVEL_DESIGN_AND_MAPS.md`.
+- `2026-05-22`: Local Asset Store cache reviewed and candidate packs recorded in `ASSET_PACK_REVIEW.md`.

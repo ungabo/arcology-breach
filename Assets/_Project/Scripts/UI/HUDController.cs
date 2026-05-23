@@ -85,7 +85,7 @@ public class HUDController : MonoBehaviour
     {
         if (keyText != null)
         {
-            keyText.text = hasKey ? "KEY YES" : "KEY NO";
+            keyText.text = hasKey ? "SHARD YES" : "SHARD NO";
         }
     }
 

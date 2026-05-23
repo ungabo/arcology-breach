@@ -1,12 +1,14 @@
-# Unity Doom Experiment
+# Arcology Breach
 
 Current state: playable v0/v0.1 proof of concept.
 
 Public repository:
 
-`https://github.com/ungabo/unity-doom-experiment`
+`https://github.com/ungabo/arcology-breach`
 
-This Unity project contains a simple first-person greybox dungeon crawler/shooter for Windows. It is intentionally minimal: primitive geometry, plain materials, text HUD, basic hitscan shooting, melee enemies, a key, a locked door, and an exit.
+This Unity project contains a simple first-person greybox cyberpunk dungeon crawler/shooter for Windows. It is intentionally minimal: primitive geometry, plain materials, text HUD, basic hitscan shooting, mechanical melee enemies, an access shard, a corporate lockdown gate, and an emergency exit.
+
+Long-term direction: an original heavily stylized cyberpunk action game set inside a sealed corporate arcology where autonomous security systems have turned civic machines into predatory mechanical bodies.
 
 ## How to Open
 
@@ -34,16 +36,18 @@ Main scene:
 
 Goal:
 
-1. Find the key.
-2. Return to the red locked door.
-3. Let the door open.
-4. Reach the green exit.
+1. Find the access shard.
+2. Return to the red corporate lockdown gate.
+3. Let the gate open.
+4. Reach the green emergency lift/data gate.
 
 ## Build
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\IronChapelV0.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.1\ArcologyBreach_v0.0.1.exe`
+
+Checkpoint builds will use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
 ## Verification
 
@@ -57,10 +61,10 @@ The project has passed:
 
 Useful logs:
 
-- `Logs\build-v01-scene.log`
-- `Logs\v01-smoke-test.log`
-- `Logs\v01-windows-build.log`
-- `Logs\v01-runtime-smoke.log`
+- `Logs\build-v001-scene.log`
+- `Logs\v001-smoke-test.log`
+- `Logs\v001-windows-build.log`
+- `Logs\v001-runtime-smoke.log`
 
 Smoke pass markers:
 
@@ -73,51 +77,59 @@ Smoke pass markers:
 Rebuild the generated scene:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v01-scene.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v001-scene.log'
 ```
 
 Run editor smoke test:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v01-smoke-test.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v001-smoke-test.log'
 ```
 
 Build Windows player:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v01-windows-build.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v001-windows-build.log'
 ```
 
 Run packaged runtime smoke:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\IronChapelV0.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v01-runtime-smoke.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.1\ArcologyBreach_v0.0.1.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v001-runtime-smoke.log'
 ```
 
 ## What v0.1 Added
 
 After the v0.0 loop passed, a small presentation pass added:
 
-- Blocky first-person weapon placeholder.
+- Blocky first-person `Pulse Pistol` placeholder.
 - Muzzle flash.
 - Damage flash.
 - Bobbing pickups.
-- Sliding locked door.
-- Colored key/door/exit lights.
-- Primitive enemies with simple eye markers.
+- Sliding corporate lockdown gate.
+- Colored access-shard/gate/exit lights.
+- Primitive mechanical enemies with simple lens markers.
 
 ## Good Next Steps
 
 - Manually play through the Windows build and tune movement/enemy balance.
-- Add simple audio feedback.
-- Add low-resolution wall/floor textures.
-- Replace primitive enemy visuals with a billboard sprite.
-- Replace the blocky weapon with a centered sprite.
+- Add cyberpunk audio feedback.
+- Add stylized neon wall/floor materials.
+- Replace primitive enemy visuals with mechanical `Scrapper` art.
+- Replace the blocky weapon with a stylized `Pulse Pistol`.
 
 ## Planning Docs
 
 - `Documentation/AAA_VISION_AND_ROADMAP.md`
 - `Documentation/AAA_ASSET_CATALOG.md`
+- `Documentation/CYBERPUNK_STORY_BIBLE.md`
+- `Documentation/LEVEL_DESIGN_AND_MAPS.md`
 - `Documentation/PRODUCTION_TRACKING_METHOD.md`
 - `Documentation/WORK_LEDGER.md`
 - `Documentation/HANDOFF.md`
+- `Documentation/ASSET_PACK_REVIEW.md`
+- `Documentation/TITLE_AND_BRANDING_TRACKER.md`
+- `Documentation/PLATFORM_WINDOWS_TARGET.md`
+- `Documentation/PLATFORM_ANDROID_PORT_NOTES.md`
+- `Documentation/PLATFORM_WEB_BROWSER_PORT_NOTES.md`
+- `Documentation/PLATFORM_VR_PORT_NOTES.md`
