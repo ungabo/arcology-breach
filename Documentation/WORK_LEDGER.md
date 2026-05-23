@@ -25,6 +25,7 @@ Primary goal: make the current Windows prototype feel good and point clearly at 
 | CODE-005 | Improve access-shard/gate feedback | code | P1 | verified | v0.2 | editor/build/runtime smoke |
 | TEST-002 | Add packaged objective auto-playthrough | test | P0 | verified | v0.2 | V0_AUTO_PLAYTHROUGH_PASS |
 | CODE-004B | Improve Scrapper navigation and obstacle handling | code | P1 | verified | v0.2 | editor/build/runtime/autoplay smoke |
+| TEST-003 | Add packaged combat smoke | test | P1 | verified | v0.2 | V0_COMBAT_SMOKE_PASS |
 
 ## Ready Next
 
@@ -50,7 +51,7 @@ Primary goal: make the current Windows prototype feel good and point clearly at 
 | CODE-006 | Data-driven weapon definitions | code | P2 | backlog | v0.4 | Needed before more weapons. |
 | CODE-007 | Data-driven enemy definitions | code | P2 | backlog | v0.4 | Needed before more enemy types. |
 | TOOL-001 | Level validation checks | tool | P2 | backlog | v0.4 | Missing colliders, required objects, objective chain. |
-| TEST-003 | Add combat automation harness | test | P1 | backlog | v0.2 | Drive weapon/enemy kill and player-damage scenarios without manual input. |
+| TEST-004 | Expand combat automation harness | test | P1 | backlog | v0.2 | Add player-damage, enemy attack windup, and ammo-empty scenarios. |
 | PLAT-001 | Windows mid/low PC quality profile | platform | P1 | backlog | v0.4 | Quality settings and performance budgets. |
 | PLAT-002 | Android port prototype plan | platform | P2 | deferred | post-Windows | Do not build until Windows game is complete. |
 | PLAT-003 | Browser/WebGL port prototype plan | platform | P2 | deferred | post-Windows | Do not build until Windows game is complete. |
@@ -78,3 +79,4 @@ Primary goal: make the current Windows prototype feel good and point clearly at 
 - `2026-05-22`: `v0.0.2` procedural audio checkpoint created at `Builds/Windows/v0.0.2/ArcologyBreach_v0.0.2.exe` and passed editor/build/runtime smoke.
 - `2026-05-22`: `v0.0.3` combat/objective readability checkpoint created at `Builds/Windows/v0.0.3/ArcologyBreach_v0.0.3.exe` and passed editor/build/runtime smoke.
 - `2026-05-22`: `v0.0.4` auto-playthrough/navigation checkpoint created at `Builds/Windows/v0.0.4/ArcologyBreach_v0.0.4.exe` and passed editor/build/runtime/auto-playthrough smoke.
+- `2026-05-22`: `v0.0.5` combat automation checkpoint created at `Builds/Windows/v0.0.5/ArcologyBreach_v0.0.5.exe` and passed editor/build/runtime/auto-playthrough/combat smoke.

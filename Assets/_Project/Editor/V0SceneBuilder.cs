@@ -83,6 +83,7 @@ public static class V0SceneBuilder
         RequireObject<GameStateController>("GameStateController");
         RequireObject<CyberpunkAudio>("CyberpunkAudio");
         RequireObject<RuntimeAutoPlaythroughTest>("RuntimeAutoPlaythroughTest");
+        RequireObject<RuntimeCombatTest>("RuntimeCombatTest");
         RequireObject<HUDController>("HUDController");
         RequireObject<EnemyController>("EnemyController");
         RequireObject<Pickup>("Pickup");
@@ -363,6 +364,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<CyberpunkAudio>();
         stateObject.AddComponent<RuntimeSmokeTest>();
         stateObject.AddComponent<RuntimeAutoPlaythroughTest>();
+        stateObject.AddComponent<RuntimeCombatTest>();
     }
 
     private static void CreatePlayer(Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial)

@@ -182,3 +182,29 @@ Notes:
 
 - Auto-playthrough intentionally disables enemies to isolate objective progression.
 - Combat automation should be added separately.
+
+## 2026-05-22 23:35:23 -04:00
+
+Completed `v0.0.5` combat automation checkpoint.
+
+Implementation:
+
+- Added `RuntimeCombatTest`.
+- Added packaged `-v0CombatSmoke` command.
+- Combat smoke places a Scrapper in front of the player and verifies `Pulse Pistol` shots can destroy it.
+- Added `WeaponController.FireOnce()` as a narrow testable firing hook used by both player input and automation.
+- Updated runtime smoke to require the combat test component.
+- Updated `GameBranding.CheckpointVersion` to `v0.0.5`.
+
+Verification:
+
+- Scene rebuild passed: `Logs\build-v005-scene.log`.
+- Editor smoke passed: `V0_SMOKE_TEST_PASS`.
+- Windows build passed: `V0_WINDOWS_BUILD_PASS`.
+- Runtime smoke passed: `V0_RUNTIME_SMOKE_PASS`.
+- Packaged auto-playthrough passed: `V0_AUTO_PLAYTHROUGH_PASS`.
+- Packaged combat smoke passed: `V0_COMBAT_SMOKE_PASS`.
+
+Checkpoint executable:
+
+`Builds/Windows/v0.0.5/ArcologyBreach_v0.0.5.exe`

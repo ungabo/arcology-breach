@@ -4,7 +4,7 @@ Last updated: 2026-05-22
 
 ## Project
 
-`Arcology Breach` is an original cyberpunk first-person dungeon crawler/shooter proof of concept. It now has a working checkpoint build flow, a story/lore bible, level-map planning, asset-pack review notes, a first procedural audio pass, objective/combat readability improvements, and a packaged auto-playthrough regression test.
+`Arcology Breach` is an original cyberpunk first-person dungeon crawler/shooter proof of concept. It now has a working checkpoint build flow, a story/lore bible, level-map planning, asset-pack review notes, a first procedural audio pass, objective/combat readability improvements, packaged objective automation, and packaged combat automation.
 
 Local path:
 
@@ -38,12 +38,13 @@ The project contains:
 - v0.0.2 audio: procedural pulse pistol, empty click, pickup, enemy hit/death, player hurt, gate, and win cues.
 - v0.0.3 readability: Scrapper attack windup, objective labels, floor guide strips, and access-shard pedestal.
 - v0.0.4 testing/navigation: packaged auto-playthrough for shard/gate/exit and simple Scrapper obstacle side-steering.
+- v0.0.5 testing: packaged combat smoke for pulse-pistol damage and Scrapper death.
 
 ## Build
 
 Windows executable path:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.4\ArcologyBreach_v0.0.4.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.5\ArcologyBreach_v0.0.5.exe`
 
 The build folder is ignored by git. Rebuild it locally when needed.
 
@@ -55,20 +56,22 @@ Latest known pass markers:
 - `V0_WINDOWS_BUILD_PASS`
 - `V0_RUNTIME_SMOKE_PASS`
 - `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
 
 Latest checkpoint:
 
-- `v0.0.4`
-- Build: `Builds/Windows/v0.0.4/ArcologyBreach_v0.0.4.exe`
-- Verified by editor smoke, Windows build, runtime smoke, and packaged auto-playthrough on 2026-05-22 at 23:29 -04:00.
+- `v0.0.5`
+- Build: `Builds/Windows/v0.0.5/ArcologyBreach_v0.0.5.exe`
+- Verified by editor smoke, Windows build, runtime smoke, packaged auto-playthrough, and packaged combat smoke on 2026-05-22 at 23:35 -04:00.
 
 Important logs:
 
-- `Logs\build-v004-scene.log`
-- `Logs\v004-smoke-test.log`
-- `Logs\v004-windows-build.log`
-- `Logs\v004-runtime-smoke.log`
-- `Logs\v004-auto-playthrough.log`
+- `Logs\build-v005-scene.log`
+- `Logs\v005-smoke-test.log`
+- `Logs\v005-windows-build.log`
+- `Logs\v005-runtime-smoke.log`
+- `Logs\v005-auto-playthrough.log`
+- `Logs\v005-combat-smoke.log`
 
 Logs are ignored by git.
 
@@ -97,6 +100,7 @@ Logs are ignored by git.
 - `Assets/_Project/Scripts/Enemies/EnemyController.cs`
 - `Assets/_Project/Scripts/Utility/CyberpunkAudio.cs`
 - `Assets/_Project/Scripts/Utility/RuntimeAutoPlaythroughTest.cs`
+- `Assets/_Project/Scripts/Utility/RuntimeCombatTest.cs`
 - `Assets/_Project/Scripts/World/GameStateController.cs`
 
 ## Commands
@@ -104,31 +108,37 @@ Logs are ignored by git.
 Rebuild generated scene:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v004-scene.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v005-scene.log'
 ```
 
 Editor smoke:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v004-smoke-test.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v005-smoke-test.log'
 ```
 
 Windows build:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v004-windows-build.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v005-windows-build.log'
 ```
 
 Packaged runtime smoke:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.4\ArcologyBreach_v0.0.4.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v004-runtime-smoke.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.5\ArcologyBreach_v0.0.5.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v005-runtime-smoke.log'
 ```
 
 Packaged auto-playthrough:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.4\ArcologyBreach_v0.0.4.exe' -batchmode -nographics -v0AutoPlaythrough -logFile 'D:\__MY APPS\Unity Doom\Logs\v004-auto-playthrough.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.5\ArcologyBreach_v0.0.5.exe' -batchmode -nographics -v0AutoPlaythrough -logFile 'D:\__MY APPS\Unity Doom\Logs\v005-auto-playthrough.log'
+```
+
+Packaged combat smoke:
+
+```powershell
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.5\ArcologyBreach_v0.0.5.exe' -batchmode -nographics -v0CombatSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v005-combat-smoke.log'
 ```
 
 ## Next Best Work
@@ -160,6 +170,7 @@ The public GitHub repo should have:
 - v0.0.2 procedural audio checkpoint commit.
 - v0.0.3 combat/objective readability checkpoint commit.
 - v0.0.4 auto-playthrough/navigation checkpoint commit.
+- v0.0.5 combat automation checkpoint commit.
 
 Before starting new work, run:
 

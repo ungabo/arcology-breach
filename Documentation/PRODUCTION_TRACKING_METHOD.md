@@ -147,6 +147,7 @@ Current automated pass markers:
 - `V0_WINDOWS_BUILD_PASS`
 - `V0_RUNTIME_SMOKE_PASS`
 - `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
 
 ## 9. Change Control
 

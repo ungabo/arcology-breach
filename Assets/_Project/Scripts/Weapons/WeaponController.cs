@@ -39,15 +39,15 @@ public class WeaponController : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            TryFire();
+            FireOnce();
         }
     }
 
-    private void TryFire()
+    public bool FireOnce()
     {
         if (Time.time < nextFireTime)
         {
-            return;
+            return false;
         }
 
         nextFireTime = Time.time + fireCooldown;
@@ -56,7 +56,7 @@ public class WeaponController : MonoBehaviour
         {
             CyberpunkAudio.Play(CyberpunkAudioCue.EmptyClick);
             HUDController.Instance?.ShowTemporaryMessage("No ammo", 0.75f);
-            return;
+            return false;
         }
 
         CyberpunkAudio.Play(CyberpunkAudioCue.PulseFire);
@@ -69,6 +69,8 @@ public class WeaponController : MonoBehaviour
             damageable?.TakeDamage(damage);
             SpawnHitMarker(hit.point, hit.normal);
         }
+
+        return true;
     }
 
     private static void SpawnHitMarker(Vector3 point, Vector3 normal)

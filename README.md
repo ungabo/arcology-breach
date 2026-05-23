@@ -1,6 +1,6 @@
 # Arcology Breach
 
-Current state: playable `v0.0.4` proof of concept.
+Current state: playable `v0.0.5` proof of concept.
 
 Public repository:
 
@@ -45,7 +45,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.4\ArcologyBreach_v0.0.4.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.5\ArcologyBreach_v0.0.5.exe`
 
 Checkpoint builds will use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -59,14 +59,16 @@ The project has passed:
 - Windows build.
 - Packaged runtime smoke test.
 - Packaged auto-playthrough objective-chain test.
+- Packaged combat smoke test.
 
 Useful logs:
 
-- `Logs\build-v004-scene.log`
-- `Logs\v004-smoke-test.log`
-- `Logs\v004-windows-build.log`
-- `Logs\v004-runtime-smoke.log`
-- `Logs\v004-auto-playthrough.log`
+- `Logs\build-v005-scene.log`
+- `Logs\v005-smoke-test.log`
+- `Logs\v005-windows-build.log`
+- `Logs\v005-runtime-smoke.log`
+- `Logs\v005-auto-playthrough.log`
+- `Logs\v005-combat-smoke.log`
 
 Smoke pass markers:
 
@@ -74,37 +76,44 @@ Smoke pass markers:
 - `V0_WINDOWS_BUILD_PASS`
 - `V0_RUNTIME_SMOKE_PASS`
 - `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
 
 ## Developer Commands
 
 Rebuild the generated scene:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v004-scene.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v005-scene.log'
 ```
 
 Run editor smoke test:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v004-smoke-test.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v005-smoke-test.log'
 ```
 
 Build Windows player:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v004-windows-build.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v005-windows-build.log'
 ```
 
 Run packaged runtime smoke:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.4\ArcologyBreach_v0.0.4.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v004-runtime-smoke.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.5\ArcologyBreach_v0.0.5.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v005-runtime-smoke.log'
 ```
 
 Run packaged auto-playthrough:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.4\ArcologyBreach_v0.0.4.exe' -batchmode -nographics -v0AutoPlaythrough -logFile 'D:\__MY APPS\Unity Doom\Logs\v004-auto-playthrough.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.5\ArcologyBreach_v0.0.5.exe' -batchmode -nographics -v0AutoPlaythrough -logFile 'D:\__MY APPS\Unity Doom\Logs\v005-auto-playthrough.log'
+```
+
+Run packaged combat smoke:
+
+```powershell
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.5\ArcologyBreach_v0.0.5.exe' -batchmode -nographics -v0CombatSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v005-combat-smoke.log'
 ```
 
 ## What v0.1 Added
@@ -143,6 +152,12 @@ After the v0.0 loop passed, a small presentation pass added:
 - Packaged auto-playthrough test for shard/gate/exit objective flow.
 - Runtime smoke now verifies the auto-playthrough test component exists.
 - Scrapper obstacle probing and simple side-steering.
+
+## What v0.0.5 Added
+
+- Packaged combat smoke test for pulse-pistol damage against a Scrapper.
+- `WeaponController.FireOnce()` test hook.
+- Runtime smoke now verifies the combat test component exists.
 
 ## Good Next Steps
 

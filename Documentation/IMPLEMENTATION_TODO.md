@@ -35,6 +35,7 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [ ] Improve enemy navigation or obstacle handling.
 - [x] Add packaged objective-chain auto-playthrough.
 - [x] Add first Scrapper obstacle side-steering.
+- [x] Add packaged combat smoke test.
 - [ ] Manual readability pass for Scrapper attack tells and world labels.
 - [ ] Add first cyberpunk material pass if combat feel is stable.
 - [ ] Rebuild Windows player.
@@ -64,7 +65,7 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [ ] Pickup/inventory cleanup.
 - [ ] Level transition controller.
 - [ ] Level validation tool.
-- [ ] Combat automation harness.
+- [ ] Expand combat automation harness.
 - [ ] Build automation cleanup.
 - [ ] Platform asset-quality settings.
 
