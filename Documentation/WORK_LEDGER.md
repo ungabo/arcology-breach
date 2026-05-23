@@ -72,6 +72,7 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 | VFX-008 | Add service lift activation effect | vfx/code/test | P1 | verified | v0.0.60 | LiftActivationVfx, transition trigger hook, short transition cue delay, and auto-playthrough verification are complete. |
 | VFX-006 | Add gear-key pickup effect | vfx/code/test | P1 | verified | v0.0.61 | GearKeyPickupVfx, key pickup hook, brass ring/glow/tooth sparks, and auto-playthrough verification are complete. |
 | VFX-006B | Add resource pickup effects | vfx/code/test | P1 | verified | v0.0.62 | ResourcePickupVfx, health/ammo pickup hooks, red and brass/cyan bursts, and auto-playthrough verification are complete. |
+| VFX-009 | Add steam hazard field effect | vfx/code/test | P1 | verified | v0.0.63 | SteamHazardVfx, generated steam puff wiring, level validation, and hazard smoke verification are complete. |
 
 ## Ready Next
 
@@ -187,3 +188,4 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 - `2026-05-23`: `v0.0.60` service lift activation VFX build created at `Builds/Windows/v0.0.60/BrassworksBreach_v0.0.60.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.61` gear-key pickup VFX build created at `Builds/Windows/v0.0.61/BrassworksBreach_v0.0.61.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.62` resource pickup VFX build created at `Builds/Windows/v0.0.62/BrassworksBreach_v0.0.62.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.63` steam hazard VFX build created at `Builds/Windows/v0.0.63/BrassworksBreach_v0.0.63.exe` and passed the complete V0 matrix, including animated steam-puff hazard smoke coverage, through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.

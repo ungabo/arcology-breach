@@ -124,7 +124,7 @@ Every major asset should eventually have three quality targets:
 | VFX-006B | Resource pickup effects | P1 | prototype | `ResourcePickupVfx` spawns red medicinal bursts for health vials and brass/cyan pressure bursts for ammo pickups, verified by auto-playthrough. |
 | VFX-007 | Pressure gate open effect | P2 | prototype | `GateOpenVfx` spawns green pressure wash, steam jets, and brass/green sparks when the Level01 pressure gate opens; final pass should link lamp states, gear sound, and denser steam. |
 | VFX-008 | Service lift activation | P1 | prototype | `LiftActivationVfx` spawns a green floor pressure ring, center steam pulse, and brass/green contact sparks before level-transition scene loads. |
-| VFX-009 | Steam hazard field | P2 | planned | Readable venting steam for hazards. |
+| VFX-009 | Steam hazard field | P2 | prototype | `SteamHazardVfx` animates low/high steam puffs on generated steam hazards; final pass should add denser particles, sound sync, and wind direction. |
 
 ## 8. Audio
 

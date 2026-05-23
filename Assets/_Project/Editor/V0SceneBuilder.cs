@@ -1037,10 +1037,12 @@ public static class V0SceneBuilder
         SteamHazard hazard = hazardRoot.AddComponent<SteamHazard>();
         hazard.damagePerTick = GameBalance.SteamHazardDamage;
         hazard.tickInterval = GameBalance.SteamHazardTickInterval;
+        SteamHazardVfx hazardVfx = hazardRoot.AddComponent<SteamHazardVfx>();
 
         CreateLocalCube(name + " Warning Floor Plate", hazardRoot.transform, new Vector3(0f, -0.73f, 0f), new Vector3(triggerSize.x, 0.04f, triggerSize.z), warningMaterial);
-        CreateLocalPrimitive(name + " Steam Puff Low", PrimitiveType.Sphere, hazardRoot.transform, new Vector3(-0.12f, -0.15f, 0.04f), new Vector3(0.38f, 0.32f, 0.38f), steamMaterial);
-        CreateLocalPrimitive(name + " Steam Puff High", PrimitiveType.Sphere, hazardRoot.transform, new Vector3(0.16f, 0.38f, -0.05f), new Vector3(0.3f, 0.46f, 0.3f), steamMaterial);
+        GameObject lowPuff = CreateLocalPrimitive(name + " Steam Puff Low", PrimitiveType.Sphere, hazardRoot.transform, new Vector3(-0.12f, -0.15f, 0.04f), new Vector3(0.38f, 0.32f, 0.38f), steamMaterial);
+        GameObject highPuff = CreateLocalPrimitive(name + " Steam Puff High", PrimitiveType.Sphere, hazardRoot.transform, new Vector3(0.16f, 0.38f, -0.05f), new Vector3(0.3f, 0.46f, 0.3f), steamMaterial);
+        hazardVfx.puffs = new[] { lowPuff.transform, highPuff.transform };
         CreateLocalCube(name + " Brass Vent Grate", hazardRoot.transform, new Vector3(0f, -0.68f, 0f), new Vector3(triggerSize.x * 0.68f, 0.08f, triggerSize.z * 0.68f), ironMaterial);
 
         return hazard;

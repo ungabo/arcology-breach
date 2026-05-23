@@ -368,6 +368,11 @@ public static class V0LevelValidator
             RequireTrigger(hazard.gameObject, sceneName + " steam hazard trigger " + hazard.name);
             RequireEqual(hazard.damagePerTick, GameBalance.SteamHazardDamage, sceneName + " steam hazard damage " + hazard.name);
             RequireApprox(hazard.tickInterval, GameBalance.SteamHazardTickInterval, sceneName + " steam hazard tick interval " + hazard.name);
+            SteamHazardVfx steamVfx = hazard.GetComponent<SteamHazardVfx>();
+            if (steamVfx == null || steamVfx.VisiblePuffCount < 2)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " steam hazard is missing animated steam puffs " + hazard.name);
+            }
         }
 
         FurnaceHeatHazard[] furnaceHazards = UnityEngine.Object.FindObjectsByType<FurnaceHeatHazard>(FindObjectsSortMode.None);

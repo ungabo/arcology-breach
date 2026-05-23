@@ -58,6 +58,7 @@ Near-term:
 - Warden combat now surfaces a top-center boss health HUD so the final guardian objective reads clearly during the Governor Core fight.
 - Warden defeat now gets a visible shutdown burst so the final lock release has readable cause and effect.
 - Animated machinery spinners now add motion to pressure gates, service lifts, valve wheels, and the menu steamworks gear.
+- Steam hazards now use animated low/high puffs and are verified by level validation and hazard smoke.
 - Hazard smoke covers Level03 steam damage and Level04 furnace-heat damage without ending the run from one tick/pulse. Level05 also includes validated steam and furnace-heat hazards.
 - Each current level now has a scene-specific objective briefing at spawn.
 - Venting the Boilerheart pressure valve shuts down the linked Level03 steam hazards.

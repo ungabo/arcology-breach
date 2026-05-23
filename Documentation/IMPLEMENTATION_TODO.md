@@ -940,6 +940,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.63 Steam Hazard VFX Pass
+
+- [x] Add reusable `SteamHazardVfx`.
+- [x] Wire low/high steam puffs in generated steam hazards.
+- [x] Add level validation for animated steam puffs.
+- [x] Expand hazard smoke to verify steam puffs.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.63`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

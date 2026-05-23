@@ -75,6 +75,13 @@ public class RuntimeHazardTest : MonoBehaviour
             yield break;
         }
 
+        SteamHazardVfx steamVfx = hazard.GetComponent<SteamHazardVfx>();
+        if (steamVfx == null || steamVfx.VisiblePuffCount < 2)
+        {
+            Fail("Hazard smoke failed: steam hazard VFX did not expose enough visible puffs.");
+            yield break;
+        }
+
         RequireState(gameState.State == GameRunState.Playing, "hazard should not end the run from one tick");
     }
 
