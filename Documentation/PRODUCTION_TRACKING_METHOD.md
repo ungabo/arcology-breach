@@ -136,6 +136,7 @@ Use increasing verification strength:
 - `compile`: Unity compiles scripts.
 - `scene-smoke`: generated/target scene loads and required objects exist.
 - `runtime-smoke`: built executable boots and required objects exist.
+- `auto-playthrough`: built executable proves a deterministic gameplay route or scenario.
 - `manual-playtest`: a human plays through the target flow.
 - `regression-playtest`: repeat manual checklist after changes.
 - `performance-pass`: frame time, memory, and build size are checked.
@@ -145,6 +146,7 @@ Current automated pass markers:
 - `V0_SMOKE_TEST_PASS`
 - `V0_WINDOWS_BUILD_PASS`
 - `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
 
 ## 9. Change Control
 

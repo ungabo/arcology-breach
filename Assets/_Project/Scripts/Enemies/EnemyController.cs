@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour, IDamageable
     public int attackDamage = 10;
     public float attackCooldown = 1f;
     public float attackWindup = 0.38f;
+    public float obstacleProbeDistance = 1.05f;
+    public float obstacleProbeRadius = 0.35f;
     public Color hitFlashColor = Color.white;
     public Color attackTellColor = new Color(1f, 0.08f, 0.7f);
 
@@ -23,6 +25,7 @@ public class EnemyController : MonoBehaviour, IDamageable
     private float attackResolveTime;
     private bool dead;
     private bool windingUpAttack;
+    private int avoidanceSide = 1;
 
     private void Awake()
     {
@@ -63,7 +66,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         if (distance > attackRange)
         {
             CancelAttackWindup();
-            Vector3 direction = toPlayer.normalized;
+            Vector3 direction = GetSteeredDirection(toPlayer.normalized);
             if (direction.sqrMagnitude > 0.001f)
             {
                 transform.rotation = Quaternion.LookRotation(direction);
@@ -159,6 +162,52 @@ public class EnemyController : MonoBehaviour, IDamageable
 
         windingUpAttack = false;
         RestoreColors();
+    }
+
+    private Vector3 GetSteeredDirection(Vector3 desiredDirection)
+    {
+        if (!HasObstacle(desiredDirection))
+        {
+            return desiredDirection;
+        }
+
+        Vector3 right = Vector3.Cross(Vector3.up, desiredDirection).normalized;
+        Vector3 primary = (desiredDirection + right * avoidanceSide * 1.15f).normalized;
+        if (!HasObstacle(primary))
+        {
+            return primary;
+        }
+
+        Vector3 secondary = (desiredDirection - right * avoidanceSide * 1.15f).normalized;
+        if (!HasObstacle(secondary))
+        {
+            avoidanceSide *= -1;
+            return secondary;
+        }
+
+        return right * avoidanceSide;
+    }
+
+    private bool HasObstacle(Vector3 direction)
+    {
+        if (direction.sqrMagnitude < 0.001f)
+        {
+            return false;
+        }
+
+        Vector3 origin = transform.position + Vector3.up * 0.7f;
+        if (!Physics.SphereCast(origin, obstacleProbeRadius, direction.normalized, out RaycastHit hit, obstacleProbeDistance, ~0, QueryTriggerInteraction.Ignore))
+        {
+            return false;
+        }
+
+        if (hit.collider.GetComponentInParent<PlayerController>() != null)
+        {
+            return false;
+        }
+
+        EnemyController hitEnemy = hit.collider.GetComponentInParent<EnemyController>();
+        return hitEnemy == null || hitEnemy != this;
     }
 
     private void SetColor(Color color)

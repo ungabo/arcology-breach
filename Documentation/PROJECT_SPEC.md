@@ -25,7 +25,9 @@ Implemented:
 - Muzzle flash, damage flash, bobbing pickups, sliding gate, colored accent lights.
 - Procedural cyberpunk audio cues for firing, pickups, enemy hits/death, player hurt, gate feedback, and win.
 - Scrapper attack windup with magenta attack tell.
+- Scrapper obstacle probing and simple side-steering.
 - Access-shard pedestal, gate/exit guide strips, and world labels.
+- Packaged auto-playthrough for the access-shard, lockdown-gate, and emergency-lift objective chain.
 - Unity editor smoke test, Windows build, and runtime smoke test.
 
 ## 3. Target Platform
@@ -243,6 +245,7 @@ Automated:
 - Unity editor smoke.
 - Windows build.
 - Packaged runtime smoke.
+- Packaged auto-playthrough for objective progression.
 
 Manual:
 
@@ -258,6 +261,7 @@ Manual:
 `v0.2` is complete when:
 
 - The Windows build can be manually completed from start to exit.
+- The packaged auto-playthrough can complete the objective chain.
 - Mechanical enemy combat feels fair enough for iteration.
 - Access shard and lockdown gate are understandable.
 - Cyberpunk objective text and presentation are in place.

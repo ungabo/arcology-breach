@@ -2,7 +2,7 @@
 
 ## Current Version
 
-`v0.0.3` checkpoint build for `Arcology Breach`.
+`v0.0.4` checkpoint build for `Arcology Breach`.
 
 `v0.0` core loop is complete. A small `v0.1` presentation pass has also been added while keeping the project simple.
 
@@ -20,7 +20,9 @@
 - Green emergency exit trigger.
 - Procedural cyberpunk audio cues for weapon, pickups, enemies, player hurt, gate feedback, and win.
 - Scrapper attack windup with magenta attack tell.
+- Scrapper obstacle probing and simple side-steering.
 - In-world labels and floor guide strips for access shard, lockdown gate, and emergency lift.
+- Packaged automated playthrough test for the shard/gate/exit objective chain.
 - Pause, death, win, and restart flow.
 - Windows standalone build.
 
@@ -39,12 +41,14 @@
 - Editor smoke test: passed.
 - Windows build: passed.
 - Packaged runtime smoke test: passed.
+- Packaged auto-playthrough test: passed.
 
 Pass markers:
 
 - `V0_SMOKE_TEST_PASS`
 - `V0_WINDOWS_BUILD_PASS`
 - `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
 
 Latest checkpoint verification:
 
@@ -57,17 +61,21 @@ Latest checkpoint verification:
 - `2026-05-22 21:11 -04:00`: `v0.0.3` editor smoke passed.
 - `2026-05-22 21:11 -04:00`: `v0.0.3` Windows checkpoint build passed.
 - `2026-05-22 21:11 -04:00`: `v0.0.3` packaged runtime smoke passed.
+- `2026-05-22 23:29 -04:00`: `v0.0.4` editor smoke passed.
+- `2026-05-22 23:29 -04:00`: `v0.0.4` Windows checkpoint build passed.
+- `2026-05-22 23:29 -04:00`: `v0.0.4` packaged runtime smoke passed.
+- `2026-05-22 23:29 -04:00`: `v0.0.4` packaged auto-playthrough passed.
 
 ## Build Path
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.3\ArcologyBreach_v0.0.3.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.4\ArcologyBreach_v0.0.4.exe`
 
-Future checkpoints should increment as `v0.0.4`, `v0.0.5`, etc. when meaningful progress is ready for local playtesting.
+Future checkpoints should increment as `v0.0.5`, `v0.0.6`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
-- Runtime smoke test verifies boot/object presence, not a full human playthrough.
-- Enemy pathing is simple direct movement, not NavMesh.
+- Runtime smoke test verifies boot/object presence. Auto-playthrough verifies objective flow but not human combat feel.
+- Enemy pathing uses simple side-steering, not NavMesh.
 - Scrapper attack windup is smoke-tested but still needs manual feel tuning.
 - Audio is procedural placeholder content and still needs a human listen/tuning pass.
 - No generated texture/sprite pass yet.

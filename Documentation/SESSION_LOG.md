@@ -152,3 +152,33 @@ Notes:
 
 - Runtime smoke verifies object presence only.
 - A manual playthrough should confirm label readability, attack tell timing, and enemy navigation feel.
+
+## 2026-05-22 23:29:51 -04:00
+
+Completed `v0.0.4` auto-playthrough/navigation checkpoint.
+
+Implementation:
+
+- Added `RuntimeAutoPlaythroughTest`.
+- Added packaged `-v0AutoPlaythrough` command.
+- The auto-playthrough verifies that the lockdown gate stays closed before shard pickup, the access shard can be collected, the gate opens after shard pickup, and the emergency lift reaches win state.
+- Added simple Scrapper obstacle probing and side-steering.
+- Updated runtime smoke to require the auto-playthrough test component.
+- Updated `GameBranding.CheckpointVersion` to `v0.0.4`.
+
+Verification:
+
+- Scene rebuild passed: `Logs\build-v004-scene.log`.
+- Editor smoke passed: `V0_SMOKE_TEST_PASS`.
+- Windows build passed: `V0_WINDOWS_BUILD_PASS`.
+- Runtime smoke passed: `V0_RUNTIME_SMOKE_PASS`.
+- Packaged auto-playthrough passed: `V0_AUTO_PLAYTHROUGH_PASS`.
+
+Checkpoint executable:
+
+`Builds/Windows/v0.0.4/ArcologyBreach_v0.0.4.exe`
+
+Notes:
+
+- Auto-playthrough intentionally disables enemies to isolate objective progression.
+- Combat automation should be added separately.

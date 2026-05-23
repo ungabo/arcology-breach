@@ -33,6 +33,8 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [ ] Confirm `Aster Gate Intake` scale and room flow against `LEVEL_DESIGN_AND_MAPS.md`.
 - [x] Add first cyberpunk audio set.
 - [ ] Improve enemy navigation or obstacle handling.
+- [x] Add packaged objective-chain auto-playthrough.
+- [x] Add first Scrapper obstacle side-steering.
 - [ ] Manual readability pass for Scrapper attack tells and world labels.
 - [ ] Add first cyberpunk material pass if combat feel is stable.
 - [ ] Rebuild Windows player.
@@ -62,6 +64,7 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [ ] Pickup/inventory cleanup.
 - [ ] Level transition controller.
 - [ ] Level validation tool.
+- [ ] Combat automation harness.
 - [ ] Build automation cleanup.
 - [ ] Platform asset-quality settings.
 
