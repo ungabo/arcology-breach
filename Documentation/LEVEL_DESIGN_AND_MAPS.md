@@ -45,11 +45,12 @@ Each main level should include:
 Near-term:
 
 - Level01 service lift now loads `Level02` through `LevelTransitionTrigger`.
-- Level02 service lift now loads `Level03` through `LevelTransitionTrigger`.
+- Level02 service lift now loads `Level03` through `LevelTransitionTrigger`, but starts locked until the Pipeworks routing valve is turned.
 - Level03 foundry service lift is pressure-locked until the Boilerheart pressure valve is vented, then loads `Level04`.
 - Level04 emergency hoist now loads `Level05`.
 - Level05 master override hoist is locked until the Governor Warden is destroyed, then triggers the win state.
 - Auto-playthrough covers Level01 key/gate/lift, transition to Level02, transition to Level03, locked-foundry-lift rejection, Boilerheart pressure valve, transition to Level04, transition to Level05, locked-master-hoist rejection, Warden defeat, unlock, and the Level05 master override hoist.
+- Auto-playthrough now also covers locked Level02 Boilerheart-lift rejection, Pipeworks routing-valve completion, and the resulting objective update.
 - Health and ammo pickup VFX now appear during the Level01 route and are verified by auto-playthrough.
 - Gear-key pickup now spawns a visible brass/amber pickup burst and is verified by auto-playthrough.
 - Pressure-gate opening now spawns a visible green pressure/steam/spark burst and is verified by auto-playthrough.
@@ -130,10 +131,16 @@ Approximate footprint:
 
 New mechanics:
 
-- Current prototype: inter-level transition to `Level03` and first ranged Lancer enemy.
-- Planned: valve wheel pressure-routing objective.
-- Planned: first ranged `Lancer` enemy.
+- Current prototype: pressure-routing valve objective that unlocks the Boilerheart lift, inter-level transition to `Level03`, and first ranged Lancer enemy.
+- Planned: expanded ranged `Lancer` encounter routes.
 - Planned: optional ammo cache secret.
+
+v0.0.70 implementation notes:
+
+- Added `Pipeworks Routing Valve Objective` near the north valve run.
+- `Pipeworks Service Lift To Boilerheart` now starts pressure-locked until the routing valve is complete.
+- The Level02 objective text now starts with routing pipe pressure before riding the Boilerheart lift.
+- Auto-playthrough verifies the locked lift, valve completion, objective update, and transition to Level03.
 
 ### Level 03: Boilerheart Core
 

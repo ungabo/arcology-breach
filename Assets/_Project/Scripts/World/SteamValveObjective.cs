@@ -5,6 +5,7 @@ public class SteamValveObjective : MonoBehaviour, IInteractable
     public string prompt = "E - vent boiler pressure";
     public string completePrompt = "boiler pressure vented";
     public string completeMessage = "Boilerheart pressure vented. Final lift unlocked.";
+    public string objectiveAfterComplete = "Ride the foundry lift.";
     public GameObject lockedSignal;
     public GameObject ventedSignal;
     public SteamHazard[] hazardsToDisableOnComplete;
@@ -48,7 +49,11 @@ public class SteamValveObjective : MonoBehaviour, IInteractable
         IsComplete = true;
         SetSignalState();
         DisableLinkedHazards();
-        GameStateController.Instance?.SetObjective("Ride the foundry lift.");
+        if (!string.IsNullOrWhiteSpace(objectiveAfterComplete))
+        {
+            GameStateController.Instance?.SetObjective(objectiveAfterComplete);
+        }
+
         HUDController.Instance?.ShowTemporaryMessage(completeMessage, 2.5f);
         SteamworksAudio.Play(SteamworksAudioCue.GateOpen);
     }

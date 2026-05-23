@@ -79,6 +79,7 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 | VFX-012 | Add pressure-pistol impact decal VFX | vfx/code/test | P1 | verified | v0.0.67 | ImpactDecalVfx adds scorch disc, brass impact plate, and sparks to pressure-pistol hits, with combat-scenario smoke verification. |
 | VFX-013 | Add player damage VFX | vfx/code/test | P1 | verified | v0.0.68 | PlayerDamageVfx adds first-person pressure slashes, heat edges, and brass sparks to player damage, with combat-edge smoke verification. |
 | LORE-001 | Add interactable lore plaques | narrative/code/test | P1 | verified | v0.0.69 | LorePlaque archive props appear in Level01-Level05, with level validation and interaction-smoke HUD read verification. |
+| OBJ-003 | Add Pipeworks routing valve objective | level/code/test | P1 | verified | v0.0.70 | Level02 Boilerheart lift starts pressure-locked until the routing valve is turned, with validation and auto-playthrough coverage. |
 
 ## Ready Next
 
@@ -201,3 +202,4 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 - `2026-05-23`: `v0.0.67` pressure-pistol impact decal build created at `Builds/Windows/v0.0.67/BrassworksBreach_v0.0.67.exe` and passed the complete V0 matrix, including combat-scenario impact decal VFX coverage, through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.68` player damage VFX build created at `Builds/Windows/v0.0.68/BrassworksBreach_v0.0.68.exe` and passed the complete V0 matrix, including combat-edge player damage VFX coverage, through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.69` lore plaque build created at `Builds/Windows/v0.0.69/BrassworksBreach_v0.0.69.exe` and passed the complete V0 matrix, including level validation and interaction-smoke plaque HUD read coverage, through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.70` Pipeworks routing valve build created at `Builds/Windows/v0.0.70/BrassworksBreach_v0.0.70.exe` and passed the complete V0 matrix, including auto-playthrough coverage for the locked Boilerheart lift, routing valve, objective update, and Level02 transition. Next-step directive: continue immediately with the next highest-impact unfinished task.

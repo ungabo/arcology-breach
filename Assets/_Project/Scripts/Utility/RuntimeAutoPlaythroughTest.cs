@@ -155,9 +155,33 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         PlayerController player = Require<PlayerController>("PlayerController");
         PlayerInventory inventory = Require<PlayerInventory>("PlayerInventory");
         LevelTransitionTrigger transition = Require<LevelTransitionTrigger>("LevelTransitionTrigger");
+        SteamValveObjective valve = Require<SteamValveObjective>("SteamValveObjective");
         if (!RunProgress.HasSnapshot || inventory.Ammo != RunProgress.Ammo)
         {
             Fail("Auto-playthrough failed: run progress did not persist into Level02.");
+            yield break;
+        }
+
+        string startingSceneName = SceneManager.GetActiveScene().name;
+        Teleport(player, transition.transform.position);
+        yield return new WaitForSeconds(0.35f);
+        if (SceneManager.GetActiveScene().name != startingSceneName || !transition.IsLocked)
+        {
+            Fail("Auto-playthrough failed: Boilerheart lift unlocked before Pipeworks routing valve.");
+            yield break;
+        }
+
+        Teleport(player, valve.transform.position);
+        valve.Interact(player.gameObject);
+        yield return WaitUntilOrFail(() => valve.IsComplete && !transition.IsLocked, "Pipeworks routing valve opening", 2f);
+        if (failed)
+        {
+            yield break;
+        }
+
+        if (!ObjectiveContains("Ride the Boilerheart lift."))
+        {
+            Fail("Auto-playthrough failed: objective HUD did not update after Pipeworks routing valve.");
             yield break;
         }
 

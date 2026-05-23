@@ -1036,6 +1036,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.70 Pipeworks Routing Valve Pass
+
+- [x] Make `SteamValveObjective` support configurable follow-up objective text.
+- [x] Add `Pipeworks Routing Valve Objective` to Level02.
+- [x] Lock the Level02 Boilerheart lift until the routing valve is complete.
+- [x] Add level validation for the routing valve, lock wiring, and visual pieces.
+- [x] Expand auto-playthrough to verify locked lift rejection, valve completion, objective update, and Level02 transition.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.70`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

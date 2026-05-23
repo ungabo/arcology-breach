@@ -126,6 +126,27 @@ public static class V0LevelValidator
                 throw new InvalidOperationException("Level validation failed: " + sceneName + " transition has no target scene.");
             }
 
+            if (sceneName == "Level02")
+            {
+                SteamValveObjective valve = Require<SteamValveObjective>(sceneName + " SteamValveObjective");
+                RequireTrigger(valve.gameObject, sceneName + " Pipeworks routing valve trigger");
+                RequireInteractable(valve, sceneName + " Pipeworks routing valve interactable");
+                if (transition.requiredValve != valve)
+                {
+                    throw new InvalidOperationException("Level validation failed: " + sceneName + " Boilerheart lift is not linked to the Pipeworks routing valve.");
+                }
+
+                if (!transition.IsLocked)
+                {
+                    throw new InvalidOperationException("Level validation failed: " + sceneName + " Boilerheart lift must start pressure-locked.");
+                }
+
+                if (string.IsNullOrWhiteSpace(valve.objectiveAfterComplete))
+                {
+                    throw new InvalidOperationException("Level validation failed: " + sceneName + " Pipeworks routing valve has no follow-up objective.");
+                }
+            }
+
             if (sceneName == "Level03")
             {
                 SteamValveObjective valve = Require<SteamValveObjective>(sceneName + " SteamValveObjective");
@@ -493,7 +514,7 @@ public static class V0LevelValidator
         string expectedMessage = sceneName == "Level01"
             ? "Find the gear key. Open the pressure gate."
             : sceneName == "Level02"
-                ? "Survive the Pipeworks. Ride the lift to the Boilerheart."
+                ? "Route pipe pressure. Ride the lift to the Boilerheart."
                 : sceneName == "Level03"
                     ? "Vent the Boilerheart pressure valve. Ride the foundry lift."
                     : sceneName == "Level04"
@@ -567,6 +588,9 @@ public static class V0LevelValidator
         {
             RequireNamed("Work Order Board - Pipeworks", sceneName + " pipeworks work-order board visual");
             RequireNamed("Lore Plaque - Pipeworks Archive", sceneName + " pipeworks lore plaque visual");
+            RequireNamed("Pipeworks Routing Valve Objective", sceneName + " Pipeworks routing valve objective");
+            RequireNamed("Pipeworks Routing Valve Wheel", sceneName + " Pipeworks routing valve wheel visual");
+            RequireNamed("Pipeworks Routing Valve Vented Lamp", sceneName + " Pipeworks routing valve vented signal");
             RequireNamed("Pipeworks Triple Pipe Bundle", sceneName + " pipeworks pipe-bundle visual");
         }
         else if (sceneName == "Level03")

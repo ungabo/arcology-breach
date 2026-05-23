@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.69`.
+Current state: `v0.0.70`.
 
 Implemented:
 
@@ -77,6 +77,7 @@ Implemented:
 - `ImpactDecalVfx` pressure-pistol impact decal and spark feedback, with combat-scenario smoke coverage.
 - `PlayerDamageVfx` first-person pressure/heat/brass hurt burst on player damage, with combat-edge smoke coverage.
 - `LorePlaque` archive plaques placed in every current gameplay level, with level validation and interaction smoke coverage.
+- Pipeworks routing valve objective that locks the Level02 Boilerheart lift until pipe pressure is routed, with auto-playthrough coverage.
 
 ## 3. Target Platform
 
@@ -180,6 +181,7 @@ Current:
 - Pressure gate.
 - Service lift exit.
 - Short readable archive plaques in each current level.
+- Required Pipeworks routing valve before the Level02 Boilerheart lift.
 
 Future:
 

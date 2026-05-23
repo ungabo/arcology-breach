@@ -166,4 +166,5 @@ These short interactable plaques are optional environmental lore beats. They sho
 - Locked door: `Pressure Gate`.
 - Green exit trigger: `Service Lift`.
 - Short readable archive plaques: `LorePlaque`.
+- Pipeworks pressure-routing switch: `Pipeworks Routing Valve Objective`.
 - First level: `Brassworks Intake`.

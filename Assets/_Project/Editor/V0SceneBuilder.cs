@@ -806,14 +806,18 @@ public static class V0SceneBuilder
         CreateLighting();
         CreatePipeworksAnnexBlockout(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
-        CreateGameState(hud, windowsQualityProfile, "Survive the Pipeworks. Ride the lift to the Boilerheart.");
+        CreateGameState(hud, windowsQualityProfile, "Route pipe pressure. Ride the lift to the Boilerheart.");
         CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition);
 
         CreateEnemy("Enemy - Pipeworks Gatehouse", new Vector3(-2.2f, 1f, 9.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateLancerEnemy("Enemy - Pipeworks Lancer", new Vector3(2.2f, 1f, 17.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, lancerDefinition);
         CreateHealthVialPickup("Pickup - Annex Health Vial", new Vector3(-3.2f, 0.65f, 14f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
         CreatePressureCartridgePickup("Pickup - Annex Pressure Cartridge Pack", new Vector3(3.2f, 0.55f, 13.5f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
-        CreateLevelTransitionLiftAt("Pipeworks Service Lift To Boilerheart", new Vector3(0f, 1.1f, 23.2f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial, "Level03", "Service lift grinding toward the Boilerheart");
+        LevelTransitionTrigger boilerheartLift = CreateLevelTransitionLiftAt("Pipeworks Service Lift To Boilerheart", new Vector3(0f, 1.1f, 23.2f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial, "Level03", "Service lift grinding toward the Boilerheart").GetComponent<LevelTransitionTrigger>();
+        SteamValveObjective routingValve = CreatePipeworksRoutingValve(ironMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial);
+        boilerheartLift.requiredValve = routingValve;
+        boilerheartLift.lockedPrompt = "route pipe pressure first";
+        boilerheartLift.lockedMessage = "The Boilerheart lift is pressure-locked. Route the Pipeworks valve first.";
         CreatePipeworksDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreatePointLight("Pipeworks Exit Green Light", new Vector3(0f, 2.4f, 22.7f), new Color(0.1f, 1f, 0.3f), 2.8f, 7f);
         CreatePointLight("Pipeworks Furnace Light", new Vector3(-4.1f, 1.6f, 16f), new Color(1f, 0.36f, 0.08f), 2.2f, 5f);
@@ -1100,6 +1104,7 @@ public static class V0SceneBuilder
         valve.prompt = "E - vent Boilerheart pressure";
         valve.completePrompt = "Boilerheart pressure vented";
         valve.completeMessage = "Boilerheart pressure vented. Final lift unlocked.";
+        valve.objectiveAfterComplete = "Ride the foundry lift.";
 
         CreateLocalCube("Boilerheart Pressure Valve Backplate", valveRoot.transform, Vector3.zero, new Vector3(1.12f, 1.28f, 0.08f), ironMaterial);
         GameObject wheelAssembly = CreateLocalEmpty("Boilerheart Pressure Valve Wheel Assembly", valveRoot.transform, new Vector3(0f, 0.08f, -0.12f), Quaternion.Euler(90f, 0f, 0f));
@@ -1115,6 +1120,40 @@ public static class V0SceneBuilder
         valve.lockedSignal = CreateLocalPrimitive("Boilerheart Valve Locked Lamp", PrimitiveType.Sphere, valveRoot.transform, new Vector3(-0.34f, 0.48f, -0.16f), new Vector3(0.13f, 0.13f, 0.13f), warningMaterial);
         valve.ventedSignal = CreateLocalPrimitive("Boilerheart Valve Vented Lamp", PrimitiveType.Sphere, valveRoot.transform, new Vector3(-0.34f, 0.48f, -0.17f), new Vector3(0.13f, 0.13f, 0.13f), steamMaterial);
         CreateLocalCube("Boilerheart Pressure Valve Outlet Pipe", valveRoot.transform, new Vector3(0f, -0.52f, -0.12f), new Vector3(0.18f, 0.62f, 0.18f), brassMaterial);
+
+        return valve;
+    }
+
+    private static SteamValveObjective CreatePipeworksRoutingValve(Material ironMaterial, Material brassMaterial, Material warningMaterial, Material gaugeFaceMaterial, Material steamMaterial)
+    {
+        GameObject valveRoot = new GameObject("Pipeworks Routing Valve Objective");
+        valveRoot.transform.position = new Vector3(-4.95f, 1.35f, 20f);
+        valveRoot.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+
+        BoxCollider trigger = valveRoot.AddComponent<BoxCollider>();
+        trigger.size = new Vector3(1.3f, 1.45f, 0.5f);
+        trigger.isTrigger = true;
+
+        SteamValveObjective valve = valveRoot.AddComponent<SteamValveObjective>();
+        valve.prompt = "E - route pipe pressure";
+        valve.completePrompt = "pipe pressure routed";
+        valve.completeMessage = "Pipeworks pressure routed. Boilerheart lift unlocked.";
+        valve.objectiveAfterComplete = "Ride the Boilerheart lift.";
+
+        CreateLocalCube("Pipeworks Routing Valve Backplate", valveRoot.transform, Vector3.zero, new Vector3(1.12f, 1.28f, 0.08f), ironMaterial);
+        GameObject wheelAssembly = CreateLocalEmpty("Pipeworks Routing Valve Wheel Assembly", valveRoot.transform, new Vector3(0f, 0.08f, -0.12f), Quaternion.Euler(90f, 0f, 0f));
+        AddSpinner(wheelAssembly, 20f);
+        CreateLocalPrimitive("Pipeworks Routing Valve Wheel", PrimitiveType.Cylinder, wheelAssembly.transform, Vector3.zero, new Vector3(0.5f, 0.045f, 0.5f), brassMaterial);
+        CreateLocalCube("Pipeworks Routing Valve Spoke Horizontal", wheelAssembly.transform, new Vector3(0f, -0.04f, 0f), new Vector3(0.92f, 0.045f, 0.045f), warningMaterial);
+        CreateLocalCube("Pipeworks Routing Valve Spoke Vertical", wheelAssembly.transform, new Vector3(0f, -0.04f, 0f), new Vector3(0.045f, 0.045f, 0.92f), warningMaterial);
+        CreateLocalPrimitive("Pipeworks Routing Valve Hub", PrimitiveType.Sphere, wheelAssembly.transform, new Vector3(0f, -0.08f, 0f), new Vector3(0.14f, 0.14f, 0.14f), brassMaterial);
+
+        GameObject gauge = CreateLocalPrimitive("Pipeworks Routing Valve Gauge", PrimitiveType.Cylinder, valveRoot.transform, new Vector3(0.32f, 0.48f, -0.14f), new Vector3(0.2f, 0.03f, 0.2f), gaugeFaceMaterial);
+        gauge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube("Pipeworks Routing Valve Gauge Needle", valveRoot.transform, new Vector3(0.37f, 0.48f, -0.18f), new Vector3(0.16f, 0.018f, 0.018f), warningMaterial);
+        valve.lockedSignal = CreateLocalPrimitive("Pipeworks Routing Valve Locked Lamp", PrimitiveType.Sphere, valveRoot.transform, new Vector3(-0.34f, 0.48f, -0.16f), new Vector3(0.13f, 0.13f, 0.13f), warningMaterial);
+        valve.ventedSignal = CreateLocalPrimitive("Pipeworks Routing Valve Vented Lamp", PrimitiveType.Sphere, valveRoot.transform, new Vector3(-0.34f, 0.48f, -0.17f), new Vector3(0.13f, 0.13f, 0.13f), steamMaterial);
+        CreateLocalCube("Pipeworks Routing Valve Outlet Pipe", valveRoot.transform, new Vector3(0f, -0.52f, -0.12f), new Vector3(0.18f, 0.62f, 0.18f), brassMaterial);
 
         return valve;
     }
@@ -1142,7 +1181,6 @@ public static class V0SceneBuilder
         CreateCube("Pipeworks Furnace Body", new Vector3(-4.55f, 0.75f, 16f), new Vector3(0.8f, 1.3f, 1.1f), ironMaterial, parent.transform);
         CreateCube("Pipeworks Furnace Glow", new Vector3(-4.1f, 0.75f, 16f), new Vector3(0.08f, 0.72f, 0.58f), glowMaterial, parent.transform);
         CreatePressureGauge("Pipeworks Gauge A", new Vector3(4.95f, 1.65f, 7f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
-        CreateValveWheel("Pipeworks Valve A", new Vector3(-4.95f, 1.45f, 20f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, warningMaterial, parent.transform);
         CreateSteamVent("Pipeworks Steam Vent A", new Vector3(3.8f, 0.05f, 5.5f), brassMaterial, steamMaterial, parent.transform);
         CreatePipeBundle("Pipeworks Triple Pipe Bundle", new Vector3(0f, 2.35f, 23.72f), Quaternion.Euler(0f, 90f, 0f), 3.6f, brassMaterial, ironMaterial, parent.transform);
         CreateWorkOrderBoard("Work Order Board - Pipeworks", "PIPEWORKS NOTICE\nBOLT FEED LIVE\nKEEP DISTANCE", new Vector3(4.95f, 1.55f, 12f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
