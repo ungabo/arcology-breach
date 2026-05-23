@@ -318,6 +318,27 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.25 Service-Lift Visual Pass
+
+- [x] Add brass platform deck, iron grate, and threshold to the service-lift shell.
+- [x] Add cage rails, cross braces, lift chains, and overhead pulley gear.
+- [x] Add call box, gauge, lever, and green signal lamps.
+- [x] Apply the lift visual to both Level01 transition and Level02 final exit.
+- [x] Expand level validation to require service-lift visual objects.
+- [x] Rebuild generated scenes.
+- [x] Run standalone level validation.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged combat-edge smoke.
+- [x] Run packaged ranged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.25`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -337,7 +358,7 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Generate brass/copper pipe material.
 - [x] Generate gear-key visual.
 - [x] Generate pressure-gate visual.
-- [ ] Generate service-lift visual.
+- [x] Generate service-lift visual.
 - [x] Generate primitive `Scrapper` visual.
 - [x] Generate primitive `Pressure Pistol` visual.
 - [x] Replace placeholder hit marker with primitive spark impact VFX.

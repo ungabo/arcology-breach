@@ -71,6 +71,7 @@ public static class V0LevelValidator
         {
             LevelTransitionTrigger transition = Require<LevelTransitionTrigger>(sceneName + " LevelTransitionTrigger");
             RequireTrigger(transition.gameObject, sceneName + " LevelTransitionTrigger trigger");
+            ValidateServiceLiftVisuals(transition.gameObject, sceneName + " transition lift");
             if (string.IsNullOrWhiteSpace(transition.targetSceneName))
             {
                 throw new InvalidOperationException("Level validation failed: " + sceneName + " transition has no target scene.");
@@ -81,6 +82,7 @@ public static class V0LevelValidator
         {
             ExitTrigger exit = Require<ExitTrigger>(sceneName + " ExitTrigger");
             RequireTrigger(exit.gameObject, sceneName + " ExitTrigger trigger");
+            ValidateServiceLiftVisuals(exit.gameObject, sceneName + " final service lift");
         }
 
         if (requireRangedEnemy)
@@ -143,6 +145,14 @@ public static class V0LevelValidator
         }
 
         return value;
+    }
+
+    private static void ValidateServiceLiftVisuals(GameObject lift, string label)
+    {
+        RequireNamed(lift.name + " Brass Platform Deck", label + " platform deck visual");
+        RequireNamed(lift.name + " Overhead Pulley Gear", label + " pulley gear visual");
+        RequireNamed(lift.name + " Brass Call Box", label + " call box visual");
+        RequireNamed(lift.name + " Green Signal Lamp Left", label + " signal lamp visual");
     }
 
     private static void RequireCollider(GameObject gameObject, string label)

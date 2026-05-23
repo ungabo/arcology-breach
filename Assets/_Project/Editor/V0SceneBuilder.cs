@@ -1384,12 +1384,47 @@ public static class V0SceneBuilder
             liftCollider.isTrigger = true;
         }
 
-        CreateLocalCube(name + " Cage Top", lift.transform, new Vector3(0f, 0.55f, -0.24f), new Vector3(1.1f, 0.08f, 0.08f), ironMaterial);
-        CreateLocalCube(name + " Cage Bottom", lift.transform, new Vector3(0f, -0.55f, -0.24f), new Vector3(1.1f, 0.08f, 0.08f), ironMaterial);
-        CreateLocalCube(name + " Left Rail", lift.transform, new Vector3(-0.42f, 0f, -0.24f), new Vector3(0.05f, 1.1f, 0.08f), brassMaterial);
-        CreateLocalCube(name + " Right Rail", lift.transform, new Vector3(0.42f, 0f, -0.24f), new Vector3(0.05f, 1.1f, 0.08f), brassMaterial);
-        GameObject liftGauge = CreateLocalPrimitive(name + " Pressure Gauge", PrimitiveType.Cylinder, lift.transform, new Vector3(0f, 0.25f, -0.27f), new Vector3(0.18f, 0.025f, 0.18f), gaugeFaceMaterial);
+        CreateLocalCube(name + " Brass Platform Deck", lift.transform, new Vector3(0f, -0.64f, -0.34f), new Vector3(1.45f, 0.1f, 0.86f), brassMaterial);
+        CreateLocalCube(name + " Iron Platform Grate", lift.transform, new Vector3(0f, -0.55f, -0.42f), new Vector3(1.22f, 0.05f, 0.52f), ironMaterial);
+        CreateLocalCube(name + " Brass Threshold", lift.transform, new Vector3(0f, -0.47f, -0.78f), new Vector3(1.55f, 0.08f, 0.12f), brassMaterial);
+
+        CreateLocalCube(name + " Cage Top", lift.transform, new Vector3(0f, 0.64f, -0.58f), new Vector3(1.45f, 0.08f, 0.08f), ironMaterial);
+        CreateLocalCube(name + " Cage Bottom", lift.transform, new Vector3(0f, -0.34f, -0.58f), new Vector3(1.45f, 0.08f, 0.08f), ironMaterial);
+        CreateLocalCube(name + " Left Rear Rail", lift.transform, new Vector3(-0.62f, 0.08f, -0.3f), new Vector3(0.06f, 1.38f, 0.08f), brassMaterial);
+        CreateLocalCube(name + " Right Rear Rail", lift.transform, new Vector3(0.62f, 0.08f, -0.3f), new Vector3(0.06f, 1.38f, 0.08f), brassMaterial);
+        CreateLocalCube(name + " Left Front Rail", lift.transform, new Vector3(-0.62f, 0.08f, -0.75f), new Vector3(0.06f, 1.38f, 0.08f), brassMaterial);
+        CreateLocalCube(name + " Right Front Rail", lift.transform, new Vector3(0.62f, 0.08f, -0.75f), new Vector3(0.06f, 1.38f, 0.08f), brassMaterial);
+
+        GameObject leftBrace = CreateLocalCube(name + " Left Cross Brace", lift.transform, new Vector3(-0.62f, 0.12f, -0.78f), new Vector3(0.06f, 1.18f, 0.06f), ironMaterial);
+        leftBrace.transform.localRotation = Quaternion.Euler(0f, 0f, -24f);
+        GameObject rightBrace = CreateLocalCube(name + " Right Cross Brace", lift.transform, new Vector3(0.62f, 0.12f, -0.78f), new Vector3(0.06f, 1.18f, 0.06f), ironMaterial);
+        rightBrace.transform.localRotation = Quaternion.Euler(0f, 0f, 24f);
+
+        CreateLocalCube(name + " Left Lift Chain", lift.transform, new Vector3(-0.34f, 0.25f, -0.72f), new Vector3(0.045f, 1.24f, 0.045f), ironMaterial);
+        CreateLocalCube(name + " Right Lift Chain", lift.transform, new Vector3(0.34f, 0.25f, -0.72f), new Vector3(0.045f, 1.24f, 0.045f), ironMaterial);
+
+        GameObject pulley = CreateLocalPrimitive(name + " Overhead Pulley Gear", PrimitiveType.Cylinder, lift.transform, new Vector3(0f, 0.9f, -0.72f), new Vector3(0.3f, 0.045f, 0.3f), brassMaterial);
+        pulley.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        for (int i = 0; i < 10; i++)
+        {
+            float angle = i * 36f;
+            float radians = angle * Mathf.Deg2Rad;
+            Vector3 toothPosition = new Vector3(Mathf.Sin(radians) * 0.34f, 0.9f + Mathf.Cos(radians) * 0.34f, -0.74f);
+            GameObject tooth = CreateLocalCube(name + " Pulley Tooth " + i, lift.transform, toothPosition, new Vector3(0.07f, 0.12f, 0.06f), brassMaterial);
+            tooth.transform.localRotation = Quaternion.Euler(0f, 0f, -angle);
+        }
+
+        CreateLocalCube(name + " Brass Call Box", lift.transform, new Vector3(0.78f, 0.08f, -0.68f), new Vector3(0.2f, 0.56f, 0.1f), brassMaterial);
+        GameObject callGauge = CreateLocalPrimitive(name + " Call Box Gauge", PrimitiveType.Cylinder, lift.transform, new Vector3(0.78f, 0.2f, -0.76f), new Vector3(0.105f, 0.02f, 0.105f), gaugeFaceMaterial);
+        callGauge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube(name + " Call Lever", lift.transform, new Vector3(0.78f, -0.12f, -0.78f), new Vector3(0.045f, 0.26f, 0.045f), ironMaterial).transform.localRotation = Quaternion.Euler(0f, 0f, -22f);
+
+        CreateLocalPrimitive(name + " Green Signal Lamp Left", PrimitiveType.Sphere, lift.transform, new Vector3(-0.42f, 0.72f, -0.75f), new Vector3(0.11f, 0.11f, 0.11f), material);
+        CreateLocalPrimitive(name + " Green Signal Lamp Right", PrimitiveType.Sphere, lift.transform, new Vector3(0.42f, 0.72f, -0.75f), new Vector3(0.11f, 0.11f, 0.11f), material);
+
+        GameObject liftGauge = CreateLocalPrimitive(name + " Pressure Gauge", PrimitiveType.Cylinder, lift.transform, new Vector3(0f, 0.25f, -0.79f), new Vector3(0.18f, 0.025f, 0.18f), gaugeFaceMaterial);
         liftGauge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube(name + " Pressure Gauge Needle", lift.transform, new Vector3(0.05f, 0.25f, -0.83f), new Vector3(0.14f, 0.014f, 0.014f), ironMaterial);
 
         return lift;
     }

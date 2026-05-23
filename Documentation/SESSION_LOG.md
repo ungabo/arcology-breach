@@ -490,3 +490,32 @@ Build executable:
 `Builds/Windows/v0.0.24/BrassworksBreach_v0.0.24.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 12:18 -04:00
+
+Completed `v0.0.25` service-lift visual pass.
+
+Added:
+
+- Brass service-lift platform deck, iron grate, threshold, cage rails, and cross braces.
+- Lift chains, overhead pulley gear, call box, call gauge, lever, green lamps, and pressure gauge needle.
+- Shared lift visual for Level01 transition and Level02 final exit.
+- Level validation requirements for lift platform, pulley, call box, and signal lamp visuals.
+
+Verification completed:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.25/BrassworksBreach_v0.0.25.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

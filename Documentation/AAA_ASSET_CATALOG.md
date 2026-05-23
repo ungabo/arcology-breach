@@ -45,7 +45,7 @@ Every major asset should eventually have three quality targets:
 | GEO-003 | Repair bay room kit | P1 | planned | Combat room modules with benches, gantries, and machine bays. |
 | GEO-004 | Pressure gate frame | P1 | verified | Procedural heavy frame with header gear, lamps, brass floor track, and static supports. |
 | GEO-005 | Gear-key plinth | P1 | planned | Objective station that visually explains the key. |
-| GEO-006 | Service lift frame | P1 | planned | Exit destination object. |
+| GEO-006 | Service lift frame | P1 | verified | Procedural brass lift cage with platform, rails, chains, pulley gear, call box, lamps, and pressure gauge. |
 | GEO-007 | Furnace control console | P2 | planned | Final-room landmark prop/geometry hybrid. |
 | GEO-008 | Boiler stack wall | P2 | prototype | Primitive boiler stacks with light strips. |
 | GEO-009 | Catwalk/rail kit | P2 | planned | Simple vertical-looking geometry, used carefully for readability. |
@@ -62,7 +62,7 @@ Every major asset should eventually have three quality targets:
 | PROP-005 | Pressure cartridge pack | P1 | prototype | Primitive brass cartridge bundle with iron nozzles, straps, and pressure gauge. |
 | PROP-006 | Gear key final | P1 | verified | Upright procedural brass clockwork key with gear face, teeth, spokes, stem, bit, hub, and pins. |
 | PROP-007 | Pressure gate final | P1 | verified | Heavy procedural pressure gate with keyed socket, riveted slabs, gear wheel, gauge, pressure cylinders, warning lamps, and brass frame. |
-| PROP-008 | Service lift final | P1 | planned | Green-lit lift cage or brass service elevator. |
+| PROP-008 | Service lift final | P1 | verified | Green-lit brass service elevator visual shared by level transitions and final exits. |
 | PROP-009 | Wall pressure gauge | P1 | prototype | Primitive wall gauge prop for environment readability. |
 | PROP-010 | Valve wheel | P1 | prototype | Primitive valve wheel prop; future interactable/switch candidate. |
 | PROP-011 | Coal furnace | P2 | prototype | Primitive environmental landmark and light source. |
