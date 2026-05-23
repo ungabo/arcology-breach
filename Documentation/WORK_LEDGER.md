@@ -28,6 +28,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | CODE-004B | Improve Scrapper navigation and obstacle handling | code | P1 | verified | v0.2 | editor/build/runtime/autoplay smoke |
 | TEST-003 | Add packaged combat smoke | test | P1 | verified | v0.2 | V0_COMBAT_SMOKE_PASS |
 | TEST-004 | Add packaged pause-flow smoke | test | P1 | verified | v0.0.7 | V0_PAUSE_FLOW_PASS |
+| TEST-007 | Add packaged ranged-combat smoke | test | P1 | verified | v0.0.19 | V0_RANGED_COMBAT_PASS |
 | ART-001 | Add first procedural steampunk dressing pass | art | P1 | verified | v0.0.7 | editor/build/runtime/autoplay/combat smoke |
 
 ## Ready Next
@@ -107,3 +108,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.16` Level02 transition build created at `Builds/Windows/v0.0.16/BrassworksBreach_v0.0.16.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
 - `2026-05-23`: `v0.0.17` durable run-state build created at `Builds/Windows/v0.0.17/BrassworksBreach_v0.0.17.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
 - `2026-05-23`: `v0.0.18` Lancer ranged enemy build created at `Builds/Windows/v0.0.18/BrassworksBreach_v0.0.18.exe` and passed editor/build/runtime/auto-playthrough/combat/pause-flow smoke.
+- `2026-05-23`: `v0.0.19` ranged-combat smoke build created at `Builds/Windows/v0.0.19/BrassworksBreach_v0.0.19.exe` and passed editor/build/runtime/auto-playthrough/combat/ranged-combat/pause-flow smoke.

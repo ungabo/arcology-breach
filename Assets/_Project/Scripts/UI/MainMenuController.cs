@@ -18,6 +18,7 @@ public class MainMenuController : MonoBehaviour
         "-v0RuntimeSmoke",
         "-v0AutoPlaythrough",
         "-v0CombatSmoke",
+        "-v0RangedCombatSmoke",
         "-v0PauseFlow"
     };
 
@@ -53,6 +54,13 @@ public class MainMenuController : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        if (HasArgument("-v0RangedCombatSmoke"))
+        {
+            RunProgress.Reset();
+            SceneManager.LoadScene("Level02");
+            return;
+        }
 
         if (HasAutomationArgument())
         {
@@ -122,6 +130,20 @@ public class MainMenuController : MonoBehaviour
                 {
                     return true;
                 }
+            }
+        }
+
+        return false;
+    }
+
+    private static bool HasArgument(string argument)
+    {
+        string[] args = Environment.GetCommandLineArgs();
+        for (int i = 0; i < args.Length; i++)
+        {
+            if (string.Equals(args[i], argument, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
             }
         }
 

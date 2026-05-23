@@ -110,6 +110,7 @@ public static class V0SceneBuilder
         RequireObject<SteamworksAudio>("SteamworksAudio");
         RequireObject<RuntimeAutoPlaythroughTest>("RuntimeAutoPlaythroughTest");
         RequireObject<RuntimeCombatTest>("RuntimeCombatTest");
+        RequireObject<RuntimeRangedCombatTest>("RuntimeRangedCombatTest");
         RequireObject<RuntimePauseFlowTest>("RuntimePauseFlowTest");
         RequireObject<HUDController>("HUDController");
         RequireObject<EnemyController>("EnemyController");
@@ -695,6 +696,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeSmokeTest>();
         stateObject.AddComponent<RuntimeAutoPlaythroughTest>();
         stateObject.AddComponent<RuntimeCombatTest>();
+        stateObject.AddComponent<RuntimeRangedCombatTest>();
         stateObject.AddComponent<RuntimePauseFlowTest>();
     }
 

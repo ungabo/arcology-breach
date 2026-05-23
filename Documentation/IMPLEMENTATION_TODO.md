@@ -200,6 +200,21 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Run packaged pause-flow smoke.
 - [x] Commit and push `v0.0.18`.
 
+## v0.0.19 Ranged Combat Smoke
+
+- [x] Add `RuntimeRangedCombatTest`.
+- [x] Add menu automation routing for `-v0RangedCombatSmoke`.
+- [x] Verify a Level02 Lancer pressure bolt damages the player.
+- [x] Rebuild generated scenes.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged ranged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.19`.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

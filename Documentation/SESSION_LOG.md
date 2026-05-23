@@ -309,3 +309,27 @@ Verification completed:
 Build executable:
 
 `Builds/Windows/v0.0.18/BrassworksBreach_v0.0.18.exe`
+
+## 2026-05-23 11:17 -04:00
+
+Completed `v0.0.19` ranged combat smoke test.
+
+Added:
+
+- `RuntimeRangedCombatTest`.
+- Main menu automation routing for `-v0RangedCombatSmoke`.
+- Packaged verification that a Level02 Lancer pressure bolt damages the player.
+
+Verification completed:
+
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.19/BrassworksBreach_v0.0.19.exe`
