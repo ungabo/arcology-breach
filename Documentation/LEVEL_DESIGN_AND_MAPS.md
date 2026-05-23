@@ -50,6 +50,7 @@ Near-term:
 - Level04 emergency hoist now loads `Level05`.
 - Level05 master override hoist is locked until the Governor Warden is destroyed, then triggers the win state.
 - Auto-playthrough covers Level01 key/gate/lift, transition to Level02, transition to Level03, locked-foundry-lift rejection, Boilerheart pressure valve, transition to Level04, transition to Level05, locked-master-hoist rejection, Warden defeat, unlock, and the Level05 master override hoist.
+- Health and ammo pickup VFX now appear during the Level01 route and are verified by auto-playthrough.
 - Gear-key pickup now spawns a visible brass/amber pickup burst and is verified by auto-playthrough.
 - Pressure-gate opening now spawns a visible green pressure/steam/spark burst and is verified by auto-playthrough.
 - Service-lift transitions now pause briefly for a visible green pressure/steam activation cue before loading the next level.

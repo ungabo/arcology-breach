@@ -54,6 +54,8 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         PlayerInventory inventory = Require<PlayerInventory>("PlayerInventory");
         LockedDoor door = Require<LockedDoor>("LockedDoor");
         LevelTransitionTrigger transition = Require<LevelTransitionTrigger>("LevelTransitionTrigger");
+        Pickup healthPickup = FindPickup(PickupKind.Health);
+        Pickup ammoPickup = FindPickup(PickupKind.Ammo);
         Pickup gearKey = FindPickup(PickupKind.Key);
 
         Collider doorCollider = door.GetComponent<Collider>();
@@ -73,6 +75,20 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         if (!doorCollider.enabled)
         {
             Fail("Auto-playthrough failed: pressure gate opened before gear key pickup.");
+            yield break;
+        }
+
+        Teleport(player, healthPickup.transform.position);
+        yield return WaitUntilOrFail(() => HasVisibleResourcePickupVfx(PickupKind.Health), "health pickup VFX", 1f);
+        if (failed)
+        {
+            yield break;
+        }
+
+        Teleport(player, ammoPickup.transform.position);
+        yield return WaitUntilOrFail(() => HasVisibleResourcePickupVfx(PickupKind.Ammo), "ammo pickup VFX", 1f);
+        if (failed)
+        {
             yield break;
         }
 
@@ -314,6 +330,20 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
     {
         LiftActivationVfx vfx = UnityEngine.Object.FindAnyObjectByType<LiftActivationVfx>();
         return vfx != null && vfx.PieceCount >= 8;
+    }
+
+    private static bool HasVisibleResourcePickupVfx(PickupKind pickupKind)
+    {
+        ResourcePickupVfx[] effects = UnityEngine.Object.FindObjectsByType<ResourcePickupVfx>(FindObjectsSortMode.None);
+        foreach (ResourcePickupVfx effect in effects)
+        {
+            if (effect.pickupKind == pickupKind && effect.PieceCount >= 6)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private static void DisableEnemiesForDeterministicObjectiveTest(bool keepWardenActive = false)

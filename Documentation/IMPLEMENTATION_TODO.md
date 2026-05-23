@@ -926,6 +926,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.62 Resource Pickup VFX Pass
+
+- [x] Add reusable `ResourcePickupVfx` runtime effect.
+- [x] Spawn red medicinal VFX for health pickups.
+- [x] Spawn brass/cyan pressure VFX for ammo pickups.
+- [x] Expand auto-playthrough to verify health pickup VFX.
+- [x] Expand auto-playthrough to verify ammo pickup VFX.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.62`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

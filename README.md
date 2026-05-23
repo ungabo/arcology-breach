@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.61` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.62` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -8,7 +8,7 @@ Public repository:
 
 Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, animated gears/valves/pulleys, brass HUD with persistent objective guidance and boss health readout, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged/heavy/boss enemies, steam hazards, pulsing furnace-heat hazards, multi-level secret caches, a gear key with pickup VFX, a pressure gate with opening VFX, service-lift transitions with activation VFX, a Boilerheart pressure valve that unlocks the foundry lift, a Furnace Foundry route, machine hit/shutdown VFX, and a Governor Core finale with a Warden shutdown effect and master override hoist.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, animated gears/valves/pulleys, brass HUD with persistent objective guidance and boss health readout, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged/heavy/boss enemies, steam hazards, pulsing furnace-heat hazards, multi-level secret caches, health/ammo/key pickup VFX, a pressure gate with opening VFX, service-lift transitions with activation VFX, a Boilerheart pressure valve that unlocks the foundry lift, a Furnace Foundry route, machine hit/shutdown VFX, and a Governor Core finale with a Warden shutdown effect and master override hoist.
 
 Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
 
@@ -62,7 +62,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.61\BrassworksBreach_v0.0.61.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.62\BrassworksBreach_v0.0.62.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -347,6 +347,13 @@ Individual Unity entry points remain available:
 - `GearKeyPickupVfx` runtime effect for the first objective pickup.
 - Gear-key pickup now emits a brass ring, center glow, and tooth sparks.
 - Auto-playthrough verifies the key VFX appears after inventory/objective update.
+
+## What v0.0.62 Adds
+
+- `ResourcePickupVfx` runtime effect for health and ammo pickups.
+- Health pickups now emit red medicinal pickup bursts.
+- Pressure cartridge pickups now emit brass/cyan pickup bursts.
+- Auto-playthrough verifies both health and ammo pickup VFX before the key route.
 
 ## Good Next Steps
 

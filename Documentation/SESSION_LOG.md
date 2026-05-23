@@ -1787,3 +1787,41 @@ Build executable:
 `Builds/Windows/v0.0.61/BrassworksBreach_v0.0.61.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 17:51 -04:00
+
+Completed `v0.0.62` resource pickup VFX pass.
+
+Added:
+
+- `ResourcePickupVfx` runtime effect.
+- Red medicinal burst for health pickups.
+- Brass/cyan pressure burst for ammo pickups.
+- Auto-playthrough coverage for health pickup VFX.
+- Auto-playthrough coverage for ammo pickup VFX.
+- Versioned Windows build `v0.0.62`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.62/BrassworksBreach_v0.0.62.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
