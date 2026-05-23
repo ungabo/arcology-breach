@@ -2,7 +2,7 @@
 
 ## Current Version
 
-`v0.0.5` checkpoint build for `Arcology Breach`.
+`v0.0.6` checkpoint build for `Arcology Breach`.
 
 `v0.0` core loop is complete. A small `v0.1` presentation pass has also been added while keeping the project simple.
 
@@ -22,6 +22,7 @@
 - Scrapper attack windup with magenta attack tell.
 - Scrapper obstacle probing and simple side-steering.
 - In-world labels and floor guide strips for access shard, lockdown gate, and emergency lift.
+- Procedural cyberpunk dressing: wet concrete patches, cable trunks, server stacks, and gate hazard details.
 - Packaged automated playthrough test for the shard/gate/exit objective chain.
 - Packaged combat smoke test for pulse-pistol damage against a Scrapper.
 - Pause, death, win, and restart flow.
@@ -73,17 +74,23 @@ Latest checkpoint verification:
 - `2026-05-22 23:35 -04:00`: `v0.0.5` packaged runtime smoke passed.
 - `2026-05-22 23:35 -04:00`: `v0.0.5` packaged auto-playthrough passed.
 - `2026-05-22 23:35 -04:00`: `v0.0.5` packaged combat smoke passed.
+- `2026-05-22 23:39 -04:00`: `v0.0.6` editor smoke passed.
+- `2026-05-22 23:39 -04:00`: `v0.0.6` Windows checkpoint build passed.
+- `2026-05-22 23:39 -04:00`: `v0.0.6` packaged runtime smoke passed.
+- `2026-05-22 23:39 -04:00`: `v0.0.6` packaged auto-playthrough passed.
+- `2026-05-22 23:39 -04:00`: `v0.0.6` packaged combat smoke passed.
 
 ## Build Path
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.5\ArcologyBreach_v0.0.5.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.6\ArcologyBreach_v0.0.6.exe`
 
-Future checkpoints should increment as `v0.0.6`, `v0.0.7`, etc. when meaningful progress is ready for local playtesting.
+Future checkpoints should increment as `v0.0.7`, `v0.0.8`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
 - Runtime smoke test verifies boot/object presence. Auto-playthrough verifies objective flow but not human combat feel.
 - Combat smoke verifies weapon raycast damage and enemy death, not full combat movement.
+- Visual dressing is still procedural primitive art, not final generated assets.
 - Enemy pathing uses simple side-steering, not NavMesh.
 - Scrapper attack windup is smoke-tested but still needs manual feel tuning.
 - Audio is procedural placeholder content and still needs a human listen/tuning pass.

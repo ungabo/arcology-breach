@@ -26,6 +26,7 @@ Primary goal: make the current Windows prototype feel good and point clearly at 
 | TEST-002 | Add packaged objective auto-playthrough | test | P0 | verified | v0.2 | V0_AUTO_PLAYTHROUGH_PASS |
 | CODE-004B | Improve Scrapper navigation and obstacle handling | code | P1 | verified | v0.2 | editor/build/runtime/autoplay smoke |
 | TEST-003 | Add packaged combat smoke | test | P1 | verified | v0.2 | V0_COMBAT_SMOKE_PASS |
+| ART-001 | Add first procedural cyberpunk dressing pass | art | P1 | verified | v0.3 | editor/build/runtime/autoplay/combat smoke |
 
 ## Ready Next
 
@@ -39,7 +40,7 @@ Primary goal: make the current Windows prototype feel good and point clearly at 
 
 | ID | Task | Type | Priority | Status | Milestone | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| ART-001 | Generate wet concrete and black chrome materials | art | P1 | backlog | v0.3 | See `AAA_ASSET_CATALOG.md`. |
+| ART-001B | Generate final wet concrete and black chrome materials | art | P1 | backlog | v0.3 | Replace procedural placeholder materials. |
 | ART-002 | Generate access shard and lockdown gate visuals | art | P1 | backlog | v0.3 | Replace cube/gate placeholders. |
 | ART-003 | Generate Scrapper enemy visual | art | P1 | backlog | v0.3 | Mechanical maintenance-frame melee enemy. |
 | ART-004 | Generate Pulse Pistol visual | art | P1 | backlog | v0.3 | Replace blocky gun. |
@@ -80,3 +81,4 @@ Primary goal: make the current Windows prototype feel good and point clearly at 
 - `2026-05-22`: `v0.0.3` combat/objective readability checkpoint created at `Builds/Windows/v0.0.3/ArcologyBreach_v0.0.3.exe` and passed editor/build/runtime smoke.
 - `2026-05-22`: `v0.0.4` auto-playthrough/navigation checkpoint created at `Builds/Windows/v0.0.4/ArcologyBreach_v0.0.4.exe` and passed editor/build/runtime/auto-playthrough smoke.
 - `2026-05-22`: `v0.0.5` combat automation checkpoint created at `Builds/Windows/v0.0.5/ArcologyBreach_v0.0.5.exe` and passed editor/build/runtime/auto-playthrough/combat smoke.
+- `2026-05-22`: `v0.0.6` procedural cyberpunk dressing checkpoint created at `Builds/Windows/v0.0.6/ArcologyBreach_v0.0.6.exe` and passed editor/build/runtime/auto-playthrough/combat smoke.

@@ -33,6 +33,9 @@ public static class V0SceneBuilder
         Material muzzleFlashMaterial = CreateMaterial("M_Greybox_MuzzleFlash", new Color(1f, 0.72f, 0.08f));
         Material cyanGuideMaterial = CreateMaterial("M_Greybox_CyanGuide", new Color(0.05f, 0.85f, 1f));
         Material magentaGuideMaterial = CreateMaterial("M_Greybox_MagentaGuide", new Color(1f, 0.08f, 0.7f));
+        Material blackChromeMaterial = CreateMaterial("M_Cyber_BlackChrome", new Color(0.02f, 0.025f, 0.035f));
+        Material wetConcreteMaterial = CreateMaterial("M_Cyber_WetConcrete", new Color(0.06f, 0.07f, 0.08f));
+        Material amberHazardMaterial = CreateMaterial("M_Cyber_AmberHazard", new Color(1f, 0.58f, 0.06f));
 
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -54,6 +57,7 @@ public static class V0SceneBuilder
         CreateExit(exitMaterial);
         CreateAccentLights();
         CreateObjectiveGuides(cyanGuideMaterial, magentaGuideMaterial, keyMaterial, exitMaterial);
+        CreateCyberpunkDressing(blackChromeMaterial, wetConcreteMaterial, cyanGuideMaterial, magentaGuideMaterial, amberHazardMaterial);
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
         EditorBuildSettings.scenes = new[]
@@ -473,6 +477,58 @@ public static class V0SceneBuilder
         textMesh.characterSize = characterSize;
         textMesh.fontSize = 48;
         textMesh.color = color;
+    }
+
+    private static void CreateCyberpunkDressing(Material blackChromeMaterial, Material wetConcreteMaterial, Material cyanMaterial, Material magentaMaterial, Material amberMaterial)
+    {
+        GameObject parent = new GameObject("Cyberpunk Dressing - Aster Gate");
+
+        CreateDecoCube("Wet Concrete Patch - Start", new Vector3(0f, 0.012f, 0f), new Vector3(5.8f, 0.024f, 5.2f), wetConcreteMaterial, parent.transform);
+        CreateDecoCube("Wet Concrete Patch - Fight", new Vector3(0f, 0.013f, 17f), new Vector3(10.5f, 0.026f, 8.5f), wetConcreteMaterial, parent.transform);
+        CreateDecoCube("Wet Concrete Patch - Final", new Vector3(0f, 0.014f, 31f), new Vector3(11.5f, 0.028f, 8.5f), wetConcreteMaterial, parent.transform);
+
+        CreateCableRun("Cyan Cable Trunk - Main West", new Vector3(-6.02f, 2.35f, 17f), new Vector3(0.08f, 0.16f, 8.4f), cyanMaterial, parent.transform);
+        CreateCableRun("Magenta Signal Trunk - Main East", new Vector3(6.02f, 2.15f, 17f), new Vector3(0.08f, 0.14f, 7.2f), magentaMaterial, parent.transform);
+        CreateCableRun("Cyan Cable Trunk - Key Room", new Vector3(14f, 2.25f, 20.02f), new Vector3(6.8f, 0.14f, 0.08f), cyanMaterial, parent.transform);
+        CreateCableRun("Magenta Lockdown Trunk - Gate", new Vector3(0f, 2.7f, 22.18f), new Vector3(3.2f, 0.12f, 0.08f), magentaMaterial, parent.transform);
+        CreateCableRun("Green Lift Power Trunk", new Vector3(0f, 2.55f, 34.08f), new Vector3(3.8f, 0.12f, 0.08f), cyanMaterial, parent.transform);
+
+        CreateServerStack("Server Stack - Final West", new Vector3(-5.75f, 1.15f, 29.2f), blackChromeMaterial, cyanMaterial, magentaMaterial, parent.transform);
+        CreateServerStack("Server Stack - Final East", new Vector3(5.75f, 1.15f, 32.8f), blackChromeMaterial, cyanMaterial, magentaMaterial, parent.transform);
+        CreateServerStack("Server Stack - Key Room", new Vector3(17.25f, 1.15f, 15.2f), blackChromeMaterial, cyanMaterial, amberMaterial, parent.transform);
+
+        CreateDecoCube("Amber Hazard Stripe - Gate Left", new Vector3(-1.85f, 0.05f, 22.05f), new Vector3(0.18f, 0.06f, 1.2f), amberMaterial, parent.transform);
+        CreateDecoCube("Amber Hazard Stripe - Gate Right", new Vector3(1.85f, 0.05f, 22.05f), new Vector3(0.18f, 0.06f, 1.2f), amberMaterial, parent.transform);
+        CreateDecoCube("Black Chrome Gate Header", new Vector3(0f, 3.25f, 22.12f), new Vector3(3.8f, 0.28f, 0.18f), blackChromeMaterial, parent.transform);
+    }
+
+    private static void CreateCableRun(string name, Vector3 position, Vector3 scale, Material material, Transform parent)
+    {
+        CreateDecoCube(name, position, scale, material, parent);
+    }
+
+    private static void CreateServerStack(string name, Vector3 position, Material bodyMaterial, Material primaryLightMaterial, Material secondaryLightMaterial, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+
+        CreateDecoCube(name + " Body", position, new Vector3(0.75f, 2.2f, 0.55f), bodyMaterial, root.transform);
+        CreateDecoCube(name + " Primary Light 01", position + new Vector3(0f, 0.55f, -0.3f), new Vector3(0.52f, 0.08f, 0.04f), primaryLightMaterial, root.transform);
+        CreateDecoCube(name + " Primary Light 02", position + new Vector3(0f, 0.15f, -0.3f), new Vector3(0.52f, 0.08f, 0.04f), primaryLightMaterial, root.transform);
+        CreateDecoCube(name + " Secondary Light", position + new Vector3(0f, -0.35f, -0.3f), new Vector3(0.38f, 0.08f, 0.04f), secondaryLightMaterial, root.transform);
+    }
+
+    private static GameObject CreateDecoCube(string name, Vector3 position, Vector3 scale, Material material, Transform parent)
+    {
+        GameObject cube = CreateCube(name, position, scale, material, parent);
+        Collider collider = cube.GetComponent<Collider>();
+        if (collider != null)
+        {
+            UnityEngine.Object.DestroyImmediate(collider);
+        }
+
+        return cube;
     }
 
     private static GameObject CreateLocalPrimitive(string name, PrimitiveType type, Transform parent, Vector3 localPosition, Vector3 localScale, Material material)

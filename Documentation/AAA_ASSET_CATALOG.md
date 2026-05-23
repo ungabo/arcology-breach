@@ -20,12 +20,12 @@ Every major asset should eventually have three quality targets:
 | --- | --- | --- | --- | --- |
 | MAT-001 | Greybox wall | P0 | prototype | Existing flat wall material for blockouts. |
 | MAT-002 | Greybox floor | P0 | prototype | Existing dark floor material for blockouts. |
-| MAT-003 | Wet black concrete | P1 | planned | Dark reflective concrete for Aster Gate service floors. |
-| MAT-004 | Black chrome wall panel | P1 | planned | Modular corporate wall with subtle bevels, seams, and fingerprints. |
-| MAT-005 | Neon cable trunk | P1 | planned | Dense cable strips with cyan/magenta emissive accents. |
+| MAT-003 | Wet black concrete | P1 | prototype | Procedural primitive wet-floor patches for Aster Gate service floors. |
+| MAT-004 | Black chrome wall panel | P1 | prototype | Black-chrome primitive server/gate pieces; final modular panels still needed. |
+| MAT-005 | Neon cable trunk | P1 | prototype | Primitive cyan/magenta cable strips; final cable geometry/materials still needed. |
 | MAT-006 | Holographic warning glass | P1 | planned | Transparent or translucent signage panels. |
 | MAT-007 | Corporate white composite | P2 | planned | Sable Meridian clean-room panels, scratched and vandalized. |
-| MAT-008 | Amber hazard strip | P1 | planned | Pickup/objective warning trims and maintenance edges. |
+| MAT-008 | Amber hazard strip | P1 | prototype | Gate hazard strips and warning accents. |
 | MAT-009 | Red lockdown surface | P1 | planned | Gate material with red denied-access lighting. |
 | MAT-010 | Green emergency exit surface | P1 | planned | Exit/elevator/data-gate material with green glow. |
 | MAT-011 | Graffiti decal set | P2 | planned | Lowline tags, resistance marks, access hints, and warnings. |
@@ -45,7 +45,7 @@ Every major asset should eventually have three quality targets:
 | GEO-005 | Access kiosk | P1 | planned | Objective station that visually explains the access shard. |
 | GEO-006 | Emergency lift frame | P1 | planned | Green exit destination object. |
 | GEO-007 | Transit control console | P2 | planned | Final-room landmark prop/geometry hybrid. |
-| GEO-008 | Server stack wall | P2 | planned | Data-center wall modules with emissive status lights. |
+| GEO-008 | Server stack wall | P2 | prototype | Primitive server stacks with colored status lights. |
 | GEO-009 | Catwalk/rail kit | P2 | planned | Simple vertical-looking geometry, used carefully for readability. |
 | GEO-010 | Secret service hatch | P2 | planned | Hidden route/secret entry module. |
 
@@ -152,7 +152,7 @@ Every major asset should eventually have three quality targets:
 | --- | --- | --- | --- | --- |
 | LVL-001 | Aster Gate Intake greybox | P0 | prototype | Current generated `Level01`. |
 | LVL-002 | Aster Gate combat slice | P1 | prototype | Current layout now has objective guide strips, world labels, and Scrapper attack tells. |
-| LVL-003 | Aster Gate art pass | P1 | planned | First cyberpunk material, prop, lighting, and signage pass. |
+| LVL-003 | Aster Gate art pass | P1 | prototype | First procedural dressing pass: floor patches, cable trunks, server stacks, hazard strips. |
 | LVL-004 | Data Stack concept | P2 | planned | Server-heavy second level concept. |
 | LVL-005 | Transit Spine concept | P2 | planned | Rail/transit themed level concept. |
 | LVL-006 | Lowline market approach | P3 | deferred | Later exterior/lower-city sequence. |

@@ -27,6 +27,7 @@ Implemented:
 - Scrapper attack windup with magenta attack tell.
 - Scrapper obstacle probing and simple side-steering.
 - Access-shard pedestal, gate/exit guide strips, and world labels.
+- Procedural cyberpunk dressing pass with wet concrete patches, cable trunks, server stacks, and gate hazard strips.
 - Packaged auto-playthrough for the access-shard, lockdown-gate, and emergency-lift objective chain.
 - Packaged combat smoke for pulse-pistol damage and Scrapper death.
 - Unity editor smoke test, Windows build, and runtime smoke test.
@@ -268,6 +269,7 @@ Manual:
 - Mechanical enemy combat feels fair enough for iteration.
 - Access shard and lockdown gate are understandable.
 - Cyberpunk objective text and presentation are in place.
+- First lightweight cyberpunk dressing pass exists.
 - First audio feedback pass exists and has been manually tuned.
 - Handoff, build status, and work ledger are updated.
 

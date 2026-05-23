@@ -208,3 +208,33 @@ Verification:
 Checkpoint executable:
 
 `Builds/Windows/v0.0.5/ArcologyBreach_v0.0.5.exe`
+
+## 2026-05-22 23:39:50 -04:00
+
+Completed `v0.0.6` procedural cyberpunk dressing checkpoint.
+
+Implementation:
+
+- Added `M_Cyber_WetConcrete`, `M_Cyber_BlackChrome`, and `M_Cyber_AmberHazard` materials.
+- Added non-colliding wet concrete floor patches.
+- Added cyan and magenta cable trunks.
+- Added primitive black-chrome server stacks with colored status lights.
+- Added amber gate hazard strips and a black-chrome gate header.
+- Updated `GameBranding.CheckpointVersion` to `v0.0.6`.
+
+Verification:
+
+- Scene rebuild passed: `Logs\build-v006-scene.log`.
+- Editor smoke passed: `V0_SMOKE_TEST_PASS`.
+- Windows build passed: `V0_WINDOWS_BUILD_PASS`.
+- Runtime smoke passed: `V0_RUNTIME_SMOKE_PASS`.
+- Packaged auto-playthrough passed: `V0_AUTO_PLAYTHROUGH_PASS`.
+- Packaged combat smoke passed: `V0_COMBAT_SMOKE_PASS`.
+
+Checkpoint executable:
+
+`Builds/Windows/v0.0.6/ArcologyBreach_v0.0.6.exe`
+
+Notes:
+
+- Dressing is still primitive/procedural and should be replaced or augmented with generated/imported art later.

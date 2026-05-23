@@ -37,7 +37,8 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Add first Scrapper obstacle side-steering.
 - [x] Add packaged combat smoke test.
 - [ ] Manual readability pass for Scrapper attack tells and world labels.
-- [ ] Add first cyberpunk material pass if combat feel is stable.
+- [x] Add first cyberpunk material/dressing pass.
+- [ ] Replace procedural dressing with generated/imported final art assets.
 - [ ] Rebuild Windows player.
 - [ ] Update `BUILD_STATUS.md`.
 - [ ] Update `HANDOFF.md`.

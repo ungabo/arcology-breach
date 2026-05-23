@@ -47,7 +47,7 @@ Current `v0.1` keeps the game simple but now points toward the original cyberpun
 - Tune the first procedural cyberpunk audio pass.
 - Tune the new Scrapper attack tell and improve enemy navigation.
 - Confirm `Aster Gate Intake` room scale and objective flow.
-- Add first neon material pass only after combat tuning.
+- Expand the first procedural neon/cyberpunk dressing pass only after current tests stay green.
 - Keep packaged runtime smoke and auto-playthrough tests passing.
 
 ## Deferred

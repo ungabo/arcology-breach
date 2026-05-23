@@ -1,12 +1,12 @@
 # Arcology Breach
 
-Current state: playable `v0.0.5` proof of concept.
+Current state: playable `v0.0.6` proof of concept.
 
 Public repository:
 
 `https://github.com/ungabo/arcology-breach`
 
-This Unity project contains a simple first-person greybox cyberpunk dungeon crawler/shooter for Windows. It is intentionally minimal: primitive geometry, plain materials, text HUD, basic hitscan shooting, procedural cyberpunk audio cues, mechanical melee enemies, an access shard, a corporate lockdown gate, and an emergency exit.
+This Unity project contains a simple first-person cyberpunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural cyberpunk dressing, text HUD, basic hitscan shooting, procedural audio cues, mechanical melee enemies, an access shard, a corporate lockdown gate, and an emergency exit.
 
 Long-term direction: an original heavily stylized cyberpunk action game set inside a sealed corporate arcology where autonomous security systems have turned civic machines into predatory mechanical bodies.
 
@@ -45,7 +45,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.5\ArcologyBreach_v0.0.5.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.6\ArcologyBreach_v0.0.6.exe`
 
 Checkpoint builds will use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -63,12 +63,12 @@ The project has passed:
 
 Useful logs:
 
-- `Logs\build-v005-scene.log`
-- `Logs\v005-smoke-test.log`
-- `Logs\v005-windows-build.log`
-- `Logs\v005-runtime-smoke.log`
-- `Logs\v005-auto-playthrough.log`
-- `Logs\v005-combat-smoke.log`
+- `Logs\build-v006-scene.log`
+- `Logs\v006-smoke-test.log`
+- `Logs\v006-windows-build.log`
+- `Logs\v006-runtime-smoke.log`
+- `Logs\v006-auto-playthrough.log`
+- `Logs\v006-combat-smoke.log`
 
 Smoke pass markers:
 
@@ -83,37 +83,37 @@ Smoke pass markers:
 Rebuild the generated scene:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v005-scene.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\build-v006-scene.log'
 ```
 
 Run editor smoke test:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v005-smoke-test.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.RunSmokeTest -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v006-smoke-test.log'
 ```
 
 Build Windows player:
 
 ```powershell
-& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v005-windows-build.log'
+& 'C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe' -batchmode -projectPath 'D:\__MY APPS\Unity Doom' -executeMethod V0SceneBuilder.BuildWindowsV0 -quit -logFile 'D:\__MY APPS\Unity Doom\Logs\v006-windows-build.log'
 ```
 
 Run packaged runtime smoke:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.5\ArcologyBreach_v0.0.5.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v005-runtime-smoke.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.6\ArcologyBreach_v0.0.6.exe' -batchmode -nographics -v0RuntimeSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v006-runtime-smoke.log'
 ```
 
 Run packaged auto-playthrough:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.5\ArcologyBreach_v0.0.5.exe' -batchmode -nographics -v0AutoPlaythrough -logFile 'D:\__MY APPS\Unity Doom\Logs\v005-auto-playthrough.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.6\ArcologyBreach_v0.0.6.exe' -batchmode -nographics -v0AutoPlaythrough -logFile 'D:\__MY APPS\Unity Doom\Logs\v006-auto-playthrough.log'
 ```
 
 Run packaged combat smoke:
 
 ```powershell
-& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.5\ArcologyBreach_v0.0.5.exe' -batchmode -nographics -v0CombatSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v005-combat-smoke.log'
+& 'D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.6\ArcologyBreach_v0.0.6.exe' -batchmode -nographics -v0CombatSmoke -logFile 'D:\__MY APPS\Unity Doom\Logs\v006-combat-smoke.log'
 ```
 
 ## What v0.1 Added
@@ -158,6 +158,14 @@ After the v0.0 loop passed, a small presentation pass added:
 - Packaged combat smoke test for pulse-pistol damage against a Scrapper.
 - `WeaponController.FireOnce()` test hook.
 - Runtime smoke now verifies the combat test component exists.
+
+## What v0.0.6 Added
+
+- First procedural cyberpunk dressing pass.
+- Wet concrete floor patches.
+- Black-chrome server stacks with colored status lights.
+- Cyan and magenta cable trunks.
+- Amber gate hazard strips and black-chrome gate header.
 
 ## Good Next Steps
 
