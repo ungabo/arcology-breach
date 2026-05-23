@@ -75,6 +75,23 @@ Current executable:
 
 `Builds/Windows/<version>/BrassworksBreach_<version>.exe`
 
+## Runtime Profile
+
+Current Windows runtime profile:
+
+- Target frame rate: `60`.
+- VSync count: `0`.
+- Pixel light count: `2`.
+- Anti-aliasing: disabled for now.
+- Realtime reflection probes: disabled.
+- Soft particles: disabled.
+- Shadow distance: `32`.
+- LOD bias: `0.85`.
+- Camera MSAA: disabled.
+- Camera dynamic resolution: disabled.
+
+This is enforced by `RuntimePerformanceProfile` on the main menu and gameplay scenes and verified by packaged runtime smoke.
+
 ## Verification
 
 Required for every major change:

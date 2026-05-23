@@ -238,6 +238,23 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Run packaged pause-flow smoke.
 - [x] Commit and push `v0.0.20`.
 
+## v0.0.21 Windows Runtime Performance Profile
+
+- [x] Add `RuntimePerformanceProfile`.
+- [x] Apply 60 FPS target, no v-sync lock, limited pixel lights, no MSAA, no dynamic resolution, shorter shadow distance, and reduced LOD bias.
+- [x] Add performance profile to main menu and gameplay scenes.
+- [x] Expand editor/runtime smoke to require the profile.
+- [x] Rebuild generated scenes.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged combat-edge smoke.
+- [x] Run packaged ranged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.21`.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -284,7 +301,9 @@ Windows is the primary development target. Android, browser/WebGL, and VR are de
 - [x] Add Android port notes.
 - [x] Add browser/WebGL port notes.
 - [x] Add Steam/Meta VR port notes.
-- [ ] Add platform quality presets in Unity.
+- [x] Add Windows runtime quality profile in Unity.
+- [ ] Add Android quality profile in Unity.
+- [ ] Add WebGL quality profile in Unity.
 - [ ] Add platform-specific asset import rules.
 - [ ] Add Android input/touch control design later.
 - [ ] Add WebGL loading/download budget later.

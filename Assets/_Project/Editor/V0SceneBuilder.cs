@@ -108,6 +108,7 @@ public static class V0SceneBuilder
         RequireObject<GameStateController>("GameStateController");
         RequireObject<PauseMenuController>("PauseMenuController");
         RequireObject<SteamworksAudio>("SteamworksAudio");
+        RequireObject<RuntimePerformanceProfile>("RuntimePerformanceProfile");
         RequireObject<RuntimeAutoPlaythroughTest>("RuntimeAutoPlaythroughTest");
         RequireObject<RuntimeCombatTest>("RuntimeCombatTest");
         RequireObject<RuntimeCombatEdgeTest>("RuntimeCombatEdgeTest");
@@ -128,6 +129,7 @@ public static class V0SceneBuilder
 
         EditorSceneManager.OpenScene(MainMenuScenePath);
         RequireObject<MainMenuController>("MainMenuController");
+        RequireObject<RuntimePerformanceProfile>("MainMenu RuntimePerformanceProfile");
 
         if (EditorBuildSettings.scenes.Length < 3 || EditorBuildSettings.scenes[0].path != MainMenuScenePath || EditorBuildSettings.scenes[1].path != ScenePath || EditorBuildSettings.scenes[2].path != Level02ScenePath)
         {
@@ -412,6 +414,7 @@ public static class V0SceneBuilder
         CreateLocalCube("Menu Gauge Needle", propRoot.transform, new Vector3(-2.24f, 1.65f, -0.16f), new Vector3(0.28f, 0.025f, 0.025f), glowMaterial);
 
         GameObject canvasObject = new GameObject("Main Menu Canvas");
+        canvasObject.AddComponent<RuntimePerformanceProfile>();
         Canvas canvas = canvasObject.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvasObject.AddComponent<CanvasScaler>();
@@ -694,6 +697,7 @@ public static class V0SceneBuilder
         state.hud = hud;
         state.pauseMenu = UnityEngine.Object.FindAnyObjectByType<PauseMenuController>();
         stateObject.AddComponent<SteamworksAudio>();
+        stateObject.AddComponent<RuntimePerformanceProfile>();
         stateObject.AddComponent<RuntimeSmokeTest>();
         stateObject.AddComponent<RuntimeAutoPlaythroughTest>();
         stateObject.AddComponent<RuntimeCombatTest>();

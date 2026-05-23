@@ -37,9 +37,9 @@
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.20`.
+Latest fully verified build: `v0.0.21`.
 
-Current `v0.0.20` verification:
+Current `v0.0.21` verification:
 
 - Editor smoke test: passed.
 - Windows build: passed.
@@ -65,7 +65,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.20\BrassworksBreach_v0.0.20.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.21\BrassworksBreach_v0.0.21.exe`
 
 ## Latest Build Verification
 
@@ -169,14 +169,24 @@ Current target:
 - `2026-05-23 11:37 -04:00`: `v0.0.20` packaged combat-edge smoke passed.
 - `2026-05-23 11:38 -04:00`: `v0.0.20` packaged ranged combat smoke passed.
 - `2026-05-23 11:38 -04:00`: `v0.0.20` packaged pause-flow smoke passed.
+- `2026-05-23 11:40 -04:00`: `v0.0.21` scene rebuild passed.
+- `2026-05-23 11:41 -04:00`: `v0.0.21` editor smoke passed.
+- `2026-05-23 11:43 -04:00`: `v0.0.21` Windows build passed.
+- `2026-05-23 11:43 -04:00`: `v0.0.21` packaged runtime smoke passed.
+- `2026-05-23 11:44 -04:00`: `v0.0.21` packaged auto-playthrough passed.
+- `2026-05-23 11:44 -04:00`: `v0.0.21` packaged combat smoke passed.
+- `2026-05-23 11:44 -04:00`: `v0.0.21` packaged combat-edge smoke passed.
+- `2026-05-23 11:45 -04:00`: `v0.0.21` packaged ranged combat smoke passed.
+- `2026-05-23 11:45 -04:00`: `v0.0.21` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.21`, `v0.0.22`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.22`, `v0.0.23`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
 - Runtime smoke test verifies boot/object presence. Auto-playthrough verifies the current two-level objective flow but not human combat feel.
 - Combat smoke verifies weapon raycast damage and enemy death; combat-edge smoke verifies empty ammo, Scrapper melee damage, and player death state; ranged combat smoke verifies Lancer projectile damage.
 - Visual dressing is still procedural primitive art, not final generated assets.
+- Windows runtime performance profile exists, but visible performance profiling still needs a real play session.
 - Enemy pathing uses simple side-steering, not NavMesh.
 - Scrapper attack windup is smoke-tested but still needs manual feel tuning.
 - Audio is procedural placeholder content and still needs a human listen/tuning pass.

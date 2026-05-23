@@ -22,6 +22,7 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<GameStateController>("GameStateController");
         Require<PauseMenuController>("PauseMenuController");
         Require<SteamworksAudio>("SteamworksAudio");
+        Require<RuntimePerformanceProfile>("RuntimePerformanceProfile");
         Require<RuntimeAutoPlaythroughTest>("RuntimeAutoPlaythroughTest");
         Require<RuntimeCombatTest>("RuntimeCombatTest");
         Require<RuntimePauseFlowTest>("RuntimePauseFlowTest");
@@ -30,6 +31,12 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<Pickup>("Pickup");
         Require<LockedDoor>("LockedDoor");
         Require<LevelTransitionTrigger>("LevelTransitionTrigger");
+
+        if (!RuntimePerformanceProfile.Applied || Application.targetFrameRate != RuntimePerformanceProfile.WindowsTargetFrameRate)
+        {
+            Debug.LogError("Runtime smoke test failed: performance profile was not applied.");
+            Application.Quit(1);
+        }
 
         Debug.Log("V0_RUNTIME_SMOKE_PASS");
         Application.Quit(0);

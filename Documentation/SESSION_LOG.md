@@ -360,3 +360,41 @@ Verification completed:
 Build executable:
 
 `Builds/Windows/v0.0.20/BrassworksBreach_v0.0.20.exe`
+
+## 2026-05-23 11:45 -04:00
+
+Completed `v0.0.21` Windows runtime performance profile.
+
+Added:
+
+- `RuntimePerformanceProfile`.
+- Main menu and gameplay scene profile attachment.
+- Runtime smoke assertion that the profile was applied.
+- Windows platform notes for the active runtime profile.
+
+Profile settings:
+
+- Target frame rate `60`.
+- VSync count `0`.
+- Pixel light count `2`.
+- Anti-aliasing disabled.
+- Realtime reflection probes disabled.
+- Soft particles disabled.
+- Shadow distance `32`.
+- LOD bias `0.85`.
+- Camera MSAA and dynamic resolution disabled.
+
+Verification completed:
+
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.21/BrassworksBreach_v0.0.21.exe`
