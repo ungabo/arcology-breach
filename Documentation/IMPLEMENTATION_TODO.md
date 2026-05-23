@@ -1010,6 +1010,18 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.68 Player Damage VFX Pass
+
+- [x] Add reusable `PlayerDamageVfx`.
+- [x] Spawn first-person pressure/heat/brass hurt burst from `PlayerHealth.TakeDamage`.
+- [x] Expand combat-edge smoke to verify player damage VFX after melee damage.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.68`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

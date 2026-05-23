@@ -41,6 +41,13 @@ public class RuntimeCombatEdgeTest : MonoBehaviour
             yield break;
         }
 
+        PlayerDamageVfx damageVfx = UnityEngine.Object.FindAnyObjectByType<PlayerDamageVfx>();
+        if (damageVfx == null || damageVfx.PieceCount < 8)
+        {
+            Fail("Combat edge smoke failed: player damage VFX did not spawn with enough visible pieces.");
+            yield break;
+        }
+
         meleeEnemy.gameObject.SetActive(false);
         health.TakeDamage(999);
         yield return null;

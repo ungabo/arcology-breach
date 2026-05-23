@@ -28,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
         SteamworksAudio.Play(SteamworksAudioCue.PlayerHurt);
         HUDController.Instance?.SetHealth(CurrentHealth, maxHealth);
         HUDController.Instance?.FlashDamage();
+        PlayerDamageVfx.Spawn(transform);
 
         if (CurrentHealth <= 0)
         {

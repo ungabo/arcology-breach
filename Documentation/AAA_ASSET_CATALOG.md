@@ -129,6 +129,7 @@ Every major asset should eventually have three quality targets:
 | VFX-010 | Furnace heat field | P2 | prototype | `FurnaceHeatHazardVfx` pulses phase signals and animates active heat ripples on generated furnace hazards; final pass should add heat shimmer particles, distortion, and furnace audio sync. |
 | VFX-011 | Pressure-bolt projectile trail | P1 | prototype | `PressureBoltVfx` adds core glow, trailing pressure puffs, and side sparks to Lancer and Governor Warden pressure bolts. |
 | VFX-012 | Pressure-pistol impact decal | P1 | prototype | `ImpactDecalVfx` adds a scorch disc, brass impact plate, and short spark burst to pressure-pistol raycast hits. |
+| VFX-013 | Player damage burst | P1 | prototype | `PlayerDamageVfx` adds first-person pressure slashes, heat edges, and brass sparks on player damage. |
 
 ## 8. Audio
 
