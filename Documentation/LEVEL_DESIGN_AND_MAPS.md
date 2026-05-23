@@ -46,8 +46,8 @@ Near-term:
 
 - Level01 service lift now loads `Level02` through `LevelTransitionTrigger`.
 - Level02 service lift now loads `Level03` through `LevelTransitionTrigger`.
-- Level03 final service lift triggers the current win state.
-- Auto-playthrough covers Level01 key/gate/lift, transition to Level02, transition to Level03, and Level03 final lift.
+- Level03 final service lift is pressure-locked until the Boilerheart pressure valve is vented, then triggers the current win state.
+- Auto-playthrough covers Level01 key/gate/lift, transition to Level02, transition to Level03, locked-final-lift rejection, Boilerheart pressure valve, and Level03 final lift.
 - Health and ammo persist across scene transitions.
 - Future weapon inventory and campaign flags still need expanded persistence.
 
@@ -125,8 +125,8 @@ Approximate footprint:
 
 New mechanics:
 
-- Current prototype: three-level transition chain and final lift win state.
-- Planned: valve/gauge lock sequence.
+- Current prototype: three-level transition chain, Boilerheart pressure-valve objective, and locked final lift win state.
+- Planned: expanded valve/gauge lock sequence.
 - Planned: `Bellows Node` support enemy.
 - Planned: steam hazard zones.
 
@@ -157,6 +157,12 @@ v0.0.38 implementation notes:
 - Level02 lift targets Level03.
 - Level03 final lift triggers the current win state.
 - Auto-playthrough validates the three-level chain.
+
+v0.0.39 implementation notes:
+
+- Added `Boilerheart Pressure Valve Objective`.
+- Final service lift remains pressure-locked until the valve is vented.
+- Auto-playthrough validates that the final lift does not win early, vents the valve, then completes the run.
 
 ### Level 04: Furnace Foundry
 

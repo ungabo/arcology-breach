@@ -739,8 +739,10 @@ public static class V0SceneBuilder
         CreateEnemy("Enemy - Boilerheart Lift Guard", new Vector3(2.4f, 1f, 19.2f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateHealthVialPickup("Pickup - Boilerheart Health Vial", new Vector3(-3.6f, 0.65f, 9.4f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
         CreatePressureCartridgePickup("Pickup - Boilerheart Pressure Cartridge Pack", new Vector3(3.4f, 0.55f, 9.8f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
-        CreateExitAt("Boilerheart Final Service Lift", new Vector3(0f, 1.1f, 24.3f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial);
         CreateBoilerheartDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
+        ExitTrigger finalLift = CreateExitAt("Boilerheart Final Service Lift", new Vector3(0f, 1.1f, 24.3f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial).GetComponent<ExitTrigger>();
+        SteamValveObjective pressureValve = CreateBoilerheartPressureValve(ironMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial);
+        finalLift.requiredValve = pressureValve;
         CreatePointLight("Boilerheart Furnace Light", new Vector3(0f, 2.6f, 15.8f), new Color(1f, 0.32f, 0.08f), 4f, 10f);
         CreatePointLight("Boilerheart Final Lift Green Light", new Vector3(0f, 2.6f, 23.8f), new Color(0.1f, 1f, 0.35f), 2.8f, 7f);
 
@@ -776,6 +778,38 @@ public static class V0SceneBuilder
         CreateValveWheel("Boilerheart Valve A", new Vector3(5.95f, 1.45f, 17.4f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, warningMaterial, parent.transform);
         CreateSteamVent("Boilerheart Steam Vent A", new Vector3(-4.8f, 0.05f, 20.8f), brassMaterial, steamMaterial, parent.transform);
         CreateWorkOrderBoard("Work Order Board - Boilerheart", "BOILERHEART ORDER\nCORE PRESSURE HIGH\nFINAL LIFT LIVE", new Vector3(5.95f, 1.55f, 10.6f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+    }
+
+    private static SteamValveObjective CreateBoilerheartPressureValve(Material ironMaterial, Material brassMaterial, Material warningMaterial, Material gaugeFaceMaterial, Material steamMaterial)
+    {
+        GameObject valveRoot = new GameObject("Boilerheart Pressure Valve Objective");
+        valveRoot.transform.position = new Vector3(5.82f, 1.35f, 17.4f);
+        valveRoot.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
+
+        BoxCollider trigger = valveRoot.AddComponent<BoxCollider>();
+        trigger.size = new Vector3(1.3f, 1.45f, 0.5f);
+        trigger.isTrigger = true;
+
+        SteamValveObjective valve = valveRoot.AddComponent<SteamValveObjective>();
+        valve.prompt = "E - vent Boilerheart pressure";
+        valve.completePrompt = "Boilerheart pressure vented";
+        valve.completeMessage = "Boilerheart pressure vented. Final lift unlocked.";
+
+        CreateLocalCube("Boilerheart Pressure Valve Backplate", valveRoot.transform, Vector3.zero, new Vector3(1.12f, 1.28f, 0.08f), ironMaterial);
+        GameObject wheel = CreateLocalPrimitive("Boilerheart Pressure Valve Wheel", PrimitiveType.Cylinder, valveRoot.transform, new Vector3(0f, 0.08f, -0.12f), new Vector3(0.5f, 0.045f, 0.5f), brassMaterial);
+        wheel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube("Boilerheart Pressure Valve Spoke Horizontal", valveRoot.transform, new Vector3(0f, 0.08f, -0.16f), new Vector3(0.92f, 0.045f, 0.045f), warningMaterial);
+        CreateLocalCube("Boilerheart Pressure Valve Spoke Vertical", valveRoot.transform, new Vector3(0f, 0.08f, -0.16f), new Vector3(0.045f, 0.92f, 0.045f), warningMaterial);
+        CreateLocalPrimitive("Boilerheart Pressure Valve Hub", PrimitiveType.Sphere, valveRoot.transform, new Vector3(0f, 0.08f, -0.2f), new Vector3(0.14f, 0.14f, 0.14f), brassMaterial);
+
+        GameObject gauge = CreateLocalPrimitive("Boilerheart Pressure Valve Gauge", PrimitiveType.Cylinder, valveRoot.transform, new Vector3(0.32f, 0.48f, -0.14f), new Vector3(0.2f, 0.03f, 0.2f), gaugeFaceMaterial);
+        gauge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube("Boilerheart Pressure Valve Gauge Needle", valveRoot.transform, new Vector3(0.37f, 0.48f, -0.18f), new Vector3(0.16f, 0.018f, 0.018f), warningMaterial);
+        valve.lockedSignal = CreateLocalPrimitive("Boilerheart Valve Locked Lamp", PrimitiveType.Sphere, valveRoot.transform, new Vector3(-0.34f, 0.48f, -0.16f), new Vector3(0.13f, 0.13f, 0.13f), warningMaterial);
+        valve.ventedSignal = CreateLocalPrimitive("Boilerheart Valve Vented Lamp", PrimitiveType.Sphere, valveRoot.transform, new Vector3(-0.34f, 0.48f, -0.17f), new Vector3(0.13f, 0.13f, 0.13f), steamMaterial);
+        CreateLocalCube("Boilerheart Pressure Valve Outlet Pipe", valveRoot.transform, new Vector3(0f, -0.52f, -0.12f), new Vector3(0.18f, 0.62f, 0.18f), brassMaterial);
+
+        return valve;
     }
 
     private static void CreatePipeworksAnnexBlockout(Material wallMaterial, Material floorMaterial)
@@ -1797,10 +1831,11 @@ public static class V0SceneBuilder
         exit.AddComponent<ExitTrigger>();
     }
 
-    private static void CreateExitAt(string name, Vector3 position, Material material, Material ironMaterial, Material brassMaterial, Material gaugeFaceMaterial)
+    private static GameObject CreateExitAt(string name, Vector3 position, Material material, Material ironMaterial, Material brassMaterial, Material gaugeFaceMaterial)
     {
         GameObject exit = CreateServiceLiftShell(name, position, material, ironMaterial, brassMaterial, gaugeFaceMaterial);
         exit.AddComponent<ExitTrigger>();
+        return exit;
     }
 
     private static void CreateLevelTransitionLift(Material material, Material ironMaterial, Material brassMaterial, Material gaugeFaceMaterial, string targetSceneName)

@@ -105,6 +105,16 @@ public static class V0LevelValidator
             RequireTrigger(exit.gameObject, sceneName + " ExitTrigger trigger");
             RequireInteractable(exit, sceneName + " final lift interactable");
             ValidateServiceLiftVisuals(exit.gameObject, sceneName + " final service lift");
+            if (sceneName == "Level03")
+            {
+                SteamValveObjective valve = Require<SteamValveObjective>(sceneName + " SteamValveObjective");
+                RequireTrigger(valve.gameObject, sceneName + " SteamValveObjective trigger");
+                RequireInteractable(valve, sceneName + " boilerheart pressure valve interactable");
+                if (exit.requiredValve != valve)
+                {
+                    throw new InvalidOperationException("Level validation failed: " + sceneName + " final lift is not linked to the Boilerheart pressure valve.");
+                }
+            }
         }
 
         if (requireRangedEnemy)
@@ -310,6 +320,9 @@ public static class V0LevelValidator
             RequireNamed("Work Order Board - Boilerheart", sceneName + " boilerheart work-order board visual");
             RequireNamed("Boilerheart Triple Pipe Bundle", sceneName + " boilerheart pipe-bundle visual");
             RequireNamed("Boilerheart Furnace Core", sceneName + " boilerheart furnace core visual");
+            RequireNamed("Boilerheart Pressure Valve Objective", sceneName + " boilerheart pressure valve objective");
+            RequireNamed("Boilerheart Pressure Valve Wheel", sceneName + " boilerheart pressure valve wheel visual");
+            RequireNamed("Boilerheart Valve Vented Lamp", sceneName + " boilerheart valve vented signal");
         }
 
         if (sceneName == "Level01")

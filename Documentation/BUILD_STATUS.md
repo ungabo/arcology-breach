@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.38` versioned build for `Brassworks Breach`.
+`v0.0.39` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds Level03 Boilerheart Core and a three-level service-lift campaign chain on top of expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build adds the Level03 Boilerheart pressure-valve objective and locked final lift on top of Level03 Boilerheart Core, the three-level service-lift campaign chain, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -50,12 +50,13 @@
 - Data-driven `PlatformQualityProfile` assets for Windows mid/low PC, Android phone, WebGL browser, PC VR, and Meta Quest targets; Windows runtime now applies the Windows profile asset.
 - Packaged combat scenario smoke test covering weapon cooldown rejection, ammo accounting, expected shot count, and enemy survival until the final hit.
 - Generated `Level03` Boilerheart Core scene, Level02-to-Level03 service-lift transition, four-scene build order, and three-level auto-playthrough coverage.
+- Level03 Boilerheart pressure valve objective that locks the final lift until the player vents pressure.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.38`.
+Latest fully verified build: `v0.0.39`.
 
-Current `v0.0.38` verification:
+Current `v0.0.39` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -89,7 +90,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.38\BrassworksBreach_v0.0.38.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.39\BrassworksBreach_v0.0.39.exe`
 
 ## Latest Build Verification
 
@@ -387,8 +388,21 @@ Current target:
 - `2026-05-23 13:34 -04:00`: `v0.0.38` packaged ranged combat smoke passed.
 - `2026-05-23 13:34 -04:00`: `v0.0.38` packaged interaction smoke passed.
 - `2026-05-23 13:34 -04:00`: `v0.0.38` packaged pause-flow smoke passed.
+- `2026-05-23 13:43 -04:00`: `v0.0.39` one-command build matrix runner passed.
+- `2026-05-23 13:43 -04:00`: `v0.0.39` scene rebuild passed.
+- `2026-05-23 13:43 -04:00`: `v0.0.39` level validation passed.
+- `2026-05-23 13:43 -04:00`: `v0.0.39` editor smoke passed.
+- `2026-05-23 13:43 -04:00`: `v0.0.39` Windows build passed.
+- `2026-05-23 13:43 -04:00`: `v0.0.39` packaged runtime smoke passed.
+- `2026-05-23 13:43 -04:00`: `v0.0.39` packaged auto-playthrough passed.
+- `2026-05-23 13:43 -04:00`: `v0.0.39` packaged combat smoke passed.
+- `2026-05-23 13:43 -04:00`: `v0.0.39` packaged combat-edge smoke passed.
+- `2026-05-23 13:43 -04:00`: `v0.0.39` packaged combat-scenario smoke passed.
+- `2026-05-23 13:43 -04:00`: `v0.0.39` packaged ranged combat smoke passed.
+- `2026-05-23 13:43 -04:00`: `v0.0.39` packaged interaction smoke passed.
+- `2026-05-23 13:43 -04:00`: `v0.0.39` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.39`, `v0.0.40`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.40`, `v0.0.41`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

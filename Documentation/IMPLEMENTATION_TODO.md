@@ -590,6 +590,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.39 Boilerheart Pressure-Valve Objective Pass
+
+- [x] Add reusable `SteamValveObjective`.
+- [x] Lock Level03 final lift behind Boilerheart pressure venting.
+- [x] Generate Boilerheart pressure-valve objective visuals.
+- [x] Validate final lift/valve linkage and valve visuals.
+- [x] Expand auto-playthrough to verify locked-lift rejection, valve venting, and final win.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.39`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

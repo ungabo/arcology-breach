@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.38` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.39` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -8,7 +8,7 @@ Public repository:
 
 Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged enemies, a gear key, a pressure gate, and a service lift into a second level.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged enemies, a gear key, a pressure gate, service-lift transitions, and a Boilerheart pressure valve that unlocks the current final lift.
 
 Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
 
@@ -51,13 +51,15 @@ Goal:
 1. Find the gear key.
 2. Return to the pressure gate.
 3. Let the gate open.
-4. Reach the service lift.
+4. Ride the service lifts into the Boilerheart.
+5. Vent the Boilerheart pressure valve.
+6. Engage the final service lift.
 
 ## Build
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.38\BrassworksBreach_v0.0.38.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.39\BrassworksBreach_v0.0.39.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -185,6 +187,12 @@ Individual Unity entry points remain available:
 - Generated Level03 Boilerheart Core scene.
 - Level02 service lift now transitions into Level03.
 - Auto-playthrough now validates Level01 -> Level02 -> Level03 -> win.
+
+## What v0.0.39 Adds
+
+- Boilerheart pressure valve objective in Level03.
+- Final lift remains locked until the valve is vented.
+- Auto-playthrough verifies the locked lift, valve venting, and final win.
 
 ## Good Next Steps
 

@@ -4,11 +4,16 @@ public class ExitTrigger : MonoBehaviour, IInteractable
 {
     public float fallbackWinRadius = 1.25f;
     public string prompt = "E - engage final lift";
+    public string lockedPrompt = "vent boiler pressure first";
+    public string lockedMessage = "The final lift is pressure-locked. Vent the Boilerheart first.";
+    public SteamValveObjective requiredValve;
 
     private Transform player;
     private bool triggered;
+    private float lastLockedFeedbackTime = -10f;
 
-    public string Prompt => triggered ? string.Empty : prompt;
+    public bool IsLocked => requiredValve != null && !requiredValve.IsComplete;
+    public string Prompt => triggered ? string.Empty : IsLocked ? lockedPrompt : prompt;
 
     private void Start()
     {
@@ -49,7 +54,25 @@ public class ExitTrigger : MonoBehaviour, IInteractable
             return;
         }
 
+        if (IsLocked)
+        {
+            ShowLockedFeedback();
+            return;
+        }
+
         triggered = true;
         GameStateController.Instance?.PlayerWon();
+    }
+
+    private void ShowLockedFeedback()
+    {
+        if (Time.unscaledTime - lastLockedFeedbackTime < 1f)
+        {
+            return;
+        }
+
+        lastLockedFeedbackTime = Time.unscaledTime;
+        HUDController.Instance?.ShowTemporaryMessage(lockedMessage, 1.4f);
+        SteamworksAudio.Play(SteamworksAudioCue.GateDenied);
     }
 }

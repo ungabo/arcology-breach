@@ -117,10 +117,27 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         PlayerController player = Require<PlayerController>("PlayerController");
         PlayerInventory inventory = Require<PlayerInventory>("PlayerInventory");
         ExitTrigger exit = Require<ExitTrigger>("ExitTrigger");
+        SteamValveObjective valve = Require<SteamValveObjective>("SteamValveObjective");
         GameStateController gameState = Require<GameStateController>("GameStateController");
         if (!RunProgress.HasSnapshot || inventory.Ammo != RunProgress.Ammo)
         {
             Fail("Auto-playthrough failed: run progress did not persist into Level03.");
+            yield break;
+        }
+
+        Teleport(player, exit.transform.position);
+        yield return new WaitForSeconds(0.35f);
+        if (gameState.State == GameRunState.Won)
+        {
+            Fail("Auto-playthrough failed: final lift unlocked before Boilerheart pressure valve.");
+            yield break;
+        }
+
+        Teleport(player, valve.transform.position);
+        valve.Interact(player.gameObject);
+        yield return WaitUntilOrFail(() => valve.IsComplete && !exit.IsLocked, "boilerheart pressure valve venting", 2f);
+        if (failed)
+        {
             yield break;
         }
 
