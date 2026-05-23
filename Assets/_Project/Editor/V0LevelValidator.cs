@@ -123,6 +123,15 @@ public static class V0LevelValidator
             RequireEqual(enemy.attackDamage, GameBalance.ScrapperAttackDamage, sceneName + " Scrapper damage balance");
             RequireApprox(enemy.attackWindup, GameBalance.ScrapperAttackWindup, sceneName + " Scrapper windup balance");
             RequireApprox(enemy.obstacleProbeDistance, GameBalance.ScrapperObstacleProbeDistance, sceneName + " Scrapper obstacle probe balance");
+            if (enemy.definition == null)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " Scrapper is missing an EnemyDefinition.");
+            }
+
+            RequireEqual((int)enemy.definition.attackStyle, (int)EnemyAttackStyle.Melee, sceneName + " Scrapper definition style");
+            RequireEqual(enemy.definition.maxHealth, GameBalance.ScrapperHealth, sceneName + " Scrapper definition health");
+            RequireApprox(enemy.definition.moveSpeed, GameBalance.ScrapperMoveSpeed, sceneName + " Scrapper definition speed");
+            RequireEqual(enemy.definition.attackDamage, GameBalance.ScrapperAttackDamage, sceneName + " Scrapper definition damage");
         }
 
         RangedEnemyController[] rangedEnemies = UnityEngine.Object.FindObjectsByType<RangedEnemyController>(FindObjectsSortMode.None);
@@ -141,6 +150,15 @@ public static class V0LevelValidator
             RequireApprox(enemy.fireWindup, GameBalance.LancerFireWindup, sceneName + " Lancer windup balance");
             RequireEqual(enemy.projectileDamage, GameBalance.LancerProjectileDamage, sceneName + " Lancer projectile damage balance");
             RequireApprox(enemy.projectileSpeed, GameBalance.LancerProjectileSpeed, sceneName + " Lancer projectile speed balance");
+            if (enemy.definition == null)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " Lancer is missing an EnemyDefinition.");
+            }
+
+            RequireEqual((int)enemy.definition.attackStyle, (int)EnemyAttackStyle.Ranged, sceneName + " Lancer definition style");
+            RequireEqual(enemy.definition.maxHealth, GameBalance.LancerHealth, sceneName + " Lancer definition health");
+            RequireApprox(enemy.definition.fireCooldown, GameBalance.LancerFireCooldown, sceneName + " Lancer definition cooldown");
+            RequireEqual(enemy.definition.projectileDamage, GameBalance.LancerProjectileDamage, sceneName + " Lancer definition projectile damage");
         }
     }
 

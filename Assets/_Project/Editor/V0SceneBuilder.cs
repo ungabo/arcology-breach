@@ -57,6 +57,8 @@ public static class V0SceneBuilder
         ApplyProceduralTexture(brassGuideMaterial, "T_Steam_BrassPipe", ProceduralTextureKind.BrassPipe);
         ApplyProceduralTexture(brassHazardMaterial, "T_Steam_BrassHazardPipe", ProceduralTextureKind.BrassPipe);
         WeaponDefinition pressurePistolDefinition = CreatePressurePistolDefinition();
+        EnemyDefinition scrapperDefinition = CreateScrapperDefinition();
+        EnemyDefinition lancerDefinition = CreateLancerDefinition();
 
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -67,10 +69,10 @@ public static class V0SceneBuilder
         HUDController hud = CreateHud();
         CreateGameState(hud);
         CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, rivetedIronMaterial, pressureWarningMaterial, pressurePistolDefinition);
-        CreateEnemy("Enemy - First Room", new Vector3(0f, 1f, 16.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
-        CreateEnemy("Enemy - Key Room", new Vector3(14.5f, 1f, 17f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
-        CreateEnemy("Enemy - Final Left", new Vector3(-3.2f, 1f, 30.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
-        CreateEnemy("Enemy - Final Right", new Vector3(3.2f, 1f, 32.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial);
+        CreateEnemy("Enemy - First Room", new Vector3(0f, 1f, 16.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
+        CreateEnemy("Enemy - Key Room", new Vector3(14.5f, 1f, 17f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
+        CreateEnemy("Enemy - Final Left", new Vector3(-3.2f, 1f, 30.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
+        CreateEnemy("Enemy - Final Right", new Vector3(3.2f, 1f, 32.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
         CreateHealthVialPickup("Pickup - Health Vial", new Vector3(-3.6f, 0.65f, 20f), healthMaterial, glassVialMaterial, medicinalFluidMaterial, brassGuideMaterial, 25);
         CreatePressureCartridgePickup("Pickup - Pressure Cartridge Pack", new Vector3(4.2f, 0.55f, 19f), ammoMaterial, rivetedIronMaterial, brassGuideMaterial, 15);
         CreateGearKeyPickup("Pickup - Gear Key", new Vector3(16f, 0.55f, 17f), Vector3.one * 1.1f, keyMaterial, rivetedIronMaterial);
@@ -81,7 +83,7 @@ public static class V0SceneBuilder
         CreateSteamworksDressing(rivetedIronMaterial, oilStoneMaterial, brassGuideMaterial, pressureWarningMaterial, brassHazardMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
-        CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition);
+        CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition);
         CreateMainMenuScene(brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, furnaceGlowMaterial, oilStoneMaterial);
         EditorBuildSettings.scenes = new[]
         {
@@ -250,6 +252,54 @@ public static class V0SceneBuilder
         definition.damage = GameBalance.PressurePistolDamage;
         definition.fireCooldown = GameBalance.PressurePistolCooldown;
         definition.range = 40f;
+        EditorUtility.SetDirty(definition);
+        return definition;
+    }
+
+    private static EnemyDefinition CreateScrapperDefinition()
+    {
+        string path = $"{DataFolder}/ScrapperDefinition.asset";
+        EnemyDefinition definition = AssetDatabase.LoadAssetAtPath<EnemyDefinition>(path);
+        if (definition == null)
+        {
+            definition = ScriptableObject.CreateInstance<EnemyDefinition>();
+            AssetDatabase.CreateAsset(definition, path);
+        }
+
+        definition.displayName = "Scrapper";
+        definition.attackStyle = EnemyAttackStyle.Melee;
+        definition.maxHealth = GameBalance.ScrapperHealth;
+        definition.detectionRange = GameBalance.ScrapperDetectionRange;
+        definition.moveSpeed = GameBalance.ScrapperMoveSpeed;
+        definition.attackRange = 1.35f;
+        definition.attackDamage = GameBalance.ScrapperAttackDamage;
+        definition.attackCooldown = 1f;
+        definition.attackWindup = GameBalance.ScrapperAttackWindup;
+        definition.obstacleProbeDistance = GameBalance.ScrapperObstacleProbeDistance;
+        EditorUtility.SetDirty(definition);
+        return definition;
+    }
+
+    private static EnemyDefinition CreateLancerDefinition()
+    {
+        string path = $"{DataFolder}/LancerDefinition.asset";
+        EnemyDefinition definition = AssetDatabase.LoadAssetAtPath<EnemyDefinition>(path);
+        if (definition == null)
+        {
+            definition = ScriptableObject.CreateInstance<EnemyDefinition>();
+            AssetDatabase.CreateAsset(definition, path);
+        }
+
+        definition.displayName = "Lancer";
+        definition.attackStyle = EnemyAttackStyle.Ranged;
+        definition.maxHealth = GameBalance.LancerHealth;
+        definition.detectionRange = GameBalance.LancerDetectionRange;
+        definition.moveSpeed = GameBalance.LancerMoveSpeed;
+        definition.fireRange = GameBalance.LancerFireRange;
+        definition.fireCooldown = GameBalance.LancerFireCooldown;
+        definition.fireWindup = GameBalance.LancerFireWindup;
+        definition.projectileDamage = GameBalance.LancerProjectileDamage;
+        definition.projectileSpeed = GameBalance.LancerProjectileSpeed;
         EditorUtility.SetDirty(definition);
         return definition;
     }
@@ -458,7 +508,7 @@ public static class V0SceneBuilder
         CreateCube("Final Room Low Center Barrier", new Vector3(0f, 0.42f, 32.2f), new Vector3(2.1f, 0.84f, 0.58f), material, parent);
     }
 
-    private static void CreatePipeworksAnnexScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition)
+    private static void CreatePipeworksAnnexScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition)
     {
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -470,8 +520,8 @@ public static class V0SceneBuilder
         CreateGameState(hud);
         CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition);
 
-        CreateEnemy("Enemy - Pipeworks Gatehouse", new Vector3(-2.2f, 1f, 9.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial);
-        CreateLancerEnemy("Enemy - Pipeworks Lancer", new Vector3(2.2f, 1f, 17.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial);
+        CreateEnemy("Enemy - Pipeworks Gatehouse", new Vector3(-2.2f, 1f, 9.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
+        CreateLancerEnemy("Enemy - Pipeworks Lancer", new Vector3(2.2f, 1f, 17.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, lancerDefinition);
         CreateHealthVialPickup("Pickup - Annex Health Vial", new Vector3(-3.2f, 0.65f, 14f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, 25);
         CreatePressureCartridgePickup("Pickup - Annex Pressure Cartridge Pack", new Vector3(3.2f, 0.55f, 13.5f), ammoMaterial, ironMaterial, brassMaterial, 15);
         CreateExitAt("Pipeworks Service Lift Trigger", new Vector3(0f, 1.1f, 23.2f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial);
@@ -985,7 +1035,7 @@ public static class V0SceneBuilder
         return weaponView;
     }
 
-    private static void CreateEnemy(string name, Vector3 position, Material material, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material bladeMaterial)
+    private static void CreateEnemy(string name, Vector3 position, Material material, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material bladeMaterial, EnemyDefinition definition)
     {
         GameObject enemy = new GameObject(name);
         enemy.name = name;
@@ -999,6 +1049,7 @@ public static class V0SceneBuilder
         controller.center = Vector3.zero;
 
         EnemyController enemyController = enemy.AddComponent<EnemyController>();
+        enemyController.definition = definition;
         enemyController.maxHealth = GameBalance.ScrapperHealth;
         enemyController.moveSpeed = GameBalance.ScrapperMoveSpeed;
         enemyController.detectionRange = GameBalance.ScrapperDetectionRange;
@@ -1007,7 +1058,7 @@ public static class V0SceneBuilder
         enemyController.obstacleProbeDistance = GameBalance.ScrapperObstacleProbeDistance;
     }
 
-    private static void CreateLancerEnemy(string name, Vector3 position, Material material, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial)
+    private static void CreateLancerEnemy(string name, Vector3 position, Material material, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial, EnemyDefinition definition)
     {
         GameObject enemy = new GameObject(name);
         enemy.transform.position = position;
@@ -1020,6 +1071,7 @@ public static class V0SceneBuilder
         controller.center = Vector3.zero;
 
         RangedEnemyController ranged = enemy.AddComponent<RangedEnemyController>();
+        ranged.definition = definition;
         ranged.muzzle = muzzle;
         ranged.maxHealth = GameBalance.LancerHealth;
         ranged.detectionRange = GameBalance.LancerDetectionRange;

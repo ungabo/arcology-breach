@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class EnemyController : MonoBehaviour, IDamageable
 {
+    public EnemyDefinition definition;
     public int maxHealth = 50;
     public float detectionRange = 14f;
     public float moveSpeed = 2.8f;
@@ -29,6 +30,7 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     private void Awake()
     {
+        ApplyDefinition();
         characterController = GetComponent<CharacterController>();
         playerHealth = Object.FindAnyObjectByType<PlayerHealth>();
         renderers = GetComponentsInChildren<Renderer>();
@@ -40,6 +42,23 @@ public class EnemyController : MonoBehaviour, IDamageable
         }
 
         currentHealth = maxHealth;
+    }
+
+    private void ApplyDefinition()
+    {
+        if (definition == null)
+        {
+            return;
+        }
+
+        maxHealth = definition.maxHealth;
+        detectionRange = definition.detectionRange;
+        moveSpeed = definition.moveSpeed;
+        attackRange = definition.attackRange;
+        attackDamage = definition.attackDamage;
+        attackCooldown = definition.attackCooldown;
+        attackWindup = definition.attackWindup;
+        obstacleProbeDistance = definition.obstacleProbeDistance;
     }
 
     private void Update()

@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class RangedEnemyController : MonoBehaviour, IDamageable
 {
+    public EnemyDefinition definition;
     public Transform muzzle;
     public int maxHealth = 40;
     public float detectionRange = 18f;
@@ -28,6 +29,7 @@ public class RangedEnemyController : MonoBehaviour, IDamageable
 
     private void Awake()
     {
+        ApplyDefinition();
         characterController = GetComponent<CharacterController>();
         playerHealth = Object.FindAnyObjectByType<PlayerHealth>();
         renderers = GetComponentsInChildren<Renderer>();
@@ -38,6 +40,23 @@ public class RangedEnemyController : MonoBehaviour, IDamageable
         }
 
         currentHealth = maxHealth;
+    }
+
+    private void ApplyDefinition()
+    {
+        if (definition == null)
+        {
+            return;
+        }
+
+        maxHealth = definition.maxHealth;
+        detectionRange = definition.detectionRange;
+        fireRange = definition.fireRange;
+        moveSpeed = definition.moveSpeed;
+        fireCooldown = definition.fireCooldown;
+        fireWindup = definition.fireWindup;
+        projectileDamage = definition.projectileDamage;
+        projectileSpeed = definition.projectileSpeed;
     }
 
     private void Update()

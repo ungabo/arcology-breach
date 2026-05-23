@@ -445,6 +445,29 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.31 Data-Driven Enemy Definition Pass
+
+- [x] Add `EnemyDefinition` ScriptableObject type.
+- [x] Add generated `ScrapperDefinition.asset`.
+- [x] Add generated `LancerDefinition.asset`.
+- [x] Assign Scrapper definitions to all melee enemies.
+- [x] Assign Lancer definition to the ranged enemy.
+- [x] Keep serialized enemy fallback fields backward-compatible.
+- [x] Expand level validation to require enemy definitions and active values.
+- [x] Rebuild generated scenes.
+- [x] Run standalone level validation.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged combat-edge smoke.
+- [x] Run packaged ranged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.31`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -476,7 +499,7 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 ## v0.4 Systems Foundation
 
 - [x] Data-driven weapon definitions.
-- [ ] Data-driven enemy definitions.
+- [x] Data-driven enemy definitions.
 - [ ] Interaction system.
 - [ ] Pickup/inventory cleanup.
 - [ ] Level transition controller.

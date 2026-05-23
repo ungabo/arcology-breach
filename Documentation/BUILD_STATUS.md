@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.30` versioned build for `Brassworks Breach`.
+`v0.0.31` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds a data-driven `WeaponDefinition` asset for the Pressure Pistol on top of the `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build adds data-driven Scrapper and Lancer enemy definition assets on top of the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -42,12 +42,13 @@
 - Level01 collision-cover pass for repair bay, key room, and final room, with validation coverage and objective auto-playthrough retained.
 - Centralized `GameBalance` profile for player speed, starting ammo, pistol cadence, Scrapper pressure, and Lancer pressure, with validation coverage.
 - Data-driven `PressurePistolDefinition.asset` and `WeaponDefinition` script, with validation coverage.
+- Data-driven `ScrapperDefinition.asset`, `LancerDefinition.asset`, and `EnemyDefinition` script, with validation coverage.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.30`.
+Latest fully verified build: `v0.0.31`.
 
-Current `v0.0.30` verification:
+Current `v0.0.31` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -75,7 +76,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.30\BrassworksBreach_v0.0.30.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.31\BrassworksBreach_v0.0.31.exe`
 
 ## Latest Build Verification
 
@@ -278,8 +279,18 @@ Current target:
 - `2026-05-23 12:45 -04:00`: `v0.0.30` packaged combat-edge smoke passed.
 - `2026-05-23 12:45 -04:00`: `v0.0.30` packaged ranged combat smoke passed.
 - `2026-05-23 12:45 -04:00`: `v0.0.30` packaged pause-flow smoke passed.
+- `2026-05-23 12:50 -04:00`: `v0.0.31` scene rebuild passed.
+- `2026-05-23 12:50 -04:00`: `v0.0.31` level validation passed.
+- `2026-05-23 12:50 -04:00`: `v0.0.31` editor smoke passed.
+- `2026-05-23 12:50 -04:00`: `v0.0.31` Windows build passed.
+- `2026-05-23 12:50 -04:00`: `v0.0.31` packaged runtime smoke passed.
+- `2026-05-23 12:50 -04:00`: `v0.0.31` packaged auto-playthrough passed.
+- `2026-05-23 12:50 -04:00`: `v0.0.31` packaged combat smoke passed.
+- `2026-05-23 12:50 -04:00`: `v0.0.31` packaged combat-edge smoke passed.
+- `2026-05-23 12:50 -04:00`: `v0.0.31` packaged ranged combat smoke passed.
+- `2026-05-23 12:50 -04:00`: `v0.0.31` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.31`, `v0.0.32`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.32`, `v0.0.33`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

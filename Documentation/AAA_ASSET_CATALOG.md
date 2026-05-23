@@ -84,10 +84,10 @@ Every major asset should eventually have three quality targets:
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
-| ENEMY-001 | Primitive Scrapper | P0 | prototype | Existing primitive clockwork silhouette with boiler torso, brass plate, furnace eye, pressure tank, piston arms, cutters, and blocky feet. |
+| ENEMY-001 | Primitive Scrapper | P0 | verified | Existing primitive clockwork silhouette with boiler torso, brass plate, furnace eye, pressure tank, piston arms, cutters, blocky feet, and data-driven definition asset. |
 | ENEMY-002 | Scrapper final | P1 | planned | Maintenance frame with cutter arms, brass plating, pistons, and furnace eyes. |
 | ENEMY-003 | Boiler Tick | P1 | planned | Squat scout with clockwork legs and pressure tank body. |
-| ENEMY-004 | Lancer | P1 | prototype | Thin ranged valve-rifle automaton with primitive tripod silhouette and pressure-bolt attack. |
+| ENEMY-004 | Lancer | P1 | verified | Thin ranged valve-rifle automaton with primitive tripod silhouette, pressure-bolt attack, and data-driven definition asset. |
 | ENEMY-005 | Bulwark | P2 | planned | Heavy furnace-plated machine with weak rear components. |
 | ENEMY-006 | Bellows Node | P2 | planned | Stationary pressure amplifier that buffs nearby machines. |
 | ENEMY-007 | Governor Warden | P3 | deferred | Later boss or mini-boss encounter. |

@@ -40,6 +40,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | LVL-001A | Add Level01 combat-space cover pass | level | P1 | verified | v0.0.28 | Repair bay, key room, and final room cover added with validation and full smoke matrix. |
 | CODE-003A | Add initial movement/combat balance profile | code | P1 | verified | v0.0.29 | GameBalance drives player/pistol/Scrapper/Lancer values and validator enforces them. |
 | CODE-006 | Data-driven weapon definitions | code | P2 | verified | v0.0.30 | PressurePistolDefinition.asset drives current weapon data and validator enforces assignment. |
+| CODE-007 | Data-driven enemy definitions | code | P2 | verified | v0.0.31 | ScrapperDefinition and LancerDefinition drive current enemy data and validator enforces assignment. |
 
 ## Ready Next
 
@@ -70,7 +71,6 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | LVL-001 | Rework Level01 into Brassworks Intake combat slice | level | P1 | backlog | v0.2 | Keep small, add better arena loops. |
 | LVL-003C | Persist expanded run state across level transitions | code | P2 | backlog | v0.4 | Preserve future weapon inventory, selected difficulty, and campaign flags across scenes. |
 | LVL-004 | Draft top-down maps for first five campaign levels | level | P2 | backlog | v0.4 | Use `LEVEL_DESIGN_AND_MAPS.md` map ladder and template. |
-| CODE-007 | Data-driven enemy definitions | code | P2 | backlog | v0.4 | Needed before expanding beyond Scrapper/Lancer prototypes. |
 | PLAT-002 | Android port prototype plan | platform | P2 | deferred | post-Windows | Do not build until Windows game is complete. |
 | PLAT-003 | Browser/WebGL port prototype plan | platform | P2 | deferred | post-Windows | Do not build until Windows game is complete. |
 | PLAT-004 | SteamVR/OpenXR and Meta Quest port plan | platform | P2 | deferred | post-Windows | Keep architecture VR-compatible now; do not build VR yet. |
@@ -124,3 +124,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.28` Level01 combat-space cover build created at `Builds/Windows/v0.0.28/BrassworksBreach_v0.0.28.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.29` movement/combat balance build created at `Builds/Windows/v0.0.29/BrassworksBreach_v0.0.29.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.30` data-driven weapon definition build created at `Builds/Windows/v0.0.30/BrassworksBreach_v0.0.30.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.31` data-driven enemy definition build created at `Builds/Windows/v0.0.31/BrassworksBreach_v0.0.31.exe` and passed level-validation/editor/build/runtime/auto-playthrough/combat/combat-edge/ranged-combat/pause-flow smoke. Next-step directive: continue immediately with the next highest-impact unfinished task.
