@@ -7,6 +7,7 @@ public class SteamValveObjective : MonoBehaviour, IInteractable
     public string completeMessage = "Boilerheart pressure vented. Final lift unlocked.";
     public GameObject lockedSignal;
     public GameObject ventedSignal;
+    public SteamHazard[] hazardsToDisableOnComplete;
 
     public bool IsComplete { get; private set; }
     public string Prompt => IsComplete ? completePrompt : prompt;
@@ -46,6 +47,7 @@ public class SteamValveObjective : MonoBehaviour, IInteractable
 
         IsComplete = true;
         SetSignalState();
+        DisableLinkedHazards();
         HUDController.Instance?.ShowTemporaryMessage(completeMessage, 2.5f);
         SteamworksAudio.Play(SteamworksAudioCue.GateOpen);
     }
@@ -60,6 +62,23 @@ public class SteamValveObjective : MonoBehaviour, IInteractable
         if (ventedSignal != null)
         {
             ventedSignal.SetActive(IsComplete);
+        }
+    }
+
+    private void DisableLinkedHazards()
+    {
+        if (hazardsToDisableOnComplete == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < hazardsToDisableOnComplete.Length; i++)
+        {
+            SteamHazard hazard = hazardsToDisableOnComplete[i];
+            if (hazard != null)
+            {
+                hazard.gameObject.SetActive(false);
+            }
         }
     }
 }

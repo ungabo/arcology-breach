@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.41`.
+Current state: `v0.0.42`.
 
 Implemented:
 
@@ -49,6 +49,7 @@ Implemented:
 - Boilerheart pressure-valve objective that locks the Level03 final lift until vented.
 - Steam hazard trigger volumes with packaged hazard smoke coverage.
 - Scene-specific objective briefing messages for the current three-level route.
+- Boilerheart pressure valve shuts down linked steam hazards when vented.
 
 ## 3. Target Platform
 

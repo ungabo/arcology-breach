@@ -117,6 +117,11 @@ public static class V0LevelValidator
                 {
                     throw new InvalidOperationException("Level validation failed: " + sceneName + " final lift is not linked to the Boilerheart pressure valve.");
                 }
+
+                if (valve.hazardsToDisableOnComplete == null || valve.hazardsToDisableOnComplete.Length < 2)
+                {
+                    throw new InvalidOperationException("Level validation failed: " + sceneName + " Boilerheart pressure valve is not linked to steam hazards.");
+                }
             }
         }
 

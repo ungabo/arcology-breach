@@ -135,7 +135,7 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
 
         Teleport(player, valve.transform.position);
         valve.Interact(player.gameObject);
-        yield return WaitUntilOrFail(() => valve.IsComplete && !exit.IsLocked, "boilerheart pressure valve venting", 2f);
+        yield return WaitUntilOrFail(() => valve.IsComplete && !exit.IsLocked && LinkedHazardsDisabled(valve), "boilerheart pressure valve venting", 2f);
         if (failed)
         {
             yield break;
@@ -150,6 +150,25 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
 
         Debug.Log("V0_AUTO_PLAYTHROUGH_PASS");
         Application.Quit(0);
+    }
+
+    private static bool LinkedHazardsDisabled(SteamValveObjective valve)
+    {
+        if (valve.hazardsToDisableOnComplete == null || valve.hazardsToDisableOnComplete.Length == 0)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < valve.hazardsToDisableOnComplete.Length; i++)
+        {
+            SteamHazard hazard = valve.hazardsToDisableOnComplete[i];
+            if (hazard != null && hazard.gameObject.activeSelf)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private static void DisableEnemiesForDeterministicObjectiveTest()

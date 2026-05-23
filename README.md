@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.41` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.42` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -59,7 +59,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.41\BrassworksBreach_v0.0.41.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.42\BrassworksBreach_v0.0.42.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -206,6 +206,12 @@ Individual Unity entry points remain available:
 - Scene-specific objective briefing messages.
 - Validation coverage for Level01, Level02, and Level03 objective text.
 - Full matrix remains green with the updated scene messaging.
+
+## What v0.0.42 Adds
+
+- Boilerheart pressure valve now shuts down linked steam hazards.
+- Auto-playthrough verifies valve completion, lift unlock, and hazard shutdown.
+- Validation ensures the valve is linked to Boilerheart hazards.
 
 ## Good Next Steps
 

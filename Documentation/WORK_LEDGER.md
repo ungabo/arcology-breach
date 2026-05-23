@@ -51,6 +51,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | LVL-006 | Add Boilerheart pressure-valve objective | level/code | P1 | verified | v0.0.39 | Level03 final lift is locked until the valve is vented; auto-playthrough verifies locked rejection, valve venting, and final win. |
 | HAZ-001 | Add steam hazard foundation | code/level/test | P1 | verified | v0.0.40 | Reusable SteamHazard, Boilerheart hazard placement, validation, and V0_HAZARD_PASS matrix coverage are verified. |
 | UI-004 | Add scene-specific objective briefings | ui/code | P1 | verified | v0.0.41 | GameStateController start messages are generated and validated per current level. |
+| HAZ-002 | Link Boilerheart valve to steam hazards | code/level/test | P1 | verified | v0.0.42 | Valve venting disables linked Boilerheart hazards; auto-playthrough validates shutdown before final lift completion. |
 
 ## Ready Next
 
@@ -145,3 +146,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.39` Boilerheart pressure-valve objective build created at `Builds/Windows/v0.0.39/BrassworksBreach_v0.0.39.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.40` steam hazard foundation build created at `Builds/Windows/v0.0.40/BrassworksBreach_v0.0.40.exe` and passed the complete V0 matrix, including hazard smoke, through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.41` scene-specific objective briefing build created at `Builds/Windows/v0.0.41/BrassworksBreach_v0.0.41.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.42` Boilerheart hazard shutdown build created at `Builds/Windows/v0.0.42/BrassworksBreach_v0.0.42.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.

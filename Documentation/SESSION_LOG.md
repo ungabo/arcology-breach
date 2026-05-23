@@ -1035,3 +1035,37 @@ Build executable:
 `Builds/Windows/v0.0.41/BrassworksBreach_v0.0.41.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 14:01 -04:00
+
+Completed `v0.0.42` Boilerheart hazard shutdown pass.
+
+Added:
+
+- `SteamValveObjective.hazardsToDisableOnComplete`.
+- Boilerheart valve links to both current steam hazard volumes.
+- Valve venting disables linked hazards before the final lift can complete.
+- Level validation for valve-to-hazard linkage.
+- Auto-playthrough verification for hazard shutdown after valve venting.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.42/BrassworksBreach_v0.0.42.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

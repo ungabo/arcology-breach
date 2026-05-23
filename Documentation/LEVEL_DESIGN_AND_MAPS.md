@@ -50,6 +50,7 @@ Near-term:
 - Auto-playthrough covers Level01 key/gate/lift, transition to Level02, transition to Level03, locked-final-lift rejection, Boilerheart pressure valve, and Level03 final lift.
 - Hazard smoke covers Level03 steam hazard damage without ending the run from one tick.
 - Each current level now has a scene-specific objective briefing at spawn.
+- Venting the Boilerheart pressure valve shuts down the linked Level03 steam hazards.
 - Health and ammo persist across scene transitions.
 - Future weapon inventory and campaign flags still need expanded persistence.
 
@@ -171,6 +172,11 @@ v0.0.40 implementation notes:
 - Added reusable `SteamHazard`.
 - Placed `Boilerheart Steam Hazard - Furnace Leak` and `Boilerheart Steam Hazard - Core Bleed`.
 - Added packaged hazard smoke test and matrix coverage.
+
+v0.0.42 implementation notes:
+
+- Linked the Boilerheart pressure valve to the two current steam hazards.
+- Auto-playthrough validates lift unlock and hazard shutdown after venting.
 
 ### Level 04: Furnace Foundry
 
