@@ -57,6 +57,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | TEST-009 | Verify secret stats in auto-playthrough | test | P1 | verified | v0.0.45 | Auto-playthrough asserts run secret totals persist to final win state. |
 | LVL-007 | Add Level04 Furnace Foundry foundation | level/code/test | P1 | verified | v0.0.46 | Level04 scene, valve-gated Level03 transition, five-scene build order, foundry hazards, emergency-hoist win, and four-level auto-playthrough are verified. |
 | HAZ-003 | Add Furnace Foundry heat hazards | code/level/test | P1 | verified | v0.0.47 | Reusable FurnaceHeatHazard, two foundry heat-surge lanes, validation, and expanded V0_HAZARD_PASS coverage are verified. |
+| ENEMY-005 | Add Bulwark heavy enemy prototype | code/art/test | P1 | verified | v0.0.48 | BulwarkEnemyController, BulwarkDefinition, Level04 placement, primitive heavy visual, validation, and V0_BULWARK_COMBAT_PASS are verified. |
 
 ## Ready Next
 
@@ -157,3 +158,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.45` secret-stat auto-playthrough build created at `Builds/Windows/v0.0.45/BrassworksBreach_v0.0.45.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.46` Furnace Foundry foundation build created at `Builds/Windows/v0.0.46/BrassworksBreach_v0.0.46.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.47` furnace heat hazard build created at `Builds/Windows/v0.0.47/BrassworksBreach_v0.0.47.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.48` Bulwark heavy enemy build created at `Builds/Windows/v0.0.48/BrassworksBreach_v0.0.48.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.

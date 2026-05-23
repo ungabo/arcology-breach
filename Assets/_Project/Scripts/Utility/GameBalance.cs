@@ -22,6 +22,14 @@ public static class GameBalance
     public const int LancerProjectileDamage = 7;
     public const float LancerProjectileSpeed = 7.8f;
 
+    public const int BulwarkHealth = 125;
+    public const float BulwarkDetectionRange = 12f;
+    public const float BulwarkMoveSpeed = 1.15f;
+    public const float BulwarkAttackRange = 1.8f;
+    public const int BulwarkAttackDamage = 16;
+    public const float BulwarkAttackCooldown = 1.9f;
+    public const float BulwarkAttackWindup = 0.85f;
+
     public const int SteamHazardDamage = 6;
     public const float SteamHazardTickInterval = 0.75f;
 

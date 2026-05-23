@@ -61,6 +61,7 @@ public static class V0SceneBuilder
         WeaponDefinition pressurePistolDefinition = CreatePressurePistolDefinition();
         EnemyDefinition scrapperDefinition = CreateScrapperDefinition();
         EnemyDefinition lancerDefinition = CreateLancerDefinition();
+        EnemyDefinition bulwarkDefinition = CreateBulwarkDefinition();
         PickupDefinition healthPickupDefinition = CreateHealthPickupDefinition();
         PickupDefinition ammoPickupDefinition = CreateAmmoPickupDefinition();
         PickupDefinition gearKeyDefinition = CreateGearKeyDefinition();
@@ -92,7 +93,7 @@ public static class V0SceneBuilder
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
         CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
         CreateBoilerheartScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
-        CreateFurnaceFoundryScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
+        CreateFurnaceFoundryScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, bulwarkDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
         CreateMainMenuScene(brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, furnaceGlowMaterial, oilStoneMaterial, windowsQualityProfile);
         EditorBuildSettings.scenes = new[]
         {
@@ -150,6 +151,7 @@ public static class V0SceneBuilder
         RequireObject<RuntimeCombatTest>("RuntimeCombatTest");
         RequireObject<RuntimeCombatEdgeTest>("RuntimeCombatEdgeTest");
         RequireObject<RuntimeRangedCombatTest>("RuntimeRangedCombatTest");
+        RequireObject<RuntimeBulwarkCombatTest>("RuntimeBulwarkCombatTest");
         RequireObject<RuntimeHazardTest>("RuntimeHazardTest");
         RequireObject<RuntimeSecretTest>("RuntimeSecretTest");
         RequireObject<RuntimePauseFlowTest>("RuntimePauseFlowTest");
@@ -179,6 +181,7 @@ public static class V0SceneBuilder
         RequireObject<GameStateController>("Level04 GameStateController");
         RequireObject<EnemyController>("Level04 EnemyController");
         RequireObject<RangedEnemyController>("Level04 RangedEnemyController");
+        RequireObject<BulwarkEnemyController>("Level04 BulwarkEnemyController");
         RequireObject<ExitTrigger>("Level04 ExitTrigger");
         RequireObject<SteamHazard>("Level04 SteamHazard");
         RequireObject<FurnaceHeatHazard>("Level04 FurnaceHeatHazard");
@@ -340,6 +343,29 @@ public static class V0SceneBuilder
         definition.fireWindup = GameBalance.LancerFireWindup;
         definition.projectileDamage = GameBalance.LancerProjectileDamage;
         definition.projectileSpeed = GameBalance.LancerProjectileSpeed;
+        EditorUtility.SetDirty(definition);
+        return definition;
+    }
+
+    private static EnemyDefinition CreateBulwarkDefinition()
+    {
+        string path = $"{DataFolder}/BulwarkDefinition.asset";
+        EnemyDefinition definition = AssetDatabase.LoadAssetAtPath<EnemyDefinition>(path);
+        if (definition == null)
+        {
+            definition = ScriptableObject.CreateInstance<EnemyDefinition>();
+            AssetDatabase.CreateAsset(definition, path);
+        }
+
+        definition.displayName = "Bulwark";
+        definition.attackStyle = EnemyAttackStyle.Heavy;
+        definition.maxHealth = GameBalance.BulwarkHealth;
+        definition.detectionRange = GameBalance.BulwarkDetectionRange;
+        definition.moveSpeed = GameBalance.BulwarkMoveSpeed;
+        definition.attackRange = GameBalance.BulwarkAttackRange;
+        definition.attackDamage = GameBalance.BulwarkAttackDamage;
+        definition.attackCooldown = GameBalance.BulwarkAttackCooldown;
+        definition.attackWindup = GameBalance.BulwarkAttackWindup;
         EditorUtility.SetDirty(definition);
         return definition;
     }
@@ -773,7 +799,7 @@ public static class V0SceneBuilder
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), Level03ScenePath);
     }
 
-    private static void CreateFurnaceFoundryScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PlatformQualityProfile windowsQualityProfile)
+    private static void CreateFurnaceFoundryScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition, EnemyDefinition bulwarkDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PlatformQualityProfile windowsQualityProfile)
     {
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -787,6 +813,7 @@ public static class V0SceneBuilder
 
         CreateEnemy("Enemy - Foundry Intake Scrapper", new Vector3(-2.9f, 1f, 9.2f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateLancerEnemy("Enemy - Foundry Catwalk Lancer", new Vector3(2.8f, 1f, 15.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, lancerDefinition);
+        CreateBulwarkEnemy("Enemy - Foundry Hammer Bulwark", new Vector3(2.6f, 1.15f, 22.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, bulwarkDefinition);
         CreateEnemy("Enemy - Foundry Hoist Scrapper", new Vector3(-2.4f, 1f, 23.4f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateHealthVialPickup("Pickup - Foundry Health Vial", new Vector3(-4.35f, 0.65f, 13.2f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
         CreatePressureCartridgePickup("Pickup - Foundry Pressure Cartridge Pack", new Vector3(4.25f, 0.55f, 18.4f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
@@ -1360,6 +1387,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeCombatEdgeTest>();
         stateObject.AddComponent<RuntimeCombatScenarioTest>();
         stateObject.AddComponent<RuntimeRangedCombatTest>();
+        stateObject.AddComponent<RuntimeBulwarkCombatTest>();
         stateObject.AddComponent<RuntimeInteractionTest>();
         stateObject.AddComponent<RuntimeHazardTest>();
         stateObject.AddComponent<RuntimeSecretTest>();
@@ -1526,6 +1554,48 @@ public static class V0SceneBuilder
         ranged.fireWindup = GameBalance.LancerFireWindup;
         ranged.projectileDamage = GameBalance.LancerProjectileDamage;
         ranged.projectileSpeed = GameBalance.LancerProjectileSpeed;
+    }
+
+    private static void CreateBulwarkEnemy(string name, Vector3 position, Material material, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial, EnemyDefinition definition)
+    {
+        GameObject enemy = new GameObject(name);
+        enemy.transform.position = position;
+
+        CreateBulwarkVisual(enemy.transform, material, eyeMaterial, brassMaterial, ironMaterial, warningMaterial);
+
+        CharacterController controller = enemy.AddComponent<CharacterController>();
+        controller.height = 2.35f;
+        controller.radius = 0.55f;
+        controller.center = Vector3.zero;
+
+        BulwarkEnemyController bulwark = enemy.AddComponent<BulwarkEnemyController>();
+        bulwark.definition = definition;
+        bulwark.maxHealth = GameBalance.BulwarkHealth;
+        bulwark.detectionRange = GameBalance.BulwarkDetectionRange;
+        bulwark.moveSpeed = GameBalance.BulwarkMoveSpeed;
+        bulwark.attackRange = GameBalance.BulwarkAttackRange;
+        bulwark.attackDamage = GameBalance.BulwarkAttackDamage;
+        bulwark.attackCooldown = GameBalance.BulwarkAttackCooldown;
+        bulwark.attackWindup = GameBalance.BulwarkAttackWindup;
+    }
+
+    private static void CreateBulwarkVisual(Transform parent, Material bodyMaterial, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial)
+    {
+        CreateLocalCube("Bulwark Riveted Boiler Body", parent, new Vector3(0f, 0.1f, 0f), new Vector3(1.05f, 1.22f, 0.74f), bodyMaterial);
+        CreateLocalCube("Bulwark Furnace Belly", parent, new Vector3(0f, -0.08f, 0.43f), new Vector3(0.74f, 0.48f, 0.08f), eyeMaterial);
+        CreateLocalCube("Bulwark Brass Chest Clamp", parent, new Vector3(0f, 0.42f, 0.45f), new Vector3(0.86f, 0.2f, 0.08f), brassMaterial);
+        CreateLocalCube("Bulwark Armored Brow", parent, new Vector3(0f, 0.82f, 0.44f), new Vector3(0.68f, 0.18f, 0.09f), ironMaterial);
+        CreateLocalPrimitive("Bulwark Back Pressure Tank", PrimitiveType.Cylinder, parent, new Vector3(0f, 0.12f, -0.48f), new Vector3(0.36f, 0.78f, 0.36f), ironMaterial).transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube("Bulwark Left Shoulder Plate", parent, new Vector3(-0.78f, 0.34f, 0.02f), new Vector3(0.34f, 0.28f, 0.34f), brassMaterial);
+        CreateLocalCube("Bulwark Right Shoulder Plate", parent, new Vector3(0.78f, 0.34f, 0.02f), new Vector3(0.34f, 0.28f, 0.34f), brassMaterial);
+        CreateLocalCube("Bulwark Left Hammer Arm", parent, new Vector3(-0.96f, -0.22f, 0.18f), new Vector3(0.2f, 0.88f, 0.2f), ironMaterial).transform.localRotation = Quaternion.Euler(0f, 0f, -8f);
+        CreateLocalCube("Bulwark Right Hammer Arm", parent, new Vector3(0.96f, -0.22f, 0.18f), new Vector3(0.2f, 0.88f, 0.2f), ironMaterial).transform.localRotation = Quaternion.Euler(0f, 0f, 8f);
+        CreateLocalCube("Bulwark Left Hammer Head", parent, new Vector3(-1.06f, -0.82f, 0.34f), new Vector3(0.42f, 0.26f, 0.34f), warningMaterial);
+        CreateLocalCube("Bulwark Right Hammer Head", parent, new Vector3(1.06f, -0.82f, 0.34f), new Vector3(0.42f, 0.26f, 0.34f), warningMaterial);
+        CreateLocalCube("Bulwark Left Piston Leg", parent, new Vector3(-0.36f, -0.78f, 0f), new Vector3(0.26f, 0.7f, 0.26f), ironMaterial);
+        CreateLocalCube("Bulwark Right Piston Leg", parent, new Vector3(0.36f, -0.78f, 0f), new Vector3(0.26f, 0.7f, 0.26f), ironMaterial);
+        CreateLocalCube("Bulwark Left Heavy Foot", parent, new Vector3(-0.36f, -1.2f, 0.18f), new Vector3(0.5f, 0.16f, 0.48f), brassMaterial);
+        CreateLocalCube("Bulwark Right Heavy Foot", parent, new Vector3(0.36f, -1.2f, 0.18f), new Vector3(0.5f, 0.16f, 0.48f), brassMaterial);
     }
 
     private static Transform CreateLancerVisual(Transform parent, Material bodyMaterial, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial)

@@ -718,6 +718,22 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.48 Bulwark Heavy Enemy Pass
+
+- [x] Add `BulwarkEnemyController`.
+- [x] Add Bulwark balance values and `BulwarkDefinition.asset`.
+- [x] Add primitive Bulwark silhouette with boiler body, furnace belly, pressure tank, piston legs, and hammer arms.
+- [x] Place the first Bulwark in `Level04`.
+- [x] Add validation for Bulwark definition, balance, and visuals.
+- [x] Add packaged Bulwark combat smoke.
+- [x] Add Bulwark combat smoke to the one-command build matrix.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.48`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

@@ -73,6 +73,7 @@ public static class V0LevelValidator
         Require<PauseMenuController>(sceneName + " PauseMenuController");
         Require<RuntimeInteractionTest>(sceneName + " RuntimeInteractionTest");
         Require<RuntimeCombatScenarioTest>(sceneName + " RuntimeCombatScenarioTest");
+        Require<RuntimeBulwarkCombatTest>(sceneName + " RuntimeBulwarkCombatTest");
         Require<RuntimeHazardTest>(sceneName + " RuntimeHazardTest");
         Require<RuntimeSecretTest>(sceneName + " RuntimeSecretTest");
         Require<EnemyController>(sceneName + " EnemyController");
@@ -144,6 +145,11 @@ public static class V0LevelValidator
             {
                 throw new InvalidOperationException("Level validation failed: " + sceneName + " RangedEnemyController is missing muzzle.");
             }
+        }
+
+        if (sceneName == "Level04")
+        {
+            Require<BulwarkEnemyController>(sceneName + " BulwarkEnemyController");
         }
     }
 
@@ -243,6 +249,32 @@ public static class V0LevelValidator
             RequireEqual(enemy.definition.maxHealth, GameBalance.LancerHealth, sceneName + " Lancer definition health");
             RequireApprox(enemy.definition.fireCooldown, GameBalance.LancerFireCooldown, sceneName + " Lancer definition cooldown");
             RequireEqual(enemy.definition.projectileDamage, GameBalance.LancerProjectileDamage, sceneName + " Lancer definition projectile damage");
+        }
+
+        BulwarkEnemyController[] bulwarks = UnityEngine.Object.FindObjectsByType<BulwarkEnemyController>(FindObjectsSortMode.None);
+        foreach (BulwarkEnemyController enemy in bulwarks)
+        {
+            if (enemy.GetComponent<CharacterController>() == null)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " Bulwark missing CharacterController.");
+            }
+
+            RequireEqual(enemy.maxHealth, GameBalance.BulwarkHealth, sceneName + " Bulwark health balance");
+            RequireApprox(enemy.detectionRange, GameBalance.BulwarkDetectionRange, sceneName + " Bulwark detection balance");
+            RequireApprox(enemy.moveSpeed, GameBalance.BulwarkMoveSpeed, sceneName + " Bulwark speed balance");
+            RequireApprox(enemy.attackRange, GameBalance.BulwarkAttackRange, sceneName + " Bulwark attack range balance");
+            RequireEqual(enemy.attackDamage, GameBalance.BulwarkAttackDamage, sceneName + " Bulwark damage balance");
+            RequireApprox(enemy.attackCooldown, GameBalance.BulwarkAttackCooldown, sceneName + " Bulwark cooldown balance");
+            RequireApprox(enemy.attackWindup, GameBalance.BulwarkAttackWindup, sceneName + " Bulwark windup balance");
+            if (enemy.definition == null)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " Bulwark is missing an EnemyDefinition.");
+            }
+
+            RequireEqual((int)enemy.definition.attackStyle, (int)EnemyAttackStyle.Heavy, sceneName + " Bulwark definition style");
+            RequireEqual(enemy.definition.maxHealth, GameBalance.BulwarkHealth, sceneName + " Bulwark definition health");
+            RequireApprox(enemy.definition.moveSpeed, GameBalance.BulwarkMoveSpeed, sceneName + " Bulwark definition speed");
+            RequireEqual(enemy.definition.attackDamage, GameBalance.BulwarkAttackDamage, sceneName + " Bulwark definition damage");
         }
     }
 
@@ -435,6 +467,10 @@ public static class V0LevelValidator
             RequireNamed("Foundry Furnace Heat Hazard - Pour Lane", sceneName + " foundry furnace heat hazard");
             RequireNamed("Foundry Furnace Heat Hazard - Hoist Lane", sceneName + " foundry furnace heat hazard");
             RequireNamed("Foundry Furnace Heat Hazard - Pour Lane Furnace Glow Plate", sceneName + " foundry heat glow signal");
+            RequireNamed("Enemy - Foundry Hammer Bulwark", sceneName + " foundry Bulwark enemy");
+            RequireNamed("Bulwark Riveted Boiler Body", sceneName + " Bulwark body visual");
+            RequireNamed("Bulwark Furnace Belly", sceneName + " Bulwark furnace belly visual");
+            RequireNamed("Bulwark Right Hammer Head", sceneName + " Bulwark hammer visual");
             RequireNamed("Foundry Emergency Hoist", sceneName + " emergency hoist visual");
         }
 

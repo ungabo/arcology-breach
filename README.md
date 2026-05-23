@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.47` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.48` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -8,7 +8,7 @@ Public repository:
 
 Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged enemies, steam hazards, pulsing furnace-heat hazards, a secret cache, a gear key, a pressure gate, service-lift transitions, a Boilerheart pressure valve that unlocks the foundry lift, and a Furnace Foundry finale with an emergency hoist.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged/heavy enemies, steam hazards, pulsing furnace-heat hazards, a secret cache, a gear key, a pressure gate, service-lift transitions, a Boilerheart pressure valve that unlocks the foundry lift, and a Furnace Foundry finale with an emergency hoist.
 
 Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
 
@@ -61,7 +61,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.47\BrassworksBreach_v0.0.47.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.48\BrassworksBreach_v0.0.48.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -79,6 +79,7 @@ The project test matrix includes:
 - Packaged combat-edge smoke test.
 - Packaged combat-scenario smoke test.
 - Packaged ranged-combat smoke test.
+- Packaged Bulwark-combat smoke test.
 - Packaged interaction smoke test.
 - Packaged hazard smoke test.
 - Packaged secret smoke test.
@@ -95,6 +96,7 @@ Smoke pass markers:
 - `V0_COMBAT_EDGE_PASS`
 - `V0_COMBAT_SCENARIO_PASS`
 - `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
 - `V0_INTERACTION_SMOKE_PASS`
 - `V0_HAZARD_PASS`
 - `V0_SECRET_PASS`
@@ -247,6 +249,13 @@ Individual Unity entry points remain available:
 - Reusable pulsing `FurnaceHeatHazard`.
 - Two Furnace Foundry heat-surge lanes with warning/active/safe phase visuals.
 - Hazard smoke now verifies both Boilerheart steam damage and foundry furnace-heat damage.
+
+## What v0.0.48 Adds
+
+- First heavy `Bulwark` enemy role in the Furnace Foundry.
+- Data-driven `BulwarkDefinition.asset`.
+- Primitive Bulwark silhouette with riveted boiler body, furnace belly, pressure tank, piston legs, and hammer arms.
+- New packaged Bulwark combat smoke in the full build matrix.
 
 ## Good Next Steps
 

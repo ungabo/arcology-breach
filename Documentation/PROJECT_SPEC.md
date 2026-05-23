@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.47`.
+Current state: `v0.0.48`.
 
 Implemented:
 
@@ -55,6 +55,7 @@ Implemented:
 - Auto-playthrough coverage for secret total persistence through the final win state.
 - Level04 Furnace Foundry foundation with foundry blockout, mixed Scrapper/Lancer pressure, steam hazards, pickups, furnace-row dressing, and current emergency-hoist win state.
 - Pulsing Furnace Foundry heat-surge hazards with warning/active/safe phase visuals and packaged hazard smoke coverage.
+- First Bulwark heavy enemy role with data-driven definition, primitive visual silhouette, Level04 placement, validation, and packaged combat smoke coverage.
 
 ## 3. Target Platform
 

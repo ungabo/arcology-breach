@@ -88,7 +88,7 @@ Every major asset should eventually have three quality targets:
 | ENEMY-002 | Scrapper final | P1 | planned | Maintenance frame with cutter arms, brass plating, pistons, and furnace eyes. |
 | ENEMY-003 | Boiler Tick | P1 | planned | Squat scout with clockwork legs and pressure tank body. |
 | ENEMY-004 | Lancer | P1 | verified | Thin ranged valve-rifle automaton with primitive tripod silhouette, pressure-bolt attack, and data-driven definition asset. |
-| ENEMY-005 | Bulwark | P2 | planned | Heavy furnace-plated machine with weak rear components. |
+| ENEMY-005 | Bulwark | P2 | prototype | Primitive furnace-plated machine with boiler body, hammer arms, data-driven definition, Level04 placement, and combat smoke coverage. |
 | ENEMY-006 | Bellows Node | P2 | planned | Stationary pressure amplifier that buffs nearby machines. |
 | ENEMY-007 | Governor Warden | P3 | deferred | Later boss or mini-boss encounter. |
 
@@ -157,7 +157,7 @@ Every major asset should eventually have three quality targets:
 | LVL-003 | Brassworks Intake art pass | P1 | prototype | First procedural dressing pass: oil-stone patches, pipe runs, boiler stacks, hazard strips. |
 | LVL-004 | Pipeworks Annex prototype | P2 | prototype | Generated second level with pipeworks blockout, Scrapper/Lancer pressure, pickups, dressing, and service-lift transition. |
 | LVL-005 | Gauge Hall concept | P2 | planned | Valve/gauge lock sequence level concept. |
-| LVL-006 | Furnace Foundry prototype | P2 | prototype | Generated fourth level with foundry blockout, mixed enemy pressure, steam hazards, pulsing furnace heat lanes, furnace-row dressing, and emergency-hoist win. |
+| LVL-006 | Furnace Foundry prototype | P2 | prototype | Generated fourth level with foundry blockout, mixed Scrapper/Lancer/Bulwark pressure, steam hazards, pulsing furnace heat lanes, furnace-row dressing, and emergency-hoist win. |
 
 ## 11. Platform Variants
 

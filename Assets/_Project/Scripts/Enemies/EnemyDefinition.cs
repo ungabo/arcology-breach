@@ -3,7 +3,8 @@ using UnityEngine;
 public enum EnemyAttackStyle
 {
     Melee,
-    Ranged
+    Ranged,
+    Heavy
 }
 
 [CreateAssetMenu(menuName = "Brassworks/Enemy Definition")]

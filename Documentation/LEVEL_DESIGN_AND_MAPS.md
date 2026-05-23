@@ -219,9 +219,9 @@ Approximate footprint:
 
 New mechanics:
 
-- Current prototype: foundry steam hazards, pulsing furnace heat-surge lanes, mixed melee/ranged pressure, and emergency-hoist win state.
+- Current prototype: foundry steam hazards, pulsing furnace heat-surge lanes, mixed melee/ranged/heavy pressure, and emergency-hoist win state.
 - Planned: crusher or furnace hazard lanes.
-- Planned: first `Bulwark` heavy enemy.
+- Current prototype: first `Bulwark` heavy enemy.
 - Optional weapon route.
 
 Current top-down sketch:
@@ -259,6 +259,13 @@ v0.0.47 implementation notes:
 - Added `Foundry Furnace Heat Hazard - Pour Lane` and `Foundry Furnace Heat Hazard - Hoist Lane`.
 - Furnace heat hazards cycle through warning, active glow, and safe damper visuals.
 - Hazard smoke now validates both Boilerheart steam damage and Foundry furnace-heat damage.
+
+v0.0.48 implementation notes:
+
+- Added the first `Bulwark` heavy enemy role.
+- Placed `Enemy - Foundry Hammer Bulwark` near the emergency-hoist lane.
+- Added a primitive Bulwark silhouette with boiler body, furnace belly, pressure tank, piston legs, and hammer arms.
+- Added packaged Bulwark combat smoke to verify heavy durability and death.
 
 ### Level 05: Governor Core
 
