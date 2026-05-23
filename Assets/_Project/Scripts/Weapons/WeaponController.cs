@@ -232,6 +232,11 @@ public class WeaponController : MonoBehaviour
         weaponView?.PlayFire();
 
         Ray baseRay = aimCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        if (usingSteamScattergun)
+        {
+            ScattergunBlastVfx.Spawn(baseRay.origin + baseRay.direction * 0.85f, baseRay.direction);
+        }
+
         int resolvedPelletCount = Mathf.Max(1, pelletCount);
         for (int pelletIndex = 0; pelletIndex < resolvedPelletCount; pelletIndex++)
         {

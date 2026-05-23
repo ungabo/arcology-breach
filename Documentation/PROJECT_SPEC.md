@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.75`.
+Current state: `v0.0.76`.
 
 Implemented:
 
@@ -83,6 +83,7 @@ Implemented:
 - Pressure Pistol right-mouse `Pressure Burst` alternate fire, with ammo-cost/cooldown/spread values, level validation, and combat-scenario smoke coverage.
 - Steam Scattergun prototype with data-driven definition, Boilerheart pickup, persisted unlock state, `1`/`2` weapon switching, pellet fire, and packaged weapon-switch smoke coverage.
 - Distinct first-person Steam Scattergun viewmodel with runtime weapon-view swapping and smoke coverage.
+- Dedicated Steam Scattergun blast VFX with pressure ring, steam core, brass sparks, and smoke coverage.
 
 ## 3. Target Platform
 
@@ -159,6 +160,7 @@ Current:
 - Unlockable `Steam Scattergun` prototype.
 - `1`/`2` weapon switching after the scattergun is acquired.
 - Separate first-person viewmodels for the Pressure Pistol and Steam Scattergun.
+- Dedicated Steam Scattergun blast VFX for close-range weapon readability.
 
 Future:
 

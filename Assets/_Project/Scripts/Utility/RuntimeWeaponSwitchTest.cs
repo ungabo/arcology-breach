@@ -60,6 +60,13 @@ public class RuntimeWeaponSwitchTest : MonoBehaviour
         }
 
         RequireEqual(inventory.Ammo, startingAmmo - weapon.ammoCost, "ammo after Steam Scattergun shot");
+        ScattergunBlastVfx blastVfx = UnityEngine.Object.FindAnyObjectByType<ScattergunBlastVfx>();
+        if (blastVfx == null || blastVfx.PieceCount < 10)
+        {
+            Fail("Weapon switch smoke failed: Steam Scattergun blast VFX did not spawn with enough visible pieces.");
+            yield break;
+        }
+
         yield return WaitUntilOrFail(() => target == null, "Scrapper death from Steam Scattergun", 2f);
         if (failed)
         {

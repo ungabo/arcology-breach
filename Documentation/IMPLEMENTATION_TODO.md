@@ -1120,6 +1120,18 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.76 Steam Scattergun Blast VFX Pass
+
+- [x] Add reusable `ScattergunBlastVfx`.
+- [x] Spawn Steam Scattergun pressure-ring, steam-core, and brass-spark blast feedback when firing.
+- [x] Expand weapon-switch smoke to verify the scattergun blast VFX spawns with visible pieces.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.76`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

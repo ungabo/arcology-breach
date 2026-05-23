@@ -65,6 +65,7 @@ Near-term:
 - The Pressure Pistol now includes a short-range right-mouse Pressure Burst alternate fire, giving close encounters a distinct ammo-cost tradeoff while keeping the core weapon VR-compatible.
 - Level03 now includes a Steam Scattergun pickup prototype, and the unlock persists through later service-lift transitions.
 - The Steam Scattergun now swaps to a distinct first-person viewmodel when equipped, preserving readable weapon identity for later VR hand mapping.
+- Steam Scattergun fire now has a dedicated pressure-ring, steam-core, and brass-spark blast VFX so close-range weapon readability is not dependent on shared pistol feedback.
 - Player damage now triggers first-person pressure/heat/brass hurt VFX, verified by combat-edge smoke.
 - Each current gameplay level now includes an interactable archive plaque for short environmental lore, verified by level validation and interaction smoke.
 - Each current gameplay level now has a procedural brassworks ambience loop through `SteamworksAudio`, verified by runtime smoke.
