@@ -817,6 +817,7 @@ public static class V0SceneBuilder
         CreateEnemy("Enemy - Foundry Hoist Scrapper", new Vector3(-2.4f, 1f, 23.4f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateHealthVialPickup("Pickup - Foundry Health Vial", new Vector3(-4.35f, 0.65f, 13.2f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
         CreatePressureCartridgePickup("Pickup - Foundry Pressure Cartridge Pack", new Vector3(4.25f, 0.55f, 18.4f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
+        CreateFoundrySecretCache(brassMaterial, ironMaterial, warningMaterial, healthMaterial, glassMaterial, fluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
         CreateFurnaceFoundryDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreateExitAt("Foundry Emergency Hoist", new Vector3(0f, 1.1f, 28.3f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial);
         CreatePointLight("Foundry Furnace Light West", new Vector3(-4.65f, 2.1f, 14.8f), new Color(1f, 0.32f, 0.08f), 3.2f, 8f);
@@ -1690,6 +1691,30 @@ public static class V0SceneBuilder
         CreateHealthVialPickup("Pickup - Secret Health Vial", new Vector3(-5.15f, 0.65f, 17.95f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
         CreatePressureCartridgePickup("Pickup - Secret Pressure Cartridge Pack", new Vector3(-5.15f, 0.55f, 19.25f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
         CreateWorldLabel("Label - Secret Cache", "CACHE", new Vector3(-5.25f, 1.85f, 18.6f), new Color(1f, 0.72f, 0.28f), 0.18f);
+    }
+
+    private static void CreateFoundrySecretCache(Material brassMaterial, Material ironMaterial, Material warningMaterial, Material healthMaterial, Material glassMaterial, Material fluidMaterial, Material ammoMaterial, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition)
+    {
+        GameObject secretRoot = new GameObject("Secret - Foundry Coal Cache");
+        secretRoot.transform.position = new Vector3(-5.2f, 0.78f, 24.7f);
+
+        BoxCollider trigger = secretRoot.AddComponent<BoxCollider>();
+        trigger.size = new Vector3(1.8f, 1.55f, 1.8f);
+        trigger.isTrigger = true;
+
+        SecretArea secret = secretRoot.AddComponent<SecretArea>();
+        secret.secretId = "foundry-coal-cache";
+        secret.discoveryMessage = "SECRET FOUNDRY CACHE FOUND";
+
+        CreateLocalCube("Secret Foundry Cache Brass Floor Plate", secretRoot.transform, new Vector3(0f, -0.77f, 0f), new Vector3(1.55f, 0.05f, 1.55f), brassMaterial);
+        CreateLocalCube("Secret Foundry Cache Iron Coal Bin", secretRoot.transform, new Vector3(-0.46f, -0.04f, 0f), new Vector3(0.16f, 0.88f, 1.34f), ironMaterial);
+        CreateLocalCube("Secret Foundry Cache Warning Strip", secretRoot.transform, new Vector3(0f, -0.69f, -0.58f), new Vector3(1.45f, 0.06f, 0.12f), warningMaterial);
+        CreateLocalPrimitive("Secret Foundry Cache Coal Lump A", PrimitiveType.Sphere, secretRoot.transform, new Vector3(0.22f, -0.47f, -0.08f), new Vector3(0.2f, 0.13f, 0.18f), ironMaterial);
+        CreateLocalPrimitive("Secret Foundry Cache Coal Lump B", PrimitiveType.Sphere, secretRoot.transform, new Vector3(0.46f, -0.48f, 0.18f), new Vector3(0.17f, 0.12f, 0.16f), ironMaterial);
+
+        CreateHealthVialPickup("Pickup - Foundry Secret Health Vial", new Vector3(-5.05f, 0.65f, 24.05f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
+        CreatePressureCartridgePickup("Pickup - Foundry Secret Pressure Cartridge Pack", new Vector3(-5.05f, 0.55f, 25.35f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
+        CreateWorldLabel("Label - Foundry Secret Cache", "COAL CACHE", new Vector3(-5.2f, 1.85f, 24.7f), new Color(1f, 0.72f, 0.28f), 0.16f);
     }
 
     private static void CreateSteamworksDressing(Material rivetedIronMaterial, Material oilStoneMaterial, Material brassMaterial, Material warningMaterial, Material amberMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial)

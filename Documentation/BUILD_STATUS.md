@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.48` versioned build for `Brassworks Breach`.
+`v0.0.49` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds the first heavy Bulwark enemy role in the Furnace Foundry and verifies it through packaged Bulwark combat smoke, on top of pulsing Furnace Foundry heat-surge hazards, the Level04 Furnace Foundry foundation, four-level campaign auto-playthrough, secret-stat win persistence, persistent run secret stats, win-screen secret progress, the first secret pressure cache, packaged secret smoke coverage, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, packaged hazard smoke coverage, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build adds a second secret cache in Level04 and verifies multi-level secret totals at the final win state, on top of the first heavy Bulwark enemy role in the Furnace Foundry, pulsing Furnace Foundry heat-surge hazards, the Level04 Furnace Foundry foundation, four-level campaign auto-playthrough, secret-stat win persistence, persistent run secret stats, win-screen secret progress, packaged secret smoke coverage, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, packaged hazard smoke coverage, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -62,12 +62,13 @@
 - Reusable `FurnaceHeatHazard` with warning, active, and safe phases.
 - Two Foundry furnace heat-surge lanes and packaged hazard smoke coverage for both steam and furnace heat damage.
 - First `BulwarkEnemyController`, `BulwarkDefinition.asset`, primitive heavy enemy visual, Level04 placement, validation, and packaged Bulwark combat smoke coverage.
+- Second secret cache: `Secret - Foundry Coal Cache`, with reward pickups, coal-bin visuals, Level04 validation, and auto-playthrough proof that at least two secret totals persist to win.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.48`.
+Latest fully verified build: `v0.0.49`.
 
-Current `v0.0.48` verification:
+Current `v0.0.49` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -107,7 +108,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.48\BrassworksBreach_v0.0.48.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.49\BrassworksBreach_v0.0.49.exe`
 
 ## Latest Build Verification
 
@@ -551,8 +552,24 @@ Current target:
 - `2026-05-23 15:51 -04:00`: `v0.0.48` packaged hazard smoke passed.
 - `2026-05-23 15:51 -04:00`: `v0.0.48` packaged secret smoke passed.
 - `2026-05-23 15:51 -04:00`: `v0.0.48` packaged pause-flow smoke passed.
+- `2026-05-23 15:57 -04:00`: `v0.0.49` one-command build matrix runner passed.
+- `2026-05-23 15:57 -04:00`: `v0.0.49` scene rebuild passed.
+- `2026-05-23 15:57 -04:00`: `v0.0.49` level validation passed.
+- `2026-05-23 15:57 -04:00`: `v0.0.49` editor smoke passed.
+- `2026-05-23 15:57 -04:00`: `v0.0.49` Windows build passed.
+- `2026-05-23 15:57 -04:00`: `v0.0.49` packaged runtime smoke passed.
+- `2026-05-23 15:57 -04:00`: `v0.0.49` packaged auto-playthrough passed.
+- `2026-05-23 15:57 -04:00`: `v0.0.49` packaged combat smoke passed.
+- `2026-05-23 15:57 -04:00`: `v0.0.49` packaged combat-edge smoke passed.
+- `2026-05-23 15:57 -04:00`: `v0.0.49` packaged combat-scenario smoke passed.
+- `2026-05-23 15:57 -04:00`: `v0.0.49` packaged ranged combat smoke passed.
+- `2026-05-23 15:57 -04:00`: `v0.0.49` packaged Bulwark combat smoke passed.
+- `2026-05-23 15:57 -04:00`: `v0.0.49` packaged interaction smoke passed.
+- `2026-05-23 15:57 -04:00`: `v0.0.49` packaged hazard smoke passed.
+- `2026-05-23 15:57 -04:00`: `v0.0.49` packaged secret smoke passed.
+- `2026-05-23 15:57 -04:00`: `v0.0.49` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.49`, `v0.0.50`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.50`, `v0.0.51`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.48` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.49` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -8,7 +8,7 @@ Public repository:
 
 Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged/heavy enemies, steam hazards, pulsing furnace-heat hazards, a secret cache, a gear key, a pressure gate, service-lift transitions, a Boilerheart pressure valve that unlocks the foundry lift, and a Furnace Foundry finale with an emergency hoist.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged/heavy enemies, steam hazards, pulsing furnace-heat hazards, multi-level secret caches, a gear key, a pressure gate, service-lift transitions, a Boilerheart pressure valve that unlocks the foundry lift, and a Furnace Foundry finale with an emergency hoist.
 
 Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
 
@@ -61,7 +61,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.48\BrassworksBreach_v0.0.48.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.49\BrassworksBreach_v0.0.49.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -256,6 +256,12 @@ Individual Unity entry points remain available:
 - Data-driven `BulwarkDefinition.asset`.
 - Primitive Bulwark silhouette with riveted boiler body, furnace belly, pressure tank, piston legs, and hammer arms.
 - New packaged Bulwark combat smoke in the full build matrix.
+
+## What v0.0.49 Adds
+
+- Second secret cache in Level04, the `Secret - Foundry Coal Cache`.
+- Foundry secret reward pickups and coal-bin visuals.
+- Auto-playthrough now verifies multi-level secret totals persist to the final win state.
 
 ## Good Next Steps
 

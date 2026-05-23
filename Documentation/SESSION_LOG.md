@@ -1285,3 +1285,40 @@ Build executable:
 `Builds/Windows/v0.0.48/BrassworksBreach_v0.0.48.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 15:57 -04:00
+
+Completed `v0.0.49` Foundry secret cache pass.
+
+Added:
+
+- `Secret - Foundry Coal Cache` in `Level04`.
+- Foundry secret reward pickups.
+- Coal-bin, floor-plate, warning-strip, coal-lump, and label visuals.
+- Level validation for the Level04 secret and foundry cache visuals.
+- Auto-playthrough proof that at least two registered secrets persist to the final win state.
+- Versioned Windows build `v0.0.49`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.49/BrassworksBreach_v0.0.49.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

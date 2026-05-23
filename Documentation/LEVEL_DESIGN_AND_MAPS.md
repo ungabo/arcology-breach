@@ -53,8 +53,9 @@ Near-term:
 - Each current level now has a scene-specific objective briefing at spawn.
 - Venting the Boilerheart pressure valve shuts down the linked Level03 steam hazards.
 - Level01 includes the first secret pressure cache reward space.
+- Level04 includes a second foundry coal-cache secret reward space.
 - Run secret stats persist across the current multi-level route and can display at win.
-- Auto-playthrough validates the run secret total survives to final win.
+- Auto-playthrough validates that multi-level secret totals survive to final win.
 - Health and ammo persist across scene transitions.
 - Future weapon inventory and campaign flags still need expanded persistence.
 
@@ -266,6 +267,13 @@ v0.0.48 implementation notes:
 - Placed `Enemy - Foundry Hammer Bulwark` near the emergency-hoist lane.
 - Added a primitive Bulwark silhouette with boiler body, furnace belly, pressure tank, piston legs, and hammer arms.
 - Added packaged Bulwark combat smoke to verify heavy durability and death.
+
+v0.0.49 implementation notes:
+
+- Added `Secret - Foundry Coal Cache`.
+- Added foundry secret health/ammo rewards and coal-bin visual props.
+- Level validation now requires a Level04 secret and foundry cache visuals.
+- Auto-playthrough requires at least two registered secrets at the final win state.
 
 ### Level 05: Governor Core
 

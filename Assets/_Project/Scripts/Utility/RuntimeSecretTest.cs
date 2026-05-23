@@ -54,6 +54,12 @@ public class RuntimeSecretTest : MonoBehaviour
         {
             enemy.gameObject.SetActive(false);
         }
+
+        BulwarkEnemyController[] bulwarks = UnityEngine.Object.FindObjectsByType<BulwarkEnemyController>();
+        foreach (BulwarkEnemyController enemy in bulwarks)
+        {
+            enemy.gameObject.SetActive(false);
+        }
     }
 
     private static void Teleport(PlayerController player, Vector3 position)

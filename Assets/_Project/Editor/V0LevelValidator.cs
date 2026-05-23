@@ -317,7 +317,7 @@ public static class V0LevelValidator
     private static void ValidateSecrets(string sceneName)
     {
         SecretArea[] secrets = UnityEngine.Object.FindObjectsByType<SecretArea>(FindObjectsSortMode.None);
-        if (sceneName == "Level01" && secrets.Length == 0)
+        if ((sceneName == "Level01" || sceneName == "Level04") && secrets.Length == 0)
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " is missing SecretArea.");
         }
@@ -471,6 +471,9 @@ public static class V0LevelValidator
             RequireNamed("Bulwark Riveted Boiler Body", sceneName + " Bulwark body visual");
             RequireNamed("Bulwark Furnace Belly", sceneName + " Bulwark furnace belly visual");
             RequireNamed("Bulwark Right Hammer Head", sceneName + " Bulwark hammer visual");
+            RequireNamed("Secret - Foundry Coal Cache", sceneName + " foundry secret cache");
+            RequireNamed("Secret Foundry Cache Brass Floor Plate", sceneName + " foundry secret cache floor plate");
+            RequireNamed("Secret Foundry Cache Coal Lump A", sceneName + " foundry secret coal prop");
             RequireNamed("Foundry Emergency Hoist", sceneName + " emergency hoist visual");
         }
 

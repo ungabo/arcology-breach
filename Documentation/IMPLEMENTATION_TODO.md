@@ -734,6 +734,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.49 Foundry Secret Cache Pass
+
+- [x] Add Level04 `Secret - Foundry Coal Cache`.
+- [x] Add foundry secret reward pickups.
+- [x] Add coal-bin/floor-plate/cache visual props.
+- [x] Expand level validation to require Level04 secrets and foundry cache visuals.
+- [x] Expand auto-playthrough to verify multi-level secret totals at win.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.49`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
