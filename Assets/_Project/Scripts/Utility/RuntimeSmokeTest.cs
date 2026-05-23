@@ -35,7 +35,7 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<LockedDoor>("LockedDoor");
         Require<LevelTransitionTrigger>("LevelTransitionTrigger");
 
-        if (!RuntimePerformanceProfile.Applied || Application.targetFrameRate != RuntimePerformanceProfile.WindowsTargetFrameRate)
+        if (!RuntimePerformanceProfile.Applied || RuntimePerformanceProfile.AppliedProfile == null || RuntimePerformanceProfile.AppliedTarget != PlatformQualityTarget.WindowsMidLow || Application.targetFrameRate != RuntimePerformanceProfile.WindowsTargetFrameRate)
         {
             Debug.LogError("Runtime smoke test failed: performance profile was not applied.");
             Application.Quit(1);

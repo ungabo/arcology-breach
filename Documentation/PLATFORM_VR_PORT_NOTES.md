@@ -144,3 +144,8 @@ Build the full Windows game first, but keep gameplay systems modular enough for 
 - input separated from gameplay intent
 - interactions reusable across mouse, touch, controller, and VR hands
 - UI data separate from UI display
+
+Current future VR quality profile assets:
+
+- `Assets/_Project/Data/PcVrQualityProfile.asset`
+- `Assets/_Project/Data/MetaQuestQualityProfile.asset`

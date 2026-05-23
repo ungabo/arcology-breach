@@ -77,10 +77,14 @@ Likely changes:
 
 Windows remains primary until the full Windows game is built. WebGL planning should influence asset budgets and shader choices, but browser-specific implementation is deferred.
 
+Current future WebGL quality profile asset:
+
+`Assets/_Project/Data/WebGLBrowserQualityProfile.asset`
+
 ## Future Checklist
 
 - [ ] Install/configure WebGL build support.
-- [ ] Create WebGL quality profile.
+- [x] Create WebGL quality profile.
 - [ ] Test pointer lock and input.
 - [ ] Create reduced asset bundles or curated demo content.
 - [ ] Build first WebGL smoke.

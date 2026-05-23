@@ -86,10 +86,14 @@ Likely changes:
 
 Windows remains primary until the full Windows game is built. Android planning should influence asset scalability, but Android-specific implementation is deferred.
 
+Current future Android quality profile asset:
+
+`Assets/_Project/Data/AndroidPhoneQualityProfile.asset`
+
 ## Future Checklist
 
 - [ ] Install/configure Android build support.
-- [ ] Create Android quality profile.
+- [x] Create Android quality profile.
 - [ ] Add touch input layer.
 - [ ] Add mobile HUD layout.
 - [ ] Create reduced asset import presets.

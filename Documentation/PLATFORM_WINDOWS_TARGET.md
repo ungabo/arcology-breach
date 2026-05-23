@@ -92,6 +92,10 @@ Current Windows runtime profile:
 
 This is enforced by `RuntimePerformanceProfile` on the main menu and gameplay scenes and verified by packaged runtime smoke.
 
+Active quality profile asset:
+
+`Assets/_Project/Data/WindowsMidLowQualityProfile.asset`
+
 ## Verification
 
 Required for every major change:

@@ -62,6 +62,7 @@ public static class V0SceneBuilder
         PickupDefinition healthPickupDefinition = CreateHealthPickupDefinition();
         PickupDefinition ammoPickupDefinition = CreateAmmoPickupDefinition();
         PickupDefinition gearKeyDefinition = CreateGearKeyDefinition();
+        PlatformQualityProfile windowsQualityProfile = CreatePlatformQualityProfiles();
 
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -70,7 +71,7 @@ public static class V0SceneBuilder
         CreateLighting();
         CreateGreyboxLevel(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
-        CreateGameState(hud);
+        CreateGameState(hud, windowsQualityProfile);
         CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, rivetedIronMaterial, pressureWarningMaterial, pressurePistolDefinition);
         CreateEnemy("Enemy - First Room", new Vector3(0f, 1f, 16.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
         CreateEnemy("Enemy - Key Room", new Vector3(14.5f, 1f, 17f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
@@ -86,8 +87,8 @@ public static class V0SceneBuilder
         CreateSteamworksDressing(rivetedIronMaterial, oilStoneMaterial, brassGuideMaterial, pressureWarningMaterial, brassHazardMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
-        CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, healthPickupDefinition, ammoPickupDefinition);
-        CreateMainMenuScene(brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, furnaceGlowMaterial, oilStoneMaterial);
+        CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, scrapperDefinition, lancerDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
+        CreateMainMenuScene(brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, furnaceGlowMaterial, oilStoneMaterial, windowsQualityProfile);
         EditorBuildSettings.scenes = new[]
         {
             new EditorBuildSettingsScene(MainMenuScenePath, true),
@@ -376,6 +377,110 @@ public static class V0SceneBuilder
         return definition;
     }
 
+    private static PlatformQualityProfile CreatePlatformQualityProfiles()
+    {
+        PlatformQualityProfile windows = CreatePlatformQualityProfile(
+            "WindowsMidLowQualityProfile",
+            PlatformQualityTarget.WindowsMidLow,
+            RuntimePerformanceProfile.WindowsTargetFrameRate,
+            RuntimePerformanceProfile.WindowsVSyncCount,
+            RuntimePerformanceProfile.WindowsPixelLightCount,
+            RuntimePerformanceProfile.WindowsAntiAliasing,
+            RuntimePerformanceProfile.WindowsShadowDistance,
+            RuntimePerformanceProfile.WindowsLodBias,
+            1024,
+            3,
+            650,
+            "Primary Windows target for mid-to-low gaming PCs.");
+
+        CreatePlatformQualityProfile(
+            "AndroidPhoneQualityProfile",
+            PlatformQualityTarget.AndroidPhone,
+            30,
+            0,
+            1,
+            0,
+            16f,
+            0.65f,
+            512,
+            1,
+            250,
+            "Future Android phone profile: reduced textures, lights, shadows, and download size.");
+
+        CreatePlatformQualityProfile(
+            "WebGLBrowserQualityProfile",
+            PlatformQualityTarget.WebGLBrowser,
+            30,
+            0,
+            1,
+            0,
+            12f,
+            0.6f,
+            512,
+            1,
+            180,
+            "Future browser/WebGL profile: small download, low memory, simple materials.");
+
+        CreatePlatformQualityProfile(
+            "PcVrQualityProfile",
+            PlatformQualityTarget.PcVr,
+            90,
+            0,
+            2,
+            0,
+            24f,
+            0.8f,
+            1024,
+            2,
+            750,
+            "Future Steam/OpenXR PC VR profile: high frame rate with restrained realtime lighting.");
+
+        CreatePlatformQualityProfile(
+            "MetaQuestQualityProfile",
+            PlatformQualityTarget.MetaQuest,
+            72,
+            0,
+            1,
+            0,
+            12f,
+            0.55f,
+            512,
+            1,
+            300,
+            "Future Meta Quest standalone profile: Android-like budget with VR frame-rate pressure.");
+
+        return windows;
+    }
+
+    private static PlatformQualityProfile CreatePlatformQualityProfile(string assetName, PlatformQualityTarget target, int targetFrameRate, int vSyncCount, int pixelLightCount, int antiAliasing, float shadowDistance, float lodBias, int maxTextureSize, int maxDynamicLights, int targetBuildSizeMegabytes, string notes)
+    {
+        string path = $"{DataFolder}/{assetName}.asset";
+        PlatformQualityProfile profile = AssetDatabase.LoadAssetAtPath<PlatformQualityProfile>(path);
+        if (profile == null)
+        {
+            profile = ScriptableObject.CreateInstance<PlatformQualityProfile>();
+            AssetDatabase.CreateAsset(profile, path);
+        }
+
+        profile.target = target;
+        profile.targetFrameRate = targetFrameRate;
+        profile.vSyncCount = vSyncCount;
+        profile.pixelLightCount = pixelLightCount;
+        profile.antiAliasing = antiAliasing;
+        profile.shadowDistance = shadowDistance;
+        profile.lodBias = lodBias;
+        profile.realtimeReflectionProbes = false;
+        profile.softParticles = false;
+        profile.allowCameraMsaa = false;
+        profile.allowDynamicResolution = false;
+        profile.maxTextureSize = maxTextureSize;
+        profile.maxDynamicLights = maxDynamicLights;
+        profile.targetBuildSizeMegabytes = targetBuildSizeMegabytes;
+        profile.notes = notes;
+        EditorUtility.SetDirty(profile);
+        return profile;
+    }
+
     private static void ApplyProceduralTexture(Material material, string textureName, ProceduralTextureKind kind)
     {
         Texture2D texture = CreateProceduralTexture(textureName, kind);
@@ -580,7 +685,7 @@ public static class V0SceneBuilder
         CreateCube("Final Room Low Center Barrier", new Vector3(0f, 0.42f, 32.2f), new Vector3(2.1f, 0.84f, 0.58f), material, parent);
     }
 
-    private static void CreatePipeworksAnnexScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition)
+    private static void CreatePipeworksAnnexScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PlatformQualityProfile windowsQualityProfile)
     {
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -589,7 +694,7 @@ public static class V0SceneBuilder
         CreateLighting();
         CreatePipeworksAnnexBlockout(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
-        CreateGameState(hud);
+        CreateGameState(hud, windowsQualityProfile);
         CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition);
 
         CreateEnemy("Enemy - Pipeworks Gatehouse", new Vector3(-2.2f, 1f, 9.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
@@ -660,7 +765,7 @@ public static class V0SceneBuilder
         return cube;
     }
 
-    private static void CreateMainMenuScene(Material brassMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material glowMaterial, Material floorMaterial)
+    private static void CreateMainMenuScene(Material brassMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material glowMaterial, Material floorMaterial, PlatformQualityProfile qualityProfile)
     {
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -703,7 +808,8 @@ public static class V0SceneBuilder
         CreateLocalCube("Menu Gauge Needle", propRoot.transform, new Vector3(-2.24f, 1.65f, -0.16f), new Vector3(0.28f, 0.025f, 0.025f), glowMaterial);
 
         GameObject canvasObject = new GameObject("Main Menu Canvas");
-        canvasObject.AddComponent<RuntimePerformanceProfile>();
+        RuntimePerformanceProfile performanceProfile = canvasObject.AddComponent<RuntimePerformanceProfile>();
+        performanceProfile.activeProfile = qualityProfile;
         Canvas canvas = canvasObject.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvasObject.AddComponent<CanvasScaler>();
@@ -980,7 +1086,7 @@ public static class V0SceneBuilder
         return text;
     }
 
-    private static void CreateGameState(HUDController hud)
+    private static void CreateGameState(HUDController hud, PlatformQualityProfile qualityProfile)
     {
         GameObject stateObject = new GameObject("Game State");
         GameStateController state = stateObject.AddComponent<GameStateController>();
@@ -988,7 +1094,8 @@ public static class V0SceneBuilder
         state.pauseMenu = UnityEngine.Object.FindAnyObjectByType<PauseMenuController>();
         stateObject.AddComponent<LevelTransitionController>();
         stateObject.AddComponent<SteamworksAudio>();
-        stateObject.AddComponent<RuntimePerformanceProfile>();
+        RuntimePerformanceProfile performanceProfile = stateObject.AddComponent<RuntimePerformanceProfile>();
+        performanceProfile.activeProfile = qualityProfile;
         stateObject.AddComponent<RuntimeSmokeTest>();
         stateObject.AddComponent<RuntimeAutoPlaythroughTest>();
         stateObject.AddComponent<RuntimeCombatTest>();

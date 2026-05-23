@@ -22,7 +22,8 @@ public static class V0LevelValidator
 
         EditorSceneManager.OpenScene(MainMenuScenePath);
         Require<MainMenuController>("MainMenuController");
-        Require<RuntimePerformanceProfile>("MainMenu RuntimePerformanceProfile");
+        RuntimePerformanceProfile mainMenuPerformanceProfile = Require<RuntimePerformanceProfile>("MainMenu RuntimePerformanceProfile");
+        ValidatePlatformQualityProfile("MainMenu", mainMenuPerformanceProfile);
 
         EditorSceneManager.OpenScene(Level01ScenePath);
         ValidateGameplayScene("Level01", requirePressureGate: true, requireTransition: true, requireFinalExit: false, requireRangedEnemy: false);
@@ -52,7 +53,8 @@ public static class V0LevelValidator
         ValidateWeaponVisuals(sceneName);
         Require<GameStateController>(sceneName + " GameStateController");
         Require<LevelTransitionController>(sceneName + " LevelTransitionController");
-        Require<RuntimePerformanceProfile>(sceneName + " RuntimePerformanceProfile");
+        RuntimePerformanceProfile performanceProfile = Require<RuntimePerformanceProfile>(sceneName + " RuntimePerformanceProfile");
+        ValidatePlatformQualityProfile(sceneName, performanceProfile);
         HUDController hud = Require<HUDController>(sceneName + " HUDController");
         if (hud.interactionText == null)
         {
@@ -223,6 +225,27 @@ public static class V0LevelValidator
         RequireEqual(weaponController.definition.damage, GameBalance.PressurePistolDamage, sceneName + " weapon definition damage");
         RequireApprox(weaponController.definition.fireCooldown, GameBalance.PressurePistolCooldown, sceneName + " weapon definition cooldown");
         RequireApprox(weaponController.definition.range, weaponController.range, sceneName + " weapon definition range");
+    }
+
+    private static void ValidatePlatformQualityProfile(string sceneName, RuntimePerformanceProfile performanceProfile)
+    {
+        PlatformQualityProfile profile = performanceProfile.activeProfile;
+        if (profile == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " RuntimePerformanceProfile is missing an active PlatformQualityProfile.");
+        }
+
+        RequireEqual((int)profile.target, (int)PlatformQualityTarget.WindowsMidLow, sceneName + " platform quality target");
+        RequireEqual(profile.targetFrameRate, RuntimePerformanceProfile.WindowsTargetFrameRate, sceneName + " platform target frame rate");
+        RequireEqual(profile.vSyncCount, RuntimePerformanceProfile.WindowsVSyncCount, sceneName + " platform vSync");
+        RequireEqual(profile.pixelLightCount, RuntimePerformanceProfile.WindowsPixelLightCount, sceneName + " platform pixel light count");
+        RequireEqual(profile.antiAliasing, RuntimePerformanceProfile.WindowsAntiAliasing, sceneName + " platform anti-aliasing");
+        RequireApprox(profile.shadowDistance, RuntimePerformanceProfile.WindowsShadowDistance, sceneName + " platform shadow distance");
+        RequireApprox(profile.lodBias, RuntimePerformanceProfile.WindowsLodBias, sceneName + " platform LOD bias");
+        if (profile.allowCameraMsaa || profile.allowDynamicResolution)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " Windows profile must disable camera MSAA and dynamic resolution.");
+        }
     }
 
     private static T Require<T>(string label) where T : UnityEngine.Object

@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.35` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.36` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -57,7 +57,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.35\BrassworksBreach_v0.0.35.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.36\BrassworksBreach_v0.0.36.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -166,6 +166,12 @@ Individual Unity entry points remain available:
 - Scene-local level transition controller.
 - Service-lift and restart routing through the controller.
 - Runtime smoke and level validation coverage for transition routing.
+
+## What v0.0.36 Adds
+
+- Platform quality profile assets for Windows, Android, WebGL, PC VR, and Meta Quest.
+- Windows runtime profile now applies from a data asset.
+- Runtime smoke and validation coverage for the active Windows quality profile.
 
 ## Good Next Steps
 

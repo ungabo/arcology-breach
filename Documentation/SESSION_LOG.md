@@ -830,3 +830,38 @@ Build executable:
 `Builds/Windows/v0.0.35/BrassworksBreach_v0.0.35.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 13:22 -04:00
+
+Completed `v0.0.36` platform quality profile pass.
+
+Added:
+
+- `PlatformQualityProfile` ScriptableObject type.
+- Generated `Assets/_Project/Data/WindowsMidLowQualityProfile.asset`.
+- Generated `Assets/_Project/Data/AndroidPhoneQualityProfile.asset`.
+- Generated `Assets/_Project/Data/WebGLBrowserQualityProfile.asset`.
+- Generated `Assets/_Project/Data/PcVrQualityProfile.asset`.
+- Generated `Assets/_Project/Data/MetaQuestQualityProfile.asset`.
+- Windows quality profile assignment for main menu and gameplay runtime performance components.
+- Validation/runtime smoke requirements proving the Windows profile asset is applied.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.36/BrassworksBreach_v0.0.36.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

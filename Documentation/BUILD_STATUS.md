@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.35` versioned build for `Brassworks Breach`.
+`v0.0.36` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds a reusable level transition controller on top of data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build adds data-driven platform quality profiles on top of the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -47,12 +47,13 @@
 - `IInteractable`, `PlayerInteraction`, HUD interaction prompts, interactable pressure gate/service lift/final lift hooks, and packaged interaction smoke coverage.
 - Data-driven `HealthVialDefinition.asset`, `PressureCartridgeDefinition.asset`, `GearKeyDefinition.asset`, and `PickupDefinition` script, with pickup validation coverage.
 - Scene-local `LevelTransitionController` for service-lift scene loads and restart routing, with validation/runtime smoke coverage.
+- Data-driven `PlatformQualityProfile` assets for Windows mid/low PC, Android phone, WebGL browser, PC VR, and Meta Quest targets; Windows runtime now applies the Windows profile asset.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.35`.
+Latest fully verified build: `v0.0.36`.
 
-Current `v0.0.35` verification:
+Current `v0.0.36` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -84,7 +85,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.35\BrassworksBreach_v0.0.35.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.36\BrassworksBreach_v0.0.36.exe`
 
 ## Latest Build Verification
 
@@ -344,8 +345,20 @@ Current target:
 - `2026-05-23 13:16 -04:00`: `v0.0.35` packaged ranged combat smoke passed.
 - `2026-05-23 13:16 -04:00`: `v0.0.35` packaged interaction smoke passed.
 - `2026-05-23 13:16 -04:00`: `v0.0.35` packaged pause-flow smoke passed.
+- `2026-05-23 13:22 -04:00`: `v0.0.36` one-command build matrix runner passed.
+- `2026-05-23 13:22 -04:00`: `v0.0.36` scene rebuild passed.
+- `2026-05-23 13:22 -04:00`: `v0.0.36` level validation passed.
+- `2026-05-23 13:22 -04:00`: `v0.0.36` editor smoke passed.
+- `2026-05-23 13:22 -04:00`: `v0.0.36` Windows build passed.
+- `2026-05-23 13:22 -04:00`: `v0.0.36` packaged runtime smoke passed.
+- `2026-05-23 13:22 -04:00`: `v0.0.36` packaged auto-playthrough passed.
+- `2026-05-23 13:22 -04:00`: `v0.0.36` packaged combat smoke passed.
+- `2026-05-23 13:22 -04:00`: `v0.0.36` packaged combat-edge smoke passed.
+- `2026-05-23 13:22 -04:00`: `v0.0.36` packaged ranged combat smoke passed.
+- `2026-05-23 13:22 -04:00`: `v0.0.36` packaged interaction smoke passed.
+- `2026-05-23 13:22 -04:00`: `v0.0.36` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.36`, `v0.0.37`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.37`, `v0.0.38`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

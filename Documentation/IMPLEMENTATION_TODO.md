@@ -537,6 +537,24 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.36 Platform Quality Profile Pass
+
+- [x] Add `PlatformQualityProfile` ScriptableObject type.
+- [x] Add generated `WindowsMidLowQualityProfile.asset`.
+- [x] Add generated `AndroidPhoneQualityProfile.asset`.
+- [x] Add generated `WebGLBrowserQualityProfile.asset`.
+- [x] Add generated `PcVrQualityProfile.asset`.
+- [x] Add generated `MetaQuestQualityProfile.asset`.
+- [x] Assign Windows profile asset to menu and gameplay runtime performance profiles.
+- [x] Expand level validation to require the active Windows quality profile.
+- [x] Expand runtime smoke to require the applied Windows profile asset.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.36`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -575,7 +593,7 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Level validation tool.
 - [ ] Expand combat automation harness.
 - [x] Build automation cleanup.
-- [ ] Platform asset-quality settings.
+- [x] Platform asset-quality settings.
 
 ## Platform Planning
 
@@ -586,8 +604,9 @@ Windows is the primary development target. Android, browser/WebGL, and VR are de
 - [x] Add browser/WebGL port notes.
 - [x] Add Steam/Meta VR port notes.
 - [x] Add Windows runtime quality profile in Unity.
-- [ ] Add Android quality profile in Unity.
-- [ ] Add WebGL quality profile in Unity.
+- [x] Add Android quality profile in Unity.
+- [x] Add WebGL quality profile in Unity.
+- [x] Add future VR quality profiles in Unity.
 - [ ] Add platform-specific asset import rules.
 - [ ] Add Android input/touch control design later.
 - [ ] Add WebGL loading/download budget later.
