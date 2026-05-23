@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.16` versioned build for `Brassworks Breach`.
+`v0.0.23` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds a generated second level and service-lift transition flow on top of the retheme, menu/settings flow, prop silhouettes, brass HUD, Scrapper silhouette, pickup visuals, pressure-pistol viewmodel, and impact sparks.
+`v0.0` core loop is complete. The current build adds generated oil-dark stone, riveted-iron, and brass/copper pipe textures on top of the two-level flow, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, prop silhouettes, brass HUD, pickup visuals, pressure-pistol viewmodel, and impact sparks.
 
 ## Completed
 
@@ -34,12 +34,13 @@
 - Generated Level02 Pipeworks Annex scene.
 - Service lift transition from Level01 into Level02.
 - Windows standalone build flow.
+- Procedural texture assets for oil-dark stone floors, riveted-iron panels, and brass/copper pipe materials.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.22`.
+Latest fully verified build: `v0.0.23`.
 
-Current `v0.0.22` verification:
+Current `v0.0.23` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -67,7 +68,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.22\BrassworksBreach_v0.0.22.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.23\BrassworksBreach_v0.0.23.exe`
 
 ## Latest Build Verification
 
@@ -190,8 +191,18 @@ Current target:
 - `2026-05-23 11:53 -04:00`: `v0.0.22` packaged combat-edge smoke passed.
 - `2026-05-23 11:54 -04:00`: `v0.0.22` packaged ranged combat smoke passed.
 - `2026-05-23 11:54 -04:00`: `v0.0.22` packaged pause-flow smoke passed.
+- `2026-05-23 12:03 -04:00`: `v0.0.23` scene rebuild passed.
+- `2026-05-23 12:03 -04:00`: `v0.0.23` level validation passed.
+- `2026-05-23 12:03 -04:00`: `v0.0.23` editor smoke passed.
+- `2026-05-23 12:03 -04:00`: `v0.0.23` Windows build passed.
+- `2026-05-23 12:03 -04:00`: `v0.0.23` packaged runtime smoke passed.
+- `2026-05-23 12:03 -04:00`: `v0.0.23` packaged auto-playthrough passed.
+- `2026-05-23 12:03 -04:00`: `v0.0.23` packaged combat smoke passed.
+- `2026-05-23 12:03 -04:00`: `v0.0.23` packaged combat-edge smoke passed.
+- `2026-05-23 12:03 -04:00`: `v0.0.23` packaged ranged combat smoke passed.
+- `2026-05-23 12:03 -04:00`: `v0.0.23` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.23`, `v0.0.24`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.24`, `v0.0.25`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
@@ -202,7 +213,7 @@ Future builds should increment as `v0.0.23`, `v0.0.24`, etc. when meaningful pro
 - Enemy pathing uses simple side-steering, not NavMesh.
 - Scrapper attack windup is smoke-tested but still needs manual feel tuning.
 - Audio is procedural placeholder content and still needs a human listen/tuning pass.
-- No generated texture/sprite pass yet.
+- Generated material textures exist; sprites, decals, and final raster art still need production passes.
 - Health and ammo persist across level transitions; future weapon inventory and campaign flags still need expansion.
 - Settings exist for sensitivity and master volume only; resolution, flash intensity, and color readability are still planned.
 - Android, browser/WebGL, SteamVR/OpenXR, and Meta Quest builds are planned but deferred.

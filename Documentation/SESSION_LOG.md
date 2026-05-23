@@ -429,3 +429,35 @@ Verification completed:
 Build executable:
 
 `Builds/Windows/v0.0.22/BrassworksBreach_v0.0.22.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 12:03 -04:00
+
+Completed `v0.0.23` procedural material texture pass.
+
+Added:
+
+- Generated texture asset folder at `Assets/_Project/Textures`.
+- Procedural oil-dark stone texture.
+- Procedural riveted-iron texture.
+- Procedural brass/copper pipe texture.
+- Texture assignment for active steampunk floor, wall, gate, and pipe guide materials.
+
+Verification completed:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_PAUSE_FLOW_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.23/BrassworksBreach_v0.0.23.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

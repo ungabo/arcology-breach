@@ -276,6 +276,27 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Run packaged pause-flow smoke.
 - [x] Commit and push `v0.0.22`.
 
+## v0.0.23 Procedural Material Texture Pass
+
+- [x] Add generated texture asset folder.
+- [x] Generate procedural oil-dark stone texture.
+- [x] Generate procedural riveted-iron texture.
+- [x] Generate procedural brass/copper pipe texture.
+- [x] Assign generated textures to active steampunk materials.
+- [x] Rebuild generated scenes and material assets.
+- [x] Run standalone level validation.
+- [x] Run editor smoke.
+- [x] Build Windows player.
+- [x] Run packaged runtime smoke.
+- [x] Run packaged auto-playthrough.
+- [x] Run packaged combat smoke.
+- [x] Run packaged combat-edge smoke.
+- [x] Run packaged ranged combat smoke.
+- [x] Run packaged pause-flow smoke.
+- [x] Commit and push `v0.0.23`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -290,9 +311,9 @@ This checklist tracks implementation work. Detailed production tracking lives in
 ## v0.3 Art Direction Slice
 
 - [x] Add first primitive brassworks prop silhouettes.
-- [ ] Generate oil-dark stone material.
-- [ ] Generate riveted iron wall material.
-- [ ] Generate brass/copper pipe material.
+- [x] Generate oil-dark stone material.
+- [x] Generate riveted iron wall material.
+- [x] Generate brass/copper pipe material.
 - [ ] Generate gear-key visual.
 - [ ] Generate pressure-gate visual.
 - [ ] Generate service-lift visual.

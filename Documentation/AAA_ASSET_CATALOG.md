@@ -2,7 +2,7 @@
 
 This catalog tracks the assets needed to grow `Brassworks Breach` from a greybox proof of concept into a stylized steampunk FPS. Assets should be created in milestone-sized sets, verified in-game, and downgraded as needed for Android and browser/WebGL ports.
 
-Status values: `planned`, `prototype`, `in-progress`, `review`, `approved`, `deferred`.
+Status values: `planned`, `prototype`, `verified`, `in-progress`, `review`, `approved`, `deferred`.
 
 Priority values: `P0` current milestone blocker, `P1` vertical-slice need, `P2` production quality, `P3` polish/expansion.
 
@@ -25,9 +25,9 @@ Every major asset should eventually have three quality targets:
 | --- | --- | --- | --- | --- |
 | MAT-001 | Greybox wall | P0 | prototype | Existing flat wall material for blockouts. |
 | MAT-002 | Greybox floor | P0 | prototype | Existing dark floor material for blockouts. |
-| MAT-003 | Oil-dark stone | P1 | prototype | Procedural primitive floor patches for Brassworks service floors. |
-| MAT-004 | Riveted iron panel | P1 | prototype | Dark iron primitive boiler/gate pieces; final modular panels still needed. |
-| MAT-005 | Brass/copper pipe material | P1 | prototype | Primitive pipe strips; final pipe geometry/materials still needed. |
+| MAT-003 | Oil-dark stone | P1 | verified | Generated procedural texture assigned to Brassworks service floors; final art polish can still improve wear/decal variation. |
+| MAT-004 | Riveted iron panel | P1 | verified | Generated procedural riveted-iron texture assigned to boiler/gate pieces; final modular panel geometry still needed. |
+| MAT-005 | Brass/copper pipe material | P1 | verified | Generated procedural pipe texture assigned to brass/copper pipe strips; final pipe geometry still needed. |
 | MAT-006 | Soot-brick wall | P1 | planned | Primary corridor wall style. |
 | MAT-007 | Walnut grip/wood trim | P2 | planned | Weapon grips, tool handles, occasional prop trim. |
 | MAT-008 | Amber furnace glow | P1 | prototype | Gauge, furnace, and hazard accents. |

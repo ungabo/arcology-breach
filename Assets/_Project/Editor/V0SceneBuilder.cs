@@ -14,7 +14,15 @@ public static class V0SceneBuilder
     private const string ScenePath = "Assets/_Project/Scenes/Level01.unity";
     private const string Level02ScenePath = "Assets/_Project/Scenes/Level02.unity";
     private const string MaterialFolder = "Assets/_Project/Materials";
+    private const string TextureFolder = "Assets/_Project/Textures";
     private const string WindowsBuildFolder = "Builds/Windows";
+
+    private enum ProceduralTextureKind
+    {
+        OilStone,
+        RivetedIron,
+        BrassPipe
+    }
 
     [MenuItem("Project Tools/Rebuild v0.0 Scene")]
     public static void BuildV0()
@@ -43,6 +51,10 @@ public static class V0SceneBuilder
         Material furnaceGlowMaterial = CreateMaterial("M_Steam_FurnaceGlow", new Color(1f, 0.36f, 0.08f));
         Material glassVialMaterial = CreateMaterial("M_Steam_FrostedGlassVial", new Color(0.58f, 0.78f, 0.8f));
         Material medicinalFluidMaterial = CreateMaterial("M_Steam_RedMedicinalFluid", new Color(0.82f, 0.05f, 0.04f));
+        ApplyProceduralTexture(oilStoneMaterial, "T_Steam_OilDarkStone", ProceduralTextureKind.OilStone);
+        ApplyProceduralTexture(rivetedIronMaterial, "T_Steam_RivetedIron", ProceduralTextureKind.RivetedIron);
+        ApplyProceduralTexture(brassGuideMaterial, "T_Steam_BrassPipe", ProceduralTextureKind.BrassPipe);
+        ApplyProceduralTexture(brassHazardMaterial, "T_Steam_BrassHazardPipe", ProceduralTextureKind.BrassPipe);
 
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -177,7 +189,8 @@ public static class V0SceneBuilder
             "Assets/_Project/Scenes",
             "Assets/_Project/Scripts",
             "Assets/_Project/Prefabs",
-            MaterialFolder
+            MaterialFolder,
+            TextureFolder
         };
 
         foreach (string folder in folders)
@@ -218,6 +231,122 @@ public static class V0SceneBuilder
 
         EditorUtility.SetDirty(material);
         return material;
+    }
+
+    private static void ApplyProceduralTexture(Material material, string textureName, ProceduralTextureKind kind)
+    {
+        Texture2D texture = CreateProceduralTexture(textureName, kind);
+        if (material.HasProperty("_MainTex"))
+        {
+            material.SetTexture("_MainTex", texture);
+        }
+
+        if (material.HasProperty("_BaseMap"))
+        {
+            material.SetTexture("_BaseMap", texture);
+        }
+
+        material.mainTextureScale = kind == ProceduralTextureKind.BrassPipe ? new Vector2(1.5f, 1f) : new Vector2(2f, 2f);
+        EditorUtility.SetDirty(material);
+    }
+
+    private static Texture2D CreateProceduralTexture(string name, ProceduralTextureKind kind)
+    {
+        const int size = 128;
+        string path = $"{TextureFolder}/{name}.asset";
+        Texture2D texture = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+        if (texture == null || texture.width != size || texture.height != size)
+        {
+            if (texture != null)
+            {
+                AssetDatabase.DeleteAsset(path);
+            }
+
+            texture = new Texture2D(size, size, TextureFormat.RGBA32, true);
+            AssetDatabase.CreateAsset(texture, path);
+        }
+
+        texture.name = name;
+        texture.wrapMode = TextureWrapMode.Repeat;
+        texture.filterMode = FilterMode.Bilinear;
+
+        Color[] pixels = new Color[size * size];
+        for (int y = 0; y < size; y++)
+        {
+            for (int x = 0; x < size; x++)
+            {
+                pixels[y * size + x] = SampleProceduralTexture(kind, x, y, size);
+            }
+        }
+
+        texture.SetPixels(pixels);
+        texture.Apply(true, false);
+        EditorUtility.SetDirty(texture);
+        return texture;
+    }
+
+    private static Color SampleProceduralTexture(ProceduralTextureKind kind, int x, int y, int size)
+    {
+        float noise = Mathf.PerlinNoise(x * 0.085f + 13.1f, y * 0.085f + 7.7f);
+        switch (kind)
+        {
+            case ProceduralTextureKind.OilStone:
+                return SampleOilStone(x, y, noise);
+            case ProceduralTextureKind.RivetedIron:
+                return SampleRivetedIron(x, y, noise);
+            case ProceduralTextureKind.BrassPipe:
+                return SampleBrassPipe(x, y, size, noise);
+            default:
+                return Color.magenta;
+        }
+    }
+
+    private static Color SampleOilStone(int x, int y, float noise)
+    {
+        bool seam = x % 32 == 0 || y % 32 == 0;
+        float oil = Mathf.PerlinNoise(x * 0.19f, y * 0.21f);
+        Color baseColor = Color.Lerp(new Color(0.045f, 0.04f, 0.035f), new Color(0.14f, 0.12f, 0.1f), noise);
+        if (oil > 0.68f)
+        {
+            baseColor = Color.Lerp(baseColor, new Color(0.018f, 0.017f, 0.014f), 0.42f);
+        }
+
+        return seam ? Color.Lerp(baseColor, Color.black, 0.38f) : baseColor;
+    }
+
+    private static Color SampleRivetedIron(int x, int y, float noise)
+    {
+        bool panelSeam = x % 48 == 0 || y % 48 == 0;
+        int localX = x % 48;
+        int localY = y % 48;
+        float rivetA = Vector2.Distance(new Vector2(localX, localY), new Vector2(8f, 8f));
+        float rivetB = Vector2.Distance(new Vector2(localX, localY), new Vector2(40f, 40f));
+        bool rivet = rivetA < 3.8f || rivetB < 3.8f;
+        Color baseColor = Color.Lerp(new Color(0.055f, 0.052f, 0.048f), new Color(0.14f, 0.135f, 0.125f), noise);
+        if (panelSeam)
+        {
+            baseColor = Color.Lerp(baseColor, Color.black, 0.45f);
+        }
+
+        if (rivet)
+        {
+            baseColor = Color.Lerp(baseColor, new Color(0.34f, 0.29f, 0.22f), 0.7f);
+        }
+
+        return baseColor;
+    }
+
+    private static Color SampleBrassPipe(int x, int y, int size, float noise)
+    {
+        float verticalHighlight = Mathf.Abs(Mathf.Sin((x / (float)size) * Mathf.PI));
+        bool ring = y % 28 < 3;
+        Color baseColor = Color.Lerp(new Color(0.48f, 0.25f, 0.08f), new Color(0.95f, 0.66f, 0.24f), verticalHighlight * 0.55f + noise * 0.25f);
+        if (ring)
+        {
+            baseColor = Color.Lerp(baseColor, new Color(0.18f, 0.11f, 0.05f), 0.45f);
+        }
+
+        return baseColor;
     }
 
     private static void CreateLighting()

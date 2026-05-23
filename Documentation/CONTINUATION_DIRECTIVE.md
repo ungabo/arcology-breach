@@ -10,4 +10,8 @@ At the end of each completed step:
 4. Choose the next highest-impact unfinished task from `WORK_LEDGER.md` or `IMPLEMENTATION_TODO.md`.
 5. Begin that next task immediately without waiting for manual review.
 
+Every completed-step record should end with this line:
+
+`Next-step directive: continue immediately with the next highest-impact unfinished task.`
+
 If a task is blocked by tooling, missing assets, platform limits, or a design dependency, record the issue as a TBD/follow-up and continue with the next unblocked task. Keep development moving toward the complete Windows game first, while preserving Android, browser, SteamVR, and Meta compatibility paths.
