@@ -154,6 +154,7 @@ Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0CombatEdgeSmok
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0CombatScenarioSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-combat-scenario-smoke.log") -Marker "V0_COMBAT_SCENARIO_PASS"
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0RangedCombatSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-ranged-combat-smoke.log") -Marker "V0_RANGED_COMBAT_PASS"
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0InteractionSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-interaction-smoke.log") -Marker "V0_INTERACTION_SMOKE_PASS"
+Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0HazardSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-hazard-smoke.log") -Marker "V0_HAZARD_PASS"
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0PauseFlow" -LogPath (Join-Path $logsPath "$LogPrefix-pause-flow.log") -Marker "V0_PAUSE_FLOW_PASS"
 
 Write-Host "V0_BUILD_MATRIX_PASS $version $windowsBuildPath"

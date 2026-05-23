@@ -68,11 +68,13 @@ public static class V0LevelValidator
         Require<PauseMenuController>(sceneName + " PauseMenuController");
         Require<RuntimeInteractionTest>(sceneName + " RuntimeInteractionTest");
         Require<RuntimeCombatScenarioTest>(sceneName + " RuntimeCombatScenarioTest");
+        Require<RuntimeHazardTest>(sceneName + " RuntimeHazardTest");
         Require<EnemyController>(sceneName + " EnemyController");
         Require<Pickup>(sceneName + " Pickup");
 
         ValidatePickups(sceneName);
         ValidateEnemies(sceneName);
+        ValidateHazards(sceneName);
         ValidateEnvironmentPropVisuals(sceneName);
 
         if (requirePressureGate)
@@ -226,6 +228,22 @@ public static class V0LevelValidator
         }
     }
 
+    private static void ValidateHazards(string sceneName)
+    {
+        SteamHazard[] hazards = UnityEngine.Object.FindObjectsByType<SteamHazard>(FindObjectsSortMode.None);
+        if (sceneName == "Level03" && hazards.Length == 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " is missing SteamHazard.");
+        }
+
+        foreach (SteamHazard hazard in hazards)
+        {
+            RequireTrigger(hazard.gameObject, sceneName + " steam hazard trigger " + hazard.name);
+            RequireEqual(hazard.damagePerTick, GameBalance.SteamHazardDamage, sceneName + " steam hazard damage " + hazard.name);
+            RequireApprox(hazard.tickInterval, GameBalance.SteamHazardTickInterval, sceneName + " steam hazard tick interval " + hazard.name);
+        }
+    }
+
     private static void ValidateBalanceValues(string sceneName, PlayerController playerController, PlayerInventory playerInventory, WeaponController weaponController)
     {
         RequireApprox(playerController.moveSpeed, GameBalance.PlayerMoveSpeed, sceneName + " player speed balance");
@@ -323,6 +341,8 @@ public static class V0LevelValidator
             RequireNamed("Boilerheart Pressure Valve Objective", sceneName + " boilerheart pressure valve objective");
             RequireNamed("Boilerheart Pressure Valve Wheel", sceneName + " boilerheart pressure valve wheel visual");
             RequireNamed("Boilerheart Valve Vented Lamp", sceneName + " boilerheart valve vented signal");
+            RequireNamed("Boilerheart Steam Hazard - Furnace Leak", sceneName + " boilerheart steam hazard");
+            RequireNamed("Boilerheart Steam Hazard - Core Bleed", sceneName + " boilerheart steam hazard");
         }
 
         if (sceneName == "Level01")

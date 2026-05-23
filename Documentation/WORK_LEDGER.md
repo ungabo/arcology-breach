@@ -49,6 +49,7 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 | TEST-008 | Expanded combat automation harness | test | P1 | verified | v0.0.37 | Combat scenario smoke verifies cooldown rejection, ammo accounting, expected shot count, and final-hit kill timing. |
 | LVL-005 | Add Level03 Boilerheart Core foundation | level | P1 | verified | v0.0.38 | Level03 scene, Level02 transition, four-scene build order, and three-level auto-playthrough are verified. |
 | LVL-006 | Add Boilerheart pressure-valve objective | level/code | P1 | verified | v0.0.39 | Level03 final lift is locked until the valve is vented; auto-playthrough verifies locked rejection, valve venting, and final win. |
+| HAZ-001 | Add steam hazard foundation | code/level/test | P1 | verified | v0.0.40 | Reusable SteamHazard, Boilerheart hazard placement, validation, and V0_HAZARD_PASS matrix coverage are verified. |
 
 ## Ready Next
 
@@ -141,3 +142,4 @@ Primary goal: tune the current Windows prototype until the core combat and objec
 - `2026-05-23`: `v0.0.37` expanded combat automation build created at `Builds/Windows/v0.0.37/BrassworksBreach_v0.0.37.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.38` Level03 Boilerheart foundation build created at `Builds/Windows/v0.0.38/BrassworksBreach_v0.0.38.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.39` Boilerheart pressure-valve objective build created at `Builds/Windows/v0.0.39/BrassworksBreach_v0.0.39.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.40` steam hazard foundation build created at `Builds/Windows/v0.0.40/BrassworksBreach_v0.0.40.exe` and passed the complete V0 matrix, including hazard smoke, through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.

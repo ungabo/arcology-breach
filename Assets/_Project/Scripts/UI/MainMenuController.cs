@@ -22,6 +22,7 @@ public class MainMenuController : MonoBehaviour
         "-v0CombatScenarioSmoke",
         "-v0RangedCombatSmoke",
         "-v0InteractionSmoke",
+        "-v0HazardSmoke",
         "-v0PauseFlow"
     };
 

@@ -966,3 +966,38 @@ Build executable:
 `Builds/Windows/v0.0.39/BrassworksBreach_v0.0.39.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 13:52 -04:00
+
+Completed `v0.0.40` steam hazard foundation pass.
+
+Added:
+
+- Reusable `SteamHazard` trigger component.
+- `RuntimeHazardTest` packaged smoke coverage.
+- Boilerheart furnace leak and core bleed hazard volumes.
+- Primitive warning plates, vent grates, and steam puff visuals.
+- Hazard validation for trigger setup and balance values.
+- `V0_HAZARD_PASS` in the one-command build matrix.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.40/BrassworksBreach_v0.0.40.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

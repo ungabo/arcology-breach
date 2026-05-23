@@ -141,6 +141,7 @@ public static class V0SceneBuilder
         RequireObject<RuntimeCombatTest>("RuntimeCombatTest");
         RequireObject<RuntimeCombatEdgeTest>("RuntimeCombatEdgeTest");
         RequireObject<RuntimeRangedCombatTest>("RuntimeRangedCombatTest");
+        RequireObject<RuntimeHazardTest>("RuntimeHazardTest");
         RequireObject<RuntimePauseFlowTest>("RuntimePauseFlowTest");
         RequireObject<HUDController>("HUDController");
         RequireObject<EnemyController>("EnemyController");
@@ -160,6 +161,7 @@ public static class V0SceneBuilder
         RequireObject<GameStateController>("Level03 GameStateController");
         RequireObject<EnemyController>("Level03 EnemyController");
         RequireObject<ExitTrigger>("Level03 ExitTrigger");
+        RequireObject<SteamHazard>("Level03 SteamHazard");
 
         EditorSceneManager.OpenScene(MainMenuScenePath);
         RequireObject<MainMenuController>("MainMenuController");
@@ -777,7 +779,31 @@ public static class V0SceneBuilder
         CreatePressureGauge("Boilerheart Gauge A", new Vector3(-5.95f, 1.65f, 12.4f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateValveWheel("Boilerheart Valve A", new Vector3(5.95f, 1.45f, 17.4f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, warningMaterial, parent.transform);
         CreateSteamVent("Boilerheart Steam Vent A", new Vector3(-4.8f, 0.05f, 20.8f), brassMaterial, steamMaterial, parent.transform);
+        CreateSteamHazard("Boilerheart Steam Hazard - Furnace Leak", new Vector3(-4.8f, 0.75f, 20.8f), new Vector3(1.25f, 1.5f, 1.25f), ironMaterial, steamMaterial, warningMaterial, parent.transform);
+        CreateSteamHazard("Boilerheart Steam Hazard - Core Bleed", new Vector3(2.35f, 0.75f, 15.4f), new Vector3(1.15f, 1.5f, 1.15f), ironMaterial, steamMaterial, warningMaterial, parent.transform);
         CreateWorkOrderBoard("Work Order Board - Boilerheart", "BOILERHEART ORDER\nCORE PRESSURE HIGH\nFINAL LIFT LIVE", new Vector3(5.95f, 1.55f, 10.6f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+    }
+
+    private static SteamHazard CreateSteamHazard(string name, Vector3 position, Vector3 triggerSize, Material ironMaterial, Material steamMaterial, Material warningMaterial, Transform parent)
+    {
+        GameObject hazardRoot = new GameObject(name);
+        hazardRoot.transform.SetParent(parent);
+        hazardRoot.transform.position = position;
+
+        BoxCollider trigger = hazardRoot.AddComponent<BoxCollider>();
+        trigger.size = triggerSize;
+        trigger.isTrigger = true;
+
+        SteamHazard hazard = hazardRoot.AddComponent<SteamHazard>();
+        hazard.damagePerTick = GameBalance.SteamHazardDamage;
+        hazard.tickInterval = GameBalance.SteamHazardTickInterval;
+
+        CreateLocalCube(name + " Warning Floor Plate", hazardRoot.transform, new Vector3(0f, -0.73f, 0f), new Vector3(triggerSize.x, 0.04f, triggerSize.z), warningMaterial);
+        CreateLocalPrimitive(name + " Steam Puff Low", PrimitiveType.Sphere, hazardRoot.transform, new Vector3(-0.12f, -0.15f, 0.04f), new Vector3(0.38f, 0.32f, 0.38f), steamMaterial);
+        CreateLocalPrimitive(name + " Steam Puff High", PrimitiveType.Sphere, hazardRoot.transform, new Vector3(0.16f, 0.38f, -0.05f), new Vector3(0.3f, 0.46f, 0.3f), steamMaterial);
+        CreateLocalCube(name + " Brass Vent Grate", hazardRoot.transform, new Vector3(0f, -0.68f, 0f), new Vector3(triggerSize.x * 0.68f, 0.08f, triggerSize.z * 0.68f), ironMaterial);
+
+        return hazard;
     }
 
     private static SteamValveObjective CreateBoilerheartPressureValve(Material ironMaterial, Material brassMaterial, Material warningMaterial, Material gaugeFaceMaterial, Material steamMaterial)
@@ -1206,6 +1232,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeCombatScenarioTest>();
         stateObject.AddComponent<RuntimeRangedCombatTest>();
         stateObject.AddComponent<RuntimeInteractionTest>();
+        stateObject.AddComponent<RuntimeHazardTest>();
         stateObject.AddComponent<RuntimePauseFlowTest>();
     }
 

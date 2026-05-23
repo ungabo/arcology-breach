@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.39` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.40` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -8,7 +8,7 @@ Public repository:
 
 Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged enemies, a gear key, a pressure gate, service-lift transitions, and a Boilerheart pressure valve that unlocks the current final lift.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, brass HUD, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged enemies, steam hazards, a gear key, a pressure gate, service-lift transitions, and a Boilerheart pressure valve that unlocks the current final lift.
 
 Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
 
@@ -59,7 +59,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.39\BrassworksBreach_v0.0.39.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.40\BrassworksBreach_v0.0.40.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -78,6 +78,7 @@ The project test matrix includes:
 - Packaged combat-scenario smoke test.
 - Packaged ranged-combat smoke test.
 - Packaged interaction smoke test.
+- Packaged hazard smoke test.
 - Packaged pause-flow smoke test.
 - One-command build matrix runner.
 
@@ -193,6 +194,12 @@ Individual Unity entry points remain available:
 - Boilerheart pressure valve objective in Level03.
 - Final lift remains locked until the valve is vented.
 - Auto-playthrough verifies the locked lift, valve venting, and final win.
+
+## What v0.0.40 Adds
+
+- Reusable steam hazard trigger system.
+- Two Boilerheart steam hazard volumes with primitive vent/puff visuals.
+- Packaged hazard smoke test added to the one-command matrix.
 
 ## Good Next Steps
 

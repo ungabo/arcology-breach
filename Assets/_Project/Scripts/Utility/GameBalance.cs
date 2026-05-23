@@ -21,4 +21,7 @@ public static class GameBalance
     public const float LancerFireWindup = 0.5f;
     public const int LancerProjectileDamage = 7;
     public const float LancerProjectileSpeed = 7.8f;
+
+    public const int SteamHazardDamage = 6;
+    public const float SteamHazardTickInterval = 0.75f;
 }

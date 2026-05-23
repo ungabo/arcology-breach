@@ -604,6 +604,22 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.40 Steam Hazard Foundation Pass
+
+- [x] Add reusable `SteamHazard`.
+- [x] Add steam hazard balance values.
+- [x] Place two Boilerheart steam hazard volumes.
+- [x] Add primitive vent/puff/floor warning visuals.
+- [x] Add validation for hazard triggers and balance values.
+- [x] Add packaged hazard smoke test.
+- [x] Add hazard smoke to the one-command build matrix.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.40`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
