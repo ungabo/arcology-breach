@@ -121,7 +121,7 @@ Every major asset should eventually have three quality targets:
 | VFX-005B | Warden shutdown burst | P1 | prototype | Boss-specific shutdown effect spawned by `GovernorWardenController`, verified by Warden combat smoke. |
 | VFX-005C | Standard shutdown burst | P1 | prototype | Compact `MachineDeathVfx` used by Scrappers and Lancers, scaled up for Bulwarks, verified by combat smoke. |
 | VFX-006 | Gear-key pickup effect | P1 | planned | Amber click/gear spin effect. |
-| VFX-007 | Pressure gate open effect | P2 | planned | Red lamps vent to green/amber, steam optional. |
+| VFX-007 | Pressure gate open effect | P2 | prototype | `GateOpenVfx` spawns green pressure wash, steam jets, and brass/green sparks when the Level01 pressure gate opens; final pass should link lamp states, gear sound, and denser steam. |
 | VFX-008 | Service lift activation | P1 | planned | Green pressure-restored cue. |
 | VFX-009 | Steam hazard field | P2 | planned | Readable venting steam for hazards. |
 

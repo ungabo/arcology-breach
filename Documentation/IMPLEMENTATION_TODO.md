@@ -887,6 +887,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.59 Pressure Gate Open VFX Pass
+
+- [x] Add reusable `GateOpenVfx` runtime effect.
+- [x] Spawn gate-open VFX from `LockedDoor.Open`.
+- [x] Add green pressure wash, steam jets, and brass/green sparks.
+- [x] Expand auto-playthrough to verify gate-open VFX during the real key route.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.59`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

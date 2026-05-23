@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.58` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.59` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -8,7 +8,7 @@ Public repository:
 
 Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, animated gears/valves/pulleys, brass HUD with persistent objective guidance and boss health readout, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged/heavy/boss enemies, steam hazards, pulsing furnace-heat hazards, multi-level secret caches, a gear key, a pressure gate, service-lift transitions, a Boilerheart pressure valve that unlocks the foundry lift, a Furnace Foundry route, machine hit/shutdown VFX, and a Governor Core finale with a Warden shutdown effect and master override hoist.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, animated gears/valves/pulleys, brass HUD with persistent objective guidance and boss health readout, hitscan pressure-pistol shooting, procedural audio cues, mechanical melee/ranged/heavy/boss enemies, steam hazards, pulsing furnace-heat hazards, multi-level secret caches, a gear key, a pressure gate with opening VFX, service-lift transitions, a Boilerheart pressure valve that unlocks the foundry lift, a Furnace Foundry route, machine hit/shutdown VFX, and a Governor Core finale with a Warden shutdown effect and master override hoist.
 
 Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
 
@@ -62,7 +62,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.58\BrassworksBreach_v0.0.58.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.59\BrassworksBreach_v0.0.59.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -329,6 +329,12 @@ Individual Unity entry points remain available:
 - Scrappers, Lancers, Bulwarks, and the Governor Warden now spark and vent steam when damaged before death.
 - Combat-scenario smoke verifies Scrapper hit VFX.
 - Bulwark and Warden combat smokes verify scaled hit VFX before shutdown.
+
+## What v0.0.59 Adds
+
+- `GateOpenVfx` runtime effect for pressure-gate unlock/open feedback.
+- Pressure gate opening now emits green pressure wash, steam jets, and brass/green sparks.
+- Auto-playthrough verifies the gate VFX appears during the real gear-key route.
 
 ## Good Next Steps
 

@@ -102,6 +102,13 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
             yield break;
         }
 
+        GateOpenVfx gateOpenVfx = UnityEngine.Object.FindAnyObjectByType<GateOpenVfx>();
+        if (gateOpenVfx == null || gateOpenVfx.PieceCount < 8)
+        {
+            Fail("Auto-playthrough failed: pressure gate open VFX did not spawn with enough visible pieces.");
+            yield break;
+        }
+
         inventory.TryUseAmmo(2);
         string targetSceneName = transition.targetSceneName;
         Teleport(player, transition.transform.position);

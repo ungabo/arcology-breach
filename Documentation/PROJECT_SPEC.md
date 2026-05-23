@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.58`.
+Current state: `v0.0.59`.
 
 Implemented:
 
@@ -66,6 +66,7 @@ Implemented:
 - Standard machine death VFX for Scrappers, Lancers, and Bulwarks with combat smoke coverage.
 - Reusable `SteamworksSpinner` component animating pressure-gate gears, service-lift pulleys, valve wheels, and the main-menu gear with validation/runtime smoke coverage.
 - Non-lethal `MachineHitVfx` impact feedback for Scrappers, Lancers, Bulwarks, and the Governor Warden with combat automation coverage.
+- `GateOpenVfx` feedback when the Level01 pressure gate opens, with auto-playthrough coverage.
 
 ## 3. Target Platform
 
