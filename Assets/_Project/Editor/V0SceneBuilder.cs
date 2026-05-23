@@ -1690,7 +1690,10 @@ public static class V0SceneBuilder
         weapon.secondarySpread = GameBalance.PressureBurstSpread;
 
         WeaponView weaponView = CreateWeaponView(cameraObject.transform, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial);
+        WeaponView scattergunView = CreateSteamScattergunView(cameraObject.transform, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial);
         weapon.weaponView = weaponView;
+        weapon.pressurePistolView = weaponView;
+        weapon.steamScattergunView = scattergunView;
     }
 
     private static WeaponView CreateWeaponView(Transform cameraTransform, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial, Material ironMaterial, Material warningMaterial)
@@ -1760,6 +1763,60 @@ public static class V0SceneBuilder
 
         WeaponView weaponView = weaponRoot.AddComponent<WeaponView>();
         weaponView.muzzleFlash = flash;
+        return weaponView;
+    }
+
+    private static WeaponView CreateSteamScattergunView(Transform cameraTransform, Material gripMaterial, Material brassMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial, Material ironMaterial, Material warningMaterial)
+    {
+        GameObject weaponRoot = new GameObject("Steam Scattergun Viewmodel");
+        weaponRoot.transform.SetParent(cameraTransform, false);
+        weaponRoot.transform.localPosition = new Vector3(0.2f, -0.58f, 0.78f);
+        weaponRoot.transform.localRotation = Quaternion.Euler(-3f, -5f, 0f);
+
+        CreateLocalCube("Steam Scattergun Walnut Stock", weaponRoot.transform, new Vector3(0f, -0.22f, -0.26f), new Vector3(0.28f, 0.34f, 0.54f), gripMaterial).transform.localRotation = Quaternion.Euler(-7f, 0f, 0f);
+        CreateLocalCube("Steam Scattergun Iron Trigger Guard", weaponRoot.transform, new Vector3(0f, -0.2f, 0.1f), new Vector3(0.34f, 0.09f, 0.22f), ironMaterial);
+        CreateLocalCube("Steam Scattergun Trigger", weaponRoot.transform, new Vector3(0f, -0.24f, 0.16f), new Vector3(0.055f, 0.17f, 0.04f), warningMaterial).transform.localRotation = Quaternion.Euler(-18f, 0f, 0f);
+        CreateLocalCube("Steam Scattergun Brass Receiver", weaponRoot.transform, new Vector3(0f, 0.02f, 0.12f), new Vector3(0.58f, 0.28f, 0.46f), brassMaterial);
+        CreateLocalCube("Steam Scattergun Iron Top Strap", weaponRoot.transform, new Vector3(0f, 0.2f, 0.15f), new Vector3(0.64f, 0.055f, 0.5f), ironMaterial);
+        CreateLocalCube("Steam Scattergun Red Pressure Line", weaponRoot.transform, new Vector3(0.34f, -0.02f, 0.26f), new Vector3(0.045f, 0.055f, 0.74f), warningMaterial);
+
+        for (int i = 0; i < 3; i++)
+        {
+            float x = (i - 1) * 0.17f;
+            GameObject barrel = CreateLocalPrimitive("Steam Scattergun Barrel " + i, PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(x, 0.06f, 0.58f), new Vector3(0.07f, 0.72f, 0.07f), ironMaterial);
+            barrel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+            GameObject muzzleRing = CreateLocalPrimitive("Steam Scattergun Muzzle Ring " + i, PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(x, 0.06f, 0.96f), new Vector3(0.1f, 0.055f, 0.1f), brassMaterial);
+            muzzleRing.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        }
+
+        GameObject pressureDrum = CreateLocalPrimitive("Steam Scattergun Pressure Drum", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(-0.39f, -0.02f, 0.08f), new Vector3(0.18f, 0.34f, 0.18f), ironMaterial);
+        pressureDrum.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        GameObject drumBandA = CreateLocalPrimitive("Steam Scattergun Drum Brass Band A", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(-0.48f, -0.02f, 0.08f), new Vector3(0.2f, 0.025f, 0.2f), brassMaterial);
+        drumBandA.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        GameObject drumBandB = CreateLocalPrimitive("Steam Scattergun Drum Brass Band B", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(-0.3f, -0.02f, 0.08f), new Vector3(0.2f, 0.025f, 0.2f), brassMaterial);
+        drumBandB.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+
+        GameObject gaugeBezel = CreateLocalPrimitive("Steam Scattergun Gauge Bezel", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(0.28f, 0.22f, -0.02f), new Vector3(0.17f, 0.03f, 0.17f), brassMaterial);
+        gaugeBezel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject gaugeFace = CreateLocalPrimitive("Steam Scattergun Gauge Face", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(0.28f, 0.22f, -0.05f), new Vector3(0.14f, 0.02f, 0.14f), gaugeFaceMaterial);
+        gaugeFace.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube("Steam Scattergun Gauge Needle", weaponRoot.transform, new Vector3(0.32f, 0.22f, -0.075f), new Vector3(0.11f, 0.012f, 0.012f), warningMaterial).transform.localRotation = Quaternion.Euler(0f, 0f, 28f);
+        CreateLocalCube("Steam Scattergun Pump Handle", weaponRoot.transform, new Vector3(0f, -0.11f, 0.54f), new Vector3(0.42f, 0.08f, 0.18f), gripMaterial);
+
+        for (int i = 0; i < 6; i++)
+        {
+            float x = i % 2 == 0 ? -0.25f : 0.25f;
+            float z = -0.04f + (i / 2) * 0.16f;
+            CreateLocalPrimitive("Steam Scattergun Receiver Rivet " + i, PrimitiveType.Sphere, weaponRoot.transform, new Vector3(x, 0.1f, z), new Vector3(0.035f, 0.035f, 0.035f), brassMaterial);
+        }
+
+        GameObject flash = CreateLocalCube("Steam Scattergun Muzzle Flash", weaponRoot.transform, new Vector3(0f, 0.06f, 1.12f), new Vector3(0.72f, 0.54f, 0.1f), muzzleFlashMaterial);
+        flash.SetActive(false);
+
+        WeaponView weaponView = weaponRoot.AddComponent<WeaponView>();
+        weaponView.muzzleFlash = flash;
+        weaponView.recoilOffset = new Vector3(0f, -0.045f, -0.14f);
+        weaponView.flashDuration = 0.075f;
         return weaponView;
     }
 

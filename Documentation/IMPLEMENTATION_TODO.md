@@ -1106,6 +1106,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.75 Steam Scattergun Viewmodel Pass
+
+- [x] Add a distinct first-person Steam Scattergun viewmodel.
+- [x] Add weapon-view references to `WeaponController`.
+- [x] Toggle Pressure Pistol and Steam Scattergun viewmodels when switching weapons.
+- [x] Expand weapon-switch smoke to verify active viewmodel swapping.
+- [x] Expand level validation to require Steam Scattergun viewmodel pieces.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.75`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

@@ -46,6 +46,12 @@ public class RuntimeWeaponSwitchTest : MonoBehaviour
             yield break;
         }
 
+        if (weapon.steamScattergunView == null || weapon.weaponView != weapon.steamScattergunView || !weapon.steamScattergunView.gameObject.activeSelf)
+        {
+            Fail("Weapon switch smoke failed: Steam Scattergun viewmodel did not become active.");
+            yield break;
+        }
+
         int startingAmmo = inventory.Ammo;
         if (!weapon.FireOnce())
         {
@@ -63,6 +69,12 @@ public class RuntimeWeaponSwitchTest : MonoBehaviour
         if (!weapon.EquipPressurePistol(showMessage: false) || weapon.IsUsingSteamScattergun || weapon.ActiveWeaponName != "Pressure Pistol")
         {
             Fail("Weapon switch smoke failed: Pressure Pistol re-equip failed.");
+            yield break;
+        }
+
+        if (weapon.pressurePistolView == null || weapon.weaponView != weapon.pressurePistolView || !weapon.pressurePistolView.gameObject.activeSelf || weapon.steamScattergunView.gameObject.activeSelf)
+        {
+            Fail("Weapon switch smoke failed: Pressure Pistol viewmodel did not become active again.");
             yield break;
         }
 

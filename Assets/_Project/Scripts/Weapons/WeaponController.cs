@@ -23,6 +23,8 @@ public class WeaponController : MonoBehaviour
     public float secondarySpread = GameBalance.PressureBurstSpread;
     public LayerMask hitMask = ~0;
     public WeaponView weaponView;
+    public WeaponView pressurePistolView;
+    public WeaponView steamScattergunView;
 
     private WeaponDefinition pressurePistolDefinition;
     private float nextFireTime;
@@ -50,8 +52,14 @@ public class WeaponController : MonoBehaviour
             weaponView = GetComponentInChildren<WeaponView>();
         }
 
+        if (pressurePistolView == null)
+        {
+            pressurePistolView = weaponView;
+        }
+
         pressurePistolDefinition = definition;
         ApplyDefinition();
+        SetActiveWeaponView(pressurePistolView);
     }
 
     private void ApplyDefinition()
@@ -153,6 +161,7 @@ public class WeaponController : MonoBehaviour
         usingSteamScattergun = false;
         definition = pressurePistolDefinition;
         ApplyDefinition();
+        SetActiveWeaponView(pressurePistolView);
         if (showMessage)
         {
             HUDController.Instance?.ShowTemporaryMessage("Pressure Pistol ready", 0.9f);
@@ -176,12 +185,31 @@ public class WeaponController : MonoBehaviour
         usingSteamScattergun = true;
         definition = steamScattergunDefinition;
         ApplyDefinition();
+        SetActiveWeaponView(steamScattergunView != null ? steamScattergunView : pressurePistolView);
         if (showMessage)
         {
             HUDController.Instance?.ShowTemporaryMessage("Steam Scattergun ready", 0.9f);
         }
 
         return true;
+    }
+
+    private void SetActiveWeaponView(WeaponView activeView)
+    {
+        if (pressurePistolView != null)
+        {
+            pressurePistolView.gameObject.SetActive(activeView == pressurePistolView);
+        }
+
+        if (steamScattergunView != null)
+        {
+            steamScattergunView.gameObject.SetActive(activeView == steamScattergunView);
+        }
+
+        if (activeView != null)
+        {
+            weaponView = activeView;
+        }
     }
 
     private bool FirePattern(int ammoCost, int shotDamage, float shotRange, int pelletCount, float spread, float cooldown, string emptyMessage)

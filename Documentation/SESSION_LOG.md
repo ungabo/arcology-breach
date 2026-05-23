@@ -2282,3 +2282,42 @@ Build executable:
 `Builds/Windows/v0.0.74/BrassworksBreach_v0.0.74.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 19:48 -04:00
+
+Completed `v0.0.75` Steam Scattergun viewmodel pass.
+
+Added:
+
+- Distinct first-person Steam Scattergun viewmodel with triple barrels, pressure drum, pump handle, gauge, rivets, and larger muzzle flash.
+- `WeaponController` references for Pressure Pistol and Steam Scattergun views.
+- Runtime view toggling when switching weapons.
+- Level validation for Steam Scattergun viewmodel pieces.
+- Weapon-switch smoke coverage for scattergun view activation and pistol view reactivation.
+- Versioned Windows build `v0.0.75`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.75/BrassworksBreach_v0.0.75.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

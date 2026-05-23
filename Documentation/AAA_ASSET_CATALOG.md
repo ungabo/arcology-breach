@@ -80,7 +80,7 @@ Every major asset should eventually have three quality targets:
 | --- | --- | --- | --- | --- |
 | WPN-001 | Pressure Pistol prototype | P0 | prototype | Primitive first-person brass-and-walnut pneumatic sidearm with receiver, pressure tube, gauge, valve, trigger, and side pipes. |
 | WPN-002 | Pressure Pistol final | P1 | verified | Procedural brass-and-walnut pneumatic sidearm with pressure tank, muzzle crown, sights, vent, valve, gauge, pipes, rivets, recoil/flash feedback, right-mouse Pressure Burst alternate fire, and data-driven definition asset. |
-| WPN-003 | Steam Scattergun | P1 | prototype | Close-range breaching weapon prototype with data-driven pellet fire, slug alternate fire, Boilerheart pickup visual, unlock persistence, and weapon-switch smoke coverage. Final first-person model, audio, and animation remain planned. |
+| WPN-003 | Steam Scattergun | P1 | prototype | Close-range breaching weapon prototype with data-driven pellet fire, slug alternate fire, Boilerheart pickup visual, distinct first-person triple-barrel viewmodel, unlock persistence, and weapon-switch smoke coverage. Final audio, animation, and balance polish remain planned. |
 | WPN-004 | Rivet Launcher | P2 | planned | Mechanical precision weapon for stronger machines. |
 | WPN-005 | Weapon pickup shells | P2 | planned | World pickup visuals for weapons. |
 | WPN-006 | Ammo family | P1 | prototype | Pressure cartridge pack exists with data-driven pickup definition; rivet bundles and boiler caps remain planned. |
@@ -102,7 +102,7 @@ Every major asset should eventually have three quality targets:
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
-| ANIM-001 | Pressure Pistol idle/fire | P1 | prototype | Existing recoil/flash can be expanded. |
+| ANIM-001 | Weapon idle/fire | P1 | prototype | Pressure Pistol and Steam Scattergun each have a procedural first-person viewmodel with shared recoil/flash support; dedicated authored animations remain planned. |
 | ANIM-002 | Pressure Pistol reload/check | P2 | planned | Optional if reloads become part of gameplay. |
 | ANIM-003 | Scrapper idle/chase | P1 | prototype | `MachineMotionVfx` now gives Scrappers baseline boiler bob, piston/cutter motion, and pressure pulsing; final pass should replace it with authored stride/attack clips. |
 | ANIM-004 | Scrapper attack tell | P1 | planned | Cutter arm windup before damage. |
