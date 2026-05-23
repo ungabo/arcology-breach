@@ -52,6 +52,7 @@ Near-term:
 - Each current level now has a scene-specific objective briefing at spawn.
 - Venting the Boilerheart pressure valve shuts down the linked Level03 steam hazards.
 - Level01 includes the first secret pressure cache reward space.
+- Run secret stats persist across the current multi-level route and can display at win.
 - Health and ammo persist across scene transitions.
 - Future weapon inventory and campaign flags still need expanded persistence.
 
@@ -184,6 +185,11 @@ v0.0.43 implementation notes:
 - Added reusable `SecretArea`.
 - Added `Secret - Intake Pressure Cache` with health and ammo rewards.
 - Added packaged secret smoke test and matrix coverage.
+
+v0.0.44 implementation notes:
+
+- Added persistent `RunStats` secret totals and discoveries.
+- Win message can include `SECRETS discovered/total`.
 
 ### Level 04: Furnace Foundry
 

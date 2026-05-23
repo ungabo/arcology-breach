@@ -662,6 +662,21 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.44 Run Secret Stats Pass
+
+- [x] Add persistent `RunStats`.
+- [x] Register secrets when scenes load.
+- [x] Mark secret discoveries in run stats.
+- [x] Reset run stats from main menu start.
+- [x] Display secret progress on win message when secrets exist.
+- [x] Expand secret smoke to verify run-stat discovery.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.44`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

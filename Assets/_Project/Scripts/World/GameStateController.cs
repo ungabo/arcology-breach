@@ -117,7 +117,8 @@ public class GameStateController : MonoBehaviour
         SetCursorLocked(false);
         pauseMenu?.SetVisible(false);
         SteamworksAudio.Play(SteamworksAudioCue.Win);
-        hud?.ShowPersistentMessage("SERVICE LIFT REACHED\nPress R to run again");
+        string secretSummary = RunStats.TotalSecrets > 0 ? "\nSECRETS " + RunStats.DiscoveredSecrets + "/" + RunStats.TotalSecrets : string.Empty;
+        hud?.ShowPersistentMessage("SERVICE LIFT REACHED" + secretSummary + "\nPress R to run again");
     }
 
     public void RestartLevel()

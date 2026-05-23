@@ -22,10 +22,16 @@ public class RuntimeSecretTest : MonoBehaviour
         PlayerController player = Require<PlayerController>("PlayerController");
         SecretArea secret = Require<SecretArea>("SecretArea");
 
-        int discoveredBefore = SecretArea.DiscoveredCount;
+        if (RunStats.TotalSecrets <= 0)
+        {
+            Fail("Secret smoke failed: run stats did not register total secrets.");
+            yield break;
+        }
+
+        int discoveredBefore = RunStats.DiscoveredSecrets;
         Teleport(player, secret.transform.position);
         secret.Discover(player.gameObject);
-        yield return WaitUntilOrFail(() => secret.Discovered && SecretArea.DiscoveredCount > discoveredBefore, "secret discovery", 1f);
+        yield return WaitUntilOrFail(() => secret.Discovered && RunStats.DiscoveredSecrets > discoveredBefore, "secret discovery", 1f);
         if (failed)
         {
             yield break;

@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.43`.
+Current state: `v0.0.44`.
 
 Implemented:
 
@@ -51,6 +51,7 @@ Implemented:
 - Scene-specific objective briefing messages for the current three-level route.
 - Boilerheart pressure valve shuts down linked steam hazards when vented.
 - Secret area foundation with the first Intake pressure cache and packaged secret smoke coverage.
+- Persistent run secret stats and final win-message secret progress.
 
 ## 3. Target Platform
 
