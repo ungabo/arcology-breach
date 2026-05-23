@@ -11,11 +11,13 @@ public class HUDController : MonoBehaviour
     public Text keyText;
     public Text messageText;
     public Text interactionText;
+    public Text objectiveText;
     public Text bossNameText;
     public Image damageFlashImage;
     public Image healthFillImage;
     public Image ammoFillImage;
     public Image keyLampImage;
+    public Image objectiveBackplateImage;
     public Image bossBackplateImage;
     public Image bossFillImage;
 
@@ -29,8 +31,11 @@ public class HUDController : MonoBehaviour
         Instance = this;
         ClearMessage();
         ClearInteractionPrompt();
+        ClearObjective();
         HideBossHealth();
     }
+
+    public string CurrentObjective => objectiveText != null ? objectiveText.text : string.Empty;
 
     private void Update()
     {
@@ -152,6 +157,35 @@ public class HUDController : MonoBehaviour
         {
             bossFillImage.fillAmount = 0f;
             bossFillImage.enabled = false;
+        }
+    }
+
+    public void SetObjective(string objective)
+    {
+        bool hasObjective = !string.IsNullOrWhiteSpace(objective);
+        if (objectiveText != null)
+        {
+            objectiveText.text = hasObjective ? "OBJECTIVE: " + objective : string.Empty;
+            objectiveText.enabled = hasObjective;
+        }
+
+        if (objectiveBackplateImage != null)
+        {
+            objectiveBackplateImage.enabled = hasObjective;
+        }
+    }
+
+    public void ClearObjective()
+    {
+        if (objectiveText != null)
+        {
+            objectiveText.text = string.Empty;
+            objectiveText.enabled = false;
+        }
+
+        if (objectiveBackplateImage != null)
+        {
+            objectiveBackplateImage.enabled = false;
         }
     }
 

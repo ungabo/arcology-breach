@@ -64,6 +64,7 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 | OBJ-002 | Lock final hoist behind Warden defeat | code/level/test | P1 | verified | v0.0.52 | GuardianDefeatObjective, guardian-locked ExitTrigger wiring, Level05 lock signals, validation, and auto-playthrough locked/unlocked finale coverage are verified. |
 | UI-005B | Add Warden boss health HUD | ui/code/test | P1 | verified | v0.0.53 | Boss health HUD wiring, Warden health updates, validation, runtime smoke, and Warden combat HUD damage check are verified. |
 | VFX-005B | Add Warden shutdown VFX | vfx/code/test | P1 | verified | v0.0.54 | WardenShutdownVfx steam jets, brass sparks, pressure ring, defeat hook, and Warden combat VFX spawn check are verified. |
+| UI-009 | Add persistent objective HUD | ui/code/test | P1 | verified | v0.0.55 | Objective HUD wiring, route-beat objective updates, runtime smoke, and auto-playthrough objective assertions are verified. |
 
 ## Ready Next
 
@@ -171,3 +172,4 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 - `2026-05-23`: `v0.0.52` Warden-gated finale build created at `Builds/Windows/v0.0.52/BrassworksBreach_v0.0.52.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.53` Warden boss health HUD build created at `Builds/Windows/v0.0.53/BrassworksBreach_v0.0.53.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.54` Warden shutdown VFX build created at `Builds/Windows/v0.0.54/BrassworksBreach_v0.0.54.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.55` persistent objective HUD build created at `Builds/Windows/v0.0.55/BrassworksBreach_v0.0.55.exe` and passed the complete V0 matrix through the runner. Next-step directive: continue immediately with the next highest-impact unfinished task.

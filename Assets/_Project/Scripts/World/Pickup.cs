@@ -115,6 +115,7 @@ public class Pickup : MonoBehaviour
                 break;
             case PickupKind.Key:
                 inventory?.AddKey(showMessage: false);
+                GameStateController.Instance?.SetObjective("Return to the pressure gate.");
                 break;
         }
     }

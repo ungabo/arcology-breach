@@ -40,6 +40,12 @@ public class RuntimeSmokeTest : MonoBehaviour
             Debug.LogError("Runtime smoke test failed: missing boss health HUD wiring.");
             Application.Quit(1);
         }
+
+        if (hud.objectiveText == null || hud.objectiveBackplateImage == null || string.IsNullOrWhiteSpace(hud.CurrentObjective))
+        {
+            Debug.LogError("Runtime smoke test failed: missing active objective HUD wiring.");
+            Application.Quit(1);
+        }
         Require<EnemyController>("EnemyController");
         Require<Pickup>("Pickup");
         Require<LockedDoor>("LockedDoor");

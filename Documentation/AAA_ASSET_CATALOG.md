@@ -151,6 +151,7 @@ Every major asset should eventually have three quality targets:
 | UI-006 | Main menu | P2 | prototype | Generated start/quit menu with brassworks backdrop and automated test routing into gameplay. |
 | UI-007 | Settings and accessibility | P2 | prototype | Mouse sensitivity and master volume sliders exist on main and pause menus; resolution, flash intensity, and color readability remain planned. |
 | UI-008 | Boss health gauge | P1 | prototype | Top-center brass backplate, red pressure fill, and boss label for the Governor Warden; validated in scene/runtime smoke and damage-checked by Warden combat smoke. |
+| UI-009 | Persistent objective HUD | P1 | prototype | Brass objective backplate and route text that updates for key, gate, valve, Warden defeat, death, and win states; validated by runtime smoke and auto-playthrough. |
 
 ## 10. Level Assets
 

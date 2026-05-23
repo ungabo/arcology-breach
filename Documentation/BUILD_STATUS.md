@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.54` versioned build for `Brassworks Breach`.
+`v0.0.55` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds Warden shutdown VFX: defeating the Governor Warden now vents steam jets, brass sparks, and an expanding pressure ring before the final hoist unlocks. This sits on top of the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, pulsing Furnace Foundry heat-surge hazards, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, packaged secret smoke coverage, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, packaged hazard smoke coverage, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build adds persistent objective HUD guidance: a brass objective line stays visible and updates at key route beats across the five-level run. This sits on top of Warden shutdown VFX, the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, pulsing Furnace Foundry heat-surge hazards, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, packaged secret smoke coverage, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, packaged hazard smoke coverage, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -69,12 +69,13 @@
 - `GuardianDefeatObjective` now locks the Level05 master override hoist until the Governor Warden is destroyed, with validation and auto-playthrough coverage.
 - Warden boss health HUD with top-center brass backplate, red pressure fill, label text, editor/runtime validation, and packaged Warden combat smoke coverage for damage feedback.
 - `WardenShutdownVfx` spawns steam jets, brass sparks, and an expanding pressure ring when the Governor Warden is destroyed, verified by packaged Warden combat smoke.
+- Persistent objective HUD with editor/runtime wiring checks and auto-playthrough coverage for key, gate, valve, Warden defeat, and win updates.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.54`.
+Latest fully verified build: `v0.0.55`.
 
-Current `v0.0.54` verification:
+Current `v0.0.55` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -116,7 +117,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.54\BrassworksBreach_v0.0.54.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.55\BrassworksBreach_v0.0.55.exe`
 
 ## Latest Build Verification
 
@@ -660,8 +661,25 @@ Current target:
 - `2026-05-23 16:46 -04:00`: `v0.0.54` packaged hazard smoke passed.
 - `2026-05-23 16:46 -04:00`: `v0.0.54` packaged secret smoke passed.
 - `2026-05-23 16:46 -04:00`: `v0.0.54` packaged pause-flow smoke passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` one-command build matrix runner passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` scene rebuild passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` level validation passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` editor smoke passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` Windows build passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` packaged runtime smoke passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` packaged auto-playthrough passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` packaged combat smoke passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` packaged combat-edge smoke passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` packaged combat-scenario smoke passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` packaged ranged combat smoke passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` packaged Bulwark combat smoke passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` packaged Warden combat smoke passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` packaged interaction smoke passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` packaged hazard smoke passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` packaged secret smoke passed.
+- `2026-05-23 16:56 -04:00`: `v0.0.55` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.55`, `v0.0.56`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.56`, `v0.0.57`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

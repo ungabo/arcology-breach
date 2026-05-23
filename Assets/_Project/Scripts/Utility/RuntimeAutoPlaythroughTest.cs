@@ -83,10 +83,22 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
             yield break;
         }
 
+        if (!ObjectiveContains("Return to the pressure gate."))
+        {
+            Fail("Auto-playthrough failed: objective HUD did not update after gear key pickup.");
+            yield break;
+        }
+
         Teleport(player, door.transform.position + Vector3.back * 1.2f);
         yield return WaitUntilOrFail(() => doorCollider == null || !doorCollider.enabled, "pressure gate opening", 2f);
         if (failed)
         {
+            yield break;
+        }
+
+        if (!ObjectiveContains("Ride the service lift."))
+        {
+            Fail("Auto-playthrough failed: objective HUD did not update after pressure gate opening.");
             yield break;
         }
 
@@ -153,6 +165,12 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
             yield break;
         }
 
+        if (!ObjectiveContains("Ride the foundry lift."))
+        {
+            Fail("Auto-playthrough failed: objective HUD did not update after Boilerheart valve venting.");
+            yield break;
+        }
+
         string targetSceneName = transition.targetSceneName;
         Teleport(player, transition.transform.position);
         yield return WaitUntilOrFail(() => SceneManager.GetActiveScene().name == targetSceneName, "level 03 foundry lift transition", 2f);
@@ -208,6 +226,9 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
             yield break;
         }
 
+        Teleport(player, new Vector3(0f, 0f, 14f));
+        yield return null;
+
         warden.TakeDamage(GameBalance.GovernorWardenHealth);
         yield return WaitUntilOrFail(() => guardianObjective.IsComplete && !exit.IsLocked, "Governor Warden defeat unlocking final hoist", 2f);
         if (failed)
@@ -215,9 +236,22 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
             yield break;
         }
 
+        if (!ObjectiveContains("Engage the master override hoist."))
+        {
+            Fail("Auto-playthrough failed: objective HUD did not update after Governor Warden defeat.");
+            yield break;
+        }
+
+        Teleport(player, exit.transform.position);
         yield return WaitUntilOrFail(() => gameState.State == GameRunState.Won, "level 05 master override hoist win state", 2f);
         if (failed)
         {
+            yield break;
+        }
+
+        if (!ObjectiveContains("Run complete."))
+        {
+            Fail("Auto-playthrough failed: objective HUD did not update after win state.");
             yield break;
         }
 
@@ -248,6 +282,12 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
         }
 
         return true;
+    }
+
+    private static bool ObjectiveContains(string expected)
+    {
+        HUDController hud = UnityEngine.Object.FindAnyObjectByType<HUDController>();
+        return hud != null && hud.CurrentObjective.IndexOf(expected, StringComparison.OrdinalIgnoreCase) >= 0;
     }
 
     private static void DisableEnemiesForDeterministicObjectiveTest(bool keepWardenActive = false)

@@ -31,6 +31,7 @@ public class GuardianDefeatObjective : MonoBehaviour
 
         IsComplete = true;
         SetSignalState();
+        GameStateController.Instance?.SetObjective("Engage the master override hoist.");
         HUDController.Instance?.ShowTemporaryMessage(completeMessage, 2.5f);
         SteamworksAudio.Play(SteamworksAudioCue.GateOpen);
     }

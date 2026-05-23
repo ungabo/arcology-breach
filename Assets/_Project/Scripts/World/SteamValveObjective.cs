@@ -48,6 +48,7 @@ public class SteamValveObjective : MonoBehaviour, IInteractable
         IsComplete = true;
         SetSignalState();
         DisableLinkedHazards();
+        GameStateController.Instance?.SetObjective("Ride the foundry lift.");
         HUDController.Instance?.ShowTemporaryMessage(completeMessage, 2.5f);
         SteamworksAudio.Play(SteamworksAudioCue.GateOpen);
     }

@@ -824,6 +824,21 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.55 Persistent Objective HUD Pass
+
+- [x] Add persistent objective text and backplate to `HUDController`.
+- [x] Generate objective HUD UI in `V0SceneBuilder`.
+- [x] Set the starting objective from each scene's `GameStateController.startMessage`.
+- [x] Update objectives after gear key pickup, pressure gate opening, Boilerheart valve venting, Warden defeat, player death, and win.
+- [x] Validate objective HUD wiring in editor and packaged runtime smoke.
+- [x] Expand auto-playthrough to verify objective text updates across the route.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.55`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

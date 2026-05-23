@@ -47,10 +47,16 @@ public class GameStateController : MonoBehaviour
     private void Start()
     {
         ResumeGameplay();
+        SetObjective(startMessage);
         if (!string.IsNullOrWhiteSpace(startMessage))
         {
             hud?.ShowTemporaryMessage(startMessage, 3f);
         }
+    }
+
+    public void SetObjective(string objective)
+    {
+        hud?.SetObjective(objective);
     }
 
     private void Update()
@@ -102,6 +108,7 @@ public class GameStateController : MonoBehaviour
         Time.timeScale = 1f;
         SetCursorLocked(false);
         pauseMenu?.SetVisible(false);
+        SetObjective("Recover and try the run again.");
         hud?.ShowPersistentMessage("YOU DIED\nPress R to restart");
     }
 
@@ -117,6 +124,7 @@ public class GameStateController : MonoBehaviour
         SetCursorLocked(false);
         pauseMenu?.SetVisible(false);
         SteamworksAudio.Play(SteamworksAudioCue.Win);
+        SetObjective("Run complete.");
         string secretSummary = RunStats.TotalSecrets > 0 ? "\nSECRETS " + RunStats.DiscoveredSecrets + "/" + RunStats.TotalSecrets : string.Empty;
         hud?.ShowPersistentMessage("SERVICE LIFT REACHED" + secretSummary + "\nPress R to run again");
     }

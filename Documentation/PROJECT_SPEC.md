@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.54`.
+Current state: `v0.0.55`.
 
 Implemented:
 
@@ -62,6 +62,7 @@ Implemented:
 - Guardian-gated finale where the Level05 master override hoist remains locked until the Governor Warden is destroyed.
 - Warden boss health HUD with brass backplate, red pressure fill, boss label, runtime visibility, validation, and packaged Warden combat smoke damage feedback coverage.
 - Warden shutdown VFX with steam jets, brass sparks, expanding pressure ring, and packaged Warden combat smoke coverage.
+- Persistent objective HUD with key, gate, valve, Warden defeat, death, and win-state updates plus auto-playthrough coverage.
 
 ## 3. Target Platform
 
@@ -180,6 +181,7 @@ Current:
 - Plain text health/ammo/key state.
 - Text crosshair.
 - Pause/death/win messages.
+- Persistent objective text.
 - Brass boss health HUD for the Governor Warden.
 
 Future:

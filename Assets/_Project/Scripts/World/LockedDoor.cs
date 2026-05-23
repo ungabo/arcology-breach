@@ -113,6 +113,7 @@ public class LockedDoor : MonoBehaviour, IInteractable
         }
 
         SteamworksAudio.Play(SteamworksAudioCue.GateOpen);
+        GameStateController.Instance?.SetObjective("Ride the service lift.");
         HUDController.Instance?.ShowTemporaryMessage("Pressure gate opened", 1f);
     }
 }

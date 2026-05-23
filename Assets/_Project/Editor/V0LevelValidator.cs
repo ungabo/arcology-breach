@@ -74,6 +74,11 @@ public static class V0LevelValidator
             throw new InvalidOperationException("Level validation failed: " + sceneName + " HUDController is missing interaction prompt text.");
         }
 
+        if (hud.objectiveText == null || hud.objectiveBackplateImage == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " HUDController is missing objective UI wiring.");
+        }
+
         if (hud.bossNameText == null || hud.bossBackplateImage == null || hud.bossFillImage == null)
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " HUDController is missing boss health UI wiring.");
