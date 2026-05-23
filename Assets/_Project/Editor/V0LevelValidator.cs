@@ -393,6 +393,12 @@ public static class V0LevelValidator
             {
                 throw new InvalidOperationException("Level validation failed: " + sceneName + " furnace heat hazard is missing phase signals.");
             }
+
+            FurnaceHeatHazardVfx furnaceVfx = hazard.GetComponent<FurnaceHeatHazardVfx>();
+            if (furnaceVfx == null || !furnaceVfx.HasPhaseSignals || furnaceVfx.VisibleHeatPieceCount < 2)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " furnace heat hazard is missing animated heat VFX " + hazard.name);
+            }
         }
     }
 

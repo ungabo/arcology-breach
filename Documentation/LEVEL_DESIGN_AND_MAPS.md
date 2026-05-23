@@ -59,6 +59,7 @@ Near-term:
 - Warden defeat now gets a visible shutdown burst so the final lock release has readable cause and effect.
 - Animated machinery spinners now add motion to pressure gates, service lifts, valve wheels, and the menu steamworks gear.
 - Steam hazards now use animated low/high puffs and are verified by level validation and hazard smoke.
+- Furnace heat hazards now pulse their phase signals and show active heat ripples, verified by level validation and hazard smoke.
 - Hazard smoke covers Level03 steam damage and Level04 furnace-heat damage without ending the run from one tick/pulse. Level05 also includes validated steam and furnace-heat hazards.
 - Each current level now has a scene-specific objective briefing at spawn.
 - Venting the Boilerheart pressure valve shuts down the linked Level03 steam hazards.
@@ -268,8 +269,8 @@ v0.0.47 implementation notes:
 
 - Added reusable `FurnaceHeatHazard`.
 - Added `Foundry Furnace Heat Hazard - Pour Lane` and `Foundry Furnace Heat Hazard - Hoist Lane`.
-- Furnace heat hazards cycle through warning, active glow, and safe damper visuals.
-- Hazard smoke now validates both Boilerheart steam damage and Foundry furnace-heat damage.
+- Furnace heat hazards cycle through warning, active glow, safe damper visuals, and active heat-ripple VFX.
+- Hazard smoke now validates Boilerheart steam damage, animated steam puffs, Foundry furnace-heat damage, and active furnace heat ripples.
 
 v0.0.48 implementation notes:
 

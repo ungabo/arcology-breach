@@ -1065,6 +1065,7 @@ public static class V0SceneBuilder
         hazard.activeDuration = GameBalance.FurnaceHeatHazardActiveDuration;
         hazard.cooldownDuration = GameBalance.FurnaceHeatHazardCooldownDuration;
         hazard.phaseOffset = phaseOffset;
+        FurnaceHeatHazardVfx hazardVfx = hazardRoot.AddComponent<FurnaceHeatHazardVfx>();
 
         CreateLocalCube(name + " Iron Pour Trough", hazardRoot.transform, new Vector3(0f, -0.72f, 0f), new Vector3(triggerSize.x, 0.08f, triggerSize.z * 0.86f), ironMaterial);
         CreateLocalCube(name + " Brass Warning Strip A", hazardRoot.transform, new Vector3(0f, -0.65f, -triggerSize.z * 0.42f), new Vector3(triggerSize.x, 0.06f, 0.08f), warningMaterial);
@@ -1072,6 +1073,12 @@ public static class V0SceneBuilder
         hazard.warningSignal = CreateLocalCube(name + " Amber Warning Signal", hazardRoot.transform, new Vector3(0f, -0.54f, 0f), new Vector3(triggerSize.x * 0.62f, 0.06f, triggerSize.z * 0.48f), warningMaterial);
         hazard.activeSignal = CreateLocalCube(name + " Furnace Glow Plate", hazardRoot.transform, new Vector3(0f, -0.5f, 0f), new Vector3(triggerSize.x * 0.7f, 0.08f, triggerSize.z * 0.56f), glowMaterial);
         hazard.safeSignal = CreateLocalCube(name + " Closed Iron Damper", hazardRoot.transform, new Vector3(0f, -0.46f, 0f), new Vector3(triggerSize.x * 0.46f, 0.06f, triggerSize.z * 0.32f), ironMaterial);
+        GameObject heatWaveA = CreateLocalCube(name + " Heat Ripple A", hazardRoot.transform, new Vector3(-triggerSize.x * 0.18f, -0.22f, -triggerSize.z * 0.14f), new Vector3(0.08f, 0.28f, triggerSize.z * 0.48f), glowMaterial);
+        GameObject heatWaveB = CreateLocalCube(name + " Heat Ripple B", hazardRoot.transform, new Vector3(triggerSize.x * 0.18f, -0.16f, triggerSize.z * 0.1f), new Vector3(0.08f, 0.34f, triggerSize.z * 0.38f), glowMaterial);
+        hazardVfx.warningSignal = hazard.warningSignal.transform;
+        hazardVfx.activeSignal = hazard.activeSignal.transform;
+        hazardVfx.safeSignal = hazard.safeSignal.transform;
+        hazardVfx.heatWaves = new[] { heatWaveA.transform, heatWaveB.transform };
 
         return hazard;
     }

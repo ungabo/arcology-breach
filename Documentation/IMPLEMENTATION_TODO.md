@@ -953,6 +953,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.64 Furnace Heat VFX Pass
+
+- [x] Add reusable `FurnaceHeatHazardVfx`.
+- [x] Wire warning, active, and safe phase signal animation.
+- [x] Add active heat-ripple pieces to generated furnace heat hazards.
+- [x] Add level validation for furnace heat VFX wiring.
+- [x] Expand hazard smoke to verify active heat ripples.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.64`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

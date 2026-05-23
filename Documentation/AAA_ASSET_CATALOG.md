@@ -125,6 +125,7 @@ Every major asset should eventually have three quality targets:
 | VFX-007 | Pressure gate open effect | P2 | prototype | `GateOpenVfx` spawns green pressure wash, steam jets, and brass/green sparks when the Level01 pressure gate opens; final pass should link lamp states, gear sound, and denser steam. |
 | VFX-008 | Service lift activation | P1 | prototype | `LiftActivationVfx` spawns a green floor pressure ring, center steam pulse, and brass/green contact sparks before level-transition scene loads. |
 | VFX-009 | Steam hazard field | P2 | prototype | `SteamHazardVfx` animates low/high steam puffs on generated steam hazards; final pass should add denser particles, sound sync, and wind direction. |
+| VFX-010 | Furnace heat field | P2 | prototype | `FurnaceHeatHazardVfx` pulses phase signals and animates active heat ripples on generated furnace hazards; final pass should add heat shimmer particles, distortion, and furnace audio sync. |
 
 ## 8. Audio
 

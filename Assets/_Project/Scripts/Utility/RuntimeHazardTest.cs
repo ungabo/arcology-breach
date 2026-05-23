@@ -97,10 +97,18 @@ public class RuntimeHazardTest : MonoBehaviour
         int healthBeforeHazard = health.CurrentHealth;
         Teleport(player, hazard.transform.position);
         hazard.ForceActiveForTest(0.75f);
+        yield return null;
         hazard.TryDamage(player.gameObject);
         yield return WaitUntilOrFail(() => health.CurrentHealth < healthBeforeHazard, "furnace heat hazard damage", 1f);
         if (failed)
         {
+            yield break;
+        }
+
+        FurnaceHeatHazardVfx furnaceVfx = hazard.GetComponent<FurnaceHeatHazardVfx>();
+        if (furnaceVfx == null || !furnaceVfx.HasPhaseSignals || furnaceVfx.VisibleHeatPieceCount < 2 || !furnaceVfx.ActiveHeatVisible)
+        {
+            Fail("Hazard smoke failed: furnace heat VFX did not expose active heat ripples.");
             yield break;
         }
 

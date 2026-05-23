@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.63`.
+Current state: `v0.0.64`.
 
 Implemented:
 
@@ -71,6 +71,7 @@ Implemented:
 - `GearKeyPickupVfx` feedback when the gear key is collected, with auto-playthrough coverage.
 - `ResourcePickupVfx` feedback when health and ammo pickups are collected, with auto-playthrough coverage.
 - `SteamHazardVfx` animated low/high steam puffs on generated steam hazards, with validation and hazard smoke coverage.
+- `FurnaceHeatHazardVfx` animated phase signals and active heat ripples on generated furnace heat hazards, with validation and hazard smoke coverage.
 
 ## 3. Target Platform
 
