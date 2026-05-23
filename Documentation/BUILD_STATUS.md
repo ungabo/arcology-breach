@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.60` versioned build for `Brassworks Breach`.
+`v0.0.61` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build adds service-lift activation VFX: level transitions now pause briefly for a green pressure ring, steam pulse, and brass contacts before loading the next scene. This sits on top of pressure-gate opening VFX, non-lethal machine hit VFX, animated steampunk machinery, standard machine death VFX, persistent objective HUD guidance, Warden shutdown VFX, the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, pulsing Furnace Foundry heat-surge hazards, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, packaged secret smoke coverage, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, packaged hazard smoke coverage, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build adds gear-key pickup VFX: the first objective pickup now emits a brass ring, center glow, and tooth sparks when collected. This sits on top of service-lift activation VFX, pressure-gate opening VFX, non-lethal machine hit VFX, animated steampunk machinery, standard machine death VFX, persistent objective HUD guidance, Warden shutdown VFX, the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, pulsing Furnace Foundry heat-surge hazards, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, packaged secret smoke coverage, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, packaged hazard smoke coverage, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -75,12 +75,13 @@
 - `MachineHitVfx` now gives Scrappers, Lancers, Bulwarks, and the Governor Warden non-lethal spark/steam impact feedback, verified by combat-scenario, Bulwark, and Warden combat smoke.
 - `GateOpenVfx` now gives the pressure gate green pressure-wash, steam-jet, and spark feedback, verified by auto-playthrough.
 - `LiftActivationVfx` now gives service lifts green pressure-ring, steam, and brass-contact feedback before scene load, verified by auto-playthrough.
+- `GearKeyPickupVfx` now gives the gear key a brass ring, center glow, and tooth-spark pickup burst, verified by auto-playthrough.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.60`.
+Latest fully verified build: `v0.0.61`.
 
-Current `v0.0.60` verification:
+Current `v0.0.61` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -122,7 +123,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.60\BrassworksBreach_v0.0.60.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.61\BrassworksBreach_v0.0.61.exe`
 
 ## Latest Build Verification
 
@@ -768,13 +769,30 @@ Current target:
 - `2026-05-23 17:39 -04:00`: `v0.0.60` packaged hazard smoke passed.
 - `2026-05-23 17:39 -04:00`: `v0.0.60` packaged secret smoke passed.
 - `2026-05-23 17:39 -04:00`: `v0.0.60` packaged pause-flow smoke passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` one-command build matrix runner passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` scene rebuild passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` level validation passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` editor smoke passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` Windows build passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` packaged runtime smoke passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` packaged auto-playthrough passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` packaged combat smoke passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` packaged combat-edge smoke passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` packaged combat-scenario smoke passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` packaged ranged combat smoke passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` packaged Bulwark combat smoke passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` packaged Warden combat smoke passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` packaged interaction smoke passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` packaged hazard smoke passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` packaged secret smoke passed.
+- `2026-05-23 17:44 -04:00`: `v0.0.61` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.61`, `v0.0.62`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.62`, `v0.0.63`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
 - Runtime smoke test verifies boot/object presence. Auto-playthrough verifies the current five-level objective flow but not human combat feel.
-- Combat smoke verifies weapon raycast damage, enemy death, and Scrapper death VFX; combat-edge smoke verifies empty ammo, Scrapper melee damage, and player death state; combat-scenario smoke verifies cooldown, ammo accounting, expected shot count, enemy survival until final hit, and non-lethal Scrapper hit VFX; ranged combat smoke verifies Lancer projectile damage; Bulwark combat smoke verifies heavy enemy durability/death, scaled hit VFX, and scaled death VFX; Warden combat smoke verifies final guardian durability/death, boss health HUD damage feedback, hit VFX, and shutdown VFX spawn; auto-playthrough verifies pressure-gate open VFX and service-lift activation VFX; hazard smoke verifies steam and furnace-heat hazard damage; secret smoke verifies secret discovery. Editor/runtime smoke also requires the current machinery spinner pass.
+- Combat smoke verifies weapon raycast damage, enemy death, and Scrapper death VFX; combat-edge smoke verifies empty ammo, Scrapper melee damage, and player death state; combat-scenario smoke verifies cooldown, ammo accounting, expected shot count, enemy survival until final hit, and non-lethal Scrapper hit VFX; ranged combat smoke verifies Lancer projectile damage; Bulwark combat smoke verifies heavy enemy durability/death, scaled hit VFX, and scaled death VFX; Warden combat smoke verifies final guardian durability/death, boss health HUD damage feedback, hit VFX, and shutdown VFX spawn; auto-playthrough verifies gear-key pickup VFX, pressure-gate open VFX, and service-lift activation VFX; hazard smoke verifies steam and furnace-heat hazard damage; secret smoke verifies secret discovery. Editor/runtime smoke also requires the current machinery spinner pass.
 - Visual dressing is still procedural primitive art, though the objective props now have stronger final-direction silhouettes.
 - Windows runtime performance profile exists, but visible performance profiling still needs a real play session.
 - Enemy pathing uses simple side-steering, not NavMesh.

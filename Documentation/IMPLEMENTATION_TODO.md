@@ -913,6 +913,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.61 Gear Key Pickup VFX Pass
+
+- [x] Add reusable `GearKeyPickupVfx` runtime effect.
+- [x] Spawn key pickup VFX from `Pickup.Collect` for key pickups.
+- [x] Add brass ring, center glow, and tooth-spark pieces.
+- [x] Expand auto-playthrough to verify key pickup VFX after inventory/objective update.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.61`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

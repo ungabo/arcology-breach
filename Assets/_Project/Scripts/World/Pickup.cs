@@ -76,6 +76,11 @@ public class Pickup : MonoBehaviour
 
         collected = true;
 
+        if (kind == PickupKind.Key)
+        {
+            GearKeyPickupVfx.Spawn(transform.position + Vector3.up * 0.25f);
+        }
+
         ApplyPickup(inventory, health);
         SteamworksAudio.Play(GetAudioCue());
 

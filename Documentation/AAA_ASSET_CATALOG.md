@@ -120,7 +120,7 @@ Every major asset should eventually have three quality targets:
 | VFX-005 | Machine death effect | P1 | prototype | Standard machine shutdown now spawns steam puffs, brass sparks, and a pressure ring for Scrappers/Lancers/Bulwarks; final per-enemy variants remain planned. |
 | VFX-005B | Warden shutdown burst | P1 | prototype | Boss-specific shutdown effect spawned by `GovernorWardenController`, verified by Warden combat smoke. |
 | VFX-005C | Standard shutdown burst | P1 | prototype | Compact `MachineDeathVfx` used by Scrappers and Lancers, scaled up for Bulwarks, verified by combat smoke. |
-| VFX-006 | Gear-key pickup effect | P1 | planned | Amber click/gear spin effect. |
+| VFX-006 | Gear-key pickup effect | P1 | prototype | `GearKeyPickupVfx` spawns a brass ring, center glow, and tooth sparks when the gear key is collected; final pass should add clockwork glyphs and stronger pickup audio sync. |
 | VFX-007 | Pressure gate open effect | P2 | prototype | `GateOpenVfx` spawns green pressure wash, steam jets, and brass/green sparks when the Level01 pressure gate opens; final pass should link lamp states, gear sound, and denser steam. |
 | VFX-008 | Service lift activation | P1 | prototype | `LiftActivationVfx` spawns a green floor pressure ring, center steam pulse, and brass/green contact sparks before level-transition scene loads. |
 | VFX-009 | Steam hazard field | P2 | planned | Readable venting steam for hazards. |

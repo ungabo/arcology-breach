@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.60`.
+Current state: `v0.0.61`.
 
 Implemented:
 
@@ -68,6 +68,7 @@ Implemented:
 - Non-lethal `MachineHitVfx` impact feedback for Scrappers, Lancers, Bulwarks, and the Governor Warden with combat automation coverage.
 - `GateOpenVfx` feedback when the Level01 pressure gate opens, with auto-playthrough coverage.
 - `LiftActivationVfx` feedback and a short pressure-engage delay before level-transition scene loads, with auto-playthrough coverage.
+- `GearKeyPickupVfx` feedback when the gear key is collected, with auto-playthrough coverage.
 
 ## 3. Target Platform
 

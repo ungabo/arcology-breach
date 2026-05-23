@@ -89,6 +89,13 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
             yield break;
         }
 
+        GearKeyPickupVfx keyVfx = UnityEngine.Object.FindAnyObjectByType<GearKeyPickupVfx>();
+        if (keyVfx == null || keyVfx.PieceCount < 8)
+        {
+            Fail("Auto-playthrough failed: gear key pickup VFX did not spawn with enough visible pieces.");
+            yield break;
+        }
+
         Teleport(player, door.transform.position + Vector3.back * 1.2f);
         yield return WaitUntilOrFail(() => doorCollider == null || !doorCollider.enabled, "pressure gate opening", 2f);
         if (failed)
