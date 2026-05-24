@@ -134,6 +134,7 @@ The active step sequence is driven by this ledger plus `VERSION_MICRO_ROADMAP.md
 | AUD-021 | Integrate AudioV1 authored clips | audio/code/test | P1 | verified | v0.0.99 | `SteamworksAudio` now prefers staged AudioV1 WAV ambience and cue clips for every `SteamworksAudioCue` with procedural fallback retained. Generated scenes serialize the bindings, level validation checks all authored cue mappings, and runtime smoke requires authored AudioV1 routing. Full `v099b` matrix passed. |
 | ARTSTAGE-019 | Environment Recovery03 Unity proof | art/process/tool | P1 | rejected | v0.0.99 | ENV Recovery03 compiled and produced four focused Unity environment JPGs plus contact sheet/report/metrics, but the output failed the no-magenta shader acceptance gate. The renderer was quarantined outside `Assets/`; current environment best remains Recovery01. |
 | UI-013 | Add flash-intensity accessibility setting | ui/code/test | P1 | verified | v0.1.0 | Main and pause menus now expose a persisted flash-intensity slider; HUD damage flash and player damage VFX scale from the setting. Scene validation checks slider wiring/range and pause-flow smoke verifies runtime setting behavior. Full `v010` matrix passed. |
+| VFX-005E | Add Bulwark shutdown polish | enemy/vfx/test | P1 | verified | v0.1.1 | Bulwark deaths now route through a dedicated `MachineDeathVfx` shutdown style with heavy boiler/furnace fragments, and Bulwark combat smoke requires the Bulwark-specific detail. Full `v011` matrix passed. |
 
 ## Ready Next
 

@@ -1,10 +1,10 @@
 # Brassworks Breach - Version Micro Roadmap
 
-Last updated: 2026-05-23
+Last updated: 2026-05-24
 
 ## Purpose
 
-This document lists planned small versioned development slices before they are built. It makes the rolling `v0.0.x` sequence visible instead of leaving every next step implicit.
+This document lists planned small versioned development slices before they are built. It makes the rolling `v0.1.x` sequence visible instead of leaving every next step implicit.
 
 The roadmap is a living plan, not a promise that every version number is immutable. If a test failure, dependency, or better grouping changes the order, update this file and record the change in `SESSION_LOG.md`.
 
@@ -25,38 +25,40 @@ The roadmap is a living plan, not a promise that every version number is immutab
 - Commit and push after each verified versioned slice.
 - If a planned item proves too large, split it into the next open version numbers and update this document.
 
-## Near-Term Planned Sequence
+## Completed Recent History
 
 | Version | Planned Slice | Intent | Expected Verification |
 | --- | --- | --- | --- |
-| v0.0.84 | Steam Scattergun slug identity | Completed: right-mouse scattergun slug now has its own audio/VFX and smoke coverage. | Full V0 matrix passed; weapon-switch smoke verifies slug cue/VFX. |
-| v0.0.85 | Scattergun world pickup art polish | Completed: Level03 world pickup now has a display stand, yoke, nameplate, brass/walnut weapon details, pressure coil, rear valve wheel, and shell rack. | Full V0 matrix passed; level validation checks named pickup visual pieces. |
-| v0.0.86 | Scattergun pickup placement/readability | Completed: added brass route strips, floor chevrons, pressure pipes, lamps, and `BREACH TOOL` label around the Level03 pickup. | Full V0 matrix passed; level validation and weapon-switch smoke passed. |
-| v0.0.87 | Pressure Pistol secondary feedback | Completed: Pressure Burst now has dedicated pressure-dump audio and pressure/steam/brass VFX. | Full V0 matrix passed; combat-scenario smoke verifies secondary feedback. |
-| v0.0.88 | Pressure Pistol viewmodel polish | Completed: Pressure Burst now drives pistol gauge, valve, lever, chamber, and vent viewmodel motion cues; first staged PBR material, modular-kit, enemy, and weapon/prop packs were added. | Full V0 matrix passed; combat-scenario smoke verifies secondary viewmodel feedback. |
-| v0.0.89 | Scrapper attack readability pass | Completed: Scrapper melee windup now has dedicated warning VFX/audio and smoke coverage before damage lands. | Full V0 matrix passed; combat-edge smoke verifies tell before player damage. |
-| v0.0.90 | Scrapper shutdown polish | Completed: Scrapper death now uses a richer shutdown variant with brass/steam sparks, cutter shards, flywheel gears, valve wheel, pressure-tank burst, and furnace flash. | Full V0 matrix passed; combat smoke verifies Scrapper-specific shutdown detail. |
-| v0.0.91 | Lancer firing tell pass | Completed: Lancer pressure-bolt windup now has dedicated muzzle/coil/lens VFX and a procedural valve-charge audio cue. | Full V0 matrix passed; ranged-combat smoke verifies tell before pressure-bolt VFX/damage. |
-| v0.0.92 | Lancer projectile impact feedback | Completed: Pressure bolts now spawn dedicated pressure/steam/brass impact VFX on player/world hit. | Full V0 matrix passed; ranged-combat smoke verifies impact VFX when damage lands. |
-| v0.0.93 | Bulwark attack readability pass | Completed: Bulwark hammer windup now has dedicated slam-warning VFX/audio before damage lands. | Full V0 matrix passed; Bulwark combat smoke verifies tell before slam damage. |
-| v0.0.94 | Bulwark shutdown polish | Add heavier furnace/boiler death feedback to distinguish it from smaller machines. | Full V0 matrix; Bulwark combat smoke. |
-| v0.0.95 | Bellows Node encounter readability | Add stronger spatial/visual cues around the support-machine role and boost radius. | Full V0 matrix; Bellows Node smoke. |
-| v0.0.96 | Bellows Node level dressing | Add local pipes, warnings, and service machinery around the Level03 Bellows Node. | Full V0 matrix; level validation plus Bellows Node smoke. |
-| v0.0.97 | Furnace hazard audio/readability | Add dedicated hazard loop/pulse cues for steam and furnace heat hazards. | Full V0 matrix; hazard smoke. |
-| v0.0.98 | Secret cache readability pass | Improve visual language for secret cache entrances/rewards without making them mandatory. | Full V0 matrix; secret smoke and auto-playthrough. |
-| v0.0.99 | Objective device feedback pass | Add more readable feedback to valves/lifts/locks after interaction. | Full V0 matrix; auto-playthrough and interaction smoke. |
-| v0.0.100 | First route cohesion pass | Tighten the five-level prototype route with accumulated readability and pacing adjustments. | Full V0 matrix; manual playtest recommended after build. |
+| v0.0.94 | SignageDecalsV1 playable integration | Completed: static staged-signage and decal quads are generated in Level01, Level03, and Level05 for objective plates, warning signage, route arrows, machinery labels, and service/secret marks. | Full V0 matrix passed; scene validation checks expected signage objects and staged texture references. |
+| v0.0.95 | FinalMaterialsV1 gameplay binding | Completed: active generated materials now reference staged BaseColor, Normal, and ORM texture maps for soot brick, wet stone, riveted iron, brass, copper, walnut, enamel gauge, amber glass, and hazard enamel. | Full V0 matrix passed; validator coverage checks texture references on gameplay materials. |
+| v0.0.96 | North-star environment density pass | Completed: generated pipe canopies, caged amber gaslights, rivet bands, foundry rail details, and Governor regulator-crown dressing across the campaign. | Full V0 matrix passed; level validation checks named environment-density pieces. |
+| v0.0.97 | UIHudV1 playable UI integration | Completed: active HUD, main menu, pause menu, reticle, prompt backplate, key lamp, objective panel, and boss gauge use staged steampunk UI sprites. | Full V0 matrix passed; validator coverage checks sprite import and UI wiring. |
+| v0.0.98 | Prompt icons and denied key feedback | Completed: interaction prompts show context icons and locked pressure gates flash the denied key-lamp sprite. | Full V0 matrix passed; interaction smoke verifies prompt artwork and denial feedback. |
+| v0.0.99 | AudioV1 authored cue integration | Completed: `SteamworksAudio` prefers staged AudioV1 WAV ambience and cue clips for every gameplay cue while retaining procedural fallback. | Full V0 matrix passed through `v099b`; validator and runtime smoke require authored AudioV1 routing. |
+| v0.1.0 | Flash-intensity accessibility setting | Completed: main and pause menus expose a persisted flash-intensity slider, and that value scales HUD damage flash plus first-person player damage VFX. | Full V0 matrix passed; scene validation checks slider wiring/range and pause-flow smoke verifies runtime behavior. |
+| v0.1.1 | Bulwark shutdown polish | Completed: Bulwark deaths now use a dedicated heavy boiler/furnace `MachineDeathVfx` style instead of the generic scaled machine burst. | Full V0 matrix passed; Bulwark combat smoke requires Bulwark-specific shutdown detail. |
 
-## Beyond v0.0.100
+## Near-Term Proposed Sequence
 
-Planned follow-up areas:
+| Version | Planned Slice | Intent | Expected Verification |
+| --- | --- | --- | --- |
+| v0.1.2 | Internal Windows route playtest and issue capture | Run a full start-to-win Windows play session under the current build, capture movement, combat, readability, audio, and performance notes, then convert the findings into directly actionable tasks. | Existing full matrix remains green; playtest notes identify concrete tuning edits without stopping the continuation flow. |
+| v0.1.3 | Core movement and camera feel tuning | Tune walk speed, strafe feel, mouse sensitivity range, pause/menu defaults, damage feedback intensity, and low-PC frame pacing so the base FPS loop feels deliberate and responsive. | Full V0 matrix plus targeted packaged movement/combat smoke; no regressions to pause/settings flow. |
+| v0.1.4 | Weapon, ammo, and enemy pressure balance | Tune Pressure Pistol, Pressure Burst, Steam Scattergun, ammo pickups, Scrapper, Lancer, Bulwark, Bellows Node, and Warden values toward fair Windows difficulty. | Full V0 matrix; combat, combat-edge, ranged, Bulwark, Bellows, Warden, and weapon-switch smokes remain green. |
+| v0.1.5 | Level01 Brassworks Intake flow polish | Tighten the opening map around key visibility, gate preview, readable combat cover, pickup placement, secret route clarity, and first-time player onboarding. | Full V0 matrix; auto-playthrough and level validation cover the revised route, with a packaged route playtest afterward. |
+| v0.1.6 | Level02 and Level03 midgame pacing polish | Improve Pipeworks Annex sightlines, routing-valve readability, Boilerheart lift gating, Bellows Node staging, scattergun pickup approach, and hazard shutdown comprehension. | Full V0 matrix; ranged, Bellows, weapon-switch, hazard, secret, and auto-playthrough smokes remain green. |
+| v0.1.7 | Level04 and Level05 climax polish | Strengthen foundry hazard choreography, Bulwark arena spacing, Governor Core staging, Warden approach, boss readability, and final hoist feedback. | Full V0 matrix; Bulwark, Warden, hazard, interaction, secret, and auto-playthrough smokes remain green. |
+| v0.1.8 | AudioV1 listen, mix, and import tuning | Perform the first human-oriented audio mix pass: cue volumes, ambience loop balance, compression/import settings, hazard audibility, enemy tell audibility, and menu/gameplay loudness consistency. | Full V0 matrix; runtime smoke still confirms authored cue routing, plus a packaged listen pass records mix outcomes. |
+| v0.1.9 | Settings, readability, and Windows options polish | Complete remaining settings/accessibility items: resolution/fullscreen controls, color/readability adjustments, prompt legibility, objective text sizing, and menu consistency. | Full V0 matrix; pause-flow and runtime smoke cover changed settings, and visual validation confirms no broken UI sprite wiring. |
+| v0.1.10 | Final-direction asset promotion pass | Promote the best available Unity-only lookdev into playable assets where safe: pressure-pistol component improvements, environment material cleanup, non-magenta corridor-kit recovery, and richer mechanical enemy silhouettes. | Full V0 matrix; level validation covers promoted assets, and concept render acceptance rejects shader-error/magenta outputs before promotion. |
+| v0.1.11 | Windows distribution polish pass | Harden the first polished Windows package: performance profile review, build naming, icon/splash metadata where available, readme/release notes, smoke-tested quit/restart flow, and distributable folder cleanup. | Full V0 matrix; packaged Windows executable launches, plays, pauses, restarts, quits, and reaches win state on the current route. |
 
-- Level01 combat-space rebuild toward a stronger first map.
-- Level02 sightline and ranged-combat expansion.
-- Level03 Boilerheart route expansion around valve, pickup, Bellows Node, and foundry lift.
-- Level04 foundry encounter pacing and hazard choreography.
-- Level05 Governor Core finale readability and boss staging.
-- More final-direction steampunk material/mesh passes.
-- Platform asset rules for later Android, WebGL, SteamVR, and Meta Quest ports.
+## Later Follow-Up Areas
+
+- Broader level-map rebuilds after the first Windows polish sequence proves the route.
+- Final authored geometry, textures, animation, VFX, and audio replacement passes.
+- Account-owned Unity Asset Store pack review through Package Manager if access becomes available.
+- Platform asset rules for later Android, WebGL, SteamVR, and Meta Quest ports, kept deferred until the Windows game is ready.
+- GitHub Issues mirroring after the near-term tuning pass produces stable task clusters.
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.

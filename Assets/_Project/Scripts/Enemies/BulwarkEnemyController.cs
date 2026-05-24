@@ -180,7 +180,7 @@ public class BulwarkEnemyController : MonoBehaviour, IDamageable
     private void Die()
     {
         dead = true;
-        MachineDeathVfx.Spawn(transform.position + Vector3.up * 0.75f, 1.35f);
+        MachineDeathVfx.SpawnBulwarkShutdown(transform.position + Vector3.up * 0.75f);
         SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyDeath, transform.position);
         HUDController.Instance?.ShowTemporaryMessage("Bulwark down", 0.6f);
         Destroy(gameObject);

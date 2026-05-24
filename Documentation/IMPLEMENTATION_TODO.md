@@ -1368,6 +1368,16 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.1 Bulwark Shutdown Polish
+
+- [x] Add a Bulwark-specific `MachineDeathVfx` shutdown style.
+- [x] Add heavy Bulwark death fragments: furnace core, boiler shells, hammer fragment, piston rods, shoulder plates, rear tank, gauge burst, chimney cap, and foot shards.
+- [x] Route `BulwarkEnemyController` death through the dedicated shutdown style.
+- [x] Expand Bulwark combat smoke to require Bulwark-specific shutdown detail.
+- [x] Build `v0.1.1` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

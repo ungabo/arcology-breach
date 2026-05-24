@@ -7,7 +7,8 @@ public class MachineDeathVfx : MonoBehaviour
     public enum DeathStyle
     {
         Standard,
-        ScrapperShutdown
+        ScrapperShutdown,
+        BulwarkShutdown
     }
 
     public float lifetime = 0.85f;
@@ -32,6 +33,11 @@ public class MachineDeathVfx : MonoBehaviour
         return SpawnWithStyle(position, 1f, DeathStyle.ScrapperShutdown);
     }
 
+    public static MachineDeathVfx SpawnBulwarkShutdown(Vector3 position)
+    {
+        return SpawnWithStyle(position, 1.35f, DeathStyle.BulwarkShutdown);
+    }
+
     private static MachineDeathVfx SpawnWithStyle(Vector3 position, float effectScale, DeathStyle style)
     {
         GameObject root = new GameObject(EffectName);
@@ -46,7 +52,9 @@ public class MachineDeathVfx : MonoBehaviour
 
     public int PieceCount => transform.childCount;
     public bool IsScrapperShutdown => deathStyle == DeathStyle.ScrapperShutdown;
+    public bool IsBulwarkShutdown => deathStyle == DeathStyle.BulwarkShutdown;
     public bool HasScrapperShutdownDetail => IsScrapperShutdown && PieceCount >= 18;
+    public bool HasBulwarkShutdownDetail => IsBulwarkShutdown && PieceCount >= 22;
 
     private void Awake()
     {
@@ -89,7 +97,7 @@ public class MachineDeathVfx : MonoBehaviour
             return;
         }
 
-        pieces = new Transform[deathStyle == DeathStyle.ScrapperShutdown ? 20 : 11];
+        pieces = new Transform[GetPieceCapacity()];
         basePositions = new Vector3[pieces.Length];
         baseScales = new Vector3[pieces.Length];
         driftDirections = new Vector3[pieces.Length];
@@ -128,14 +136,60 @@ public class MachineDeathVfx : MonoBehaviour
             pieces[pieceIndex++] = CreatePrimitivePiece("Scrapper Shutdown Valve Wheel", PrimitiveType.Cylinder, new Vector3(0.5f, 0.2f, -0.1f), new Vector3(0.16f, 0.035f, 0.16f), new Color(0.8f, 0.46f, 0.14f));
             pieces[pieceIndex++] = CreatePrimitivePiece("Scrapper Shutdown Furnace Flash", PrimitiveType.Sphere, new Vector3(0f, 0.24f, 0.48f), new Vector3(0.22f, 0.14f, 0.08f), new Color(1f, 0.28f, 0.04f));
         }
+        else if (deathStyle == DeathStyle.BulwarkShutdown)
+        {
+            pieces[pieceIndex++] = CreatePrimitivePiece("Bulwark Shutdown Furnace Core", PrimitiveType.Sphere, new Vector3(0f, 0.36f, 0.2f), new Vector3(0.38f, 0.3f, 0.28f), new Color(1f, 0.26f, 0.04f));
+            pieces[pieceIndex++] = CreateRotatedPiece("Bulwark Shutdown Left Boiler Shell", PrimitiveType.Cylinder, new Vector3(-0.36f, 0.34f, -0.08f), new Vector3(0.2f, 0.38f, 0.2f), new Color(0.52f, 0.36f, 0.22f), Quaternion.Euler(0f, 0f, 90f));
+            pieces[pieceIndex++] = CreateRotatedPiece("Bulwark Shutdown Right Boiler Shell", PrimitiveType.Cylinder, new Vector3(0.36f, 0.34f, -0.08f), new Vector3(0.2f, 0.38f, 0.2f), new Color(0.52f, 0.36f, 0.22f), Quaternion.Euler(0f, 0f, 90f));
+            pieces[pieceIndex++] = CreateRotatedPiece("Bulwark Shutdown Hammer Head Fragment", PrimitiveType.Cube, new Vector3(0f, 0.08f, 0.58f), new Vector3(0.72f, 0.2f, 0.18f), new Color(0.42f, 0.38f, 0.32f), Quaternion.Euler(0f, 18f, 8f));
+            pieces[pieceIndex++] = CreateRotatedPiece("Bulwark Shutdown Left Piston Rod", PrimitiveType.Cube, new Vector3(-0.54f, 0.22f, 0.28f), new Vector3(0.08f, 0.08f, 0.5f), new Color(0.82f, 0.78f, 0.66f), Quaternion.Euler(18f, -28f, 0f));
+            pieces[pieceIndex++] = CreateRotatedPiece("Bulwark Shutdown Right Piston Rod", PrimitiveType.Cube, new Vector3(0.54f, 0.22f, 0.28f), new Vector3(0.08f, 0.08f, 0.5f), new Color(0.82f, 0.78f, 0.66f), Quaternion.Euler(18f, 28f, 0f));
+            pieces[pieceIndex++] = CreatePrimitivePiece("Bulwark Shutdown Left Shoulder Plate", PrimitiveType.Cube, new Vector3(-0.48f, 0.52f, 0.08f), new Vector3(0.34f, 0.12f, 0.22f), new Color(0.84f, 0.55f, 0.18f));
+            pieces[pieceIndex++] = CreatePrimitivePiece("Bulwark Shutdown Right Shoulder Plate", PrimitiveType.Cube, new Vector3(0.48f, 0.52f, 0.08f), new Vector3(0.34f, 0.12f, 0.22f), new Color(0.84f, 0.55f, 0.18f));
+            pieces[pieceIndex++] = CreatePrimitivePiece("Bulwark Shutdown Rear Pressure Tank", PrimitiveType.Sphere, new Vector3(0f, 0.34f, -0.48f), new Vector3(0.42f, 0.28f, 0.22f), new Color(0.48f, 0.42f, 0.34f));
+            pieces[pieceIndex++] = CreateRotatedPiece("Bulwark Shutdown Gauge Face Burst", PrimitiveType.Cylinder, new Vector3(0.12f, 0.5f, 0.5f), new Vector3(0.18f, 0.035f, 0.18f), new Color(0.94f, 0.82f, 0.58f), Quaternion.Euler(90f, 0f, 0f));
+            pieces[pieceIndex++] = CreatePrimitivePiece("Bulwark Shutdown Chimney Cap", PrimitiveType.Cylinder, new Vector3(-0.14f, 0.78f, -0.22f), new Vector3(0.18f, 0.08f, 0.18f), new Color(0.56f, 0.4f, 0.24f));
+            pieces[pieceIndex++] = CreateRotatedPiece("Bulwark Shutdown Left Anchor Foot Shard", PrimitiveType.Cube, new Vector3(-0.34f, -0.08f, -0.22f), new Vector3(0.34f, 0.12f, 0.24f), new Color(0.34f, 0.31f, 0.27f), Quaternion.Euler(0f, -18f, 0f));
+            pieces[pieceIndex++] = CreateRotatedPiece("Bulwark Shutdown Right Anchor Foot Shard", PrimitiveType.Cube, new Vector3(0.34f, -0.08f, -0.22f), new Vector3(0.34f, 0.12f, 0.24f), new Color(0.34f, 0.31f, 0.27f), Quaternion.Euler(0f, 18f, 0f));
+        }
 
         for (int i = 0; i < pieces.Length; i++)
         {
             basePositions[i] = pieces[i].localPosition;
             baseScales[i] = pieces[i].localScale;
             driftDirections[i] = BuildDriftDirection(i, basePositions[i]);
-            driftSpeeds[i] = deathStyle == DeathStyle.ScrapperShutdown ? 0.22f + i * 0.018f : 0.12f + i * 0.01f;
+            driftSpeeds[i] = BuildDriftSpeed(i);
         }
+    }
+
+    private int GetPieceCapacity()
+    {
+        if (deathStyle == DeathStyle.ScrapperShutdown)
+        {
+            return 20;
+        }
+
+        if (deathStyle == DeathStyle.BulwarkShutdown)
+        {
+            return 24;
+        }
+
+        return 11;
+    }
+
+    private float BuildDriftSpeed(int index)
+    {
+        if (deathStyle == DeathStyle.ScrapperShutdown)
+        {
+            return 0.22f + index * 0.018f;
+        }
+
+        if (deathStyle == DeathStyle.BulwarkShutdown)
+        {
+            return 0.16f + index * 0.012f;
+        }
+
+        return 0.12f + index * 0.01f;
     }
 
     private static Vector3 BuildDriftDirection(int index, Vector3 basePosition)
@@ -148,6 +202,13 @@ public class MachineDeathVfx : MonoBehaviour
         }
 
         return outward.normalized;
+    }
+
+    private Transform CreateRotatedPiece(string pieceName, PrimitiveType primitiveType, Vector3 localPosition, Vector3 localScale, Color color, Quaternion localRotation)
+    {
+        Transform piece = CreatePrimitivePiece(pieceName, primitiveType, localPosition, localScale, color);
+        piece.localRotation = localRotation;
+        return piece;
     }
 
     private Transform CreatePrimitivePiece(string pieceName, PrimitiveType primitiveType, Vector3 localPosition, Vector3 localScale, Color color)

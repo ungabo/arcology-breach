@@ -100,9 +100,9 @@ public class RuntimeBulwarkCombatTest : MonoBehaviour
         }
 
         MachineDeathVfx deathVfx = UnityEngine.Object.FindAnyObjectByType<MachineDeathVfx>();
-        if (deathVfx == null || deathVfx.PieceCount < 8)
+        if (deathVfx == null || !deathVfx.HasBulwarkShutdownDetail || deathVfx.PieceCount < 22)
         {
-            Fail("Bulwark combat smoke failed: machine death VFX did not spawn with enough visible pieces.");
+            Fail("Bulwark combat smoke failed: Bulwark shutdown VFX did not spawn with enough visible detail.");
             yield break;
         }
 

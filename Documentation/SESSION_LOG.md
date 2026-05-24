@@ -432,46 +432,6 @@ Build executable:
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
-## 2026-05-24 02:01 -04:00
-
-Completed `v0.1.0` settings/accessibility polish.
-
-Added:
-
-- `GameSettings` now persists a clamped flash-intensity value.
-- Main menu and pause menu now expose a `FLASH` slider alongside mouse sensitivity and master volume.
-- HUD damage flash and first-person player damage VFX now scale from the flash-intensity setting.
-- Level validation now checks flash slider sprite wiring and range in generated main/pause menu UI.
-- Runtime smoke checks flash controls are wired; pause-flow smoke adjusts the flash slider and verifies the persisted value/label.
-- Version string bumped to `v0.1.0`.
-
-Verification completed through the runner:
-
-- `V0_LEVEL_VALIDATION_PASS`
-- `V0_SMOKE_TEST_PASS`
-- `V0_WINDOWS_BUILD_PASS`
-- `V0_RUNTIME_SMOKE_PASS`
-- `V0_AUTO_PLAYTHROUGH_PASS`
-- `V0_COMBAT_SMOKE_PASS`
-- `V0_COMBAT_EDGE_PASS`
-- `V0_COMBAT_SCENARIO_PASS`
-- `V0_WEAPON_SWITCH_PASS`
-- `V0_BELLOWS_NODE_PASS`
-- `V0_RANGED_COMBAT_PASS`
-- `V0_BULWARK_COMBAT_PASS`
-- `V0_WARDEN_COMBAT_PASS`
-- `V0_INTERACTION_SMOKE_PASS`
-- `V0_HAZARD_PASS`
-- `V0_SECRET_PASS`
-- `V0_PAUSE_FLOW_PASS`
-- `V0_BUILD_MATRIX_PASS`
-
-Build executable:
-
-`Builds/Windows/v0.1.0/BrassworksBreach_v0.1.0.exe`
-
-Next-step directive: continue immediately with the next highest-impact unfinished task.
-
 ## 2026-05-23 12:03 -04:00
 
 Completed `v0.0.23` procedural material texture pass.
@@ -3355,5 +3315,85 @@ Verification completed through the runner:
 Build executable:
 
 `Builds/Windows/v0.0.99/BrassworksBreach_v0.0.99.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 02:01 -04:00
+
+Completed `v0.1.0` settings/accessibility polish.
+
+Added:
+
+- `GameSettings` now persists a clamped flash-intensity value.
+- Main menu and pause menu now expose a `FLASH` slider alongside mouse sensitivity and master volume.
+- HUD damage flash and first-person player damage VFX now scale from the flash-intensity setting.
+- Level validation now checks flash slider sprite wiring and range in generated main/pause menu UI.
+- Runtime smoke checks flash controls are wired; pause-flow smoke adjusts the flash slider and verifies the persisted value/label.
+- Version string bumped to `v0.1.0`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.0/BrassworksBreach_v0.1.0.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 02:09 -04:00
+
+Completed `v0.1.1` Bulwark shutdown polish.
+
+Added:
+
+- `MachineDeathVfx` now has a dedicated `BulwarkShutdown` style.
+- Bulwark deaths now spawn a heavier shutdown burst with furnace core, boiler shells, hammer fragment, piston rods, shoulder plates, rear pressure tank, gauge burst, chimney cap, and foot shards.
+- `BulwarkEnemyController` now routes deaths through the Bulwark-specific shutdown effect.
+- Bulwark combat smoke now requires `HasBulwarkShutdownDetail` and enough visible pieces.
+- `VERSION_MICRO_ROADMAP.md` was refreshed by side agent Huygens and reconciled so `v0.1.1` reflects the verified Bulwark shutdown build.
+- Version string bumped to `v0.1.1`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.1/BrassworksBreach_v0.1.1.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
