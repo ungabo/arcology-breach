@@ -1,0 +1,126 @@
+{
+  "pack_id": "SCLVL",
+  "display_name": "Steamworks Level Kit",
+  "version": "0.1.37",
+  "build_id": "p001",
+  "unity_version": "6000.4.6f1",
+  "sidecar_project": "UD-SC-LVL-SteamworksLevelKit",
+  "owner_lane": "sidecar-steamworks-level-kit",
+  "primary_intake_owner": "main-lane-art-integration",
+  "canonical_root": "AssetPacks/BrassworksBreach.SteamworksLevelKit",
+  "upm_package_name": "com.brassworks.sidecar.steamworks-level-kit",
+  "generator_menu": "Brassworks/Sidecars/Steamworks Level Kit v0.1.37/Generate Package Assets",
+  "preview_menu": "Brassworks/Sidecars/Steamworks Level Kit v0.1.37/Render Preview PNGs",
+  "export_artifacts": [
+    {
+      "type": "upm_folder",
+      "path": "AssetPacks/BrassworksBreach.SteamworksLevelKit",
+      "checksum": "TBD_AFTER_EXPORT_SNAPSHOT"
+    }
+  ],
+  "asset_counts": {
+    "planned_prefabs": 13,
+    "planned_materials": 12,
+    "planned_meshes": 3,
+    "textures": 0,
+    "audio": 0,
+    "vfx": 0,
+    "animation_clips": 0,
+    "preview_only": 3
+  },
+  "prefabs": [
+    {
+      "path": "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_CorridorStraight_4m.prefab",
+      "tile_dimensions_meters": "4x3.2x4",
+      "setpiece_role": "straight corridor shell",
+      "snap": "4m grid"
+    },
+    {
+      "path": "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_CorridorCorner_4m.prefab",
+      "tile_dimensions_meters": "4x3.2x4",
+      "setpiece_role": "90-degree corridor turn",
+      "snap": "4m grid"
+    },
+    {
+      "path": "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_TJunction_4m.prefab",
+      "tile_dimensions_meters": "8x3.2x4",
+      "setpiece_role": "T-junction and combat read wall",
+      "snap": "4m grid"
+    },
+    {
+      "path": "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_BoilerAlcove_4m.prefab",
+      "tile_dimensions_meters": "4x3.4x1.3",
+      "setpiece_role": "boiler landmark wall module",
+      "snap": "4m wall bay"
+    },
+    {
+      "path": "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_GaugeWall_4m.prefab",
+      "tile_dimensions_meters": "4x3.2x0.65",
+      "setpiece_role": "pressure objective wall",
+      "snap": "4m wall bay"
+    },
+    {
+      "path": "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_RivetedVaultDoor_4m.prefab",
+      "tile_dimensions_meters": "4.4x3.6x0.8",
+      "setpiece_role": "closed landmark vault door",
+      "snap": "center on 4m frame"
+    },
+    {
+      "path": "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_PressureLockDoorFrame_4m.prefab",
+      "tile_dimensions_meters": "4.2x3.2x0.65",
+      "setpiece_role": "open pressure-lock transition frame",
+      "snap": "center on 4m frame"
+    },
+    {
+      "path": "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_PipeRailing_4m.prefab",
+      "tile_dimensions_meters": "4x1.2x0.2",
+      "setpiece_role": "edge railing",
+      "snap": "4m edge segment"
+    },
+    {
+      "path": "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_CatwalkFloor_4m.prefab",
+      "tile_dimensions_meters": "4x0.22x4",
+      "setpiece_role": "walkable catwalk plate",
+      "snap": "4m grid"
+    },
+    {
+      "path": "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_WallColumn_3m.prefab",
+      "tile_dimensions_meters": "0.55x3.2x0.45",
+      "setpiece_role": "wall rhythm and seam cover",
+      "snap": "0.5m fine grid"
+    },
+    {
+      "path": "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_CeilingPipeCluster_4m.prefab",
+      "tile_dimensions_meters": "4x0.65x1.2",
+      "setpiece_role": "ceiling pipe dressing",
+      "snap": "4m ceiling bay"
+    },
+    {
+      "path": "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_ValveConsole.prefab",
+      "tile_dimensions_meters": "1.35x1.45x0.9",
+      "setpiece_role": "objective or route-state prop",
+      "snap": "0.5m fine grid"
+    },
+    {
+      "path": "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_VentSmokeEmitterAnchor.prefab",
+      "tile_dimensions_meters": "0.9x0.75x0.6",
+      "setpiece_role": "steam VFX socket anchor",
+      "snap": "0.5m fine grid"
+    }
+  ],
+  "dependencies": [],
+  "required_primary_changes": [],
+  "path_collisions_checked": true,
+  "guid_collisions_checked": false,
+  "clean_throwaway_import_status": "not_run",
+  "primary_quarantine_import_status": "not_run",
+  "known_risks": [
+    "Generated assets are created by menu tooling; run generator before checking actual prefab/material/mesh import counts.",
+    "Runtime/Prefabs, Runtime/Materials, and Runtime/Meshes contain only keep files until generated in Unity.",
+    "Package must be imported as a local UPM package or embedded package for Unity menu scripts to compile and execute.",
+    "No final collision setup is authored; collision and route ownership must remain main-lane work.",
+    "Preview lights are proof-render only and should not be copied into shipped levels without budget review."
+  ],
+  "rollback_path": "delete isolated package root or remove local package reference",
+  "decision": "ready_for_throwaway_import_after_generator_run"
+}
