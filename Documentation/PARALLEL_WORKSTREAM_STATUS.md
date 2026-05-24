@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-23 23:11 -04:00`
+Last updated: `2026-05-23 23:14 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -39,6 +39,8 @@ Current verified local build:
 | Hooke | `019e57ae-0c70-74e2-9627-20c741592f05` | View-only object and room concept renders | `Documentation/ConceptRenders/` | `2026-05-23 21:50 -04:00` | completed |
 | Dalton | `019e57e7-b975-7560-9ec0-afc1c4069dac` | High-fidelity lookdev recovery and pressure-pistol-only proof planning | `Documentation/AssetProduction/HighFidelityLookdevRecovery/`, `Documentation/ConceptRenders/` | `2026-05-23 22:57 -04:00` | completed current planning pass |
 | Lorentz | `019e57e8-101a-77a2-8342-bf29fdfd7dff` | Main build continuation for pressure-bolt impact feedback | gameplay scripts, generated scenes, build output | `2026-05-23 22:57 -04:00` | completed and ready for main integration |
+| Darwin | `019e57fa-644a-7f81-8f5e-2a92b08756f6` | Pressure-pistol-only proof render/model-material attempt | `Documentation/AssetProduction/HighFidelityLookdevRecovery/PressurePistolProof/`, selected `Documentation/ConceptRenders/*Recovery03_pressure_pistol_proof*.jpg`, render index/log | `2026-05-23 23:14 -04:00` | running |
+| Anscombe | `019e57fa-6760-7a41-8050-8154d0e5f2eb` | `v0.0.93` Bulwark attack readability pass | Bulwark scripts/VFX/audio/tests/generated scenes and focused v0.0.93 docs | `2026-05-23 23:14 -04:00` | running |
 
 ## Completed Side-Agent Outputs
 
@@ -67,6 +69,8 @@ Current verified local build:
 | --- | ---:| --- | --- |
 | Curie | `2026-05-23 22:33 -04:00` | `Documentation/AssetProduction/HighFidelityLookdev/`, `Documentation/ConceptRenders/`, `Assets/_Project/ArtStaging/HighFidelityLookdev/` | Completed Batch01 static material/model lookdev; user review rejected it as not matching the north-star concept art, so it remains reference/failure analysis only. Rigging and gameplay integration are deferred. |
 | Dalton | `2026-05-23 23:04 -04:00` | `Documentation/AssetProduction/HighFidelityLookdevRecovery/`, `Documentation/ConceptRenders/` | Completed the current recovery-planning pass. Next useful side-agent task is a real pressure-pistol proof render/model-material pass, still view-only and outside the Unity build. |
+| Darwin | `2026-05-23 23:14 -04:00` | `Documentation/AssetProduction/HighFidelityLookdevRecovery/PressurePistolProof/`, selected `Documentation/ConceptRenders/*Recovery03_pressure_pistol_proof*.jpg` | Running the real pressure-pistol-only proof attempt against Dalton's acceptance gates. |
+| Anscombe | `2026-05-23 23:14 -04:00` | Bulwark gameplay readability files and `v0.0.93` build output | Running the Bulwark pre-attack tell implementation and full V0 matrix. |
 
 ## Integration Rules
 
