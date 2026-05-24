@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 00:35 -04:00`
+Last updated: `2026-05-24 00:49 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -17,8 +17,8 @@ Current focus:
 
 Current verified local build:
 
-- `v0.0.95`
-- Build path: `Builds/Windows/v0.0.95/BrassworksBreach_v0.0.95.exe`
+- `v0.0.96`
+- Build path: `Builds/Windows/v0.0.96/BrassworksBreach_v0.0.96.exe`
 - Matrix result: `V0_BUILD_MATRIX_PASS`
 
 ## Active Side Agents
@@ -52,8 +52,8 @@ Current verified local build:
 | Dalton | `019e5826-5ad4-7fd2-99d2-d2c146deb564` | `v0.0.94` playable signage/decal integration | `Assets/_Project/Editor/V0SceneBuilder.cs`, `Assets/_Project/Editor/V0LevelValidator.cs`, generated scenes, focused docs/build output | `2026-05-23 23:55 -04:00` | completed and verified |
 | Hubble | `019e5826-8d5d-7723-ae93-104777386f06` | Unity concept-match production standard | `Documentation/ArtDirection/UNITY_CONCEPT_MATCH_PRODUCTION_STANDARD.md`, `Documentation/ArtDirection/UNITY_ASSET_ACCEPTANCE_GATES.md`, `Documentation/ProductionManagement/UNITY_ART_PRODUCTION_BREAKDOWN_V1.md` | `2026-05-23 23:55 -04:00` | completed |
 | Poincare-Component | `019e582d-14bb-7b00-9bc6-e03b5190b865` | Pressure-pistol component build plan/gates | `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/PRESSURE_PISTOL_COMPONENT_BUILD_PLAN.md`, `PRESSURE_PISTOL_COMPONENT_ACCEPTANCE_GATES.md` | `2026-05-24 00:00 -04:00` | completed |
-| Einstein | `019e583d-ae08-7800-8d2f-1388dd2d75c2` | Pressure-pistol Recovery06 component-first Unity proof | `Assets/_Project/Editor/UnityPressurePistolProofRenderer.cs`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/*Recovery06*`, `Documentation/ConceptRenders/*Recovery06*` | `2026-05-24 00:30 -04:00` | running; Unity launches held while main matrix used the project lock |
-| Archimedes-Env | `019e583d-dc9b-7e52-8b5f-9f0cad07c1f9` | Unity corridor/material proof render | `Assets/_Project/Editor/UnityCorridorMaterialProofRenderer.cs`, `Documentation/AssetProduction/EnvironmentLookdev/`, `Documentation/ConceptRenders/*ENV_Recovery01*` | `2026-05-24 00:30 -04:00` | running; Unity launches held while main matrix used the project lock |
+| Einstein | `019e583d-ae08-7800-8d2f-1388dd2d75c2` | Pressure-pistol Recovery06 component-first Unity proof | `Assets/_Project/Editor/UnityPressurePistolProofRenderer.cs`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/*Recovery06*`, `Documentation/ConceptRenders/*Recovery06*` | `2026-05-24 00:30 -04:00` | completed; integrated for review |
+| Archimedes-Env | `019e583d-dc9b-7e52-8b5f-9f0cad07c1f9` | Unity corridor/material proof render | `Assets/_Project/Editor/UnityCorridorMaterialProofRenderer.cs`, `Documentation/AssetProduction/EnvironmentLookdev/`, `Documentation/ConceptRenders/*ENV_Recovery01*` | `2026-05-24 00:30 -04:00` | completed; integrated for review |
 
 ## Completed Side-Agent Outputs
 
@@ -95,8 +95,10 @@ Current verified local build:
 | Dalton | `2026-05-24 00:20 -04:00` | `Assets/_Project/Editor/V0SceneBuilder.cs`, `Assets/_Project/Editor/V0LevelValidator.cs`, generated scenes, focused docs/build output | Completed `v0.0.94` SignageDecalsV1 playable integration. Full V0 matrix passed and produced `Builds/Windows/v0.0.94/BrassworksBreach_v0.0.94.exe`. |
 | Hubble | `2026-05-24 00:00 -04:00` | `Documentation/ArtDirection/UNITY_CONCEPT_MATCH_PRODUCTION_STANDARD.md`, `Documentation/ArtDirection/UNITY_ASSET_ACCEPTANCE_GATES.md`, `Documentation/ProductionManagement/UNITY_ART_PRODUCTION_BREAKDOWN_V1.md` | Completed Unity concept-match production standard, asset acceptance gates, and production breakdown. Highest-priority slices are material implementation, corridor core, pipe/gauge/gaslight dressing, pressure gate language, and component-proofed pressure pistol. |
 | Poincare-Component | `2026-05-24 00:00 -04:00` | `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/PRESSURE_PISTOL_COMPONENT_BUILD_PLAN.md`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/PRESSURE_PISTOL_COMPONENT_ACCEPTANCE_GATES.md` | Completed component-first pressure-pistol plan and measurable gates for material calibration, gauge, coil, barrel/tank, muzzle, grip/hand, fasteners/plates, steam/smoke, and final assembly. |
-| Einstein | `2026-05-24 00:30 -04:00` | `Assets/_Project/Editor/UnityPressurePistolProofRenderer.cs`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/*Recovery06*`, `Documentation/ConceptRenders/*Recovery06*` | Running Recovery06 component detail pass. Main lane will integrate only after matching Recovery06 report, metrics, and render files exist. |
-| Archimedes-Env | `2026-05-24 00:30 -04:00` | `Assets/_Project/Editor/UnityCorridorMaterialProofRenderer.cs`, `Documentation/AssetProduction/EnvironmentLookdev/`, `Documentation/ConceptRenders/*ENV_Recovery01*` | Running Unity-only corridor/material proof using FinalMaterialsV1 textures. Main lane will integrate only after review. |
+| Einstein | `2026-05-24 00:44 -04:00` | `Assets/_Project/Editor/UnityPressurePistolProofRenderer.cs`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/HFLD_RECOVERY06_COMPONENT_DETAIL_REPORT.md`, `Documentation/ConceptRenders/*Recovery06*` | Completed Recovery06 component proof. PM review: improved component direction, but still not final art or ready for full-gun promotion. |
+| Archimedes-Env | `2026-05-24 00:43 -04:00` | `Assets/_Project/Editor/UnityCorridorMaterialProofRenderer.cs`, `Documentation/AssetProduction/EnvironmentLookdev/`, `Documentation/ConceptRenders/*ENV_Recovery01*` | Completed Unity corridor/material proof. PM review: useful lookdev pass, production fail until authored modular meshes and playable integration replace primitive proof geometry. |
+| Einstein | `2026-05-24 00:44 -04:00` | `Assets/_Project/Editor/UnityPressurePistolProofRenderer.cs`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/*Recovery06*`, `Documentation/ConceptRenders/*Recovery06*` | Completed and integrated for review. Next useful side-agent task is a sculpted-grip/hand focused Unity proof or a full-gun reassembly attempt only after grip/hand improves. |
+| Archimedes-Env | `2026-05-24 00:43 -04:00` | `Assets/_Project/Editor/UnityCorridorMaterialProofRenderer.cs`, `Documentation/AssetProduction/EnvironmentLookdev/`, `Documentation/ConceptRenders/*ENV_Recovery01*` | Completed and integrated for review. Next useful side-agent task is converting the corridor proof into modular authored Unity meshes/material prefab candidates. |
 
 ## Integration Rules
 

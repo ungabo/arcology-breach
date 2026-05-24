@@ -772,6 +772,9 @@ public static class V0LevelValidator
             RequireNamed("Lore Plaque - Intake Archive", sceneName + " intake lore plaque visual");
             RequireNamed("Work Order Board - Gate", sceneName + " gate work-order board visual");
             RequireNamed("Pipe Bundle - Gate Manifold", sceneName + " gate pipe-bundle visual");
+            RequireNamed("North Star Intake Pipe Canopy", sceneName + " north-star intake pipe canopy");
+            RequireNamed("North Star Intake Gaslight Left", sceneName + " north-star intake gaslight");
+            RequireNamed("North Star Gate Rivet Band", sceneName + " north-star gate rivet band");
             RequireNamed("Secret - Intake Pressure Cache", sceneName + " secret pressure cache");
             RequireNamed("Secret Pressure Cache Brass Floor Plate", sceneName + " secret pressure cache floor plate");
         }
@@ -783,6 +786,9 @@ public static class V0LevelValidator
             RequireNamed("Pipeworks Routing Valve Wheel", sceneName + " Pipeworks routing valve wheel visual");
             RequireNamed("Pipeworks Routing Valve Vented Lamp", sceneName + " Pipeworks routing valve vented signal");
             RequireNamed("Pipeworks Triple Pipe Bundle", sceneName + " pipeworks pipe-bundle visual");
+            RequireNamed("North Star Pipeworks Pipe Canopy", sceneName + " north-star pipeworks pipe canopy");
+            RequireNamed("North Star Pipeworks Gaslight", sceneName + " north-star pipeworks gaslight");
+            RequireNamed("North Star Pipeworks Wall Rivet Band", sceneName + " north-star pipeworks rivet band");
             RequireNamed("Secret - Pipeworks Cartridge Cache", sceneName + " pipeworks secret cache");
             RequireNamed("Secret Pipeworks Cache Brass Floor Plate", sceneName + " pipeworks secret cache floor plate");
             RequireNamed("Pickup - Pipeworks Secret Pressure Cartridge Pack", sceneName + " pipeworks secret ammo reward");
@@ -793,6 +799,9 @@ public static class V0LevelValidator
             RequireNamed("Lore Plaque - Boilerheart Archive", sceneName + " boilerheart lore plaque visual");
             RequireNamed("Boilerheart Triple Pipe Bundle", sceneName + " boilerheart pipe-bundle visual");
             RequireNamed("Boilerheart Furnace Core", sceneName + " boilerheart furnace core visual");
+            RequireNamed("North Star Boilerheart Pipe Canopy", sceneName + " north-star boilerheart pipe canopy");
+            RequireNamed("North Star Boilerheart Lamp Cage", sceneName + " north-star boilerheart lamp cage");
+            RequireNamed("North Star Boilerheart Core Rivet Band", sceneName + " north-star boilerheart rivet band");
             RequireNamed("Boilerheart Pressure Valve Objective", sceneName + " boilerheart pressure valve objective");
             RequireNamed("Boilerheart Pressure Valve Wheel", sceneName + " boilerheart pressure valve wheel visual");
             RequireNamed("Boilerheart Valve Vented Lamp", sceneName + " boilerheart valve vented signal");
@@ -824,6 +833,9 @@ public static class V0LevelValidator
             RequireNamed("Work Order Board - Foundry", sceneName + " foundry work-order board visual");
             RequireNamed("Lore Plaque - Foundry Archive", sceneName + " foundry lore plaque visual");
             RequireNamed("Foundry Triple Pipe Bundle", sceneName + " foundry pipe-bundle visual");
+            RequireNamed("North Star Foundry Pipe Canopy", sceneName + " north-star foundry pipe canopy");
+            RequireNamed("North Star Foundry Catwalk Rail", sceneName + " north-star foundry catwalk rail");
+            RequireNamed("North Star Foundry Gaslight West", sceneName + " north-star foundry gaslight");
             RequireNamed("Foundry Furnace Row", sceneName + " foundry furnace row visual");
             RequireNamed("Foundry Steam Hazard - Casting Leak", sceneName + " foundry steam hazard");
             RequireNamed("Foundry Steam Hazard - Crucible Bleed", sceneName + " foundry steam hazard");
@@ -844,6 +856,9 @@ public static class V0LevelValidator
             RequireNamed("Work Order Board - Governor Core", sceneName + " governor core work-order board visual");
             RequireNamed("Lore Plaque - Governor Archive", sceneName + " governor lore plaque visual");
             RequireNamed("Governor Core Triple Pipe Bundle", sceneName + " governor core pipe-bundle visual");
+            RequireNamed("North Star Governor Pipe Canopy", sceneName + " north-star governor pipe canopy");
+            RequireNamed("North Star Governor Gaslight Left", sceneName + " north-star governor gaslight");
+            RequireNamed("North Star Governor Regulator Crown", sceneName + " north-star governor regulator crown");
             RequireNamed("Governor Core Regulator Pillar", sceneName + " governor core regulator visual");
             RequireNamed("Governor Core Steam Hazard - Regulator Leak", sceneName + " governor core steam hazard");
             RequireNamed("Governor Core Furnace Heat Hazard - Regulator Surge", sceneName + " governor core furnace heat hazard");

@@ -21,17 +21,17 @@ public static class UnityPressurePistolProofRenderer
     private const string ConceptRelativePath = "Documentation/ConceptArt/north-star-steampunk-brassworks-pressure-pistol.png";
     private const string RenderRelativePath = "Documentation/ConceptRenders/RENDER_HFLD_Recovery05_pressure_pistol_unity_proof.jpg";
     private const string ContactRelativePath = "Documentation/ConceptRenders/CONTACTSHEET_HFLD_Recovery05_pressure_pistol_unity_proof.jpg";
-    private const string ComponentContactRelativePath = "Documentation/ConceptRenders/CONTACTSHEET_HFLD_Recovery05_pressure_pistol_components_unity_proof.jpg";
-    private const string CoilRelativePath = "Documentation/ConceptRenders/RENDER_HFLD_Recovery05_coil_unity_proof.jpg";
-    private const string GaugeRelativePath = "Documentation/ConceptRenders/RENDER_HFLD_Recovery05_gauge_unity_proof.jpg";
-    private const string BarrelTankRelativePath = "Documentation/ConceptRenders/RENDER_HFLD_Recovery05_barrel_tank_unity_proof.jpg";
-    private const string MuzzleRelativePath = "Documentation/ConceptRenders/RENDER_HFLD_Recovery05_muzzle_unity_proof.jpg";
-    private const string GripHandRelativePath = "Documentation/ConceptRenders/RENDER_HFLD_Recovery05_grip_hand_unity_proof.jpg";
+    private const string ComponentContactRelativePath = "Documentation/ConceptRenders/CONTACTSHEET_HFLD_Recovery06_pressure_pistol_components_unity_proof.jpg";
+    private const string CoilRelativePath = "Documentation/ConceptRenders/RENDER_HFLD_Recovery06_coil_unity_proof.jpg";
+    private const string GaugeRelativePath = "Documentation/ConceptRenders/RENDER_HFLD_Recovery06_gauge_unity_proof.jpg";
+    private const string BarrelTankRelativePath = "Documentation/ConceptRenders/RENDER_HFLD_Recovery06_barrel_tank_unity_proof.jpg";
+    private const string MuzzleRelativePath = "Documentation/ConceptRenders/RENDER_HFLD_Recovery06_muzzle_unity_proof.jpg";
+    private const string GripHandRelativePath = "Documentation/ConceptRenders/RENDER_HFLD_Recovery06_grip_hand_unity_proof.jpg";
     private const string ProofFolderRelativePath = "Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof";
     private const string ReportFileName = "HFLD_RECOVERY05_UNITY_PRESSURE_PISTOL_PROOF_REPORT.md";
     private const string MetricsFileName = "unity_recovery05_pressure_pistol_proof_metrics.json";
-    private const string ComponentReportFileName = "HFLD_RECOVERY05_COMPONENT_PROOF_REPORT.md";
-    private const string ComponentMetricsFileName = "unity_pressure_pistol_component_metrics.json";
+    private const string ComponentReportFileName = "HFLD_RECOVERY06_COMPONENT_DETAIL_REPORT.md";
+    private const string ComponentMetricsFileName = "unity_pressure_pistol_component_recovery06_metrics.json";
 
     [MenuItem("Project Tools/Lookdev/Render Pressure Pistol Component Proofs")]
     public static void RenderFromMenu()
@@ -64,8 +64,6 @@ public static class UnityPressurePistolProofRenderer
         string proofFolder = Path.Combine(projectRoot, ProofFolderRelativePath);
         Directory.CreateDirectory(conceptRenderFolder);
         Directory.CreateDirectory(proofFolder);
-        MarkRecovery04ReportRejected(proofFolder);
-
         ComponentProofMetrics metrics = new ComponentProofMetrics
         {
             timestamp = DateTimeOffset.Now.ToString("yyyy-MM-dd HH:mm:ss zzz", CultureInfo.InvariantCulture),
@@ -74,18 +72,19 @@ public static class UnityPressurePistolProofRenderer
             contactSheetPath = ComponentContactRelativePath,
             reportPath = (ProofFolderRelativePath + "/" + ComponentReportFileName).Replace("\\", "/"),
             metricsPath = (ProofFolderRelativePath + "/" + ComponentMetricsFileName).Replace("\\", "/"),
-            recovery04Status = "Rejected full-gun Unity proof; retained as a blocker record and not promoted.",
-            smokePolicy = "Omitted in Recovery05 component proofs. No smoke/steam geometry is rendered, so no opaque paper blocks can appear."
+            recovery04Status = "Earlier full-gun Unity proof remains rejected; Recovery06 does not mutate prior reports and stays component-first.",
+            smokePolicy = "Omitted in Recovery06 component proofs. No smoke/steam geometry is rendered, so no opaque paper blocks can appear.",
+            overallAssessment = "Pass for component-first Recovery06 lookdev direction; fail for final art or full-gun promotion."
         };
 
         List<ComponentRenderResult> results = new List<ComponentRenderResult>();
         try
         {
-            results.Add(RenderSingleComponent(projectRoot, "coil", "Coil", CoilRelativePath, new Vector3(0.35f, 0.55f, -4.2f), new Vector3(0f, 0.05f, 0f), 35f, BuildCoilComponent));
-            results.Add(RenderSingleComponent(projectRoot, "gauge", "Gauge", GaugeRelativePath, new Vector3(0.45f, 0.18f, -3.2f), new Vector3(0f, 0f, 0f), 31f, BuildGaugeComponent));
-            results.Add(RenderSingleComponent(projectRoot, "barrel_tank", "Barrel + Lower Tank", BarrelTankRelativePath, new Vector3(0.75f, 0.42f, -4.8f), new Vector3(-0.15f, 0.03f, 0f), 36f, BuildBarrelTankComponent));
-            results.Add(RenderSingleComponent(projectRoot, "muzzle", "Muzzle", MuzzleRelativePath, new Vector3(0.45f, 0.12f, -3.55f), new Vector3(-0.05f, 0f, 0f), 32f, BuildMuzzleComponent));
-            results.Add(RenderSingleComponent(projectRoot, "grip_hand", "Grip + Hand", GripHandRelativePath, new Vector3(0.55f, 0.2f, -3.7f), new Vector3(0.18f, -0.28f, 0f), 34f, BuildGripHandComponent));
+            results.Add(RenderSingleComponent(projectRoot, "coil", "Coil Assembly", CoilRelativePath, new Vector3(0.26f, 0.22f, -2.85f), new Vector3(0f, 0f, -0.03f), 28f, BuildCoilComponent));
+            results.Add(RenderSingleComponent(projectRoot, "gauge", "Gauge", GaugeRelativePath, new Vector3(0.22f, 0.08f, -2.45f), new Vector3(0f, 0f, -0.04f), 29f, BuildGaugeComponent));
+            results.Add(RenderSingleComponent(projectRoot, "barrel_tank", "Barrel + Lower Tank", BarrelTankRelativePath, new Vector3(0.42f, 0.24f, -3.65f), new Vector3(-0.03f, 0.01f, -0.02f), 30f, BuildBarrelTankComponent));
+            results.Add(RenderSingleComponent(projectRoot, "muzzle", "Muzzle", MuzzleRelativePath, new Vector3(-0.22f, 0.14f, -2.25f), new Vector3(-0.12f, 0f, -0.03f), 26f, BuildMuzzleComponent));
+            results.Add(RenderSingleComponent(projectRoot, "grip_hand", "Grip + Hand", GripHandRelativePath, new Vector3(0.24f, 0.04f, -2.6f), new Vector3(0.2f, -0.28f, -0.05f), 30f, BuildGripHandComponent));
 
             metrics.components = BuildComponentGateMetrics(results);
             Texture2D contactSheet = RenderComponentContactSheet(results, metrics);
@@ -128,7 +127,8 @@ public static class UnityPressurePistolProofRenderer
             renderPath = relativePath,
             width = ComponentWidth,
             height = ComponentHeight,
-            steamSprites = 0
+            steamSprites = 0,
+            reducedBlackSpaceFraming = true
         };
 
         Texture2D image = null;
@@ -172,9 +172,9 @@ public static class UnityPressurePistolProofRenderer
     private static void ConfigureComponentRenderSettings()
     {
         RenderSettings.ambientMode = AmbientMode.Flat;
-        RenderSettings.ambientLight = new Color(0.018f, 0.016f, 0.014f);
+        RenderSettings.ambientLight = new Color(0.026f, 0.022f, 0.018f);
         RenderSettings.fog = false;
-        RenderSettings.reflectionIntensity = 0.5f;
+        RenderSettings.reflectionIntensity = 0.62f;
     }
 
     private static void MarkRecovery04ReportRejected(string proofFolder)
@@ -199,24 +199,34 @@ public static class UnityPressurePistolProofRenderer
 
     private static void BuildComponentBackground(Transform root, ProofMaterials materials)
     {
-        CreateBox("component dark backing", new Vector3(0f, 0f, 1.0f), new Vector3(5.2f, 3.2f, 0.08f), Quaternion.identity, materials.ContactBack, root);
-        CreateBox("component low oily reflection plane", new Vector3(0f, -1.06f, 0.22f), new Vector3(5.1f, 0.05f, 1.6f), Quaternion.identity, materials.BlackenedIron, root);
-        CreateCylinderX("component dim rear pipe", new Vector3(-0.1f, 1.1f, 0.75f), 3.2f, 0.035f, materials.DarkPipeMetal, root);
+        CreateBox("component dark riveted backing", new Vector3(0f, 0f, 1.0f), new Vector3(4.6f, 2.75f, 0.08f), Quaternion.identity, materials.ContactBack, root);
+        CreateBox("component low oily reflection plane", new Vector3(0f, -0.92f, 0.18f), new Vector3(4.45f, 0.06f, 1.35f), Quaternion.identity, materials.BlackenedIron, root);
+        CreateCylinderX("component dim rear pipe", new Vector3(-0.05f, 0.94f, 0.72f), 2.8f, 0.035f, materials.DarkPipeMetal, root);
+        CreateCylinderX("component rear warm brass pipe", new Vector3(0.25f, 0.78f, 0.68f), 2.35f, 0.024f, materials.DarkAgedBrass, root);
+        CreateBox("component warm floor highlight", new Vector3(-0.24f, -0.86f, -0.18f), new Vector3(2.6f, 0.018f, 0.018f), Quaternion.identity, materials.BrassHighlight, root);
+        AddBackgroundRivetRow("component rear wall rivet upper", new Vector3(-1.95f, 1.0f, 0.91f), new Vector3(1.95f, 1.0f, 0.91f), 16, 0.012f, materials.DarkAgedBrass, root);
+        AddBackgroundRivetRow("component rear wall rivet lower", new Vector3(-1.95f, -0.72f, 0.91f), new Vector3(1.95f, -0.72f, 0.91f), 16, 0.012f, materials.DarkAgedBrass, root);
     }
 
     private static void BuildComponentLighting(string key)
     {
-        CreateLight("component warm amber key", LightType.Spot, new Vector3(-2.2f, 2.0f, -2.6f), Quaternion.Euler(43f, 33f, 0f), new Color(1.0f, 0.55f, 0.18f), 5.0f, 48f, true);
-        CreateLight("component cool fill", LightType.Directional, new Vector3(1.5f, 1.3f, -1.0f), Quaternion.Euler(38f, -138f, 0f), new Color(0.14f, 0.17f, 0.22f), 0.18f, 0f, false);
-        CreateLight("component brass edge rim", LightType.Spot, new Vector3(1.7f, 1.15f, 1.25f), Quaternion.Euler(142f, -34f, 0f), new Color(1.0f, 0.68f, 0.28f), 2.1f, 38f, true);
+        CreateLight("component warm amber key", LightType.Spot, new Vector3(-2.05f, 1.9f, -2.25f), Quaternion.Euler(43f, 33f, 0f), new Color(1.0f, 0.58f, 0.22f), 5.4f, 48f, true);
+        CreateLight("component cool fill", LightType.Directional, new Vector3(1.5f, 1.3f, -1.0f), Quaternion.Euler(38f, -138f, 0f), new Color(0.16f, 0.18f, 0.22f), 0.24f, 0f, false);
+        CreateLight("component brass edge rim", LightType.Spot, new Vector3(1.55f, 1.12f, 1.18f), Quaternion.Euler(142f, -34f, 0f), new Color(1.0f, 0.66f, 0.27f), 2.65f, 38f, true);
         if (key == "coil")
         {
-            CreateLight("component coil glow", LightType.Point, new Vector3(0f, 0f, -0.45f), Quaternion.identity, new Color(1.0f, 0.34f, 0.08f), 2.4f, 0f, false);
+            CreateLight("component coil glow", LightType.Point, new Vector3(0f, 0f, -0.45f), Quaternion.identity, new Color(1.0f, 0.28f, 0.07f), 1.45f, 0f, false);
         }
 
         if (key == "gauge")
         {
             CreateLight("component gauge glass glint", LightType.Point, new Vector3(-0.45f, 0.55f, -0.8f), Quaternion.identity, new Color(1.0f, 0.78f, 0.36f), 1.1f, 0f, false);
+        }
+
+        if (key == "barrel_tank" || key == "muzzle" || key == "grip_hand")
+        {
+            CreateLight("component low warm inspection fill", LightType.Point, new Vector3(-0.7f, 0.35f, -1.15f), Quaternion.identity, new Color(0.92f, 0.58f, 0.28f), 1.55f, 0f, false);
+            CreateLight("component cool silhouette lift", LightType.Point, new Vector3(1.25f, 0.78f, -1.0f), Quaternion.identity, new Color(0.22f, 0.27f, 0.34f), 0.75f, 0f, false);
         }
     }
 
@@ -238,158 +248,263 @@ public static class UnityPressurePistolProofRenderer
 
     private static void BuildCoilComponent(Transform root, ProofMaterials materials, ComponentGateMetric metric)
     {
-        root.rotation = Quaternion.Euler(0f, -28f, 0f);
+        Quaternion componentRotation = Quaternion.Euler(0f, -24f, 0f);
+        root.rotation = Quaternion.identity;
         Vector3 center = Vector3.zero;
-        CreateBox("coil dark recessed cavity", center + new Vector3(0f, 0f, 0.08f), new Vector3(1.72f, 0.86f, 0.09f), Quaternion.identity, materials.BlackenedIron, root);
-        CreateBox("coil top brass rail", center + new Vector3(0f, 0.49f, -0.02f), new Vector3(1.95f, 0.07f, 0.09f), Quaternion.identity, materials.AgedBrass, root);
-        CreateBox("coil bottom brass rail", center + new Vector3(0f, -0.49f, -0.02f), new Vector3(1.95f, 0.07f, 0.09f), Quaternion.identity, materials.AgedBrass, root);
-        CreateBox("coil left brass cheek", center + new Vector3(-0.99f, 0f, -0.02f), new Vector3(0.07f, 0.96f, 0.09f), Quaternion.identity, materials.AgedBrass, root);
-        CreateBox("coil right brass cheek", center + new Vector3(0.99f, 0f, -0.02f), new Vector3(0.07f, 0.96f, 0.09f), Quaternion.identity, materials.AgedBrass, root);
-        metric.platesOrBrackets = 5;
+        CreateBox("coil dark recessed cavity", center + new Vector3(0f, 0f, 0.08f), new Vector3(1.92f, 0.98f, 0.11f), Quaternion.identity, materials.BlackenedIron, root);
+        CreateBox("coil inner soot shadow", center + new Vector3(0f, 0f, -0.005f), new Vector3(1.68f, 0.62f, 0.035f), Quaternion.identity, materials.LineDark, root);
+        CreateBox("coil top dark brass under-rail", center + new Vector3(0f, 0.545f, 0.0f), new Vector3(2.12f, 0.095f, 0.09f), Quaternion.identity, materials.DarkAgedBrass, root);
+        CreateBox("coil bottom dark brass under-rail", center + new Vector3(0f, -0.545f, 0.0f), new Vector3(2.12f, 0.095f, 0.09f), Quaternion.identity, materials.DarkAgedBrass, root);
+        CreateBox("coil top brass rail worn face", center + new Vector3(0f, 0.585f, -0.055f), new Vector3(2.04f, 0.055f, 0.07f), Quaternion.identity, materials.AgedBrass, root);
+        CreateBox("coil bottom brass rail worn face", center + new Vector3(0f, -0.585f, -0.055f), new Vector3(2.04f, 0.055f, 0.07f), Quaternion.identity, materials.AgedBrass, root);
+        CreateBox("coil left brass cheek", center + new Vector3(-1.04f, 0f, -0.02f), new Vector3(0.085f, 1.05f, 0.105f), Quaternion.identity, materials.AgedBrass, root);
+        CreateBox("coil right brass cheek", center + new Vector3(1.04f, 0f, -0.02f), new Vector3(0.085f, 1.05f, 0.105f), Quaternion.identity, materials.AgedBrass, root);
+        CreateCylinderX("coil left round end collar", center + new Vector3(-0.96f, 0f, -0.09f), 0.11f, 0.45f, materials.DarkAgedBrass, root);
+        CreateCylinderX("coil right round end collar", center + new Vector3(0.96f, 0f, -0.09f), 0.11f, 0.45f, materials.DarkAgedBrass, root);
+        CreateCylinderX("coil upper copper manifold", center + new Vector3(0f, 0.39f, -0.13f), 1.52f, 0.026f, materials.AgedCopper, root);
+        CreateCylinderX("coil lower copper manifold", center + new Vector3(0f, -0.39f, -0.13f), 1.52f, 0.026f, materials.AgedCopper, root);
+        metric.platesOrBrackets = 8;
 
-        int turns = 7;
+        int turns = 9;
         for (int i = 0; i < turns; i++)
         {
-            float x = -0.66f + i * 0.22f;
-            CreateCopperCoilLoop("separate copper coil turn " + i.ToString(CultureInfo.InvariantCulture), new Vector3(x, 0f, -0.12f), 0.31f, 0.16f, 0.028f, materials.HotCopper, root);
+            float x = -0.72f + i * 0.18f;
+            Material coilMaterial = i % 3 == 1 ? materials.AgedCopper : materials.HotCopper;
+            CreateCopperCoilLoop("separate copper coil turn " + i.ToString(CultureInfo.InvariantCulture), new Vector3(x, 0f, -0.12f - (i % 2) * 0.015f), 0.34f, 0.17f, 0.026f, coilMaterial, root);
+            CreateCylinderY("coil warm front bead " + i.ToString(CultureInfo.InvariantCulture), new Vector3(x, 0.32f, -0.31f), 0.045f, 0.016f, materials.CopperHighlight, root);
+            CreateBox("coil turn dark back shadow " + i.ToString(CultureInfo.InvariantCulture), new Vector3(x, -0.01f, 0.05f), new Vector3(0.065f, 0.68f, 0.018f), Quaternion.identity, materials.LineDark, root);
+            metric.warmHighlightAccents++;
         }
 
-        CreateCylinderX("warm emissive core behind copper turns", new Vector3(0f, 0f, -0.16f), 1.48f, 0.045f, materials.GlowAmber, root);
-        AddComponentRivetRow("coil top rail fastener", new Vector3(-0.8f, 0.56f, -0.09f), new Vector3(0.8f, 0.56f, -0.09f), 9, 0.018f, materials.AgedBrass, root, metric);
-        AddComponentRivetRow("coil bottom rail fastener", new Vector3(-0.8f, -0.56f, -0.09f), new Vector3(0.8f, -0.56f, -0.09f), 9, 0.018f, materials.AgedBrass, root, metric);
+        CreateCylinderX("warm emissive core behind copper turns", new Vector3(0f, 0f, -0.18f), 1.58f, 0.04f, materials.GlowAmber, root);
+        CreateBox("coil top brass glint", center + new Vector3(0.08f, 0.62f, -0.12f), new Vector3(1.54f, 0.016f, 0.018f), Quaternion.identity, materials.BrassHighlight, root);
+        CreateBox("coil bottom brass glint", center + new Vector3(-0.06f, -0.62f, -0.12f), new Vector3(1.42f, 0.016f, 0.018f), Quaternion.identity, materials.BrassHighlight, root);
+        AddComponentRivetRow("coil top rail fastener", new Vector3(-0.88f, 0.63f, -0.1f), new Vector3(0.88f, 0.63f, -0.1f), 13, 0.017f, materials.AgedBrass, root, metric);
+        AddComponentRivetRow("coil bottom rail fastener", new Vector3(-0.88f, -0.63f, -0.1f), new Vector3(0.88f, -0.63f, -0.1f), 13, 0.017f, materials.AgedBrass, root, metric);
+        AddComponentRivetRow("coil left cheek rivets", new Vector3(-1.1f, -0.42f, -0.1f), new Vector3(-1.1f, 0.42f, -0.1f), 5, 0.016f, materials.AgedBrass, root, metric);
+        AddComponentRivetRow("coil right cheek rivets", new Vector3(1.1f, -0.42f, -0.1f), new Vector3(1.1f, 0.42f, -0.1f), 5, 0.016f, materials.AgedBrass, root, metric);
 
+        root.rotation = componentRotation;
         metric.coilTurns = turns;
         metric.warmEmissiveCore = true;
         metric.darkRecessFrame = true;
         metric.brassFasteners = true;
-        metric.materialRoles = 4;
+        metric.bevelRingsOrCollars = 4;
+        metric.materialVariationAccents = 6;
+        metric.materialRoles = 7;
         metric.gateStatus = "Pass";
-        metric.notes = "Separate torus-like copper loops replace the rejected flat yellow rods. Smoke omitted.";
+        metric.notes = "Recovery06 adds darker end collars, manifold tubes, alternating aged/hot copper turns, and denser riveted rails. Smoke omitted.";
     }
 
     private static void BuildGaugeComponent(Transform root, ProofMaterials materials, ComponentGateMetric metric)
     {
-        root.rotation = Quaternion.Euler(0f, -16f, 0f);
+        Quaternion componentRotation = Quaternion.Euler(0f, -10f, 0f);
+        root.rotation = Quaternion.identity;
         Vector3 center = Vector3.zero;
-        CreateCylinderZ("aged brass outer gauge bezel", center, 0.18f, 0.54f, materials.AgedBrass, root);
-        CreateCylinderZ("dark oxidized gauge rim inset", center + new Vector3(0f, 0f, -0.08f), 0.08f, 0.47f, materials.DarkPipeMetal, root);
-        CreateCylinderZ("cream enamel gauge face", center + new Vector3(0f, 0f, -0.135f), 0.035f, 0.39f, materials.GaugeFace, root);
-        CreateCylinderZ("transparent glass lens", center + new Vector3(0f, 0f, -0.17f), 0.018f, 0.405f, materials.Glass, root);
-        CreateBox("diagonal glass highlight", center + new Vector3(-0.13f, 0.14f, -0.195f), new Vector3(0.42f, 0.026f, 0.012f), Quaternion.Euler(0f, 0f, -31f), materials.Glass, root);
+        CreateCylinderZ("dark gauge rear pressure cup", center + new Vector3(0f, 0f, 0.07f), 0.22f, 0.62f, materials.BlackenedIron, root);
+        CreateCylinderZ("dark aged brass rear collar", center + new Vector3(0f, 0f, -0.01f), 0.12f, 0.58f, materials.DarkAgedBrass, root);
+        CreateCylinderZ("aged brass outer gauge bezel", center + new Vector3(0f, 0f, -0.08f), 0.13f, 0.54f, materials.AgedBrass, root);
+        CreateCylinderZ("black rubberized gauge gasket", center + new Vector3(0f, 0f, -0.145f), 0.052f, 0.485f, materials.BlackenedIron, root);
+        CreateCylinderZ("inner worn brass bevel ring", center + new Vector3(0f, 0f, -0.18f), 0.045f, 0.43f, materials.DarkAgedBrass, root);
+        CreateCylinderZ("cream enamel gauge face", center + new Vector3(0f, 0f, -0.215f), 0.032f, 0.38f, materials.GaugeFace, root);
+        CreateCylinderZ("transparent glass lens", center + new Vector3(0f, 0f, -0.245f), 0.018f, 0.405f, materials.Glass, root);
+        CreateBox("diagonal glass highlight", center + new Vector3(-0.13f, 0.14f, -0.275f), new Vector3(0.42f, 0.026f, 0.012f), Quaternion.Euler(0f, 0f, -31f), materials.Glass, root);
+        CreateBox("small lower glass catchlight", center + new Vector3(0.18f, -0.18f, -0.278f), new Vector3(0.16f, 0.018f, 0.012f), Quaternion.Euler(0f, 0f, -25f), materials.Glass, root);
+        CreateCylinderY("gauge lower brass stem", center + new Vector3(0f, -0.62f, -0.02f), 0.42f, 0.06f, materials.DarkAgedBrass, root);
+        CreateCylinderX("gauge side pressure tube", center + new Vector3(-0.48f, -0.52f, -0.03f), 0.54f, 0.034f, materials.AgedCopper, root);
 
-        int tickCount = 34;
+        int tickCount = 44;
         for (int i = 0; i < tickCount; i++)
         {
             float angle = Mathf.Lerp(215f, -35f, i / (float)(tickCount - 1));
             float radians = angle * Mathf.Deg2Rad;
-            Vector3 tickPosition = center + new Vector3(Mathf.Cos(radians) * 0.305f, Mathf.Sin(radians) * 0.305f, -0.205f);
-            float tickLength = i % 4 == 0 ? 0.085f : 0.045f;
-            CreateBox("readable gauge tick " + i.ToString(CultureInfo.InvariantCulture), tickPosition, new Vector3(0.01f, tickLength, 0.014f), Quaternion.Euler(0f, 0f, angle + 90f), materials.LineDark, root);
+            Vector3 tickPosition = center + new Vector3(Mathf.Cos(radians) * 0.292f, Mathf.Sin(radians) * 0.292f, -0.292f);
+            float tickLength = i % 5 == 0 ? 0.09f : 0.04f;
+            float tickWidth = i % 5 == 0 ? 0.013f : 0.008f;
+            CreateBox("readable gauge tick " + i.ToString(CultureInfo.InvariantCulture), tickPosition, new Vector3(tickWidth, tickLength, 0.014f), Quaternion.Euler(0f, 0f, angle + 90f), materials.LineDark, root);
         }
 
-        CreateBox("red pressure needle", center + new Vector3(0.08f, 0.05f, -0.22f), new Vector3(0.02f, 0.29f, 0.018f), Quaternion.Euler(0f, 0f, -48f), materials.WarningRed, root);
-        CreateCylinderZ("aged brass needle hub", center + new Vector3(0f, 0f, -0.23f), 0.022f, 0.055f, materials.AgedBrass, root);
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 6; i++)
         {
-            float angle = i * Mathf.PI * 2f / 20f;
-            AddComponentRivet("aged rim rivet " + i.ToString(CultureInfo.InvariantCulture), center + new Vector3(Mathf.Cos(angle) * 0.51f, Mathf.Sin(angle) * 0.51f, -0.20f), 0.018f, materials.AgedBrass, root, metric);
+            float angle = Mathf.Lerp(215f, -35f, i / 5f) * Mathf.Deg2Rad;
+            Vector3 markerPosition = center + new Vector3(Mathf.Cos(angle) * 0.18f, Mathf.Sin(angle) * 0.18f, -0.30f);
+            CreateBox("chunky gauge numeral mark " + i.ToString(CultureInfo.InvariantCulture), markerPosition, new Vector3(0.05f, 0.018f, 0.012f), Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg + 90f), materials.LineDark, root);
         }
 
+        CreateBox("red pressure needle", center + new Vector3(0.095f, 0.06f, -0.315f), new Vector3(0.019f, 0.30f, 0.018f), Quaternion.Euler(0f, 0f, -48f), materials.WarningRed, root);
+        CreateBox("dark counterweight needle tail", center + new Vector3(-0.05f, -0.035f, -0.318f), new Vector3(0.014f, 0.15f, 0.014f), Quaternion.Euler(0f, 0f, -48f), materials.LineDark, root);
+        CreateCylinderZ("aged brass needle hub", center + new Vector3(0f, 0f, -0.33f), 0.024f, 0.06f, materials.AgedBrass, root);
+        for (int i = 0; i < 28; i++)
+        {
+            float angle = i * Mathf.PI * 2f / 28f;
+            AddComponentRivet("aged rim rivet " + i.ToString(CultureInfo.InvariantCulture), center + new Vector3(Mathf.Cos(angle) * 0.515f, Mathf.Sin(angle) * 0.515f, -0.285f), 0.016f, materials.AgedBrass, root, metric);
+        }
+
+        root.rotation = componentRotation;
         metric.gaugeTickMarks = tickCount;
         metric.brassBezel = true;
         metric.creamFace = true;
         metric.glassHighlight = true;
         metric.redNeedle = true;
         metric.agedRim = true;
-        metric.materialRoles = 5;
+        metric.bevelRingsOrCollars = 4;
+        metric.warmHighlightAccents = 2;
+        metric.materialVariationAccents = 4;
+        metric.materialRoles = 7;
         metric.gateStatus = "Pass";
-        metric.notes = "Gauge is still primitive, but reads as layered bezel/face/glass/needle instead of a flat bright disc.";
+        metric.notes = "Recovery06 adds rear cup depth, gasket/bevel layers, denser tick marks, rim rivets, glass catches, and a pressure-tube mount.";
     }
 
     private static void BuildBarrelTankComponent(Transform root, ProofMaterials materials, ComponentGateMetric metric)
     {
-        root.rotation = Quaternion.Euler(0f, -32f, 0f);
-        CreateCylinderX("blackened iron main barrel", new Vector3(-0.1f, 0.28f, 0f), 2.4f, 0.24f, materials.BlackenedIron, root);
-        CreateCylinderX("separate lower pressure tank", new Vector3(-0.02f, -0.34f, 0.03f), 2.05f, 0.18f, materials.DarkPipeMetal, root);
-        CreateBox("deep shadow gap between barrel and tank", new Vector3(-0.02f, -0.04f, -0.19f), new Vector3(2.0f, 0.12f, 0.05f), Quaternion.identity, materials.LineDark, root);
-        float[] strapXs = { -0.88f, -0.22f, 0.46f };
+        Quaternion componentRotation = Quaternion.Euler(0f, -29f, 0f);
+        root.rotation = Quaternion.identity;
+        CreateCylinderX("blackened iron main barrel", new Vector3(-0.1f, 0.28f, 0f), 2.55f, 0.24f, materials.BlackenedIron, root);
+        CreateCylinderX("oily dark receiver sleeve", new Vector3(0.82f, 0.28f, -0.01f), 0.42f, 0.285f, materials.DarkPipeMetal, root);
+        CreateCylinderX("separate lower pressure tank", new Vector3(-0.02f, -0.34f, 0.03f), 2.18f, 0.18f, materials.DarkPipeMetal, root);
+        CreateCylinderX("small underside reserve tube", new Vector3(-0.16f, -0.62f, -0.01f), 1.55f, 0.075f, materials.BlackenedIron, root);
+        CreateBox("deep shadow gap between barrel and tank", new Vector3(-0.02f, -0.04f, -0.19f), new Vector3(2.15f, 0.12f, 0.05f), Quaternion.identity, materials.LineDark, root);
+        float[] strapXs = { -1.02f, -0.52f, -0.02f, 0.52f };
         for (int i = 0; i < strapXs.Length; i++)
         {
-            CreateCylinderX("brass barrel collar " + i.ToString(CultureInfo.InvariantCulture), new Vector3(strapXs[i], 0.28f, 0f), 0.11f, 0.275f, materials.AgedBrass, root);
-            CreateCylinderX("brass lower tank collar " + i.ToString(CultureInfo.InvariantCulture), new Vector3(strapXs[i] + 0.1f, -0.34f, 0.03f), 0.09f, 0.205f, materials.AgedBrass, root);
+            Material collarMaterial = i % 2 == 0 ? materials.AgedBrass : materials.DarkAgedBrass;
+            CreateCylinderX("brass barrel collar " + i.ToString(CultureInfo.InvariantCulture), new Vector3(strapXs[i], 0.28f, 0f), 0.12f, 0.278f, collarMaterial, root);
+            CreateCylinderX("raised barrel collar bead front " + i.ToString(CultureInfo.InvariantCulture), new Vector3(strapXs[i] - 0.07f, 0.28f, -0.002f), 0.022f, 0.302f, materials.BrassHighlight, root);
+            CreateCylinderX("raised barrel collar bead rear " + i.ToString(CultureInfo.InvariantCulture), new Vector3(strapXs[i] + 0.07f, 0.28f, -0.002f), 0.022f, 0.292f, materials.DarkAgedBrass, root);
+            CreateCylinderX("brass lower tank collar " + i.ToString(CultureInfo.InvariantCulture), new Vector3(strapXs[i] + 0.1f, -0.34f, 0.03f), 0.092f, 0.205f, collarMaterial, root);
             metric.platesOrBrackets += 2;
+            metric.bevelRingsOrCollars += 3;
         }
 
-        CreateCylinderX("left tank cap", new Vector3(-1.12f, -0.34f, 0.03f), 0.16f, 0.21f, materials.AgedBrass, root);
-        CreateCylinderX("right tank cap", new Vector3(1.08f, -0.34f, 0.03f), 0.16f, 0.21f, materials.AgedBrass, root);
+        CreateCylinderX("left tank cap", new Vector3(-1.2f, -0.34f, 0.03f), 0.16f, 0.21f, materials.AgedBrass, root);
+        CreateCylinderX("right tank cap", new Vector3(1.16f, -0.34f, 0.03f), 0.16f, 0.21f, materials.DarkAgedBrass, root);
+        CreateCylinderX("left barrel dark end shadow", new Vector3(-1.42f, 0.28f, -0.005f), 0.12f, 0.21f, materials.LineDark, root);
+        CreateCylinderX("right receiver dark end shadow", new Vector3(1.1f, 0.28f, -0.005f), 0.08f, 0.22f, materials.LineDark, root);
         CreateBox("thin brass edge highlight upper", new Vector3(-0.05f, 0.52f, -0.1f), new Vector3(2.18f, 0.026f, 0.026f), Quaternion.identity, materials.AgedBrass, root);
         CreateBox("thin oily grime band lower", new Vector3(-0.05f, -0.16f, -0.12f), new Vector3(2.05f, 0.035f, 0.026f), Quaternion.identity, materials.LineDark, root);
-        AddComponentRivetRow("barrel strap fasteners", new Vector3(-0.98f, 0.49f, -0.17f), new Vector3(0.72f, 0.49f, -0.17f), 16, 0.016f, materials.AgedBrass, root, metric);
+        CreateCylinderX("barrel oily upper specular break", new Vector3(-0.05f, 0.47f, -0.22f), 2.04f, 0.014f, materials.IronEdgeHighlight, root);
+        CreateCylinderX("lower tank oily upper specular break", new Vector3(0.02f, -0.17f, -0.16f), 1.72f, 0.012f, materials.IronEdgeHighlight, root);
+        CreateBox("front collar brass glint", new Vector3(-0.87f, 0.54f, -0.22f), new Vector3(0.12f, 0.025f, 0.025f), Quaternion.identity, materials.BrassHighlight, root);
+        CreateBox("middle collar brass glint", new Vector3(-0.21f, 0.54f, -0.22f), new Vector3(0.12f, 0.025f, 0.025f), Quaternion.identity, materials.BrassHighlight, root);
+        CreateBox("rear collar brass glint", new Vector3(0.47f, 0.54f, -0.22f), new Vector3(0.12f, 0.025f, 0.025f), Quaternion.identity, materials.BrassHighlight, root);
+        CreateCylinderX("top aged copper bypass pipe", new Vector3(-0.24f, 0.66f, -0.02f), 1.65f, 0.035f, materials.AgedCopper, root);
+        CreateCylinderY("top pressure valve pedestal", new Vector3(0.48f, 0.82f, -0.02f), 0.24f, 0.055f, materials.DarkAgedBrass, root);
+        CreateCylinderZ("top small valve wheel", new Vector3(0.48f, 0.96f, -0.06f), 0.025f, 0.14f, materials.AgedBrass, root);
+        CreateBox("top valve wheel cross a", new Vector3(0.48f, 0.96f, -0.09f), new Vector3(0.24f, 0.018f, 0.018f), Quaternion.identity, materials.AgedBrass, root);
+        CreateBox("top valve wheel cross b", new Vector3(0.48f, 0.96f, -0.09f), new Vector3(0.018f, 0.24f, 0.018f), Quaternion.identity, materials.AgedBrass, root);
+        CreateBox("riveted receiver side plate", new Vector3(0.67f, 0.02f, -0.22f), new Vector3(0.42f, 0.24f, 0.055f), Quaternion.Euler(0f, 0f, -4f), materials.DarkAgedBrass, root);
+        AddComponentRivetRow("receiver side plate rivets", new Vector3(0.48f, 0.13f, -0.26f), new Vector3(0.84f, -0.08f, -0.26f), 6, 0.015f, materials.AgedBrass, root, metric);
+        AddComponentRivetRow("barrel strap fasteners", new Vector3(-1.1f, 0.49f, -0.17f), new Vector3(0.82f, 0.49f, -0.17f), 20, 0.015f, materials.AgedBrass, root, metric);
+        AddComponentRivetRow("lower tank belly rivets", new Vector3(-1.05f, -0.2f, -0.13f), new Vector3(0.95f, -0.2f, -0.13f), 18, 0.012f, materials.DarkAgedBrass, root, metric);
 
-        metric.blackenedIronCylinders = 2;
+        root.rotation = componentRotation;
+        metric.blackenedIronCylinders = 4;
         metric.separateLowerTank = true;
         metric.brassCollars = true;
         metric.darkOcclusion = true;
         metric.edgeHighlights = true;
-        metric.materialRoles = 4;
+        metric.warmHighlightAccents = 7;
+        metric.materialVariationAccents = 8;
+        metric.materialRoles = 7;
         metric.gateStatus = "Pass";
-        metric.notes = "Main barrel and lower tank are separated by a visible shadow gap and distinct collar sets.";
+        metric.notes = "Recovery06 separates barrel, lower tank, reserve tube, receiver sleeve, collar beads, valve hardware, and aged copper bypass plumbing.";
     }
 
     private static void BuildMuzzleComponent(Transform root, ProofMaterials materials, ComponentGateMetric metric)
     {
-        root.rotation = Quaternion.Euler(0f, -38f, 0f);
-        CreateCylinderX("muzzle rear iron throat", new Vector3(0.45f, 0f, 0f), 0.5f, 0.23f, materials.BlackenedIron, root);
-        CreateCylinderX("muzzle brass step 01", new Vector3(0.15f, 0f, 0f), 0.22f, 0.31f, materials.AgedBrass, root);
-        CreateCylinderX("muzzle dark iron step 02", new Vector3(-0.04f, 0f, 0f), 0.18f, 0.26f, materials.DarkPipeMetal, root);
-        CreateCylinderX("muzzle brass step 03", new Vector3(-0.21f, 0f, 0f), 0.15f, 0.21f, materials.AgedBrass, root);
-        CreateCylinderX("muzzle blackened nozzle step", new Vector3(-0.37f, 0f, 0f), 0.18f, 0.16f, materials.BlackenedIron, root);
-        CreateCylinderX("deep dark bore", new Vector3(-0.49f, 0f, 0f), 0.035f, 0.095f, materials.LineDark, root);
-        CreateCylinderX("inner amber pressure glint", new Vector3(-0.515f, 0f, 0f), 0.018f, 0.045f, materials.GlowAmber, root);
-        for (int i = 0; i < 12; i++)
+        Quaternion componentRotation = Quaternion.Euler(0f, -51f, 0f);
+        root.rotation = Quaternion.identity;
+        CreateCylinderX("muzzle rear iron throat", new Vector3(0.48f, 0f, 0f), 0.52f, 0.24f, materials.BlackenedIron, root);
+        CreateCylinderX("muzzle rear dark gasket", new Vector3(0.22f, 0f, 0f), 0.055f, 0.285f, materials.LineDark, root);
+        CreateCylinderX("muzzle brass step 01", new Vector3(0.13f, 0f, 0f), 0.2f, 0.32f, materials.AgedBrass, root);
+        CreateCylinderX("muzzle raised brass bead rear", new Vector3(0.25f, 0f, 0f), 0.035f, 0.35f, materials.BrassHighlight, root);
+        CreateCylinderX("muzzle dark iron step 02", new Vector3(-0.05f, 0f, 0f), 0.18f, 0.265f, materials.DarkPipeMetal, root);
+        CreateCylinderX("muzzle copper heat band", new Vector3(-0.18f, 0f, 0f), 0.08f, 0.235f, materials.AgedCopper, root);
+        CreateCylinderX("muzzle brass step 03", new Vector3(-0.28f, 0f, 0f), 0.14f, 0.215f, materials.AgedBrass, root);
+        CreateCylinderX("muzzle blackened nozzle step", new Vector3(-0.42f, 0f, 0f), 0.18f, 0.165f, materials.BlackenedIron, root);
+        CreateCylinderX("front dark bore disk", new Vector3(-0.535f, 0f, 0f), 0.035f, 0.124f, materials.LineDark, root);
+        CreateCylinderX("inner amber pressure glint", new Vector3(-0.56f, 0.014f, -0.01f), 0.012f, 0.034f, materials.GlowAmber, root);
+        CreateCylinderX("off-center soot bore shadow", new Vector3(-0.575f, -0.02f, 0.006f), 0.01f, 0.072f, materials.BlackenedIron, root);
+        CreateCylinderX("muzzle lower knurled sleeve", new Vector3(-0.02f, -0.22f, -0.02f), 0.44f, 0.055f, materials.DarkAgedBrass, root);
+        CreateCylinderX("muzzle top oily edge catch", new Vector3(-0.06f, 0.24f, -0.12f), 0.74f, 0.012f, materials.IronEdgeHighlight, root);
+        CreateCylinderX("muzzle brass lip highlight", new Vector3(0.12f, 0.28f, -0.13f), 0.18f, 0.012f, materials.BrassHighlight, root);
+        CreateCylinderX("muzzle forward brass lip highlight", new Vector3(-0.32f, 0.18f, -0.1f), 0.2f, 0.01f, materials.BrassHighlight, root);
+        for (int i = 0; i < 18; i++)
         {
-            float angle = i * Mathf.PI * 2f / 12f;
-            AddComponentRivet("muzzle brass ring rivet " + i.ToString(CultureInfo.InvariantCulture), new Vector3(0.04f, Mathf.Sin(angle) * 0.29f, -0.11f + Mathf.Cos(angle) * 0.08f), 0.014f, materials.AgedBrass, root, metric);
+            float angle = i * Mathf.PI * 2f / 18f;
+            AddComponentRivet("muzzle brass ring rivet " + i.ToString(CultureInfo.InvariantCulture), new Vector3(0.12f, Mathf.Sin(angle) * 0.305f, -0.11f + Mathf.Cos(angle) * 0.085f), 0.013f, materials.AgedBrass, root, metric);
         }
 
-        metric.muzzleSteps = 6;
+        for (int i = 0; i < 8; i++)
+        {
+            float x = -0.2f + i * 0.055f;
+            CreateBox("muzzle lower knurl tooth " + i.ToString(CultureInfo.InvariantCulture), new Vector3(x, -0.28f, -0.07f), new Vector3(0.018f, 0.08f, 0.018f), Quaternion.Euler(0f, 0f, 16f), materials.BrassHighlight, root);
+        }
+
+        root.rotation = componentRotation;
+        metric.muzzleSteps = 9;
         metric.darkBore = true;
         metric.brassIronSeparation = true;
         metric.leftForwardDepth = true;
-        metric.materialRoles = 4;
+        metric.bevelRingsOrCollars = 7;
+        metric.warmHighlightAccents = 4;
+        metric.materialVariationAccents = 6;
+        metric.materialRoles = 7;
         metric.gateStatus = "Pass";
-        metric.notes = "Nested cylinders give stepped depth and a readable dark bore; this is a better sub-assembly target for reassembly.";
+        metric.notes = "Recovery06 rotates the stack more toward camera and adds a front bore disk, raised lip beads, copper heat band, riveted brass ring, and lower knurled sleeve.";
     }
 
     private static void BuildGripHandComponent(Transform root, ProofMaterials materials, ComponentGateMetric metric)
     {
-        root.rotation = Quaternion.Euler(0f, -24f, 0f);
-        CreateBox("angled walnut grip", new Vector3(0.25f, -0.34f, 0.0f), new Vector3(0.34f, 0.92f, 0.22f), Quaternion.Euler(0f, 0f, -18f), materials.Walnut, root);
-        CreateBox("brass grip collar", new Vector3(0.08f, 0.08f, -0.03f), new Vector3(0.45f, 0.1f, 0.26f), Quaternion.Euler(0f, 0f, -14f), materials.AgedBrass, root);
-        CreateBox("brass butt plate", new Vector3(0.43f, -0.75f, -0.02f), new Vector3(0.48f, 0.075f, 0.26f), Quaternion.Euler(0f, 0f, -18f), materials.AgedBrass, root);
-        for (int i = 0; i < 6; i++)
+        Quaternion componentRotation = Quaternion.Euler(0f, -22f, 0f);
+        root.rotation = Quaternion.identity;
+        CreateBox("angled walnut grip back slab", new Vector3(0.22f, -0.34f, 0.02f), new Vector3(0.38f, 0.95f, 0.2f), Quaternion.Euler(0f, 0f, -18f), materials.Walnut, root);
+        CreateSphere("walnut palm swell", new Vector3(0.34f, -0.42f, -0.02f), new Vector3(0.42f, 0.58f, 0.24f), materials.Walnut, root);
+        CreateBox("dark grip side inset", new Vector3(0.32f, -0.36f, -0.16f), new Vector3(0.24f, 0.74f, 0.035f), Quaternion.Euler(0f, 0f, -18f), materials.LineDark, root);
+        CreateBox("brass grip collar upper band", new Vector3(0.06f, 0.08f, -0.04f), new Vector3(0.5f, 0.1f, 0.28f), Quaternion.Euler(0f, 0f, -14f), materials.AgedBrass, root);
+        CreateBox("dark brass grip collar shadow", new Vector3(0.08f, -0.01f, -0.045f), new Vector3(0.45f, 0.06f, 0.28f), Quaternion.Euler(0f, 0f, -14f), materials.DarkAgedBrass, root);
+        CreateBox("brass butt plate curved mass", new Vector3(0.47f, -0.79f, -0.02f), new Vector3(0.54f, 0.085f, 0.3f), Quaternion.Euler(0f, 0f, -18f), materials.AgedBrass, root);
+        CreateSphere("brass rounded pommel end", new Vector3(0.56f, -0.85f, -0.02f), new Vector3(0.36f, 0.13f, 0.28f), materials.DarkAgedBrass, root);
+        for (int i = 0; i < 8; i++)
         {
-            CreateBox("walnut carved groove " + i.ToString(CultureInfo.InvariantCulture), new Vector3(0.27f, -0.62f + i * 0.11f, -0.13f), new Vector3(0.31f, 0.012f, 0.018f), Quaternion.Euler(0f, 0f, -18f), materials.LineDark, root);
+            CreateBox("walnut carved groove " + i.ToString(CultureInfo.InvariantCulture), new Vector3(0.25f, -0.66f + i * 0.095f, -0.17f), new Vector3(0.34f, 0.011f, 0.018f), Quaternion.Euler(0f, 0f, -18f), materials.LineDark, root);
         }
 
-        CreateCylinderBetween("trigger guard lower curve", new Vector3(-0.35f, -0.18f, -0.08f), new Vector3(0.05f, -0.43f, -0.08f), 0.025f, materials.AgedBrass, root);
-        CreateCylinderBetween("trigger guard rear curve", new Vector3(0.05f, -0.43f, -0.08f), new Vector3(0.28f, -0.18f, -0.08f), 0.025f, materials.AgedBrass, root);
-        CreateCylinderBetween("dark trigger blade", new Vector3(-0.05f, -0.08f, -0.12f), new Vector3(0.04f, -0.32f, -0.12f), 0.025f, materials.BlackenedIron, root);
+        CreateCylinderBetween("trigger guard lower curve", new Vector3(-0.38f, -0.17f, -0.09f), new Vector3(0.03f, -0.45f, -0.09f), 0.027f, materials.AgedBrass, root);
+        CreateCylinderBetween("trigger guard rear curve", new Vector3(0.03f, -0.45f, -0.09f), new Vector3(0.31f, -0.16f, -0.09f), 0.027f, materials.DarkAgedBrass, root);
+        CreateCylinderBetween("trigger guard front upright", new Vector3(-0.38f, -0.17f, -0.09f), new Vector3(-0.24f, 0.07f, -0.09f), 0.024f, materials.AgedBrass, root);
+        CreateCylinderBetween("dark trigger blade", new Vector3(-0.05f, -0.06f, -0.13f), new Vector3(0.04f, -0.33f, -0.13f), 0.026f, materials.BlackenedIron, root);
 
-        CreateSphere("leather palm rounded mass", new Vector3(0.78f, -0.43f, -0.18f), new Vector3(0.42f, 0.32f, 0.22f), materials.DarkLeather, root);
-        CreateSphere("leather thumb wrap", new Vector3(0.48f, -0.25f, -0.28f), new Vector3(0.22f, 0.16f, 0.13f), materials.DarkLeather, root);
+        CreateSphere("leather palm broad mass", new Vector3(0.76f, -0.42f, -0.2f), new Vector3(0.48f, 0.34f, 0.23f), materials.DarkLeather, root);
+        CreateSphere("leather palm heel highlight", new Vector3(0.67f, -0.54f, -0.33f), new Vector3(0.28f, 0.16f, 0.07f), materials.LeatherHighlight, root);
+        CreateSphere("leather thumb wrap", new Vector3(0.46f, -0.23f, -0.31f), new Vector3(0.25f, 0.17f, 0.13f), materials.DarkLeather, root);
+        CreateCylinderBetween("leather thumb curled ridge", new Vector3(0.42f, -0.2f, -0.37f), new Vector3(0.62f, -0.36f, -0.36f), 0.048f, materials.LeatherHighlight, root);
         for (int i = 0; i < 4; i++)
         {
-            CreateCylinderBetween("curled leather finger " + i.ToString(CultureInfo.InvariantCulture), new Vector3(0.62f + i * 0.07f, -0.18f - i * 0.03f, -0.33f), new Vector3(0.76f + i * 0.05f, -0.42f - i * 0.02f, -0.29f), 0.055f, materials.DarkLeather, root);
+            Vector3 start = new Vector3(0.57f + i * 0.075f, -0.14f - i * 0.03f, -0.36f);
+            Vector3 mid = new Vector3(0.72f + i * 0.055f, -0.3f - i * 0.02f, -0.4f);
+            Vector3 end = new Vector3(0.78f + i * 0.04f, -0.47f - i * 0.012f, -0.3f);
+            CreateCylinderBetween("curled leather finger upper " + i.ToString(CultureInfo.InvariantCulture), start, mid, 0.052f, materials.DarkLeather, root);
+            CreateCylinderBetween("curled leather finger lower " + i.ToString(CultureInfo.InvariantCulture), mid, end, 0.049f, materials.DarkLeather, root);
+            CreateSphere("leather knuckle bead " + i.ToString(CultureInfo.InvariantCulture), mid, new Vector3(0.105f, 0.075f, 0.08f), materials.LeatherHighlight, root);
         }
 
-        AddComponentRivetRow("grip brass screws", new Vector3(0.18f, -0.08f, -0.15f), new Vector3(0.38f, -0.64f, -0.15f), 5, 0.018f, materials.AgedBrass, root, metric);
+        CreateCylinderBetween("dark leather cuff top seam", new Vector3(0.96f, -0.28f, -0.22f), new Vector3(1.16f, -0.56f, -0.18f), 0.035f, materials.LeatherHighlight, root);
+        CreateBox("rear dark glove cuff", new Vector3(1.04f, -0.64f, -0.18f), new Vector3(0.28f, 0.24f, 0.22f), Quaternion.Euler(0f, 0f, -18f), materials.DarkLeather, root);
+        AddComponentRivetRow("grip brass screws", new Vector3(0.16f, -0.08f, -0.18f), new Vector3(0.4f, -0.68f, -0.18f), 7, 0.017f, materials.AgedBrass, root, metric);
+        AddComponentRivetRow("butt plate screws", new Vector3(0.31f, -0.76f, -0.18f), new Vector3(0.62f, -0.86f, -0.18f), 3, 0.016f, materials.AgedBrass, root, metric);
+
+        root.rotation = componentRotation;
         metric.walnutLeatherDistinct = true;
         metric.firstPersonAnchor = true;
         metric.triggerGuardReadable = true;
-        metric.materialRoles = 4;
+        metric.bevelRingsOrCollars = 3;
+        metric.warmHighlightAccents = 4;
+        metric.materialVariationAccents = 6;
+        metric.sculpturalGripSilhouette = true;
+        metric.materialRoles = 7;
         metric.gateStatus = "Partial";
-        metric.notes = "Material roles and trigger guard read, but the hand still needs sculpted/art-authored form before full-gun reassembly.";
+        metric.notes = "Recovery06 improves the grip into layered walnut swell, brass collar/butt hardware, curled fingers, knuckles, thumb ridge, and cuff masses; still not a true hand sculpt.";
     }
 
     private static ComponentGateMetric[] BuildComponentGateMetrics(List<ComponentRenderResult> results)
@@ -412,19 +527,19 @@ public static class UnityPressurePistolProofRenderer
         Color brass = new Color(0.62f, 0.39f, 0.16f, 1f);
         Color darkPanel = new Color(0.04f, 0.034f, 0.028f, 1f);
         Color warning = new Color(0.9f, 0.35f, 0.08f, 1f);
-        FillRect(contact, new RectInt(0, ComponentContactHeight - 84, ComponentContactWidth, 84), darkPanel);
-        FillRect(contact, new RectInt(0, 0, ComponentContactWidth, 90), darkPanel);
-        FillRect(contact, new RectInt(0, ComponentContactHeight - 88, ComponentContactWidth, 4), brass);
-        FillRect(contact, new RectInt(0, 86, ComponentContactWidth, 4), brass);
-        FillRect(contact, new RectInt(0, 18, ComponentContactWidth, 10), warning);
+        FillRect(contact, new RectInt(0, ComponentContactHeight - 56, ComponentContactWidth, 56), darkPanel);
+        FillRect(contact, new RectInt(0, 0, ComponentContactWidth, 54), darkPanel);
+        FillRect(contact, new RectInt(0, ComponentContactHeight - 60, ComponentContactWidth, 4), brass);
+        FillRect(contact, new RectInt(0, 52, ComponentContactWidth, 4), brass);
+        FillRect(contact, new RectInt(0, 14, ComponentContactWidth, 8), warning);
 
         RectInt[] panels =
         {
-            new RectInt(70, 925, 640, 400),
-            new RectInt(780, 925, 640, 400),
-            new RectInt(1490, 925, 640, 400),
-            new RectInt(240, 270, 760, 475),
-            new RectInt(1200, 270, 760, 475)
+            new RectInt(40, 1085, 680, 425),
+            new RectInt(760, 1085, 680, 425),
+            new RectInt(1480, 1085, 680, 425),
+            new RectInt(95, 185, 900, 590),
+            new RectInt(1205, 185, 900, 590)
         };
 
         for (int i = 0; i < results.Count && i < panels.Length; i++)
@@ -452,18 +567,22 @@ public static class UnityPressurePistolProofRenderer
     private static string BuildComponentProofReport(ComponentProofMetrics metrics)
     {
         StringBuilder builder = new StringBuilder();
-        builder.AppendLine("# HFLD Recovery05 Unity Component Proof Report");
+        builder.AppendLine("# HFLD Recovery06 Unity Component Detail Report");
         builder.AppendLine();
-        builder.AppendLine("Status: component-first Unity lookdev proof generated; not a full-gun promotion");
+        builder.AppendLine("Status: component-first Unity lookdev detail proof generated; not final art and not a full-gun promotion");
         builder.AppendLine("Date/time: " + metrics.timestamp);
         builder.AppendLine("Unity version: " + metrics.unityVersion);
         builder.AppendLine("Batchmode command entrypoint: `" + metrics.batchmodeEntrypoint + "`");
         builder.AppendLine("Tool lane: Unity editor batchmode, temporary in-memory component scenes, Camera plus RenderTexture JPG export");
         builder.AppendLine();
-        builder.AppendLine("## Recovery04 Disposition");
+        builder.AppendLine("## Prior Proof Disposition");
         builder.AppendLine();
         builder.AppendLine(metrics.recovery04Status);
-        builder.AppendLine("Recovery04 must not be promoted. It failed visible review for opaque smoke-paper blocks, over-cropped/side-on framing, orange material balance, and boxy component shapes.");
+        builder.AppendLine("Earlier full-gun proofs must not be promoted. Recovery06 stays on isolated components to improve silhouette, bevel/collar language, aged metal variation, warm highlights, and framing before any new reassembly attempt.");
+        builder.AppendLine();
+        builder.AppendLine("## Overall Assessment");
+        builder.AppendLine();
+        builder.AppendLine(metrics.overallAssessment);
         builder.AppendLine();
         builder.AppendLine("## Outputs");
         builder.AppendLine();
@@ -489,6 +608,11 @@ public static class UnityPressurePistolProofRenderer
         }
 
         builder.AppendLine("| Steam/smoke | Pass by omission | " + metrics.smokePolicy + " |");
+        builder.AppendLine("| Framing | Pass | Recovery06 uses closer component cameras, smaller contact-sheet dead bands, and larger panels to reduce empty black space while preserving component-first isolation. |");
+        builder.AppendLine();
+        builder.AppendLine("## Honest Visual Read");
+        builder.AppendLine();
+        builder.AppendLine("Recovery06 is a useful component-first improvement, not final art. The coil, gauge, barrel/tank, and muzzle now carry more of the north-star brassworks language through layered collars, rivets, dark iron, copper/brass variation, and warmer edge hits. The weakest areas are still the grip/hand, which remains an assembled primitive placeholder rather than a sculpted gloved hand, and the overall material response, which is still Unity primitive lookdev rather than authored high-fidelity metal, glass, leather, and wood. The bottom-row renders also retain some empty black around the isolated components, though less than the prior sheet.");
         builder.AppendLine();
         builder.AppendLine("## Before Full-Gun Reassembly");
         builder.AppendLine();
@@ -496,7 +620,7 @@ public static class UnityPressurePistolProofRenderer
         builder.AppendLine("- Treat the grip/hand as partial: replace the placeholder hand with a sculpted or more anatomically assembled Unity-only form before a new hero proof.");
         builder.AppendLine("- Keep smoke disabled until transparent radial sprites are visually verified in isolation against the dark background.");
         builder.AppendLine("- Use a pulled-back 3/4 camera and measured occupancy target of 60-75% width and 45-65% height for the next full-gun pass.");
-        builder.AppendLine("- Preserve the darker blackened iron and restrained brass palette; avoid the rejected orange full-gun material balance.");
+        builder.AppendLine("- Preserve the darker blackened iron, aged brass/copper variation, and warm specular accents; avoid the rejected orange full-gun material balance.");
         return builder.ToString();
     }
 
@@ -504,27 +628,32 @@ public static class UnityPressurePistolProofRenderer
     {
         if (component.key == "coil")
         {
-            return component.coilTurns.ToString(CultureInfo.InvariantCulture) + " separate copper turns, emissive core, dark recess, " + component.fasteners.ToString(CultureInfo.InvariantCulture) + " brass fasteners.";
+            return component.coilTurns.ToString(CultureInfo.InvariantCulture) + " separate copper turns, emissive core, dark recess, " +
+                   component.bevelRingsOrCollars.ToString(CultureInfo.InvariantCulture) + " collars/rings, " +
+                   component.fasteners.ToString(CultureInfo.InvariantCulture) + " brass fasteners.";
         }
 
         if (component.key == "gauge")
         {
-            return component.gaugeTickMarks.ToString(CultureInfo.InvariantCulture) + " tick marks, red needle, glass highlight, aged brass rim, " + component.fasteners.ToString(CultureInfo.InvariantCulture) + " rim rivets.";
+            return component.gaugeTickMarks.ToString(CultureInfo.InvariantCulture) + " tick marks, red needle, glass highlights, rear cup/bezel stack, " +
+                   component.fasteners.ToString(CultureInfo.InvariantCulture) + " rim rivets.";
         }
 
         if (component.key == "barrel_tank")
         {
-            return "Separate blackened barrel/lower tank, brass collars, shadow gap, edge highlights, " + component.fasteners.ToString(CultureInfo.InvariantCulture) + " fasteners.";
+            return "Separate blackened barrel/lower tank/reserve tube, " +
+                   component.bevelRingsOrCollars.ToString(CultureInfo.InvariantCulture) + " bevel rings/collars, valve and bypass pipe, " +
+                   component.fasteners.ToString(CultureInfo.InvariantCulture) + " fasteners.";
         }
 
         if (component.key == "muzzle")
         {
-            return component.muzzleSteps.ToString(CultureInfo.InvariantCulture) + " nested steps, dark bore, brass/iron separation, left-forward depth.";
+            return component.muzzleSteps.ToString(CultureInfo.InvariantCulture) + " nested steps, front dark bore disk, raised lip beads, copper heat band, brass/iron separation.";
         }
 
         if (component.key == "grip_hand")
         {
-            return "Walnut grip/leather hand distinction, readable trigger guard, lower-right first-person anchor.";
+            return "Walnut grip/leather hand distinction, sculptural grip silhouette, curled fingers/thumb/cuff, readable trigger guard, lower-right first-person anchor.";
         }
 
         return component.notes;
@@ -707,20 +836,26 @@ public static class UnityPressurePistolProofRenderer
     private static ProofMaterials CreateProofMaterials()
     {
         ProofMaterials materials = new ProofMaterials();
-        materials.BlackenedIron = CreateLitMaterial("UnityProof_BlackenedIron", new Color(0.032f, 0.029f, 0.026f), 0.95f, 0.36f, 11, true, false);
-        materials.AgedBrass = CreateLitMaterial("UnityProof_AgedBrass", new Color(0.46f, 0.30f, 0.12f), 0.9f, 0.58f, 17, true, false);
-        materials.DarkPipeMetal = CreateLitMaterial("UnityProof_DarkPipeMetal", new Color(0.055f, 0.049f, 0.043f), 0.88f, 0.25f, 23, true, false);
-        materials.HotCopper = CreateLitMaterial("UnityProof_HotCopperCoil", new Color(0.82f, 0.28f, 0.07f), 0.85f, 0.66f, 31, true, true);
+        materials.BlackenedIron = CreateLitMaterial("UnityProof_BlackenedIron", new Color(0.046f, 0.041f, 0.036f), 0.82f, 0.46f, 11, true, false);
+        materials.AgedBrass = CreateLitMaterial("UnityProof_AgedBrass", new Color(0.40f, 0.29f, 0.13f), 0.86f, 0.64f, 17, true, false);
+        materials.DarkAgedBrass = CreateLitMaterial("UnityProof_DarkAgedBrass", new Color(0.24f, 0.17f, 0.075f), 0.82f, 0.48f, 19, true, false);
+        materials.DarkPipeMetal = CreateLitMaterial("UnityProof_DarkPipeMetal", new Color(0.072f, 0.063f, 0.052f), 0.78f, 0.34f, 23, true, false);
+        materials.HotCopper = CreateLitMaterial("UnityProof_HotCopperCoil", new Color(0.50f, 0.19f, 0.07f), 0.8f, 0.58f, 31, true, false);
+        materials.AgedCopper = CreateLitMaterial("UnityProof_AgedCopper", new Color(0.38f, 0.16f, 0.07f), 0.78f, 0.5f, 33, true, false);
         materials.GaugeFace = CreateLitMaterial("UnityProof_CreamGaugeFace", new Color(0.70f, 0.62f, 0.43f), 0.0f, 0.42f, 37, true, false);
         materials.Glass = CreateTransparentMaterial("UnityProof_GaugeGlass", new Color(0.74f, 0.9f, 1.0f, 0.28f), 0.0f, 0.85f);
         materials.Walnut = CreateLitMaterial("UnityProof_WalnutGrip", new Color(0.15f, 0.075f, 0.038f), 0.0f, 0.38f, 41, true, false);
         materials.DarkLeather = CreateLitMaterial("UnityProof_DarkLeatherGlove", new Color(0.055f, 0.04f, 0.03f), 0.0f, 0.32f, 43, true, false);
+        materials.LeatherHighlight = CreateLitMaterial("UnityProof_LeatherHighlight", new Color(0.12f, 0.075f, 0.045f), 0.0f, 0.36f, 45, true, false);
         materials.Smoke = CreateSmokeMaterial();
         materials.ContactBack = CreateUnlitColorMaterial("UnityProof_ContactBack", new Color(0.045f, 0.038f, 0.032f, 1.0f), false);
         materials.MaskWhite = CreateUnlitColorMaterial("UnityProof_MaskWhite", Color.white, false);
         materials.WarningRed = CreateUnlitColorMaterial("UnityProof_GaugeNeedleRed", new Color(0.82f, 0.05f, 0.02f, 1.0f), false);
         materials.LineDark = CreateUnlitColorMaterial("UnityProof_GaugeInk", new Color(0.05f, 0.04f, 0.03f, 1.0f), false);
-        materials.GlowAmber = CreateUnlitColorMaterial("UnityProof_AmberGlow", new Color(0.95f, 0.38f, 0.08f, 1.0f), true);
+        materials.GlowAmber = CreateUnlitColorMaterial("UnityProof_AmberGlow", new Color(0.72f, 0.22f, 0.045f, 1.0f), true);
+        materials.IronEdgeHighlight = CreateUnlitColorMaterial("UnityProof_IronEdgeHighlight", new Color(0.26f, 0.22f, 0.18f, 1.0f), false);
+        materials.BrassHighlight = CreateUnlitColorMaterial("UnityProof_BrassHighlight", new Color(0.78f, 0.55f, 0.24f, 1.0f), false);
+        materials.CopperHighlight = CreateUnlitColorMaterial("UnityProof_CopperHighlight", new Color(0.72f, 0.28f, 0.10f, 1.0f), false);
         return materials;
     }
 
@@ -754,7 +889,7 @@ public static class UnityPressurePistolProofRenderer
 
         if (emission)
         {
-            Color emissionColor = new Color(1.0f, 0.44f, 0.08f) * 1.6f;
+            Color emissionColor = new Color(0.9f, 0.26f, 0.05f) * 0.9f;
             SetMaterialColor(material, "_EmissionColor", emissionColor);
             material.EnableKeyword("_EMISSION");
         }
@@ -1472,6 +1607,15 @@ public static class UnityPressurePistolProofRenderer
         }
     }
 
+    private static void AddBackgroundRivetRow(string prefix, Vector3 start, Vector3 end, int count, float radius, Material material, Transform parent)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            float t = count <= 1 ? 0f : i / (float)(count - 1);
+            CreateSphere(prefix + " " + i.ToString(CultureInfo.InvariantCulture), Vector3.Lerp(start, end, t), Vector3.one * (radius * 2f), material, parent);
+        }
+    }
+
     private static void AddComponentRivet(string name, Vector3 position, float radius, Material material, Transform parent, ComponentGateMetric metrics)
     {
         CreateSphere(name, position, Vector3.one * (radius * 2f), material, parent);
@@ -1815,6 +1959,7 @@ public static class UnityPressurePistolProofRenderer
         public string metricsPath;
         public string recovery04Status;
         public string smokePolicy;
+        public string overallAssessment;
         public ComponentGateMetric[] components;
     }
 
@@ -1836,6 +1981,9 @@ public static class UnityPressurePistolProofRenderer
         public int muzzleSteps;
         public int materialRoles;
         public int steamSprites;
+        public int bevelRingsOrCollars;
+        public int warmHighlightAccents;
+        public int materialVariationAccents;
         public bool warmEmissiveCore;
         public bool darkRecessFrame;
         public bool brassFasteners;
@@ -1854,6 +2002,8 @@ public static class UnityPressurePistolProofRenderer
         public bool walnutLeatherDistinct;
         public bool firstPersonAnchor;
         public bool triggerGuardReadable;
+        public bool reducedBlackSpaceFraming;
+        public bool sculpturalGripSilhouette;
     }
 
     private sealed class ComponentRenderResult
@@ -1869,35 +2019,47 @@ public static class UnityPressurePistolProofRenderer
     {
         public Material BlackenedIron;
         public Material AgedBrass;
+        public Material DarkAgedBrass;
         public Material DarkPipeMetal;
         public Material HotCopper;
+        public Material AgedCopper;
         public Material GaugeFace;
         public Material Glass;
         public Material Walnut;
         public Material DarkLeather;
+        public Material LeatherHighlight;
         public Material Smoke;
         public Material ContactBack;
         public Material MaskWhite;
         public Material WarningRed;
         public Material LineDark;
         public Material GlowAmber;
+        public Material IronEdgeHighlight;
+        public Material BrassHighlight;
+        public Material CopperHighlight;
 
         public void DestroyAll()
         {
             DestroyMaterial(BlackenedIron);
             DestroyMaterial(AgedBrass);
+            DestroyMaterial(DarkAgedBrass);
             DestroyMaterial(DarkPipeMetal);
             DestroyMaterial(HotCopper);
+            DestroyMaterial(AgedCopper);
             DestroyMaterial(GaugeFace);
             DestroyMaterial(Glass);
             DestroyMaterial(Walnut);
             DestroyMaterial(DarkLeather);
+            DestroyMaterial(LeatherHighlight);
             DestroyMaterial(Smoke);
             DestroyMaterial(ContactBack);
             DestroyMaterial(MaskWhite);
             DestroyMaterial(WarningRed);
             DestroyMaterial(LineDark);
             DestroyMaterial(GlowAmber);
+            DestroyMaterial(IronEdgeHighlight);
+            DestroyMaterial(BrassHighlight);
+            DestroyMaterial(CopperHighlight);
         }
 
         private static void DestroyMaterial(Material material)

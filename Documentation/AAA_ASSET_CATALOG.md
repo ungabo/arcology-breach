@@ -53,6 +53,7 @@ Every major asset should eventually have three quality targets:
 | GEO-009 | Catwalk/rail kit | P2 | planned | Simple vertical-looking geometry, used carefully for readability. |
 | GEO-010 | Secret service hatch | P2 | planned | Hidden route/secret entry module. |
 | GEO-011 | Staged modular corridor kit | P1 | review | Side-agent package under `Assets/_Project/ArtStaging/ModularKit/` includes 4m wall, floor, ceiling, straight corridor, doorway, corner/intersection marker, pipe run, pipe elbow, valve wheel, pressure gauge, lamp housing, and reference assembly OBJ meshes, with 8 base-color textures, Unity `.meta` files, manifests, and preview contact sheets. |
+| GEO-012 | North-star density prop set | P1 | verified | Generated pipe canopies, caged amber gaslights, rivet bands, a foundry rail, and a Governor regulator crown now appear in the playable generated campaign with validator coverage. Final authored meshes should replace these primitives later. |
 
 ## 3. Props and Objective Objects
 
@@ -122,7 +123,7 @@ Every major asset should eventually have three quality targets:
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
-| RENDER-001 | Concept render lane | P1 | review | `Documentation/ConceptRenders/` contains mockup and staged-asset JPG contact sheets for objects, room mood, staged PBR materials, enemy blockouts, modular corridor/pressure-gate alcove composites, and weapon/prop blockouts. These are user-review files outside Unity build assets. |
+| RENDER-001 | Concept render lane | P1 | review | `Documentation/ConceptRenders/` contains mockup, staged-asset, Unity-only corridor/material, and pressure-pistol component JPG contact sheets. These are user-review files outside Unity build assets. Current best environment direction is `CONTACTSHEET_ENV_Recovery01_corridor_material_unity_proof.jpg`; current best pistol component direction is `CONTACTSHEET_HFLD_Recovery06_pressure_pistol_components_unity_proof.jpg`, but neither is final art. |
 | RENDER-002 | High-fidelity north-star lookdev renders | P1 | review | `Documentation/ConceptRenders/CONTACTSHEET_LOOKDEV_HFLD_Batch01_nonshipping.jpg` and companion JPGs show Curie's first static lookdev pass for corridor/pressure door, pressure pistol, and Scrapper-like monster assets. |
 | RENDER-003 | High-fidelity lookdev recovery | P1 | active | Batch01 and Recovery03 were rejected visually. Current active work is Unity-only pressure-pistol proof rendering with temporary editor-created lookdev scenes and RenderTexture JPG/PNG output under `Documentation/ConceptRenders/`. External renderer lanes are superseded unless explicitly reopened later. |
 | RENDER-004 | Unity pressure-pistol proof render | P1 | active | Side-agent Galileo owns the isolated Unity Recovery04 proof lane. Target output is a first-person brass/iron/walnut pressure-pistol review render with gauge, coil, fasteners, steam, amber lighting, and acceptance-gate report under `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/`. |

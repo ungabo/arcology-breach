@@ -1,0 +1,136 @@
+{
+    "timestamp": "2026-05-24 00:42:48 -04:00",
+    "unityVersion": "6000.4.6f1",
+    "batchmodeEntrypoint": "UnityCorridorMaterialProofRenderer.RenderBatch",
+    "textureSourceFolder": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures",
+    "renderPath": "Documentation/ConceptRenders/RENDER_ENV_Recovery01_corridor_wide_unity_proof.jpg",
+    "floorDetailRenderPath": "Documentation/ConceptRenders/RENDER_ENV_Recovery01_floor_wetness_unity_proof.jpg",
+    "gateDetailRenderPath": "Documentation/ConceptRenders/RENDER_ENV_Recovery01_pressure_gate_detail_unity_proof.jpg",
+    "contactSheetPath": "Documentation/ConceptRenders/CONTACTSHEET_ENV_Recovery01_corridor_material_unity_proof.jpg",
+    "reportPath": "Documentation/AssetProduction/EnvironmentLookdev/ENV_RECOVERY01_CORRIDOR_MATERIAL_PROOF_REPORT.md",
+    "metricsPath": "Documentation/AssetProduction/EnvironmentLookdev/env_recovery01_corridor_material_metrics.json",
+    "heroWidth": 1920,
+    "heroHeight": 1080,
+    "detailWidth": 1600,
+    "detailHeight": 1000,
+    "contactSheetWidth": 2200,
+    "contactSheetHeight": 1400,
+    "textureFilesExpected": 32,
+    "textureFilesLoaded": 32,
+    "textureFilesMissing": 0,
+    "renderedImageCount": 3,
+    "materialFamiliesUsed": 11,
+    "baseArchitecturePieces": 6,
+    "wallPanels": 18,
+    "trimPieces": 9,
+    "tilingBreakups": 18,
+    "pipeSegments": 42,
+    "lamps": 5,
+    "gauges": 5,
+    "valves": 5,
+    "gaugeTickMarks": 60,
+    "rivets": 250,
+    "pressureGateHints": 1,
+    "routeCueCount": 4,
+    "oilScorchDecals": 6,
+    "floorWetHighlightPatches": 3,
+    "warmKeyLight": true,
+    "coolFillLight": true,
+    "wetFloorRakeLight": true,
+    "gateDestinationLight": true,
+    "cameraDescription": "Player-height 16:9 Unity camera, looking down an 8m corridor bay toward a warm pressure-gate hint.",
+    "cameraPosition": "0.34, 1.46, -1.74",
+    "overallStatus": "Lookdev pass / production fail: Unity proof meets the requested material-direction checks, but is not final art.",
+    "missingTextureNotes": [],
+    "imageMetrics": [
+        {
+            "key": "wide_corridor",
+            "path": "Documentation/ConceptRenders/RENDER_ENV_Recovery01_corridor_wide_unity_proof.jpg",
+            "width": 1920,
+            "height": 1080,
+            "averageLuminance": 0.0971730425953865,
+            "darkPixelPercent": 55.06602096557617,
+            "nearBlackPixelPercent": 1.3440876007080079,
+            "brightPixelPercent": 1.781732201576233,
+            "warmHighlightPercent": 27.973814010620118,
+            "coolAccentPercent": 0.3019868731498718,
+            "saturatedAccentPercent": 14.888020515441895,
+            "passesNotEmptyCheck": true
+        },
+        {
+            "key": "floor_wetness",
+            "path": "Documentation/ConceptRenders/RENDER_ENV_Recovery01_floor_wetness_unity_proof.jpg",
+            "width": 1600,
+            "height": 1000,
+            "averageLuminance": 0.14233142137527467,
+            "darkPixelPercent": 39.636436462402347,
+            "nearBlackPixelPercent": 0.7921249866485596,
+            "brightPixelPercent": 7.119812488555908,
+            "warmHighlightPercent": 45.441123962402347,
+            "coolAccentPercent": 0.3674375116825104,
+            "saturatedAccentPercent": 29.167125701904298,
+            "passesNotEmptyCheck": true
+        },
+        {
+            "key": "pressure_gate_detail",
+            "path": "Documentation/ConceptRenders/RENDER_ENV_Recovery01_pressure_gate_detail_unity_proof.jpg",
+            "width": 1600,
+            "height": 1000,
+            "averageLuminance": 0.09318780899047852,
+            "darkPixelPercent": 74.03968811035156,
+            "nearBlackPixelPercent": 0.8708124756813049,
+            "brightPixelPercent": 5.5461249351501469,
+            "warmHighlightPercent": 16.604249954223634,
+            "coolAccentPercent": 0.033250000327825549,
+            "saturatedAccentPercent": 9.784375190734864,
+            "passesNotEmptyCheck": true
+        }
+    ],
+    "gates": [
+        {
+            "gate": "Scope",
+            "status": "Pass",
+            "evidence": "Renderer creates an unsaved temporary editor scene and writes only the requested proof/report/metrics paths."
+        },
+        {
+            "gate": "Unity-only render path",
+            "status": "Pass",
+            "evidence": "All hero/detail images are captured from Unity cameras into RenderTextures."
+        },
+        {
+            "gate": "Existing staged texture usage",
+            "status": "Pass",
+            "evidence": "32/32 expected FinalMaterialsV1 texture files loaded."
+        },
+        {
+            "gate": "Material role separation",
+            "status": "Pass",
+            "evidence": "Wet stone, soot brick, blackened iron, brass, copper, amber glass, cream gauge, hazard enamel, walnut/leather, and oil/scorch decal roles are assigned."
+        },
+        {
+            "gate": "Corridor density",
+            "status": "Pass",
+            "evidence": "42 pipe/valve segments, 5 lamps, 5 gauges, 5 valves, 250 rivets, 6 wear decals."
+        },
+        {
+            "gate": "Wet floor read",
+            "status": "Pass",
+            "evidence": "Broken translucent highlight patches plus low amber rake light; measured warm highlight in wide/floor views is 28.0% / 45.4%."
+        },
+        {
+            "gate": "No dark empty render",
+            "status": "Pass",
+            "evidence": "Wide average luminance 0.097, near-black 1.3%, bright 1.8%."
+        },
+        {
+            "gate": "Production asset readiness",
+            "status": "Fail",
+            "evidence": "This is a temporary primitive lookdev bay, not final modular mesh art, collision, LOD, lightmap UVs, or playable-scene integration."
+        },
+        {
+            "gate": "Human north-star review",
+            "status": "Fail until reviewed",
+            "evidence": "The proof can only claim material/lookdev direction until an art review accepts it against the north-star corridor mood."
+        }
+    ]
+}

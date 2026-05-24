@@ -1,7 +1,7 @@
 # HFLD Recovery05 Unity Component Proof Report
 
 Status: component-first Unity lookdev proof generated; not a full-gun promotion
-Date/time: 2026-05-24 00:25:50 -04:00
+Date/time: 2026-05-24 00:32:10 -04:00
 Unity version: 6000.4.6f1
 Batchmode command entrypoint: `UnityPressurePistolProofRenderer.RenderBatch`
 Tool lane: Unity editor batchmode, temporary in-memory component scenes, Camera plus RenderTexture JPG export
@@ -30,13 +30,14 @@ Recovery04 must not be promoted. It failed visible review for opaque smoke-paper
 | Coil | Pass | 7 separate copper turns, emissive core, dark recess, 18 brass fasteners. Separate torus-like copper loops replace the rejected flat yellow rods. Smoke omitted. |
 | Gauge | Pass | 34 tick marks, red needle, glass highlight, aged brass rim, 20 rim rivets. Gauge is still primitive, but reads as layered bezel/face/glass/needle instead of a flat bright disc. |
 | Barrel + Lower Tank | Pass | Separate blackened barrel/lower tank, brass collars, shadow gap, edge highlights, 16 fasteners. Main barrel and lower tank are separated by a visible shadow gap and distinct collar sets. |
-| Muzzle | Pass | 6 nested steps, dark bore, brass/iron separation, left-forward depth. Nested cylinders give stepped depth and a readable dark bore; this is a better sub-assembly target for reassembly. |
+| Muzzle | Partial | 6 nested steps, dark bore geometry, brass/iron separation. Nested cylinders give stepped geometry and material separation, but the proof still reads too side-on; the bore/depth must be stronger before reassembly. |
 | Grip + Hand | Partial | Walnut grip/leather hand distinction, readable trigger guard, lower-right first-person anchor. Material roles and trigger guard read, but the hand still needs sculpted/art-authored form before full-gun reassembly. |
 | Steam/smoke | Pass by omission | Omitted in Recovery05 component proofs. No smoke/steam geometry is rendered, so no opaque paper blocks can appear. |
 
 ## Before Full-Gun Reassembly
 
-- Reassemble only after the full-gun layout uses the passing coil, gauge, barrel/tank, and muzzle component language.
+- Reassemble only after the full-gun layout uses the passing coil, gauge, and barrel/tank component language.
+- Treat the muzzle as partial: rotate/relight it until the dark bore and left-forward depth are unmistakable.
 - Treat the grip/hand as partial: replace the placeholder hand with a sculpted or more anatomically assembled Unity-only form before a new hero proof.
 - Keep smoke disabled until transparent radial sprites are visually verified in isolation against the dark background.
 - Use a pulled-back 3/4 camera and measured occupancy target of 60-75% width and 45-65% height for the next full-gun pass.

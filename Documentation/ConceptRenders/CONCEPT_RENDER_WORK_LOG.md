@@ -134,3 +134,27 @@
   - `RENDER_HFLD_Recovery05_grip_hand_unity_proof.jpg`
 - Added component report and metrics under `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/`.
 - Current component result: coil, gauge, barrel/tank, and muzzle pass gates; grip/hand is partial; smoke is omitted until transparent sprites are proven.
+
+## 2026-05-24 00:43:00 -04:00
+
+- Archimedes-Env completed the Unity-only corridor/material proof using FinalMaterialsV1 textures.
+- Added:
+  - `CONTACTSHEET_ENV_Recovery01_corridor_material_unity_proof.jpg`
+  - `RENDER_ENV_Recovery01_corridor_wide_unity_proof.jpg`
+  - `RENDER_ENV_Recovery01_floor_wetness_unity_proof.jpg`
+  - `RENDER_ENV_Recovery01_pressure_gate_detail_unity_proof.jpg`
+- Report and metrics live under `Documentation/AssetProduction/EnvironmentLookdev/`.
+- PM visual review: useful lookdev pass for mood/readability, but production fail because geometry is temporary primitive proof art.
+
+## 2026-05-24 00:44:00 -04:00
+
+- Einstein completed Recovery06 pressure-pistol component-first Unity proofing.
+- Added:
+  - `CONTACTSHEET_HFLD_Recovery06_pressure_pistol_components_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery06_coil_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery06_gauge_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery06_barrel_tank_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery06_muzzle_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery06_grip_hand_unity_proof.jpg`
+- Added Recovery06 report and metrics under `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/`.
+- PM visual review: component direction improved over Recovery05, especially coil/gauge/barrel, but this still fails final-art/full-gun promotion because the hand/grip and composition need significant work.

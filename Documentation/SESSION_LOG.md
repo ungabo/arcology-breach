@@ -3142,3 +3142,46 @@ Build executable:
 `Builds/Windows/v0.0.95/BrassworksBreach_v0.0.95.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 00:49 -04:00
+
+Completed `v0.0.96` north-star environment-density pass.
+
+Added:
+
+- Reusable generated pipe-canopy, caged gaslight, rivet-band, catwalk-rail, and regulator-crown helpers.
+- Level01, Level02, Level03, Level04, and Level05 now receive additional steampunk density props using the active FinalMaterialsV1-bound materials.
+- Level validation now requires representative north-star density props in every gameplay scene.
+- Version string bumped to `v0.0.96`.
+
+Integrated side-agent lookdev artifacts for review:
+
+- `EnvironmentLookdev` Recovery01 corridor/material proof: useful lookdev pass, production fail because it remains primitive non-playable geometry.
+- Pressure Pistol Recovery06 component proof: better coil/gauge/barrel/muzzle direction, but still not final art or ready for full-gun promotion because grip/hand and composition remain weak.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.96/BrassworksBreach_v0.0.96.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
