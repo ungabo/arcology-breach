@@ -297,6 +297,8 @@ public static class V0LevelValidator
         Require<RuntimeMovementFeelTest>(sceneName + " RuntimeMovementFeelTest");
         Require<RuntimeBalanceEnvelopeTest>(sceneName + " RuntimeBalanceEnvelopeTest");
         Require<RuntimeLevel01FlowTest>(sceneName + " RuntimeLevel01FlowTest");
+        Require<RuntimeMidgameFlowTest>(sceneName + " RuntimeMidgameFlowTest");
+        Require<RuntimeClimaxFlowTest>(sceneName + " RuntimeClimaxFlowTest");
         Require<EnemyController>(sceneName + " EnemyController");
         Require<Pickup>(sceneName + " Pickup");
 
@@ -1048,6 +1050,11 @@ public static class V0LevelValidator
             RequireNamed("Secret Foundry Cache Brass Floor Plate", sceneName + " foundry secret cache floor plate");
             RequireNamed("Secret Foundry Cache Coal Lump A", sceneName + " foundry secret coal prop");
             RequireNamed("Foundry Emergency Hoist", sceneName + " emergency hoist visual");
+            RequireNamed("Level04 Foundry Climax Polish V017", sceneName + " Foundry climax polish root");
+            RequireNamed("Level04 Furnace Timing Preview Strip", sceneName + " Foundry furnace timing preview strip");
+            RequireNamed("Level04 Bulwark Hammer Bay Floor Ring", sceneName + " Bulwark hammer bay ring");
+            RequireNamed("Level04 Hoist Green Runway Strip", sceneName + " Foundry hoist runway strip");
+            RequireNamed("Level04 Coal Cache Footprint Clue", sceneName + " Foundry coal cache clue");
         }
         else if (sceneName == "Level05")
         {
@@ -1072,6 +1079,12 @@ public static class V0LevelValidator
             RequireNamed("Governor Warden Pressure Cannon Muzzle", sceneName + " Governor Warden pressure cannon visual");
             RequireNamed("Governor Warden Defeat Objective", sceneName + " Governor Warden defeat objective");
             RequireNamed("Governor Warden Lock Red Signal", sceneName + " Governor Warden locked signal");
+            RequireNamed("Level05 Governor Climax Polish V017", sceneName + " Governor climax polish root");
+            RequireNamed("Level05 Warden Reveal Centerline Rail", sceneName + " Warden reveal centerline rail");
+            RequireNamed("Level05 Warden Arena Boundary Ring", sceneName + " Warden arena boundary ring");
+            RequireNamed("Level05 Boss Cover Pylon West", sceneName + " Warden arena cover pylon");
+            RequireNamed("Level05 Master Override Green Runway", sceneName + " master override runway");
+            RequireNamed("Level05 Master Override Green Beacon", sceneName + " master override beacon");
         }
 
         if (sceneName == "Level01")

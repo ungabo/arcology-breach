@@ -34,7 +34,8 @@ public class MainMenuController : MonoBehaviour
         "-v0MovementSmoke",
         "-v0BalanceSmoke",
         "-v0Level01FlowSmoke",
-        "-v0MidgameFlowSmoke"
+        "-v0MidgameFlowSmoke",
+        "-v0ClimaxFlowSmoke"
     };
 
     private void Awake()
@@ -86,6 +87,13 @@ public class MainMenuController : MonoBehaviour
         {
             RunProgress.Reset();
             SceneManager.LoadScene("Level02");
+            return;
+        }
+
+        if (HasArgument("-v0ClimaxFlowSmoke"))
+        {
+            RunProgress.Reset();
+            SceneManager.LoadScene("Level04");
             return;
         }
 

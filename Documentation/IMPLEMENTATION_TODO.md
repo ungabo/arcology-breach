@@ -1444,6 +1444,21 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.7 Level04/Level05 Climax Readability Polish
+
+- [x] Add generated Foundry furnace timing preview strip, safe-edge rail, and heat warning gauge.
+- [x] Add generated Foundry Bulwark hammer-bay floor ring, boundary, and retreat cover signals.
+- [x] Add generated Foundry hoist green runway/beacon and coal-cache clue props.
+- [x] Add generated Governor Core Warden reveal centerline, arena boundary ring, lock stop-bar, and boss cover pylons.
+- [x] Add generated Governor Core master override runway/beacon cues.
+- [x] Add validator coverage for the new Level04/Level05 climax-polish props.
+- [x] Add `RuntimeClimaxFlowTest` and `-v0ClimaxFlowSmoke` packaged launch coverage.
+- [x] Expand runtime smoke and the full build matrix for `V0_CLIMAX_FLOW_PASS`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.7`.
+- [x] Build `v0.1.7` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -1455,6 +1470,7 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Tune `Scrapper` speed, detection range, damage, and attack cooldown.
 - [x] Confirm `Brassworks Intake` route object placement and room flow against `LEVEL_DESIGN_AND_MAPS.md` through deterministic smoke coverage.
 - [x] Confirm Pipeworks and Boilerheart route object placement through deterministic midgame smoke coverage.
+- [x] Confirm Foundry and Governor Core route object placement through deterministic climax smoke coverage.
 - [ ] Manual readability pass for Scrapper attack tells and world labels.
 - [ ] Manual listen pass for procedural audio levels and tone.
 

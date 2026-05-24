@@ -1111,6 +1111,7 @@ public static class V0SceneBuilder
         CreatePressureCartridgePickup("Pickup - Foundry Pressure Cartridge Pack", new Vector3(4.25f, 0.55f, 18.4f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
         CreateFoundrySecretCache(brassMaterial, ironMaterial, warningMaterial, healthMaterial, glassMaterial, fluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
         CreateFurnaceFoundryDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
+        CreateFoundryClimaxPolish(brassMaterial, warningMaterial, exitMaterial, ironMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
         CreateLevelTransitionLiftAt("Foundry Emergency Hoist", new Vector3(0f, 1.1f, 28.3f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial, "Level05", "Emergency hoist rising toward the Governor Core");
         CreatePointLight("Foundry Furnace Light West", new Vector3(-4.65f, 2.1f, 14.8f), new Color(1f, 0.32f, 0.08f), 3.2f, 8f);
         CreatePointLight("Foundry Furnace Light East", new Vector3(4.65f, 2.1f, 20.4f), new Color(1f, 0.28f, 0.07f), 3.2f, 8f);
@@ -1138,6 +1139,7 @@ public static class V0SceneBuilder
         CreateHealthVialPickup("Pickup - Governor Health Vial", new Vector3(-4.55f, 0.65f, 13.5f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
         CreatePressureCartridgePickup("Pickup - Governor Pressure Cartridge Pack", new Vector3(4.45f, 0.55f, 20.2f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
         CreateGovernorCoreDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
+        CreateGovernorClimaxPolish(brassMaterial, warningMaterial, exitMaterial, ironMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
         ExitTrigger finalHoist = CreateExitAt("Governor Core Master Override Hoist", new Vector3(0f, 1.1f, 28.6f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial).GetComponent<ExitTrigger>();
         GuardianDefeatObjective guardianObjective = CreateGovernorWardenDefeatObjective(warden, ironMaterial, brassMaterial, warningMaterial);
         finalHoist.requiredGuardian = guardianObjective;
@@ -1921,6 +1923,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeBalanceEnvelopeTest>();
         stateObject.AddComponent<RuntimeLevel01FlowTest>();
         stateObject.AddComponent<RuntimeMidgameFlowTest>();
+        stateObject.AddComponent<RuntimeClimaxFlowTest>();
     }
 
     private static void ConfigureSteamworksAudioV1(SteamworksAudio audio)
@@ -2573,6 +2576,39 @@ public static class V0SceneBuilder
         CreateDecoCube("Level03 Foundry Lift Locked Stop Bar", new Vector3(0f, 0.07f, 23.08f), new Vector3(3.2f, 0.08f, 0.22f), warningMaterial, parent.transform);
         CreateDecoCube("Level03 Hazard Shutdown Sight Glass", new Vector3(4.92f, 1.32f, 20.35f), new Vector3(0.1f, 0.62f, 0.34f), exitMaterial, parent.transform);
         CreatePointLight("Level03 Valve Return Green Beacon", new Vector3(2.6f, 2.2f, 21.6f), new Color(0.16f, 1f, 0.32f), 1.65f, 5.1f);
+    }
+
+    private static void CreateFoundryClimaxPolish(Material brassMaterial, Material warningMaterial, Material exitMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material glowMaterial)
+    {
+        GameObject parent = new GameObject("Level04 Foundry Climax Polish V017");
+
+        CreateDecoCube("Level04 Furnace Timing Preview Strip", new Vector3(0f, 0.065f, 15.25f), new Vector3(4.85f, 0.08f, 0.18f), warningMaterial, parent.transform);
+        CreatePressureGauge("Level04 Heat Lane Warning Gauge", new Vector3(-2.75f, 1.45f, 16.1f), Quaternion.identity, brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+        CreateDecoCube("Level04 Furnace Safe Edge Brass Rail", new Vector3(-2.92f, 0.066f, 16.8f), new Vector3(0.18f, 0.08f, 2.35f), brassMaterial, parent.transform);
+        CreateDecoCube("Level04 Bulwark Hammer Bay Boundary", new Vector3(2.6f, 0.067f, 22.8f), new Vector3(3.15f, 0.08f, 0.2f), warningMaterial, parent.transform);
+        CreateFloorRing("Level04 Bulwark Hammer Bay Floor Ring", new Vector3(2.6f, 0.072f, 22.8f), 2.2f, warningMaterial, parent.transform);
+        CreateDecoCube("Level04 Bulwark Retreat Cover Signal West", new Vector3(-1.8f, 1.28f, 22.9f), new Vector3(0.18f, 0.72f, 1.1f), brassMaterial, parent.transform);
+        CreateDecoCube("Level04 Bulwark Retreat Cover Signal East", new Vector3(4.72f, 1.28f, 22.9f), new Vector3(0.18f, 0.72f, 1.1f), brassMaterial, parent.transform);
+        CreateDecoCube("Level04 Hoist Green Runway Strip", new Vector3(0f, 0.066f, 26.15f), new Vector3(0.34f, 0.08f, 3.25f), exitMaterial, parent.transform);
+        CreateDecoCube("Level04 Emergency Hoist Beacon Pipe", new Vector3(0f, 2.62f, 27.35f), new Vector3(3.05f, 0.12f, 0.08f), exitMaterial, parent.transform);
+        CreatePointLight("Level04 Emergency Hoist Green Beacon", new Vector3(0f, 2.45f, 27.2f), new Color(0.16f, 1f, 0.32f), 1.75f, 5.4f);
+        CreateDecoCube("Level04 Coal Cache Footprint Clue", new Vector3(-5.82f, 0.06f, 24.15f), new Vector3(0.72f, 0.06f, 0.18f), ironMaterial, parent.transform);
+        CreateValveWheel("Level04 Coal Cache Cool Quench Wheel", new Vector3(-6.45f, 1.18f, 24.72f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, warningMaterial, parent.transform);
+    }
+
+    private static void CreateGovernorClimaxPolish(Material brassMaterial, Material warningMaterial, Material exitMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material glowMaterial)
+    {
+        GameObject parent = new GameObject("Level05 Governor Climax Polish V017");
+
+        CreateDecoCube("Level05 Warden Reveal Centerline Rail", new Vector3(0f, 0.065f, 22.4f), new Vector3(0.28f, 0.08f, 5.15f), brassMaterial, parent.transform);
+        CreateDecoCube("Level05 Warden Lock Warning Stop Bar", new Vector3(0f, 0.068f, 26.55f), new Vector3(3.45f, 0.08f, 0.22f), warningMaterial, parent.transform);
+        CreateFloorRing("Level05 Warden Arena Boundary Ring", new Vector3(0f, 0.073f, 24.1f), 2.8f, warningMaterial, parent.transform);
+        CreateDecoCube("Level05 Boss Cover Pylon West", new Vector3(-4.6f, 1.08f, 23.4f), new Vector3(0.62f, 2.16f, 0.82f), ironMaterial, parent.transform);
+        CreateDecoCube("Level05 Boss Cover Pylon East", new Vector3(4.6f, 1.08f, 23.4f), new Vector3(0.62f, 2.16f, 0.82f), ironMaterial, parent.transform);
+        CreatePressureGauge("Level05 Warden Arena Pressure Gauge", new Vector3(5.95f, 1.62f, 24.08f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+        CreateDecoCube("Level05 Master Override Green Runway", new Vector3(0f, 0.066f, 27.55f), new Vector3(0.36f, 0.08f, 2.2f), exitMaterial, parent.transform);
+        CreateDecoCube("Level05 Master Override Beacon Pipe", new Vector3(0f, 2.72f, 28.05f), new Vector3(3.15f, 0.12f, 0.08f), exitMaterial, parent.transform);
+        CreatePointLight("Level05 Master Override Green Beacon", new Vector3(0f, 2.52f, 28.05f), new Color(0.16f, 1f, 0.32f), 1.85f, 5.6f);
     }
 
     private static void CreateFloorRing(string name, Vector3 center, float radius, Material material, Transform parent)
