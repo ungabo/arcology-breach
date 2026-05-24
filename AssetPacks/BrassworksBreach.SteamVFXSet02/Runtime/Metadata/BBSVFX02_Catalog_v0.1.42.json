@@ -1,0 +1,227 @@
+﻿{
+  "pack_id": "BBSVFX02",
+  "version": "0.1.42-p001",
+  "description": "Visual-only Steam VFX Set 02 sidecar catalog for Brassworks Breach.",
+  "prefabs": [
+    {
+      "vfx_id": "BBSVFX02_SteamVent_SoftColumn",
+      "family": "steam",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_SteamVent_SoftColumn.prefab",
+      "recommended_socket": "SOCK_SteamVent",
+      "visual_intent": "Soft vertical service vent for pipe joints and ambient boiler room punctuation.",
+      "duration_seconds": 2.4,
+      "looping": true,
+      "recommended_world_scale": 0.92,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_SteamVent_WallJet",
+      "family": "steam",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_SteamVent_WallJet.prefab",
+      "recommended_socket": "SOCK_SteamVent",
+      "visual_intent": "Directional wall jet with dense leading plume and curling vapor tail.",
+      "duration_seconds": 1.45,
+      "looping": false,
+      "recommended_world_scale": 0.82,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_SteamVent_FloorBurst",
+      "family": "steam",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_SteamVent_FloorBurst.prefab",
+      "recommended_socket": "SOCK_FloorVent",
+      "visual_intent": "Short floor grate pressure burp with rolling low smoke and hot condensate flecks.",
+      "duration_seconds": 1.35,
+      "looping": false,
+      "recommended_world_scale": 0.95,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_SteamBackdraft_PipeCough",
+      "family": "steam",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_SteamBackdraft_PipeCough.prefab",
+      "recommended_socket": "SOCK_PipeEnd",
+      "visual_intent": "Backdraft cough for damaged pipe reversals and blocked exhaust moments.",
+      "duration_seconds": 1.65,
+      "looping": false,
+      "recommended_world_scale": 0.9,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_PressureLeak_PinHole",
+      "family": "pressure",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_PressureLeak_PinHole.prefab",
+      "recommended_socket": "SOCK_LeakPoint",
+      "visual_intent": "Needle-thin amber pressure leak with white-hot origin and fast vapor streaks.",
+      "duration_seconds": 0.95,
+      "looping": false,
+      "recommended_world_scale": 0.72,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_PressureLeak_RuptureCone",
+      "family": "pressure",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_PressureLeak_RuptureCone.prefab",
+      "recommended_socket": "SOCK_Rupture",
+      "visual_intent": "Wider rupture cone with dirty steam, copper glints, and warning pressure flashes.",
+      "duration_seconds": 1.4,
+      "looping": false,
+      "recommended_world_scale": 0.98,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_PressureRing_Pulse",
+      "family": "pressure",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_PressureRing_Pulse.prefab",
+      "recommended_socket": "SOCK_Origin",
+      "visual_intent": "Expanding circular pressure pulse for valve releases and phase-wave beats.",
+      "duration_seconds": 1.1,
+      "looping": false,
+      "recommended_world_scale": 1.05,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_PressureGauge_ReliefPop",
+      "family": "pressure",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_PressureGauge_ReliefPop.prefab",
+      "recommended_socket": "SOCK_Gauge",
+      "visual_intent": "Small gauge relief pop with radial vapor ticks and brass needle snap.",
+      "duration_seconds": 0.9,
+      "looping": false,
+      "recommended_world_scale": 0.7,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_SparkShower_RivetCut",
+      "family": "spark",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_SparkShower_RivetCut.prefab",
+      "recommended_socket": "SOCK_Impact",
+      "visual_intent": "Downward rivet-cut spark shower with copper-white hot flecks and smoke wisp.",
+      "duration_seconds": 1.05,
+      "looping": false,
+      "recommended_world_scale": 0.84,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_SparkRicochet_WallHit",
+      "family": "spark",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_SparkRicochet_WallHit.prefab",
+      "recommended_socket": "SOCK_ImpactNormal",
+      "visual_intent": "Sharp fan of ricochet sparks for metal wall impacts and armor ticks.",
+      "duration_seconds": 0.72,
+      "looping": false,
+      "recommended_world_scale": 0.72,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_MuzzleFlash_PistolBoiler",
+      "family": "muzzle",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_MuzzleFlash_PistolBoiler.prefab",
+      "recommended_socket": "SOCK_Muzzle",
+      "visual_intent": "Compact boiler-pistol muzzle flash with pressure ring and backsteam kiss.",
+      "duration_seconds": 0.42,
+      "looping": false,
+      "recommended_world_scale": 0.74,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_MuzzleFlash_Scatterburst",
+      "family": "muzzle",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_MuzzleFlash_Scatterburst.prefab",
+      "recommended_socket": "SOCK_Muzzle",
+      "visual_intent": "Wide scattergun brass flash with pellet spark cone and thick muzzle steam.",
+      "duration_seconds": 0.55,
+      "looping": false,
+      "recommended_world_scale": 0.95,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_MuzzleFlash_RifleValveShot",
+      "family": "muzzle",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_MuzzleFlash_RifleValveShot.prefab",
+      "recommended_socket": "SOCK_Muzzle",
+      "visual_intent": "Long rifle valve-shot lance with amber flash core, narrow sparks, and exhaust ring.",
+      "duration_seconds": 0.5,
+      "looping": false,
+      "recommended_world_scale": 0.82,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_FurnaceBlast_DoorBelch",
+      "family": "furnace",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_FurnaceBlast_DoorBelch.prefab",
+      "recommended_socket": "SOCK_FurnaceDoor",
+      "visual_intent": "Furnace-door belch with white-hot throat, orange flame tongues, and rolling soot.",
+      "duration_seconds": 1.65,
+      "looping": false,
+      "recommended_world_scale": 1.05,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_FurnaceEmbers_StackLift",
+      "family": "furnace",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_FurnaceEmbers_StackLift.prefab",
+      "recommended_socket": "SOCK_Stack",
+      "visual_intent": "Rising ember lift for furnace stacks, vents, and hot maintenance shafts.",
+      "duration_seconds": 2.15,
+      "looping": true,
+      "recommended_world_scale": 0.9,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_ValveTurn_ReleasePuff",
+      "family": "valve",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_ValveTurn_ReleasePuff.prefab",
+      "recommended_socket": "SOCK_Valve",
+      "visual_intent": "Valve-wheel turn puff with brass ring, green-safe status glint, and soft release cloud.",
+      "duration_seconds": 1.05,
+      "looping": false,
+      "recommended_world_scale": 0.85,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_ValveSeal_FrostedSteam",
+      "family": "valve",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_ValveSeal_FrostedSteam.prefab",
+      "recommended_socket": "SOCK_Valve",
+      "visual_intent": "Cooling valve seal with pale blue frost steam and closing pressure halo.",
+      "duration_seconds": 1.28,
+      "looping": false,
+      "recommended_world_scale": 0.88,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_BossPhase_GovernorOvercrank",
+      "family": "boss",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_BossPhase_GovernorOvercrank.prefab",
+      "recommended_socket": "SOCK_BossCore",
+      "visual_intent": "Governor overcrank phase tell with red crown vents, amber pressure rings, and spark spit.",
+      "duration_seconds": 2.25,
+      "looping": false,
+      "recommended_world_scale": 1.18,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_BossPhase_BoilerHeartSurge",
+      "family": "boss",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_BossPhase_BoilerHeartSurge.prefab",
+      "recommended_socket": "SOCK_BossCore",
+      "visual_intent": "Boiler-heart surge with furnace core pulse, smoke collar, and hot bolt sparks.",
+      "duration_seconds": 2.05,
+      "looping": false,
+      "recommended_world_scale": 1.2,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    },
+    {
+      "vfx_id": "BBSVFX02_BossPhase_EmergencyVentCrown",
+      "family": "boss",
+      "prefab": "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_BossPhase_EmergencyVentCrown.prefab",
+      "recommended_socket": "SOCK_BossTop",
+      "visual_intent": "Emergency vent crown for boss phase escalation with triple steam plumes and warning ring.",
+      "duration_seconds": 2.35,
+      "looping": false,
+      "recommended_world_scale": 1.22,
+      "safety_tags": ["visual_only", "no_audio", "no_colliders", "no_rigidbodies", "no_gameplay_authority"]
+    }
+  ]
+}

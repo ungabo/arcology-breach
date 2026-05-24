@@ -1,0 +1,28 @@
+﻿{
+  "pack_id": "BBSVFX02",
+  "display_name": "Brassworks Breach Steam VFX Set 02",
+  "version": "0.1.42-p001",
+  "build_id": "p001",
+  "unity_version": "6000.4.6f1",
+  "sidecar_project": "Brassworks Breach",
+  "owner_lane": "parallel_asset_package_worker",
+  "primary_intake_owner": "main_game_integration",
+  "canonical_root": "AssetPacks/BrassworksBreach.SteamVFXSet02",
+  "asset_counts": {
+    "prefabs": 20,
+    "materials": 16,
+    "meshes": 8,
+    "catalog_json": 1,
+    "preview_pngs": 2
+  },
+  "dependencies": [],
+  "required_primary_changes": [],
+  "path_collisions_checked": true,
+  "guid_collisions_checked": true,
+  "import_smoke_status": "pass - generated and validated in package-local ValidationProject~",
+  "known_risks": [
+    "Particle timing and scale should be tuned in a quarantine gameplay scene before promotion.",
+    "Transparent particle materials may need shader remapping if the main project later moves to a custom render pipeline."
+  ],
+  "rollback_path": "Remove AssetPacks/BrassworksBreach.SteamVFXSet02 and Documentation/AssetProduction/V0_1_42_SteamVFXSet02 plus Documentation/ConceptRenders/V0_1_42_SteamVFXSet02."
+}

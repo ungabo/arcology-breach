@@ -97,11 +97,22 @@ This checklist tracks implementation work. Detailed production tracking lives in
 
 ## v0.1.44 Sidecar Package Acceptance Wave
 
-- [ ] Locally validate Steam VFX Set 02 package.
-- [ ] Locally validate Objective Props Set 02 package.
-- [ ] Review v0.1.44 import-readiness guidance from the side-agent lane.
-- [ ] Accept clean package roots and preview/evidence docs without importing them into the main Unity manifest yet.
-- [ ] Keep Level Atmosphere Set 03 and Enemy Animation Proxy Set 01 running as separate parallel lanes.
+- [x] Locally validate Steam VFX Set 02 package.
+- [x] Locally validate Objective Props Set 02 package.
+- [x] Review v0.1.44 import-readiness guidance from the side-agent lane.
+- [x] Locally validate Level Atmosphere Set 03 package after the parallel lane completed.
+- [x] Locally validate Enemy Animation Proxy Set 01 package after the parallel lane completed.
+- [x] Remove generated Unity validation cache folders before staging package roots.
+- [x] Accept clean package roots and preview/evidence docs without importing them into the main Unity manifest yet.
+- [x] Start the next parallel lanes for v0.1.45 import-readiness, Room Setpiece Kit 04, and Weapon Mechanisms Set 04.
+
+## v0.1.45 Import Readiness And Next Package Wave
+
+- [ ] Complete import-readiness planning for Level Atmosphere Set 03 and Enemy Animation Proxy Set 01.
+- [ ] Review Room Setpiece Kit 04 when the side-agent lane completes.
+- [ ] Review Weapon Mechanisms Set 04 when the side-agent lane completes.
+- [ ] Decide whether the next main-lane import should include Objective Props Set 02, Steam VFX Set 02, Level Atmosphere Set 03, Enemy Animation Proxy Set 01, or a smaller high-impact subset.
+- [ ] Prefer a visible player-facing import leap over another small serial package compile.
 
 ## Parallel Priority: v0.1.40 Sidecar Asset Bundles
 

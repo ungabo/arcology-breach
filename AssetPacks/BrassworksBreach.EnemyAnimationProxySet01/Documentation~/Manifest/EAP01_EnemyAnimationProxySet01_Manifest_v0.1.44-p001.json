@@ -1,0 +1,82 @@
+{
+  "pack_id": "EAP01",
+  "display_name": "Enemy Animation Proxy Set 01",
+  "version": "0.1.44",
+  "build_id": "p001",
+  "unity_version": "6000.4.6f1",
+  "sidecar_project": "UD-SC-EAP01-EnemyAnimationProxySet01",
+  "owner_lane": "sidecar-enemy-animation-proxy-set01",
+  "primary_intake_owner": "main-lane-art-integration",
+  "canonical_root": "AssetPacks/BrassworksBreach.EnemyAnimationProxySet01",
+  "package_root": "AssetPacks/BrassworksBreach.EnemyAnimationProxySet01",
+  "package_name": "com.brassworks.sidecar.enemy-animation-proxy-set01",
+  "package_version": "0.1.44-p001",
+  "asset_counts": {
+    "generated_prefabs": 16,
+    "generated_materials": 15,
+    "generated_meshes": 8,
+    "placeholder_animation_clips": 4,
+    "runtime_catalogs": 1,
+    "preview_renders": 16,
+    "runtime_scripts": 0,
+    "editor_scripts": 1,
+    "colliders": 0,
+    "rigidbodies": 0,
+    "nav_agents": 0,
+    "audio_sources": 0
+  },
+  "generated_prefabs": [
+    "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_ScrapperAshcan_01_IdleBrace.prefab",
+    "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_ScrapperAshcan_02_WindupCoil.prefab",
+    "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_ScrapperAshcan_03_SawLunge.prefab",
+    "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_ScrapperAshcan_04_RecoverDrag.prefab",
+    "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_LancerPressureSpindle_01_AimLine.prefab",
+    "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_LancerPressureSpindle_02_ChargeStep.prefab",
+    "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_LancerPressureSpindle_03_ThrustPeak.prefab",
+    "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_LancerPressureSpindle_04_RecoilVent.prefab",
+    "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_BulwarkGatehammer_01_GuardSet.prefab",
+    "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_BulwarkGatehammer_02_HammerRaise.prefab",
+    "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_BulwarkGatehammer_03_SlamImpact.prefab",
+    "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_BulwarkGatehammer_04_StaggerOpen.prefab",
+    "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_WardenGovernor_01_CommandIdle.prefab",
+    "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_WardenGovernor_02_SignalRaise.prefab",
+    "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_WardenGovernor_03_OrderPulse.prefab",
+    "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_WardenGovernor_04_ShutdownDrop.prefab"
+  ],
+  "runtime_catalog": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Metadata/EAP01_RuntimeCatalog_v0.1.44.json",
+  "socket_markers": [
+    "socket_head_look",
+    "socket_primary_tool_tip",
+    "socket_left_hand_proxy",
+    "socket_right_hand_proxy",
+    "socket_back_steam_vent",
+    "socket_core_readability"
+  ],
+  "dependencies": [
+    "UnityEngine built-in primitives",
+    "UnityEditor prefab, mesh, material, AnimationClip, and render texture APIs",
+    "Built-in, URP, or HDRP lit shader fallback"
+  ],
+  "required_primary_changes": [],
+  "path_collisions_checked": true,
+  "guid_collisions_checked": true,
+  "import_smoke_status": "clean_package_local_unity_generation_preview_and_validation_passed_2026-05-24T16:55:49-04:00",
+  "validation": {
+    "unity_generation": "passed",
+    "unity_validation_report": "Documentation/AssetProduction/V0_1_44_EnemyAnimationProxySet01/unity_validation_report_v0.1.44.json",
+    "generated_prefabs": 16,
+    "generated_materials": 15,
+    "generated_meshes": 8,
+    "placeholder_animation_clips": 4,
+    "preview_pngs": 16,
+    "colliders_in_prefabs": 0,
+    "sidecar_validation": "passed_0_errors_0_warnings"
+  },
+  "known_risks": [
+    "These are visual planning and pose proxy assets, not final rigged gameplay enemies.",
+    "Placeholder AnimationClip assets are package-local labels for timing discussion and are not authoritative animation.",
+    "Materials use generated shader assignments and may need render-pipeline conversion during quarantine promotion.",
+    "Preview renders are Unity lookdev proofs, not approved gameplay scale, combat timing, or damage tuning."
+  ],
+  "rollback_path": "delete isolated imported package root or remove local package reference com.brassworks.sidecar.enemy-animation-proxy-set01"
+}

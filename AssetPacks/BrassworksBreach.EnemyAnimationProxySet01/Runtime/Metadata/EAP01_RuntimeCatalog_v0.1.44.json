@@ -1,0 +1,35 @@
+{
+  "catalog_id": "EAP01_RuntimeCatalog_v0.1.44",
+  "package_name": "com.brassworks.sidecar.enemy-animation-proxy-set01",
+  "visual_only": true,
+  "gameplay_authority": false,
+  "forbidden_components": ["Collider", "Rigidbody", "NavMeshAgent", "AudioSource", "Damage", "Pickup", "GameplayController"],
+  "families": ["Scrapper / Ashcan", "Lancer / Pressure Spindle", "Bulwark / Gatehammer", "Warden / Governor"],
+  "prefab_count": 16,
+  "material_count": 15,
+  "mesh_count": 8,
+  "socket_markers": ["socket_head_look", "socket_primary_tool_tip", "socket_left_hand_proxy", "socket_right_hand_proxy", "socket_back_steam_vent", "socket_core_readability"],
+  "prefabs": [
+    { "id": "EAP01_ScrapperAshcan_01_IdleBrace", "family": "Scrapper / Ashcan", "variant": "Idle Brace", "path": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_ScrapperAshcan_01_IdleBrace.prefab" },
+    { "id": "EAP01_ScrapperAshcan_02_WindupCoil", "family": "Scrapper / Ashcan", "variant": "Windup Coil", "path": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_ScrapperAshcan_02_WindupCoil.prefab" },
+    { "id": "EAP01_ScrapperAshcan_03_SawLunge", "family": "Scrapper / Ashcan", "variant": "Saw Lunge", "path": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_ScrapperAshcan_03_SawLunge.prefab" },
+    { "id": "EAP01_ScrapperAshcan_04_RecoverDrag", "family": "Scrapper / Ashcan", "variant": "Recover Drag", "path": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_ScrapperAshcan_04_RecoverDrag.prefab" },
+    { "id": "EAP01_LancerPressureSpindle_01_AimLine", "family": "Lancer / Pressure Spindle", "variant": "Aim Line", "path": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_LancerPressureSpindle_01_AimLine.prefab" },
+    { "id": "EAP01_LancerPressureSpindle_02_ChargeStep", "family": "Lancer / Pressure Spindle", "variant": "Charge Step", "path": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_LancerPressureSpindle_02_ChargeStep.prefab" },
+    { "id": "EAP01_LancerPressureSpindle_03_ThrustPeak", "family": "Lancer / Pressure Spindle", "variant": "Thrust Peak", "path": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_LancerPressureSpindle_03_ThrustPeak.prefab" },
+    { "id": "EAP01_LancerPressureSpindle_04_RecoilVent", "family": "Lancer / Pressure Spindle", "variant": "Recoil Vent", "path": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_LancerPressureSpindle_04_RecoilVent.prefab" },
+    { "id": "EAP01_BulwarkGatehammer_01_GuardSet", "family": "Bulwark / Gatehammer", "variant": "Guard Set", "path": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_BulwarkGatehammer_01_GuardSet.prefab" },
+    { "id": "EAP01_BulwarkGatehammer_02_HammerRaise", "family": "Bulwark / Gatehammer", "variant": "Hammer Raise", "path": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_BulwarkGatehammer_02_HammerRaise.prefab" },
+    { "id": "EAP01_BulwarkGatehammer_03_SlamImpact", "family": "Bulwark / Gatehammer", "variant": "Slam Impact", "path": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_BulwarkGatehammer_03_SlamImpact.prefab" },
+    { "id": "EAP01_BulwarkGatehammer_04_StaggerOpen", "family": "Bulwark / Gatehammer", "variant": "Stagger Open", "path": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_BulwarkGatehammer_04_StaggerOpen.prefab" },
+    { "id": "EAP01_WardenGovernor_01_CommandIdle", "family": "Warden / Governor", "variant": "Command Idle", "path": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_WardenGovernor_01_CommandIdle.prefab" },
+    { "id": "EAP01_WardenGovernor_02_SignalRaise", "family": "Warden / Governor", "variant": "Signal Raise", "path": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_WardenGovernor_02_SignalRaise.prefab" },
+    { "id": "EAP01_WardenGovernor_03_OrderPulse", "family": "Warden / Governor", "variant": "Order Pulse", "path": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_WardenGovernor_03_OrderPulse.prefab" },
+    { "id": "EAP01_WardenGovernor_04_ShutdownDrop", "family": "Warden / Governor", "variant": "Shutdown Drop", "path": "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_WardenGovernor_04_ShutdownDrop.prefab" }
+  ],
+  "notes": [
+    "Proxy assets are Unity-generated visual planning assets only.",
+    "AnimationClip assets are placeholder timing labels and are not authoritative gameplay animation.",
+    "Prefabs intentionally omit colliders, rigidbodies, nav agents, gameplay controllers, damage, pickups, and autonomous audio."
+  ]
+}
