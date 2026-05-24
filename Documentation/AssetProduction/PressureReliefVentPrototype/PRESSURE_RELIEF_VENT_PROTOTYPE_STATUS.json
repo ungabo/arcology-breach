@@ -1,0 +1,131 @@
+{
+  "componentName": "PressureReliefVentPrototype",
+  "promotionVersion": "v0.1.25",
+  "geometrySource": "Unity-owned geometry only",
+  "status": {
+    "documentation": "integrated",
+    "implementation": "implemented",
+    "validation": "full_matrix_passed"
+  },
+  "integratedAt": "2026-05-24 08:56 -04:00",
+  "styleNorthStar": {
+    "project": "Brassworks Breach",
+    "summary": "Route-safe steampunk pressure-relief vent dressing with blackened iron, aged brass, visible hardware, amber pressure indication, and pale ambient steam.",
+    "requiredVisualElements": [
+      "blackened iron wall mount plate",
+      "aged brass vent stack",
+      "small aged brass relief pipe",
+      "visible rivets or bolts",
+      "amber pressure tag or pointer"
+    ],
+    "optionalVisualElements": [
+      "pale steam puff geometry for non-damaging ambience"
+    ]
+  },
+  "routeSafety": {
+    "routeSafeDressing": true,
+    "collidersAllowed": false,
+    "blockingAllowed": false,
+    "mayNarrowNavigation": false,
+    "mayImplyDamage": false,
+    "hazardOwnership": "Any future damage, knockback, burn, pressure, or steam hazard behavior must be owned by a separate hazard script and separately validated."
+  },
+  "verifiedPlacementRoles": [
+    {
+      "scene": "Level01",
+      "objectName": "North Star Intake Pressure Relief Vent",
+      "placementRole": "intake_pressure_relief_vent"
+    },
+    {
+      "scene": "Level02",
+      "objectName": "North Star Pipeworks Pressure Relief Vent",
+      "placementRole": "pipeworks_pressure_relief_vent"
+    },
+    {
+      "scene": "Level04",
+      "objectName": "North Star Foundry Pressure Relief Vent",
+      "placementRole": "foundry_pressure_relief_vent"
+    }
+  ],
+  "validatedHierarchy": {
+    "roots": [
+      "Mount Root",
+      "Vent Root",
+      "Relief Pipe Root",
+      "Rivet Root",
+      "Pressure Tag Root",
+      "Ambient Steam Root"
+    ],
+    "requiredNamedParts": [
+      "Blackened Iron Mount Plate",
+      "Aged Brass Relief Vent Stack",
+      "Blackened Iron Vent Louver Low",
+      "Small Aged Brass Relief Pipe",
+      "Brass Vent Bolt 00",
+      "Amber Pressure Tag",
+      "Amber Pressure Pointer",
+      "Pale Ambient Steam Puff Low"
+    ]
+  },
+  "materialRoles": [
+    "blackened_iron_mount",
+    "aged_brass_vent",
+    "aged_brass_relief_pipe",
+    "aged_brass_rivets_bolts",
+    "amber_pressure_indicator",
+    "pale_steam_ambient"
+  ],
+  "minimumCounts": {
+    "mountPlate": 2,
+    "ventStackOrLouveredExhaust": 3,
+    "reliefPipe": 2,
+    "rivetsOrBolts": 8,
+    "amberPressureTagOrPointer": 2,
+    "paleSteamPuffGeometry": 2,
+    "colliders": 0
+  },
+  "acceptanceGates": [
+    {
+      "id": "metadata_component_present",
+      "status": "passed"
+    },
+    {
+      "id": "version_exact",
+      "expectedValue": "v0.1.25",
+      "status": "passed"
+    },
+    {
+      "id": "named_hierarchy",
+      "status": "passed"
+    },
+    {
+      "id": "material_roles",
+      "status": "passed"
+    },
+    {
+      "id": "minimum_counts",
+      "status": "passed"
+    },
+    {
+      "id": "no_collider_route_safety",
+      "expectedColliderCount": 0,
+      "status": "passed"
+    }
+  ],
+  "verification": {
+    "routeAudit": "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.25.md",
+    "qaPacket": "Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.25.md",
+    "issueTriagePacket": "Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.25.md",
+    "candidateReadiness": "Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.25.md",
+    "executable": "Builds/Windows/v0.1.25/BrassworksBreach_v0.1.25.exe",
+    "package": "Builds/WindowsPackages/v0.1.25/BrassworksBreach_v0.1.25_Windows.zip",
+    "packageSha256": "97065409C8CDDA23686B307963DAA3973F6AC6672E85FC20D5B4EF481E6C0EB6",
+    "logPrefix": "v035",
+    "matrixResult": "V0_BUILD_MATRIX_PASS"
+  },
+  "notes": [
+    "Promoted as Unity-owned generated geometry in v0.1.25.",
+    "Ambient steam puffs are visual dressing only and are validated as non-collider child geometry.",
+    "No route-blocking composition issues were found by the deterministic route audit."
+  ]
+}

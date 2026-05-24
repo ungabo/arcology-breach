@@ -1441,6 +1441,53 @@ public static class V0LevelValidator
         RequireRendererMaterial(prototype.labelPlateRenderer, sceneName + " wall valve wheel label", "Gauge");
     }
 
+    private static void ValidatePressureReliefVentPrototype(string sceneName, string objectName, string expectedPlacementRole)
+    {
+        GameObject root = RequireNamed(objectName, sceneName + " pressure relief vent prototype root");
+        PressureReliefVentPrototype prototype = root.GetComponent<PressureReliefVentPrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pressure relief vent prototype is missing its marker component (" + objectName + ").");
+        }
+
+        if (prototype.promotionVersion != "v0.1.25" || prototype.placementRole != expectedPlacementRole || !prototype.HasRequiredParts)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pressure relief vent metadata or required parts are incomplete (" + objectName + ").");
+        }
+
+        if (prototype.mountRoot.childCount < 2 || prototype.ventRoot.childCount < 3 || prototype.reliefPipeRoot.childCount < 2 || prototype.rivetRoot.childCount < 8 || prototype.tagRoot.childCount < 2 || prototype.steamRoot.childCount < 2)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pressure relief vent does not have the required mount/vent/pipe/rivet/tag/steam detail counts (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<Collider>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pressure relief vent must remain non-blocking route dressing with no colliders (" + objectName + ").");
+        }
+
+        RequireNamed(objectName + " Mount Root", sceneName + " pressure relief vent mount root");
+        RequireNamed(objectName + " Vent Root", sceneName + " pressure relief vent vent root");
+        RequireNamed(objectName + " Relief Pipe Root", sceneName + " pressure relief vent pipe root");
+        RequireNamed(objectName + " Rivet Root", sceneName + " pressure relief vent rivet root");
+        RequireNamed(objectName + " Pressure Tag Root", sceneName + " pressure relief vent tag root");
+        RequireNamed(objectName + " Ambient Steam Root", sceneName + " pressure relief vent steam root");
+        RequireNamed(objectName + " Blackened Iron Mount Plate", sceneName + " pressure relief vent mount plate");
+        RequireNamed(objectName + " Aged Brass Relief Vent Stack", sceneName + " pressure relief vent brass stack");
+        RequireNamed(objectName + " Blackened Iron Vent Louver Low", sceneName + " pressure relief vent louver");
+        RequireNamed(objectName + " Small Aged Brass Relief Pipe", sceneName + " pressure relief vent pipe");
+        RequireNamed(objectName + " Brass Vent Bolt 00", sceneName + " pressure relief vent bolt");
+        RequireNamed(objectName + " Amber Pressure Tag", sceneName + " pressure relief vent pressure tag");
+        RequireNamed(objectName + " Amber Pressure Pointer", sceneName + " pressure relief vent pressure pointer");
+        RequireNamed(objectName + " Pale Ambient Steam Puff Low", sceneName + " pressure relief vent steam puff");
+
+        RequireRendererMaterial(prototype.mountPlateRenderer, sceneName + " pressure relief vent mount plate", "Iron");
+        RequireRendererMaterial(prototype.ventStackRenderer, sceneName + " pressure relief vent stack", "Brass");
+        RequireRendererMaterial(prototype.reliefPipeRenderer, sceneName + " pressure relief vent relief pipe", "Brass");
+        RequireRendererMaterial(prototype.rivetRenderer, sceneName + " pressure relief vent bolt", "Brass");
+        RequireRendererMaterial(prototype.pressureTagRenderer, sceneName + " pressure relief vent pressure tag", "Warning");
+        RequireRendererMaterial(prototype.steamPuffRenderer, sceneName + " pressure relief vent ambient steam", "Steam");
+    }
+
     private static void RequireRendererMaterial(Renderer renderer, string label, string expectedNameFragment)
     {
         if (renderer == null || renderer.sharedMaterial == null || renderer.sharedMaterial.shader == null)
@@ -1468,6 +1515,7 @@ public static class V0LevelValidator
             RequireNamed("North Star Gate Rivet Band", sceneName + " north-star gate rivet band");
             ValidateRivetBandPrototype(sceneName, "North Star Gate Rivet Band", "intake_gate_rivet_band");
             ValidateWallValveWheelPrototype(sceneName, "North Star Intake Wall Valve Wheel", "intake_wall_valve_wheel");
+            ValidatePressureReliefVentPrototype(sceneName, "North Star Intake Pressure Relief Vent", "intake_pressure_relief_vent");
             RequireNamed("Secret - Intake Pressure Cache", sceneName + " secret pressure cache");
             RequireNamed("Secret Pressure Cache Brass Floor Plate", sceneName + " secret pressure cache floor plate");
             RequireNamed("Level01 Flow Polish V015", sceneName + " flow polish prop root");
@@ -1495,6 +1543,7 @@ public static class V0LevelValidator
             RequireNamed("North Star Pipeworks Wall Rivet Band", sceneName + " north-star pipeworks rivet band");
             ValidateRivetBandPrototype(sceneName, "North Star Pipeworks Wall Rivet Band", "pipeworks_wall_rivet_band");
             ValidateWallValveWheelPrototype(sceneName, "North Star Pipeworks Route Valve Wheel", "pipeworks_route_valve_wheel");
+            ValidatePressureReliefVentPrototype(sceneName, "North Star Pipeworks Pressure Relief Vent", "pipeworks_pressure_relief_vent");
             ValidateWallPipeGaugeClusterPrototype(sceneName, "Pipeworks Prototype Wall Pipe Gauge Cluster", "pipeworks_route_wall");
             ValidateBoilerControlConsolePrototype(sceneName, "Pipeworks Prototype Boiler Control Console", "pipeworks_route_console");
             ValidateRivetedPressureDoorFramePrototype(sceneName, "Pipeworks Prototype Riveted Pressure Door Frame", "pipeworks_route_pressure_frame");
@@ -1567,6 +1616,7 @@ public static class V0LevelValidator
             RequireNamed("North Star Foundry Catwalk Rail", sceneName + " north-star foundry catwalk rail");
             RequireNamed("North Star Foundry Gaslight West", sceneName + " north-star foundry gaslight");
             ValidateCagedGaslightPrototype(sceneName, "North Star Foundry Gaslight West", "foundry_route_gaslight");
+            ValidatePressureReliefVentPrototype(sceneName, "North Star Foundry Pressure Relief Vent", "foundry_pressure_relief_vent");
             RequireNamed("Foundry Furnace Row", sceneName + " foundry furnace row visual");
             RequireNamed("Foundry Steam Hazard - Casting Leak", sceneName + " foundry steam hazard");
             RequireNamed("Foundry Steam Hazard - Crucible Bleed", sceneName + " foundry steam hazard");

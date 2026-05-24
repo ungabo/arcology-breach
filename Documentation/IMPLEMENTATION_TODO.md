@@ -1691,6 +1691,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.25 Pressure Relief Vent Asset Promotion
+
+- [x] Confirm no real manual route-triage notes exist yet; use the roadmap fallback and proceed to the next modular asset promotion.
+- [x] Add `PressureReliefVentPrototype` runtime metadata for promoted route-safe pressure-relief vent dressing.
+- [x] Add named Brassworks Intake, Pipeworks Annex, and Furnace Foundry pressure-relief vent placements.
+- [x] Build the component from Unity-owned geometry: blackened iron mount plate, aged brass saddle, aged brass relief vent stack, blackened iron louvers, small brass relief pipe/cap, eight brass vent bolts, amber pressure tag/pointer, and pale ambient steam puffs.
+- [x] Add validator coverage for promotion version, placement roles, required named hierarchy, material roles, detail counts, and no-collider route safety.
+- [x] Add production brief and status files under `Documentation/AssetProduction/PressureReliefVentPrototype/`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.25`.
+- [x] Build, package, generate route-QA evidence, generate issue-triage evidence, and generate candidate-readiness evidence for `v0.1.25` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
