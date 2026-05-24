@@ -6,14 +6,14 @@ public class RangedEnemyController : MonoBehaviour, IDamageable
 {
     public EnemyDefinition definition;
     public Transform muzzle;
-    public int maxHealth = 40;
-    public float detectionRange = 18f;
-    public float fireRange = 14f;
-    public float moveSpeed = 1.8f;
-    public float fireCooldown = 1.35f;
-    public float fireWindup = 0.42f;
-    public int projectileDamage = 8;
-    public float projectileSpeed = 8f;
+    public int maxHealth = GameBalance.LancerHealth;
+    public float detectionRange = GameBalance.LancerDetectionRange;
+    public float fireRange = GameBalance.LancerFireRange;
+    public float moveSpeed = GameBalance.LancerMoveSpeed;
+    public float fireCooldown = GameBalance.LancerFireCooldown;
+    public float fireWindup = GameBalance.LancerFireWindup;
+    public int projectileDamage = GameBalance.LancerProjectileDamage;
+    public float projectileSpeed = GameBalance.LancerProjectileSpeed;
     public Color hitFlashColor = Color.white;
     public Color fireTellColor = new Color(1f, 0.42f, 0.08f);
     public LancerFireTellVfx fireTellVfx;

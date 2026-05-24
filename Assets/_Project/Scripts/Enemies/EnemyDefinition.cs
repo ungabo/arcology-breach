@@ -18,9 +18,9 @@ public class EnemyDefinition : ScriptableObject
     public float detectionRange = GameBalance.ScrapperDetectionRange;
     public float moveSpeed = GameBalance.ScrapperMoveSpeed;
 
-    public float attackRange = 1.35f;
+    public float attackRange = GameBalance.ScrapperAttackRange;
     public int attackDamage = GameBalance.ScrapperAttackDamage;
-    public float attackCooldown = 1f;
+    public float attackCooldown = GameBalance.ScrapperAttackCooldown;
     public float attackWindup = GameBalance.ScrapperAttackWindup;
     public float obstacleProbeDistance = GameBalance.ScrapperObstacleProbeDistance;
 

@@ -1400,6 +1400,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.4 Weapon, Ammo, And Enemy Pressure Balance
+
+- [x] Retune `GameBalance` for starting ammo, ammo pickup amount, Pressure Pistol, Pressure Burst, Steam Scattergun, and Steam Scattergun slug values.
+- [x] Retune Scrapper, Lancer, Bellows Node, Bulwark, and Governor Warden health/damage/cooldown/pressure values.
+- [x] Centralize Pressure Pistol range plus Scrapper attack range/cooldown in `GameBalance`.
+- [x] Update generated data assets and level validation to enforce the new values.
+- [x] Add `RuntimeBalanceEnvelopeTest` and `-v0BalanceSmoke` packaged launch coverage.
+- [x] Expand runtime smoke and the full build matrix for `V0_BALANCE_ENVELOPE_PASS`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.4`.
+- [x] Build `v0.1.4` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -1407,8 +1420,8 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Add first collision-cover pass to `Brassworks Intake`.
 - [x] Add initial automated movement/combat balance profile.
 - [x] Tune player movement speed and camera feel.
-- [ ] Tune `Pressure Pistol` damage, fire rate, ammo, and feedback.
-- [ ] Tune `Scrapper` speed, detection range, damage, and attack cooldown.
+- [x] Tune `Pressure Pistol` damage, fire rate, ammo, and feedback.
+- [x] Tune `Scrapper` speed, detection range, damage, and attack cooldown.
 - [ ] Confirm `Brassworks Intake` scale and room flow against `LEVEL_DESIGN_AND_MAPS.md`.
 - [ ] Manual readability pass for Scrapper attack tells and world labels.
 - [ ] Manual listen pass for procedural audio levels and tone.

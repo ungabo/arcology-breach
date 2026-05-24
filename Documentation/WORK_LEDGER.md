@@ -44,6 +44,7 @@ The active step sequence is driven by this ledger plus `VERSION_MICRO_ROADMAP.md
 | LVL-001A | Add Level01 combat-space cover pass | level | P1 | verified | v0.0.28 | Repair bay, key room, and final room cover added with validation and full smoke matrix. |
 | CODE-003A | Add initial movement/combat balance profile | code | P1 | verified | v0.0.29 | GameBalance drives player/pistol/Scrapper/Lancer values and validator enforces them. |
 | CODE-003B | Add movement/camera feel tuning | code/test | P1 | verified | v0.1.3 | Player movement now accelerates/decelerates from `GameBalance`, pitch/sensitivity are clamped, and `V0_MOVEMENT_FEEL_PASS` verifies the packaged build. |
+| CODE-003C | Add weapon/ammo/enemy pressure balance pass | code/test | P1 | verified | v0.1.4 | Starting ammo, ammo pickups, Pressure Pistol, Pressure Burst, Steam Scattergun, Scrapper, Lancer, Bellows Node, Bulwark, and Warden values were tuned and verified by `V0_BALANCE_ENVELOPE_PASS`. |
 | CODE-006 | Data-driven weapon definitions | code | P2 | verified | v0.0.30 | PressurePistolDefinition.asset drives current weapon data and validator enforces assignment. |
 | CODE-007 | Data-driven enemy definitions | code | P2 | verified | v0.0.31 | ScrapperDefinition and LancerDefinition drive current enemy data and validator enforces assignment. |
 | TOOL-002 | Build automation cleanup | tool | P1 | verified | v0.0.32 | Tools/RunV0BuildMatrix.ps1 runs the complete V0 Windows matrix and asserts pass markers. |
@@ -138,6 +139,7 @@ The active step sequence is driven by this ledger plus `VERSION_MICRO_ROADMAP.md
 | VFX-005E | Add Bulwark shutdown polish | enemy/vfx/test | P1 | verified | v0.1.1 | Bulwark deaths now route through a dedicated `MachineDeathVfx` shutdown style with heavy boiler/furnace fragments, and Bulwark combat smoke requires the Bulwark-specific detail. Full `v011` matrix passed. |
 | TEST-010 | Add deterministic route audit | test/tool/docs | P1 | verified | v0.1.2 | `V0RouteAudit` and `Tools/RunV0RouteAudit.ps1` inspect Level01-Level05 route objects, counts, transitions, and distances, then write `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.2.md`. Route audit and full `v012` matrix passed. |
 | MOVE-001 | Tune player movement and camera feel | code/test | P1 | verified | v0.1.3 | `PlayerController` uses acceleration/deceleration, grounded stick velocity, centralized gravity, pitch limit, and settings sensitivity clamps; route audit and full `v013` matrix passed. |
+| BAL-001 | Tune weapon and enemy pressure values | code/test | P1 | verified | v0.1.4 | `RuntimeBalanceEnvelopeTest` verifies intended shot-count, pickup, ammo reserve, and enemy damage envelopes; route audit and full `v014` matrix passed. |
 
 ## Ready Next
 
@@ -145,7 +147,7 @@ The active step sequence is driven by this ledger plus `VERSION_MICRO_ROADMAP.md
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | TEST-005 | Run full v0.0.7 automated matrix | test | P0 | verified | v0.0.7 | All six pass markers appear in logs. | automated logs |
 | TEST-001 | Manual Windows playthrough | test | P0 | ready | v0.2 | Complete start-to-lift, confirm death/restart/pause/quit, note tuning issues. | manual-playtest |
-| CODE-003 | Tune weapon/combat values | code | P0 | ready | v0.2 | Enemy pressure, ammo, weapon cadence, and health feel fair. | manual-playtest |
+| CODE-003 | Manual weapon/combat feel review | code | P0 | ready | v0.2 | Enemy pressure, ammo, weapon cadence, and health feel fair in human play. | manual-playtest |
 | LVL-002 | Confirm Brassworks Intake scale and flow | level | P0 | ready | v0.2 | Gate is seen before key, route loops cleanly, exit is readable, rooms fit scale rules. | manual-playtest |
 
 ## Backlog
@@ -184,6 +186,7 @@ The active step sequence is driven by this ledger plus `VERSION_MICRO_ROADMAP.md
 
 ## Recently Verified
 
+- `2026-05-24`: `v0.1.4` weapon/ammo/enemy pressure balance build created at `Builds/Windows/v0.1.4/BrassworksBreach_v0.1.4.exe` and passed route audit, full build matrix, and packaged `V0_BALANCE_ENVELOPE_PASS`.
 - `2026-05-24`: `v0.1.3` movement/camera feel build created at `Builds/Windows/v0.1.3/BrassworksBreach_v0.1.3.exe` and passed route audit, full build matrix, and packaged `V0_MOVEMENT_FEEL_PASS`.
 - `2026-05-22`: v0.1 editor smoke passed with `V0_SMOKE_TEST_PASS`.
 - `2026-05-22`: v0.1 Windows build passed with `V0_WINDOWS_BUILD_PASS`.

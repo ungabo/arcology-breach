@@ -5,14 +5,14 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, IDamageable
 {
     public EnemyDefinition definition;
-    public int maxHealth = 50;
-    public float detectionRange = 14f;
-    public float moveSpeed = 2.8f;
-    public float attackRange = 1.35f;
-    public int attackDamage = 10;
-    public float attackCooldown = 1f;
-    public float attackWindup = 0.38f;
-    public float obstacleProbeDistance = 1.05f;
+    public int maxHealth = GameBalance.ScrapperHealth;
+    public float detectionRange = GameBalance.ScrapperDetectionRange;
+    public float moveSpeed = GameBalance.ScrapperMoveSpeed;
+    public float attackRange = GameBalance.ScrapperAttackRange;
+    public int attackDamage = GameBalance.ScrapperAttackDamage;
+    public float attackCooldown = GameBalance.ScrapperAttackCooldown;
+    public float attackWindup = GameBalance.ScrapperAttackWindup;
+    public float obstacleProbeDistance = GameBalance.ScrapperObstacleProbeDistance;
     public float obstacleProbeRadius = 0.35f;
     public Color hitFlashColor = Color.white;
     public Color attackTellColor = new Color(1f, 0.08f, 0.7f);

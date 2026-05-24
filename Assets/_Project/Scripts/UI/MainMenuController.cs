@@ -31,7 +31,8 @@ public class MainMenuController : MonoBehaviour
         "-v0HazardSmoke",
         "-v0SecretSmoke",
         "-v0PauseFlow",
-        "-v0MovementSmoke"
+        "-v0MovementSmoke",
+        "-v0BalanceSmoke"
     };
 
     private void Awake()

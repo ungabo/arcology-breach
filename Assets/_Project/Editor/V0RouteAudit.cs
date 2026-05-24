@@ -64,11 +64,11 @@ public static class V0RouteAudit
         report.AppendLine();
         report.AppendLine("## Next Actionable Slices");
         report.AppendLine();
-        report.AppendLine("- `v0.1.4`: weapon, ammo, and enemy pressure balance.");
         report.AppendLine("- `v0.1.5`: Level01 route and onboarding polish.");
         report.AppendLine("- `v0.1.6`: Level02/Level03 midgame pacing polish.");
         report.AppendLine("- `v0.1.7`: Level04/Level05 climax polish.");
         report.AppendLine("- `v0.1.8`: audio listen, mix, and import tuning.");
+        report.AppendLine("- `v0.1.9`: settings, readability, and Windows options polish.");
 
         string absoluteOutputPath = Path.Combine(Directory.GetCurrentDirectory(), OutputPath);
         Directory.CreateDirectory(Path.GetDirectoryName(absoluteOutputPath));

@@ -295,6 +295,7 @@ public static class V0LevelValidator
         Require<RuntimeSecretTest>(sceneName + " RuntimeSecretTest");
         Require<RuntimeWeaponSwitchTest>(sceneName + " RuntimeWeaponSwitchTest");
         Require<RuntimeMovementFeelTest>(sceneName + " RuntimeMovementFeelTest");
+        Require<RuntimeBalanceEnvelopeTest>(sceneName + " RuntimeBalanceEnvelopeTest");
         Require<EnemyController>(sceneName + " EnemyController");
         Require<Pickup>(sceneName + " Pickup");
 
@@ -443,6 +444,16 @@ public static class V0LevelValidator
             RequireEqual((int)pickup.kind, (int)pickup.definition.kind, sceneName + " pickup kind definition " + pickup.name);
             RequireEqual(pickup.amount, pickup.definition.amount, sceneName + " pickup amount definition " + pickup.name);
             RequireApprox(pickup.collectRadius, pickup.definition.collectRadius, sceneName + " pickup collect radius definition " + pickup.name);
+            if (pickup.kind == PickupKind.Health)
+            {
+                RequireEqual(pickup.amount, GameBalance.HealthPickupAmount, sceneName + " health pickup amount balance " + pickup.name);
+            }
+
+            if (pickup.kind == PickupKind.Ammo)
+            {
+                RequireEqual(pickup.amount, GameBalance.AmmoPickupAmount, sceneName + " ammo pickup amount balance " + pickup.name);
+            }
+
             if (string.IsNullOrWhiteSpace(pickup.definition.collectMessage))
             {
                 throw new InvalidOperationException("Level validation failed: " + sceneName + " pickup " + pickup.name + " definition has no collect message.");
@@ -496,7 +507,9 @@ public static class V0LevelValidator
             RequireEqual(enemy.maxHealth, GameBalance.ScrapperHealth, sceneName + " Scrapper health balance");
             RequireApprox(enemy.moveSpeed, GameBalance.ScrapperMoveSpeed, sceneName + " Scrapper speed balance");
             RequireApprox(enemy.detectionRange, GameBalance.ScrapperDetectionRange, sceneName + " Scrapper detection balance");
+            RequireApprox(enemy.attackRange, GameBalance.ScrapperAttackRange, sceneName + " Scrapper attack range balance");
             RequireEqual(enemy.attackDamage, GameBalance.ScrapperAttackDamage, sceneName + " Scrapper damage balance");
+            RequireApprox(enemy.attackCooldown, GameBalance.ScrapperAttackCooldown, sceneName + " Scrapper cooldown balance");
             RequireApprox(enemy.attackWindup, GameBalance.ScrapperAttackWindup, sceneName + " Scrapper windup balance");
             RequireApprox(enemy.obstacleProbeDistance, GameBalance.ScrapperObstacleProbeDistance, sceneName + " Scrapper obstacle probe balance");
             if (enemy.definition == null)
@@ -507,7 +520,9 @@ public static class V0LevelValidator
             RequireEqual((int)enemy.definition.attackStyle, (int)EnemyAttackStyle.Melee, sceneName + " Scrapper definition style");
             RequireEqual(enemy.definition.maxHealth, GameBalance.ScrapperHealth, sceneName + " Scrapper definition health");
             RequireApprox(enemy.definition.moveSpeed, GameBalance.ScrapperMoveSpeed, sceneName + " Scrapper definition speed");
+            RequireApprox(enemy.definition.attackRange, GameBalance.ScrapperAttackRange, sceneName + " Scrapper definition attack range");
             RequireEqual(enemy.definition.attackDamage, GameBalance.ScrapperAttackDamage, sceneName + " Scrapper definition damage");
+            RequireApprox(enemy.definition.attackCooldown, GameBalance.ScrapperAttackCooldown, sceneName + " Scrapper definition cooldown");
             RequireMachineMotion(enemy.gameObject, sceneName + " Scrapper machine motion");
             RequireScrapperAttackTell(enemy.gameObject, sceneName + " Scrapper attack tell");
         }
@@ -762,6 +777,7 @@ public static class V0LevelValidator
         RequireEqual(weaponController.ammoCost, GameBalance.PressurePistolAmmoCost, sceneName + " pistol ammo-cost balance");
         RequireEqual(weaponController.pelletCount, GameBalance.PressurePistolPelletCount, sceneName + " pistol pellet-count balance");
         RequireApprox(weaponController.fireCooldown, GameBalance.PressurePistolCooldown, sceneName + " pistol cooldown balance");
+        RequireApprox(weaponController.range, GameBalance.PressurePistolRange, sceneName + " pistol range balance");
         RequireApprox(weaponController.spread, GameBalance.PressurePistolSpread, sceneName + " pistol spread balance");
         RequireEqual(weaponController.secondaryDamage, GameBalance.PressureBurstDamage, sceneName + " pressure burst damage balance");
         RequireEqual(weaponController.secondaryPelletCount, GameBalance.PressureBurstPelletCount, sceneName + " pressure burst pellet balance");
@@ -778,7 +794,7 @@ public static class V0LevelValidator
         RequireEqual(weaponController.definition.ammoCost, GameBalance.PressurePistolAmmoCost, sceneName + " weapon definition ammo cost");
         RequireEqual(weaponController.definition.pelletCount, GameBalance.PressurePistolPelletCount, sceneName + " weapon definition pellet count");
         RequireApprox(weaponController.definition.fireCooldown, GameBalance.PressurePistolCooldown, sceneName + " weapon definition cooldown");
-        RequireApprox(weaponController.definition.range, weaponController.range, sceneName + " weapon definition range");
+        RequireApprox(weaponController.definition.range, GameBalance.PressurePistolRange, sceneName + " weapon definition range");
         RequireApprox(weaponController.definition.spread, GameBalance.PressurePistolSpread, sceneName + " weapon definition spread");
         RequireEqual(weaponController.definition.secondaryDamage, GameBalance.PressureBurstDamage, sceneName + " weapon definition secondary damage");
         RequireEqual(weaponController.definition.secondaryPelletCount, GameBalance.PressureBurstPelletCount, sceneName + " weapon definition secondary pellet count");
@@ -797,6 +813,9 @@ public static class V0LevelValidator
         RequireApprox(weaponController.steamScattergunDefinition.fireCooldown, GameBalance.SteamScattergunCooldown, sceneName + " scattergun definition cooldown");
         RequireApprox(weaponController.steamScattergunDefinition.range, GameBalance.SteamScattergunRange, sceneName + " scattergun definition range");
         RequireApprox(weaponController.steamScattergunDefinition.spread, GameBalance.SteamScattergunSpread, sceneName + " scattergun definition spread");
+        RequireEqual(weaponController.steamScattergunDefinition.secondaryDamage, GameBalance.SteamScattergunSlugDamage, sceneName + " scattergun slug definition damage");
+        RequireEqual(weaponController.steamScattergunDefinition.secondaryAmmoCost, GameBalance.SteamScattergunSlugAmmoCost, sceneName + " scattergun slug definition ammo cost");
+        RequireApprox(weaponController.steamScattergunDefinition.secondaryCooldown, GameBalance.SteamScattergunSlugCooldown, sceneName + " scattergun slug definition cooldown");
     }
 
     private static void ValidatePlatformQualityProfile(string sceneName, RuntimePerformanceProfile performanceProfile)

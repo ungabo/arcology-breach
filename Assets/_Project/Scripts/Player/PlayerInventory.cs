@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public int startingAmmo = 30;
+    public int startingAmmo = GameBalance.StartingAmmo;
 
     public int Ammo { get; private set; }
     public bool HasKey { get; private set; }

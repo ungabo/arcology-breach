@@ -198,6 +198,7 @@ public static class V0SceneBuilder
         RequireObject<RuntimeWeaponSwitchTest>("RuntimeWeaponSwitchTest");
         RequireObject<RuntimePauseFlowTest>("RuntimePauseFlowTest");
         RequireObject<RuntimeMovementFeelTest>("RuntimeMovementFeelTest");
+        RequireObject<RuntimeBalanceEnvelopeTest>("RuntimeBalanceEnvelopeTest");
         RequireObject<HUDController>("HUDController");
         RequireObject<EnemyController>("EnemyController");
         RequireObject<Pickup>("Pickup");
@@ -460,7 +461,7 @@ public static class V0SceneBuilder
         definition.ammoCost = GameBalance.PressurePistolAmmoCost;
         definition.pelletCount = GameBalance.PressurePistolPelletCount;
         definition.fireCooldown = GameBalance.PressurePistolCooldown;
-        definition.range = 40f;
+        definition.range = GameBalance.PressurePistolRange;
         definition.spread = GameBalance.PressurePistolSpread;
         definition.secondaryDamage = GameBalance.PressureBurstDamage;
         definition.secondaryPelletCount = GameBalance.PressureBurstPelletCount;
@@ -515,9 +516,9 @@ public static class V0SceneBuilder
         definition.maxHealth = GameBalance.ScrapperHealth;
         definition.detectionRange = GameBalance.ScrapperDetectionRange;
         definition.moveSpeed = GameBalance.ScrapperMoveSpeed;
-        definition.attackRange = 1.35f;
+        definition.attackRange = GameBalance.ScrapperAttackRange;
         definition.attackDamage = GameBalance.ScrapperAttackDamage;
-        definition.attackCooldown = 1f;
+        definition.attackCooldown = GameBalance.ScrapperAttackCooldown;
         definition.attackWindup = GameBalance.ScrapperAttackWindup;
         definition.obstacleProbeDistance = GameBalance.ScrapperObstacleProbeDistance;
         EditorUtility.SetDirty(definition);
@@ -634,13 +635,13 @@ public static class V0SceneBuilder
 
         definition.displayName = "Health Vial";
         definition.kind = PickupKind.Health;
-        definition.amount = 25;
+        definition.amount = GameBalance.HealthPickupAmount;
         definition.collectRadius = 0.9f;
         definition.spinDegreesPerSecond = 82f;
         definition.bobAmplitude = 0.1f;
         definition.bobSpeed = 3f;
         definition.audioCue = SteamworksAudioCue.HealthPickup;
-        definition.collectMessage = "+25 health";
+        definition.collectMessage = "+" + GameBalance.HealthPickupAmount + " health";
         definition.weaponUnlockId = string.Empty;
         EditorUtility.SetDirty(definition);
         return definition;
@@ -658,13 +659,13 @@ public static class V0SceneBuilder
 
         definition.displayName = "Pressure Cartridge Pack";
         definition.kind = PickupKind.Ammo;
-        definition.amount = 15;
+        definition.amount = GameBalance.AmmoPickupAmount;
         definition.collectRadius = 0.9f;
         definition.spinDegreesPerSecond = 74f;
         definition.bobAmplitude = 0.1f;
         definition.bobSpeed = 2.8f;
         definition.audioCue = SteamworksAudioCue.AmmoPickup;
-        definition.collectMessage = "+15 ammo";
+        definition.collectMessage = "+" + GameBalance.AmmoPickupAmount + " ammo";
         definition.weaponUnlockId = string.Empty;
         EditorUtility.SetDirty(definition);
         return definition;
@@ -1914,6 +1915,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimePauseFlowTest>();
         stateObject.AddComponent<RuntimeWeaponSwitchTest>();
         stateObject.AddComponent<RuntimeMovementFeelTest>();
+        stateObject.AddComponent<RuntimeBalanceEnvelopeTest>();
     }
 
     private static void ConfigureSteamworksAudioV1(SteamworksAudio audio)
@@ -2189,7 +2191,9 @@ public static class V0SceneBuilder
         enemyController.maxHealth = GameBalance.ScrapperHealth;
         enemyController.moveSpeed = GameBalance.ScrapperMoveSpeed;
         enemyController.detectionRange = GameBalance.ScrapperDetectionRange;
+        enemyController.attackRange = GameBalance.ScrapperAttackRange;
         enemyController.attackDamage = GameBalance.ScrapperAttackDamage;
+        enemyController.attackCooldown = GameBalance.ScrapperAttackCooldown;
         enemyController.attackWindup = GameBalance.ScrapperAttackWindup;
         enemyController.obstacleProbeDistance = GameBalance.ScrapperObstacleProbeDistance;
     }
@@ -3201,7 +3205,7 @@ public static class V0SceneBuilder
         trigger.isTrigger = true;
 
         Pickup pickupComponent = pickup.AddComponent<Pickup>();
-        ConfigurePickup(pickupComponent, definition, PickupKind.Health, 25);
+        ConfigurePickup(pickupComponent, definition, PickupKind.Health, GameBalance.HealthPickupAmount);
 
         CreateLocalPrimitive(name + " Frosted Glass", PrimitiveType.Cylinder, pickup.transform, new Vector3(0f, 0f, 0f), new Vector3(0.24f, 0.46f, 0.24f), glassMaterial);
         CreateLocalPrimitive(name + " Red Fluid", PrimitiveType.Cylinder, pickup.transform, new Vector3(0f, -0.12f, 0f), new Vector3(0.18f, 0.27f, 0.18f), fluidMaterial);
@@ -3223,7 +3227,7 @@ public static class V0SceneBuilder
         trigger.isTrigger = true;
 
         Pickup pickupComponent = pickup.AddComponent<Pickup>();
-        ConfigurePickup(pickupComponent, definition, PickupKind.Ammo, 15);
+        ConfigurePickup(pickupComponent, definition, PickupKind.Ammo, GameBalance.AmmoPickupAmount);
 
         CreateLocalCube(name + " Brass Crate Base", pickup.transform, new Vector3(0f, -0.3f, 0f), new Vector3(0.9f, 0.16f, 0.58f), brassMaterial);
         CreateLocalCube(name + " Iron Strap Front", pickup.transform, new Vector3(0f, -0.16f, 0.33f), new Vector3(1.02f, 0.08f, 0.07f), ironMaterial);

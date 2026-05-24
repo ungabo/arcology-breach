@@ -9,11 +9,11 @@ public class WeaponController : MonoBehaviour
     public WeaponDefinition steamScattergunDefinition;
     public Camera aimCamera;
     public PlayerInventory inventory;
-    public float range = 40f;
-    public int damage = 25;
+    public float range = GameBalance.PressurePistolRange;
+    public int damage = GameBalance.PressurePistolDamage;
     public int ammoCost = GameBalance.PressurePistolAmmoCost;
     public int pelletCount = GameBalance.PressurePistolPelletCount;
-    public float fireCooldown = 0.25f;
+    public float fireCooldown = GameBalance.PressurePistolCooldown;
     public float spread = GameBalance.PressurePistolSpread;
     public int secondaryDamage = GameBalance.PressureBurstDamage;
     public int secondaryPelletCount = GameBalance.PressureBurstPelletCount;

@@ -9,7 +9,7 @@ public class WeaponDefinition : ScriptableObject
     public int ammoCost = GameBalance.PressurePistolAmmoCost;
     public int pelletCount = GameBalance.PressurePistolPelletCount;
     public float fireCooldown = GameBalance.PressurePistolCooldown;
-    public float range = 40f;
+    public float range = GameBalance.PressurePistolRange;
     public float spread = GameBalance.PressurePistolSpread;
     public int secondaryDamage = GameBalance.PressureBurstDamage;
     public int secondaryPelletCount = GameBalance.PressureBurstPelletCount;

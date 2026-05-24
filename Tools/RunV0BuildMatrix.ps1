@@ -26,6 +26,15 @@ function Get-DefaultLogPrefix {
 
     $cleanVersion = $Version.TrimStart("v")
     $segments = $cleanVersion.Split(".")
+    if ($segments.Length -ge 3) {
+        $majorNumber = 0
+        $minorNumber = 0
+        $patchNumber = 0
+        if ([int]::TryParse($segments[0], [ref]$majorNumber) -and [int]::TryParse($segments[1], [ref]$minorNumber) -and [int]::TryParse($segments[2], [ref]$patchNumber)) {
+            return "v" + (($majorNumber * 100) + ($minorNumber * 10) + $patchNumber).ToString("000")
+        }
+    }
+
     $patchSegment = $segments[$segments.Length - 1]
 
     $patchNumber = 0
@@ -162,5 +171,6 @@ Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0HazardSmoke" -
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0SecretSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-secret-smoke.log") -Marker "V0_SECRET_PASS"
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0PauseFlow" -LogPath (Join-Path $logsPath "$LogPrefix-pause-flow.log") -Marker "V0_PAUSE_FLOW_PASS"
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0MovementSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-movement-smoke.log") -Marker "V0_MOVEMENT_FEEL_PASS"
+Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0BalanceSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-balance-smoke.log") -Marker "V0_BALANCE_ENVELOPE_PASS"
 
 Write-Host "V0_BUILD_MATRIX_PASS $version $windowsBuildPath"

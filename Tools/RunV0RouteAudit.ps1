@@ -1,7 +1,7 @@
 param(
     [string]$ProjectPath = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path,
     [string]$UnityPath = "C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe",
-    [string]$LogPrefix = "v013"
+    [string]$LogPrefix = ""
 )
 
 Set-StrictMode -Version Latest
@@ -14,6 +14,19 @@ if (-not (Test-Path -LiteralPath $UnityPath)) {
 $ProjectPath = (Resolve-Path -LiteralPath $ProjectPath).Path
 $logsPath = Join-Path $ProjectPath "Logs"
 New-Item -ItemType Directory -Force -Path $logsPath | Out-Null
+
+if ([string]::IsNullOrWhiteSpace($LogPrefix)) {
+    $brandingPath = Join-Path $ProjectPath "Assets\_Project\Scripts\Utility\GameBranding.cs"
+    $brandingText = Get-Content -LiteralPath $brandingPath -Raw
+    if ($brandingText -notmatch 'BuildVersion\s*=\s*"v([0-9]+)\.([0-9]+)\.([0-9]+)"') {
+        throw "Could not derive route-audit log prefix from $brandingPath."
+    }
+
+    $majorNumber = [int]$Matches[1]
+    $minorNumber = [int]$Matches[2]
+    $patchNumber = [int]$Matches[3]
+    $LogPrefix = "v" + (($majorNumber * 100) + ($minorNumber * 10) + $patchNumber).ToString("000")
+}
 
 $logPath = Join-Path $logsPath "$LogPrefix-route-audit.log"
 $arguments = @(
