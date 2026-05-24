@@ -1,0 +1,169 @@
+{
+  "package": "ThresholdRouteDressingBatch",
+  "version": "v0.1.33",
+  "status": "material-spec-ready",
+  "render_pipeline": "Use active project pipeline; values are intent notes, not forced shader assignments.",
+  "source_textures": {
+    "material_swatches": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_MaterialSwatches_1024.png",
+    "route_indicator_nameplates": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_RouteIndicatorNameplates_1024.png",
+    "grime_gasket_rivet_accents": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_GrimeGasketRivetAccents_1024.png"
+  },
+  "materials": [
+    {
+      "name": "TRD_BlackenedIron",
+      "role": "dominant structural material",
+      "base_color_hex": "#1D1F20",
+      "metallic": 1.0,
+      "roughness": 0.72,
+      "emission": 0.0,
+      "usage": [
+        "piston brace plates",
+        "pipe clamp bodies",
+        "nameplate frames",
+        "gasket retainers",
+        "lift rail posts"
+      ]
+    },
+    {
+      "name": "TRD_AgedBrass",
+      "role": "worn functional brass",
+      "base_color_hex": "#8B6630",
+      "metallic": 1.0,
+      "roughness": 0.48,
+      "emission": 0.0,
+      "usage": [
+        "piston rods",
+        "rivet highlights",
+        "plate rims",
+        "rail wear edges",
+        "small coupler accents"
+      ]
+    },
+    {
+      "name": "TRD_OilyGunmetal",
+      "role": "steam cylinder and pipe metal",
+      "base_color_hex": "#2C3134",
+      "metallic": 1.0,
+      "roughness": 0.56,
+      "localized_smoothness": "higher around oil streaks and coupler leaks",
+      "usage": [
+        "pipe bodies",
+        "cylinder housings",
+        "coupler sleeves",
+        "junction boxes"
+      ]
+    },
+    {
+      "name": "TRD_AmberRouteGlass",
+      "role": "small practical amber lenses",
+      "base_color_hex": "#DA841A",
+      "metallic": 0.0,
+      "roughness": 0.32,
+      "emission": 0.45,
+      "usage": [
+        "pressure indicator lenses",
+        "protected route lamps",
+        "small lift access tabs"
+      ]
+    },
+    {
+      "name": "TRD_WornAmberEnamel",
+      "role": "route plates and nameplates",
+      "base_color_hex": "#AD631D",
+      "metallic": 0.2,
+      "roughness": 0.66,
+      "emission": 0.08,
+      "albedo_atlas": "T_TRD_v0133_RouteIndicatorNameplates_1024.png",
+      "usage": [
+        "route arrow plates",
+        "threshold nameplates",
+        "lift access signage"
+      ]
+    },
+    {
+      "name": "TRD_RubberGasket",
+      "role": "pressure seals and sill strips",
+      "base_color_hex": "#161513",
+      "metallic": 0.0,
+      "roughness": 0.58,
+      "usage": [
+        "vertical jamb gaskets",
+        "top lintel seams",
+        "floor sill strips",
+        "cylinder seals"
+      ]
+    },
+    {
+      "name": "TRD_SootGrimeDecal",
+      "role": "matte soot deposits",
+      "base_color_hex": "#312D27",
+      "metallic": 0.0,
+      "roughness": 0.9,
+      "alpha_blend": true,
+      "decal_atlas": "T_TRD_v0133_GrimeGasketRivetAccents_1024.png",
+      "usage": [
+        "upper lintel soot",
+        "vent halos",
+        "pipe exit grime",
+        "heat-exposed seams"
+      ]
+    },
+    {
+      "name": "TRD_OilStreakDecal",
+      "role": "glossy brown-black oil streaks",
+      "base_color_hex": "#372314",
+      "metallic": 0.0,
+      "roughness": 0.28,
+      "alpha_blend": true,
+      "decal_atlas": "T_TRD_v0133_GrimeGasketRivetAccents_1024.png",
+      "usage": [
+        "below piston rods",
+        "below pipe couplers",
+        "hinge leaks",
+        "junction box drips"
+      ]
+    },
+    {
+      "name": "TRD_CableSheathing",
+      "role": "rubber, cloth, and oxidized conduit bundle material",
+      "base_color_hex": "#2A2723",
+      "metallic": 0.1,
+      "roughness": 0.74,
+      "usage": [
+        "wall cable trunks",
+        "over-lintel cable bundles",
+        "junction drops",
+        "clamped conduit runs"
+      ]
+    },
+    {
+      "name": "TRD_LiftSafetyRailPaint",
+      "role": "worn amber-yellow lift rail enamel",
+      "base_color_hex": "#A67622",
+      "metallic": 0.25,
+      "roughness": 0.68,
+      "usage": [
+        "freight lift rails",
+        "corner guards",
+        "kick plates",
+        "safety posts"
+      ]
+    },
+    {
+      "name": "TRD_RivetWearAccent",
+      "role": "rivet caps, scraped edges, and exposed contact wear",
+      "base_color_hex": "#877453",
+      "metallic": 0.85,
+      "roughness": 0.42,
+      "decal_atlas": "T_TRD_v0133_GrimeGasketRivetAccents_1024.png",
+      "usage": [
+        "rivet rows",
+        "bolt heads",
+        "edge scrapes",
+        "corner chips",
+        "hand-contact polish"
+      ]
+    }
+  ]
+}
+

@@ -19,8 +19,9 @@ The roadmap is a living plan, not a promise that every version number is immutab
 
 ## Planning Rules
 
-- Each `v0.0.x` should be one meaningful playable slice, not every tiny edit.
-- Prefer batching related code, asset, audio, VFX, and smoke coverage into one version.
+- Each version should be one meaningful visible milestone, not every tiny edit.
+- Prefer ambitious batches that combine related code, asset, audio, VFX, level, and smoke coverage into one version.
+- Beginning after `v0.1.32`, do not plan production as `build asset A, then asset B, then asset C`; run independent asset, level, weapon, enemy, and QA crews in parallel and integrate their outputs into larger milestone compiles.
 - Cheap checks can run during development; the full build matrix runs once per completed slice.
 - Commit and push after each verified versioned slice.
 - If a planned item proves too large, split it into the next open version numbers and update this document.
@@ -67,13 +68,14 @@ The roadmap is a living plan, not a promise that every version number is immutab
 | v0.1.29 | Windows package release-index and checksum guidance | Completed: no accepted manual route issue was present, so the fallback path hardened the Windows distribution package with `RELEASE_INDEX_WINDOWS.txt`, `VERIFY_SHA256_WINDOWS.txt`, package-manifest fields, SHA-256 sidecar tracking, and candidate-readiness ZIP-content verification. | Route audit passed; full V0 matrix passed with package, QA packet, issue-triage packet, and candidate-readiness evidence. |
 | v0.1.30 | Service lift call box asset promotion | Completed: promoted `ServiceLiftCallBoxPrototype` as route-safe wall-adjacent lift/hoist control dressing across all current level transitions, with blackened iron backplates, brass levers/guards, cream gauges, amber/red/green lamp language, pressure pipes, labels, rivets, grime, metadata, and no-collider validator gates. | Route audit passed; full V0 matrix passed with level validation, package, QA packet, issue-triage packet, and candidate-readiness evidence. |
 | v0.1.31 | Gear key plinth asset promotion | Completed: promoted `GearKeyPlinthPrototype` around the existing Level01 gear-key pickup, with blackened iron pedestal, aged brass gear cradle, brass gear teeth, cream enamel gauge/label, amber ready lamp, rivets, trim, grime, metadata, and validator gates proving the existing pickup remains the gameplay authority and stays reachable. | Route audit passed; full V0 matrix passed with level validation, package, QA packet, issue-triage packet, and candidate-readiness evidence. |
+| v0.1.32 | Valve wheel console asset promotion | Completed: promoted `ValveWheelConsolePrototype` into Pipeworks Annex and Boilerheart Core, with blackened iron wall backplates, aged brass valve wheel assemblies, cream pressure gauges, amber pilot lamps, pipework, rivets, soot/oil grime, worn highlights, metadata, and no-collider/no-gameplay-authority validator gates. | Route audit passed; full V0 matrix passed with level validation, package, QA packet, issue-triage packet, and candidate-readiness evidence. |
 
 ## Near-Term Proposed Sequence
 
 | Version | Planned Slice | Intent | Expected Verification |
 | --- | --- | --- | --- |
-| v0.1.32 | Valve wheel console asset promotion | Use the prepared `ValveWheelConsolePrototype` brief to promote a route-safe brass/blackened-iron wall console with a large valve wheel, pressure gauges, amber pilot lamps, pipework, rivets, and oil grime, without adding gameplay authority yet. | Full V0 matrix with named hierarchy, material-role, detail-count, no-collider, no-gameplay-authority, and route-clearance validation. |
-| v0.1.33 | Route/distribution hardening follow-up | Convert any new accepted manual notes into tracked work; otherwise continue small release or route-readability hardening. | Route audit plus full V0 matrix if code, scene, package, or generated evidence changes. |
+| v0.1.33 | Visible threshold and route dressing milestone | Implement a big-leap Unity-only route-dressing pass with up to 10 component families across Level01-Level05: piston door braces, pipe clamp/coupler sets, oil/soot grime panels, amber indicator plates, brass kick plates, riveted repair plates, pressure seal gasket rings, route return pipe markers, steam vent residue collars, and hoist chain anchor plates. Minimum acceptable fallback is 8 families if route crowding appears. | Targeted compile/scene rebuild/level-validation checks during development; route audit plus full V0 matrix only after the coherent batch is assembled. |
+| v0.1.34 | Playable polish leap after route dressing | Integrate the next parallel-crew outputs into a broader visible gameplay/art pass: weapon/prop staging, enemy readability upgrades, level-density placement refinements, and focused route/combat readability tests. | Targeted tests per changed surface, then route audit plus full V0 matrix at milestone completion. |
 
 ## Later Follow-Up Areas
 

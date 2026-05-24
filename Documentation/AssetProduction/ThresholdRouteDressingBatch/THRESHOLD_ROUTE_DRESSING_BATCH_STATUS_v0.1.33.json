@@ -1,0 +1,142 @@
+﻿{
+  "package": "ThresholdRouteDressingBatch",
+  "project": "Brassworks Breach",
+  "version": "v0.1.33",
+  "status": "staged-docs-and-art-source-sheets",
+  "prepared_date": "2026-05-24",
+  "generated_at": "2026-05-24T12:05:51-04:00",
+  "write_scope": {
+    "documentation": "D:\\__MY APPS\\Unity Doom\\Documentation\\AssetProduction\\ThresholdRouteDressingBatch\\",
+    "art_staging": "D:\\__MY APPS\\Unity Doom\\Assets\\_Project\\ArtStaging\\ThresholdRouteDressingBatch\\"
+  },
+  "guardrails": {
+    "unity_only": true,
+    "external_dcc_required": false,
+    "blender_required": false,
+    "scene_placement": "none",
+    "gameplay_authority": false,
+    "route_blocking_authority": false,
+    "do_not_edit": [
+      "scene builder",
+      "validator",
+      "generated scenes",
+      "shared docs",
+      "build files",
+      "version files",
+      "git state"
+    ]
+  },
+  "deliverables": [
+    {
+      "path": "Documentation/AssetProduction/ThresholdRouteDressingBatch/THRESHOLD_ROUTE_DRESSING_BATCH_BRIEF_v0.1.33.md",
+      "type": "production brief",
+      "status": "ready"
+    },
+    {
+      "path": "Documentation/AssetProduction/ThresholdRouteDressingBatch/THRESHOLD_ROUTE_DRESSING_BATCH_STATUS_v0.1.33.json",
+      "type": "status json",
+      "status": "ready"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/ThresholdRouteDressingBatch_AssetManifest_v0.1.33.json",
+      "type": "asset manifest",
+      "status": "ready"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Materials/ThresholdRouteDressingBatch_MaterialNotes_v0.1.33.md",
+      "type": "material notes",
+      "status": "ready"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Materials/ThresholdRouteDressingBatch_MaterialSet_v0.1.33.json",
+      "type": "material set json",
+      "status": "ready"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_MaterialSwatches_1024.png",
+      "type": "texture review sheet",
+      "status": "ready"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_RouteIndicatorNameplates_1024.png",
+      "type": "route plate/nameplate atlas",
+      "status": "ready"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_GrimeGasketRivetAccents_1024.png",
+      "type": "grime/gasket/rivet accent atlas",
+      "status": "ready"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Previews/PREVIEW_ThresholdRouteDressingBatch_ContactSheet_v0.1.33.png",
+      "type": "contact sheet preview",
+      "status": "ready"
+    }
+  ],
+  "asset_families": {
+    "piston_door_braces": {
+      "requested": true,
+      "status": "specified"
+    },
+    "pipe_clamps_couplers": {
+      "requested": true,
+      "status": "specified"
+    },
+    "grime_panels": {
+      "requested": true,
+      "status": "specified"
+    },
+    "amber_route_indicator_plates": {
+      "requested": true,
+      "status": "specified"
+    },
+    "cable_conduit_bundles": {
+      "requested": true,
+      "status": "specified"
+    },
+    "threshold_nameplates": {
+      "requested": true,
+      "status": "specified"
+    },
+    "lift_safety_rails": {
+      "requested": true,
+      "status": "specified"
+    },
+    "gasket_seams": {
+      "requested": true,
+      "status": "specified"
+    },
+    "rivet_wear_accents": {
+      "requested": true,
+      "status": "specified"
+    }
+  },
+  "integration_readiness": {
+    "ready_for_main_lane_integration": true,
+    "ready_items": [
+      "Production brief with scope and acceptance criteria",
+      "Machine-readable manifest of build specs",
+      "Machine-readable material set",
+      "Importable PNG sheets for preview, route/nameplate decals, grime/gasket/rivet accents, and material swatches",
+      "Unity meta files should accompany staged assets in the art folder"
+    ],
+    "requires_main_lane_followup": [
+      "Create actual Unity material instances",
+      "Assemble prefabs from primitive/procedural specs",
+      "Decide scene placement and lighting context",
+      "Run in-Unity readability and route-clearance checks"
+    ]
+  },
+  "validation_checklist": [
+    "Only requested package folders were written",
+    "No scene builder files were edited",
+    "No validator files were edited",
+    "No generated scenes were edited",
+    "No shared docs were edited",
+    "No build or version files were edited",
+    "No git state was changed",
+    "Package includes all requested dressing families",
+    "Package includes Markdown brief, JSON status, JSON manifest, material notes, and PNG preview sheets",
+    "No Blender dependency introduced"
+  ]
+}

@@ -6,6 +6,8 @@ This checklist tracks implementation work. Detailed production tracking lives in
 
 - [x] Maintain `CONTINUATION_DIRECTIVE.md`.
 - [x] At the end of each completed step, update records, verify, commit/push when appropriate, and immediately begin the next highest-impact unfinished task.
+- [x] Default to ambitious milestone batching after `v0.1.32`; each compile should be a visible leap.
+- [x] Run independent asset, level, weapon/prop, enemy/readability, and QA work in parallel when write scopes can be separated.
 
 ## Completed
 
@@ -1779,6 +1781,37 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Add a docs-only `ValveWheelConsolePrototype` side-agent brief for the next likely route-safe prop slice.
 - [x] Refresh `V0RouteAudit` output for `v0.1.31`.
 - [x] Build, package, generate route-QA evidence, generate issue-triage evidence, and generate candidate-readiness evidence for `v0.1.31` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## v0.1.32 Valve Wheel Console Asset Promotion
+
+- [x] Add `ValveWheelConsolePrototype` runtime metadata for promoted route-safe pressure-console dressing.
+- [x] Add named `pipeworks_pressure_console` and `boilerheart_pressure_console` placements.
+- [x] Build the component from Unity-owned geometry: blackened iron backplates, raised panels, aged brass valve wheel rings, blackened iron spokes, brass grips/hubs, cream pressure gauges, dark needles, amber pilot lamps, pressure pipes, brass rivets, oil grime, soot, and worn highlights.
+- [x] Add validator coverage for promotion version, placement roles, required named hierarchy, material roles, detail counts, zero colliders, zero `NavMeshObstacle` components, and no gameplay-authority components.
+- [x] Mark `Documentation/AssetProduction/ValveWheelConsolePrototype/status.json` verified.
+- [x] Add `Documentation/ProductionManagement/BATCH_PRODUCTION_MODE.md`.
+- [x] Update the continuation automation to run a 30-minute PM review and enforce ambitious batching.
+- [x] Spawn parallel crews for route-dressing assets, level-density placement, weapon/prop staging, and enemy/readability staging.
+- [x] Refresh `V0RouteAudit` output for `v0.1.32`.
+- [x] Build, package, generate route-QA evidence, generate issue-triage evidence, and generate candidate-readiness evidence for `v0.1.32` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## v0.1.33 Visible Threshold And Route Dressing Milestone
+
+- [ ] Integrate the 10-family threshold/route dressing plan from `Documentation/Planning/V0_1_33_BatchPlan/`.
+- [ ] Implement `PistonDoorBracePrototype` across major gate/lift/hoist thresholds where clearance allows.
+- [ ] Implement `PipeClampCouplerSetPrototype` grouped placements across existing route pipework.
+- [ ] Implement `OilSootGrimePanelSetPrototype` grouped machinery/grime placements across all levels.
+- [ ] Implement `AmberIndicatorPlatePrototype` grouped route-attention plates across all levels.
+- [ ] Implement `BrassThresholdKickPlatePrototype` at repeated gate/lift/hoist aprons.
+- [ ] Implement `RivetedPatchRepairPlatePrototype` on route-adjacent walls and service panels.
+- [ ] Implement at least two optional families from pressure gasket rings, route return pipe markers, steam vent residue collars, and hoist chain anchor plates.
+- [ ] Touch at least four levels, with Level01 through Level05 preferred.
+- [ ] Use targeted compile, scene rebuild, level validation, and route smoke during development.
+- [ ] Run route audit and full V0 matrix only when the whole milestone is coherent.
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 

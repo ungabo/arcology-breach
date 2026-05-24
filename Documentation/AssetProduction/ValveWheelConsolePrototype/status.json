@@ -1,14 +1,14 @@
 {
   "component": "ValveWheelConsolePrototype",
   "project": "Brassworks Breach",
-  "status": "prepared",
+  "status": "verified",
   "last_updated": "2026-05-24",
   "folder": "D:\\__MY APPS\\Unity Doom\\Documentation\\AssetProduction\\ValveWheelConsolePrototype",
-  "scope": "Docs-only Unity production preparation for a future valve wheel wall console asset/lookdev pass.",
+  "scope": "Verified Unity-owned generated geometry component for route-safe valve wheel wall console dressing.",
   "constraints": [
-    "Only files inside the ValveWheelConsolePrototype documentation folder may be created or updated for this slice.",
-    "Do not modify existing code, scenes, build scripts, release notes, or shared status documents.",
-    "Do not introduce gameplay authority, puzzle state, input handling, runtime interaction logic, or build changes.",
+    "Implementation is owned by the main Unity integration lane.",
+    "The promoted component remains visual-only route dressing.",
+    "Do not introduce gameplay authority, puzzle state, input handling, runtime interaction logic, or build changes through this component.",
     "Prototype direction must remain Unity-only: primitives, procedural meshes, project-native materials, and Unity test renders."
   ],
   "north_star": {
@@ -31,12 +31,12 @@
     {
       "path": "D:\\__MY APPS\\Unity Doom\\Documentation\\AssetProduction\\ValveWheelConsolePrototype\\ValveWheelConsolePrototype_ProductionBrief.md",
       "type": "markdown_production_brief",
-      "status": "created"
+      "status": "verified"
     },
     {
       "path": "D:\\__MY APPS\\Unity Doom\\Documentation\\AssetProduction\\ValveWheelConsolePrototype\\status.json",
       "type": "status_json",
-      "status": "created"
+      "status": "verified"
     }
   ],
   "unity_construction_targets": {
@@ -85,13 +85,13 @@
     }
   ],
   "acceptance_criteria": [
-    "Console can be built in Unity from primitives, procedural meshes, project-native materials, and optional project-native decals.",
-    "Large valve wheel is the primary visual affordance and remains readable from normal gameplay distance.",
-    "Required visual elements are present: brass/blackened iron console, valve wheel, gauges, amber lamps, pipes, rivets, and oil grime.",
-    "No gameplay authority, puzzle state, input handling, runtime interaction logic, objective logic, or build/release changes are introduced.",
-    "Materials clearly distinguish brass, blackened iron, glass, amber emission, and grime.",
-    "Gauges and lamps imply future state without presenting authoritative live values.",
-    "Unity test renders show no missing materials, z-fighting, unreadable gauges, clipped lamps, or floating components."
+    "Console can be built in Unity from primitives, procedural meshes, project-native materials, and optional project-native decals. Status: passed.",
+    "Large valve wheel is the primary visual affordance and remains readable from normal gameplay distance. Status: passed.",
+    "Required visual elements are present: brass/blackened iron console, valve wheel, gauges, amber lamps, pipes, rivets, and oil grime. Status: passed.",
+    "No gameplay authority, puzzle state, input handling, runtime interaction logic, objective logic, or build/release changes are introduced. Status: passed.",
+    "Materials clearly distinguish brass, blackened iron, glass, amber emission, and grime. Status: passed.",
+    "Gauges and lamps imply future state without presenting authoritative live values. Status: passed.",
+    "Unity validation and full V0 matrix show no missing required hierarchy/material/count/route-safety gates. Status: passed."
   ],
   "validation_checklist": [
     "Review all changed files and confirm they are inside the target documentation folder.",
@@ -116,5 +116,22 @@
       "Pipes, rivets, or brackets appear detached.",
       "Asset implies active gameplay state before gameplay integration exists."
     ]
+  }
+  ,
+  "verification": {
+    "targetVersion": "v0.1.32",
+    "logPrefix": "v042",
+    "placements": [
+      "pipeworks_pressure_console",
+      "boilerheart_pressure_console"
+    ],
+    "windowsExecutable": "Builds/Windows/v0.1.32/BrassworksBreach_v0.1.32.exe",
+    "windowsPackage": "Builds/WindowsPackages/v0.1.32/BrassworksBreach_v0.1.32_Windows.zip",
+    "packageSha256": "4A4E6452875756E8D5A4FCA5CFF7D24844D9F476C52B4345BB34BF78E7A607AC",
+    "routeAudit": "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.32.md",
+    "qaPacket": "Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.32.md",
+    "issueTriage": "Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.32.md",
+    "candidateReadiness": "Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.32.md",
+    "matrix": "V0_BUILD_MATRIX_PASS"
   }
 }

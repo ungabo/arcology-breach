@@ -1,0 +1,417 @@
+{
+  "packet": "v0.1.33_threshold_route_dressing_milestone",
+  "created_local": "2026-05-24T11:52:04-04:00",
+  "updated_local": "2026-05-24T12:04:00-04:00",
+  "status": "planning_ready_docs_only",
+  "owned_write_scope": "Documentation/Planning/V0_1_33_BatchPlan/",
+  "scope_compliance": "This side-agent packet only writes under Documentation/Planning/V0_1_33_BatchPlan/.",
+  "target_version": "v0.1.33",
+  "batch_mode": true,
+  "batch_id": "v0.1.33_threshold_route_dressing_milestone",
+  "batch_posture": "visible milestone batch, not a one-prop release",
+  "big_leaps_per_compile": true,
+  "unity_only": true,
+  "external_dcc_tools": {
+    "blender": "not used",
+    "maya": "not used",
+    "substance": "not used",
+    "houdini": "not used"
+  },
+  "parent_lane_context": {
+    "v0.1.32_owner": "parent/main lane",
+    "v0.1.33_start_rule": "Begin implementation only after the parent lane completes or intentionally supersedes v0.1.32.",
+    "main_lane_owns": [
+      "Unity code",
+      "scene builder edits",
+      "generated scenes",
+      "validators",
+      "shared status docs",
+      "release notes",
+      "QA evidence",
+      "packaging",
+      "Git commits and pushes"
+    ]
+  },
+  "batch_goals": [
+    "Ship a broad 10-family environment/route-dressing milestone in one version.",
+    "Make pressure gates, service lifts, route valves, hoists, route returns, and final thresholds visibly heavier and more authored.",
+    "Improve route comprehension through material language and placement rhythm without new gameplay prompts or route logic.",
+    "Keep all components Unity-only through primitives, procedural mesh helpers, generated quads/decals, ProBuilder-style geometry if already present, and existing in-project materials.",
+    "Preserve existing gameplay authority with no route-state ownership, triggers, pickup authority, transition logic, enemy blockers, damage behavior, or nav obstacles.",
+    "Use targeted validation during development and run one route audit plus one full V0 matrix after the batch is coherent."
+  ],
+  "ship_targets": {
+    "preferred_family_count": 10,
+    "minimum_family_count_if_crowding": 8,
+    "minimum_levels_touched": 5,
+    "minimum_grouped_placements_per_level": 7,
+    "minimum_piston_brace_thresholds": 3,
+    "preferred_piston_brace_thresholds": 5,
+    "not_acceptable": [
+      "fewer than 8 families",
+      "fewer than 4 levels touched",
+      "one isolated prop promotion",
+      "any gameplay-authority transfer from existing route systems"
+    ]
+  },
+  "components": [
+    {
+      "id": "TRD-001",
+      "component": "PistonDoorBracePrototype",
+      "role": "Heavy side braces at pressure gates, lift thresholds, hoists, and final route thresholds.",
+      "required_for_minimum_batch": true,
+      "preferred_target": "5 threshold roles",
+      "minimum_target": "3 threshold roles if clearance fails",
+      "route_safe_contract": "Wall/threshold-adjacent visual geometry only; center aperture remains clear; no colliders or gameplay components.",
+      "initial_route_risk": "medium-low",
+      "minimum_counts": {
+        "braceAssemblies": 2,
+        "cylinderBodies": 2,
+        "brassRods": 2,
+        "rivetsOrBolts": 12,
+        "amberIndicators": 2,
+        "grimeOrSootDetails": 2
+      }
+    },
+    {
+      "id": "TRD-002",
+      "component": "PipeClampCouplerSetPrototype",
+      "role": "Extra pipe collars, flanges, short couplers, and clamp bands around existing route pipework.",
+      "required_for_minimum_batch": true,
+      "preferred_target": "10 grouped placements across Level01-Level05",
+      "minimum_target": "8 grouped placements across at least 4 levels",
+      "route_safe_contract": "Attach to existing wall, ceiling, or pipe dressing; no new pipe crosses walkable space.",
+      "initial_route_risk": "low",
+      "minimum_counts": {
+        "clampsOrCouplers": 4,
+        "fasteners": 8
+      }
+    },
+    {
+      "id": "TRD-003",
+      "component": "OilSootGrimePanelSetPrototype",
+      "role": "Flat oil, soot, scorch, leak, and worn-edge panels near machinery, valve consoles, lift motors, and threshold seams.",
+      "required_for_minimum_batch": true,
+      "preferred_target": "15 grouped placements, at least 3 per level",
+      "minimum_target": "10 grouped placements across all levels",
+      "route_safe_contract": "Flush decals, quads, or paper-thin panels; no collision and no obstruction of prompts, pickups, hazards, enemies, or route-state cues.",
+      "initial_route_risk": "low",
+      "minimum_counts": {
+        "grimePanels": 3
+      }
+    },
+    {
+      "id": "TRD-004",
+      "component": "AmberIndicatorPlatePrototype",
+      "role": "Small amber route-attention plates near pressure locks, valves, lifts, restored paths, and route returns.",
+      "required_for_minimum_batch": true,
+      "preferred_target": "10 grouped placements across all levels",
+      "minimum_target": "8 grouped placements across all levels",
+      "route_safe_contract": "Diegetic status dressing only; subtle emissive material if needed; no prompts, buttons, or new dynamic lights.",
+      "initial_route_risk": "low",
+      "minimum_counts": {
+        "indicatorPlates": 2,
+        "fasteners": 4
+      }
+    },
+    {
+      "id": "TRD-005",
+      "component": "BrassThresholdKickPlatePrototype",
+      "role": "Thin brass and blackened-iron sill or wall kick plates at repeated route thresholds.",
+      "required_for_minimum_batch": true,
+      "preferred_target": "8 threshold grouped placements",
+      "minimum_target": "5 threshold grouped placements across all levels",
+      "route_safe_contract": "Flush or near-flush trim with maximum visual rise target of 0.03m; no colliders, cover, ramps, or snag geometry.",
+      "initial_route_risk": "low",
+      "minimum_counts": {
+        "trimPieces": 2,
+        "fasteners": 6
+      }
+    },
+    {
+      "id": "TRD-006",
+      "component": "RivetedPatchRepairPlatePrototype",
+      "role": "Small bolted repair plates and stamped metal patches on route-adjacent wall panels.",
+      "required_for_minimum_batch": true,
+      "preferred_target": "15 grouped placements",
+      "minimum_target": "10 grouped placements across all levels",
+      "route_safe_contract": "Wall-bound noninteractive dressing only; no signage objective, route blocker, prompt, or gameplay component.",
+      "initial_route_risk": "low",
+      "minimum_counts": {
+        "repairPlates": 3,
+        "rivetsOrBolts": 12
+      }
+    },
+    {
+      "id": "TRD-007",
+      "component": "PressureSealGasketRingPrototype",
+      "role": "Rubberized or dark iron gasket rings and seal bands around locked gates, lift frames, and heavy machinery seams.",
+      "required_for_minimum_batch": false,
+      "preferred_target": "6 grouped placements",
+      "minimum_target": "4 grouped placements if selected",
+      "route_safe_contract": "Surface-mounted dressing; does not change door frames, route apertures, or transition volumes.",
+      "initial_route_risk": "low",
+      "minimum_counts": {
+        "sealOrGasketBands": 2,
+        "fasteners": 6
+      }
+    },
+    {
+      "id": "TRD-008",
+      "component": "RouteReturnPipeMarkerPrototype",
+      "role": "Short capped pipe stubs, elbow markers, and brass return-flow tags that reinforce where pressure has been routed.",
+      "required_for_minimum_batch": false,
+      "preferred_target": "8 grouped placements",
+      "minimum_target": "5 grouped placements if selected",
+      "route_safe_contract": "Uses existing route-state color language; no new interaction or objective logic.",
+      "initial_route_risk": "low",
+      "minimum_counts": {
+        "pipeStubsOrElbows": 2,
+        "flowTags": 1,
+        "fasteners": 4
+      }
+    },
+    {
+      "id": "TRD-009",
+      "component": "SteamVentResidueCollarPrototype",
+      "role": "Soot-dark vent collars, heat halo plates, and condensation or oil marks near existing steam, furnace, and relief machinery.",
+      "required_for_minimum_batch": false,
+      "preferred_target": "8 grouped placements",
+      "minimum_target": "5 grouped placements if selected",
+      "route_safe_contract": "Visual residue only; no steam hazards, particles, damage, or visibility-blocking effects.",
+      "initial_route_risk": "low",
+      "minimum_counts": {
+        "residueCollarsOrHeatHalos": 2,
+        "grimePanels": 2
+      }
+    },
+    {
+      "id": "TRD-010",
+      "component": "HoistChainAnchorPlatePrototype",
+      "role": "Wall or ceiling hoist anchor plates, chain brackets, pulley backers, and riveted mounts near lift and hoist thresholds.",
+      "required_for_minimum_batch": false,
+      "preferred_target": "6 grouped placements",
+      "minimum_target": "4 grouped placements if selected",
+      "route_safe_contract": "Visual mount dressing only; no physics chains, collision, moving platforms, or transition authority.",
+      "initial_route_risk": "low",
+      "minimum_counts": {
+        "anchorPlatesOrBrackets": 2,
+        "fasteners": 8
+      }
+    }
+  ],
+  "minimum_required_families": [
+    "PistonDoorBracePrototype",
+    "PipeClampCouplerSetPrototype",
+    "OilSootGrimePanelSetPrototype",
+    "AmberIndicatorPlatePrototype",
+    "BrassThresholdKickPlatePrototype",
+    "RivetedPatchRepairPlatePrototype"
+  ],
+  "optional_family_pool_for_minimum_eight": [
+    "PressureSealGasketRingPrototype",
+    "RouteReturnPipeMarkerPrototype",
+    "SteamVentResidueCollarPrototype",
+    "HoistChainAnchorPlatePrototype"
+  ],
+  "suggested_placements": {
+    "Level01": {
+      "name": "Brassworks Intake",
+      "roles": [
+        "PistonDoorBracePrototype_intake_pressure_gate_brace",
+        "PipeClampCouplerSetPrototype_intake_gate_pipe_clamps",
+        "OilSootGrimePanelSetPrototype_intake_gate_lift_grime",
+        "AmberIndicatorPlatePrototype_intake_key_gate_route_plates",
+        "BrassThresholdKickPlatePrototype_intake_gate_lift_kick_plates",
+        "RivetedPatchRepairPlatePrototype_intake_route_wall_patches",
+        "PressureSealGasketRingPrototype_intake_pressure_gate_seals",
+        "RouteReturnPipeMarkerPrototype_intake_key_return_pipe_markers",
+        "SteamVentResidueCollarPrototype_intake_relief_vent_residue",
+        "HoistChainAnchorPlatePrototype_intake_service_lift_anchors"
+      ]
+    },
+    "Level02": {
+      "name": "Pipeworks Annex",
+      "roles": [
+        "PistonDoorBracePrototype_pipeworks_boiler_lift_brace",
+        "PipeClampCouplerSetPrototype_pipeworks_routing_valve_couplers",
+        "OilSootGrimePanelSetPrototype_pipeworks_valve_lift_grime",
+        "AmberIndicatorPlatePrototype_pipeworks_valve_route_plates",
+        "BrassThresholdKickPlatePrototype_pipeworks_lift_kick_plates",
+        "RivetedPatchRepairPlatePrototype_pipeworks_service_wall_patches",
+        "PressureSealGasketRingPrototype_pipeworks_locked_lift_seals",
+        "RouteReturnPipeMarkerPrototype_pipeworks_restored_flow_markers",
+        "SteamVentResidueCollarPrototype_pipeworks_pipe_leak_residue",
+        "HoistChainAnchorPlatePrototype_pipeworks_lift_anchors"
+      ]
+    },
+    "Level03": {
+      "name": "Boilerheart Core",
+      "roles": [
+        "PistonDoorBracePrototype_boilerheart_foundry_lift_brace",
+        "PipeClampCouplerSetPrototype_boilerheart_pressure_valve_couplers",
+        "OilSootGrimePanelSetPrototype_boilerheart_valve_heat_grime",
+        "AmberIndicatorPlatePrototype_boilerheart_valve_lift_plates",
+        "BrassThresholdKickPlatePrototype_boilerheart_lift_ring_kick_plates",
+        "RivetedPatchRepairPlatePrototype_boilerheart_boiler_wall_patches",
+        "PressureSealGasketRingPrototype_boilerheart_pressure_valve_seals",
+        "RouteReturnPipeMarkerPrototype_boilerheart_valve_return_markers",
+        "SteamVentResidueCollarPrototype_boilerheart_steam_hazard_residue",
+        "HoistChainAnchorPlatePrototype_boilerheart_lift_anchors"
+      ]
+    },
+    "Level04": {
+      "name": "Furnace Foundry",
+      "roles": [
+        "PistonDoorBracePrototype_foundry_emergency_hoist_brace",
+        "PipeClampCouplerSetPrototype_foundry_heat_bypass_couplers",
+        "OilSootGrimePanelSetPrototype_foundry_furnace_hoist_grime",
+        "AmberIndicatorPlatePrototype_foundry_hoist_route_plates",
+        "BrassThresholdKickPlatePrototype_foundry_hoist_kick_plates",
+        "RivetedPatchRepairPlatePrototype_foundry_battered_wall_patches",
+        "PressureSealGasketRingPrototype_foundry_heat_gate_seals",
+        "RouteReturnPipeMarkerPrototype_foundry_emergency_flow_markers",
+        "SteamVentResidueCollarPrototype_foundry_furnace_residue",
+        "HoistChainAnchorPlatePrototype_foundry_emergency_hoist_anchors"
+      ]
+    },
+    "Level05": {
+      "name": "Governor Core",
+      "roles": [
+        "PistonDoorBracePrototype_governor_final_hoist_brace",
+        "PipeClampCouplerSetPrototype_governor_final_pressure_couplers",
+        "OilSootGrimePanelSetPrototype_governor_warden_hoist_grime",
+        "AmberIndicatorPlatePrototype_governor_final_route_plates",
+        "BrassThresholdKickPlatePrototype_governor_final_hoist_kick_plates",
+        "RivetedPatchRepairPlatePrototype_governor_regulator_wall_patches",
+        "PressureSealGasketRingPrototype_governor_master_hoist_seals",
+        "RouteReturnPipeMarkerPrototype_governor_final_flow_markers",
+        "SteamVentResidueCollarPrototype_governor_regulator_residue",
+        "HoistChainAnchorPlatePrototype_governor_final_hoist_anchors"
+      ]
+    }
+  },
+  "big_leap_compile_cadence": [
+    {
+      "checkpoint": "Compile A",
+      "scope": [
+        "metadata batch ID",
+        "shared helper methods",
+        "validators",
+        "OilSootGrimePanelSetPrototype",
+        "RivetedPatchRepairPlatePrototype",
+        "PipeClampCouplerSetPrototype"
+      ]
+    },
+    {
+      "checkpoint": "Compile B",
+      "scope": [
+        "AmberIndicatorPlatePrototype",
+        "BrassThresholdKickPlatePrototype",
+        "PressureSealGasketRingPrototype",
+        "RouteReturnPipeMarkerPrototype"
+      ]
+    },
+    {
+      "checkpoint": "Compile C",
+      "scope": [
+        "PistonDoorBracePrototype",
+        "SteamVentResidueCollarPrototype",
+        "HoistChainAnchorPlatePrototype",
+        "generated Level01-Level05 scene rebuild"
+      ]
+    },
+    {
+      "checkpoint": "Final verification",
+      "scope": [
+        "targeted route smoke tests",
+        "route audit",
+        "one full V0 matrix"
+      ]
+    }
+  ],
+  "acceptance_gates": [
+    "Implementation visibly reads as a milestone route-dressing pass, not a single asset promotion.",
+    "Preferred ship target is all 10 families; minimum acceptable target is 8 families if targeted validation proves crowding.",
+    "TRD-001 through TRD-006 are preserved in any reduced scope.",
+    "At least 2 of TRD-007 through TRD-010 ship if the batch is reduced to 8 families.",
+    "Level01 through Level05 each receive at least 7 grouped placements.",
+    "Piston braces appear on at least 3 current route thresholds and preferably all 5 listed threshold roles.",
+    "Root names contain exact component names and placement roles.",
+    "Metadata records component name, placement role, promotion version v0.1.33, and batch ID v0.1.33_threshold_route_dressing_milestone.",
+    "Named hierarchy exposes major material and detail roles.",
+    "Material-role coverage includes blackened iron, aged brass, copper or pipe metal where relevant, amber glass or enamel where relevant, dark hardware, oil or soot or scorch wear, and worn edges.",
+    "No component hierarchy contains colliders, trigger colliders, NavMeshObstacle, route-state controllers, interactables, pickup scripts, damage scripts, transition scripts, objective scripts, physics chain components, or prompt ownership.",
+    "Amber plates and lamps remain diegetic and do not imply buttons, quest markers, or new required interactions.",
+    "Existing route triggers, pickups, locked gates, lift transitions, Warden defeat gating, enemy placement, weapon pickups, and hazard behavior remain authoritative and unchanged.",
+    "Route audit reports no blockers after placement.",
+    "Level validation checks expected roles, material roles, detail counts, metadata, and zero-collider/no-authority constraints.",
+    "Targeted route smoke tests pass before the full V0 matrix.",
+    "One full V0 matrix passes after the complete batch is assembled and tuned."
+  ],
+  "validation_strategy": {
+    "batch_validator": "ValidateThresholdRouteDressingMilestone(sceneName, expectedRoles)",
+    "component_validators": [
+      "ValidatePistonDoorBracePrototype(sceneName, objectName, expectedRole)",
+      "ValidatePipeClampCouplerSetPrototype(sceneName, objectName, expectedRole)",
+      "ValidateOilSootGrimePanelSetPrototype(sceneName, objectName, expectedRole)",
+      "ValidateAmberIndicatorPlatePrototype(sceneName, objectName, expectedRole)",
+      "ValidateBrassThresholdKickPlatePrototype(sceneName, objectName, expectedRole)",
+      "ValidateRivetedPatchRepairPlatePrototype(sceneName, objectName, expectedRole)",
+      "ValidatePressureSealGasketRingPrototype(sceneName, objectName, expectedRole)",
+      "ValidateRouteReturnPipeMarkerPrototype(sceneName, objectName, expectedRole)",
+      "ValidateSteamVentResidueCollarPrototype(sceneName, objectName, expectedRole)",
+      "ValidateHoistChainAnchorPlatePrototype(sceneName, objectName, expectedRole)"
+    ],
+    "checks": [
+      "Find each expected grouped root by exact object name.",
+      "Confirm metadata component, component name, placement role, promotion version, and milestone batch ID.",
+      "Confirm named child groups for structural plates, pipes or clamps, indicators, grime, fasteners, threshold trim, gasket or seal, return marker, vent residue, and hoist anchor roles as relevant.",
+      "Count renderer-bearing children for required part types.",
+      "Confirm required material-role names through materials, renderer names, child names, or metadata.",
+      "Confirm zero colliders, zero trigger colliders, zero NavMeshObstacle, and zero gameplay authority components.",
+      "Confirm piston brace clearance markers or measured named bounds keep the route aperture unobstructed.",
+      "Confirm amber, green, and red state language is consistent with existing route state.",
+      "Confirm no dressing root is placed inside known transition, pickup, hazard, enemy, or boss-combat ownership volumes.",
+      "Confirm milestone family count and per-level grouped placement count meet batch gates."
+    ]
+  },
+  "targeted_tests_before_full_matrix": [
+    "Compile/editor validation after Compile A foundation families.",
+    "Compile/editor validation after Compile B route language families.",
+    "Compile/editor validation after Compile C threshold mass families and generated scene rebuild.",
+    "Level validation for Level01 through Level05 with milestone dressing checks enabled.",
+    "Targeted Level01 smoke: spawn to key gate to service lift.",
+    "Targeted Level02 smoke: locked Boilerheart lift, routing valve, restored lift route, and Lancer lane visibility.",
+    "Targeted Level03 smoke: pressure valve, steam hazard lanes, scattergun pickup readability, Bellows Node space, and Foundry lift approach.",
+    "Targeted Level04 smoke: furnace hazard lanes, Bulwark combat footprint, secret-cache approach, and emergency hoist threshold.",
+    "Targeted Level05 smoke: Warden arena movement, locked final hoist, Warden defeat unlock, and final route readability.",
+    "Focused first-person visual review at each piston brace and each dense amber-plate cluster.",
+    "Route audit after targeted smoke passes.",
+    "One full V0 build matrix after the batch is stable."
+  ],
+  "implementation_order": [
+    "Confirm v0.1.32 is complete or intentionally superseded.",
+    "Add shared milestone batch ID, role registry, grouped placement table, and validator scaffolding.",
+    "Implement foundation families in one leap: grime panels, riveted repair plates, pipe clamps/couplers.",
+    "Implement route language families in one leap: amber plates, brass threshold kick plates, seal/gasket rings, return pipe markers.",
+    "Implement threshold mass families in one leap: piston door braces, steam vent residue collars, hoist chain anchor plates.",
+    "Rebuild Level01 through Level05 and run level validation.",
+    "Run targeted route smokes and first-person visual review.",
+    "Remove or thin grouped placements that crowd route readability, hazard tells, pickup readability, combat movement, or final-hoist clarity.",
+    "Run route audit and one full V0 matrix.",
+    "Refresh release notes, candidate readiness, work ledger, roadmap, and session log in the main lane after the verified milestone batch is complete."
+  ],
+  "side_agent_boundaries": [
+    "This side agent writes only inside Documentation/Planning/V0_1_33_BatchPlan/.",
+    "Do not edit Assets, Tools, generated scenes, build scripts, release docs, shared status docs, or Git history from this side-agent scope.",
+    "Parent/main lane owns Unity implementation, validators, generated scene files, test evidence, package artifacts, releases, commits, and pushes.",
+    "Future side agents should use disjoint folders or file sets and prepare batch-ready briefs, acceptance gates, material recipes, or QA checklists.",
+    "Do not revert or overwrite active v0.1.32 work or unrelated user changes."
+  ],
+  "verification_commands": [
+    "Get-Content 'D:\\__MY APPS\\Unity Doom\\Documentation\\Planning\\V0_1_33_BatchPlan\\THRESHOLD_ROUTE_DRESSING_BATCH_STATUS.json' | ConvertFrom-Json | Out-Null",
+    "(Get-Content 'D:\\__MY APPS\\Unity Doom\\Documentation\\Planning\\V0_1_33_BatchPlan\\THRESHOLD_ROUTE_DRESSING_BATCH_STATUS.json' | ConvertFrom-Json).components.Count",
+    "git status --short --untracked-files=all -- Documentation/Planning/V0_1_33_BatchPlan"
+  ]
+}

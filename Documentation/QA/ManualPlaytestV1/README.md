@@ -1,18 +1,18 @@
 ﻿# Manual Playtest V1 Route Sheets
 
-Scope: `v0.1.31` Windows build, current V1 manual-playtest path.
+Scope: `v0.1.32` Windows build, current V1 manual-playtest path.
 
 Build to launch:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.1.31\BrassworksBreach_v0.1.31.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.1.32\BrassworksBreach_v0.1.32.exe`
 
 Current generated QA packet:
 
-`Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.31.md`
+`Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.32.md`
 
 Current generated issue triage packet:
 
-`Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.31.md`
+`Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.32.md`
 
 Primary goal: give a human tester enough route, control, pass/fail, timing, and note structure to evaluate the current five-level run without asking for automation or Codex help.
 

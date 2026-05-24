@@ -1,0 +1,572 @@
+{
+  "packet": "v0.1.33_level_density_batch",
+  "created_local": "2026-05-24T11:59:39-04:00",
+  "status": "planning_ready_docs_only",
+  "owned_write_scope": "Documentation/Planning/V0_1_33_LevelDensityBatch/",
+  "scope_compliance": "This side packet only writes under D:\\__MY APPS\\Unity Doom\\Documentation\\Planning\\V0_1_33_LevelDensityBatch\\.",
+  "target_version": "v0.1.33",
+  "batch_mode": true,
+  "batch_goal": "Produce a visible five-level density leap in one compile by layering route-dressing families at objectives, locks, hazards, secrets, combat landmarks, and transitions without changing gameplay authority.",
+  "parent_lane_owns": [
+    "Unity code",
+    "scene builder edits",
+    "generated scenes",
+    "validators",
+    "shared status docs",
+    "release docs",
+    "QA evidence",
+    "packaging",
+    "Git commits and pushes"
+  ],
+  "inputs_reviewed": [
+    "Documentation/LEVEL_DESIGN_AND_MAPS.md",
+    "Documentation/PARALLEL_LEVEL_PRODUCTION_MAPS.md",
+    "Documentation/Planning/V0_1_33_BatchPlan/THRESHOLD_ROUTE_DRESSING_BATCH_PLAN_v0.1.33.md",
+    "Documentation/Planning/V0_1_33_BatchPlan/THRESHOLD_ROUTE_DRESSING_BATCH_STATUS.json",
+    "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.32.md",
+    "Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.32.md",
+    "Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.32.md",
+    "Documentation/Planning/V0_1_29_RouteTriage/ROUTE_TRIAGE_PLAN_v0.1.29.md"
+  ],
+  "baseline": {
+    "route_audit_v0_1_32": "No route-blocking scene composition issues found by deterministic audit.",
+    "human_review_still_required": [
+      "movement comfort",
+      "encounter pacing",
+      "route readability",
+      "hazard readability",
+      "boss clarity",
+      "secret discoverability",
+      "audio mix"
+    ]
+  },
+  "one_compile_visible_leap": {
+    "strategy": "Layer multiple families per route beat rather than promoting isolated props.",
+    "must_be_visible_at_runtime": [
+      "Each level has at least one hero threshold stack.",
+      "Critical locks and objectives have amber/red/green route-state support.",
+      "Pipe arteries visually connect objectives to locks and exits.",
+      "Hazard and combat arenas gain readable edge language.",
+      "Secrets use consistent optional clue motifs."
+    ],
+    "density_targets_per_level": {
+      "hero_anchor_stacks": "1-2",
+      "objective_lock_clusters": "2-4",
+      "route_breadcrumb_runs": "3-6",
+      "combat_hazard_edge_clusters": "2-4",
+      "secret_micro_clues": "1-3"
+    }
+  },
+  "route_dressing_families": [
+    {
+      "id": "LDF-001",
+      "name": "Threshold Landmark Frames",
+      "gameplay_intent": "Make gates, lifts, hoists, and boss exits read as major route state machines before interaction.",
+      "visible_density_contribution": "Big silhouette frames, piston braces, sill plates, cable drums, side-wall mass.",
+      "route_safety_risks": [
+        "narrowing transition apertures",
+        "hiding lock signals",
+        "crowding spawn or exit comfort space"
+      ],
+      "validation_gates": [
+        "No colliders or gameplay authority under dressing roots.",
+        "Center aperture remains visually clear.",
+        "First-person screenshot confirms lock or exit is readable.",
+        "No dressing root is inside transition volumes."
+      ],
+      "priority": "must_ship"
+    },
+    {
+      "id": "LDF-002",
+      "name": "Pressure Pipe Arteries",
+      "gameplay_intent": "Visually explain that pressure moves from objective to lock to exit.",
+      "visible_density_contribution": "Copper and blackened pipe runs, clamp collars, feed or return labels, short overhead bundles.",
+      "route_safety_risks": [
+        "pipes crossing walkable lanes",
+        "visual clutter over enemy tells",
+        "false route direction"
+      ],
+      "validation_gates": [
+        "Pipe runs are wall or ceiling bound.",
+        "No route lane below 2.2m wide is reduced.",
+        "Color and state match objective progression."
+      ],
+      "priority": "must_ship"
+    },
+    {
+      "id": "LDF-003",
+      "name": "Objective Machine Constellations",
+      "gameplay_intent": "Make keys, valves, regulators, weapon displays, and Warden locks feel like mechanical systems.",
+      "visible_density_contribution": "Gauge banks, control plates, nameplates, wheel frames, plinth crowns, status bulbs.",
+      "route_safety_risks": [
+        "hiding pickups or prompts",
+        "implying extra interactions",
+        "masking valve or pickup state"
+      ],
+      "validation_gates": [
+        "Prompt or pickup remains visible from approach.",
+        "No extra interactables are introduced.",
+        "Metadata marks support objects visual-only."
+      ],
+      "priority": "must_ship"
+    },
+    {
+      "id": "LDF-004",
+      "name": "Route-State Signal Chains",
+      "gameplay_intent": "Teach amber objective, red locked or unsafe, and green restored or exit language repeatedly across the run.",
+      "visible_density_contribution": "Amber enamel plates, red lock lamps, green exit lamps, small repeating signal beads.",
+      "route_safety_risks": [
+        "conflicting with existing red or green state",
+        "making secrets look mandatory",
+        "over-lighting combat arenas"
+      ],
+      "validation_gates": [
+        "Color audit per level.",
+        "Amber does not mark final exit.",
+        "Green is reserved for restored route, safe, or exit state.",
+        "No new dynamic lights unless accepted by the main lane."
+      ],
+      "priority": "must_ship"
+    },
+    {
+      "id": "LDF-005",
+      "name": "Safe-Lane Floor Grammar",
+      "gameplay_intent": "Show where the player can stand, turn, retreat, and board lifts without reading UI text.",
+      "visible_density_contribution": "Flush brass strips, blackened kick plates, heat-safe edge bands, worn traffic paths.",
+      "route_safety_risks": [
+        "snag geometry",
+        "fake ramps or cover",
+        "misleading hazard-safe zones",
+        "VR comfort loss"
+      ],
+      "validation_gates": [
+        "Trim height target stays at or below 0.03m.",
+        "No colliders.",
+        "Hazard-edge markings match actual damage zones.",
+        "Lift or hoist boarding areas preserve planned comfort space."
+      ],
+      "priority": "must_ship"
+    },
+    {
+      "id": "LDF-006",
+      "name": "Secret Clue Motifs",
+      "gameplay_intent": "Make optional caches discoverable through a consistent language across Level01, Level02, Level04, and future Level05.",
+      "visible_density_contribution": "Chalk marks, missing rivets, cold pipe labels, coal dust trails, clerk misfile labels.",
+      "route_safety_risks": [
+        "pulling players off critical route during combat",
+        "over-signaling secrets",
+        "blocking cache entrances"
+      ],
+      "validation_gates": [
+        "Secret clue appears outside active combat or hazard lane.",
+        "Main route signage remains stronger than secret clue.",
+        "Secret reward remains visible after entry."
+      ],
+      "priority": "should_ship"
+    },
+    {
+      "id": "LDF-007",
+      "name": "Combat Read Cover Dressing",
+      "gameplay_intent": "Make cover and arena edges look intentional while preserving enemy movement and player escape routes.",
+      "visible_density_contribution": "Skins on existing benches, pipe elbows, regulator pylons, tool racks, broken cradle frames.",
+      "route_safety_risks": [
+        "creating new collision",
+        "changing cover strength",
+        "hiding enemy silhouettes"
+      ],
+      "validation_gates": [
+        "Visual-only unless attached to existing collision.",
+        "Enemy approach and projectile lanes remain readable.",
+        "Boss pylons do not trivialize line-of-sight."
+      ],
+      "priority": "must_ship"
+    },
+    {
+      "id": "LDF-008",
+      "name": "Hazard Tell Amplifiers",
+      "gameplay_intent": "Make steam and furnace hazards readable before damage and after shutdown.",
+      "visible_density_contribution": "Warning collars, heat shields, damper plates, safe-state relief lamps, steam baffle frames.",
+      "route_safety_risks": [
+        "masking active hazard VFX",
+        "implying inactive hazards are safe too early",
+        "crowding dodge lanes"
+      ],
+      "validation_gates": [
+        "Warning cue visible before hazard.",
+        "Shutdown or vented state differs from active.",
+        "No dressing placed inside damage ownership volumes."
+      ],
+      "priority": "must_ship"
+    },
+    {
+      "id": "LDF-009",
+      "name": "Skyline Machinery Mass",
+      "gameplay_intent": "Add large background mechanical identity without changing route geometry.",
+      "visible_density_contribution": "High wall gantries, rotating silhouettes, governor drums, hammer presses, distant pipe racks.",
+      "route_safety_risks": [
+        "performance cost",
+        "visual noise behind enemies",
+        "accidental route affordances"
+      ],
+      "validation_gates": [
+        "Static or cheap motion only.",
+        "Collision disabled.",
+        "Visible from route but not mistaken for traversal.",
+        "Quality downshift can simplify detail."
+      ],
+      "priority": "should_ship"
+    },
+    {
+      "id": "LDF-010",
+      "name": "Local Crew Evidence",
+      "gameplay_intent": "Add story density that makes each space feel worked-in and abandoned under pressure.",
+      "visible_density_contribution": "Tool trays, work orders, failed repair plates, soot trails, plaque staging, maintenance clutter.",
+      "route_safety_risks": [
+        "hiding pickups",
+        "cluttering floors",
+        "drawing attention away from objective text"
+      ],
+      "validation_gates": [
+        "Floor clutter stays outside main lanes.",
+        "Pickups and plaques remain unobstructed.",
+        "No small objects in first combat retreat paths."
+      ],
+      "priority": "should_ship"
+    }
+  ],
+  "level_density_map": {
+    "Level01": {
+      "name": "Brassworks Intake",
+      "headline_intent": "Teach movement, key, pressure gate, route state color, service lift, and first secret language through a dense but safe service-entrance pass.",
+      "hero_anchor_stack": "Gate Overlook and Pressure Gate, x -16..8, z -4..7, plus Service Lift x -3..7, z 18..24.",
+      "zones": [
+        {
+          "zone": "Soot Service Entry to Maintenance Throat",
+          "coordinates": "x -6..6, z -24..-16 into x -5..5, z -16..-8",
+          "families": ["LDF-002", "LDF-004", "LDF-005", "LDF-010"],
+          "gameplay_intent": "Establish forward pressure-pipe pull and amber breadcrumbing before combat.",
+          "route_safety_risks": ["first movement lane clutter", "route looks narrower than actual geometry"],
+          "validation_gates": ["Main path identifiable within 3 seconds from spawn.", "No trim or cable narrows the throat."]
+        },
+        {
+          "zone": "Repair Bay",
+          "coordinates": "x -18..6, z -18..-6; first Scrapper near x -10, z -11",
+          "families": ["LDF-007", "LDF-010", "LDF-002"],
+          "gameplay_intent": "Make first cover and workbench space readable without cornering the player.",
+          "route_safety_risks": ["clutter around first Scrapper", "blocked retreat path"],
+          "validation_gates": ["Two side routes around bench dressing remain visible.", "First combat still avoids spawn-behind pressure."]
+        },
+        {
+          "zone": "Gate Overlook and Pressure Gate",
+          "coordinates": "x -16..4, z -4..6 and x -4..8, z 3..7",
+          "families": ["LDF-001", "LDF-002", "LDF-003", "LDF-004", "LDF-005"],
+          "gameplay_intent": "Make locked route, key need, and restored pressure state clear.",
+          "route_safety_risks": ["aperture crowding", "red/green state confusion"],
+          "validation_gates": ["Locked gate screenshot shows red state and key branch.", "Open-state screenshot shows green route/lift continuation."]
+        },
+        {
+          "zone": "Gear-Key Workshop",
+          "coordinates": "x 8..24, z -8..6; dormant Scrapper near x 18, z -1",
+          "families": ["LDF-003", "LDF-004", "LDF-010", "LDF-006"],
+          "gameplay_intent": "Crown the key plinth and make the branch feel mechanically purposeful.",
+          "route_safety_risks": ["hidden key pickup", "side clutter appears interactive"],
+          "validation_gates": ["Gear key remains visible from approach.", "Acquisition VFX remains unobstructed."]
+        },
+        {
+          "zone": "Secret Intake Cache",
+          "coordinates": "x 16..28, z -22..-14; target x 21, z -18",
+          "families": ["LDF-006", "LDF-010", "LDF-002"],
+          "gameplay_intent": "Introduce optional secret clue grammar.",
+          "route_safety_risks": ["secret clue overpowers main route", "pipe rack blocks access"],
+          "validation_gates": ["Secret looks optional.", "Reward pickup line clear once inside."]
+        },
+        {
+          "zone": "Furnace Control Room and Service Lift",
+          "coordinates": "x -8..14, z 8..18 and x -3..7, z 18..24",
+          "families": ["LDF-001", "LDF-002", "LDF-004", "LDF-005", "LDF-010"],
+          "gameplay_intent": "Make the exit-side fight and lift feel like the first pressure restoration success.",
+          "route_safety_risks": ["crowded transition trigger", "reduced lift comfort area"],
+          "validation_gates": ["Preserve 4m lift turning space where planned.", "Green lift language visible after gate."]
+        }
+      ],
+      "targeted_smoke": "Spawn to key, gate, lift, and intake secret clue."
+    },
+    "Level02": {
+      "name": "Pipeworks Annex",
+      "headline_intent": "Make the locked Boilerheart lift, west routing valve, east ranged pressure, and green return route read as one pipe-routing system.",
+      "hero_anchor_stack": "Locked Lift Lobby x -12..16, z 16..26 and Boilerheart Lift x -4..8, z 26..34.",
+      "zones": [
+        {
+          "zone": "Arrival Lift and Baffle Corridor",
+          "coordinates": "x -5..7, z -32..-24 into x -8..8, z -20..-8",
+          "families": ["LDF-002", "LDF-004", "LDF-005", "LDF-007"],
+          "gameplay_intent": "Pull north through alternating cover rhythm.",
+          "route_safety_risks": ["gaps under 2.2m", "snagging while backing from Scrappers"],
+          "validation_gates": ["Baffle pass keeps side-step lanes.", "Melee fallback remains readable."]
+        },
+        {
+          "zone": "Pump Side Room",
+          "coordinates": "x 10..26, z -22..-8",
+          "families": ["LDF-003", "LDF-010", "LDF-002"],
+          "gameplay_intent": "Make optional resources feel like a real pump room.",
+          "route_safety_risks": ["branch appears to be critical objective path"],
+          "validation_gates": ["Amber objective chain remains stronger toward valve/lobby.", "Pickups remain visible."]
+        },
+        {
+          "zone": "Cartridge Cache",
+          "coordinates": "x -24..-10, z -22..-12; target x -18, z -17",
+          "families": ["LDF-006", "LDF-010", "LDF-002"],
+          "gameplay_intent": "Use cold pipe and chalk language for optional cache discovery.",
+          "route_safety_risks": ["clue hidden in pipe shadow", "clue too close to critical valve"],
+          "validation_gates": ["Clue readable from baffle side.", "Cache does not look like required objective."]
+        },
+        {
+          "zone": "Condensate Spine and Lancer Pipe Bridge",
+          "coordinates": "Spine x -12..14, z -8..8; Bridge x 8..30, z 2..18; Lancer x 18, z 9, Y +1.2m",
+          "families": ["LDF-002", "LDF-007", "LDF-009", "LDF-004"],
+          "gameplay_intent": "Add pipe-wall density while preserving first Lancer read and cover options.",
+          "route_safety_risks": ["projectile tells hidden", "bridge reads as mandatory traversal"],
+          "validation_gates": ["First Lancer visible from spine.", "Cover elbows remain readable."]
+        },
+        {
+          "zone": "Routing Valve Gallery",
+          "coordinates": "x -30..-8, z 4..18",
+          "families": ["LDF-003", "LDF-002", "LDF-004", "LDF-008", "LDF-010"],
+          "gameplay_intent": "Make valve completion visibly route pressure back to the lift.",
+          "route_safety_risks": ["valve prompt hidden", "extra dressing implies new buttons"],
+          "validation_gates": ["Valve prompt readable at approach.", "Green pressure return path appears after completion."]
+        },
+        {
+          "zone": "Locked Lift Lobby and Boilerheart Lift",
+          "coordinates": "x -12..16, z 16..26 and x -4..8, z 26..34",
+          "families": ["LDF-001", "LDF-002", "LDF-004", "LDF-005"],
+          "gameplay_intent": "Make locked then restored lift state obvious.",
+          "route_safety_risks": ["blocked lift read", "crowded post-valve fight space"],
+          "validation_gates": ["Locked-lift rejection readable.", "Lift identified within 5 seconds from lobby after valve."]
+        }
+      ],
+      "targeted_smoke": "Locked lift, valve, restored return, first Lancer read, cartridge cache clue."
+    },
+    "Level03": {
+      "name": "Boilerheart Core",
+      "headline_intent": "Make the Boilerheart a circular pressure system: steam approach, central boiler, scattergun, Bellows Node, pressure valve, and foundry lift.",
+      "hero_anchor_stack": "Boilerheart Ring x -22..22, z -10..14 plus Pressure Valve Catwalk x -20..20, z 16..28 and Foundry Lift x -8..10, z 28..36.",
+      "zones": [
+        {
+          "zone": "Arrival and Steam-Baffle Approach",
+          "coordinates": "x -5..7, z -36..-28 into x -12..12, z -24..-10",
+          "families": ["LDF-008", "LDF-002", "LDF-004", "LDF-005"],
+          "gameplay_intent": "Teach steam rhythm through safe-lane strips and warning frames.",
+          "route_safety_risks": ["steam puffs masked", "false danger implied"],
+          "validation_gates": ["Warning visible before damage zones.", "Safe lane matches passable route."]
+        },
+        {
+          "zone": "Gauge Service Alcove",
+          "coordinates": "x -30..-14, z -24..-12",
+          "families": ["LDF-003", "LDF-010", "LDF-006"],
+          "gameplay_intent": "Add pressure-gauge lore and future secret motif.",
+          "route_safety_risks": ["alcove reads as main route", "pickups or plaque hidden"],
+          "validation_gates": ["Main route to ring remains stronger.", "Plaque and pickups unobstructed."]
+        },
+        {
+          "zone": "Condensate Side Loop",
+          "coordinates": "x 14..30, z -24..-8",
+          "families": ["LDF-002", "LDF-007", "LDF-005"],
+          "gameplay_intent": "Make alternate loop read as safe repositioning.",
+          "route_safety_risks": ["loop narrowed", "dead-end feel"],
+          "validation_gates": ["Comfortable lateral movement preserved.", "Loop exit readable."]
+        },
+        {
+          "zone": "Boilerheart Ring",
+          "coordinates": "x -22..22, z -10..14",
+          "families": ["LDF-009", "LDF-002", "LDF-004", "LDF-007", "LDF-010"],
+          "gameplay_intent": "Create central landmark and readable circular cover.",
+          "route_safety_risks": ["enemy reads hidden", "route around ring confused"],
+          "validation_gates": ["Boiler landmark, scattergun side, and lift/catwalk direction visible from entry."]
+        },
+        {
+          "zone": "Scattergun Display",
+          "coordinates": "x 12..34, z 0..16",
+          "families": ["LDF-003", "LDF-004", "LDF-010", "LDF-005"],
+          "gameplay_intent": "Make the weapon display valuable and readable before foundry escalation.",
+          "route_safety_risks": ["weapon pickup hidden", "pickup smoke/audio blocked"],
+          "validation_gates": ["Weapon silhouette and acquisition burst visible.", "No dressing in pickup route automation."]
+        },
+        {
+          "zone": "Bellows Node Chamber",
+          "coordinates": "x -34..-12, z 2..18; needs about 16m x 16m open dodge space",
+          "families": ["LDF-007", "LDF-008", "LDF-003", "LDF-009"],
+          "gameplay_intent": "Amplify support-machine priority and pulse-safe edges.",
+          "route_safety_risks": ["dodge lanes crowded", "pulse VFX hidden"],
+          "validation_gates": ["Dodge space retained.", "Pulse warning circle visible from entry."]
+        },
+        {
+          "zone": "Pressure Valve Catwalk and Foundry Lift",
+          "coordinates": "Catwalk x -20..20, z 16..28; Lift x -8..10, z 28..36",
+          "families": ["LDF-001", "LDF-002", "LDF-003", "LDF-004", "LDF-005", "LDF-008"],
+          "gameplay_intent": "Make venting visibly release pressure and restore the foundry lift.",
+          "route_safety_risks": ["catwalk clutter", "lift aperture crowding", "shutdown state confusion"],
+          "validation_gates": ["Valve interaction readable.", "Vented state differs from active.", "Foundry lift route clear after valve."]
+        }
+      ],
+      "targeted_smoke": "Steam approach, scattergun pickup, Bellows Node chamber, valve vent, foundry lift."
+    },
+    "Level04": {
+      "name": "Furnace Foundry",
+      "headline_intent": "Make the foundry the heat-and-heavy-combat showcase with clear hazard lanes, Bulwark staging, coal cache clues, regulator density, and hoist clarity.",
+      "hero_anchor_stack": "Furnace Row x -34..34, z -2..20 plus Cooling Regulator x -18..18, z 20..32 and Emergency Hoist x -6..8, z 32..40.",
+      "zones": [
+        {
+          "zone": "Arrival Hoist and Quench Tank Prep",
+          "coordinates": "Arrival x -8..10, z -36..-26; Quench candidate x -12..6, z -18..-8",
+          "families": ["LDF-009", "LDF-002", "LDF-005", "LDF-010"],
+          "gameplay_intent": "Establish huge furnace space while offering readable prep resources.",
+          "route_safety_risks": ["first landmark obscured", "route direction hidden"],
+          "validation_gates": ["Furnace row glow and forward route visible from arrival."]
+        },
+        {
+          "zone": "Foundry Gantry and Slag Side Loop",
+          "coordinates": "Gantry x 18..40, z -22..4; Slag x -40..-18, z -20..0",
+          "families": ["LDF-007", "LDF-008", "LDF-009", "LDF-005"],
+          "gameplay_intent": "Show alternate movement choices and hazard preview.",
+          "route_safety_risks": ["gantry reads mandatory", "hazard edge mismatches damage"],
+          "validation_gates": ["Two routes into Furnace Row remain visible.", "No rail-less narrow fighting cues."]
+        },
+        {
+          "zone": "Furnace Row",
+          "coordinates": "x -34..34, z -2..20",
+          "families": ["LDF-008", "LDF-009", "LDF-002", "LDF-007", "LDF-005"],
+          "gameplay_intent": "Make heat pulses, safe lateral movement, and cover rhythm immediately readable.",
+          "route_safety_risks": ["enemy movement hidden by glow or heat shimmer"],
+          "validation_gates": ["Warning lamps and edge marks visible before damage.", "Enemy silhouettes not lost against furnace glow."]
+        },
+        {
+          "zone": "Coal Cache Secret",
+          "coordinates": "x -38..-22, z 12..26; target x -30, z 18",
+          "families": ["LDF-006", "LDF-010", "LDF-008"],
+          "gameplay_intent": "Use coal dust, cooler pipe, and stuck panel language for optional discovery.",
+          "route_safety_risks": ["secret path crosses lethal heat", "secret pulls into Bulwark pressure"],
+          "validation_gates": ["Secret reachable without active lethal heat.", "Clue visible from safe alcove."]
+        },
+        {
+          "zone": "Bulwark Hammer Bay",
+          "coordinates": "x 18..40, z 8..28",
+          "families": ["LDF-007", "LDF-009", "LDF-010", "LDF-008"],
+          "gameplay_intent": "Stage the Bulwark with broken rescue frames and hammer bay scale.",
+          "route_safety_risks": ["windup hidden", "circle space reduced"],
+          "validation_gates": ["Bulwark windup visible at eye level.", "Broad lanes remain open."]
+        },
+        {
+          "zone": "Cooling Regulator Lock and Emergency Hoist",
+          "coordinates": "Regulator x -18..18, z 20..32; Hoist x -6..8, z 32..40",
+          "families": ["LDF-001", "LDF-002", "LDF-003", "LDF-004", "LDF-005", "LDF-008"],
+          "gameplay_intent": "Connect regulator and emergency hoist through red/orange pressure and green exit language.",
+          "route_safety_risks": ["support dressing implies unimplemented lock", "hoist trigger crowded"],
+          "validation_gates": ["If no new lock exists, dressing reads supportive not required.", "Green hoist route clear."]
+        }
+      ],
+      "targeted_smoke": "Heat pulse lanes, coal cache approach, Bulwark Hammer Bay, emergency hoist."
+    },
+    "Level05": {
+      "name": "Governor Core",
+      "headline_intent": "Make the finale a cathedral-scale pressure bureaucracy with ordered approach, regulator arms, readable Warden arena, and final hoist unlock clarity.",
+      "hero_anchor_stack": "Governor Warden Arena x -24..24, z 4..30 plus Master Override Hoist x -8..8, z 30..40.",
+      "zones": [
+        {
+          "zone": "Arrival Hoist and Pressure Chapel",
+          "coordinates": "Arrival x -7..9, z -40..-30; Chapel x -18..18, z -28..-10",
+          "families": ["LDF-009", "LDF-004", "LDF-005", "LDF-010", "LDF-002"],
+          "gameplay_intent": "Shift tone from foundry chaos to ordered final machine space and prepare the player.",
+          "route_safety_risks": ["final resources hidden", "archive plaque obscured"],
+          "validation_gates": ["Final resources and plaque readable.", "Route points forward into Core Ring."]
+        },
+        {
+          "zone": "Core Ring",
+          "coordinates": "x -18..18, z -10..8",
+          "families": ["LDF-009", "LDF-002", "LDF-003", "LDF-004", "LDF-007"],
+          "gameplay_intent": "Make Master Governor logic bank the central orientation read before Warden.",
+          "route_safety_risks": ["mixed-machine enemies hidden by drums", "north/south orientation lost"],
+          "validation_gates": ["North arena route and side arms identifiable from ring."]
+        },
+        {
+          "zone": "West Regulator Arm",
+          "coordinates": "x -42..-20, z -8..18; future secret behind x -38, z 10",
+          "families": ["LDF-003", "LDF-006", "LDF-007", "LDF-010", "LDF-002"],
+          "gameplay_intent": "Create optional resource/risk route and future Governor Clerk Void clue language.",
+          "route_safety_risks": ["secret clue competes during boss approach", "arm dead-ends during combat"],
+          "validation_gates": ["Arm loops back visibly.", "Secret clue pulls only after immediate combat read is resolved."]
+        },
+        {
+          "zone": "East Regulator Arm",
+          "coordinates": "x 20..42, z -8..18",
+          "families": ["LDF-003", "LDF-007", "LDF-002", "LDF-004"],
+          "gameplay_intent": "Give mirrored arm a distinct pressure identity and support Lancer placement.",
+          "route_safety_risks": ["symmetry causes orientation confusion", "Lancer silhouette lost"],
+          "validation_gates": ["East/west labels and silhouette differences readable from Core Ring."]
+        },
+        {
+          "zone": "Governor Warden Arena",
+          "coordinates": "x -24..24, z 4..30; Warden center x 0, z 17; cover pylons spaced at least 8m apart",
+          "families": ["LDF-007", "LDF-008", "LDF-009", "LDF-004", "LDF-005"],
+          "gameplay_intent": "Clarify boss attack lanes, cover pylons, hostile feeds, and shutdown release.",
+          "route_safety_risks": ["cover trivializes fight", "red/green cues conflict", "Warden attacks hidden"],
+          "validation_gates": ["Warden visible on reveal.", "Cover pylons do not fully block boss pressure.", "Boss HUD readability unaffected."]
+        },
+        {
+          "zone": "Master Override Hoist",
+          "coordinates": "x -8..8, z 30..40; Warden-to-exit baseline 4.5m",
+          "families": ["LDF-001", "LDF-002", "LDF-003", "LDF-004", "LDF-005"],
+          "gameplay_intent": "Make final locked hoist unmistakable before and after Warden defeat.",
+          "route_safety_risks": ["hoist too close to boss combat footprint", "lock signals hidden", "final exit trigger crowded"],
+          "validation_gates": ["Locked hoist rejection readable before fight.", "Green unlock visible after Warden death.", "No dressing inside final exit trigger."]
+        }
+      ],
+      "targeted_smoke": "Core Ring orientation, side arms, Warden fight, locked and unlocked final hoist."
+    }
+  },
+  "cross_level_rules": [
+    "Place density at route decisions, not evenly everywhere.",
+    "Keep every dressing root visual-only unless the main lane explicitly attaches it to existing collision.",
+    "Preserve existing route triggers, pickup authority, valve authority, hazards, Warden lock, final win, enemy placements, and objective text.",
+    "Do not place decorative roots inside transition, pickup, hazard, enemy spawn, boss, or prompt ownership volumes.",
+    "Amber means attention or objective direction; red means locked, hostile, or unsafe; green means restored, safe, or exit.",
+    "Floor pieces must be flush or near-flush and carry no gameplay collision.",
+    "Combat dressing should frame enemies rather than sit behind their silhouettes in the same value or color range.",
+    "Hazard warning dressing should amplify existing tells, not replace them.",
+    "Secret clue density should be weaker than main route signage but consistent enough for repeatable discovery.",
+    "Preserve turning space near lifts and hoists for future VR comfort."
+  ],
+  "batch_validation_gates": [
+    "Compile/editor validation after implementation changes.",
+    "Generated scene rebuild for Level01 through Level05.",
+    "Batch validator confirms every level has at least one hero anchor stack and no level receives only grime or story clutter.",
+    "Family validator confirms expected roots, metadata, material roles, named child groups, and zero unauthorized colliders or gameplay components.",
+    "Route-state color audit confirms amber/red/green usage matches current objective, lock, and hazard state.",
+    "Transition safety check confirms no dressing root sits inside lift, hoist, gate, final exit, or level transition volumes.",
+    "Pickup/prompt visibility check confirms gear key, routing valve, Boilerheart valve, scattergun pickup, regulator if present, Warden lock, plaques, health/ammo, and final hoist remain readable.",
+    "Hazard readability check confirms steam/furnace VFX and warning timings are not masked by dressing.",
+    "Combat readability check confirms first Scrapper, first Lancer, Bellows Node, Bulwark, and Warden silhouettes remain clear from intended approach angles.",
+    "Targeted route smoke passes for Level01 through Level05.",
+    "First-person screenshot review from spawn, objective approach, and exit approach for each level.",
+    "Route audit reports no blockers.",
+    "Full V0 matrix passes after targeted checks are clean."
+  ],
+  "targeted_route_smokes": {
+    "Level01": "Spawn to key, gate, lift, and intake secret clue.",
+    "Level02": "Locked lift, valve, restored return, first Lancer read, cartridge cache clue.",
+    "Level03": "Steam approach, scattergun pickup, Bellows Node chamber, valve vent, foundry lift.",
+    "Level04": "Heat pulse lanes, coal cache approach, Bulwark Hammer Bay, emergency hoist.",
+    "Level05": "Core Ring orientation, side arms, Warden fight, locked and unlocked final hoist."
+  },
+  "recommended_next_compile_shape": [
+    "Level01: pressure gate and service lift become the tutorial standard for state language.",
+    "Level02: pipe arteries visibly connect routing valve to Boilerheart lift.",
+    "Level03: Boilerheart Ring, scattergun, Bellows Node, valve, and foundry lift become one circular pressure system.",
+    "Level04: furnace hazards and Bulwark staging read as one foundry showcase.",
+    "Level05: Warden lock and final hoist become the route finale, with ordered regulator arms and strong boss readability."
+  ],
+  "verification_commands": [
+    "Get-Content 'D:\\__MY APPS\\Unity Doom\\Documentation\\Planning\\V0_1_33_LevelDensityBatch\\LEVEL_DENSITY_BATCH_STATUS.json' -Raw | ConvertFrom-Json | Out-Null",
+    "git -C 'D:\\__MY APPS\\Unity Doom' status --short -- Documentation/Planning/V0_1_33_LevelDensityBatch"
+  ]
+}

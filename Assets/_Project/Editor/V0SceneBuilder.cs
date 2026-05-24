@@ -1280,6 +1280,7 @@ public static class V0SceneBuilder
         CreateCagedGaslight("North Star Boilerheart Lamp Cage", new Vector3(-5.52f, 2.02f, 15.1f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "boilerheart_route_gaslight");
         CreateRivetBand("North Star Boilerheart Core Rivet Band", new Vector3(0f, 2.66f, 14.38f), Quaternion.identity, 2.45f, ironMaterial, brassMaterial, parent.transform, "boilerheart_core_rivet_band");
         CreateWallValveWheelPrototype("North Star Boilerheart Core Valve Wheel", new Vector3(-5.94f, 1.64f, 18.2f), Quaternion.Euler(0f, 90f, 0f), 1.05f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "boilerheart_core_valve_wheel", parent.transform);
+        CreateValveWheelConsolePrototype("ValveWheelConsolePrototype_boilerheart_pressure_console", new Vector3(5.94f, 1.46f, 21.15f), Quaternion.Euler(0f, -90f, 0f), 0.92f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, floorPatchMaterial, "boilerheart_pressure_console", parent.transform);
         CreateCatwalkRail("North Star Boilerheart Service Rail", new Vector3(5.92f, 1.0f, 14.7f), Quaternion.Euler(0f, 90f, 0f), 3.4f, ironMaterial, brassMaterial, parent.transform, "boilerheart_service_rail");
         CreateWallPipeGaugeClusterPrototype("Boilerheart Prototype Wall Pipe Gauge Cluster", new Vector3(-5.94f, 1.58f, 10.8f), Quaternion.Euler(0f, 90f, 0f), 0.94f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "boilerheart_route_wall", parent.transform);
         CreateBoilerControlConsolePrototype("Boilerheart Prototype Boiler Control Console", new Vector3(5.52f, 0.62f, 18.62f), Quaternion.Euler(0f, -90f, 0f), 0.92f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "boilerheart_route_console", parent.transform);
@@ -1449,6 +1450,7 @@ public static class V0SceneBuilder
         CreateCagedGaslight("North Star Pipeworks Gaslight", new Vector3(4.86f, 2.02f, 9.2f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "pipeworks_route_gaslight");
         CreateRivetBand("North Star Pipeworks Wall Rivet Band", new Vector3(-5.02f, 2.52f, 12.5f), Quaternion.Euler(0f, 90f, 0f), 4.8f, ironMaterial, brassMaterial, parent.transform, "pipeworks_wall_rivet_band");
         CreateWallValveWheelPrototype("North Star Pipeworks Route Valve Wheel", new Vector3(5.04f, 1.54f, 14.6f), Quaternion.Euler(0f, -90f, 0f), 1f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "pipeworks_route_valve_wheel", parent.transform);
+        CreateValveWheelConsolePrototype("ValveWheelConsolePrototype_pipeworks_pressure_console", new Vector3(-5.02f, 1.44f, 16.55f), Quaternion.Euler(0f, 90f, 0f), 0.94f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, floorPatchMaterial, "pipeworks_pressure_console", parent.transform);
         CreatePressureReliefVentPrototype("North Star Pipeworks Pressure Relief Vent", new Vector3(5.05f, 1.08f, 18.25f), Quaternion.Euler(0f, -90f, 0f), 0.95f, brassMaterial, ironMaterial, steamMaterial, warningMaterial, "pipeworks_pressure_relief_vent", parent.transform);
         CreateCatwalkRail("North Star Pipeworks Service Rail", new Vector3(-5.04f, 1f, 10.4f), Quaternion.Euler(0f, 90f, 0f), 4.4f, ironMaterial, brassMaterial, parent.transform, "pipeworks_service_rail");
         CreateFloorDrainGratePrototype("North Star Pipeworks Floor Drain Grate", new Vector3(3.82f, 0.045f, 5.55f), Quaternion.Euler(0f, 90f, 0f), 1.32f, 0.94f, ironMaterial, brassMaterial, floorPatchMaterial, steamMaterial, "pipeworks_floor_drain_grate", parent.transform);
@@ -3820,6 +3822,156 @@ public static class V0SceneBuilder
         prototype.rivetRoot = rivetRoot.transform;
         prototype.labelRoot = labelRoot.transform;
         return prototype;
+    }
+
+    private static ValveWheelConsolePrototype CreateValveWheelConsolePrototype(string name, Vector3 position, Quaternion rotation, float scale, Material brassMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material warningMaterial, Material grimeMaterial, string placementRole, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+        root.transform.rotation = rotation;
+
+        ValveWheelConsolePrototype prototype = root.AddComponent<ValveWheelConsolePrototype>();
+        prototype.placementRole = placementRole;
+        prototype.backplateCount = 6;
+        prototype.wheelRingCount = 1;
+        prototype.spokeCount = 6;
+        prototype.gripCount = 4;
+        prototype.gaugeCount = 2;
+        prototype.lampCount = 2;
+        prototype.pipeCount = 4;
+        prototype.rivetCount = 14;
+        prototype.grimeCount = 3;
+
+        GameObject backplateRoot = CreateLocalEmpty(name + " Backplate Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject wheelRoot = CreateLocalEmpty(name + " Valve Wheel Root", root.transform, new Vector3(0f, -0.08f * scale, -0.16f * scale), Quaternion.Euler(90f, 0f, 0f));
+        GameObject gaugeRoot = CreateLocalEmpty(name + " Gauge Cluster Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject lampRoot = CreateLocalEmpty(name + " Pilot Lamp Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject pipeRoot = CreateLocalEmpty(name + " Pipework Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject rivetRoot = CreateLocalEmpty(name + " Fastener Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject grimeRoot = CreateLocalEmpty(name + " Grime Detail Root", root.transform, Vector3.zero, Quaternion.identity);
+
+        GameObject backplate = CreateLocalCube(name + " Blackened Iron Wall Backplate", backplateRoot.transform, Vector3.zero, new Vector3(1.45f * scale, 1.78f * scale, 0.075f * scale), ironMaterial);
+        GameObject raisedPanel = CreateLocalCube(name + " Blackened Iron Raised Console Panel", backplateRoot.transform, new Vector3(0f, -0.03f * scale, -0.085f * scale), new Vector3(1.14f * scale, 1.28f * scale, 0.065f * scale), ironMaterial);
+        CreateLocalCube(name + " Aged Brass Top Console Trim", backplateRoot.transform, new Vector3(0f, 0.82f * scale, -0.12f * scale), new Vector3(1.24f * scale, 0.055f * scale, 0.045f * scale), brassMaterial);
+        CreateLocalCube(name + " Aged Brass Bottom Console Trim", backplateRoot.transform, new Vector3(0f, -0.82f * scale, -0.12f * scale), new Vector3(1.24f * scale, 0.055f * scale, 0.045f * scale), brassMaterial);
+        CreateLocalCube(name + " Aged Brass Left Console Trim", backplateRoot.transform, new Vector3(-0.68f * scale, 0f, -0.12f * scale), new Vector3(0.055f * scale, 1.48f * scale, 0.045f * scale), brassMaterial);
+        CreateLocalCube(name + " Aged Brass Right Console Trim", backplateRoot.transform, new Vector3(0.68f * scale, 0f, -0.12f * scale), new Vector3(0.055f * scale, 1.48f * scale, 0.045f * scale), brassMaterial);
+
+        GameObject wheelRing = CreateLocalPrimitive(name + " Aged Brass Valve Wheel Ring", PrimitiveType.Cylinder, wheelRoot.transform, Vector3.zero, new Vector3(0.43f * scale, 0.035f * scale, 0.43f * scale), brassMaterial);
+        GameObject firstSpoke = null;
+        for (int i = 0; i < 6; i++)
+        {
+            GameObject spoke = CreateLocalCube(name + " Blackened Iron Wheel Spoke " + i.ToString("00"), wheelRoot.transform, new Vector3(0f, -0.035f * scale, 0f), new Vector3(0.78f * scale, 0.036f * scale, 0.032f * scale), ironMaterial);
+            spoke.transform.localRotation = Quaternion.Euler(0f, i * 30f, 0f);
+            if (firstSpoke == null)
+            {
+                firstSpoke = spoke;
+            }
+        }
+
+        GameObject wheelHub = CreateLocalPrimitive(name + " Aged Brass Wheel Hub", PrimitiveType.Sphere, wheelRoot.transform, new Vector3(0f, -0.078f * scale, 0f), new Vector3(0.15f * scale, 0.15f * scale, 0.15f * scale), brassMaterial);
+        GameObject firstGrip = null;
+        for (int i = 0; i < 4; i++)
+        {
+            float angle = i * 90f + 45f;
+            float radians = angle * Mathf.Deg2Rad;
+            Vector3 gripPosition = new Vector3(Mathf.Sin(radians) * 0.44f, -0.075f, Mathf.Cos(radians) * 0.44f) * scale;
+            GameObject grip = CreateLocalPrimitive(name + " Aged Brass Wheel Grip " + i.ToString("00"), PrimitiveType.Sphere, wheelRoot.transform, gripPosition, new Vector3(0.075f * scale, 0.052f * scale, 0.075f * scale), brassMaterial);
+            if (firstGrip == null)
+            {
+                firstGrip = grip;
+            }
+        }
+
+        GameObject firstGaugeFace = CreateValveConsoleGauge(name + " Left Pressure Gauge", gaugeRoot.transform, new Vector3(-0.32f * scale, 0.52f * scale, -0.15f * scale), 0.16f * scale, brassMaterial, gaugeFaceMaterial, warningMaterial, out GameObject firstGaugeNeedle);
+        CreateValveConsoleGauge(name + " Right Pressure Gauge", gaugeRoot.transform, new Vector3(0.32f * scale, 0.52f * scale, -0.15f * scale), 0.16f * scale, brassMaterial, gaugeFaceMaterial, warningMaterial, out _);
+
+        GameObject firstLamp = null;
+        for (int i = 0; i < 2; i++)
+        {
+            float x = i == 0 ? -0.18f * scale : 0.18f * scale;
+            GameObject lamp = CreateLocalPrimitive(name + " Amber Pilot Lamp " + i.ToString("00"), PrimitiveType.Sphere, lampRoot.transform, new Vector3(x, 0.2f * scale, -0.18f * scale), new Vector3(0.09f * scale, 0.09f * scale, 0.055f * scale), warningMaterial);
+            CreateLocalCube(name + " Aged Brass Pilot Lamp Bezel " + i.ToString("00"), lampRoot.transform, new Vector3(x, 0.2f * scale, -0.215f * scale), new Vector3(0.16f * scale, 0.04f * scale, 0.025f * scale), brassMaterial);
+            if (firstLamp == null)
+            {
+                firstLamp = lamp;
+            }
+        }
+
+        GameObject firstPipe = CreateLocalPrimitive(name + " Brass Pressure Pipe Inlet", PrimitiveType.Cylinder, pipeRoot.transform, new Vector3(-0.56f * scale, -0.62f * scale, -0.14f * scale), new Vector3(0.045f * scale, 0.42f * scale, 0.045f * scale), brassMaterial);
+        firstPipe.transform.localRotation = Quaternion.Euler(0f, 0f, 18f);
+        GameObject outletPipe = CreateLocalPrimitive(name + " Brass Pressure Pipe Outlet", PrimitiveType.Cylinder, pipeRoot.transform, new Vector3(0.56f * scale, -0.58f * scale, -0.14f * scale), new Vector3(0.045f * scale, 0.44f * scale, 0.045f * scale), brassMaterial);
+        outletPipe.transform.localRotation = Quaternion.Euler(0f, 0f, -18f);
+        CreateLocalCube(name + " Blackened Iron Pipe Coupling Left", pipeRoot.transform, new Vector3(-0.56f * scale, -0.32f * scale, -0.19f * scale), new Vector3(0.15f * scale, 0.07f * scale, 0.045f * scale), ironMaterial);
+        CreateLocalCube(name + " Blackened Iron Pipe Coupling Right", pipeRoot.transform, new Vector3(0.56f * scale, -0.32f * scale, -0.19f * scale), new Vector3(0.15f * scale, 0.07f * scale, 0.045f * scale), ironMaterial);
+
+        Vector3[] rivetPositions =
+        {
+            new Vector3(-0.62f, 0.72f, -0.13f),
+            new Vector3(-0.31f, 0.72f, -0.13f),
+            new Vector3(0f, 0.72f, -0.13f),
+            new Vector3(0.31f, 0.72f, -0.13f),
+            new Vector3(0.62f, 0.72f, -0.13f),
+            new Vector3(-0.62f, -0.72f, -0.13f),
+            new Vector3(-0.31f, -0.72f, -0.13f),
+            new Vector3(0f, -0.72f, -0.13f),
+            new Vector3(0.31f, -0.72f, -0.13f),
+            new Vector3(0.62f, -0.72f, -0.13f),
+            new Vector3(-0.68f, 0.18f, -0.13f),
+            new Vector3(0.68f, 0.18f, -0.13f),
+            new Vector3(-0.68f, -0.28f, -0.13f),
+            new Vector3(0.68f, -0.28f, -0.13f)
+        };
+
+        GameObject firstRivet = null;
+        for (int i = 0; i < rivetPositions.Length; i++)
+        {
+            GameObject rivet = CreateLocalPrimitive(name + " Brass Mount Rivet " + i.ToString("00"), PrimitiveType.Sphere, rivetRoot.transform, rivetPositions[i] * scale, new Vector3(0.043f * scale, 0.043f * scale, 0.024f * scale), brassMaterial);
+            if (firstRivet == null)
+            {
+                firstRivet = rivet;
+            }
+        }
+
+        GameObject oilStreak = CreateLocalCube(name + " Oil Grime Streak Below Wheel", grimeRoot.transform, new Vector3(-0.16f * scale, -0.52f * scale, -0.205f * scale), new Vector3(0.12f * scale, 0.34f * scale, 0.018f * scale), grimeMaterial);
+        oilStreak.transform.localRotation = Quaternion.Euler(0f, 0f, -8f);
+        CreateLocalCube(name + " Soot Dark Pipe Joint Smudge", grimeRoot.transform, new Vector3(0.5f * scale, -0.32f * scale, -0.205f * scale), new Vector3(0.22f * scale, 0.12f * scale, 0.018f * scale), grimeMaterial);
+        CreateLocalCube(name + " Worn Valve Rim Highlight", grimeRoot.transform, new Vector3(0.33f * scale, -0.08f * scale, -0.21f * scale), new Vector3(0.18f * scale, 0.025f * scale, 0.018f * scale), grimeMaterial);
+
+        prototype.backplateRenderer = backplate.GetComponent<Renderer>();
+        prototype.raisedPanelRenderer = raisedPanel.GetComponent<Renderer>();
+        prototype.wheelRingRenderer = wheelRing.GetComponent<Renderer>();
+        prototype.wheelSpokeRenderer = firstSpoke.GetComponent<Renderer>();
+        prototype.wheelHubRenderer = wheelHub.GetComponent<Renderer>();
+        prototype.wheelGripRenderer = firstGrip.GetComponent<Renderer>();
+        prototype.gaugeFaceRenderer = firstGaugeFace.GetComponent<Renderer>();
+        prototype.gaugeNeedleRenderer = firstGaugeNeedle.GetComponent<Renderer>();
+        prototype.lampRenderer = firstLamp.GetComponent<Renderer>();
+        prototype.pipeRenderer = firstPipe.GetComponent<Renderer>();
+        prototype.rivetRenderer = firstRivet.GetComponent<Renderer>();
+        prototype.grimeRenderer = oilStreak.GetComponent<Renderer>();
+        prototype.backplateRoot = backplateRoot.transform;
+        prototype.wheelRoot = wheelRoot.transform;
+        prototype.gaugeRoot = gaugeRoot.transform;
+        prototype.lampRoot = lampRoot.transform;
+        prototype.pipeRoot = pipeRoot.transform;
+        prototype.rivetRoot = rivetRoot.transform;
+        prototype.grimeRoot = grimeRoot.transform;
+        return prototype;
+    }
+
+    private static GameObject CreateValveConsoleGauge(string name, Transform parent, Vector3 localPosition, float radius, Material brassMaterial, Material gaugeFaceMaterial, Material warningMaterial, out GameObject needle)
+    {
+        GameObject gaugeRoot = CreateLocalEmpty(name, parent, localPosition, Quaternion.identity);
+        GameObject bezel = CreateLocalPrimitive(name + " Aged Brass Bezel", PrimitiveType.Cylinder, gaugeRoot.transform, Vector3.zero, new Vector3(radius, radius * 0.1f, radius), brassMaterial);
+        bezel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject face = CreateLocalPrimitive(name + " Cream Enamel Face", PrimitiveType.Cylinder, gaugeRoot.transform, new Vector3(0f, 0f, -radius * 0.12f), new Vector3(radius * 0.78f, radius * 0.045f, radius * 0.78f), gaugeFaceMaterial);
+        face.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        needle = CreateLocalCube(name + " Dark Gauge Needle", gaugeRoot.transform, new Vector3(radius * 0.12f, 0f, -radius * 0.2f), new Vector3(radius * 0.56f, radius * 0.045f, radius * 0.03f), warningMaterial);
+        CreateLocalCube(name + " Red Danger Tick Band", gaugeRoot.transform, new Vector3(-radius * 0.2f, radius * 0.34f, -radius * 0.205f), new Vector3(radius * 0.35f, radius * 0.04f, radius * 0.025f), warningMaterial);
+        CreateLocalPrimitive(name + " Brass Needle Hub", PrimitiveType.Sphere, gaugeRoot.transform, new Vector3(0f, 0f, -radius * 0.22f), new Vector3(radius * 0.13f, radius * 0.13f, radius * 0.07f), brassMaterial);
+        return face;
     }
 
     private static PressureReliefVentPrototype CreatePressureReliefVentPrototype(string name, Vector3 position, Quaternion rotation, float scale, Material brassMaterial, Material ironMaterial, Material steamMaterial, Material warningMaterial, string placementRole, Transform parent)

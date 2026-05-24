@@ -1,0 +1,153 @@
+{
+  "asset": "PistonDoorBracePrototype",
+  "project": "Brassworks Breach",
+  "status": "docs-prepared",
+  "preparedDate": "2026-05-24",
+  "targetFolder": "D:\\__MY APPS\\Unity Doom\\Documentation\\AssetProduction\\PistonDoorBracePrototype\\",
+  "scope": {
+    "type": "Unity-only production preparation",
+    "allowedChanges": "Documentation files inside the target folder only",
+    "excludedChanges": [
+      "Unity scripts",
+      "Unity scenes",
+      "prefabs",
+      "build scripts",
+      "release notes",
+      "shared status documents",
+      "gameplay systems"
+    ],
+    "gameplayAuthority": false,
+    "routeThresholdDressingOnly": true
+  },
+  "northStar": {
+    "style": "heavy steampunk pressure-door side braces",
+    "primaryMaterials": [
+      "blackened iron",
+      "aged brass",
+      "dark hydraulic metal",
+      "oily rubber seals",
+      "amber indicator glass"
+    ],
+    "keyDetails": [
+      "blackened iron side brace plates",
+      "aged brass piston rods",
+      "hydraulic or steam cylinder bodies",
+      "oversize rivets and bolts",
+      "oil grime below moving joints",
+      "soot near vents and upper seams",
+      "small amber pressure indicators"
+    ],
+    "mustAvoid": [
+      "clean polished brass",
+      "sci-fi neon lock UI",
+      "gameplay trigger ownership",
+      "route-blocking decorative geometry",
+      "flat black unreadable metal"
+    ]
+  },
+  "unityConstruction": {
+    "source": "Unity primitives, ProBuilder-style meshes, procedural mesh helpers, and existing project material systems",
+    "externalDccRequired": false,
+    "recommendedHierarchy": [
+      "PistonDoorBracePrototype/VisualRoot/LeftBrace",
+      "PistonDoorBracePrototype/VisualRoot/RightBrace",
+      "PistonDoorBracePrototype/VisualRoot/OptionalTopCrossClamp",
+      "PistonDoorBracePrototype/VisualRoot/OptionalBottomSillClamp",
+      "PistonDoorBracePrototype/NonGameplayBounds_EditorOnly"
+    ],
+    "primitivePlan": [
+      "Flattened cubes for iron back plates, rails, anchor blocks, and clamp blocks",
+      "Cylinders for steam or hydraulic cylinder bodies and piston rods",
+      "Small cylinders or UV spheres for rivets, bolts, and hinge knuckles",
+      "Capsules or short cylinders for amber indicator lenses",
+      "Decals, transparent planes, vertex colors, or material masks for oil, soot, and grime"
+    ],
+    "baselineScaleMeters": {
+      "overallWidthMin": 3.2,
+      "overallWidthMax": 4.2,
+      "overallHeightMin": 3.0,
+      "overallHeightMax": 4.0,
+      "sideBraceWidthMin": 0.35,
+      "sideBraceWidthMax": 0.55,
+      "minimumRouteClearanceWidth": 1.8,
+      "minimumRouteClearanceHeight": 2.4,
+      "braceDepthMin": 0.15,
+      "braceDepthMax": 0.35
+    }
+  },
+  "materialTargets": {
+    "blackenedIron": {
+      "baseColor": "near-black charcoal with heat-worn blue-gray or brown variation",
+      "roughness": "medium-high with localized oily gloss",
+      "metallic": "high",
+      "notes": "Dominant structural material with chipped edges, pitting, soot, and scraped corners"
+    },
+    "agedBrass": {
+      "baseColor": "muted brass, dark ochre, aged gold, brown tarnish",
+      "roughness": "medium with glossier contact wear",
+      "metallic": "high",
+      "notes": "Visible piston rods and caps with oxidation in recesses, not clean yellow gold"
+    },
+    "cylindersAndSeals": {
+      "baseColor": "dark gunmetal and soot-stained rubber",
+      "roughness": "medium",
+      "notes": "Cylinder collars should show oil shine around moving rod seals"
+    },
+    "amberIndicators": {
+      "baseColor": "dark amber orange",
+      "emission": "low to medium",
+      "notes": "Readable as diegetic pressure status, not a gameplay prompt or objective marker"
+    },
+    "grimeAndSoot": {
+      "oil": "dark brown-black glossy vertical streaks below seals and pivots",
+      "soot": "matte charcoal deposits near vents, upper seams, and heat-exposed edges"
+    }
+  },
+  "acceptanceCriteria": [
+    "Reads immediately as heavy steampunk pressure-door side bracing",
+    "Center route remains visually legible and physically unobstructed",
+    "Blackened iron dominates the structural silhouette",
+    "Aged brass piston rods are clearly visible",
+    "Hydraulic or steam cylinder bodies are present on both sides",
+    "Rivets and bolts communicate industrial scale",
+    "Oil grime and soot appear in plausible mechanical locations",
+    "Small amber pressure indicators exist on both sides and remain subtle",
+    "No gameplay authority components are included",
+    "No trigger colliders, route-lock scripts, nav blockers, damage scripts, or interaction prompts are included",
+    "Construction can be built or revised inside Unity using primitives, ProBuilder, or procedural generation",
+    "Materials remain readable under warm brassworks lighting and darker combat lighting"
+  ],
+  "validationChecklist": [
+    "Files for this slice live only under Documentation/AssetProduction/PistonDoorBracePrototype",
+    "No existing code, scenes, build scripts, release notes, or shared status docs were edited",
+    "Planned hierarchy contains visual geometry and editor-only helpers only",
+    "Any future collider proposal is non-authoritative and does not block the route aperture",
+    "Mirrored left and right braces avoid obvious repetition in grime and wear",
+    "Rivets are instanced or kept within an environment dressing budget",
+    "Amber indicators do not resemble quest markers, pickups, buttons, or route locks",
+    "Soot and oil placement follows heat, gravity, and mechanical contact points"
+  ],
+  "unityTestRenderEvaluation": {
+    "sceneSetup": [
+      "Neutral doorway-sized opening",
+      "Target gameplay camera height and FOV",
+      "Warm industrial key light",
+      "Dim cool fill from the route interior",
+      "Subtle amber practical near one pressure indicator",
+      "Project post-processing stack when available"
+    ],
+    "requiredCaptures": [
+      "Front-on gameplay-distance capture",
+      "Three-quarter capture showing cylinder depth",
+      "Close-up of piston rod, clevis, rivets, grime, and amber indicator",
+      "Low-light capture",
+      "Bright-light capture"
+    ],
+    "passCondition": "The test render makes the threshold feel reinforced, oily, soot-stained, and mechanically pressurized while leaving gameplay ownership to separate systems."
+  },
+  "handoff": {
+    "readyForFutureImplementationTicket": true,
+    "implementationOwner": "future parent-agent or environment-art task",
+    "notes": "This status file documents the target only; no Unity project assets or gameplay systems were created by this slice."
+  }
+}

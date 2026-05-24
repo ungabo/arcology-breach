@@ -432,7 +432,6 @@ Build executable:
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
-
 ## 2026-05-24 03:23 -04:00
 
 Completed `v0.1.7` Level04/Level05 climax readability polish.
@@ -5339,5 +5338,84 @@ Candidate readiness:
 SHA-256:
 
 `E8BECB40042BE5F20BBC1DA1AE98E04D23F84D4A0E9937639B4D9EC9E39103F5`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 12:02 -04:00
+
+Completed `v0.1.32` valve wheel console asset promotion and switched the default operating model to ambitious milestone batching.
+
+Added:
+
+- `ValveWheelConsolePrototype` runtime metadata component for promoted route-safe pressure-console dressing.
+- Named `ValveWheelConsolePrototype_pipeworks_pressure_console` and `ValveWheelConsolePrototype_boilerheart_pressure_console` placements.
+- Unity-owned component geometry: blackened iron wall backplates, raised console panels, aged brass valve wheel rings, blackened iron spokes, brass grips/hubs, cream pressure gauges, dark gauge needles, amber pilot lamps, pressure pipework, rivets, oil grime, soot smudges, and worn-rim highlights.
+- Editor validation for promotion version, placement roles, required named hierarchy, material roles, detail counts, zero colliders, zero `NavMeshObstacle` components, and no gameplay-authority components.
+- Side-agent-produced `PistonDoorBracePrototype` production brief/status files for the next threshold-route batch.
+- Gauss-produced `v0.1.33` threshold-and-route dressing plan upgraded to a 10-family big-leap milestone with an 8-family fallback minimum.
+- `Documentation/ProductionManagement/BATCH_PRODUCTION_MODE.md`, plus continuation/roadmap/ledger updates requiring visible milestone batches and parallel crews rather than sequential one-asset production.
+- Updated `brassworks-breach-pm-continuation` heartbeat automation to review progress every 30 minutes, redirect agents, enforce ambitious batching, use targeted validation during batches, and reserve full matrix runs for coherent milestones.
+- Parallel crews started for route-dressing assets, level-density placement, weapon/prop staging, and enemy/readability staging.
+- Parallel crew outputs completed and staged for integration: threshold-route dressing assets, level-density map, weapon/prop batch, and enemy/readability batch. These are staged/review assets, not yet active gameplay integration.
+- `v0.1.32` release notes, QA packet, issue-triage packet, and refreshed candidate-readiness evidence.
+- Version string bumped to `v0.1.32`.
+
+Verification completed:
+
+- `V0_ROUTE_AUDIT_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_MOVEMENT_FEEL_PASS`
+- `V0_BALANCE_ENVELOPE_PASS`
+- `V0_LEVEL01_FLOW_PASS`
+- `V0_MIDGAME_FLOW_PASS`
+- `V0_CLIMAX_FLOW_PASS`
+- `V0_AUDIO_MIX_PASS`
+- `V0_DISPLAY_SETTINGS_PASS`
+- `V0_READABILITY_SETTINGS_PASS`
+- `V0_WINDOWS_PACKAGE_PASS`
+- `V0_WINDOWS_QA_PACKET_PASS`
+- `V0_WINDOWS_ISSUE_TRIAGE_PASS`
+- `V0_WINDOWS_CANDIDATE_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.32/BrassworksBreach_v0.1.32.exe`
+
+Package:
+
+`Builds/WindowsPackages/v0.1.32/BrassworksBreach_v0.1.32_Windows.zip`
+
+QA packet:
+
+`Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.32.md`
+
+Issue triage packet:
+
+`Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.32.md`
+
+Candidate readiness:
+
+`Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.32.md`
+
+SHA-256:
+
+`4A4E6452875756E8D5A4FCA5CFF7D24844D9F476C52B4345BB34BF78E7A607AC`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.

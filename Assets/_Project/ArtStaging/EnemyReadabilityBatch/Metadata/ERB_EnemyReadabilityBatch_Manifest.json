@@ -1,0 +1,142 @@
+{
+    "package":  "EnemyReadabilityBatch",
+    "date":  "2026-05-24",
+    "unityContract":  {
+                          "units":  "1 Unity unit = 1 meter",
+                          "axis":  "+Y up, +Z forward",
+                          "importPath":  "Assets/_Project/ArtStaging/EnemyReadabilityBatch",
+                          "generatedGeometry":  "OBJ/MTL proxy meshes, Unity Standard .mat proxies, PNG readability boards",
+                          "excluded":  [
+                                           "gameplay code",
+                                           "scene builder",
+                                           "colliders",
+                                           "Blender dependency",
+                                           "shared docs/material edits"
+                                       ]
+                      },
+    "materialSet":  "Assets/_Project/ArtStaging/EnemyReadabilityBatch/Materials/ENEMY_ERB_ReadabilityProxyMaterials.mtl",
+    "enemies":  [
+                    {
+                        "id":  "Scrapper",
+                        "mesh":  "Meshes/ENEMY_ERB_Scrapper_ReadabilityUpgrade_LOD0.obj",
+                        "fragments":  "Meshes/FRAG_ERB_Scrapper_ShutdownFragments.obj",
+                        "preview":  "Previews/PREVIEW_ERB_Scrapper_ReadabilityBoard.png",
+                        "readability":  [
+                                            "furnace eyes",
+                                            "chest weak-point lamp",
+                                            "pressure tanks",
+                                            "cutter tell",
+                                            "hammer tell",
+                                            "detached shutdown fragments"
+                                        ],
+                        "stats":  {
+                                      "vertices":  868,
+                                      "faces":  524
+                                  }
+                    },
+                    {
+                        "id":  "Lancer",
+                        "mesh":  "Meshes/ENEMY_ERB_Lancer_ReadabilityUpgrade_LOD0.obj",
+                        "fragments":  "Meshes/FRAG_ERB_Lancer_ShutdownFragments.obj",
+                        "preview":  "Previews/PREVIEW_ERB_Lancer_ReadabilityBoard.png",
+                        "readability":  [
+                                            "furnace eyes",
+                                            "sternum weak-point lamp",
+                                            "back pressure tank",
+                                            "forward bolt coil tell",
+                                            "muzzle tell",
+                                            "detached shutdown fragments"
+                                        ],
+                        "stats":  {
+                                      "vertices":  804,
+                                      "faces":  472
+                                  }
+                    },
+                    {
+                        "id":  "Bulwark",
+                        "mesh":  "Meshes/ENEMY_ERB_Bulwark_ReadabilityUpgrade_LOD0.obj",
+                        "fragments":  "Meshes/FRAG_ERB_Bulwark_ShutdownFragments.obj",
+                        "preview":  "Previews/PREVIEW_ERB_Bulwark_ReadabilityBoard.png",
+                        "readability":  [
+                                            "furnace brow eyes",
+                                            "side weak-point lamps",
+                                            "shoulder pressure tanks",
+                                            "shield read",
+                                            "hammer tell",
+                                            "detached shutdown fragments"
+                                        ],
+                        "stats":  {
+                                      "vertices":  740,
+                                      "faces":  444
+                                  }
+                    },
+                    {
+                        "id":  "Warden",
+                        "mesh":  "Meshes/ENEMY_ERB_Warden_ReadabilityUpgrade_LOD0.obj",
+                        "fragments":  "Meshes/FRAG_ERB_Warden_ShutdownFragments.obj",
+                        "preview":  "Previews/PREVIEW_ERB_Warden_ReadabilityBoard.png",
+                        "readability":  [
+                                            "furnace command eyes",
+                                            "central command weak-point lamp",
+                                            "crown pressure tanks",
+                                            "overhead bolt tell",
+                                            "cage silhouette",
+                                            "detached shutdown fragments"
+                                        ],
+                        "stats":  {
+                                      "vertices":  916,
+                                      "faces":  540
+                                  }
+                    }
+                ],
+    "materials":  [
+                      {
+                          "name":  "MAT_ERB_BlackenedIron",
+                          "role":  "blackened iron chassis"
+                      },
+                      {
+                          "name":  "MAT_ERB_AgedBrass",
+                          "role":  "aged brass trim"
+                      },
+                      {
+                          "name":  "MAT_ERB_CopperPipe",
+                          "role":  "oxidized copper pressure pipe"
+                      },
+                      {
+                          "name":  "MAT_ERB_DarkRubber",
+                          "role":  "dark rubber hoses and gaskets"
+                      },
+                      {
+                          "name":  "MAT_ERB_CreamEnamel",
+                          "role":  "cream enamel face plates"
+                      },
+                      {
+                          "name":  "MAT_ERB_FurnaceEyeAmber",
+                          "role":  "hot amber furnace eyes"
+                      },
+                      {
+                          "name":  "MAT_ERB_WeakPointLamp",
+                          "role":  "readable weak-point lamp glass"
+                      },
+                      {
+                          "name":  "MAT_ERB_PressureTankRed",
+                          "role":  "danger red pressure tanks"
+                      },
+                      {
+                          "name":  "MAT_ERB_BoltTellBlue",
+                          "role":  "blue bolt/charge tell"
+                      },
+                      {
+                          "name":  "MAT_ERB_HazardEnamel",
+                          "role":  "yellow hazard enamel for attack tells"
+                      },
+                      {
+                          "name":  "MAT_ERB_ShutdownFragmentDim",
+                          "role":  "dim shutdown fragments"
+                      },
+                      {
+                          "name":  "MAT_ERB_SootShadow",
+                          "role":  "soot-black visor cavities"
+                      }
+                  ]
+}

@@ -1442,6 +1442,76 @@ public static class V0LevelValidator
         RequireRendererMaterial(prototype.labelPlateRenderer, sceneName + " wall valve wheel label", "Gauge");
     }
 
+    private static void ValidateValveWheelConsolePrototype(string sceneName, string objectName, string expectedPlacementRole)
+    {
+        GameObject root = RequireNamed(objectName, sceneName + " valve wheel console prototype root");
+        ValveWheelConsolePrototype prototype = root.GetComponent<ValveWheelConsolePrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " valve wheel console prototype is missing its marker component (" + objectName + ").");
+        }
+
+        if (prototype.promotionVersion != "v0.1.32" || prototype.placementRole != expectedPlacementRole || prototype.gameplayAuthority != "VisualOnlyNoGameplay" || !prototype.HasRequiredParts || root.name.IndexOf(expectedPlacementRole, StringComparison.OrdinalIgnoreCase) < 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " valve wheel console metadata, role, authority, root name, or required parts are incomplete (" + objectName + ").");
+        }
+
+        if (prototype.backplateRoot.childCount < 6 || prototype.wheelRoot.childCount < 12 || prototype.gaugeRoot.childCount < 2 || prototype.lampRoot.childCount < 4 || prototype.pipeRoot.childCount < 4 || prototype.rivetRoot.childCount < 14 || prototype.grimeRoot.childCount < 3)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " valve wheel console does not have the required backplate/wheel/gauge/lamp/pipe/rivet/grime detail counts (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<Collider>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " valve wheel console must remain non-blocking route dressing with no colliders (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<NavMeshObstacle>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " valve wheel console must not add NavMeshObstacle components (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<Pickup>().Length > 0 || root.GetComponentsInChildren<PlayerInteraction>().Length > 0 || root.GetComponentsInChildren<LevelTransitionTrigger>().Length > 0 || root.GetComponentsInChildren<ExitTrigger>().Length > 0 || root.GetComponentsInChildren<SteamValveObjective>().Length > 0 || root.GetComponentsInChildren<SteamHazard>().Length > 0 || root.GetComponentsInChildren<FurnaceHeatHazard>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " valve wheel console must remain visual dressing with no pickup, interaction, objective, or route-authority components (" + objectName + ").");
+        }
+
+        RequireNamed(objectName + " Backplate Root", sceneName + " valve wheel console backplate root");
+        RequireNamed(objectName + " Valve Wheel Root", sceneName + " valve wheel console wheel root");
+        RequireNamed(objectName + " Gauge Cluster Root", sceneName + " valve wheel console gauge root");
+        RequireNamed(objectName + " Pilot Lamp Root", sceneName + " valve wheel console lamp root");
+        RequireNamed(objectName + " Pipework Root", sceneName + " valve wheel console pipe root");
+        RequireNamed(objectName + " Fastener Root", sceneName + " valve wheel console rivet root");
+        RequireNamed(objectName + " Grime Detail Root", sceneName + " valve wheel console grime root");
+        RequireNamed(objectName + " Blackened Iron Wall Backplate", sceneName + " valve wheel console backplate");
+        RequireNamed(objectName + " Blackened Iron Raised Console Panel", sceneName + " valve wheel console raised panel");
+        RequireNamed(objectName + " Aged Brass Valve Wheel Ring", sceneName + " valve wheel console wheel ring");
+        RequireNamed(objectName + " Blackened Iron Wheel Spoke 00", sceneName + " valve wheel console wheel spoke");
+        RequireNamed(objectName + " Aged Brass Wheel Hub", sceneName + " valve wheel console wheel hub");
+        RequireNamed(objectName + " Aged Brass Wheel Grip 00", sceneName + " valve wheel console wheel grip");
+        RequireNamed(objectName + " Left Pressure Gauge Cream Enamel Face", sceneName + " valve wheel console gauge face");
+        RequireNamed(objectName + " Left Pressure Gauge Dark Gauge Needle", sceneName + " valve wheel console gauge needle");
+        RequireNamed(objectName + " Amber Pilot Lamp 00", sceneName + " valve wheel console amber lamp");
+        RequireNamed(objectName + " Brass Pressure Pipe Inlet", sceneName + " valve wheel console inlet pipe");
+        RequireNamed(objectName + " Brass Pressure Pipe Outlet", sceneName + " valve wheel console outlet pipe");
+        RequireNamed(objectName + " Brass Mount Rivet 00", sceneName + " valve wheel console rivet");
+        RequireNamed(objectName + " Oil Grime Streak Below Wheel", sceneName + " valve wheel console oil grime");
+        RequireNamed(objectName + " Soot Dark Pipe Joint Smudge", sceneName + " valve wheel console soot smudge");
+
+        RequireRendererMaterial(prototype.backplateRenderer, sceneName + " valve wheel console backplate", "Iron");
+        RequireRendererMaterial(prototype.raisedPanelRenderer, sceneName + " valve wheel console panel", "Iron");
+        RequireRendererMaterial(prototype.wheelRingRenderer, sceneName + " valve wheel console wheel ring", "Brass");
+        RequireRendererMaterial(prototype.wheelSpokeRenderer, sceneName + " valve wheel console spoke", "Iron");
+        RequireRendererMaterial(prototype.wheelHubRenderer, sceneName + " valve wheel console hub", "Brass");
+        RequireRendererMaterial(prototype.wheelGripRenderer, sceneName + " valve wheel console grip", "Brass");
+        RequireRendererMaterial(prototype.gaugeFaceRenderer, sceneName + " valve wheel console gauge face", "Gauge");
+        RequireRendererMaterial(prototype.gaugeNeedleRenderer, sceneName + " valve wheel console gauge needle", "Warning");
+        RequireRendererMaterial(prototype.lampRenderer, sceneName + " valve wheel console lamp", "Warning");
+        RequireRendererMaterial(prototype.pipeRenderer, sceneName + " valve wheel console pipe", "Brass");
+        RequireRendererMaterial(prototype.rivetRenderer, sceneName + " valve wheel console rivet", "Brass");
+        RequireRendererMaterial(prototype.grimeRenderer, sceneName + " valve wheel console grime", "Oil");
+    }
+
     private static void ValidatePressureReliefVentPrototype(string sceneName, string objectName, string expectedPlacementRole)
     {
         GameObject root = RequireNamed(objectName, sceneName + " pressure relief vent prototype root");
@@ -1834,6 +1904,7 @@ public static class V0LevelValidator
             ValidateWallPipeGaugeClusterPrototype(sceneName, "Pipeworks Prototype Wall Pipe Gauge Cluster", "pipeworks_route_wall");
             ValidateBoilerControlConsolePrototype(sceneName, "Pipeworks Prototype Boiler Control Console", "pipeworks_route_console");
             ValidateRivetedPressureDoorFramePrototype(sceneName, "Pipeworks Prototype Riveted Pressure Door Frame", "pipeworks_route_pressure_frame");
+            ValidateValveWheelConsolePrototype(sceneName, "ValveWheelConsolePrototype_pipeworks_pressure_console", "pipeworks_pressure_console");
             RequireNamed("Secret - Pipeworks Cartridge Cache", sceneName + " pipeworks secret cache");
             RequireNamed("Secret Pipeworks Cache Brass Floor Plate", sceneName + " pipeworks secret cache floor plate");
             RequireNamed("Pickup - Pipeworks Secret Pressure Cartridge Pack", sceneName + " pipeworks secret ammo reward");
@@ -1861,6 +1932,7 @@ public static class V0LevelValidator
             ValidateBoilerControlConsolePrototype(sceneName, "Boilerheart Prototype Boiler Control Console", "boilerheart_route_console");
             ValidateRivetedPressureDoorFramePrototype(sceneName, "Boilerheart Prototype Riveted Pressure Door Frame", "boilerheart_route_pressure_frame");
             ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_boilerheart_service_lift_call_box", "boilerheart_service_lift_call_box");
+            ValidateValveWheelConsolePrototype(sceneName, "ValveWheelConsolePrototype_boilerheart_pressure_console", "boilerheart_pressure_console");
             RequireNamed("Boilerheart Pressure Valve Objective", sceneName + " boilerheart pressure valve objective");
             RequireNamed("Boilerheart Pressure Valve Wheel", sceneName + " boilerheart pressure valve wheel visual");
             RequireNamed("Boilerheart Valve Vented Lamp", sceneName + " boilerheart valve vented signal");

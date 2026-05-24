@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 11:10 -04:00`
+Last updated: `2026-05-24 12:02 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -10,19 +10,21 @@ Owner: primary Codex thread
 
 Current focus:
 
-- Keep the playable Windows build moving through versioned slices.
+- Keep the playable Windows build moving through ambitious visible milestone batches.
 - Preserve scene-generation determinism and validation coverage.
 - Integrate side-agent outputs only after review.
+- Run multiple independent asset, level, weapon/prop, enemy/readability, and QA crews in parallel when write scopes are disjoint.
+- Use targeted checks during batch development and reserve full route/package/QA/candidate matrix runs for coherent milestone completion.
 - Commit and push verified slices regularly.
 
 Current verified local build:
 
-- `v0.1.31`
-- Build path: `Builds/Windows/v0.1.31/BrassworksBreach_v0.1.31.exe`
-- Package path: `Builds/WindowsPackages/v0.1.31/BrassworksBreach_v0.1.31_Windows.zip`
-- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.31.md`
-- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.31.md`
-- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.31.md`
+- `v0.1.32`
+- Build path: `Builds/Windows/v0.1.32/BrassworksBreach_v0.1.32.exe`
+- Package path: `Builds/WindowsPackages/v0.1.32/BrassworksBreach_v0.1.32_Windows.zip`
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.32.md`
+- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.32.md`
+- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.32.md`
 - Matrix result: `V0_BUILD_MATRIX_PASS` plus `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`
 
 ## Active Side Agents
@@ -81,6 +83,12 @@ Current verified local build:
 | Lagrange-ServiceCallBox | `019e5a60-9d42-77c2-a3ea-04b94dcb552e` | Service lift call box prototype production brief/status | `Documentation/AssetProduction/ServiceLiftCallBoxPrototype/` | `2026-05-24 10:21 -04:00` | completed; docs integrated with the v0.1.30 promoted service lift call box component |
 | Dirac-GearKeyPlinth | `019e5a79-b78f-74b2-8de3-530a723cddb5` | Gear key plinth prototype production brief/status | `Documentation/AssetProduction/GearKeyPlinthPrototype/` | `2026-05-24 10:57 -04:00` | completed; docs integrated with the v0.1.31 promoted gear-key plinth component |
 | Ptolemy-ValveConsole | `019e5a83-cd93-7000-a32a-517002219411` | Valve wheel console prototype production brief/status | `Documentation/AssetProduction/ValveWheelConsolePrototype/` | `2026-05-24 11:03 -04:00` | completed; docs prepared for the next route-safe console prop promotion |
+| Aquinas-PistonDoorBrace | `019e5aa5-594d-7490-bf64-9fbcfaa9992c` | Piston door brace prototype production brief/status | `Documentation/AssetProduction/PistonDoorBracePrototype/` | `2026-05-24 11:37 -04:00` | completed; docs prepared for the v0.1.33 threshold-and-route dressing milestone |
+| Gauss-BatchPlan | `019e5aae-5a77-7951-916e-0df1152c0954` | Ambitious v0.1.33 10-family threshold-and-route dressing batch plan | `Documentation/Planning/V0_1_33_BatchPlan/` | `2026-05-24 11:52 -04:00` | completed; packet requires big-leap compile cadence, 10 families preferred, 8-family fallback minimum |
+| Kant-RouteDressingAssets | `019e5ab4-c438-7320-a8bd-5aa9f8812017` | Parallel threshold-and-route dressing asset package | `Documentation/AssetProduction/ThresholdRouteDressingBatch/`, `Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/` | `2026-05-24 12:02 -04:00` | completed; staged 18 build specs across 9 route-dressing families with material atlases and contact sheet |
+| Arendt-LevelDensity | `019e5ab4-c5ea-7fa0-ad12-ca88334e9a7a` | Multi-level placement/density plan for the next compile | `Documentation/Planning/V0_1_33_LevelDensityBatch/` | `2026-05-24 12:02 -04:00` | completed; packet maps 10 families across Level01-Level05 and 31 zones for one visible compile leap |
+| Locke-WeaponPropBatch | `019e5ab4-c657-7ce1-808a-ad48d1f6f2d8` | Parallel pressure-pistol and gameplay-prop staging package | `Documentation/AssetProduction/WeaponPropBatch/`, `Assets/_Project/ArtStaging/WeaponPropBatch/` | `2026-05-24 12:02 -04:00` | completed; staged 7 OBJ meshes, 14 material proxies, 4 draft textures, and 3 preview sheets |
+| Tesla-EnemyReadability | `019e5ab4-c6c8-79d0-aa8f-e076699d5541` | Parallel mechanical-enemy readability/art staging package | `Documentation/AssetProduction/EnemyReadabilityBatch/`, `Assets/_Project/ArtStaging/EnemyReadabilityBatch/` | `2026-05-24 12:02 -04:00` | completed; staged Scrapper/Lancer/Bulwark/Warden readability OBJs, shutdown fragments, material proxies, and preview boards |
 
 ## Completed Side-Agent Outputs
 
@@ -141,6 +149,8 @@ Current verified local build:
 - When side-agent output returns, review it before merging into the main docs.
 - Convert accepted side-agent output into concrete implementation slices, asset tasks, and validation requirements.
 - If a side-agent recommendation conflicts with current playable build needs, keep the playable build stable and move the recommendation to a later task.
+- Assign side agents to substantial disjoint families or workstreams, not sequential one-asset tasks.
+- Future side-agent prompts should explicitly target visible milestone batches and big leaps per compile.
 
 ## Good Parallel Lanes
 

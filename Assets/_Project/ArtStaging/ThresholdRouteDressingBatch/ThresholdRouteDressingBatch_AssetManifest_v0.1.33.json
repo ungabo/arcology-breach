@@ -1,0 +1,520 @@
+{
+  "package": "ThresholdRouteDressingBatch",
+  "project": "Brassworks Breach",
+  "version": "v0.1.33",
+  "generated_at": "2026-05-24T12:05:51-04:00",
+  "scope": {
+    "documentation": "Documentation/AssetProduction/ThresholdRouteDressingBatch/",
+    "asset_staging": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/",
+    "unity_only": true,
+    "scene_placement": "none",
+    "gameplay_authority": false
+  },
+  "import_settings": {
+    "texture_type": "Default",
+    "srgb": true,
+    "mip_maps": true,
+    "filter_mode": "Bilinear",
+    "wrap_mode_default": "Clamp",
+    "alpha_is_transparency_for_decals": true,
+    "max_size": 1024,
+    "notes": "Use Clamp for plates and decal sheets. Repeat is acceptable only when testing gasket and rivet strip tiling."
+  },
+  "source_sheets": [
+    {
+      "path": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_MaterialSwatches_1024.png",
+      "role": "material review swatches",
+      "dimensions_px": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "408ed319a5cf50322ec1dca44f3235ae46284083ec631862a67fb8a44ccf07e5"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_RouteIndicatorNameplates_1024.png",
+      "role": "amber route indicator plate and threshold nameplate atlas",
+      "dimensions_px": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "4411e06177be689b3bfe982c5e0696ae2c96f79222f2afa1239101ff83c8cd49"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_GrimeGasketRivetAccents_1024.png",
+      "role": "transparent grime, gasket, rivet, and wear accent atlas",
+      "dimensions_px": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "6a41f8bae4fd81c2b3ddf5a7e330500875733320612c91ea49b6e603a51c3035"
+    }
+  ],
+  "preview": {
+    "path": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Previews/PREVIEW_ThresholdRouteDressingBatch_ContactSheet_v0.1.33.png",
+    "dimensions_px": {
+      "width": 1600,
+      "height": 1200
+    },
+    "sha256": "2dd22a7c76c7550f4509397bee08dc1893e07c05c4918bee8b1d2381eebeb884"
+  },
+  "materials": [
+    "TRD_BlackenedIron",
+    "TRD_AgedBrass",
+    "TRD_OilyGunmetal",
+    "TRD_AmberRouteGlass",
+    "TRD_WornAmberEnamel",
+    "TRD_RubberGasket",
+    "TRD_SootGrimeDecal",
+    "TRD_OilStreakDecal",
+    "TRD_CableSheathing",
+    "TRD_LiftSafetyRailPaint"
+  ],
+  "asset_specs": [
+    {
+      "id": "TRD-PDB-01",
+      "family": "piston_door_braces",
+      "name": "Wide pressure-jamb piston brace pair",
+      "status": "ready-build-spec",
+      "construction": "Unity primitives or ProBuilder cubes/cylinders",
+      "primary_materials": [
+        "TRD_BlackenedIron",
+        "TRD_AgedBrass",
+        "TRD_OilyGunmetal",
+        "TRD_OilStreakDecal"
+      ],
+      "dimensions_m": {
+        "width": 4.2,
+        "height": 3.8,
+        "depth": 0.35,
+        "minimum_route_clearance_width": 1.9,
+        "minimum_route_clearance_height": 2.5
+      },
+      "parts": [
+        "left and right vertical back plates",
+        "upper and lower anchor blocks",
+        "two cylinder bodies per side",
+        "aged brass piston rods",
+        "clevis mounts",
+        "large rivet rows",
+        "subtle amber pressure lens per side"
+      ],
+      "integration_notes": "Frame pressure-door thresholds without central moving slab or gameplay lock state."
+    },
+    {
+      "id": "TRD-PDB-02",
+      "family": "piston_door_braces",
+      "name": "Compact service-jamb piston brace pair",
+      "status": "ready-build-spec",
+      "construction": "Unity primitives or ProBuilder cubes/cylinders",
+      "primary_materials": [
+        "TRD_BlackenedIron",
+        "TRD_AgedBrass",
+        "TRD_RubberGasket"
+      ],
+      "dimensions_m": {
+        "width": 3.25,
+        "height": 3.05,
+        "depth": 0.24
+      },
+      "parts": [
+        "narrow side plates",
+        "single diagonal rod per side",
+        "short cylinder housings",
+        "small rivet rows",
+        "lower oil drips"
+      ],
+      "integration_notes": "Use in smaller corridors where a full pressure gate frame is too visually heavy."
+    },
+    {
+      "id": "TRD-PCC-01",
+      "family": "pipe_clamps_couplers",
+      "name": "Straight wall-run pipe clamp set",
+      "status": "ready-build-spec",
+      "construction": "Cylinders, split-ring clamp arcs, cuboid saddle blocks",
+      "primary_materials": [
+        "TRD_OilyGunmetal",
+        "TRD_BlackenedIron",
+        "TRD_AgedBrass"
+      ],
+      "dimensions_m": {
+        "width": 1.4,
+        "height": 0.55,
+        "depth": 0.28
+      },
+      "parts": [
+        "main pipe cylinder",
+        "three split clamps",
+        "saddle block backs",
+        "paired bolt lugs",
+        "small leak stain decals"
+      ],
+      "integration_notes": "Mount beside threshold jambs or along lintels. Keep below-head pipework outside route clearance."
+    },
+    {
+      "id": "TRD-PCC-02",
+      "family": "pipe_clamps_couplers",
+      "name": "Overhead steam coupler crossing",
+      "status": "ready-build-spec",
+      "construction": "Cylinders, elbow sections, clamp collars, support struts",
+      "primary_materials": [
+        "TRD_OilyGunmetal",
+        "TRD_BlackenedIron",
+        "TRD_SootGrimeDecal"
+      ],
+      "dimensions_m": {
+        "width": 2.6,
+        "height": 0.75,
+        "depth": 0.4
+      },
+      "parts": [
+        "overhead pipe run",
+        "two coupler sleeves",
+        "wall flange plates",
+        "soot halos",
+        "heat-blue edge accents"
+      ],
+      "integration_notes": "Best above route thresholds to add density while preserving player movement."
+    },
+    {
+      "id": "TRD-GRM-01",
+      "family": "grime_panels",
+      "name": "Vertical oil leak panel decals",
+      "status": "ready-source-sheet",
+      "construction": "Transparent decal quads or decal projectors",
+      "source_sheet": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_GrimeGasketRivetAccents_1024.png",
+      "primary_materials": [
+        "TRD_OilStreakDecal"
+      ],
+      "dimensions_m": {
+        "width": 0.35,
+        "height": 1.0
+      },
+      "parts": [
+        "four vertical grime panels",
+        "oil streak variations",
+        "transparent background"
+      ],
+      "integration_notes": "Place below rods, hinges, clamps, and valves. Do not scatter randomly."
+    },
+    {
+      "id": "TRD-GRM-02",
+      "family": "grime_panels",
+      "name": "Upper soot swipe decals",
+      "status": "ready-build-spec",
+      "construction": "Transparent decal quads using dark matte material",
+      "source_sheet": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_GrimeGasketRivetAccents_1024.png",
+      "primary_materials": [
+        "TRD_SootGrimeDecal"
+      ],
+      "dimensions_m": {
+        "width": 0.6,
+        "height": 0.25
+      },
+      "parts": [
+        "matte soot swipes",
+        "soft upper edge dirt",
+        "vent-adjacent deposits"
+      ],
+      "integration_notes": "Use near lintels, release vents, and overhead pipe exits."
+    },
+    {
+      "id": "TRD-ARP-01",
+      "family": "amber_route_indicator_plates",
+      "name": "Amber route arrow plate set",
+      "status": "ready-source-sheet",
+      "construction": "Thin cuboid backing plates plus atlas decal faces",
+      "source_sheet": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_RouteIndicatorNameplates_1024.png",
+      "primary_materials": [
+        "TRD_WornAmberEnamel",
+        "TRD_BlackenedIron"
+      ],
+      "dimensions_m": {
+        "width": 0.65,
+        "height": 0.22,
+        "depth": 0.035
+      },
+      "parts": [
+        "straight arrow",
+        "left arrow",
+        "right arrow",
+        "up arrow",
+        "warning variant",
+        "blackened rim and bolts"
+      ],
+      "integration_notes": "Diegetic route aid only. Keep emission low and never attach gameplay prompt behavior."
+    },
+    {
+      "id": "TRD-ARP-02",
+      "family": "amber_route_indicator_plates",
+      "name": "Amber destination tab set",
+      "status": "ready-source-sheet",
+      "construction": "Small cuboid plates with atlas face selections",
+      "source_sheet": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_RouteIndicatorNameplates_1024.png",
+      "primary_materials": [
+        "TRD_AmberRouteGlass",
+        "TRD_BlackenedIron"
+      ],
+      "dimensions_m": {
+        "width": 0.45,
+        "height": 0.18,
+        "depth": 0.03
+      },
+      "parts": [
+        "route number tags",
+        "lift access tag",
+        "service only tag",
+        "core span tag"
+      ],
+      "integration_notes": "Useful on brace caps, rail posts, and pipe brackets."
+    },
+    {
+      "id": "TRD-CAB-01",
+      "family": "cable_conduit_bundles",
+      "name": "Wall trunk cable bundle",
+      "status": "ready-build-spec",
+      "construction": "Procedural tubes, cylinders, or Unity spline mesh",
+      "primary_materials": [
+        "TRD_CableSheathing",
+        "TRD_AgedBrass",
+        "TRD_BlackenedIron"
+      ],
+      "dimensions_m": {
+        "width": 1.8,
+        "height": 0.45,
+        "depth": 0.12
+      },
+      "parts": [
+        "five to seven varied cables",
+        "three brass or iron bundle clamps",
+        "small junction cover",
+        "wear at clamp contact points"
+      ],
+      "integration_notes": "Run along wall edges and over lintels. Avoid covering route labels."
+    },
+    {
+      "id": "TRD-CAB-02",
+      "family": "cable_conduit_bundles",
+      "name": "Conduit elbow and junction drop",
+      "status": "ready-build-spec",
+      "construction": "Cylinders, torus/elbow approximations, junction box cubes",
+      "primary_materials": [
+        "TRD_OilyGunmetal",
+        "TRD_CableSheathing",
+        "TRD_BlackenedIron"
+      ],
+      "dimensions_m": {
+        "width": 0.8,
+        "height": 1.2,
+        "depth": 0.16
+      },
+      "parts": [
+        "vertical conduit drop",
+        "elbow into lintel",
+        "riveted junction box",
+        "wire bundle exit",
+        "grime below box"
+      ],
+      "integration_notes": "Use to terminate cable bundles cleanly beside thresholds."
+    },
+    {
+      "id": "TRD-NAM-01",
+      "family": "threshold_nameplates",
+      "name": "Named brassworks threshold plates",
+      "status": "ready-source-sheet",
+      "construction": "Cuboid backing plate plus atlas face",
+      "source_sheet": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_RouteIndicatorNameplates_1024.png",
+      "primary_materials": [
+        "TRD_WornAmberEnamel",
+        "TRD_BlackenedIron",
+        "TRD_AgedBrass"
+      ],
+      "dimensions_m": {
+        "width": 1.15,
+        "height": 0.28,
+        "depth": 0.04
+      },
+      "parts": [
+        "Threshold B-17",
+        "Boilerheart",
+        "Freight Lift",
+        "Pressure Gate",
+        "Valve Run",
+        "Furnace Bay"
+      ],
+      "integration_notes": "Place over lintels or beside route apertures. Treat text as environmental dressing, not UI prompts."
+    },
+    {
+      "id": "TRD-NAM-02",
+      "family": "threshold_nameplates",
+      "name": "Blank tarnished nameplate bases",
+      "status": "ready-build-spec",
+      "construction": "Cuboid plate with rim, rivets, optional atlas face",
+      "primary_materials": [
+        "TRD_AgedBrass",
+        "TRD_BlackenedIron"
+      ],
+      "dimensions_m": {
+        "width": 0.9,
+        "height": 0.22,
+        "depth": 0.035
+      },
+      "parts": [
+        "blank plate body",
+        "blackened frame",
+        "four rivets",
+        "scraped corner accents"
+      ],
+      "integration_notes": "Reserved for level-specific text or non-text grime variants."
+    },
+    {
+      "id": "TRD-LSR-01",
+      "family": "lift_safety_rails",
+      "name": "Straight freight-lift safety rail",
+      "status": "ready-build-spec",
+      "construction": "Cylinders for rails and posts, cuboid base plates",
+      "primary_materials": [
+        "TRD_LiftSafetyRailPaint",
+        "TRD_BlackenedIron",
+        "TRD_RivetWearAccent"
+      ],
+      "dimensions_m": {
+        "width": 2.0,
+        "height": 1.05,
+        "depth": 0.12
+      },
+      "parts": [
+        "top rail",
+        "mid rail",
+        "five vertical posts",
+        "riveted foot plates",
+        "hand-worn rail edge"
+      ],
+      "integration_notes": "Use around lift mouths without blocking the intended lift entry."
+    },
+    {
+      "id": "TRD-LSR-02",
+      "family": "lift_safety_rails",
+      "name": "Lift corner guard and kick plate",
+      "status": "ready-build-spec",
+      "construction": "Cylinder rails, elbow approximations, cuboid kick plate",
+      "primary_materials": [
+        "TRD_LiftSafetyRailPaint",
+        "TRD_BlackenedIron",
+        "TRD_OilStreakDecal"
+      ],
+      "dimensions_m": {
+        "width": 0.9,
+        "height": 1.05,
+        "depth": 0.9
+      },
+      "parts": [
+        "L-shaped top rail",
+        "corner post",
+        "lower kick plate",
+        "floor-base grime",
+        "scraped outside corner"
+      ],
+      "integration_notes": "Use to frame hazardous lift edges while leaving the main path open."
+    },
+    {
+      "id": "TRD-GSK-01",
+      "family": "gasket_seams",
+      "name": "Vertical pressure-gasket jamb strips",
+      "status": "ready-source-sheet",
+      "construction": "Thin cuboids or decal-backed strips with rivets",
+      "source_sheet": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_GrimeGasketRivetAccents_1024.png",
+      "primary_materials": [
+        "TRD_RubberGasket",
+        "TRD_BlackenedIron"
+      ],
+      "dimensions_m": {
+        "width": 0.08,
+        "height": 2.6,
+        "depth": 0.025
+      },
+      "parts": [
+        "rubber seam strip",
+        "thin metal retainer",
+        "small rivet caps",
+        "compression shine"
+      ],
+      "integration_notes": "Mount inside jambs or around sealed service panels."
+    },
+    {
+      "id": "TRD-GSK-02",
+      "family": "gasket_seams",
+      "name": "Bolted sill gasket strip",
+      "status": "ready-build-spec",
+      "construction": "Low cuboid strip with rivet/decal overlay",
+      "source_sheet": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_GrimeGasketRivetAccents_1024.png",
+      "primary_materials": [
+        "TRD_RubberGasket",
+        "TRD_OilStreakDecal"
+      ],
+      "dimensions_m": {
+        "width": 1.7,
+        "height": 0.06,
+        "depth": 0.12
+      },
+      "parts": [
+        "low rubber sill",
+        "retainer bolts",
+        "dark oil at lower corners",
+        "edge scrape marks"
+      ],
+      "integration_notes": "Use only where the sill will not create a visual trip hazard or gameplay blocker."
+    },
+    {
+      "id": "TRD-RWA-01",
+      "family": "rivet_wear_accents",
+      "name": "Large and small rivet rows",
+      "status": "ready-source-sheet",
+      "construction": "Instanced rivet meshes or decal strip from accent atlas",
+      "source_sheet": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_GrimeGasketRivetAccents_1024.png",
+      "primary_materials": [
+        "TRD_BlackenedIron",
+        "TRD_AgedBrass"
+      ],
+      "dimensions_m": {
+        "large_spacing": 0.12,
+        "small_spacing": 0.07
+      },
+      "parts": [
+        "large rivet strip",
+        "small rivet strip",
+        "washer cap variation",
+        "highlighted rivet tops"
+      ],
+      "integration_notes": "Prefer instancing for real geometry where silhouette matters; use decals for flat panel wear."
+    },
+    {
+      "id": "TRD-RWA-02",
+      "family": "rivet_wear_accents",
+      "name": "Scraped edge and corner wear accents",
+      "status": "ready-source-sheet",
+      "construction": "Transparent decal quads or material-mask overlays",
+      "source_sheet": "Assets/_Project/ArtStaging/ThresholdRouteDressingBatch/Textures/T_TRD_v0133_GrimeGasketRivetAccents_1024.png",
+      "primary_materials": [
+        "TRD_RivetWearAccent"
+      ],
+      "dimensions_m": {
+        "width": 0.3,
+        "height": 0.04
+      },
+      "parts": [
+        "linear edge scrape",
+        "corner chip",
+        "hand-contact polish",
+        "lower sill abrasion"
+      ],
+      "integration_notes": "Use sparingly on player-facing edges, rail tops, plate corners, and brace corners."
+    }
+  ],
+  "counts": {
+    "asset_specs_total": 18,
+    "families_total": 9,
+    "source_sheets_total": 3,
+    "preview_sheets_total": 1
+  }
+}
+
