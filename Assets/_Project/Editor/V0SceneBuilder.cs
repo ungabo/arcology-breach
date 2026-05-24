@@ -205,6 +205,7 @@ public static class V0SceneBuilder
         RequireObject<RuntimeAudioMixTest>("RuntimeAudioMixTest");
         RequireObject<GameplayFeedbackController>("GameplayFeedbackController");
         RequireObject<RuntimeGameplayFeedbackTest>("RuntimeGameplayFeedbackTest");
+        RequireObject<RuntimeWorldLabelReadabilityTest>("RuntimeWorldLabelReadabilityTest");
         RequireObject<HUDController>("HUDController");
         RequireObject<EnemyController>("EnemyController");
         RequireObject<Pickup>("Pickup");
@@ -2078,6 +2079,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeDisplaySettingsTest>();
         stateObject.AddComponent<RuntimeReadabilitySettingsTest>();
         stateObject.AddComponent<RuntimeGameplayFeedbackTest>();
+        stateObject.AddComponent<RuntimeWorldLabelReadabilityTest>();
     }
 
     private static void ConfigureSteamworksAudioV1(SteamworksAudio audio)
@@ -3092,6 +3094,8 @@ public static class V0SceneBuilder
         textMesh.characterSize = 0.16f;
         textMesh.fontSize = 48;
         textMesh.color = new Color(0.95f, 0.68f, 0.26f);
+
+        ConfigureWorldLabelReadability(label, textMesh, text, textMesh.color, textMesh.characterSize);
     }
 
     private readonly struct SidecarPrefabPlacement
@@ -3125,6 +3129,46 @@ public static class V0SceneBuilder
         textMesh.characterSize = characterSize;
         textMesh.fontSize = 48;
         textMesh.color = color;
+
+        ConfigureWorldLabelReadability(label, textMesh, text, color, characterSize);
+    }
+
+    private static void ConfigureWorldLabelReadability(GameObject label, TextMesh textMesh, string text, Color color, float characterSize)
+    {
+        Material backplateMaterial = CreateMaterial("M_WorldLabelBackplate", new Color(0.03f, 0.025f, 0.018f));
+        float width = CalculateWorldLabelBackplateWidth(text, characterSize);
+        float height = CalculateWorldLabelBackplateHeight(text, characterSize);
+        GameObject backplate = CreateLocalCube(label.name + " Readability Backplate", label.transform, new Vector3(0f, 0f, 0.08f), new Vector3(width, height, 0.035f), backplateMaterial);
+
+        WorldLabelBillboard billboard = label.AddComponent<WorldLabelBillboard>();
+        billboard.labelId = label.name;
+        billboard.textMesh = textMesh;
+        billboard.backplateRenderer = backplate.GetComponent<Renderer>();
+        billboard.normalTextColor = color;
+        billboard.highContrastTextColor = Color.white;
+        billboard.normalCharacterSize = characterSize;
+        billboard.highContrastCharacterSize = characterSize * 1.16f;
+        billboard.normalBackplateColor = new Color(0.03f, 0.025f, 0.018f, 1f);
+        billboard.highContrastBackplateColor = Color.black;
+        billboard.yawOnly = true;
+    }
+
+    private static float CalculateWorldLabelBackplateWidth(string text, float characterSize)
+    {
+        string[] lines = text.Split('\n');
+        int longestLine = 1;
+        for (int i = 0; i < lines.Length; i++)
+        {
+            longestLine = Mathf.Max(longestLine, lines[i].Length);
+        }
+
+        return Mathf.Clamp(longestLine * characterSize * 0.58f, 1.05f, 5.2f);
+    }
+
+    private static float CalculateWorldLabelBackplateHeight(string text, float characterSize)
+    {
+        int lineCount = Mathf.Max(1, text.Split('\n').Length);
+        return Mathf.Clamp(lineCount * characterSize * 1.65f, characterSize * 1.55f, 1.2f);
     }
 
     private static void CreateLevel01SignageDecalsV1()

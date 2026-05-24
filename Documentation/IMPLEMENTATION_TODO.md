@@ -56,12 +56,24 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Rebuild scenes, run route audit, run full Windows matrix, package, QA packet, issue-triage packet, and candidate-readiness generation.
 - [x] Commit and push the v0.1.36 sidecar visual-import milestone.
 
-## Current Priority: v0.1.37 Materials Set 01 Sidecar
+## v0.1.37 World Label Readability Batch
+
+- [x] Add billboarded world-label readability component.
+- [x] Add generated dark backplates behind floating route, cache, pickup, and sidecar showcase labels.
+- [x] Add high-contrast world-label response for readable first-person navigation.
+- [x] Add packaged `RuntimeWorldLabelReadabilityTest` coverage.
+- [x] Wire `V0_WORLD_LABEL_READABILITY_PASS` into the Windows matrix and candidate-readiness gate.
+- [x] Rebuild scenes, run route audit, run full Windows matrix, package, QA packet, issue-triage packet, and candidate-readiness generation.
+- [x] Commit and push the v0.1.37 world-label readability milestone.
+
+## Parallel Priority: v0.1.40 Sidecar Asset Bundles
 
 - [ ] Complete broad steampunk material family sidecar package.
 - [ ] Generate package-local manifest and preview swatches/renders.
 - [ ] Run package-specific sidecar validator.
 - [ ] Review import risk and decide whether to import package or bind selected materials into gameplay surfaces.
+- [ ] Complete level-dressing, mechanical-enemy-visual, and weapon-props sidecar packages in parallel.
+- [ ] Validate completed sidecars package-by-package before any main-project import.
 
 ## v0.0.7 Steampunk Retheme and Pause Flow
 

@@ -297,6 +297,50 @@ public static class V0LevelValidator
         }
     }
 
+    private static void ValidateWorldLabelReadability(string sceneName)
+    {
+        WorldLabelBillboard[] labels = UnityEngine.Object.FindObjectsByType<WorldLabelBillboard>(FindObjectsSortMode.None);
+        int minimumCount = sceneName == "Level01" ? 5 : 1;
+        if (labels.Length < minimumCount)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " expected at least " + minimumCount + " v0.1.37 world-label readability components but found " + labels.Length + ".");
+        }
+
+        for (int i = 0; i < labels.Length; i++)
+        {
+            WorldLabelBillboard label = labels[i];
+            if (!label.V0137ReadabilityReady)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " world label is missing v0.1.37 readability metadata: " + label.name + ".");
+            }
+
+            if (label.GetComponent<Collider>() != null || label.GetComponent<Rigidbody>() != null)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " world label has gameplay physics: " + label.name + ".");
+            }
+
+            if (label.textMesh.anchor != TextAnchor.MiddleCenter || label.textMesh.alignment != TextAlignment.Center)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " world label is not center anchored for billboard readability: " + label.name + ".");
+            }
+
+            if (label.backplateRenderer.GetComponent<Collider>() != null)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " world label backplate has a collider: " + label.name + ".");
+            }
+        }
+
+        if (sceneName == "Level01")
+        {
+            RequireNamed("Label - Gear Key", sceneName + " world label gear key");
+            RequireNamed("Label - Gear Key Readability Backplate", sceneName + " world label gear key backplate");
+            RequireNamed("Label - Pressure Gate", sceneName + " world label pressure gate");
+            RequireNamed("Label - Pressure Gate Readability Backplate", sceneName + " world label pressure gate backplate");
+            RequireNamed("Label - Service Lift", sceneName + " world label service lift");
+            RequireNamed("Label - Service Lift Readability Backplate", sceneName + " world label service lift backplate");
+        }
+    }
+
     private static void RequireFinalMaterialBinding(string materialName, string familyName)
     {
         Material material = AssetDatabase.LoadAssetAtPath<Material>(MaterialFolder + "/" + materialName + ".mat");
@@ -378,6 +422,7 @@ public static class V0LevelValidator
 
         ValidateGameplayUIHudV1(sceneName, hud);
         ValidateHudReadability(sceneName, hud);
+        ValidateWorldLabelReadability(sceneName);
 
         PauseMenuController pauseMenu = Require<PauseMenuController>(sceneName + " PauseMenuController");
         ValidatePauseMenuSettings(sceneName, pauseMenu);
@@ -398,6 +443,7 @@ public static class V0LevelValidator
         Require<RuntimeDisplaySettingsTest>(sceneName + " RuntimeDisplaySettingsTest");
         Require<RuntimeReadabilitySettingsTest>(sceneName + " RuntimeReadabilitySettingsTest");
         Require<RuntimeGameplayFeedbackTest>(sceneName + " RuntimeGameplayFeedbackTest");
+        Require<RuntimeWorldLabelReadabilityTest>(sceneName + " RuntimeWorldLabelReadabilityTest");
         Require<EnemyController>(sceneName + " EnemyController");
         Require<Pickup>(sceneName + " Pickup");
 

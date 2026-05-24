@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 15:36 -04:00`
+Last updated: `2026-05-24 15:44 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -45,6 +45,10 @@ Current speed adjustment:
 
 | Agent | ID | Scope | Allowed Write Files | Started | Status |
 | --- | --- | --- | --- | --- | --- |
+| Mill | `019e5b74-2302-7183-8729-8ae9c37ed713` | Materials Set 01 sidecar package | `AssetPacks/BrassworksBreach.MaterialsSet01/`, `Documentation/AssetProduction/V0_1_39_MaterialsSet01/`, `Documentation/ConceptRenders/V0_1_39_MaterialsSet01/` | `2026-05-24 15:36 -04:00` | completed; 16 materials, 48 texture maps, 18 previews, sidecar validator pass, isolated Unity import pass; pending main-lane review |
+| Gibbs | `019e5b82-4a09-70f3-887b-bfe5d803f8da` | Level Dressing Set 01 sidecar package | `AssetPacks/BrassworksBreach.LevelDressingSet01/`, `Documentation/AssetProduction/V0_1_40_LevelDressingSet01/`, `Documentation/ConceptRenders/V0_1_40_LevelDressingSet01/` | `2026-05-24 15:44 -04:00` | active; broad corridor/room dressing package, previews, and validation |
+| Bernoulli | `019e5b82-81e1-7442-918a-7d414dd40535` | Mechanical Enemy Visual Set 01 sidecar package | `AssetPacks/BrassworksBreach.MechanicalEnemyVisualSet01/`, `Documentation/AssetProduction/V0_1_40_MechanicalEnemyVisualSet01/`, `Documentation/ConceptRenders/V0_1_40_MechanicalEnemyVisualSet01/` | `2026-05-24 15:44 -04:00` | completed; 13 prefabs, 15 materials, 8 meshes, 19 previews, sidecar validator pass, Unity validation pass; pending main-lane review |
+| Nash | `019e5b82-ccf2-7d52-a5b7-74070ef467b9` | Weapon Props Set 02 sidecar package | `AssetPacks/BrassworksBreach.WeaponPropsSet02/`, `Documentation/AssetProduction/V0_1_40_WeaponPropsSet02/`, `Documentation/ConceptRenders/V0_1_40_WeaponPropsSet02/` | `2026-05-24 15:44 -04:00` | completed; 16 prefabs, 12 materials, 4 meshes, 17 previews, sidecar validator pass, isolated Unity generate/render pass; pending main-lane review |
 | Hilbert | `019e579b-41ba-7843-8c5f-17bc62683ca7` | AAA steampunk asset-pack production plan | `Documentation/PARALLEL_ASSET_PACK_PRODUCTION_PLAN.md`, `Documentation/PARALLEL_ASSET_ACCEPTANCE_CHECKLIST.md` | `2026-05-23 21:31 -04:00` | completed |
 | Copernicus | `019e579b-7160-7b51-87ab-5bd7da355535` | Production map plans for current/future levels | `Documentation/PARALLEL_LEVEL_PRODUCTION_MAPS.md` | `2026-05-23 21:31 -04:00` | completed |
 | Noether | `019e579b-965a-71c2-8141-51a85513a3bb` | Combat roster and weapon-family design spec | `Documentation/PARALLEL_COMBAT_ROSTER_AND_WEAPONS.md` | `2026-05-23 21:31 -04:00` | completed |

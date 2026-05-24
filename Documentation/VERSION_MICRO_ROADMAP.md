@@ -73,13 +73,13 @@ The roadmap is a living plan, not a promise that every version number is immutab
 | v0.1.34 | Playable polish leap after route dressing | Completed: promoted `V0134BatchPolishPrototype` plus visual-only polish for the Pressure Pistol, Steam Scattergun, pressure cartridges, scattergun pickup display, and Scrapper/Lancer/Bulwark/Warden readability silhouettes. | Route audit passed; full V0 matrix passed with level validation, package, QA packet, issue-triage packet, and candidate-readiness evidence. |
 | v0.1.35 | Gameplay feedback and parallel asset-bundle leap | Completed: added shared feedback hooks and pulse VFX across weapons, pickups, enemy hit/death, objectives, blocked routes, secrets, pause/resume, settings, and Warden phase/death beats while sidecar asset packs advanced in parallel. | Route audit passed; full V0 matrix passed with new `V0_GAMEPLAY_FEEDBACK_PASS`, package, QA packet, issue-triage packet, and candidate-readiness evidence. |
 | v0.1.36 | Sidecar package quarantine visual import | Completed: imported weapon, mechanical enemy, feedback FX/audio, and Steamworks level-kit sidecars as local packages and placed visual-only showcase prefabs across all five generated levels. | Route audit passed; `SIDECAR_QUARANTINE_IMPORT_PASS` passed; full V0 matrix passed with package, QA packet, issue-triage packet, and candidate-readiness evidence. |
+| v0.1.37 | World label readability and navigation polish | Completed: added billboarded world labels, dark backplates, high-contrast label styling, editor label gates, and packaged world-label readability smoke coverage. | Route audit passed; full V0 matrix passed with new `V0_WORLD_LABEL_READABILITY_PASS`, package, QA packet, issue-triage packet, and candidate-readiness evidence. |
 
 ## Near-Term Proposed Sequence
 
 | Version | Planned Slice | Intent | Expected Verification |
 | --- | --- | --- | --- |
-| v0.1.37 | Materials Set 01 sidecar and next visual-material promotion | Complete the restarted broad steampunk material family sidecar, validate it, then decide whether to import the package or bind selected materials into current gameplay surfaces. | Package-specific sidecar validator, Unity import smoke, targeted scene validation, then full matrix only after a visible material leap is integrated. |
-| v0.1.37 | First sidecar asset promotion candidate | Promote only the safest package outputs into main-project quarantine for review: pressure cartridges, wall weapon display, ammo cabinet shell, and/or selected mechanical enemy visual references. | Quarantine import report, editor validation, no primary route-authority changes, then milestone build only if promoted assets touch playable scenes. |
+| v0.1.40 | Materials Set 01 and broad sidecar asset packages | Complete the broad steampunk material family sidecar plus level-dressing, mechanical-enemy-visual, and weapon-prop sidecar packages, then promote only validated package outputs into gameplay or review galleries. | Package-specific sidecar validators, Unity import smoke, targeted scene validation, then full matrix only after a visible material/asset leap is integrated. |
 
 ## Later Follow-Up Areas
 

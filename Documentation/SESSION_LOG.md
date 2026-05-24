@@ -5730,3 +5730,61 @@ Active parallel lane:
 - `MaterialsSet01` remains isolated and unstaged until its package manifest, preview renders, and package-specific validator pass are complete.
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 15:56 -04:00
+
+Completed `v0.1.37` world-label readability and navigation polish while sidecar workers continued in parallel.
+
+Added:
+
+- `WorldLabelBillboard` for camera-facing world labels.
+- Dark readability backplates behind floating route, pickup, cache, and sidecar showcase labels.
+- High-contrast world-label styling with larger white text.
+- `RuntimeWorldLabelReadabilityTest` and packaged `-v0WorldLabelReadabilitySmoke` coverage.
+- Candidate-readiness coverage for `V0_WORLD_LABEL_READABILITY_PASS`.
+
+Verification completed:
+
+- `V0_ROUTE_AUDIT_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_WORLD_LABEL_READABILITY_PASS`
+- `V0_BUILD_MATRIX_PASS`
+- `V0_WINDOWS_PACKAGE_PASS`
+- `V0_WINDOWS_QA_PACKET_PASS`
+- `V0_WINDOWS_ISSUE_TRIAGE_PASS`
+- `V0_WINDOWS_CANDIDATE_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.37/BrassworksBreach_v0.1.37.exe`
+
+Package:
+
+`Builds/WindowsPackages/v0.1.37/BrassworksBreach_v0.1.37_Windows.zip`
+
+QA packet:
+
+`Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.37.md`
+
+Issue triage packet:
+
+`Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.37.md`
+
+Candidate readiness:
+
+`Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.37.md`
+
+SHA-256:
+
+`B7FA153CA7129BA59AF8D306E1A294F5159945477AF40A65A03A5501B8FB9ADF`
+
+Parallel sidecar status:
+
+- `MaterialsSet01` completed locally with 16 materials, 48 texture maps, 18 preview PNGs, package validator pass, and isolated Unity import pass.
+- `MechanicalEnemyVisualSet01` completed locally with 13 prefabs, 15 materials, 8 meshes, 19 preview PNGs, package validator pass, and Unity validation pass.
+- `WeaponPropsSet02` completed locally with 16 prefabs, 12 materials, 4 meshes, 17 preview PNGs, package validator pass, and isolated Unity generate/render pass.
+- These sidecars remain unstaged for separate review/promotion commits.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
