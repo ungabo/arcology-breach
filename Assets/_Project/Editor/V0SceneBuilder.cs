@@ -1218,7 +1218,7 @@ public static class V0SceneBuilder
         CreateCube("Foundry Red Pressure Pipe", new Vector3(5.95f, 2.1f, 18.8f), new Vector3(0.14f, 0.14f, 20f), warningMaterial, parent.transform);
         CreatePipeBundle("Foundry Triple Pipe Bundle", new Vector3(0f, 2.35f, 29.72f), Quaternion.Euler(0f, 90f, 0f), 4.4f, brassMaterial, ironMaterial, parent.transform);
         CreatePipeCanopy("North Star Foundry Pipe Canopy", new Vector3(0f, 2.86f, 16.4f), Quaternion.Euler(0f, 90f, 0f), 7.4f, brassMaterial, ironMaterial, parent.transform, "foundry_route_pipe_canopy");
-        CreateCatwalkRail("North Star Foundry Catwalk Rail", new Vector3(0f, 1.02f, 19.05f), 5.8f, ironMaterial, brassMaterial, parent.transform);
+        CreateCatwalkRail("North Star Foundry Catwalk Rail", new Vector3(0f, 1.02f, 19.05f), Quaternion.identity, 5.8f, ironMaterial, brassMaterial, parent.transform, "foundry_catwalk_rail");
         CreateCagedGaslight("North Star Foundry Gaslight West", new Vector3(-5.88f, 2.06f, 13.4f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "foundry_route_gaslight");
         CreateCagedGaslight("North Star Foundry Gaslight East", new Vector3(5.88f, 2.06f, 21.2f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "foundry_route_gaslight");
         CreatePressureReliefVentPrototype("North Star Foundry Pressure Relief Vent", new Vector3(-6.28f, 1.05f, 21.55f), Quaternion.Euler(0f, 90f, 0f), 1.08f, brassMaterial, ironMaterial, steamMaterial, warningMaterial, "foundry_pressure_relief_vent", parent.transform);
@@ -1276,6 +1276,7 @@ public static class V0SceneBuilder
         CreateCagedGaslight("North Star Boilerheart Lamp Cage", new Vector3(-5.52f, 2.02f, 15.1f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "boilerheart_route_gaslight");
         CreateRivetBand("North Star Boilerheart Core Rivet Band", new Vector3(0f, 2.66f, 14.38f), Quaternion.identity, 2.45f, ironMaterial, brassMaterial, parent.transform, "boilerheart_core_rivet_band");
         CreateWallValveWheelPrototype("North Star Boilerheart Core Valve Wheel", new Vector3(-5.94f, 1.64f, 18.2f), Quaternion.Euler(0f, 90f, 0f), 1.05f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "boilerheart_core_valve_wheel", parent.transform);
+        CreateCatwalkRail("North Star Boilerheart Service Rail", new Vector3(5.92f, 1.0f, 14.7f), Quaternion.Euler(0f, 90f, 0f), 3.4f, ironMaterial, brassMaterial, parent.transform, "boilerheart_service_rail");
         CreateWallPipeGaugeClusterPrototype("Boilerheart Prototype Wall Pipe Gauge Cluster", new Vector3(-5.94f, 1.58f, 10.8f), Quaternion.Euler(0f, 90f, 0f), 0.94f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "boilerheart_route_wall", parent.transform);
         CreateBoilerControlConsolePrototype("Boilerheart Prototype Boiler Control Console", new Vector3(5.52f, 0.62f, 18.62f), Quaternion.Euler(0f, -90f, 0f), 0.92f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "boilerheart_route_console", parent.transform);
         CreateRivetedPressureDoorFramePrototype("Boilerheart Prototype Riveted Pressure Door Frame", new Vector3(0f, 1.58f, 23.52f), Quaternion.identity, 1f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "boilerheart_route_pressure_frame", parent.transform);
@@ -1444,6 +1445,7 @@ public static class V0SceneBuilder
         CreateRivetBand("North Star Pipeworks Wall Rivet Band", new Vector3(-5.02f, 2.52f, 12.5f), Quaternion.Euler(0f, 90f, 0f), 4.8f, ironMaterial, brassMaterial, parent.transform, "pipeworks_wall_rivet_band");
         CreateWallValveWheelPrototype("North Star Pipeworks Route Valve Wheel", new Vector3(5.04f, 1.54f, 14.6f), Quaternion.Euler(0f, -90f, 0f), 1f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "pipeworks_route_valve_wheel", parent.transform);
         CreatePressureReliefVentPrototype("North Star Pipeworks Pressure Relief Vent", new Vector3(5.05f, 1.08f, 18.25f), Quaternion.Euler(0f, -90f, 0f), 0.95f, brassMaterial, ironMaterial, steamMaterial, warningMaterial, "pipeworks_pressure_relief_vent", parent.transform);
+        CreateCatwalkRail("North Star Pipeworks Service Rail", new Vector3(-5.04f, 1f, 10.4f), Quaternion.Euler(0f, 90f, 0f), 4.4f, ironMaterial, brassMaterial, parent.transform, "pipeworks_service_rail");
         CreateWallPipeGaugeClusterPrototype("Pipeworks Prototype Wall Pipe Gauge Cluster", new Vector3(4.94f, 1.58f, 5.7f), Quaternion.Euler(0f, -90f, 0f), 1f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "pipeworks_route_wall", parent.transform);
         CreateBoilerControlConsolePrototype("Pipeworks Prototype Boiler Control Console", new Vector3(-4.82f, 0.62f, 18.72f), Quaternion.Euler(0f, 90f, 0f), 0.96f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "pipeworks_route_console", parent.transform);
         CreateRivetedPressureDoorFramePrototype("Pipeworks Prototype Riveted Pressure Door Frame", new Vector3(0f, 1.58f, 22.42f), Quaternion.identity, 0.98f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "pipeworks_route_pressure_frame", parent.transform);
@@ -3885,20 +3887,67 @@ public static class V0SceneBuilder
         return prototype;
     }
 
-    private static void CreateCatwalkRail(string name, Vector3 position, float length, Material ironMaterial, Material brassMaterial, Transform parent)
+    private static CatwalkRailPrototype CreateCatwalkRail(string name, Vector3 position, Quaternion rotation, float length, Material ironMaterial, Material brassMaterial, Transform parent, string placementRole = "prototype")
     {
         GameObject root = new GameObject(name);
         root.transform.SetParent(parent);
         root.transform.position = position;
+        root.transform.rotation = rotation;
 
-        CreateLocalCube(name + " Upper Brass Rail", root.transform, new Vector3(0f, 0.48f, 0f), new Vector3(length, 0.08f, 0.08f), brassMaterial);
-        CreateLocalCube(name + " Lower Iron Rail", root.transform, new Vector3(0f, 0.18f, 0f), new Vector3(length, 0.07f, 0.07f), ironMaterial);
-        for (int i = 0; i < 7; i++)
+        CatwalkRailPrototype prototype = root.AddComponent<CatwalkRailPrototype>();
+        prototype.placementRole = placementRole;
+
+        GameObject railRoot = CreateLocalEmpty(name + " Rail Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject uprightRoot = CreateLocalEmpty(name + " Upright Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject capRoot = CreateLocalEmpty(name + " Cap Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject footRoot = CreateLocalEmpty(name + " Foot Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject rivetRoot = CreateLocalEmpty(name + " Rivet Root", root.transform, Vector3.zero, Quaternion.identity);
+
+        GameObject upperRail = CreateLocalCube(name + " Aged Brass Upper Rail", railRoot.transform, new Vector3(0f, 0.48f, 0f), new Vector3(length, 0.08f, 0.08f), brassMaterial);
+        GameObject lowerRail = CreateLocalCube(name + " Blackened Iron Lower Rail", railRoot.transform, new Vector3(0f, 0.18f, 0f), new Vector3(length, 0.07f, 0.07f), ironMaterial);
+
+        int uprightCount = Mathf.Max(5, Mathf.RoundToInt(length / 0.85f));
+        prototype.upperRailCount = 1;
+        prototype.lowerRailCount = 1;
+        prototype.uprightCount = uprightCount;
+        prototype.capCount = uprightCount;
+        prototype.footPlateCount = uprightCount;
+        prototype.rivetCount = uprightCount * 2;
+
+        GameObject firstUpright = null;
+        GameObject firstCap = null;
+        GameObject firstFoot = null;
+        GameObject firstRivet = null;
+        for (int i = 0; i < uprightCount; i++)
         {
-            float x = Mathf.Lerp(-length * 0.48f, length * 0.48f, i / 6f);
-            CreateLocalCube(name + " Upright " + i, root.transform, new Vector3(x, 0.18f, 0f), new Vector3(0.06f, 0.66f, 0.06f), ironMaterial);
-            CreateLocalPrimitive(name + " Brass Cap " + i, PrimitiveType.Sphere, root.transform, new Vector3(x, 0.54f, 0f), new Vector3(0.07f, 0.07f, 0.07f), brassMaterial);
+            float x = Mathf.Lerp(-length * 0.48f, length * 0.48f, uprightCount == 1 ? 0f : i / (float)(uprightCount - 1));
+            GameObject upright = CreateLocalCube(name + " Blackened Iron Upright " + i.ToString("00"), uprightRoot.transform, new Vector3(x, 0.18f, 0f), new Vector3(0.06f, 0.66f, 0.06f), ironMaterial);
+            GameObject cap = CreateLocalPrimitive(name + " Aged Brass Post Cap " + i.ToString("00"), PrimitiveType.Sphere, capRoot.transform, new Vector3(x, 0.54f, 0f), new Vector3(0.07f, 0.07f, 0.07f), brassMaterial);
+            GameObject foot = CreateLocalCube(name + " Blackened Iron Bolted Foot " + i.ToString("00"), footRoot.transform, new Vector3(x, -0.16f, 0f), new Vector3(0.22f, 0.045f, 0.18f), ironMaterial);
+            GameObject rivetLeft = CreateLocalPrimitive(name + " Brass Foot Rivet " + (i * 2).ToString("00"), PrimitiveType.Sphere, rivetRoot.transform, new Vector3(x - 0.06f, -0.13f, -0.06f), new Vector3(0.03f, 0.022f, 0.03f), brassMaterial);
+            CreateLocalPrimitive(name + " Brass Foot Rivet " + (i * 2 + 1).ToString("00"), PrimitiveType.Sphere, rivetRoot.transform, new Vector3(x + 0.06f, -0.13f, 0.06f), new Vector3(0.03f, 0.022f, 0.03f), brassMaterial);
+
+            if (firstUpright == null)
+            {
+                firstUpright = upright;
+                firstCap = cap;
+                firstFoot = foot;
+                firstRivet = rivetLeft;
+            }
         }
+
+        prototype.upperRailRenderer = upperRail.GetComponent<Renderer>();
+        prototype.lowerRailRenderer = lowerRail.GetComponent<Renderer>();
+        prototype.uprightRenderer = firstUpright.GetComponent<Renderer>();
+        prototype.capRenderer = firstCap.GetComponent<Renderer>();
+        prototype.footPlateRenderer = firstFoot.GetComponent<Renderer>();
+        prototype.rivetRenderer = firstRivet.GetComponent<Renderer>();
+        prototype.railRoot = railRoot.transform;
+        prototype.uprightRoot = uprightRoot.transform;
+        prototype.capRoot = capRoot.transform;
+        prototype.footRoot = footRoot.transform;
+        prototype.rivetRoot = rivetRoot.transform;
+        return prototype;
     }
 
     private static void CreateRegulatorCrown(string name, Vector3 position, Material ironMaterial, Material brassMaterial, Material warningMaterial, Transform parent)

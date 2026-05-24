@@ -1488,6 +1488,50 @@ public static class V0LevelValidator
         RequireRendererMaterial(prototype.steamPuffRenderer, sceneName + " pressure relief vent ambient steam", "Steam");
     }
 
+    private static void ValidateCatwalkRailPrototype(string sceneName, string objectName, string expectedPlacementRole)
+    {
+        GameObject root = RequireNamed(objectName, sceneName + " catwalk rail prototype root");
+        CatwalkRailPrototype prototype = root.GetComponent<CatwalkRailPrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " catwalk rail prototype is missing its marker component (" + objectName + ").");
+        }
+
+        if (prototype.promotionVersion != "v0.1.26" || prototype.placementRole != expectedPlacementRole || !prototype.HasRequiredParts)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " catwalk rail metadata or required parts are incomplete (" + objectName + ").");
+        }
+
+        if (prototype.railRoot.childCount < 2 || prototype.uprightRoot.childCount < 5 || prototype.capRoot.childCount < 5 || prototype.footRoot.childCount < 5 || prototype.rivetRoot.childCount < 10)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " catwalk rail does not have the required rail/upright/cap/foot/rivet detail counts (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<Collider>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " catwalk rail must remain non-blocking route dressing with no colliders (" + objectName + ").");
+        }
+
+        RequireNamed(objectName + " Rail Root", sceneName + " catwalk rail rail root");
+        RequireNamed(objectName + " Upright Root", sceneName + " catwalk rail upright root");
+        RequireNamed(objectName + " Cap Root", sceneName + " catwalk rail cap root");
+        RequireNamed(objectName + " Foot Root", sceneName + " catwalk rail foot root");
+        RequireNamed(objectName + " Rivet Root", sceneName + " catwalk rail rivet root");
+        RequireNamed(objectName + " Aged Brass Upper Rail", sceneName + " catwalk rail brass upper rail");
+        RequireNamed(objectName + " Blackened Iron Lower Rail", sceneName + " catwalk rail iron lower rail");
+        RequireNamed(objectName + " Blackened Iron Upright 00", sceneName + " catwalk rail upright");
+        RequireNamed(objectName + " Aged Brass Post Cap 00", sceneName + " catwalk rail post cap");
+        RequireNamed(objectName + " Blackened Iron Bolted Foot 00", sceneName + " catwalk rail bolted foot");
+        RequireNamed(objectName + " Brass Foot Rivet 00", sceneName + " catwalk rail foot rivet");
+
+        RequireRendererMaterial(prototype.upperRailRenderer, sceneName + " catwalk rail upper rail", "Brass");
+        RequireRendererMaterial(prototype.lowerRailRenderer, sceneName + " catwalk rail lower rail", "Iron");
+        RequireRendererMaterial(prototype.uprightRenderer, sceneName + " catwalk rail upright", "Iron");
+        RequireRendererMaterial(prototype.capRenderer, sceneName + " catwalk rail post cap", "Brass");
+        RequireRendererMaterial(prototype.footPlateRenderer, sceneName + " catwalk rail foot", "Iron");
+        RequireRendererMaterial(prototype.rivetRenderer, sceneName + " catwalk rail rivet", "Brass");
+    }
+
     private static void RequireRendererMaterial(Renderer renderer, string label, string expectedNameFragment)
     {
         if (renderer == null || renderer.sharedMaterial == null || renderer.sharedMaterial.shader == null)
@@ -1544,6 +1588,7 @@ public static class V0LevelValidator
             ValidateRivetBandPrototype(sceneName, "North Star Pipeworks Wall Rivet Band", "pipeworks_wall_rivet_band");
             ValidateWallValveWheelPrototype(sceneName, "North Star Pipeworks Route Valve Wheel", "pipeworks_route_valve_wheel");
             ValidatePressureReliefVentPrototype(sceneName, "North Star Pipeworks Pressure Relief Vent", "pipeworks_pressure_relief_vent");
+            ValidateCatwalkRailPrototype(sceneName, "North Star Pipeworks Service Rail", "pipeworks_service_rail");
             ValidateWallPipeGaugeClusterPrototype(sceneName, "Pipeworks Prototype Wall Pipe Gauge Cluster", "pipeworks_route_wall");
             ValidateBoilerControlConsolePrototype(sceneName, "Pipeworks Prototype Boiler Control Console", "pipeworks_route_console");
             ValidateRivetedPressureDoorFramePrototype(sceneName, "Pipeworks Prototype Riveted Pressure Door Frame", "pipeworks_route_pressure_frame");
@@ -1569,6 +1614,7 @@ public static class V0LevelValidator
             RequireNamed("North Star Boilerheart Core Rivet Band", sceneName + " north-star boilerheart rivet band");
             ValidateRivetBandPrototype(sceneName, "North Star Boilerheart Core Rivet Band", "boilerheart_core_rivet_band");
             ValidateWallValveWheelPrototype(sceneName, "North Star Boilerheart Core Valve Wheel", "boilerheart_core_valve_wheel");
+            ValidateCatwalkRailPrototype(sceneName, "North Star Boilerheart Service Rail", "boilerheart_service_rail");
             ValidateWallPipeGaugeClusterPrototype(sceneName, "Boilerheart Prototype Wall Pipe Gauge Cluster", "boilerheart_route_wall");
             ValidateBoilerControlConsolePrototype(sceneName, "Boilerheart Prototype Boiler Control Console", "boilerheart_route_console");
             ValidateRivetedPressureDoorFramePrototype(sceneName, "Boilerheart Prototype Riveted Pressure Door Frame", "boilerheart_route_pressure_frame");
@@ -1614,6 +1660,7 @@ public static class V0LevelValidator
             RequireNamed("North Star Foundry Pipe Canopy", sceneName + " north-star foundry pipe canopy");
             ValidatePipeCanopyPrototype(sceneName, "North Star Foundry Pipe Canopy", "foundry_route_pipe_canopy");
             RequireNamed("North Star Foundry Catwalk Rail", sceneName + " north-star foundry catwalk rail");
+            ValidateCatwalkRailPrototype(sceneName, "North Star Foundry Catwalk Rail", "foundry_catwalk_rail");
             RequireNamed("North Star Foundry Gaslight West", sceneName + " north-star foundry gaslight");
             ValidateCagedGaslightPrototype(sceneName, "North Star Foundry Gaslight West", "foundry_route_gaslight");
             ValidatePressureReliefVentPrototype(sceneName, "North Star Foundry Pressure Relief Vent", "foundry_pressure_relief_vent");

@@ -1704,6 +1704,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.26 Catwalk Rail Asset Promotion
+
+- [x] Confirm no real manual route-triage notes exist yet; use the roadmap fallback and proceed to the next modular asset promotion.
+- [x] Add `CatwalkRailPrototype` runtime metadata for promoted route-safe catwalk/service rail dressing.
+- [x] Add named Pipeworks Annex, Boilerheart Core, and Furnace Foundry catwalk/service rail placements.
+- [x] Build the component from Unity-owned geometry: aged brass upper rail, blackened iron lower rail, blackened iron uprights, aged brass post caps, blackened iron bolted feet, and brass foot rivets.
+- [x] Add validator coverage for promotion version, placement roles, required named hierarchy, material roles, detail counts, and no-collider route safety.
+- [x] Add production brief and status files under `Documentation/AssetProduction/CatwalkRailPrototype/`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.26`.
+- [x] Build, package, generate route-QA evidence, generate issue-triage evidence, and generate candidate-readiness evidence for `v0.1.26` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

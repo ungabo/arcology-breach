@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 08:56 -04:00`
+Last updated: `2026-05-24 09:12 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -17,12 +17,12 @@ Current focus:
 
 Current verified local build:
 
-- `v0.1.25`
-- Build path: `Builds/Windows/v0.1.25/BrassworksBreach_v0.1.25.exe`
-- Package path: `Builds/WindowsPackages/v0.1.25/BrassworksBreach_v0.1.25_Windows.zip`
-- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.25.md`
-- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.25.md`
-- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.25.md`
+- `v0.1.26`
+- Build path: `Builds/Windows/v0.1.26/BrassworksBreach_v0.1.26.exe`
+- Package path: `Builds/WindowsPackages/v0.1.26/BrassworksBreach_v0.1.26_Windows.zip`
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.26.md`
+- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.26.md`
+- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.26.md`
 - Matrix result: `V0_BUILD_MATRIX_PASS` plus `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`
 
 ## Active Side Agents
@@ -73,6 +73,7 @@ Current verified local build:
 | Carver-RivetBand | `019e59e8-2193-7240-9311-effc19a3751f` | Rivet band prototype production brief/status | `Documentation/AssetProduction/RivetBandPrototype/` | `2026-05-24 08:13 -04:00` | completed; docs integrated with the v0.1.23 promoted rivet band component |
 | Bacon-WallValveWheel | `019e59f4-ca2e-7320-b381-964f26a5820c` | Wall valve wheel prototype production brief/status | `Documentation/AssetProduction/WallValveWheelPrototype/` | `2026-05-24 08:26 -04:00` | completed; docs integrated with the v0.1.24 promoted wall valve wheel component |
 | Herschel-PressureReliefVent | `019e5a03-a247-7f62-bd45-6eb4e2383dd6` | Pressure relief vent prototype production brief/status | `Documentation/AssetProduction/PressureReliefVentPrototype/` | `2026-05-24 08:43 -04:00` | completed; docs integrated with the v0.1.25 promoted pressure relief vent component |
+| Copernicus-CatwalkRail | `019e5a16-229e-7110-b29c-ce907f969e3e` | Catwalk rail prototype production brief/status | `Documentation/AssetProduction/CatwalkRailPrototype/` | `2026-05-24 09:00 -04:00` | completed; docs integrated with the v0.1.26 promoted catwalk rail component |
 
 ## Completed Side-Agent Outputs
 

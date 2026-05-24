@@ -1,0 +1,139 @@
+{
+  "component": "CatwalkRailPrototype",
+  "targetVersion": "v0.1.26",
+  "promotionVersion": "v0.1.26",
+  "statuses": {
+    "documentation": "integrated",
+    "implementation": "implemented",
+    "validation": "full_matrix_passed"
+  },
+  "ownership": {
+    "assetType": "Unity-owned geometry",
+    "usage": "route-safe industrial catwalk and service rail dressing",
+    "writeScope": "Documentation/AssetProduction/CatwalkRailPrototype"
+  },
+  "styleNorthStar": {
+    "theme": "Brassworks Breach steampunk foundry safety rail",
+    "materials": [
+      "blackened iron posts",
+      "aged brass upper rail",
+      "blackened iron lower rail",
+      "aged brass caps or collars",
+      "dark iron bolted feet",
+      "visible rivets and bolt heads"
+    ],
+    "routeSafetyLanguage": [
+      "protective rail silhouette",
+      "industrial service walkway fixture",
+      "edge clarification without physical blocking",
+      "catwalk dressing that does not narrow navigation"
+    ]
+  },
+  "implementedPlacementRoles": [
+    "foundry_catwalk_rail",
+    "pipeworks_service_rail",
+    "boilerheart_service_rail"
+  ],
+  "unityContract": {
+    "geometryOnly": true,
+    "noColliders": true,
+    "noTriggers": true,
+    "noNavMeshObstacles": true,
+    "noBlocking": true,
+    "noNavigationNarrowing": true
+  },
+  "validatedHierarchy": {
+    "requiredRoots": [
+      "Rail Root",
+      "Upright Root",
+      "Cap Root",
+      "Foot Root",
+      "Rivet Root"
+    ],
+    "requiredParts": [
+      "Aged Brass Upper Rail",
+      "Blackened Iron Lower Rail",
+      "Blackened Iron Upright 00",
+      "Aged Brass Post Cap 00",
+      "Blackened Iron Bolted Foot 00",
+      "Brass Foot Rivet 00"
+    ]
+  },
+  "materialRoleCoverage": [
+    "blackened_iron_posts",
+    "aged_brass_upper_rail",
+    "blackened_iron_lower_rail",
+    "aged_brass_caps",
+    "dark_iron_bolted_feet",
+    "rivet_or_bolt_detail"
+  ],
+  "validatedMinimumCounts": {
+    "railRootChildren": ">=2",
+    "uprightRootChildren": ">=5",
+    "capRootChildren": ">=5",
+    "footRootChildren": ">=5",
+    "rivetRootChildren": ">=10"
+  },
+  "acceptanceGates": [
+    {
+      "id": "metadata_component_present",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "promotion_version_exact",
+      "required": true,
+      "expectedValue": "v0.1.26",
+      "status": "passed"
+    },
+    {
+      "id": "named_hierarchy",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "all_expected_roles_present",
+      "required": true,
+      "expectedRoles": [
+        "foundry_catwalk_rail",
+        "pipeworks_service_rail",
+        "boilerheart_service_rail"
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "material_role_coverage",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "minimum_counts_met",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "no_colliders",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "no_route_blocking_or_navigation_narrowing",
+      "required": true,
+      "status": "passed"
+    }
+  ],
+  "verification": {
+    "timestamp": "2026-05-24 09:12 -04:00",
+    "logPrefix": "v036",
+    "routeAudit": "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.26.md",
+    "levelValidationLog": "Logs/v036-level-validation.log",
+    "buildMatrix": "V0_BUILD_MATRIX_PASS",
+    "executable": "Builds/Windows/v0.1.26/BrassworksBreach_v0.1.26.exe",
+    "package": "Builds/WindowsPackages/v0.1.26/BrassworksBreach_v0.1.26_Windows.zip",
+    "packageSha256": "22DC845145667AFE6586502ED8EF2D189D6C572F437D302C4DBCE3A28750D149"
+  },
+  "notes": [
+    "Promoted as Unity-owned geometry in the main generated-scene lane.",
+    "All accepted variants are route-safe visual dressing with no colliders."
+  ]
+}
