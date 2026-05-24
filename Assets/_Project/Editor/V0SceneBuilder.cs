@@ -1222,6 +1222,7 @@ public static class V0SceneBuilder
         CreateCagedGaslight("North Star Foundry Gaslight West", new Vector3(-5.88f, 2.06f, 13.4f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "foundry_route_gaslight");
         CreateCagedGaslight("North Star Foundry Gaslight East", new Vector3(5.88f, 2.06f, 21.2f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "foundry_route_gaslight");
         CreatePressureReliefVentPrototype("North Star Foundry Pressure Relief Vent", new Vector3(-6.28f, 1.05f, 21.55f), Quaternion.Euler(0f, 90f, 0f), 1.08f, brassMaterial, ironMaterial, steamMaterial, warningMaterial, "foundry_pressure_relief_vent", parent.transform);
+        CreateFloorDrainGratePrototype("North Star Foundry Floor Drain Grate", new Vector3(-4.72f, 0.045f, 14.25f), Quaternion.identity, 1.42f, 1.06f, ironMaterial, brassMaterial, floorPatchMaterial, steamMaterial, "foundry_floor_drain_grate", parent.transform);
         CreatePressureGauge("Foundry Gauge A", new Vector3(-6.45f, 1.65f, 12.2f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreatePressureGauge("Foundry Gauge B", new Vector3(6.45f, 1.65f, 21.6f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateValveWheel("Foundry Valve A", new Vector3(-6.45f, 1.35f, 19.2f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, warningMaterial, parent.transform);
@@ -1446,6 +1447,7 @@ public static class V0SceneBuilder
         CreateWallValveWheelPrototype("North Star Pipeworks Route Valve Wheel", new Vector3(5.04f, 1.54f, 14.6f), Quaternion.Euler(0f, -90f, 0f), 1f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "pipeworks_route_valve_wheel", parent.transform);
         CreatePressureReliefVentPrototype("North Star Pipeworks Pressure Relief Vent", new Vector3(5.05f, 1.08f, 18.25f), Quaternion.Euler(0f, -90f, 0f), 0.95f, brassMaterial, ironMaterial, steamMaterial, warningMaterial, "pipeworks_pressure_relief_vent", parent.transform);
         CreateCatwalkRail("North Star Pipeworks Service Rail", new Vector3(-5.04f, 1f, 10.4f), Quaternion.Euler(0f, 90f, 0f), 4.4f, ironMaterial, brassMaterial, parent.transform, "pipeworks_service_rail");
+        CreateFloorDrainGratePrototype("North Star Pipeworks Floor Drain Grate", new Vector3(3.82f, 0.045f, 5.55f), Quaternion.Euler(0f, 90f, 0f), 1.32f, 0.94f, ironMaterial, brassMaterial, floorPatchMaterial, steamMaterial, "pipeworks_floor_drain_grate", parent.transform);
         CreateWallPipeGaugeClusterPrototype("Pipeworks Prototype Wall Pipe Gauge Cluster", new Vector3(4.94f, 1.58f, 5.7f), Quaternion.Euler(0f, -90f, 0f), 1f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "pipeworks_route_wall", parent.transform);
         CreateBoilerControlConsolePrototype("Pipeworks Prototype Boiler Control Console", new Vector3(-4.82f, 0.62f, 18.72f), Quaternion.Euler(0f, 90f, 0f), 0.96f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "pipeworks_route_console", parent.transform);
         CreateRivetedPressureDoorFramePrototype("Pipeworks Prototype Riveted Pressure Door Frame", new Vector3(0f, 1.58f, 22.42f), Quaternion.identity, 0.98f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "pipeworks_route_pressure_frame", parent.transform);
@@ -3171,6 +3173,7 @@ public static class V0SceneBuilder
         CreateRivetBand("North Star Gate Rivet Band", new Vector3(0f, 2.92f, 21.94f), Quaternion.identity, 3.8f, rivetedIronMaterial, brassMaterial, parent.transform, "intake_gate_rivet_band");
         CreateWallValveWheelPrototype("North Star Intake Wall Valve Wheel", new Vector3(5.72f, 1.44f, 12.3f), Quaternion.Euler(0f, -90f, 0f), 0.95f, brassMaterial, rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, "intake_wall_valve_wheel", parent.transform);
         CreatePressureReliefVentPrototype("North Star Intake Pressure Relief Vent", new Vector3(-5.92f, 1.06f, 15.72f), Quaternion.Euler(0f, 90f, 0f), 0.9f, brassMaterial, rivetedIronMaterial, steamPuffMaterial, warningMaterial, "intake_pressure_relief_vent", parent.transform);
+        CreateFloorDrainGratePrototype("North Star Intake Floor Drain Grate", new Vector3(2.72f, 0.045f, 7.68f), Quaternion.identity, 1.24f, 0.9f, rivetedIronMaterial, brassMaterial, oilStoneMaterial, steamPuffMaterial, "intake_floor_drain_grate", parent.transform);
         CreateWorkOrderBoard("Work Order Board - Intake", "ORDER 17\nSEAL MAIN\nWATCH PSI", new Vector3(-5.92f, 1.55f, 10.8f), Quaternion.Euler(0f, 90f, 0f), rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateLorePlaque("Lore Plaque - Intake Archive", "Intake Archive", "The Brassworks sealed itself when the master governor jammed and every service machine obeyed the wrong pressure order.", new Vector3(-5.92f, 1.55f, 13.2f), Quaternion.Euler(0f, 90f, 0f), rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateWorkOrderBoard("Work Order Board - Gate", "KEY CREW\nBLEED LOCK\nNO OPEN FLAME", new Vector3(1.45f, 1.75f, 22.15f), Quaternion.Euler(0f, 180f, 0f), rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
@@ -3947,6 +3950,94 @@ public static class V0SceneBuilder
         prototype.capRoot = capRoot.transform;
         prototype.footRoot = footRoot.transform;
         prototype.rivetRoot = rivetRoot.transform;
+        return prototype;
+    }
+
+    private static FloorDrainGratePrototype CreateFloorDrainGratePrototype(string name, Vector3 position, Quaternion rotation, float width, float depth, Material ironMaterial, Material brassMaterial, Material stainMaterial, Material steamMaterial, string placementRole, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+        root.transform.rotation = rotation;
+
+        FloorDrainGratePrototype prototype = root.AddComponent<FloorDrainGratePrototype>();
+        prototype.placementRole = placementRole;
+
+        GameObject frameRoot = CreateLocalEmpty(name + " Frame Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject trimRoot = CreateLocalEmpty(name + " Brass Trim Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject grateRoot = CreateLocalEmpty(name + " Slotted Grate Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject rivetRoot = CreateLocalEmpty(name + " Rivet Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject stainRoot = CreateLocalEmpty(name + " Oil Stain Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject steamRoot = CreateLocalEmpty(name + " Steam Seep Root", root.transform, Vector3.zero, Quaternion.identity);
+
+        GameObject frameNorth = CreateLocalCube(name + " Blackened Iron Drain Frame North", frameRoot.transform, new Vector3(0f, 0f, depth * 0.46f), new Vector3(width, 0.035f, depth * 0.075f), ironMaterial);
+        CreateLocalCube(name + " Blackened Iron Drain Frame South", frameRoot.transform, new Vector3(0f, 0f, -depth * 0.46f), new Vector3(width, 0.035f, depth * 0.075f), ironMaterial);
+        CreateLocalCube(name + " Blackened Iron Drain Frame East", frameRoot.transform, new Vector3(width * 0.46f, 0f, 0f), new Vector3(width * 0.075f, 0.035f, depth), ironMaterial);
+        CreateLocalCube(name + " Blackened Iron Drain Frame West", frameRoot.transform, new Vector3(-width * 0.46f, 0f, 0f), new Vector3(width * 0.075f, 0.035f, depth), ironMaterial);
+
+        GameObject trimNorth = CreateLocalCube(name + " Aged Brass Drain Trim North", trimRoot.transform, new Vector3(0f, 0.022f, depth * 0.33f), new Vector3(width * 0.78f, 0.03f, depth * 0.045f), brassMaterial);
+        CreateLocalCube(name + " Aged Brass Drain Trim South", trimRoot.transform, new Vector3(0f, 0.022f, -depth * 0.33f), new Vector3(width * 0.78f, 0.03f, depth * 0.045f), brassMaterial);
+        CreateLocalCube(name + " Aged Brass Drain Trim East", trimRoot.transform, new Vector3(width * 0.33f, 0.022f, 0f), new Vector3(width * 0.045f, 0.03f, depth * 0.78f), brassMaterial);
+        CreateLocalCube(name + " Aged Brass Drain Trim West", trimRoot.transform, new Vector3(-width * 0.33f, 0.022f, 0f), new Vector3(width * 0.045f, 0.03f, depth * 0.78f), brassMaterial);
+
+        GameObject firstBar = null;
+        const int barCount = 6;
+        for (int i = 0; i < barCount; i++)
+        {
+            float x = Mathf.Lerp(-width * 0.25f, width * 0.25f, i / (float)(barCount - 1));
+            GameObject bar = CreateLocalCube(name + " Blackened Iron Slotted Grate Bar " + i.ToString("00"), grateRoot.transform, new Vector3(x, 0.04f, 0f), new Vector3(width * 0.045f, 0.04f, depth * 0.64f), ironMaterial);
+            if (firstBar == null)
+            {
+                firstBar = bar;
+            }
+        }
+
+        Vector3[] rivetPositions =
+        {
+            new Vector3(-width * 0.4f, 0.058f, depth * 0.4f),
+            new Vector3(0f, 0.058f, depth * 0.4f),
+            new Vector3(width * 0.4f, 0.058f, depth * 0.4f),
+            new Vector3(-width * 0.4f, 0.058f, -depth * 0.4f),
+            new Vector3(0f, 0.058f, -depth * 0.4f),
+            new Vector3(width * 0.4f, 0.058f, -depth * 0.4f),
+            new Vector3(-width * 0.4f, 0.058f, 0f),
+            new Vector3(width * 0.4f, 0.058f, 0f)
+        };
+
+        GameObject firstRivet = null;
+        for (int i = 0; i < rivetPositions.Length; i++)
+        {
+            GameObject rivet = CreateLocalPrimitive(name + " Brass Drain Bolt " + i.ToString("00"), PrimitiveType.Sphere, rivetRoot.transform, rivetPositions[i], new Vector3(width * 0.032f, width * 0.022f, width * 0.032f), brassMaterial);
+            if (firstRivet == null)
+            {
+                firstRivet = rivet;
+            }
+        }
+
+        GameObject stainA = CreateLocalCube(name + " Oil Dark Stone Stain Plate A", stainRoot.transform, new Vector3(-width * 0.18f, -0.028f, depth * 0.18f), new Vector3(width * 0.34f, 0.012f, depth * 0.28f), stainMaterial);
+        CreateLocalCube(name + " Oil Dark Stone Stain Plate B", stainRoot.transform, new Vector3(width * 0.2f, -0.029f, -depth * 0.2f), new Vector3(width * 0.26f, 0.012f, depth * 0.22f), stainMaterial);
+
+        GameObject steamLow = CreateLocalPrimitive(name + " Pale Steam Seep Low", PrimitiveType.Sphere, steamRoot.transform, new Vector3(width * 0.14f, 0.15f, -depth * 0.06f), new Vector3(width * 0.12f, width * 0.055f, width * 0.12f), steamMaterial);
+        CreateLocalPrimitive(name + " Pale Steam Seep High", PrimitiveType.Sphere, steamRoot.transform, new Vector3(width * 0.22f, 0.26f, depth * 0.02f), new Vector3(width * 0.095f, width * 0.09f, width * 0.095f), steamMaterial);
+
+        prototype.framePlateCount = 4;
+        prototype.brassTrimCount = 4;
+        prototype.grateBarCount = barCount;
+        prototype.rivetCount = rivetPositions.Length;
+        prototype.oilStainCount = 2;
+        prototype.steamSeepCount = 2;
+        prototype.frameRenderer = frameNorth.GetComponent<Renderer>();
+        prototype.brassTrimRenderer = trimNorth.GetComponent<Renderer>();
+        prototype.grateBarRenderer = firstBar.GetComponent<Renderer>();
+        prototype.rivetRenderer = firstRivet.GetComponent<Renderer>();
+        prototype.oilStainRenderer = stainA.GetComponent<Renderer>();
+        prototype.steamSeepRenderer = steamLow.GetComponent<Renderer>();
+        prototype.frameRoot = frameRoot.transform;
+        prototype.trimRoot = trimRoot.transform;
+        prototype.grateRoot = grateRoot.transform;
+        prototype.rivetRoot = rivetRoot.transform;
+        prototype.stainRoot = stainRoot.transform;
+        prototype.steamRoot = steamRoot.transform;
         return prototype;
     }
 

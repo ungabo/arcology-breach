@@ -4967,3 +4967,77 @@ SHA-256:
 `22DC845145667AFE6586502ED8EF2D189D6C572F437D302C4DBCE3A28750D149`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 09:30 -04:00
+
+Completed `v0.1.27` floor drain grate asset promotion.
+
+Added:
+
+- `FloorDrainGratePrototype` runtime metadata component for promoted route-safe floor drain grate dressing.
+- Brassworks Intake, Pipeworks Annex, and Furnace Foundry floor drain grate placements in generated scenes.
+- Unity-owned component geometry: blackened iron drain frame, aged brass drain trim, slotted blackened iron grate bars, brass bolts, oil-dark stone stain plates, and pale ambient steam seep puffs.
+- Editor validation for promotion version, placement roles, required named parts, material roles, detail counts, and no-collider route safety.
+- Side-agent-produced production brief/status files under `Documentation/AssetProduction/FloorDrainGratePrototype/`, then marked verified after matrix pass.
+- Route-audit next-action list updated for the post-floor-drain-grate sequence.
+- Version string bumped to `v0.1.27`.
+
+Verification completed:
+
+- `V0_ROUTE_AUDIT_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_MOVEMENT_FEEL_PASS`
+- `V0_BALANCE_ENVELOPE_PASS`
+- `V0_LEVEL01_FLOW_PASS`
+- `V0_MIDGAME_FLOW_PASS`
+- `V0_CLIMAX_FLOW_PASS`
+- `V0_AUDIO_MIX_PASS`
+- `V0_DISPLAY_SETTINGS_PASS`
+- `V0_READABILITY_SETTINGS_PASS`
+- `V0_WINDOWS_PACKAGE_PASS`
+- `V0_WINDOWS_QA_PACKET_PASS`
+- `V0_WINDOWS_ISSUE_TRIAGE_PASS`
+- `V0_WINDOWS_CANDIDATE_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.27/BrassworksBreach_v0.1.27.exe`
+
+Package:
+
+`Builds/WindowsPackages/v0.1.27/BrassworksBreach_v0.1.27_Windows.zip`
+
+QA packet:
+
+`Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.27.md`
+
+Issue triage packet:
+
+`Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.27.md`
+
+Candidate readiness:
+
+`Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.27.md`
+
+SHA-256:
+
+`A26328051AFE1CF0DE0E9A4B2B09507673E37249F322E70DA6A407C9F6AAE6A4`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

@@ -1,0 +1,159 @@
+{
+  "component": "FloorDrainGratePrototype",
+  "targetVersion": "v0.1.27",
+  "promotionVersion": "v0.1.27",
+  "productionState": "full_matrix_passed",
+  "statuses": {
+    "documentation": "integrated",
+    "implementation": "implemented",
+    "validation": "full_matrix_passed"
+  },
+  "ownership": {
+    "assetType": "Unity-owned geometry",
+    "usage": "route-safe floor and wet-drain dressing for steampunk corridors",
+    "writeScope": "Documentation/AssetProduction/FloorDrainGratePrototype",
+    "docsOnlyHandoff": false,
+    "codeSceneAndSharedDocEditsAllowed": true
+  },
+  "styleNorthStar": {
+    "theme": "Brassworks Breach compact steampunk floor drain grate",
+    "summary": "Route-safe floor dressing with a blackened iron grate frame, aged brass drain trim, slotted grate bars, rivets or bolts, oil and wet stone stain plates, and pale ambient steam seep puffs.",
+    "requiredVisualElements": [
+      "blackened iron grate frame",
+      "aged brass drain trim or lip",
+      "blackened iron slotted grate bars",
+      "visible brass bolts",
+      "oil and wet stone stain plates",
+      "small pale ambient steam seep puffs"
+    ],
+    "routeSafetyLanguage": [
+      "compact floor drain fixture",
+      "flush or low-profile dressing",
+      "wet industrial ambience without slipping or damage gameplay",
+      "drainage detail that does not narrow navigation"
+    ]
+  },
+  "implementedPlacementRoles": [
+    "intake_floor_drain_grate",
+    "pipeworks_floor_drain_grate",
+    "foundry_floor_drain_grate"
+  ],
+  "unityContract": {
+    "geometryOnly": true,
+    "unityOwnedGeometryOnly": true,
+    "noExternalMeshDependencyRequired": true,
+    "noColliders": true,
+    "noTriggers": true,
+    "noNavMeshObstacles": true,
+    "noBlocking": true,
+    "noNavigationNarrowing": true,
+    "noStepUpGeometry": true,
+    "noGameplayInteraction": true,
+    "noDamageOrSlipHazard": true,
+    "steamIsAmbientOnly": true
+  },
+  "validatedHierarchy": {
+    "requiredRootObjects": [
+      "Frame Root",
+      "Brass Trim Root",
+      "Slotted Grate Root",
+      "Rivet Root",
+      "Oil Stain Root",
+      "Steam Seep Root"
+    ],
+    "requiredNamedParts": [
+      "Blackened Iron Drain Frame North",
+      "Aged Brass Drain Trim North",
+      "Blackened Iron Slotted Grate Bar 00",
+      "Brass Drain Bolt 00",
+      "Oil Dark Stone Stain Plate A",
+      "Pale Steam Seep Low"
+    ]
+  },
+  "materialRoleCoverage": [
+    "blackened_iron_frame",
+    "aged_brass_drain_trim",
+    "blackened_iron_slotted_bars",
+    "brass_hardware_bolts",
+    "oil_wet_stone_stain_plates",
+    "pale_steam_seep_ambient"
+  ],
+  "validatedMinimumCounts": {
+    "frameRootChildren": ">=4",
+    "trimRootChildren": ">=4",
+    "grateRootChildren": ">=6",
+    "rivetRootChildren": ">=8",
+    "stainRootChildren": ">=2",
+    "steamRootChildren": ">=2",
+    "colliders": 0,
+    "triggers": 0,
+    "navMeshObstacles": 0
+  },
+  "acceptanceGates": [
+    {
+      "id": "metadata_component_present",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "promotion_version_exact",
+      "required": true,
+      "expectedValue": "v0.1.27",
+      "status": "passed"
+    },
+    {
+      "id": "named_hierarchy",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "all_expected_roles_present",
+      "required": true,
+      "expectedRoles": [
+        "intake_floor_drain_grate",
+        "pipeworks_floor_drain_grate",
+        "foundry_floor_drain_grate"
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "material_role_coverage",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "minimum_counts_met",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "no_colliders_triggers_or_navmesh_obstacles",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "route_safe_floor_placement",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "no_hazard_or_secret_read",
+      "required": true,
+      "status": "passed"
+    }
+  ],
+  "verification": {
+    "timestamp": "2026-05-24 09:30 -04:00",
+    "logPrefix": "v037",
+    "routeAudit": "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.27.md",
+    "levelValidationLog": "Logs/v037-level-validation.log",
+    "buildMatrix": "V0_BUILD_MATRIX_PASS",
+    "windowsExecutable": "Builds/Windows/v0.1.27/BrassworksBreach_v0.1.27.exe",
+    "windowsPackage": "Builds/WindowsPackages/v0.1.27/BrassworksBreach_v0.1.27_Windows.zip",
+    "packageSha256": "A26328051AFE1CF0DE0E9A4B2B09507673E37249F322E70DA6A407C9F6AAE6A4"
+  },
+  "notes": [
+    "Promoted as Unity-owned geometry in the main generated-scene lane.",
+    "All accepted variants are route-safe floor dressing with no colliders."
+  ]
+}

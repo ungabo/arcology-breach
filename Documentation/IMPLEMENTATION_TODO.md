@@ -1717,6 +1717,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.27 Floor Drain Grate Asset Promotion
+
+- [x] Confirm no real manual route-triage notes exist yet; use the roadmap fallback and proceed to the next modular asset promotion.
+- [x] Add `FloorDrainGratePrototype` runtime metadata for promoted route-safe floor drain grate dressing.
+- [x] Add named Brassworks Intake, Pipeworks Annex, and Furnace Foundry floor drain grate placements.
+- [x] Build the component from Unity-owned geometry: blackened iron drain frame, aged brass drain trim, slotted blackened iron grate bars, brass bolts, oil-dark stone stain plates, and pale ambient steam seep puffs.
+- [x] Add validator coverage for promotion version, placement roles, required named hierarchy, material roles, detail counts, and no-collider route safety.
+- [x] Add production brief and status files under `Documentation/AssetProduction/FloorDrainGratePrototype/`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.27`.
+- [x] Build, package, generate route-QA evidence, generate issue-triage evidence, and generate candidate-readiness evidence for `v0.1.27` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

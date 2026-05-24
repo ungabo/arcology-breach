@@ -1532,6 +1532,51 @@ public static class V0LevelValidator
         RequireRendererMaterial(prototype.rivetRenderer, sceneName + " catwalk rail rivet", "Brass");
     }
 
+    private static void ValidateFloorDrainGratePrototype(string sceneName, string objectName, string expectedPlacementRole)
+    {
+        GameObject root = RequireNamed(objectName, sceneName + " floor drain grate prototype root");
+        FloorDrainGratePrototype prototype = root.GetComponent<FloorDrainGratePrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " floor drain grate prototype is missing its marker component (" + objectName + ").");
+        }
+
+        if (prototype.promotionVersion != "v0.1.27" || prototype.placementRole != expectedPlacementRole || !prototype.HasRequiredParts)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " floor drain grate metadata or required parts are incomplete (" + objectName + ").");
+        }
+
+        if (prototype.frameRoot.childCount < 4 || prototype.trimRoot.childCount < 4 || prototype.grateRoot.childCount < 6 || prototype.rivetRoot.childCount < 8 || prototype.stainRoot.childCount < 2 || prototype.steamRoot.childCount < 2)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " floor drain grate does not have the required frame/trim/grate/rivet/stain/steam detail counts (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<Collider>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " floor drain grate must remain non-blocking route dressing with no colliders (" + objectName + ").");
+        }
+
+        RequireNamed(objectName + " Frame Root", sceneName + " floor drain frame root");
+        RequireNamed(objectName + " Brass Trim Root", sceneName + " floor drain brass trim root");
+        RequireNamed(objectName + " Slotted Grate Root", sceneName + " floor drain grate root");
+        RequireNamed(objectName + " Rivet Root", sceneName + " floor drain rivet root");
+        RequireNamed(objectName + " Oil Stain Root", sceneName + " floor drain stain root");
+        RequireNamed(objectName + " Steam Seep Root", sceneName + " floor drain steam root");
+        RequireNamed(objectName + " Blackened Iron Drain Frame North", sceneName + " floor drain iron frame");
+        RequireNamed(objectName + " Aged Brass Drain Trim North", sceneName + " floor drain brass trim");
+        RequireNamed(objectName + " Blackened Iron Slotted Grate Bar 00", sceneName + " floor drain slotted grate bar");
+        RequireNamed(objectName + " Brass Drain Bolt 00", sceneName + " floor drain brass bolt");
+        RequireNamed(objectName + " Oil Dark Stone Stain Plate A", sceneName + " floor drain oil stain");
+        RequireNamed(objectName + " Pale Steam Seep Low", sceneName + " floor drain steam seep");
+
+        RequireRendererMaterial(prototype.frameRenderer, sceneName + " floor drain frame", "Iron");
+        RequireRendererMaterial(prototype.brassTrimRenderer, sceneName + " floor drain trim", "Brass");
+        RequireRendererMaterial(prototype.grateBarRenderer, sceneName + " floor drain grate bar", "Iron");
+        RequireRendererMaterial(prototype.rivetRenderer, sceneName + " floor drain bolt", "Brass");
+        RequireRendererMaterial(prototype.oilStainRenderer, sceneName + " floor drain oil stain", "Oil");
+        RequireRendererMaterial(prototype.steamSeepRenderer, sceneName + " floor drain steam seep", "Steam");
+    }
+
     private static void RequireRendererMaterial(Renderer renderer, string label, string expectedNameFragment)
     {
         if (renderer == null || renderer.sharedMaterial == null || renderer.sharedMaterial.shader == null)
@@ -1560,6 +1605,7 @@ public static class V0LevelValidator
             ValidateRivetBandPrototype(sceneName, "North Star Gate Rivet Band", "intake_gate_rivet_band");
             ValidateWallValveWheelPrototype(sceneName, "North Star Intake Wall Valve Wheel", "intake_wall_valve_wheel");
             ValidatePressureReliefVentPrototype(sceneName, "North Star Intake Pressure Relief Vent", "intake_pressure_relief_vent");
+            ValidateFloorDrainGratePrototype(sceneName, "North Star Intake Floor Drain Grate", "intake_floor_drain_grate");
             RequireNamed("Secret - Intake Pressure Cache", sceneName + " secret pressure cache");
             RequireNamed("Secret Pressure Cache Brass Floor Plate", sceneName + " secret pressure cache floor plate");
             RequireNamed("Level01 Flow Polish V015", sceneName + " flow polish prop root");
@@ -1589,6 +1635,7 @@ public static class V0LevelValidator
             ValidateWallValveWheelPrototype(sceneName, "North Star Pipeworks Route Valve Wheel", "pipeworks_route_valve_wheel");
             ValidatePressureReliefVentPrototype(sceneName, "North Star Pipeworks Pressure Relief Vent", "pipeworks_pressure_relief_vent");
             ValidateCatwalkRailPrototype(sceneName, "North Star Pipeworks Service Rail", "pipeworks_service_rail");
+            ValidateFloorDrainGratePrototype(sceneName, "North Star Pipeworks Floor Drain Grate", "pipeworks_floor_drain_grate");
             ValidateWallPipeGaugeClusterPrototype(sceneName, "Pipeworks Prototype Wall Pipe Gauge Cluster", "pipeworks_route_wall");
             ValidateBoilerControlConsolePrototype(sceneName, "Pipeworks Prototype Boiler Control Console", "pipeworks_route_console");
             ValidateRivetedPressureDoorFramePrototype(sceneName, "Pipeworks Prototype Riveted Pressure Door Frame", "pipeworks_route_pressure_frame");
@@ -1664,6 +1711,7 @@ public static class V0LevelValidator
             RequireNamed("North Star Foundry Gaslight West", sceneName + " north-star foundry gaslight");
             ValidateCagedGaslightPrototype(sceneName, "North Star Foundry Gaslight West", "foundry_route_gaslight");
             ValidatePressureReliefVentPrototype(sceneName, "North Star Foundry Pressure Relief Vent", "foundry_pressure_relief_vent");
+            ValidateFloorDrainGratePrototype(sceneName, "North Star Foundry Floor Drain Grate", "foundry_floor_drain_grate");
             RequireNamed("Foundry Furnace Row", sceneName + " foundry furnace row visual");
             RequireNamed("Foundry Steam Hazard - Casting Leak", sceneName + " foundry steam hazard");
             RequireNamed("Foundry Steam Hazard - Crucible Bleed", sceneName + " foundry steam hazard");
