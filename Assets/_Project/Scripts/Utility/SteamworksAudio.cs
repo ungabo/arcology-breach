@@ -14,7 +14,8 @@ public enum SteamworksAudioCue
     EnemyHit,
     EnemyDeath,
     PlayerHurt,
-    Win
+    Win,
+    SteamScattergunFire
 }
 
 [RequireComponent(typeof(AudioSource))]
@@ -34,6 +35,8 @@ public class SteamworksAudio : MonoBehaviour
 
     public bool AmbienceActive => source != null && source.loop && source.clip != null && source.isPlaying;
     public int AmbienceSampleCount => source != null && source.clip != null ? source.clip.samples : 0;
+    public bool HasLastOneShotCue { get; private set; }
+    public SteamworksAudioCue LastOneShotCue { get; private set; }
 
     private void Awake()
     {
@@ -86,6 +89,8 @@ public class SteamworksAudio : MonoBehaviour
         }
         else
         {
+            HasLastOneShotCue = true;
+            LastOneShotCue = cue;
             source.PlayOneShot(clip, volume);
         }
     }
@@ -93,6 +98,7 @@ public class SteamworksAudio : MonoBehaviour
     private void BuildClips()
     {
         clips[SteamworksAudioCue.PressureFire] = CreateClip("Pressure Fire", 0.16f, (t, _) => Tone(Slide(620f, 140f, t), t) * Envelope(t, 0.005f, 0.06f, 0.16f) + Noise(t) * 0.14f * Envelope(t, 0.001f, 0.04f, 0.16f));
+        clips[SteamworksAudioCue.SteamScattergunFire] = CreateClip("Steam Scattergun Fire", 0.28f, ScattergunFireSample);
         clips[SteamworksAudioCue.EmptyClick] = CreateClip("Empty Click", 0.09f, (t, _) => Noise(t) * 0.26f * Envelope(t, 0.001f, 0.025f, 0.09f));
         clips[SteamworksAudioCue.HealthPickup] = CreateClip("Health Pickup", 0.2f, (t, _) => Tone(Slide(520f, 780f, t), t) * Envelope(t, 0.005f, 0.08f, 0.2f));
         clips[SteamworksAudioCue.AmmoPickup] = CreateClip("Ammo Pickup", 0.18f, (t, _) => Tone(Slide(410f, 760f, t), t) * Envelope(t, 0.003f, 0.07f, 0.18f));
@@ -116,6 +122,16 @@ public class SteamworksAudio : MonoBehaviour
         source.loop = true;
         source.volume = Mathf.Clamp01(GameSettings.MasterVolume * ambienceVolume);
         source.Play();
+    }
+
+    public bool HasClip(SteamworksAudioCue cue)
+    {
+        return clips.TryGetValue(cue, out AudioClip clip) && clip != null;
+    }
+
+    public int GetClipSampleCount(SteamworksAudioCue cue)
+    {
+        return clips.TryGetValue(cue, out AudioClip clip) && clip != null ? clip.samples : 0;
     }
 
     private static AudioClip CreateClip(string name, float duration, Func<float, int, float> generator)
@@ -148,6 +164,15 @@ public class SteamworksAudio : MonoBehaviour
         float servo = Tone(Slide(180f, 95f, t), t) * 0.18f;
         float texture = Noise(sampleIndex * 0.0003f) * 0.06f;
         return (motor + servo + texture) * Envelope(t, 0.02f, 0.45f, 0.65f);
+    }
+
+    private static float ScattergunFireSample(float t, int sampleIndex)
+    {
+        float blast = Tone(Slide(210f, 62f, t / 0.28f), t) * 0.5f * Envelope(t, 0.001f, 0.18f, 0.28f);
+        float brassClack = t < 0.055f ? Tone(880f, t) * Envelope(t, 0.001f, 0.035f, 0.055f) * 0.22f : 0f;
+        float steam = Noise(sampleIndex * 0.00018f) * 0.32f * Envelope(t, 0.002f, 0.22f, 0.28f);
+        float pipeResonance = Tone(118f + Mathf.Sin(t * 70f) * 12f, t) * 0.16f * Envelope(t, 0.004f, 0.2f, 0.28f);
+        return Mathf.Clamp(blast + brassClack + steam + pipeResonance, -1f, 1f);
     }
 
     private static float WinSample(float t, int sampleIndex)

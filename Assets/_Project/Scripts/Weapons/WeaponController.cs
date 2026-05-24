@@ -228,7 +228,7 @@ public class WeaponController : MonoBehaviour
             return false;
         }
 
-        SteamworksAudio.Play(SteamworksAudioCue.PressureFire);
+        SteamworksAudio.Play(usingSteamScattergun ? SteamworksAudioCue.SteamScattergunFire : SteamworksAudioCue.PressureFire);
         weaponView?.PlayFire();
 
         Ray baseRay = aimCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));

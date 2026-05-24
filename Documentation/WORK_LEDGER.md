@@ -86,6 +86,7 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 | WPN-003 | Add Steam Scattergun prototype | weapon/code/level/test | P1 | verified | v0.0.74 | Steam Scattergun definition, Boilerheart pickup, unlock persistence, weapon switching, and V0_WEAPON_SWITCH_PASS coverage are verified. |
 | ART-011 | Add Steam Scattergun first-person viewmodel | art/code/test | P1 | verified | v0.0.75 | Distinct Steam Scattergun viewmodel and runtime weapon-view swapping are verified by validation and weapon-switch smoke. |
 | VFX-014 | Add Steam Scattergun blast VFX | vfx/code/test | P1 | verified | v0.0.76 | Dedicated pressure-ring, steam-core, and brass-spark blast VFX are verified by weapon-switch smoke. |
+| AUD-013 | Add Steam Scattergun fire cue | audio/code/test | P1 | verified | v0.0.77 | Dedicated procedural scattergun fire audio is configured in runtime smoke and routed by weapon-switch smoke. |
 
 ## Ready Next
 
@@ -215,3 +216,4 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 - `2026-05-23`: `v0.0.74` Steam Scattergun prototype build created at `Builds/Windows/v0.0.74/BrassworksBreach_v0.0.74.exe` and passed the complete V0 matrix, including V0_WEAPON_SWITCH_PASS coverage for scattergun unlock/equip/fire/re-equip flow. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.75` Steam Scattergun viewmodel build created at `Builds/Windows/v0.0.75/BrassworksBreach_v0.0.75.exe` and passed the complete V0 matrix, including weapon-switch coverage for scattergun and pistol viewmodel activation. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.76` Steam Scattergun blast VFX build created at `Builds/Windows/v0.0.76/BrassworksBreach_v0.0.76.exe` and passed the complete V0 matrix, including weapon-switch coverage for scattergun blast VFX spawn. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.77` Steam Scattergun audio cue build created at `Builds/Windows/v0.0.77/BrassworksBreach_v0.0.77.exe` and passed the complete V0 matrix, including runtime cue configuration and weapon-switch audio routing coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.

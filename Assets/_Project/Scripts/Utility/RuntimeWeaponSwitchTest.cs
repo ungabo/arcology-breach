@@ -20,11 +20,18 @@ public class RuntimeWeaponSwitchTest : MonoBehaviour
         PlayerController player = Require<PlayerController>("PlayerController");
         PlayerInventory inventory = Require<PlayerInventory>("PlayerInventory");
         WeaponController weapon = Require<WeaponController>("WeaponController");
+        SteamworksAudio audio = Require<SteamworksAudio>("SteamworksAudio");
         EnemyController target = FindCombatTarget();
 
         if (weapon.steamScattergunDefinition == null)
         {
             Fail("Weapon switch smoke failed: missing Steam Scattergun definition.");
+            yield break;
+        }
+
+        if (!audio.HasClip(SteamworksAudioCue.SteamScattergunFire))
+        {
+            Fail("Weapon switch smoke failed: Steam Scattergun audio cue is missing.");
             yield break;
         }
 
@@ -60,6 +67,12 @@ public class RuntimeWeaponSwitchTest : MonoBehaviour
         }
 
         RequireEqual(inventory.Ammo, startingAmmo - weapon.ammoCost, "ammo after Steam Scattergun shot");
+        if (!audio.HasLastOneShotCue || audio.LastOneShotCue != SteamworksAudioCue.SteamScattergunFire)
+        {
+            Fail("Weapon switch smoke failed: Steam Scattergun did not use its dedicated audio cue.");
+            yield break;
+        }
+
         ScattergunBlastVfx blastVfx = UnityEngine.Object.FindAnyObjectByType<ScattergunBlastVfx>();
         if (blastVfx == null || blastVfx.PieceCount < 10)
         {

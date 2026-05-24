@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.76`.
+Current state: `v0.0.77`.
 
 Implemented:
 
@@ -84,6 +84,7 @@ Implemented:
 - Steam Scattergun prototype with data-driven definition, Boilerheart pickup, persisted unlock state, `1`/`2` weapon switching, pellet fire, and packaged weapon-switch smoke coverage.
 - Distinct first-person Steam Scattergun viewmodel with runtime weapon-view swapping and smoke coverage.
 - Dedicated Steam Scattergun blast VFX with pressure ring, steam core, brass sparks, and smoke coverage.
+- Dedicated Steam Scattergun procedural fire audio cue with runtime and weapon-switch smoke coverage.
 
 ## 3. Target Platform
 
@@ -161,6 +162,7 @@ Current:
 - `1`/`2` weapon switching after the scattergun is acquired.
 - Separate first-person viewmodels for the Pressure Pistol and Steam Scattergun.
 - Dedicated Steam Scattergun blast VFX for close-range weapon readability.
+- Dedicated Steam Scattergun fire audio cue distinct from the Pressure Pistol.
 
 Future:
 
@@ -299,7 +301,7 @@ Near-term assets:
 - Scrapper enemy visual.
 - Pressure Pistol visual.
 - Steam/spark impact VFX.
-- Procedural steamworks audio set.
+- Procedural steamworks audio set, including a distinct Steam Scattergun fire cue.
 
 Full asset detail lives in `AAA_ASSET_CATALOG.md`.
 
