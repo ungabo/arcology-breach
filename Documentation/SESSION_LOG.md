@@ -2637,3 +2637,44 @@ Build executable:
 `Builds/Windows/v0.0.83/BrassworksBreach_v0.0.83.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 21:12 -04:00
+
+Completed `v0.0.84` Steam Scattergun slug identity pass.
+
+Added:
+
+- `SteamworksAudioCue.SteamScattergunSlug` appended to the cue list without shifting existing serialized cue values.
+- Dedicated procedural slug clip with pressure crack, bolt clang, pipe whistle, and steam jet.
+- `ScattergunSlugVfx` pressure-spear, brass collar, steam core, and spark burst.
+- Steam Scattergun secondary fire now routes through dedicated slug audio/VFX while primary fire keeps the existing blast feedback.
+- Runtime smoke now verifies slug cue configuration.
+- Weapon-switch smoke now verifies slug ammo cost, cue routing, VFX spawn, non-lethal slug damage, primary kill, and Pressure Pistol re-equip.
+- Versioned Windows build `v0.0.84`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.84/BrassworksBreach_v0.0.84.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

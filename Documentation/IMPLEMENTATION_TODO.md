@@ -1226,6 +1226,21 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.84 Steam Scattergun Slug Identity Pass
+
+- [x] Add `SteamworksAudioCue.SteamScattergunSlug` at the end of the enum without shifting existing serialized cue values.
+- [x] Generate a dedicated procedural pressure crack, bolt clang, pipe whistle, and steam jet slug clip.
+- [x] Add `ScattergunSlugVfx` pressure-spear effect.
+- [x] Route Steam Scattergun secondary fire through slug-specific audio/VFX while keeping primary blast feedback unchanged.
+- [x] Expand runtime smoke to verify slug cue configuration.
+- [x] Expand weapon-switch smoke to verify slug ammo cost, cue routing, VFX spawn, non-lethal slug damage, primary kill, and pistol re-equip.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.84`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

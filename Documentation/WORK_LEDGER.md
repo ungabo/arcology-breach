@@ -10,7 +10,7 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 
 ## Working Sequence Source
 
-The active step sequence is driven by this ledger plus `IMPLEMENTATION_TODO.md`, with scope pulled from `PROJECT_SPEC.md`, `AAA_ASSET_CATALOG.md`, and `LEVEL_DESIGN_AND_MAPS.md`. Each completed versioned slice is recorded in `SESSION_LOG.md` and `BUILD_STATUS.md`, then the next highest-impact unfinished task starts immediately.
+The active step sequence is driven by this ledger plus `VERSION_MICRO_ROADMAP.md` and `IMPLEMENTATION_TODO.md`, with scope pulled from `PROJECT_SPEC.md`, `AAA_ASSET_CATALOG.md`, and `LEVEL_DESIGN_AND_MAPS.md`. Each completed versioned slice is recorded in `SESSION_LOG.md` and `BUILD_STATUS.md`, then the next highest-impact unfinished task starts immediately.
 
 ## Current State
 
@@ -97,6 +97,7 @@ The active step sequence is driven by this ledger plus `IMPLEMENTATION_TODO.md`,
 | AUD-014 | Add Bellows Node pulse audio | audio/code/test | P1 | verified | v0.0.81 | Bellows Node pulses use a dedicated procedural spatial cue verified by runtime and Bellows Node smoke. |
 | VFX-017 | Add weapon pickup VFX | vfx/code/test | P1 | verified | v0.0.82 | Steam Scattergun world pickup spawns dedicated acquisition VFX and weapon-switch smoke verifies the real pickup route. |
 | AUD-015 | Add weapon pickup audio | audio/code/test | P1 | verified | v0.0.83 | Steam Scattergun world pickup uses a dedicated acquisition cue verified by runtime and weapon-switch smoke. |
+| WPN-003B | Add Steam Scattergun slug identity | weapon/vfx/audio/test | P1 | verified | v0.0.84 | Steam Scattergun alternate fire uses dedicated slug audio/VFX and weapon-switch smoke verifies slug behavior before primary kill. |
 
 ## Ready Next
 
@@ -233,3 +234,4 @@ The active step sequence is driven by this ledger plus `IMPLEMENTATION_TODO.md`,
 - `2026-05-23`: `v0.0.81` Bellows Node pulse-audio build created at `Builds/Windows/v0.0.81/BrassworksBreach_v0.0.81.exe` and passed the complete V0 matrix, including dedicated spatial support-cue coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.82` Steam Scattergun pickup-feedback build created at `Builds/Windows/v0.0.82/BrassworksBreach_v0.0.82.exe` and passed the complete V0 matrix, including real Level03 weapon-pickup acquisition and weapon-pickup VFX coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.83` weapon-pickup audio build created at `Builds/Windows/v0.0.83/BrassworksBreach_v0.0.83.exe` and passed the complete V0 matrix, including dedicated Steam Scattergun pickup audio coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.84` Steam Scattergun slug-identity build created at `Builds/Windows/v0.0.84/BrassworksBreach_v0.0.84.exe` and passed the complete V0 matrix, including dedicated slug audio/VFX coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.

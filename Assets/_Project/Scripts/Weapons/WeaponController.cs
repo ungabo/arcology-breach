@@ -111,12 +111,12 @@ public class WeaponController : MonoBehaviour
 
     public bool FireOnce()
     {
-        return FirePattern(ammoCost, damage, range, pelletCount, spread, fireCooldown, "No ammo");
+        return FirePattern(ammoCost, damage, range, pelletCount, spread, fireCooldown, "No ammo", secondaryShot: false);
     }
 
     public bool FireSecondary()
     {
-        return FirePattern(secondaryAmmoCost, secondaryDamage, secondaryRange, secondaryPelletCount, secondarySpread, secondaryCooldown, "Not enough pressure");
+        return FirePattern(secondaryAmmoCost, secondaryDamage, secondaryRange, secondaryPelletCount, secondarySpread, secondaryCooldown, "Not enough pressure", secondaryShot: true);
     }
 
     public void UnlockSteamScattergun(bool switchToWeapon = true, bool showMessage = true)
@@ -212,7 +212,7 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    private bool FirePattern(int ammoCost, int shotDamage, float shotRange, int pelletCount, float spread, float cooldown, string emptyMessage)
+    private bool FirePattern(int ammoCost, int shotDamage, float shotRange, int pelletCount, float spread, float cooldown, string emptyMessage, bool secondaryShot)
     {
         if (Time.time < nextFireTime)
         {
@@ -228,13 +228,23 @@ public class WeaponController : MonoBehaviour
             return false;
         }
 
-        SteamworksAudio.Play(usingSteamScattergun ? SteamworksAudioCue.SteamScattergunFire : SteamworksAudioCue.PressureFire);
+        SteamworksAudioCue fireCue = usingSteamScattergun
+            ? (secondaryShot ? SteamworksAudioCue.SteamScattergunSlug : SteamworksAudioCue.SteamScattergunFire)
+            : SteamworksAudioCue.PressureFire;
+        SteamworksAudio.Play(fireCue);
         weaponView?.PlayFire();
 
         Ray baseRay = aimCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         if (usingSteamScattergun)
         {
-            ScattergunBlastVfx.Spawn(baseRay.origin + baseRay.direction * 0.85f, baseRay.direction);
+            if (secondaryShot)
+            {
+                ScattergunSlugVfx.Spawn(baseRay.origin + baseRay.direction * 0.9f, baseRay.direction);
+            }
+            else
+            {
+                ScattergunBlastVfx.Spawn(baseRay.origin + baseRay.direction * 0.85f, baseRay.direction);
+            }
         }
 
         int resolvedPelletCount = Mathf.Max(1, pelletCount);

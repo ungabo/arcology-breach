@@ -30,9 +30,9 @@ public class RuntimeWeaponSwitchTest : MonoBehaviour
             yield break;
         }
 
-        if (!audio.HasClip(SteamworksAudioCue.SteamScattergunFire) || !audio.HasClip(SteamworksAudioCue.WeaponPickup))
+        if (!audio.HasClip(SteamworksAudioCue.SteamScattergunFire) || !audio.HasClip(SteamworksAudioCue.WeaponPickup) || !audio.HasClip(SteamworksAudioCue.SteamScattergunSlug))
         {
-            Fail("Weapon switch smoke failed: Steam Scattergun acquisition/fire audio cue is missing.");
+            Fail("Weapon switch smoke failed: Steam Scattergun acquisition/fire/slug audio cue is missing.");
             yield break;
         }
 
@@ -77,13 +77,42 @@ public class RuntimeWeaponSwitchTest : MonoBehaviour
         target.enabled = false;
 
         int startingAmmo = inventory.Ammo;
+        if (!weapon.FireSecondary())
+        {
+            Fail("Weapon switch smoke failed: Steam Scattergun slug did not fire.");
+            yield break;
+        }
+
+        RequireEqual(inventory.Ammo, startingAmmo - weapon.secondaryAmmoCost, "ammo after Steam Scattergun slug");
+        if (!audio.HasLastOneShotCue || audio.LastOneShotCue != SteamworksAudioCue.SteamScattergunSlug)
+        {
+            Fail("Weapon switch smoke failed: Steam Scattergun slug did not use its dedicated audio cue.");
+            yield break;
+        }
+
+        ScattergunSlugVfx slugVfx = UnityEngine.Object.FindAnyObjectByType<ScattergunSlugVfx>();
+        if (slugVfx == null || slugVfx.PieceCount < 8)
+        {
+            Fail("Weapon switch smoke failed: Steam Scattergun slug VFX did not spawn with enough visible pieces.");
+            yield break;
+        }
+
+        if (target == null)
+        {
+            Fail("Weapon switch smoke failed: Steam Scattergun slug killed the target before primary-shot verification.");
+            yield break;
+        }
+
+        yield return new WaitForSeconds(weapon.secondaryCooldown + 0.05f);
+
+        int ammoAfterSlug = inventory.Ammo;
         if (!weapon.FireOnce())
         {
             Fail("Weapon switch smoke failed: Steam Scattergun did not fire.");
             yield break;
         }
 
-        RequireEqual(inventory.Ammo, startingAmmo - weapon.ammoCost, "ammo after Steam Scattergun shot");
+        RequireEqual(inventory.Ammo, ammoAfterSlug - weapon.ammoCost, "ammo after Steam Scattergun shot");
         if (!audio.HasLastOneShotCue || audio.LastOneShotCue != SteamworksAudioCue.SteamScattergunFire)
         {
             Fail("Weapon switch smoke failed: Steam Scattergun did not use its dedicated audio cue.");

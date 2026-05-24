@@ -67,6 +67,7 @@ Near-term:
 - The Steam Scattergun now swaps to a distinct first-person viewmodel when equipped, preserving readable weapon identity for later VR hand mapping.
 - Steam Scattergun fire now has a dedicated pressure-ring, steam-core, and brass-spark blast VFX so close-range weapon readability is not dependent on shared pistol feedback.
 - Steam Scattergun fire now uses a dedicated low-pressure procedural audio cue so weapon identity is readable by sound as well as viewmodel/VFX.
+- Steam Scattergun alternate fire now uses dedicated slug audio/VFX so the right-mouse precision shot reads differently from the close-range pellet blast.
 - Weapon pickups now spawn a dedicated brass/steam acquisition burst and acquisition audio cue; the Steam Scattergun pickup verifies this feedback before combat smoke continues.
 - Player damage now triggers first-person pressure/heat/brass hurt VFX, verified by combat-edge smoke.
 - Each current gameplay level now includes an interactable archive plaque for short environmental lore, verified by level validation and interaction smoke.

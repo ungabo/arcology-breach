@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.83`.
+Current state: `v0.0.84`.
 
 Implemented:
 
@@ -81,10 +81,11 @@ Implemented:
 - Pipeworks cartridge-cache secret, bringing the current registered secret total to three.
 - Procedural brassworks ambience loop through `SteamworksAudio`, with level validation and runtime smoke coverage.
 - Pressure Pistol right-mouse `Pressure Burst` alternate fire, with ammo-cost/cooldown/spread values, level validation, and combat-scenario smoke coverage.
-- Steam Scattergun prototype with data-driven definition, Boilerheart pickup, persisted unlock state, `1`/`2` weapon switching, pellet fire, real Level03 world-pickup smoke coverage, dedicated weapon-pickup VFX, and dedicated pickup audio.
+- Steam Scattergun prototype with data-driven definition, Boilerheart pickup, persisted unlock state, `1`/`2` weapon switching, pellet fire, slug alternate fire, real Level03 world-pickup smoke coverage, dedicated weapon-pickup VFX/audio, dedicated primary blast VFX/audio, and dedicated slug VFX/audio.
 - Distinct first-person Steam Scattergun viewmodel with runtime weapon-view swapping and smoke coverage.
 - Dedicated Steam Scattergun blast VFX with pressure ring, steam core, brass sparks, and smoke coverage.
 - Dedicated Steam Scattergun procedural fire audio cue with runtime and weapon-switch smoke coverage.
+- Dedicated Steam Scattergun slug VFX/audio with weapon-switch smoke coverage.
 - Dedicated weapon-pickup procedural audio cue with runtime and weapon-switch smoke coverage.
 - Bellows Node support-machine prototype in Level03 with a pressure-pulse attack, dedicated pulse audio cue, nearby Scrapper pressure boost, boost-state VFX, pulse VFX, data-driven definition, validation, and packaged smoke coverage.
 
@@ -165,6 +166,7 @@ Current:
 - Separate first-person viewmodels for the Pressure Pistol and Steam Scattergun.
 - Dedicated Steam Scattergun blast VFX for close-range weapon readability.
 - Dedicated Steam Scattergun fire audio cue distinct from the Pressure Pistol.
+- Dedicated Steam Scattergun slug VFX/audio for alternate-fire identity.
 - Dedicated Steam Scattergun world-pickup acquisition VFX and smoke coverage through the real Level03 pickup route.
 - Dedicated Steam Scattergun pickup audio cue distinct from generic ammo pickup audio.
 
