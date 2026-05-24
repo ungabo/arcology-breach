@@ -392,3 +392,14 @@ Accepted Meitner's Unity-only Weapon Assembly Lookdev replacement into `v0.1.52`
 - Accepted the pass as useful pressure-pistol visual evidence with a `Revise` recommendation; it should guide future material/proportion work but not become imported production geometry.
 
 Next-step directive: commit/push the full `v0.1.52` acceptance slice, refill side-agent capacity with Unity-only corridor/material validation work, and continue immediately into the larger `v0.1.53` material-binding and route-polish implementation batch.
+
+## 2026-05-24 19:28 -04:00
+
+Accepted two Unity-only lookdev side lanes as guidance evidence while `roomtest` v0.2 continues separately.
+
+- Boole's `v0.1.53` Unity Material Corridor Validation bundle is accepted as a corridor composition and material-placement guide. QA manifest parses, reports `UNITY_MATERIAL_CORRIDOR_VALIDATION_RENDERED`, and shows 8/8 PNG gates passing with no magenta output. Caveat: this is not final texture/shader fidelity; the worker switched to a Unity camera replacement shader with material-role colors/procedural grain after the first material shader path failed the magenta gate.
+- Boyle the 2nd's `v0.1.54` Weapon Material Cell Lookdev bundle is accepted for component direction only. QA manifest parses, reports `UNITY_WEAPON_MATERIAL_CELL_LOOKDEV_RENDERED`, and shows 8/8 PNG gates passing with no magenta output. Caveat: these are Unity `Texture2D` procedural material-cell renders, not final game meshes or production materials.
+- Closed both completed workers after review.
+- Galileo the 2nd remains active on isolated `roomtest` v0.2 and owns only `D:/__MY APPS/Unity Doom/roomtest/`; those active edits are intentionally not staged.
+
+Next-step directive: commit/push the accepted lookdev evidence, keep active `roomtest` edits unstaged until Galileo reports completion, and continue immediately with the next highest-impact material-binding or playable route-polish task.

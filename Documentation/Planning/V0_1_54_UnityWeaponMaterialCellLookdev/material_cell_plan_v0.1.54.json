@@ -1,0 +1,52 @@
+{
+  "schema": "brassworks.weapon_material_cell_lookdev_plan.v1",
+  "bundle": "V0_1_54_UnityWeaponMaterialCellLookdev",
+  "generated_at_utc": "2026-05-24T23:24:22.8895064Z",
+  "recommendation": "accept_for_component_direction",
+  "method": "Unity-only isolated material-cell lookdev before full weapon assembly",
+  "north_star": "steampunk pressure pistol realism: burnished brass, oxidized copper, black iron, ivory gauge, smoked amber glass, chipped red enamel, walnut/leather grip",
+  "cells": [
+    {
+      "role": "CopperCoil",
+      "visual_status": "pass",
+      "evidence": "Continuous coil silhouette, copper tarnish, brass collars, dark barrel contrast, and small fasteners are all present.",
+      "final_product_application": "Use as the material/silhouette target for the pressure-pistol coil assembly."
+    },
+    {
+      "role": "PressureGaugeDial",
+      "visual_status": "pass",
+      "evidence": "Dial face has readable tick hierarchy, brass bezel, red needle, smoked glass layer, and rivets.",
+      "final_product_application": "Promote tick/needle/glass layering into a final gauge prefab before full weapon assembly."
+    },
+    {
+      "role": "BrassReceiverPlate",
+      "visual_status": "pass",
+      "evidence": "Receiver plate shows brass variation, polished edge strips, rivets, dark recess, and engraved grime marks.",
+      "final_product_application": "Use as the base language for receiver side plates and pressure-chamber panels."
+    },
+    {
+      "role": "BlackIronBarrel",
+      "visual_status": "pass",
+      "evidence": "Black iron barrel reads separate from soot, brass bands, blue steel chamber, muzzle ring, and edge scratches.",
+      "final_product_application": "Use as barrel/muzzle material target, keeping vents and soot readable in first person."
+    },
+    {
+      "role": "RedEnamelSafetyLine",
+      "visual_status": "pass",
+      "evidence": "Red enamel stripe has raised surface, chipped dark underlayer, brass guide lines, and screw scale cues.",
+      "final_product_application": "Use sparingly as a first-person gameplay readability accent and safety selector material."
+    },
+    {
+      "role": "SmokedAmberGlass",
+      "visual_status": "pass",
+      "evidence": "Transparent amber tube, glow core, reflection bands, and brass collars are visible.",
+      "final_product_application": "Treat as proof for gauge glass, ampoule windows, and small pressure vial inserts."
+    },
+    {
+      "role": "WalnutLeatherGripProxy",
+      "visual_status": "review",
+      "evidence": "Walnut grain and leather wrap direction are usable, but the proxy silhouette remains primitive and needs final sculpt/mesh work.",
+      "final_product_application": "Use only as material direction and grip proportion guidance, not as final geometry."
+    }
+  ]
+}

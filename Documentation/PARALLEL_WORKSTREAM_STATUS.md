@@ -225,6 +225,14 @@ Current speed adjustment:
 
 Current PM rule: keep incomplete sidecar package roots unstaged until their agent reports final validation, then review package manifests, previews, validator output, and import-readiness docs before accepting them into a commit.
 
+## 2026-05-24 19:28 -04:00 Parallel Lane Update
+
+| Agent | Status | Output Scope | PM Action |
+| --- | --- | --- | --- |
+| Boole | completed, reviewed, and closed | `AssetPacks/BrassworksBreach.UnityMaterialCorridorValidation09/`, `Documentation/ConceptRenders/V0_1_53_UnityMaterialCorridorValidation/`, `Documentation/Planning/V0_1_53_UnityMaterialCorridorValidation/`, `Documentation/QA/V0_1_53_UnityMaterialCorridorValidation/` | Accepted as a Unity-only corridor composition/material-placement guide. QA manifest parses, marker `UNITY_MATERIAL_CORRIDOR_VALIDATION_RENDERED` is present, and 8/8 PNG gates pass. Not final shader/material fidelity. |
+| Boyle the 2nd | completed, reviewed, and closed | `AssetPacks/BrassworksBreach.UnityWeaponMaterialCellLookdev09/`, `Documentation/ConceptRenders/V0_1_54_UnityWeaponMaterialCellLookdev/`, `Documentation/Planning/V0_1_54_UnityWeaponMaterialCellLookdev/`, `Documentation/QA/V0_1_54_UnityWeaponMaterialCellLookdev/` | Accepted for weapon component direction only. QA manifest parses, marker `UNITY_WEAPON_MATERIAL_CELL_LOOKDEV_RENDERED` is present, and 8/8 PNG gates pass. Not final game mesh/material content. |
+| Galileo the 2nd | active | `roomtest/` only | Owns isolated roomtest v0.2 staged lookdev pass; active edits remain unstaged until final report. |
+
 ## Integration Rules
 
 - Side agents do not edit Unity scenes, generated scene-builder code, existing roadmap/status docs, or shared gameplay scripts.
