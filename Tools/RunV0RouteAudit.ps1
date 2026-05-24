@@ -1,7 +1,7 @@
 param(
     [string]$ProjectPath = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path,
     [string]$UnityPath = "C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe",
-    [string]$LogPrefix = "v012"
+    [string]$LogPrefix = "v013"
 )
 
 Set-StrictMode -Version Latest
@@ -47,4 +47,4 @@ if (-not (Select-String -LiteralPath $logPath -SimpleMatch -Pattern "V0_ROUTE_AU
     throw "Expected marker 'V0_ROUTE_AUDIT_PASS' was not found in $logPath."
 }
 
-Write-Host "V0_ROUTE_AUDIT_PASS Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.2.md"
+Write-Host "V0_ROUTE_AUDIT_PASS"

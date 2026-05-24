@@ -1,6 +1,11 @@
 public static class GameBalance
 {
     public const float PlayerMoveSpeed = 6.4f;
+    public const float PlayerMoveAcceleration = 22f;
+    public const float PlayerMoveDeceleration = 28f;
+    public const float PlayerGravity = -20f;
+    public const float PlayerGroundStickVelocity = -2f;
+    public const float PlayerPitchLimit = 82f;
     public const int StartingAmmo = 42;
 
     public const int PressurePistolDamage = 25;

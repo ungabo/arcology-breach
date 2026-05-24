@@ -3441,3 +3441,46 @@ Build executable:
 `Builds/Windows/v0.1.2/BrassworksBreach_v0.1.2.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 02:33 -04:00
+
+Completed `v0.1.3` core movement and camera feel tuning.
+
+Added:
+
+- `GameBalance` now centralizes player acceleration, deceleration, gravity, ground-stick velocity, and pitch limit.
+- `PlayerController` now accelerates and decelerates horizontal movement instead of snapping instantly to full-speed starts/stops.
+- Camera pitch and mouse sensitivity remain clamped through shared balance/settings paths.
+- `RuntimeMovementFeelTest` verifies movement-feel wiring and settings clamps in packaged builds.
+- `Tools/RunV0BuildMatrix.ps1` now includes the `-v0MovementSmoke` packaged test.
+- `V0RouteAudit` now writes versioned reports using the current `GameBranding.BuildVersion`.
+- Version string bumped to `v0.1.3`.
+
+Verification completed:
+
+- `V0_ROUTE_AUDIT_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_MOVEMENT_FEEL_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.3/BrassworksBreach_v0.1.3.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

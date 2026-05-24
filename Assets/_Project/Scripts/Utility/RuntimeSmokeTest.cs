@@ -61,6 +61,7 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<RuntimeSecretTest>("RuntimeSecretTest");
         Require<RuntimeWeaponSwitchTest>("RuntimeWeaponSwitchTest");
         Require<RuntimePauseFlowTest>("RuntimePauseFlowTest");
+        Require<RuntimeMovementFeelTest>("RuntimeMovementFeelTest");
         Require<SteamworksSpinner>("SteamworksSpinner");
         MachineMotionVfx machineMotion = Require<MachineMotionVfx>("MachineMotionVfx");
         if (!machineMotion.IsConfigured)

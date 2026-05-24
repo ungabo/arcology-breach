@@ -294,6 +294,7 @@ public static class V0LevelValidator
         Require<RuntimeHazardTest>(sceneName + " RuntimeHazardTest");
         Require<RuntimeSecretTest>(sceneName + " RuntimeSecretTest");
         Require<RuntimeWeaponSwitchTest>(sceneName + " RuntimeWeaponSwitchTest");
+        Require<RuntimeMovementFeelTest>(sceneName + " RuntimeMovementFeelTest");
         Require<EnemyController>(sceneName + " EnemyController");
         Require<Pickup>(sceneName + " Pickup");
 
@@ -751,6 +752,11 @@ public static class V0LevelValidator
     private static void ValidateBalanceValues(string sceneName, PlayerController playerController, PlayerInventory playerInventory, WeaponController weaponController)
     {
         RequireApprox(playerController.moveSpeed, GameBalance.PlayerMoveSpeed, sceneName + " player speed balance");
+        RequireApprox(playerController.moveAcceleration, GameBalance.PlayerMoveAcceleration, sceneName + " player acceleration balance");
+        RequireApprox(playerController.moveDeceleration, GameBalance.PlayerMoveDeceleration, sceneName + " player deceleration balance");
+        RequireApprox(playerController.gravity, GameBalance.PlayerGravity, sceneName + " player gravity balance");
+        RequireApprox(playerController.groundStickVelocity, GameBalance.PlayerGroundStickVelocity, sceneName + " player ground stick balance");
+        RequireApprox(playerController.pitchLimit, GameBalance.PlayerPitchLimit, sceneName + " player pitch limit balance");
         RequireEqual(playerInventory.startingAmmo, GameBalance.StartingAmmo, sceneName + " starting ammo balance");
         RequireEqual(weaponController.damage, GameBalance.PressurePistolDamage, sceneName + " pistol damage balance");
         RequireEqual(weaponController.ammoCost, GameBalance.PressurePistolAmmoCost, sceneName + " pistol ammo-cost balance");

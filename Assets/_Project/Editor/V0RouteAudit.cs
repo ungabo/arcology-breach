@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public static class V0RouteAudit
 {
-    private const string OutputPath = "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.2.md";
+    private static string OutputPath => "Documentation/QA/RouteAudit/ROUTE_AUDIT_" + GameBranding.BuildVersion + ".md";
 
     private static readonly string[] ScenePaths =
     {
@@ -26,7 +26,7 @@ public static class V0RouteAudit
         StringBuilder findings = new StringBuilder();
         int blockingIssues = 0;
 
-        report.AppendLine("# Brassworks Breach - Route Audit v0.1.2");
+        report.AppendLine("# Brassworks Breach - Route Audit " + GameBranding.BuildVersion);
         report.AppendLine();
         report.AppendLine("Build target: `" + GameBranding.BuildVersion + "`");
         report.AppendLine();
@@ -64,11 +64,11 @@ public static class V0RouteAudit
         report.AppendLine();
         report.AppendLine("## Next Actionable Slices");
         report.AppendLine();
-        report.AppendLine("- `v0.1.3`: movement and camera feel tuning.");
         report.AppendLine("- `v0.1.4`: weapon, ammo, and enemy pressure balance.");
         report.AppendLine("- `v0.1.5`: Level01 route and onboarding polish.");
         report.AppendLine("- `v0.1.6`: Level02/Level03 midgame pacing polish.");
         report.AppendLine("- `v0.1.7`: Level04/Level05 climax polish.");
+        report.AppendLine("- `v0.1.8`: audio listen, mix, and import tuning.");
 
         string absoluteOutputPath = Path.Combine(Directory.GetCurrentDirectory(), OutputPath);
         Directory.CreateDirectory(Path.GetDirectoryName(absoluteOutputPath));

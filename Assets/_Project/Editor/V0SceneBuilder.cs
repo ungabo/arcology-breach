@@ -197,6 +197,7 @@ public static class V0SceneBuilder
         RequireObject<RuntimeSecretTest>("RuntimeSecretTest");
         RequireObject<RuntimeWeaponSwitchTest>("RuntimeWeaponSwitchTest");
         RequireObject<RuntimePauseFlowTest>("RuntimePauseFlowTest");
+        RequireObject<RuntimeMovementFeelTest>("RuntimeMovementFeelTest");
         RequireObject<HUDController>("HUDController");
         RequireObject<EnemyController>("EnemyController");
         RequireObject<Pickup>("Pickup");
@@ -1912,6 +1913,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeSecretTest>();
         stateObject.AddComponent<RuntimePauseFlowTest>();
         stateObject.AddComponent<RuntimeWeaponSwitchTest>();
+        stateObject.AddComponent<RuntimeMovementFeelTest>();
     }
 
     private static void ConfigureSteamworksAudioV1(SteamworksAudio audio)

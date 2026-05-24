@@ -1388,13 +1388,25 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.3 Core Movement And Camera Feel
+
+- [x] Move player acceleration, deceleration, gravity, ground-stick velocity, and pitch limit into `GameBalance`.
+- [x] Update `PlayerController` to use accelerated horizontal velocity instead of instant full-speed starts/stops.
+- [x] Keep mouse sensitivity clamped through `GameSettings` and menu defaults.
+- [x] Add `RuntimeMovementFeelTest` and `-v0MovementSmoke` packaged launch coverage.
+- [x] Expand scene generation, level validation, runtime smoke, and build matrix coverage for the movement-feel test.
+- [x] Refresh `V0RouteAudit` output for `v0.1.3`.
+- [x] Build `v0.1.3` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
 - [ ] Record tuning notes in `WORK_LEDGER.md`.
 - [x] Add first collision-cover pass to `Brassworks Intake`.
 - [x] Add initial automated movement/combat balance profile.
-- [ ] Tune player movement speed and camera feel.
+- [x] Tune player movement speed and camera feel.
 - [ ] Tune `Pressure Pistol` damage, fire rate, ammo, and feedback.
 - [ ] Tune `Scrapper` speed, detection range, damage, and attack cooldown.
 - [ ] Confirm `Brassworks Intake` scale and room flow against `LEVEL_DESIGN_AND_MAPS.md`.

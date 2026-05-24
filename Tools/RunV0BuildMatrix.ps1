@@ -161,5 +161,6 @@ Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0InteractionSmo
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0HazardSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-hazard-smoke.log") -Marker "V0_HAZARD_PASS"
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0SecretSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-secret-smoke.log") -Marker "V0_SECRET_PASS"
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0PauseFlow" -LogPath (Join-Path $logsPath "$LogPrefix-pause-flow.log") -Marker "V0_PAUSE_FLOW_PASS"
+Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0MovementSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-movement-smoke.log") -Marker "V0_MOVEMENT_FEEL_PASS"
 
 Write-Host "V0_BUILD_MATRIX_PASS $version $windowsBuildPath"

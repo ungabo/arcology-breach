@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.1.2` versioned build for `Brassworks Breach`.
+`v0.1.3` versioned build for `Brassworks Breach`.
 
-`v0.1.2` is a verified route-audit/playtest-capture build. It adds `V0RouteAudit`, a repeatable editor inspection that opens Level01-Level05, records route-critical gates/valves/transitions/exits, enemy/pickup/hazard/secret counts, route distances, and writes `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.2.md`. The route audit passed, and the full `v012` matrix passed on `2026-05-24 02:21 -04:00`, verifying `Builds/Windows/v0.1.2/BrassworksBreach_v0.1.2.exe`.
+`v0.1.3` is a verified movement/camera-feel build. It adds acceleration/deceleration to first-person movement, centralizes movement tuning values in `GameBalance`, clamps camera pitch and mouse sensitivity through the shared settings path, adds `RuntimeMovementFeelTest`, expands the packaged build matrix with `-v0MovementSmoke`, and refreshes the route audit report at `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.3.md`. The route audit passed, and the full `v013` matrix passed on `2026-05-24 02:28 -04:00`, verifying `Builds/Windows/v0.1.3/BrassworksBreach_v0.1.3.exe`.
 
 `v0.0` core loop is complete. The current build now prefers staged AudioV1 WAV ambience and gameplay cues while keeping procedural fallback, gives interaction prompts context icons and key-denial lamp feedback, gives Bulwark deaths a heavy boiler/furnace shutdown burst, gives Bulwark hammer windups dedicated slam-warning VFX/audio before damage lands, gives pressure bolts dedicated impact VFX on player/world hits, gives Lancer pressure-bolt windups dedicated fire-tell VFX/audio, gives Scrapper deaths a richer dedicated shutdown burst, gives Scrapper melee windups dedicated warning VFX/audio before damage lands, and gives the Pressure Pistol right-mouse Pressure Burst its own pressure-dump audio cue, dedicated pressure/steam/brass burst VFX, and first-person pressure-dump viewmodel motion with a kicking gauge needle, spinning valve wheel, snapping dump lever, recoiling pressure chamber, and side vent flash. This sits on top of Level03 Steam Scattergun pickup readability cues, the richer pickup display stand, dedicated Steam Scattergun slug audio/VFX, dedicated weapon-pickup acquisition audio, real pickup-route acquisition, dedicated brass/steam weapon-pickup VFX, Bellows Node pulse audio, visible brass/steam pressure-boost VFX for over-pressurized Scrappers, Bellows Node support-machine boost behavior, first Bellows Node support-machine prototype in Level03, dedicated Steam Scattergun pressure-ring/steam/brass-spark blast VFX, Steam Scattergun first-person viewmodel, Steam Scattergun prototype, Pressure Burst alternate fire, the brassworks ambience loop, Level02 Pipeworks cartridge-cache secret, Pipeworks routing valve objective, interactable lore plaques, first-person player damage VFX, pressure-pistol impact decal VFX, visible pressure-bolt projectile VFX, reusable procedural machine motion, animated furnace heat-ripple readability, animated steam hazard puffs, health/ammo/key pickup VFX, service-lift activation VFX, pressure-gate opening VFX, non-lethal machine hit VFX, animated steampunk machinery, standard machine death VFX plus Scrapper/Bulwark-specific shutdown detail, persistent objective HUD guidance, Warden shutdown VFX, the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
@@ -120,21 +120,22 @@
 - Bulwark hammer windups now use dedicated procedural slam-warning VFX/audio before damage lands, with level validation and packaged Bulwark combat smoke coverage.
 - Bulwark deaths now use a dedicated heavy shutdown burst with furnace core, boiler shells, hammer fragment, piston rods, shoulder plates, rear tank, gauge burst, chimney cap, and foot shards, verified by packaged Bulwark combat smoke.
 - `V0RouteAudit` now produces a deterministic route inspection report for the five-level Windows route, confirming route-critical objects and capturing per-level counts/distances for follow-up tuning.
+- Player movement now uses acceleration/deceleration, centralized gravity/ground-stick/pitch tuning, and packaged movement-feel smoke coverage.
 
 ## Verification Results
 
-Latest fully verified build: `v0.1.2`.
+Latest fully verified build: `v0.1.3`.
 
-Current `v0.1.2` verification:
+Current `v0.1.3` verification:
 
-- Route audit: passed (`V0_ROUTE_AUDIT_PASS`) through `Logs/v012-route-audit.log`.
-- Scene rebuild: passed (`V0 scenes rebuilt`) through `Logs/v012-scene.log`.
+- Route audit: passed (`V0_ROUTE_AUDIT_PASS`) through `Logs/v013-route-audit.log`.
+- Scene rebuild: passed (`V0 scenes rebuilt`) through `Logs/v013-scene.log`.
 - Level validation: passed (`V0_LEVEL_VALIDATION_PASS`).
 - Editor smoke: passed (`V0_SMOKE_TEST_PASS`).
 - Windows build: passed (`V0_WINDOWS_BUILD_PASS`).
-- Packaged runtime tests: passed `V0_RUNTIME_SMOKE_PASS`, `V0_AUTO_PLAYTHROUGH_PASS`, `V0_COMBAT_SMOKE_PASS`, `V0_COMBAT_EDGE_PASS`, `V0_COMBAT_SCENARIO_PASS`, `V0_WEAPON_SWITCH_PASS`, `V0_BELLOWS_NODE_PASS`, `V0_RANGED_COMBAT_PASS`, `V0_BULWARK_COMBAT_PASS`, `V0_WARDEN_COMBAT_PASS`, `V0_INTERACTION_SMOKE_PASS`, `V0_HAZARD_PASS`, `V0_SECRET_PASS`, and `V0_PAUSE_FLOW_PASS`.
-- Route audit report: `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.2.md`.
-- Build path: `Builds/Windows/v0.1.2/BrassworksBreach_v0.1.2.exe`.
+- Packaged runtime tests: passed `V0_RUNTIME_SMOKE_PASS`, `V0_AUTO_PLAYTHROUGH_PASS`, `V0_COMBAT_SMOKE_PASS`, `V0_COMBAT_EDGE_PASS`, `V0_COMBAT_SCENARIO_PASS`, `V0_WEAPON_SWITCH_PASS`, `V0_BELLOWS_NODE_PASS`, `V0_RANGED_COMBAT_PASS`, `V0_BULWARK_COMBAT_PASS`, `V0_WARDEN_COMBAT_PASS`, `V0_INTERACTION_SMOKE_PASS`, `V0_HAZARD_PASS`, `V0_SECRET_PASS`, `V0_PAUSE_FLOW_PASS`, and `V0_MOVEMENT_FEEL_PASS`.
+- Route audit report: `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.3.md`.
+- Build path: `Builds/Windows/v0.1.3/BrassworksBreach_v0.1.3.exe`.
 
 Current `v0.0.93` verification:
 
@@ -1436,7 +1437,7 @@ Current target:
 - `2026-05-24 02:09 -04:00`: `v0.1.1` full build matrix passed after adding the dedicated Bulwark shutdown `MachineDeathVfx` style, routing Bulwark deaths through it, and requiring Bulwark-specific shutdown detail in packaged Bulwark combat smoke.
 - `2026-05-24 02:21 -04:00`: `v0.1.2` route audit and full build matrix passed after adding deterministic route inspection/reporting for Level01-Level05. The report found no route-blocking scene composition issues and recorded the next action slices for movement, balance, and level pacing.
 
-Future builds should increment as `v0.1.3`, `v0.1.4`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.1.4`, `v0.1.5`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
@@ -1446,7 +1447,7 @@ Future builds should increment as `v0.1.3`, `v0.1.4`, etc. when meaningful progr
 - Windows runtime performance profile exists, but visible performance profiling still needs a real play session.
 - Enemy pathing uses simple side-steering, not NavMesh.
 - Scrapper attack windup is smoke-tested but still needs manual feel tuning.
-- Balance values have an initial automated pass; human feel tuning is still needed.
+- Movement feel and balance values have initial automated passes; human feel tuning is still needed.
 - AudioV1 staged WAV placeholders are now wired into gameplay, but they still need a human listen pass, mix tuning, compression settings, and final authored replacements.
 - Staged material textures and the UIHudV1 runtime sprites are now bound into active gameplay; final geometry and final raster art still need production passes.
 - Health and ammo persist across level transitions; future weapon inventory and campaign flags still need expansion.

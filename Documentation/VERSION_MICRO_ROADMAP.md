@@ -38,12 +38,12 @@ The roadmap is a living plan, not a promise that every version number is immutab
 | v0.1.0 | Flash-intensity accessibility setting | Completed: main and pause menus expose a persisted flash-intensity slider, and that value scales HUD damage flash plus first-person player damage VFX. | Full V0 matrix passed; scene validation checks slider wiring/range and pause-flow smoke verifies runtime behavior. |
 | v0.1.1 | Bulwark shutdown polish | Completed: Bulwark deaths now use a dedicated heavy boiler/furnace `MachineDeathVfx` style instead of the generic scaled machine burst. | Full V0 matrix passed; Bulwark combat smoke requires Bulwark-specific shutdown detail. |
 | v0.1.2 | Internal Windows route audit and issue capture | Completed: added deterministic route audit tooling/reporting for Level01-Level05 and generated `ROUTE_AUDIT_v0.1.2.md`; no route-blocking composition issues were found. | Route audit passed; full V0 matrix passed. |
+| v0.1.3 | Core movement and camera feel tuning | Completed: player movement now accelerates/decelerates from centralized `GameBalance` values, camera pitch/sensitivity are clamped, and packaged movement-feel smoke coverage is part of the matrix. | Route audit passed; full V0 matrix passed with `V0_MOVEMENT_FEEL_PASS`. |
 
 ## Near-Term Proposed Sequence
 
 | Version | Planned Slice | Intent | Expected Verification |
 | --- | --- | --- | --- |
-| v0.1.3 | Core movement and camera feel tuning | Tune walk speed, strafe feel, mouse sensitivity range, pause/menu defaults, damage feedback intensity, and low-PC frame pacing so the base FPS loop feels deliberate and responsive. | Full V0 matrix plus targeted packaged movement/combat smoke; no regressions to pause/settings flow. |
 | v0.1.4 | Weapon, ammo, and enemy pressure balance | Tune Pressure Pistol, Pressure Burst, Steam Scattergun, ammo pickups, Scrapper, Lancer, Bulwark, Bellows Node, and Warden values toward fair Windows difficulty. | Full V0 matrix; combat, combat-edge, ranged, Bulwark, Bellows, Warden, and weapon-switch smokes remain green. |
 | v0.1.5 | Level01 Brassworks Intake flow polish | Tighten the opening map around key visibility, gate preview, readable combat cover, pickup placement, secret route clarity, and first-time player onboarding. | Full V0 matrix; auto-playthrough and level validation cover the revised route, with a packaged route playtest afterward. |
 | v0.1.6 | Level02 and Level03 midgame pacing polish | Improve Pipeworks Annex sightlines, routing-valve readability, Boilerheart lift gating, Bellows Node staging, scattergun pickup approach, and hazard shutdown comprehension. | Full V0 matrix; ranged, Bellows, weapon-switch, hazard, secret, and auto-playthrough smokes remain green. |
