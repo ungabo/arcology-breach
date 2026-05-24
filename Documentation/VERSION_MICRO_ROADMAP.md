@@ -54,14 +54,15 @@ The roadmap is a living plan, not a promise that every version number is immutab
 | v0.1.16 | Route QA evidence capture expansion | Completed: added a generated issue-triage packet with severity rules, issue buckets, intake template, candidate gates, manual index links, and candidate-readiness linkage. | Route audit passed; full V0 matrix passed with `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`. |
 | v0.1.17 | Modular environment component promotion | Completed: promoted a reusable wall-pipe gauge cluster component into Pipeworks Annex and Boilerheart Core, with metadata, production docs, named part hierarchy, material-role checks, and detail-count gates. | Route audit passed; full V0 matrix passed with level validation, package, QA packet, issue-triage packet, and candidate-readiness evidence. |
 | v0.1.18 | Windows release distribution polish | Completed: added package launcher, quickstart, support info, expanded README, package-manifest paths, and candidate-readiness ZIP-content checks for player-facing Windows distribution files. | Route audit passed; full V0 matrix passed with package, QA packet, issue-triage packet, candidate-readiness evidence, and distribution-file verification. |
+| v0.1.19 | Boiler control console asset promotion | Completed: no manual triage notes were present, so the fallback path promoted a reusable boiler-control console into Pipeworks Annex and Boilerheart Core with metadata, production docs, named hierarchy, material-role checks, detail-count gates, and non-blocking footprint validation. | Route audit passed; full V0 matrix passed with level validation, package, QA packet, issue-triage packet, and candidate-readiness evidence. |
 
 ## Near-Term Proposed Sequence
 
 | Version | Planned Slice | Intent | Expected Verification |
 | --- | --- | --- | --- |
-| v0.1.19 | Accepted route-triage task conversion | Convert any real manual issue notes into concrete ledger tasks; if notes are still absent, proceed to the next modular asset promotion instead. | Full V0 matrix if code/scene changes occur; docs-only verification if only triage records change. |
-| v0.1.20 | Next authored gameplay prop promotion | Promote the next accepted Unity-authored prop component into playable scenes after wall-pipe cluster validation, likely pressure-door/boiler-console language from the same steampunk brassworks kit. | Full V0 matrix with validator coverage for named hierarchy, material roles, and route readability. |
+| v0.1.20 | Accepted route-triage task conversion or next prop fallback | Convert any real manual issue notes into concrete ledger tasks; if notes are still absent, proceed to the next modular asset promotion. | Full V0 matrix if code/scene changes occur; docs-only verification if only triage records change. |
 | v0.1.21 | Further release-distribution hardening | Continue package/release polish after launcher and quickstart verification, likely checksum instructions, signed-build notes, or human-friendly release index. | Full V0 matrix plus refreshed candidate-readiness evidence if package tooling changes. |
+| v0.1.22 | Next authored gameplay prop promotion | Promote the next accepted Unity-authored prop component after boiler-control console validation. | Full V0 matrix with validator coverage for named hierarchy, material roles, and route readability. |
 
 ## Later Follow-Up Areas
 

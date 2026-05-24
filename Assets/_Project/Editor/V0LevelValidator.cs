@@ -1166,6 +1166,50 @@ public static class V0LevelValidator
         RequireRendererMaterial(prototype.valveWheelRenderer, sceneName + " wall pipe gauge cluster valve wheel", "PressureWarning");
     }
 
+    private static void ValidateBoilerControlConsolePrototype(string sceneName, string objectName, string expectedPlacementRole)
+    {
+        GameObject root = RequireNamed(objectName, sceneName + " boiler control console prototype root");
+        BoilerControlConsolePrototype prototype = root.GetComponent<BoilerControlConsolePrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " boiler control console prototype is missing its marker component (" + objectName + ").");
+        }
+
+        if (prototype.promotionVersion != "v0.1.19" || prototype.placementRole != expectedPlacementRole || !prototype.HasRequiredParts)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " boiler control console metadata or required parts are incomplete (" + objectName + ").");
+        }
+
+        if (prototype.leverRoot.childCount < 6 || prototype.gaugeRoot.childCount < 2 || prototype.lampRoot.childCount < 6 || prototype.rivetRoot.childCount < 12 || prototype.pipeRoot.childCount < 3)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " boiler control console does not have the required lever/gauge/lamp/rivet/pipe detail counts (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<Collider>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " boiler control console must remain non-blocking route dressing with no colliders (" + objectName + ").");
+        }
+
+        RequireNamed(objectName + " Blackened Iron Pedestal Base", sceneName + " boiler control console base");
+        RequireNamed(objectName + " Angled Iron Control Panel", sceneName + " boiler control console angled panel");
+        RequireNamed(objectName + " Aged Brass Front Control Rail", sceneName + " boiler control console brass rail");
+        RequireNamed(objectName + " Red Brass Lever Handle 00", sceneName + " boiler control console lever handle");
+        RequireNamed(objectName + " Left Boiler Pressure Gauge Cream Enamel Face", sceneName + " boiler control console left gauge face");
+        RequireNamed(objectName + " Right Boiler Pressure Gauge Cream Enamel Face", sceneName + " boiler control console right gauge face");
+        RequireNamed(objectName + " Amber Indicator Lamp 00", sceneName + " boiler control console lamp");
+        RequireNamed(objectName + " Copper Pressure Pipe 00", sceneName + " boiler control console pressure pipe");
+        RequireNamed(objectName + " Side Brass Valve Wheel", sceneName + " boiler control console side valve wheel");
+        RequireNamed(objectName + " Front Slotted Rivet 00", sceneName + " boiler control console rivet");
+
+        RequireRendererMaterial(prototype.baseRenderer, sceneName + " boiler control console base", "Iron");
+        RequireRendererMaterial(prototype.panelRenderer, sceneName + " boiler control console panel", "Iron");
+        RequireRendererMaterial(prototype.brassRailRenderer, sceneName + " boiler control console rail", "Brass");
+        RequireRendererMaterial(prototype.gaugeFaceRenderer, sceneName + " boiler control console gauge face", "CreamGaugeFace");
+        RequireRendererMaterial(prototype.leverHandleRenderer, sceneName + " boiler control console lever handle", "PressureWarning");
+        RequireRendererMaterial(prototype.lampRenderer, sceneName + " boiler control console lamp", "PressureWarning");
+        RequireRendererMaterial(prototype.pipeRenderer, sceneName + " boiler control console pipe", "Brass");
+    }
+
     private static void RequireRendererMaterial(Renderer renderer, string label, string expectedNameFragment)
     {
         if (renderer == null || renderer.sharedMaterial == null || renderer.sharedMaterial.shader == null)
@@ -1214,6 +1258,7 @@ public static class V0LevelValidator
             RequireNamed("North Star Pipeworks Gaslight", sceneName + " north-star pipeworks gaslight");
             RequireNamed("North Star Pipeworks Wall Rivet Band", sceneName + " north-star pipeworks rivet band");
             ValidateWallPipeGaugeClusterPrototype(sceneName, "Pipeworks Prototype Wall Pipe Gauge Cluster", "pipeworks_route_wall");
+            ValidateBoilerControlConsolePrototype(sceneName, "Pipeworks Prototype Boiler Control Console", "pipeworks_route_console");
             RequireNamed("Secret - Pipeworks Cartridge Cache", sceneName + " pipeworks secret cache");
             RequireNamed("Secret Pipeworks Cache Brass Floor Plate", sceneName + " pipeworks secret cache floor plate");
             RequireNamed("Pickup - Pipeworks Secret Pressure Cartridge Pack", sceneName + " pipeworks secret ammo reward");
@@ -1233,6 +1278,7 @@ public static class V0LevelValidator
             RequireNamed("North Star Boilerheart Lamp Cage", sceneName + " north-star boilerheart lamp cage");
             RequireNamed("North Star Boilerheart Core Rivet Band", sceneName + " north-star boilerheart rivet band");
             ValidateWallPipeGaugeClusterPrototype(sceneName, "Boilerheart Prototype Wall Pipe Gauge Cluster", "boilerheart_route_wall");
+            ValidateBoilerControlConsolePrototype(sceneName, "Boilerheart Prototype Boiler Control Console", "boilerheart_route_console");
             RequireNamed("Boilerheart Pressure Valve Objective", sceneName + " boilerheart pressure valve objective");
             RequireNamed("Boilerheart Pressure Valve Wheel", sceneName + " boilerheart pressure valve wheel visual");
             RequireNamed("Boilerheart Valve Vented Lamp", sceneName + " boilerheart valve vented signal");

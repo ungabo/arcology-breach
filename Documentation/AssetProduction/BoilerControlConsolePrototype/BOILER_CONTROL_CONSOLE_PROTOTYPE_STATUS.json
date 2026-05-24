@@ -1,0 +1,31 @@
+{
+  "version": "v0.1.19",
+  "component": "BoilerControlConsolePrototype",
+  "status": "verified",
+  "documentation_status": "verified",
+  "placements": [
+    {
+      "scene": "Level02",
+      "object": "Pipeworks Prototype Boiler Control Console",
+      "placement_role": "pipeworks_route_console"
+    },
+    {
+      "scene": "Level03",
+      "object": "Boilerheart Prototype Boiler Control Console",
+      "placement_role": "boilerheart_route_console"
+    }
+  ],
+  "validation": {
+    "requires_metadata": true,
+    "metadata_component": "BoilerControlConsolePrototype",
+    "promotion_version": "v0.1.19",
+    "minimum_lever_count": 3,
+    "minimum_gauge_count": 2,
+    "minimum_lamp_count": 3,
+    "minimum_rivet_count": 12,
+    "requires_material_role_validation": true,
+    "requires_named_hierarchy": true,
+    "requires_route_safe_collision_footprint": true
+  },
+  "notes": "Unity-generated reusable steampunk boiler/control console promotion. Verified by v0.1.19 route audit, level validation, full Windows matrix, package generation, route-QA packet, issue-triage packet, and candidate-readiness evidence."
+}

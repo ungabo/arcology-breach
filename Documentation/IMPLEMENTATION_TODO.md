@@ -1611,6 +1611,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.19 Boiler Control Console Asset Promotion
+
+- [x] Confirm no real manual route-triage notes exist yet; use the roadmap fallback and proceed to the next modular asset promotion.
+- [x] Add `BoilerControlConsolePrototype` runtime metadata for promoted console components.
+- [x] Add a named Pipeworks Annex boiler-control console placement.
+- [x] Add a named Boilerheart Core boiler-control console placement.
+- [x] Build the component from Unity-owned geometry: iron pedestal base, angled control panel, brass rails/cheeks, lever bank, two cream enamel gauges, three indicator lamps, side valve wheel, pressure pipes, and rivets.
+- [x] Add validator coverage for promotion version, placement roles, required named hierarchy, material roles, detail counts, and non-blocking collider footprint.
+- [x] Add production brief and status files under `Documentation/AssetProduction/BoilerControlConsolePrototype/`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.19`.
+- [x] Build, package, generate route-QA evidence, generate issue-triage evidence, and generate candidate-readiness evidence for `v0.1.19` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.1.18` versioned build for `Brassworks Breach`.
+`v0.1.19` versioned build for `Brassworks Breach`.
 
-`v0.1.18` is a verified Windows distribution polish slice. It adds a package launcher BAT, quickstart file, support/build-info file, expanded Windows README, package-manifest paths for those files, and candidate-readiness checks that prove the distribution files are staged and included in the ZIP. The route audit passed, and the full `v028` matrix passed on `2026-05-24 06:36 -04:00`, verifying `Builds/Windows/v0.1.18/BrassworksBreach_v0.1.18.exe`, `Builds/WindowsPackages/v0.1.18/BrassworksBreach_v0.1.18_Windows.zip`, `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.18.md`, `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.18.md`, and `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.18.md`.
+`v0.1.19` is a verified modular environment-component promotion slice. No real manual route-triage notes were present, so the roadmap fallback was used: it adds the Unity-owned `BoilerControlConsolePrototype`, places reusable boiler-control consoles in Pipeworks Annex and Boilerheart Core, validates named parts/material roles/detail counts/non-blocking collider footprint, and records production brief/status evidence for the promoted component. The route audit passed, and the full `v029` matrix passed on `2026-05-24 06:51 -04:00`, verifying `Builds/Windows/v0.1.19/BrassworksBreach_v0.1.19.exe`, `Builds/WindowsPackages/v0.1.19/BrassworksBreach_v0.1.19_Windows.zip`, `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.19.md`, `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.19.md`, and `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.19.md`.
 
 `v0.0` core loop is complete. The current build now prefers staged AudioV1 WAV ambience and gameplay cues while keeping procedural fallback, gives interaction prompts context icons and key-denial lamp feedback, gives Bulwark deaths a heavy boiler/furnace shutdown burst, gives Bulwark hammer windups dedicated slam-warning VFX/audio before damage lands, gives pressure bolts dedicated impact VFX on player/world hits, gives Lancer pressure-bolt windups dedicated fire-tell VFX/audio, gives Scrapper deaths a richer dedicated shutdown burst, gives Scrapper melee windups dedicated warning VFX/audio before damage lands, and gives the Pressure Pistol right-mouse Pressure Burst its own pressure-dump audio cue, dedicated pressure/steam/brass burst VFX, and first-person pressure-dump viewmodel motion with a kicking gauge needle, spinning valve wheel, snapping dump lever, recoiling pressure chamber, and side vent flash. This sits on top of Level03 Steam Scattergun pickup readability cues, the richer pickup display stand, dedicated Steam Scattergun slug audio/VFX, dedicated weapon-pickup acquisition audio, real pickup-route acquisition, dedicated brass/steam weapon-pickup VFX, Bellows Node pulse audio, visible brass/steam pressure-boost VFX for over-pressurized Scrappers, Bellows Node support-machine boost behavior, first Bellows Node support-machine prototype in Level03, dedicated Steam Scattergun pressure-ring/steam/brass-spark blast VFX, Steam Scattergun first-person viewmodel, Steam Scattergun prototype, Pressure Burst alternate fire, the brassworks ambience loop, Level02 Pipeworks cartridge-cache secret, Pipeworks routing valve objective, interactable lore plaques, first-person player damage VFX, pressure-pistol impact decal VFX, visible pressure-bolt projectile VFX, reusable procedural machine motion, animated furnace heat-ripple readability, animated steam hazard puffs, health/ammo/key pickup VFX, service-lift activation VFX, pressure-gate opening VFX, non-lethal machine hit VFX, animated steampunk machinery, standard machine death VFX plus Scrapper/Bulwark-specific shutdown detail, persistent objective HUD guidance, Warden shutdown VFX, the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
@@ -47,6 +47,7 @@
 - Pressure Pistol and Level01 pressure gate now use the first promoted `PressureGaugePrototype` asset component, with brass bezel, iron backplate, cream enamel face, amber glass, red danger band, tick marks, rim rivets, pivoted needle, metadata, and validator coverage.
 - Pressure Pistol viewmodel now uses the promoted `PressureCoilPrototype` asset component, with blackened iron backing, aged brass rails, copper manifolds, red ceramic heat core, oxidized coil turns, rivets, pressure leads, metadata, and validator coverage.
 - Pipeworks Annex and Boilerheart Core now use the promoted `WallPipeGaugeClusterPrototype` environment component, with iron wall plate, aged brass rails, copper/iron pipe runs, two enamel pressure gauges, valve wheel, rivets, metadata, and validator coverage.
+- Pipeworks Annex and Boilerheart Core now use the promoted `BoilerControlConsolePrototype` environment component, with iron pedestal, angled panel, brass rails, lever bank, pressure gauges, indicator lamps, side valve wheel, pressure pipes, rivets, metadata, and validator coverage.
 - Environmental work-order boards and three-pipe bundles in Level01 and Level02, with validation coverage.
 - Level01 collision-cover pass for repair bay, key room, and final room, with validation coverage and objective auto-playthrough retained.
 - Centralized `GameBalance` profile for player speed, starting ammo, pistol cadence, Scrapper pressure, and Lancer pressure, with validation coverage.
@@ -136,12 +137,12 @@
 
 ## Verification Results
 
-Latest fully verified build: `v0.1.18`.
+Latest fully verified build: `v0.1.19`.
 
-Current `v0.1.18` verification:
+Current `v0.1.19` verification:
 
-- Route audit: passed (`V0_ROUTE_AUDIT_PASS`) through `Logs/v028-route-audit.log`.
-- Scene rebuild: passed (`V0 scenes rebuilt`) through `Logs/v028-scene.log`.
+- Route audit: passed (`V0_ROUTE_AUDIT_PASS`) through `Logs/v029-route-audit.log`.
+- Scene rebuild: passed (`V0 scenes rebuilt`) through `Logs/v029-scene.log`.
 - Level validation: passed (`V0_LEVEL_VALIDATION_PASS`).
 - Editor smoke: passed (`V0_SMOKE_TEST_PASS`).
 - Windows build: passed (`V0_WINDOWS_BUILD_PASS`).
@@ -150,13 +151,13 @@ Current `v0.1.18` verification:
 - Windows QA packet: passed (`V0_WINDOWS_QA_PACKET_PASS`).
 - Windows issue triage packet: passed (`V0_WINDOWS_ISSUE_TRIAGE_PASS`).
 - Windows candidate readiness: passed (`V0_WINDOWS_CANDIDATE_PASS`).
-- Route audit report: `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.18.md`.
-- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.18.md`.
-- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.18.md`.
-- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.18.md`.
-- Build path: `Builds/Windows/v0.1.18/BrassworksBreach_v0.1.18.exe`.
-- Package path: `Builds/WindowsPackages/v0.1.18/BrassworksBreach_v0.1.18_Windows.zip`.
-- Package SHA-256: `8AE31EE0FB1DB296EE6E3236C1563A365BAFD8C3836A728A4306CAF2F447AA0A`.
+- Route audit report: `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.19.md`.
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.19.md`.
+- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.19.md`.
+- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.19.md`.
+- Build path: `Builds/Windows/v0.1.19/BrassworksBreach_v0.1.19.exe`.
+- Package path: `Builds/WindowsPackages/v0.1.19/BrassworksBreach_v0.1.19_Windows.zip`.
+- Package SHA-256: `0AEA66B63441E2365542E098516BEB75EF770E93C56F0E5B375CDC7B19FED803`.
 
 Current `v0.0.93` verification:
 
@@ -214,7 +215,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.1.18\BrassworksBreach_v0.1.18.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.1.19\BrassworksBreach_v0.1.19.exe`
 
 ## Latest Build Verification
 
@@ -1477,8 +1478,9 @@ Current target:
 - `2026-05-24 06:06 -04:00`: `v0.1.16` route audit and full build matrix passed after adding Windows issue-triage packet automation, manual playtest severity/bucket guidance, and `V0_WINDOWS_ISSUE_TRIAGE_PASS`.
 - `2026-05-24 06:22 -04:00`: `v0.1.17` route audit and full build matrix passed after promoting the reusable wall-pipe gauge cluster environment component with metadata, material-role validation, route-QA packet, issue-triage packet, candidate-readiness evidence, and Windows package hash.
 - `2026-05-24 06:36 -04:00`: `v0.1.18` route audit and full build matrix passed after adding Windows package launcher, quickstart, support info, expanded README, manifest fields, and candidate-readiness ZIP-content checks.
+- `2026-05-24 06:51 -04:00`: `v0.1.19` route audit and full build matrix passed after promoting the reusable boiler-control console component with metadata, material-role validation, non-blocking footprint validation, route-QA packet, issue-triage packet, candidate-readiness evidence, and Windows package hash.
 
-Future builds should increment as `v0.1.19`, `v0.1.20`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.1.20`, `v0.1.21`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

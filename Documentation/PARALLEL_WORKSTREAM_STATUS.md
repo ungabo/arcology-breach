@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 06:36 -04:00`
+Last updated: `2026-05-24 06:55 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -17,12 +17,12 @@ Current focus:
 
 Current verified local build:
 
-- `v0.1.18`
-- Build path: `Builds/Windows/v0.1.18/BrassworksBreach_v0.1.18.exe`
-- Package path: `Builds/WindowsPackages/v0.1.18/BrassworksBreach_v0.1.18_Windows.zip`
-- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.18.md`
-- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.18.md`
-- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.18.md`
+- `v0.1.19`
+- Build path: `Builds/Windows/v0.1.19/BrassworksBreach_v0.1.19.exe`
+- Package path: `Builds/WindowsPackages/v0.1.19/BrassworksBreach_v0.1.19_Windows.zip`
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.19.md`
+- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.19.md`
+- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.19.md`
 - Matrix result: `V0_BUILD_MATRIX_PASS` plus `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`
 
 ## Active Side Agents
@@ -66,6 +66,7 @@ Current verified local build:
 | Turing-Corridor | `019e58f7-c4bb-71e0-b51f-607bc1bb10b6` | Unity-only brassworks corridor/vault-door lookdev render lane | `Assets/_Project/LookDev/BrassworksCorridor/`, `Assets/_Project/Editor/BrassworksCorridorLookDevRenderer.cs`, `Documentation/AssetProduction/BrassworksCorridorLookDev/`, `Documentation/ConceptRenders/BrassworksCorridor/` | `2026-05-24 03:52 -04:00` | completed; integrated as reference-only lookdev with component-sheet overlap noted |
 | Mendel | `019e591c-a261-7310-bad9-5c3d18ac7435` | v0.1.11 asset-promotion review | `Documentation/ProductionManagement/ASSET_PROMOTION_REVIEW_v0.1.11.md` | `2026-05-24 04:30 -04:00` | completed; used to keep lookdev renders reference-only and pick the pressure-gauge slice |
 | Wegener | `019e5920-3432-7731-bf10-943a668994ee` | Pressure-gauge prototype production brief | `Documentation/AssetProduction/PressureGaugePrototype/` | `2026-05-24 04:34 -04:00` | completed; brief/status docs integrated with the v0.1.11 promoted gauge component |
+| Curie-Console | `019e5995-d8d9-7843-b6f4-731d09807d3e` | Boiler-control console prototype production brief/status | `Documentation/AssetProduction/BoilerControlConsolePrototype/` | `2026-05-24 06:44 -04:00` | completed; docs integrated with the v0.1.19 promoted console component |
 
 ## Completed Side-Agent Outputs
 
