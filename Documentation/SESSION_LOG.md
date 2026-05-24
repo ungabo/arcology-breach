@@ -3781,3 +3781,52 @@ Build executable:
 `Builds/Windows/v0.1.9/BrassworksBreach_v0.1.9.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 04:24 -04:00
+
+Completed `v0.1.10` high-contrast readability controls.
+
+Added:
+
+- `GameSettings` now persists high-contrast/readability state.
+- Main menu and pause menu now expose a contrast toggle with ON/OFF labels.
+- `HUDController` applies high-contrast text/backplate readability styling at runtime.
+- `RuntimeReadabilitySettingsTest` verifies pause-menu control wiring, high-contrast persistence, HUD application, and label updates in the packaged build.
+- `Tools/RunV0BuildMatrix.ps1` now includes the `-v0ReadabilitySmoke` packaged test.
+- Version string bumped to `v0.1.10`.
+
+Verification completed:
+
+- `V0_ROUTE_AUDIT_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_MOVEMENT_FEEL_PASS`
+- `V0_BALANCE_ENVELOPE_PASS`
+- `V0_LEVEL01_FLOW_PASS`
+- `V0_MIDGAME_FLOW_PASS`
+- `V0_CLIMAX_FLOW_PASS`
+- `V0_AUDIO_MIX_PASS`
+- `V0_DISPLAY_SETTINGS_PASS`
+- `V0_READABILITY_SETTINGS_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.10/BrassworksBreach_v0.1.10.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

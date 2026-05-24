@@ -207,27 +207,27 @@ public static class V0LevelValidator
 
     private static void ValidateMainMenuSettings(MainMenuController mainMenu)
     {
-        if (mainMenu.sensitivitySlider == null || mainMenu.volumeSlider == null || mainMenu.flashSlider == null || mainMenu.resolutionButton == null || mainMenu.fullscreenToggle == null || mainMenu.sensitivityValueText == null || mainMenu.volumeValueText == null || mainMenu.flashValueText == null || mainMenu.resolutionValueText == null || mainMenu.fullscreenValueText == null)
+        if (mainMenu.sensitivitySlider == null || mainMenu.volumeSlider == null || mainMenu.flashSlider == null || mainMenu.resolutionButton == null || mainMenu.fullscreenToggle == null || mainMenu.highContrastToggle == null || mainMenu.sensitivityValueText == null || mainMenu.volumeValueText == null || mainMenu.flashValueText == null || mainMenu.resolutionValueText == null || mainMenu.fullscreenValueText == null || mainMenu.highContrastValueText == null)
         {
             throw new InvalidOperationException("Level validation failed: MainMenu is missing settings slider wiring.");
         }
 
-        ValidateCoreSettingsControls("MainMenu", mainMenu.sensitivitySlider, mainMenu.volumeSlider, mainMenu.fullscreenToggle);
+        ValidateCoreSettingsControls("MainMenu", mainMenu.sensitivitySlider, mainMenu.volumeSlider, mainMenu.fullscreenToggle, mainMenu.highContrastToggle);
         ValidateFlashSlider("MainMenu", mainMenu.flashSlider);
     }
 
     private static void ValidatePauseMenuSettings(string sceneName, PauseMenuController pauseMenu)
     {
-        if (pauseMenu.sensitivitySlider == null || pauseMenu.volumeSlider == null || pauseMenu.flashSlider == null || pauseMenu.resolutionButton == null || pauseMenu.fullscreenToggle == null || pauseMenu.sensitivityValueText == null || pauseMenu.volumeValueText == null || pauseMenu.flashValueText == null || pauseMenu.resolutionValueText == null || pauseMenu.fullscreenValueText == null)
+        if (pauseMenu.sensitivitySlider == null || pauseMenu.volumeSlider == null || pauseMenu.flashSlider == null || pauseMenu.resolutionButton == null || pauseMenu.fullscreenToggle == null || pauseMenu.highContrastToggle == null || pauseMenu.sensitivityValueText == null || pauseMenu.volumeValueText == null || pauseMenu.flashValueText == null || pauseMenu.resolutionValueText == null || pauseMenu.fullscreenValueText == null || pauseMenu.highContrastValueText == null)
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " PauseMenu is missing settings slider wiring.");
         }
 
-        ValidateCoreSettingsControls(sceneName + " PauseMenu", pauseMenu.sensitivitySlider, pauseMenu.volumeSlider, pauseMenu.fullscreenToggle);
+        ValidateCoreSettingsControls(sceneName + " PauseMenu", pauseMenu.sensitivitySlider, pauseMenu.volumeSlider, pauseMenu.fullscreenToggle, pauseMenu.highContrastToggle);
         ValidateFlashSlider(sceneName + " PauseMenu", pauseMenu.flashSlider);
     }
 
-    private static void ValidateCoreSettingsControls(string label, Slider sensitivitySlider, Slider volumeSlider, Toggle fullscreenToggle)
+    private static void ValidateCoreSettingsControls(string label, Slider sensitivitySlider, Slider volumeSlider, Toggle fullscreenToggle, Toggle highContrastToggle)
     {
         RequireApprox(sensitivitySlider.minValue, 0.6f, label + " sensitivity slider minimum");
         RequireApprox(sensitivitySlider.maxValue, 5f, label + " sensitivity slider maximum");
@@ -237,6 +237,11 @@ public static class V0LevelValidator
         if (fullscreenToggle.targetGraphic == null || fullscreenToggle.graphic == null)
         {
             throw new InvalidOperationException("Level validation failed: " + label + " fullscreen toggle is missing graphics.");
+        }
+
+        if (highContrastToggle.targetGraphic == null || highContrastToggle.graphic == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + label + " contrast toggle is missing graphics.");
         }
     }
 
@@ -388,6 +393,7 @@ public static class V0LevelValidator
         Require<RuntimeClimaxFlowTest>(sceneName + " RuntimeClimaxFlowTest");
         Require<RuntimeAudioMixTest>(sceneName + " RuntimeAudioMixTest");
         Require<RuntimeDisplaySettingsTest>(sceneName + " RuntimeDisplaySettingsTest");
+        Require<RuntimeReadabilitySettingsTest>(sceneName + " RuntimeReadabilitySettingsTest");
         Require<EnemyController>(sceneName + " EnemyController");
         Require<Pickup>(sceneName + " Pickup");
 

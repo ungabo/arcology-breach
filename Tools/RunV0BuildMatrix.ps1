@@ -198,5 +198,6 @@ Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0MidgameFlowSmo
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0ClimaxFlowSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-climax-flow-smoke.log") -Marker "V0_CLIMAX_FLOW_PASS"
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0AudioMixSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-audio-mix-smoke.log") -Marker "V0_AUDIO_MIX_PASS"
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0DisplaySettingsSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-display-settings-smoke.log") -Marker "V0_DISPLAY_SETTINGS_PASS"
+Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0ReadabilitySmoke" -LogPath (Join-Path $logsPath "$LogPrefix-readability-smoke.log") -Marker "V0_READABILITY_SETTINGS_PASS"
 
 Write-Host "V0_BUILD_MATRIX_PASS $version $windowsBuildPath"

@@ -13,11 +13,13 @@ public class MainMenuController : MonoBehaviour
     public Slider flashSlider;
     public Button resolutionButton;
     public Toggle fullscreenToggle;
+    public Toggle highContrastToggle;
     public Text sensitivityValueText;
     public Text volumeValueText;
     public Text flashValueText;
     public Text resolutionValueText;
     public Text fullscreenValueText;
+    public Text highContrastValueText;
 
     private static readonly string[] AutomationArguments =
     {
@@ -41,7 +43,8 @@ public class MainMenuController : MonoBehaviour
         "-v0MidgameFlowSmoke",
         "-v0ClimaxFlowSmoke",
         "-v0AudioMixSmoke",
-        "-v0DisplaySettingsSmoke"
+        "-v0DisplaySettingsSmoke",
+        "-v0ReadabilitySmoke"
     };
 
     private void Awake()
@@ -81,6 +84,11 @@ public class MainMenuController : MonoBehaviour
         if (fullscreenToggle != null)
         {
             fullscreenToggle.onValueChanged.AddListener(SetFullscreen);
+        }
+
+        if (highContrastToggle != null)
+        {
+            highContrastToggle.onValueChanged.AddListener(SetHighContrast);
         }
 
         SyncSettingControls();
@@ -189,6 +197,12 @@ public class MainMenuController : MonoBehaviour
         UpdateSettingLabels();
     }
 
+    public void SetHighContrast(bool value)
+    {
+        GameSettings.SetHighContrast(value);
+        UpdateSettingLabels();
+    }
+
     private void SyncSettingControls()
     {
         if (sensitivitySlider != null)
@@ -209,6 +223,11 @@ public class MainMenuController : MonoBehaviour
         if (fullscreenToggle != null)
         {
             fullscreenToggle.SetIsOnWithoutNotify(GameSettings.Fullscreen);
+        }
+
+        if (highContrastToggle != null)
+        {
+            highContrastToggle.SetIsOnWithoutNotify(GameSettings.HighContrast);
         }
 
         UpdateSettingLabels();
@@ -239,6 +258,11 @@ public class MainMenuController : MonoBehaviour
         if (fullscreenValueText != null)
         {
             fullscreenValueText.text = GameSettings.Fullscreen ? "ON" : "OFF";
+        }
+
+        if (highContrastValueText != null)
+        {
+            highContrastValueText.text = GameSettings.HighContrast ? "ON" : "OFF";
         }
     }
 

@@ -11,12 +11,14 @@ public static class GameSettings
     public const int MaxResolutionIndex = 2;
     public const int DefaultResolutionIndex = 1;
     public const bool DefaultFullscreen = false;
+    public const bool DefaultHighContrast = false;
 
     private const string MouseSensitivityKey = "BrassworksBreach.MouseSensitivity";
     private const string MasterVolumeKey = "BrassworksBreach.MasterVolume";
     private const string FlashIntensityKey = "BrassworksBreach.FlashIntensity";
     private const string ResolutionIndexKey = "BrassworksBreach.ResolutionIndex";
     private const string FullscreenKey = "BrassworksBreach.Fullscreen";
+    private const string HighContrastKey = "BrassworksBreach.HighContrast";
 
     private static readonly Vector2Int[] ResolutionPresets =
     {
@@ -32,6 +34,7 @@ public static class GameSettings
     public static float FlashIntensity { get; private set; } = DefaultFlashIntensity;
     public static int ResolutionIndex { get; private set; } = DefaultResolutionIndex;
     public static bool Fullscreen { get; private set; } = DefaultFullscreen;
+    public static bool HighContrast { get; private set; } = DefaultHighContrast;
     public static int ResolutionWidth => ResolutionPresets[ResolutionIndex].x;
     public static int ResolutionHeight => ResolutionPresets[ResolutionIndex].y;
     public static string ResolutionLabel => ResolutionWidth + "x" + ResolutionHeight;
@@ -48,6 +51,7 @@ public static class GameSettings
         FlashIntensity = ClampFlashIntensity(PlayerPrefs.GetFloat(FlashIntensityKey, DefaultFlashIntensity));
         ResolutionIndex = ClampResolutionIndex(PlayerPrefs.GetInt(ResolutionIndexKey, DefaultResolutionIndex));
         Fullscreen = PlayerPrefs.GetInt(FullscreenKey, DefaultFullscreen ? 1 : 0) == 1;
+        HighContrast = PlayerPrefs.GetInt(HighContrastKey, DefaultHighContrast ? 1 : 0) == 1;
         AudioListener.volume = MasterVolume;
         ApplyDisplayMode();
         loaded = true;
@@ -106,6 +110,14 @@ public static class GameSettings
         PlayerPrefs.SetInt(FullscreenKey, Fullscreen ? 1 : 0);
         PlayerPrefs.Save();
         ApplyDisplayMode();
+    }
+
+    public static void SetHighContrast(bool value)
+    {
+        Load();
+        HighContrast = value;
+        PlayerPrefs.SetInt(HighContrastKey, HighContrast ? 1 : 0);
+        PlayerPrefs.Save();
     }
 
     public static float ClampFlashIntensity(float value)

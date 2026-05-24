@@ -23,7 +23,7 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<GameStateController>("GameStateController");
         Require<LevelTransitionController>("LevelTransitionController");
         PauseMenuController pauseMenu = Require<PauseMenuController>("PauseMenuController");
-        if (pauseMenu.flashSlider == null || pauseMenu.flashValueText == null || pauseMenu.resolutionButton == null || pauseMenu.fullscreenToggle == null || pauseMenu.resolutionValueText == null || pauseMenu.fullscreenValueText == null)
+        if (pauseMenu.flashSlider == null || pauseMenu.flashValueText == null || pauseMenu.resolutionButton == null || pauseMenu.fullscreenToggle == null || pauseMenu.highContrastToggle == null || pauseMenu.resolutionValueText == null || pauseMenu.fullscreenValueText == null || pauseMenu.highContrastValueText == null)
         {
             Debug.LogError("Runtime smoke test failed: settings controls are not wired.");
             Application.Quit(1);
@@ -68,6 +68,7 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<RuntimeClimaxFlowTest>("RuntimeClimaxFlowTest");
         Require<RuntimeAudioMixTest>("RuntimeAudioMixTest");
         Require<RuntimeDisplaySettingsTest>("RuntimeDisplaySettingsTest");
+        Require<RuntimeReadabilitySettingsTest>("RuntimeReadabilitySettingsTest");
         Require<SteamworksSpinner>("SteamworksSpinner");
         MachineMotionVfx machineMotion = Require<MachineMotionVfx>("MachineMotionVfx");
         if (!machineMotion.IsConfigured)

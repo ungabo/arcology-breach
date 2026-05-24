@@ -1490,6 +1490,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.10 High-Contrast Readability Controls
+
+- [x] Add persisted high-contrast/readability setting to `GameSettings`.
+- [x] Wire high-contrast toggle controls into the main menu.
+- [x] Wire high-contrast toggle controls into the pause menu.
+- [x] Apply high-contrast HUD text and backplate styling at runtime.
+- [x] Add editor validation for high-contrast control wiring.
+- [x] Add `RuntimeReadabilitySettingsTest` and `-v0ReadabilitySmoke` packaged launch coverage.
+- [x] Expand runtime smoke and the full build matrix for `V0_READABILITY_SETTINGS_PASS`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.10`.
+- [x] Build `v0.1.10` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

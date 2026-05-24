@@ -36,16 +36,20 @@ public class HUDController : MonoBehaviour
     public Sprite promptPauseSprite;
     public Sprite promptMouseRightSprite;
 
+    public bool HighContrastModeApplied { get; private set; }
+
     private float messageTimer;
     private bool messageIsPersistent;
     private float damageFlashAlpha;
     private float keyDeniedTimer;
     private bool hasGearKey;
     private int highestAmmoSeen = 1;
+    private bool readabilityInitialized;
 
     private void Awake()
     {
         Instance = this;
+        ApplyReadabilitySettings(true);
         ClearMessage();
         ClearInteractionPrompt();
         ClearObjective();
@@ -56,6 +60,7 @@ public class HUDController : MonoBehaviour
 
     private void Update()
     {
+        ApplyReadabilitySettings(false);
         UpdateKeyDeniedFlash();
 
         if (messageIsPersistent || messageTimer <= 0f)
@@ -383,5 +388,57 @@ public class HUDController : MonoBehaviour
         }
 
         return promptInteractSprite;
+    }
+
+    private void ApplyReadabilitySettings(bool force)
+    {
+        GameSettings.Load();
+        if (!force && readabilityInitialized && HighContrastModeApplied == GameSettings.HighContrast)
+        {
+            return;
+        }
+
+        HighContrastModeApplied = GameSettings.HighContrast;
+        readabilityInitialized = true;
+
+        FontStyle style = HighContrastModeApplied ? FontStyle.Bold : FontStyle.Normal;
+        Color primaryText = HighContrastModeApplied ? Color.white : new Color(0.96f, 0.91f, 0.78f, 1f);
+        Color systemText = HighContrastModeApplied ? Color.white : new Color(1f, 0.84f, 0.48f, 1f);
+        Color warningText = HighContrastModeApplied ? new Color(1f, 0.98f, 0.82f, 1f) : Color.white;
+
+        ApplyTextReadability(healthText, systemText, style);
+        ApplyTextReadability(ammoText, systemText, style);
+        ApplyTextReadability(keyText, systemText, style);
+        ApplyTextReadability(objectiveText, warningText, style);
+        ApplyTextReadability(interactionText, warningText, style);
+        ApplyTextReadability(messageText, primaryText, style);
+        ApplyTextReadability(bossNameText, warningText, style);
+
+        ApplyImageReadability(objectiveBackplateImage, HighContrastModeApplied ? 1f : 0.92f);
+        ApplyImageReadability(interactionBackplateImage, HighContrastModeApplied ? 1f : 0.92f);
+        ApplyImageReadability(bossBackplateImage, HighContrastModeApplied ? 1f : 0.95f);
+    }
+
+    private static void ApplyTextReadability(Text text, Color color, FontStyle style)
+    {
+        if (text == null)
+        {
+            return;
+        }
+
+        text.color = color;
+        text.fontStyle = style;
+    }
+
+    private static void ApplyImageReadability(Image image, float alpha)
+    {
+        if (image == null)
+        {
+            return;
+        }
+
+        Color color = image.color;
+        color.a = alpha;
+        image.color = color;
     }
 }

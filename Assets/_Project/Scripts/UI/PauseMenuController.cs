@@ -12,11 +12,13 @@ public class PauseMenuController : MonoBehaviour
     public Slider flashSlider;
     public Button resolutionButton;
     public Toggle fullscreenToggle;
+    public Toggle highContrastToggle;
     public Text sensitivityValueText;
     public Text volumeValueText;
     public Text flashValueText;
     public Text resolutionValueText;
     public Text fullscreenValueText;
+    public Text highContrastValueText;
 
     public bool IsVisible => root != null && root.activeSelf;
 
@@ -62,6 +64,11 @@ public class PauseMenuController : MonoBehaviour
         if (fullscreenToggle != null)
         {
             fullscreenToggle.onValueChanged.AddListener(SetFullscreen);
+        }
+
+        if (highContrastToggle != null)
+        {
+            highContrastToggle.onValueChanged.AddListener(SetHighContrast);
         }
 
         SetVisible(false);
@@ -126,6 +133,12 @@ public class PauseMenuController : MonoBehaviour
         UpdateSettingLabels();
     }
 
+    public void SetHighContrast(bool value)
+    {
+        GameSettings.SetHighContrast(value);
+        UpdateSettingLabels();
+    }
+
     private void SyncSettingControls()
     {
         if (sensitivitySlider != null)
@@ -146,6 +159,11 @@ public class PauseMenuController : MonoBehaviour
         if (fullscreenToggle != null)
         {
             fullscreenToggle.SetIsOnWithoutNotify(GameSettings.Fullscreen);
+        }
+
+        if (highContrastToggle != null)
+        {
+            highContrastToggle.SetIsOnWithoutNotify(GameSettings.HighContrast);
         }
 
         UpdateSettingLabels();
@@ -176,6 +194,11 @@ public class PauseMenuController : MonoBehaviour
         if (fullscreenValueText != null)
         {
             fullscreenValueText.text = GameSettings.Fullscreen ? "ON" : "OFF";
+        }
+
+        if (highContrastValueText != null)
+        {
+            highContrastValueText.text = GameSettings.HighContrast ? "ON" : "OFF";
         }
     }
 }
