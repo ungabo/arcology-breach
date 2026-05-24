@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.1.7` versioned build for `Brassworks Breach`.
+`v0.1.8` versioned build for `Brassworks Breach`.
 
-`v0.1.7` is a verified Level04/Level05 climax readability build. It adds generated Foundry heat-preview, Bulwark hammer-bay, hoist runway, and coal-cache clue cues; adds generated Governor Core Warden reveal, arena boundary, boss cover pylon, lock stop-bar, and master-override runway cues; adds `RuntimeClimaxFlowTest`; expands the packaged build matrix with `-v0ClimaxFlowSmoke`; and refreshes the route audit report at `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.7.md`. The route audit passed, and the full `v017` matrix passed on `2026-05-24 03:23 -04:00`, verifying `Builds/Windows/v0.1.7/BrassworksBreach_v0.1.7.exe`.
+`v0.1.8` is a verified AudioV1 mix/import build. It adds serialized per-cue mix multipliers and spatial-intent flags to `SteamworksAudio`, tunes AudioV1 importer settings for loop and one-shot clips, raises the active ambience mix volume, adds `RuntimeAudioMixTest`, expands the packaged build matrix with `-v0AudioMixSmoke`, and refreshes the route audit report at `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.8.md`. The route audit passed, and the full `v018` matrix passed on `2026-05-24 03:41 -04:00`, verifying `Builds/Windows/v0.1.8/BrassworksBreach_v0.1.8.exe`.
 
 `v0.0` core loop is complete. The current build now prefers staged AudioV1 WAV ambience and gameplay cues while keeping procedural fallback, gives interaction prompts context icons and key-denial lamp feedback, gives Bulwark deaths a heavy boiler/furnace shutdown burst, gives Bulwark hammer windups dedicated slam-warning VFX/audio before damage lands, gives pressure bolts dedicated impact VFX on player/world hits, gives Lancer pressure-bolt windups dedicated fire-tell VFX/audio, gives Scrapper deaths a richer dedicated shutdown burst, gives Scrapper melee windups dedicated warning VFX/audio before damage lands, and gives the Pressure Pistol right-mouse Pressure Burst its own pressure-dump audio cue, dedicated pressure/steam/brass burst VFX, and first-person pressure-dump viewmodel motion with a kicking gauge needle, spinning valve wheel, snapping dump lever, recoiling pressure chamber, and side vent flash. This sits on top of Level03 Steam Scattergun pickup readability cues, the richer pickup display stand, dedicated Steam Scattergun slug audio/VFX, dedicated weapon-pickup acquisition audio, real pickup-route acquisition, dedicated brass/steam weapon-pickup VFX, Bellows Node pulse audio, visible brass/steam pressure-boost VFX for over-pressurized Scrappers, Bellows Node support-machine boost behavior, first Bellows Node support-machine prototype in Level03, dedicated Steam Scattergun pressure-ring/steam/brass-spark blast VFX, Steam Scattergun first-person viewmodel, Steam Scattergun prototype, Pressure Burst alternate fire, the brassworks ambience loop, Level02 Pipeworks cartridge-cache secret, Pipeworks routing valve objective, interactable lore plaques, first-person player damage VFX, pressure-pistol impact decal VFX, visible pressure-bolt projectile VFX, reusable procedural machine motion, animated furnace heat-ripple readability, animated steam hazard puffs, health/ammo/key pickup VFX, service-lift activation VFX, pressure-gate opening VFX, non-lethal machine hit VFX, animated steampunk machinery, standard machine death VFX plus Scrapper/Bulwark-specific shutdown detail, persistent objective HUD guidance, Warden shutdown VFX, the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
@@ -21,6 +21,7 @@
 - Pressure gate requiring the gear key.
 - Service lift exit trigger.
 - Steamworks audio cues for weapon, pickups, enemies, player hurt, gate feedback, and win, now preferring staged AudioV1 WAVs with procedural fallback.
+- AudioV1 import settings now distinguish ambience/loop clips from short one-shots, and `SteamworksAudio` has a serialized cue-volume/spatial-intent mix profile verified by packaged audio-mix smoke.
 - Scrapper attack windup with red-orange pressure tell.
 - Scrapper obstacle probing and simple side-steering.
 - In-world labels and floor guide strips for gear key, pressure gate, and service lift.
@@ -125,18 +126,18 @@
 
 ## Verification Results
 
-Latest fully verified build: `v0.1.4`.
+Latest fully verified build: `v0.1.8`.
 
-Current `v0.1.4` verification:
+Current `v0.1.8` verification:
 
-- Route audit: passed (`V0_ROUTE_AUDIT_PASS`) through `Logs/v014-route-audit.log`.
-- Scene rebuild: passed (`V0 scenes rebuilt`) through `Logs/v014-scene.log`.
+- Route audit: passed (`V0_ROUTE_AUDIT_PASS`) through `Logs/v018-route-audit.log`.
+- Scene rebuild: passed (`V0 scenes rebuilt`) through `Logs/v018-scene.log`.
 - Level validation: passed (`V0_LEVEL_VALIDATION_PASS`).
 - Editor smoke: passed (`V0_SMOKE_TEST_PASS`).
 - Windows build: passed (`V0_WINDOWS_BUILD_PASS`).
-- Packaged runtime tests: passed `V0_RUNTIME_SMOKE_PASS`, `V0_AUTO_PLAYTHROUGH_PASS`, `V0_COMBAT_SMOKE_PASS`, `V0_COMBAT_EDGE_PASS`, `V0_COMBAT_SCENARIO_PASS`, `V0_WEAPON_SWITCH_PASS`, `V0_BELLOWS_NODE_PASS`, `V0_RANGED_COMBAT_PASS`, `V0_BULWARK_COMBAT_PASS`, `V0_WARDEN_COMBAT_PASS`, `V0_INTERACTION_SMOKE_PASS`, `V0_HAZARD_PASS`, `V0_SECRET_PASS`, `V0_PAUSE_FLOW_PASS`, `V0_MOVEMENT_FEEL_PASS`, and `V0_BALANCE_ENVELOPE_PASS`.
-- Route audit report: `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.4.md`.
-- Build path: `Builds/Windows/v0.1.4/BrassworksBreach_v0.1.4.exe`.
+- Packaged runtime tests: passed `V0_RUNTIME_SMOKE_PASS`, `V0_AUTO_PLAYTHROUGH_PASS`, `V0_COMBAT_SMOKE_PASS`, `V0_COMBAT_EDGE_PASS`, `V0_COMBAT_SCENARIO_PASS`, `V0_WEAPON_SWITCH_PASS`, `V0_BELLOWS_NODE_PASS`, `V0_RANGED_COMBAT_PASS`, `V0_BULWARK_COMBAT_PASS`, `V0_WARDEN_COMBAT_PASS`, `V0_INTERACTION_SMOKE_PASS`, `V0_HAZARD_PASS`, `V0_SECRET_PASS`, `V0_PAUSE_FLOW_PASS`, `V0_MOVEMENT_FEEL_PASS`, `V0_BALANCE_ENVELOPE_PASS`, `V0_LEVEL01_FLOW_PASS`, `V0_MIDGAME_FLOW_PASS`, `V0_CLIMAX_FLOW_PASS`, and `V0_AUDIO_MIX_PASS`.
+- Route audit report: `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.8.md`.
+- Build path: `Builds/Windows/v0.1.8/BrassworksBreach_v0.1.8.exe`.
 
 Current `v0.0.93` verification:
 
@@ -177,6 +178,12 @@ Pass markers:
 - `V0_HAZARD_PASS`
 - `V0_SECRET_PASS`
 - `V0_PAUSE_FLOW_PASS`
+- `V0_MOVEMENT_FEEL_PASS`
+- `V0_BALANCE_ENVELOPE_PASS`
+- `V0_LEVEL01_FLOW_PASS`
+- `V0_MIDGAME_FLOW_PASS`
+- `V0_CLIMAX_FLOW_PASS`
+- `V0_AUDIO_MIX_PASS`
 - `V0_LEVEL_VALIDATION_PASS`
 - `V0_BUILD_MATRIX_PASS`
 
@@ -184,7 +191,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.98\BrassworksBreach_v0.0.98.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.1.8\BrassworksBreach_v0.1.8.exe`
 
 ## Latest Build Verification
 

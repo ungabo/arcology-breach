@@ -43,15 +43,16 @@ The roadmap is a living plan, not a promise that every version number is immutab
 | v0.1.5 | Level01 Brassworks Intake flow polish | Completed: generated gate-preview sightline props, key-branch return cues, service-lift green runway/beacon cues, and secret-cache clue props, with dedicated packaged smoke coverage. | Route audit passed; full V0 matrix passed with `V0_LEVEL01_FLOW_PASS`. |
 | v0.1.6 | Level02 and Level03 midgame pacing polish | Completed: generated Pipeworks locked-lift/valve/Lancer/secret cues and Boilerheart ring/scattergun/Bellows/valve-return/foundry-lift cues, with dedicated midgame smoke coverage. | Route audit passed; full V0 matrix passed with `V0_MIDGAME_FLOW_PASS`. |
 | v0.1.7 | Level04 and Level05 climax polish | Completed: generated Foundry heat/Bulwark/hoist/secret cues and Governor Warden/final-hoist cues, with dedicated climax smoke coverage. | Route audit passed; full V0 matrix passed with `V0_CLIMAX_FLOW_PASS`. |
+| v0.1.8 | AudioV1 mix and import tuning | Completed: `SteamworksAudio` now has serialized per-cue volume/spatial-intent mix bindings, AudioV1 loop/one-shot import settings are tuned, and a packaged audio-mix smoke test verifies the profile. | Route audit passed; full V0 matrix passed with `V0_AUDIO_MIX_PASS`. |
 
 ## Near-Term Proposed Sequence
 
 | Version | Planned Slice | Intent | Expected Verification |
 | --- | --- | --- | --- |
-| v0.1.8 | AudioV1 listen, mix, and import tuning | Perform the first human-oriented audio mix pass: cue volumes, ambience loop balance, compression/import settings, hazard audibility, enemy tell audibility, and menu/gameplay loudness consistency. | Full V0 matrix; runtime smoke still confirms authored cue routing, plus a packaged listen pass records mix outcomes. |
 | v0.1.9 | Settings, readability, and Windows options polish | Complete remaining settings/accessibility items: resolution/fullscreen controls, color/readability adjustments, prompt legibility, objective text sizing, and menu consistency. | Full V0 matrix; pause-flow and runtime smoke cover changed settings, and visual validation confirms no broken UI sprite wiring. |
 | v0.1.10 | Final-direction asset promotion pass | Promote the best available Unity-only lookdev into playable assets where safe: pressure-pistol component improvements, environment material cleanup, non-magenta corridor-kit recovery, and richer mechanical enemy silhouettes. | Full V0 matrix; level validation covers promoted assets, and concept render acceptance rejects shader-error/magenta outputs before promotion. |
 | v0.1.11 | Windows distribution polish pass | Harden the first polished Windows package: performance profile review, build naming, icon/splash metadata where available, readme/release notes, smoke-tested quit/restart flow, and distributable folder cleanup. | Full V0 matrix; packaged Windows executable launches, plays, pauses, restarts, quits, and reaches win state on the current route. |
+| v0.1.12 | Route cohesion and manual-playtest automation prep | Convert the current route audit/manual sheets into a tighter repeatable QA loop for Windows route feel and later platform passes. | Route audit plus full V0 matrix; manual-playtest docs updated with exact current build paths and route notes. |
 
 ## Later Follow-Up Areas
 

@@ -32,6 +32,14 @@ public class SteamworksAudioClipBinding
     public AudioClip clip;
 }
 
+[Serializable]
+public class SteamworksAudioMixBinding
+{
+    public SteamworksAudioCue cue;
+    [Range(0f, 1.5f)] public float volumeMultiplier = 1f;
+    public bool intendedSpatial;
+}
+
 [RequireComponent(typeof(AudioSource))]
 public class SteamworksAudio : MonoBehaviour
 {
@@ -43,12 +51,16 @@ public class SteamworksAudio : MonoBehaviour
     public bool preferAuthoredClips = true;
     public AudioClip authoredAmbienceLoop;
     public SteamworksAudioClipBinding[] authoredCueClips = Array.Empty<SteamworksAudioClipBinding>();
+    public SteamworksAudioMixBinding[] mixBindings = Array.Empty<SteamworksAudioMixBinding>();
 
     private const int SampleRate = 44100;
     private const float AmbienceDuration = 4f;
+    private const float DefaultCueVolumeMultiplier = 0.82f;
 
     private readonly Dictionary<SteamworksAudioCue, AudioClip> clips = new Dictionary<SteamworksAudioCue, AudioClip>();
     private readonly HashSet<SteamworksAudioCue> authoredActiveCues = new HashSet<SteamworksAudioCue>();
+    private readonly Dictionary<SteamworksAudioCue, float> cueVolumeMultipliers = new Dictionary<SteamworksAudioCue, float>();
+    private readonly HashSet<SteamworksAudioCue> spatialMixCues = new HashSet<SteamworksAudioCue>();
     private AudioSource source;
 
     public bool AmbienceActive => source != null && source.loop && source.clip != null && source.isPlaying;
@@ -81,6 +93,28 @@ public class SteamworksAudio : MonoBehaviour
     public SteamworksAudioCue LastOneShotCue { get; private set; }
     public bool HasLastSpatialCue { get; private set; }
     public SteamworksAudioCue LastSpatialCue { get; private set; }
+    public int MixBindingCount
+    {
+        get
+        {
+            HashSet<SteamworksAudioCue> uniqueCues = new HashSet<SteamworksAudioCue>();
+            if (mixBindings == null)
+            {
+                return 0;
+            }
+
+            for (int i = 0; i < mixBindings.Length; i++)
+            {
+                SteamworksAudioMixBinding binding = mixBindings[i];
+                if (binding != null)
+                {
+                    uniqueCues.Add(binding.cue);
+                }
+            }
+
+            return uniqueCues.Count;
+        }
+    }
 
     private void Awake()
     {
@@ -97,6 +131,7 @@ public class SteamworksAudio : MonoBehaviour
         source.spatialBlend = 0f;
 
         BuildClips();
+        BuildMixProfile();
         StartAmbience();
     }
 
@@ -126,7 +161,7 @@ public class SteamworksAudio : MonoBehaviour
         }
 
         masterVolume = GameSettings.MasterVolume;
-        float volume = Mathf.Clamp01(masterVolume);
+        float volume = GetEffectiveCueVolume(cue);
         if (position.HasValue)
         {
             HasLastSpatialCue = true;
@@ -163,6 +198,31 @@ public class SteamworksAudio : MonoBehaviour
         clips[SteamworksAudioCue.PlayerHurt] = CreateClip("Player Hurt", 0.24f, (t, _) => Tone(85f, t) * 0.5f * Envelope(t, 0.001f, 0.11f, 0.24f) + Noise(t) * 0.07f * Envelope(t, 0.002f, 0.06f, 0.24f));
         clips[SteamworksAudioCue.Win] = CreateClip("Win", 0.85f, WinSample);
         ApplyAuthoredCueClips();
+    }
+
+    private void BuildMixProfile()
+    {
+        cueVolumeMultipliers.Clear();
+        spatialMixCues.Clear();
+        if (mixBindings == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < mixBindings.Length; i++)
+        {
+            SteamworksAudioMixBinding binding = mixBindings[i];
+            if (binding == null)
+            {
+                continue;
+            }
+
+            cueVolumeMultipliers[binding.cue] = Mathf.Clamp(binding.volumeMultiplier, 0f, 1.5f);
+            if (binding.intendedSpatial)
+            {
+                spatialMixCues.Add(binding.cue);
+            }
+        }
     }
 
     private void StartAmbience()
@@ -205,6 +265,33 @@ public class SteamworksAudio : MonoBehaviour
         return clips.TryGetValue(cue, out AudioClip clip) && clip != null ? clip.name : string.Empty;
     }
 
+    public bool HasMixBinding(SteamworksAudioCue cue)
+    {
+        return TryGetMixBinding(cue, out _);
+    }
+
+    public float GetCueVolumeMultiplier(SteamworksAudioCue cue)
+    {
+        if (cueVolumeMultipliers.TryGetValue(cue, out float runtimeMultiplier))
+        {
+            return runtimeMultiplier;
+        }
+
+        return TryGetMixBinding(cue, out SteamworksAudioMixBinding binding)
+            ? Mathf.Clamp(binding.volumeMultiplier, 0f, 1.5f)
+            : DefaultCueVolumeMultiplier;
+    }
+
+    public float GetEffectiveCueVolume(SteamworksAudioCue cue)
+    {
+        return Mathf.Clamp01(GameSettings.MasterVolume * GetCueVolumeMultiplier(cue));
+    }
+
+    public bool IsSpatialMixCue(SteamworksAudioCue cue)
+    {
+        return spatialMixCues.Contains(cue) || (TryGetMixBinding(cue, out SteamworksAudioMixBinding binding) && binding.intendedSpatial);
+    }
+
     private void ApplyAuthoredCueClips()
     {
         authoredActiveCues.Clear();
@@ -240,6 +327,27 @@ public class SteamworksAudio : MonoBehaviour
             if (binding != null && binding.cue == cue && binding.clip != null)
             {
                 clip = binding.clip;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private bool TryGetMixBinding(SteamworksAudioCue cue, out SteamworksAudioMixBinding match)
+    {
+        match = null;
+        if (mixBindings == null)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < mixBindings.Length; i++)
+        {
+            SteamworksAudioMixBinding binding = mixBindings[i];
+            if (binding != null && binding.cue == cue)
+            {
+                match = binding;
                 return true;
             }
         }

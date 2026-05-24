@@ -46,6 +46,7 @@ public static class V0SceneBuilder
     public static void BuildV0()
     {
         EnsureFolders();
+        ApplyAudioV1ImportSettings();
 
         Material wallMaterial = CreateMaterial("M_Greybox_SootBrickWall", new Color(0.34f, 0.26f, 0.2f));
         Material floorMaterial = CreateMaterial("M_Greybox_OilStoneFloor", new Color(0.12f, 0.1f, 0.08f));
@@ -200,6 +201,7 @@ public static class V0SceneBuilder
         RequireObject<RuntimePauseFlowTest>("RuntimePauseFlowTest");
         RequireObject<RuntimeMovementFeelTest>("RuntimeMovementFeelTest");
         RequireObject<RuntimeBalanceEnvelopeTest>("RuntimeBalanceEnvelopeTest");
+        RequireObject<RuntimeAudioMixTest>("RuntimeAudioMixTest");
         RequireObject<HUDController>("HUDController");
         RequireObject<EnemyController>("EnemyController");
         RequireObject<Pickup>("Pickup");
@@ -1924,11 +1926,13 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeLevel01FlowTest>();
         stateObject.AddComponent<RuntimeMidgameFlowTest>();
         stateObject.AddComponent<RuntimeClimaxFlowTest>();
+        stateObject.AddComponent<RuntimeAudioMixTest>();
     }
 
     private static void ConfigureSteamworksAudioV1(SteamworksAudio audio)
     {
         audio.preferAuthoredClips = true;
+        audio.ambienceVolume = 0.24f;
         audio.authoredAmbienceLoop = LoadAudioV1Clip("AUDV1_AMB_BrassworksMix_loop.wav");
         audio.authoredCueClips = new[]
         {
@@ -1952,6 +1956,28 @@ public static class V0SceneBuilder
             AudioBinding(SteamworksAudioCue.LancerFireTell, "AUDV1_ENY_LancerFireTell.wav"),
             AudioBinding(SteamworksAudioCue.BulwarkAttackTell, "AUDV1_ENY_BulwarkAttackTell.wav")
         };
+        audio.mixBindings = new[]
+        {
+            AudioMix(SteamworksAudioCue.PressureFire, 0.86f, false),
+            AudioMix(SteamworksAudioCue.EmptyClick, 0.5f, false),
+            AudioMix(SteamworksAudioCue.HealthPickup, 0.64f, false),
+            AudioMix(SteamworksAudioCue.AmmoPickup, 0.62f, false),
+            AudioMix(SteamworksAudioCue.GearKey, 0.75f, false),
+            AudioMix(SteamworksAudioCue.GateOpen, 0.86f, true),
+            AudioMix(SteamworksAudioCue.GateDenied, 0.72f, false),
+            AudioMix(SteamworksAudioCue.EnemyHit, 0.7f, true),
+            AudioMix(SteamworksAudioCue.EnemyDeath, 0.82f, true),
+            AudioMix(SteamworksAudioCue.PlayerHurt, 0.78f, false),
+            AudioMix(SteamworksAudioCue.Win, 0.8f, false),
+            AudioMix(SteamworksAudioCue.SteamScattergunFire, 0.95f, false),
+            AudioMix(SteamworksAudioCue.BellowsNodePulse, 0.92f, true),
+            AudioMix(SteamworksAudioCue.WeaponPickup, 0.78f, false),
+            AudioMix(SteamworksAudioCue.SteamScattergunSlug, 0.86f, false),
+            AudioMix(SteamworksAudioCue.PressureBurst, 0.98f, false),
+            AudioMix(SteamworksAudioCue.EnemyAttackTell, 0.88f, true),
+            AudioMix(SteamworksAudioCue.LancerFireTell, 0.9f, true),
+            AudioMix(SteamworksAudioCue.BulwarkAttackTell, 0.96f, true)
+        };
     }
 
     private static SteamworksAudioClipBinding AudioBinding(SteamworksAudioCue cue, string fileName)
@@ -1960,6 +1986,16 @@ public static class V0SceneBuilder
         {
             cue = cue,
             clip = LoadAudioV1Clip(fileName)
+        };
+    }
+
+    private static SteamworksAudioMixBinding AudioMix(SteamworksAudioCue cue, float volumeMultiplier, bool intendedSpatial)
+    {
+        return new SteamworksAudioMixBinding
+        {
+            cue = cue,
+            volumeMultiplier = volumeMultiplier,
+            intendedSpatial = intendedSpatial
         };
     }
 
@@ -1973,6 +2009,60 @@ public static class V0SceneBuilder
         }
 
         return clip;
+    }
+
+    private static void ApplyAudioV1ImportSettings()
+    {
+        string[] audioGuids = AssetDatabase.FindAssets("t:AudioClip", new[] { AudioV1Folder });
+        for (int i = 0; i < audioGuids.Length; i++)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(audioGuids[i]);
+            if (!path.EndsWith(".wav", StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+
+            AudioImporter importer = AssetImporter.GetAtPath(path) as AudioImporter;
+            if (importer == null)
+            {
+                continue;
+            }
+
+            bool isLoop = IsAudioV1Loop(path);
+            AudioImporterSampleSettings settings = importer.defaultSampleSettings;
+            AudioClipLoadType expectedLoadType = isLoop ? AudioClipLoadType.CompressedInMemory : AudioClipLoadType.DecompressOnLoad;
+            AudioCompressionFormat expectedCompression = isLoop ? AudioCompressionFormat.Vorbis : AudioCompressionFormat.ADPCM;
+            float expectedQuality = isLoop ? 0.72f : 1f;
+
+            bool changed = settings.loadType != expectedLoadType
+                || settings.compressionFormat != expectedCompression
+                || !Mathf.Approximately(settings.quality, expectedQuality)
+                || settings.sampleRateSetting != AudioSampleRateSetting.PreserveSampleRate
+                || settings.preloadAudioData == isLoop
+                || importer.forceToMono
+                || importer.loadInBackground != isLoop;
+
+            if (!changed)
+            {
+                continue;
+            }
+
+            settings.loadType = expectedLoadType;
+            settings.compressionFormat = expectedCompression;
+            settings.quality = expectedQuality;
+            settings.sampleRateSetting = AudioSampleRateSetting.PreserveSampleRate;
+            settings.preloadAudioData = !isLoop;
+            importer.defaultSampleSettings = settings;
+            importer.forceToMono = false;
+            importer.loadInBackground = isLoop;
+            importer.SaveAndReimport();
+        }
+    }
+
+    private static bool IsAudioV1Loop(string path)
+    {
+        return path.IndexOf("_loop", StringComparison.OrdinalIgnoreCase) >= 0
+            || path.IndexOf("Loop.wav", StringComparison.OrdinalIgnoreCase) >= 0;
     }
 
     private static void CreatePlayer(Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial, Material ironMaterial, Material warningMaterial, WeaponDefinition weaponDefinition, WeaponDefinition steamScattergunDefinition)

@@ -35,7 +35,8 @@ public class MainMenuController : MonoBehaviour
         "-v0BalanceSmoke",
         "-v0Level01FlowSmoke",
         "-v0MidgameFlowSmoke",
-        "-v0ClimaxFlowSmoke"
+        "-v0ClimaxFlowSmoke",
+        "-v0AudioMixSmoke"
     };
 
     private void Awake()

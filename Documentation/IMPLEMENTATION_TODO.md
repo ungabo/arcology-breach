@@ -1459,6 +1459,21 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.8 AudioV1 Mix And Import Tuning
+
+- [x] Add serialized `SteamworksAudioMixBinding` entries for every `SteamworksAudioCue`.
+- [x] Tune cue-volume multipliers for weapon fire, pickups, enemy tells, hazards, gate feedback, player hurt, and win feedback.
+- [x] Mark priority enemy/hazard/gate cues with spatial-intent flags for future emitter placement.
+- [x] Raise active brassworks ambience mix volume for the first Windows mix pass.
+- [x] Apply AudioV1 importer tuning: ambience/loop clips use Vorbis compressed-in-memory background loading, while short one-shots use ADPCM decompressed/preloaded settings.
+- [x] Add AudioV1 import-shape and mix-profile validator coverage.
+- [x] Add `RuntimeAudioMixTest` and `-v0AudioMixSmoke` packaged launch coverage.
+- [x] Expand runtime smoke and the full build matrix for `V0_AUDIO_MIX_PASS`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.8`.
+- [x] Build `v0.1.8` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

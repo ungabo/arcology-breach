@@ -20,6 +20,7 @@ public static class V0LevelValidator
     private const string SignageStencilTexturePath = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png";
     private const string SignageSecretTexturePath = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png";
     private const string UIHudRoot = "Assets/_Project/ArtStaging/UIHudV1";
+    private const string AudioV1Folder = "Assets/_Project/ArtStaging/AudioV1";
 
     [MenuItem("Project Tools/Validate v0 Levels")]
     public static void RunValidation()
@@ -33,6 +34,7 @@ public static class V0LevelValidator
         ValidateBuildSceneOrder();
         ValidateFinalMaterialsV1();
         ValidateUIHudV1SpriteImports();
+        ValidateAudioV1Imports();
 
         EditorSceneManager.OpenScene(MainMenuScenePath);
         MainMenuController mainMenu = Require<MainMenuController>("MainMenuController");
@@ -113,6 +115,58 @@ public static class V0LevelValidator
         RequireUiSpriteImport("Icons/ICON_Prompt_Secret_96x96.png");
         RequireUiSpriteImport("Icons/ICON_Prompt_Pause_96x96.png");
         RequireUiSpriteImport("Icons/ICON_Prompt_MouseRight_96x96.png");
+    }
+
+    private static void ValidateAudioV1Imports()
+    {
+        string[] audioGuids = AssetDatabase.FindAssets("t:AudioClip", new[] { AudioV1Folder });
+        if (audioGuids.Length < 30)
+        {
+            throw new InvalidOperationException("Level validation failed: expected at least 30 staged AudioV1 clips but found " + audioGuids.Length + ".");
+        }
+
+        for (int i = 0; i < audioGuids.Length; i++)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(audioGuids[i]);
+            if (!path.EndsWith(".wav", StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+
+            AudioClip clip = AssetDatabase.LoadAssetAtPath<AudioClip>(path);
+            if (clip == null || clip.samples <= 0 || clip.frequency != 48000)
+            {
+                throw new InvalidOperationException("Level validation failed: AudioV1 clip did not import at the expected 48 kHz shape: " + path + ".");
+            }
+
+            AudioImporter importer = AssetImporter.GetAtPath(path) as AudioImporter;
+            if (importer == null)
+            {
+                throw new InvalidOperationException("Level validation failed: AudioV1 clip has no AudioImporter: " + path + ".");
+            }
+
+            bool isLoop = IsAudioV1Loop(path);
+            AudioImporterSampleSettings settings = importer.defaultSampleSettings;
+            AudioClipLoadType expectedLoadType = isLoop ? AudioClipLoadType.CompressedInMemory : AudioClipLoadType.DecompressOnLoad;
+            AudioCompressionFormat expectedCompression = isLoop ? AudioCompressionFormat.Vorbis : AudioCompressionFormat.ADPCM;
+            float expectedQuality = isLoop ? 0.72f : 1f;
+
+            if (settings.loadType != expectedLoadType || settings.compressionFormat != expectedCompression || !Mathf.Approximately(settings.quality, expectedQuality) || settings.sampleRateSetting != AudioSampleRateSetting.PreserveSampleRate)
+            {
+                throw new InvalidOperationException("Level validation failed: AudioV1 import settings are not tuned for " + path + ".");
+            }
+
+            if (importer.forceToMono || importer.loadInBackground != isLoop || settings.preloadAudioData == isLoop)
+            {
+                throw new InvalidOperationException("Level validation failed: AudioV1 background/preload settings are not tuned for " + path + ".");
+            }
+        }
+    }
+
+    private static bool IsAudioV1Loop(string path)
+    {
+        return path.IndexOf("_loop", StringComparison.OrdinalIgnoreCase) >= 0
+            || path.IndexOf("Loop.wav", StringComparison.OrdinalIgnoreCase) >= 0;
     }
 
     private static void RequireUiSpriteImport(string relativePath)
@@ -299,6 +353,7 @@ public static class V0LevelValidator
         Require<RuntimeLevel01FlowTest>(sceneName + " RuntimeLevel01FlowTest");
         Require<RuntimeMidgameFlowTest>(sceneName + " RuntimeMidgameFlowTest");
         Require<RuntimeClimaxFlowTest>(sceneName + " RuntimeClimaxFlowTest");
+        Require<RuntimeAudioMixTest>(sceneName + " RuntimeAudioMixTest");
         Require<EnemyController>(sceneName + " EnemyController");
         Require<Pickup>(sceneName + " Pickup");
 
@@ -866,6 +921,27 @@ public static class V0LevelValidator
             {
                 throw new InvalidOperationException("Level validation failed: " + sceneName + " SteamworksAudio missing AudioV1 binding for " + cue + ".");
             }
+
+            if (!audio.HasMixBinding(cue))
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " SteamworksAudio missing mix binding for " + cue + ".");
+            }
+
+            float volumeMultiplier = audio.GetCueVolumeMultiplier(cue);
+            if (volumeMultiplier < 0.45f || volumeMultiplier > 1f)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " SteamworksAudio mix binding for " + cue + " is outside the v0.1.8 mix range.");
+            }
+        }
+
+        if (audio.ambienceVolume < 0.18f || audio.ambienceVolume > 0.32f)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " SteamworksAudio ambience mix volume is outside the v0.1.8 range.");
+        }
+
+        if (!audio.IsSpatialMixCue(SteamworksAudioCue.EnemyAttackTell) || !audio.IsSpatialMixCue(SteamworksAudioCue.LancerFireTell) || !audio.IsSpatialMixCue(SteamworksAudioCue.BulwarkAttackTell) || !audio.IsSpatialMixCue(SteamworksAudioCue.BellowsNodePulse))
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " SteamworksAudio priority enemy/hazard tells must be marked as spatial mix cues.");
         }
     }
 
