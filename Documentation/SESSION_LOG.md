@@ -432,80 +432,6 @@ Build executable:
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
-## 2026-05-24 10:45 -04:00
-
-Completed `v0.1.30` service lift call box asset promotion.
-
-Added:
-
-- `ServiceLiftCallBoxPrototype` metadata component.
-- Five collider-free service lift/hoist call box placements across Level01 through Level05.
-- Generated blackened-iron backplates, brass levers/guards, cream pressure gauges, amber/red/green lift lamps, brass pressure pipes, stamped labels, rivets, and oil/scorch grime.
-- Validator coverage for metadata, named hierarchy, material roles, detail counts, zero colliders, zero `NavMeshObstacle` components, and no gameplay-authority components.
-- Service lift call box production brief/status docs from the side-agent lane.
-- `v0.1.30` release notes, QA packet, issue-triage packet, and candidate-readiness evidence.
-- Route-audit next-action text moved forward to the post-`v0.1.30` sequence.
-- Version string bumped to `v0.1.30`.
-
-Verification completed:
-
-- `V0_ROUTE_AUDIT_PASS`
-- `V0_LEVEL_VALIDATION_PASS`
-- `V0_SMOKE_TEST_PASS`
-- `V0_WINDOWS_BUILD_PASS`
-- `V0_RUNTIME_SMOKE_PASS`
-- `V0_AUTO_PLAYTHROUGH_PASS`
-- `V0_COMBAT_SMOKE_PASS`
-- `V0_COMBAT_EDGE_PASS`
-- `V0_COMBAT_SCENARIO_PASS`
-- `V0_WEAPON_SWITCH_PASS`
-- `V0_BELLOWS_NODE_PASS`
-- `V0_RANGED_COMBAT_PASS`
-- `V0_BULWARK_COMBAT_PASS`
-- `V0_WARDEN_COMBAT_PASS`
-- `V0_INTERACTION_SMOKE_PASS`
-- `V0_HAZARD_PASS`
-- `V0_SECRET_PASS`
-- `V0_PAUSE_FLOW_PASS`
-- `V0_MOVEMENT_FEEL_PASS`
-- `V0_BALANCE_ENVELOPE_PASS`
-- `V0_LEVEL01_FLOW_PASS`
-- `V0_MIDGAME_FLOW_PASS`
-- `V0_CLIMAX_FLOW_PASS`
-- `V0_AUDIO_MIX_PASS`
-- `V0_DISPLAY_SETTINGS_PASS`
-- `V0_READABILITY_SETTINGS_PASS`
-- `V0_WINDOWS_PACKAGE_PASS`
-- `V0_WINDOWS_QA_PACKET_PASS`
-- `V0_WINDOWS_ISSUE_TRIAGE_PASS`
-- `V0_WINDOWS_CANDIDATE_PASS`
-- `V0_BUILD_MATRIX_PASS`
-
-Build executable:
-
-`Builds/Windows/v0.1.30/BrassworksBreach_v0.1.30.exe`
-
-Package:
-
-`Builds/WindowsPackages/v0.1.30/BrassworksBreach_v0.1.30_Windows.zip`
-
-QA packet:
-
-`Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.30.md`
-
-Issue triage packet:
-
-`Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.30.md`
-
-Candidate readiness:
-
-`Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.30.md`
-
-SHA-256:
-
-`78BABF0B79472233E25AC4FB7392FCF6C25E91B281889EF02B02A035D529991E`
-
-Next-step directive: continue immediately with the next highest-impact unfinished task.
 
 ## 2026-05-24 03:23 -04:00
 
@@ -5263,5 +5189,155 @@ Candidate readiness:
 SHA-256:
 
 `8F8C6DB781ACD5EFA9D477BCE93001DCE5DAAB313A3EB885526CCBA196778CFF`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 10:45 -04:00
+
+Completed `v0.1.30` service lift call box asset promotion.
+
+Added:
+
+- `ServiceLiftCallBoxPrototype` metadata component.
+- Five collider-free service lift/hoist call box placements across Level01 through Level05.
+- Generated blackened-iron backplates, brass levers/guards, cream pressure gauges, amber/red/green lift lamps, brass pressure pipes, stamped labels, rivets, and oil/scorch grime.
+- Validator coverage for metadata, named hierarchy, material roles, detail counts, zero colliders, zero `NavMeshObstacle` components, and no gameplay-authority components.
+- Service lift call box production brief/status docs from the side-agent lane.
+- `v0.1.30` release notes, QA packet, issue-triage packet, and candidate-readiness evidence.
+- Route-audit next-action text moved forward to the post-`v0.1.30` sequence.
+- Version string bumped to `v0.1.30`.
+
+Verification completed:
+
+- `V0_ROUTE_AUDIT_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_MOVEMENT_FEEL_PASS`
+- `V0_BALANCE_ENVELOPE_PASS`
+- `V0_LEVEL01_FLOW_PASS`
+- `V0_MIDGAME_FLOW_PASS`
+- `V0_CLIMAX_FLOW_PASS`
+- `V0_AUDIO_MIX_PASS`
+- `V0_DISPLAY_SETTINGS_PASS`
+- `V0_READABILITY_SETTINGS_PASS`
+- `V0_WINDOWS_PACKAGE_PASS`
+- `V0_WINDOWS_QA_PACKET_PASS`
+- `V0_WINDOWS_ISSUE_TRIAGE_PASS`
+- `V0_WINDOWS_CANDIDATE_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.30/BrassworksBreach_v0.1.30.exe`
+
+Package:
+
+`Builds/WindowsPackages/v0.1.30/BrassworksBreach_v0.1.30_Windows.zip`
+
+QA packet:
+
+`Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.30.md`
+
+Issue triage packet:
+
+`Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.30.md`
+
+Candidate readiness:
+
+`Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.30.md`
+
+SHA-256:
+
+`78BABF0B79472233E25AC4FB7392FCF6C25E91B281889EF02B02A035D529991E`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 11:10 -04:00
+
+Completed `v0.1.31` gear key plinth asset promotion.
+
+Added:
+
+- `GearKeyPlinthPrototype` runtime metadata component for promoted route-safe gear-key presentation dressing.
+- Named `GearKeyPlinthPrototype_intake_gear_key_plinth` placement in Level01 around the existing GearKey pickup.
+- Unity-owned component geometry: blackened iron pedestal, aged brass top plate and gear cradle, ten brass gear teeth, cream enamel gauge/label, amber ready lamp, brass trim, twelve rivets, oil streak, soot scorch, and worn-edge highlight.
+- Editor validation for promotion version, placement role, required named hierarchy, material roles, detail counts, zero colliders, zero `NavMeshObstacle` components, no gameplay-authority components, and preserved GearKey pickup authority/reachability.
+- Side-agent-produced production brief/status files under `Documentation/AssetProduction/GearKeyPlinthPrototype/`, then marked verified after matrix pass.
+- Side-agent-produced `ValveWheelConsolePrototype` production brief/status files for the next likely route-safe console prop slice.
+- `v0.1.31` release notes, QA packet, issue-triage packet, and candidate-readiness evidence.
+- Version string bumped to `v0.1.31`.
+
+Verification completed:
+
+- `V0_ROUTE_AUDIT_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_MOVEMENT_FEEL_PASS`
+- `V0_BALANCE_ENVELOPE_PASS`
+- `V0_LEVEL01_FLOW_PASS`
+- `V0_MIDGAME_FLOW_PASS`
+- `V0_CLIMAX_FLOW_PASS`
+- `V0_AUDIO_MIX_PASS`
+- `V0_DISPLAY_SETTINGS_PASS`
+- `V0_READABILITY_SETTINGS_PASS`
+- `V0_WINDOWS_PACKAGE_PASS`
+- `V0_WINDOWS_QA_PACKET_PASS`
+- `V0_WINDOWS_ISSUE_TRIAGE_PASS`
+- `V0_WINDOWS_CANDIDATE_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.31/BrassworksBreach_v0.1.31.exe`
+
+Package:
+
+`Builds/WindowsPackages/v0.1.31/BrassworksBreach_v0.1.31_Windows.zip`
+
+QA packet:
+
+`Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.31.md`
+
+Issue triage packet:
+
+`Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.31.md`
+
+Candidate readiness:
+
+`Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.31.md`
+
+SHA-256:
+
+`E8BECB40042BE5F20BBC1DA1AE98E04D23F84D4A0E9937639B4D9EC9E39103F5`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.

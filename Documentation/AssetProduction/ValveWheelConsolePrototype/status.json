@@ -1,0 +1,120 @@
+{
+  "component": "ValveWheelConsolePrototype",
+  "project": "Brassworks Breach",
+  "status": "prepared",
+  "last_updated": "2026-05-24",
+  "folder": "D:\\__MY APPS\\Unity Doom\\Documentation\\AssetProduction\\ValveWheelConsolePrototype",
+  "scope": "Docs-only Unity production preparation for a future valve wheel wall console asset/lookdev pass.",
+  "constraints": [
+    "Only files inside the ValveWheelConsolePrototype documentation folder may be created or updated for this slice.",
+    "Do not modify existing code, scenes, build scripts, release notes, or shared status documents.",
+    "Do not introduce gameplay authority, puzzle state, input handling, runtime interaction logic, or build changes.",
+    "Prototype direction must remain Unity-only: primitives, procedural meshes, project-native materials, and Unity test renders."
+  ],
+  "north_star": {
+    "style": "Steampunk brassworks industrial wall console",
+    "required_visual_elements": [
+      "brass wall console",
+      "blackened iron panels",
+      "large valve wheel",
+      "pressure gauges",
+      "amber pilot lamps",
+      "pipes",
+      "rivets",
+      "oil grime",
+      "soot-dark recesses",
+      "clear future interaction affordance"
+    ],
+    "primary_affordance": "Large forward-facing valve wheel that reads as operable without adding gameplay behavior."
+  },
+  "deliverables": [
+    {
+      "path": "D:\\__MY APPS\\Unity Doom\\Documentation\\AssetProduction\\ValveWheelConsolePrototype\\ValveWheelConsolePrototype_ProductionBrief.md",
+      "type": "markdown_production_brief",
+      "status": "created"
+    },
+    {
+      "path": "D:\\__MY APPS\\Unity Doom\\Documentation\\AssetProduction\\ValveWheelConsolePrototype\\status.json",
+      "type": "status_json",
+      "status": "created"
+    }
+  ],
+  "unity_construction_targets": {
+    "allowed_methods": [
+      "scaled Unity primitives",
+      "procedural ring or torus meshes",
+      "procedural elbows or segmented cylinder pipe approximations",
+      "project-native lit materials",
+      "project-native decals, vertex colors, or material masks for grime"
+    ],
+    "major_parts": [
+      "wall backplate",
+      "raised console panel",
+      "outer valve wheel ring",
+      "wheel hub",
+      "wheel spokes",
+      "wheel grip handles",
+      "pressure gauge housings",
+      "gauge faces and needles",
+      "amber pilot lamp bezels and lenses",
+      "pipe runs and couplings",
+      "rivets, bolts, brackets, and flanges",
+      "oil streaks, soot patches, and edge wear"
+    ]
+  },
+  "material_targets": [
+    {
+      "name": "aged_brass",
+      "intent": "Warm tarnished brass with polished contact wear on rims, spokes, rivets, and corners."
+    },
+    {
+      "name": "blackened_iron",
+      "intent": "Charcoal iron with soot-dark recesses, chipped edges, and subtle brown oxidation."
+    },
+    {
+      "name": "amber_lamp_glass",
+      "intent": "Controlled warm emissive amber lens that reads as a pilot lamp without clipping detail."
+    },
+    {
+      "name": "gauge_glass",
+      "intent": "Subtle clear glossy cover that preserves face and needle readability."
+    },
+    {
+      "name": "oil_grime",
+      "intent": "Dark glossy grime placed under axle points, pipe joints, lower edges, and panel seams."
+    }
+  ],
+  "acceptance_criteria": [
+    "Console can be built in Unity from primitives, procedural meshes, project-native materials, and optional project-native decals.",
+    "Large valve wheel is the primary visual affordance and remains readable from normal gameplay distance.",
+    "Required visual elements are present: brass/blackened iron console, valve wheel, gauges, amber lamps, pipes, rivets, and oil grime.",
+    "No gameplay authority, puzzle state, input handling, runtime interaction logic, objective logic, or build/release changes are introduced.",
+    "Materials clearly distinguish brass, blackened iron, glass, amber emission, and grime.",
+    "Gauges and lamps imply future state without presenting authoritative live values.",
+    "Unity test renders show no missing materials, z-fighting, unreadable gauges, clipped lamps, or floating components."
+  ],
+  "validation_checklist": [
+    "Review all changed files and confirm they are inside the target documentation folder.",
+    "Parse this JSON file successfully.",
+    "Confirm the production brief includes acceptance criteria, Unity primitive/procedural mesh approach, material targets, validation checklist, and Unity test render evaluation guidance.",
+    "Confirm the brief preserves the docs-only boundary and avoids gameplay implementation authority."
+  ],
+  "test_render_evaluation": {
+    "environment": "Unity Game view or Scene view using project rendering.",
+    "required_views": [
+      "hero three-quarter view",
+      "front layout view",
+      "close-up detail view",
+      "gameplay-distance readability view"
+    ],
+    "fail_conditions": [
+      "Valve wheel is not the strongest affordance.",
+      "Brass reads as plastic or bright gold.",
+      "Blackened iron and grime collapse into one dark mass.",
+      "Amber lamps bloom enough to erase nearby detail.",
+      "Gauge faces cannot be recognized as pressure gauges.",
+      "Pipes, rivets, or brackets appear detached.",
+      "Asset implies active gameplay state before gameplay integration exists."
+    ]
+  }
+}

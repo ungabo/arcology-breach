@@ -118,7 +118,7 @@ public static class V0SceneBuilder
         CreateLockedDoor(doorMaterial, brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, glassVialMaterial, pressureWarningMaterial);
         CreateLevelTransitionLift(exitMaterial, rivetedIronMaterial, brassGuideMaterial, gaugeFaceMaterial, "Level02");
         CreateAccentLights();
-        CreateObjectiveGuides(brassGuideMaterial, pressureWarningMaterial, keyMaterial, exitMaterial);
+        CreateObjectiveGuides(brassGuideMaterial, pressureWarningMaterial, keyMaterial, exitMaterial, rivetedIronMaterial, gaugeFaceMaterial, oilStoneMaterial);
         CreateLevel01FlowPolish(brassGuideMaterial, pressureWarningMaterial, keyMaterial, exitMaterial, rivetedIronMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
         CreateSteamworksDressing(rivetedIronMaterial, oilStoneMaterial, brassGuideMaterial, pressureWarningMaterial, exitMaterial, brassHazardMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreateSecretCache(brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, healthMaterial, glassVialMaterial, medicinalFluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
@@ -2709,9 +2709,9 @@ public static class V0SceneBuilder
         CreateLocalCube("Scrapper Right Foot", parent, new Vector3(0.24f, -0.84f, 0.16f), new Vector3(0.34f, 0.12f, 0.38f), brassMaterial);
     }
 
-    private static void CreateObjectiveGuides(Material brassMaterial, Material warningMaterial, Material keyMaterial, Material exitMaterial)
+    private static void CreateObjectiveGuides(Material brassMaterial, Material warningMaterial, Material keyMaterial, Material exitMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material grimeMaterial)
     {
-        CreateCube("Gear Key Pedestal", new Vector3(16f, 0.15f, 17f), new Vector3(1.35f, 0.3f, 1.35f), brassMaterial);
+        CreateGearKeyPlinthPrototype("GearKeyPlinthPrototype_intake_gear_key_plinth", new Vector3(16f, 0.16f, 17f), Quaternion.identity, 1f, brassMaterial, ironMaterial, gaugeFaceMaterial, keyMaterial, warningMaterial, grimeMaterial, "intake_gear_key_plinth");
         CreateCube("Pressure Gate Warning Strip", new Vector3(0f, 0.015f, 21.25f), new Vector3(3.4f, 0.03f, 0.28f), warningMaterial);
         CreateCube("Service Lift Floor Strip", new Vector3(0f, 0.015f, 33.15f), new Vector3(3.6f, 0.03f, 0.28f), exitMaterial);
         CreateCube("Gear Key Route Floor Strip", new Vector3(8.1f, 0.015f, 17f), new Vector3(3.6f, 0.03f, 0.22f), keyMaterial);
@@ -4295,6 +4295,132 @@ public static class V0SceneBuilder
             default:
                 return "CALL";
         }
+    }
+
+    private static GearKeyPlinthPrototype CreateGearKeyPlinthPrototype(string name, Vector3 position, Quaternion rotation, float scale, Material brassMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material keyMaterial, Material warningMaterial, Material grimeMaterial, string placementRole)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.position = position;
+        root.transform.rotation = rotation;
+
+        GearKeyPlinthPrototype prototype = root.AddComponent<GearKeyPlinthPrototype>();
+        prototype.placementRole = placementRole;
+
+        GameObject baseRoot = CreateLocalEmpty(name + " Pedestal Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject cradleRoot = CreateLocalEmpty(name + " Gear Cradle Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject gaugeRoot = CreateLocalEmpty(name + " Label Gauge Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject lampRoot = CreateLocalEmpty(name + " Amber Lamp Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject trimRoot = CreateLocalEmpty(name + " Brass Trim Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject labelRoot = CreateLocalEmpty(name + " Metadata Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject rivetRoot = CreateLocalEmpty(name + " Rivet Hardware Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject grimeRoot = CreateLocalEmpty(name + " Grime Wear Root", root.transform, Vector3.zero, Quaternion.identity);
+
+        GameObject basePlate = CreateLocalCube(name + " Blackened Iron Gear Key Pedestal Body", baseRoot.transform, new Vector3(0f, -0.06f * scale, 0f), new Vector3(1.32f * scale, 0.2f * scale, 1.32f * scale), ironMaterial);
+        GameObject topPlate = CreateLocalCube(name + " Aged Brass Top Plate", trimRoot.transform, new Vector3(0f, 0.07f * scale, 0f), new Vector3(1.12f * scale, 0.08f * scale, 1.12f * scale), brassMaterial);
+        CreateLocalCube(name + " Aged Brass Front Edge Trim", trimRoot.transform, new Vector3(0f, 0.16f * scale, -0.67f * scale), new Vector3(1.16f * scale, 0.05f * scale, 0.05f * scale), brassMaterial);
+        CreateLocalCube(name + " Aged Brass Rear Edge Trim", trimRoot.transform, new Vector3(0f, 0.16f * scale, 0.67f * scale), new Vector3(1.16f * scale, 0.05f * scale, 0.05f * scale), brassMaterial);
+        CreateLocalCube(name + " Blackened Iron Recess Shadow", baseRoot.transform, new Vector3(0f, 0.13f * scale, 0f), new Vector3(0.86f * scale, 0.035f * scale, 0.86f * scale), ironMaterial);
+
+        GameObject cradleDisc = CreateLocalPrimitive(name + " Aged Brass Gear Key Cradle Ring", PrimitiveType.Cylinder, cradleRoot.transform, new Vector3(0f, 0.19f * scale, 0f), new Vector3(0.48f * scale, 0.035f * scale, 0.48f * scale), brassMaterial);
+        CreateLocalPrimitive(name + " Blackened Iron Cradle Inner Hub", PrimitiveType.Cylinder, cradleRoot.transform, new Vector3(0f, 0.22f * scale, 0f), new Vector3(0.28f * scale, 0.02f * scale, 0.28f * scale), ironMaterial);
+        CreateLocalCube(name + " Aged Brass Key Fork Left", cradleRoot.transform, new Vector3(-0.34f * scale, 0.31f * scale, -0.02f * scale), new Vector3(0.09f * scale, 0.28f * scale, 0.12f * scale), brassMaterial);
+        CreateLocalCube(name + " Aged Brass Key Fork Right", cradleRoot.transform, new Vector3(0.34f * scale, 0.31f * scale, -0.02f * scale), new Vector3(0.09f * scale, 0.28f * scale, 0.12f * scale), brassMaterial);
+        CreateLocalCube(name + " Aged Brass Key Rest Crossbar", cradleRoot.transform, new Vector3(0f, 0.31f * scale, -0.02f * scale), new Vector3(0.62f * scale, 0.07f * scale, 0.1f * scale), brassMaterial);
+        GameObject firstTooth = null;
+        for (int i = 0; i < 10; i++)
+        {
+            float angle = i * 36f;
+            float radians = angle * Mathf.Deg2Rad;
+            Vector3 toothPosition = new Vector3(Mathf.Sin(radians) * 0.54f, 0.21f * scale, Mathf.Cos(radians) * 0.54f) * scale;
+            GameObject tooth = CreateLocalCube(name + " Aged Brass Gear Tooth " + i.ToString("00"), cradleRoot.transform, toothPosition, new Vector3(0.08f * scale, 0.06f * scale, 0.16f * scale), brassMaterial);
+            tooth.transform.localRotation = Quaternion.Euler(0f, angle, 0f);
+            if (firstTooth == null)
+            {
+                firstTooth = tooth;
+            }
+        }
+
+        GameObject gaugeFace = CreateLocalPrimitive(name + " Cream Enamel Key Pressure Gauge", PrimitiveType.Cylinder, gaugeRoot.transform, new Vector3(-0.42f * scale, 0.04f * scale, -0.58f * scale), new Vector3(0.12f * scale, 0.018f * scale, 0.12f * scale), gaugeFaceMaterial);
+        gaugeFace.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject gaugeBezel = CreateLocalPrimitive(name + " Aged Brass Gauge Bezel", PrimitiveType.Cylinder, gaugeRoot.transform, new Vector3(-0.42f * scale, 0.04f * scale, -0.56f * scale), new Vector3(0.15f * scale, 0.025f * scale, 0.15f * scale), brassMaterial);
+        gaugeBezel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject gaugeNeedle = CreateLocalCube(name + " Dark Key Gauge Needle", gaugeRoot.transform, new Vector3(-0.38f * scale, 0.04f * scale, -0.605f * scale), new Vector3(0.09f * scale, 0.01f * scale, 0.01f * scale), warningMaterial);
+        gaugeNeedle.transform.localRotation = Quaternion.Euler(0f, 0f, 18f);
+
+        GameObject lamp = CreateLocalPrimitive(name + " Amber Gear Key Ready Lamp", PrimitiveType.Sphere, lampRoot.transform, new Vector3(0.42f * scale, 0.08f * scale, -0.58f * scale), new Vector3(0.1f * scale, 0.1f * scale, 0.075f * scale), keyMaterial);
+        CreateLocalCube(name + " Aged Brass Lamp Collar", lampRoot.transform, new Vector3(0.42f * scale, 0.08f * scale, -0.535f * scale), new Vector3(0.18f * scale, 0.04f * scale, 0.035f * scale), brassMaterial);
+
+        GameObject label = CreateLocalCube(name + " Cream Enamel Gear Key Label", labelRoot.transform, new Vector3(0f, -0.04f * scale, -0.62f * scale), new Vector3(0.38f * scale, 0.08f * scale, 0.025f * scale), gaugeFaceMaterial);
+        CreateLocalCube(name + " Aged Brass Label Frame", labelRoot.transform, new Vector3(0f, -0.04f * scale, -0.592f * scale), new Vector3(0.48f * scale, 0.12f * scale, 0.025f * scale), brassMaterial);
+        GameObject textObject = new GameObject(name + " Stamped Label Text");
+        textObject.transform.SetParent(labelRoot.transform, false);
+        textObject.transform.localPosition = new Vector3(0f, -0.048f * scale, -0.642f * scale);
+        TextMesh textMesh = textObject.AddComponent<TextMesh>();
+        textMesh.text = "KEY";
+        textMesh.anchor = TextAnchor.MiddleCenter;
+        textMesh.alignment = TextAlignment.Center;
+        textMesh.characterSize = 0.045f * scale;
+        textMesh.fontSize = 34;
+        textMesh.color = new Color(0.12f, 0.06f, 0.025f);
+
+        Vector3[] rivetPositions =
+        {
+            new Vector3(-0.55f, 0.08f, -0.55f),
+            new Vector3(0f, 0.08f, -0.55f),
+            new Vector3(0.55f, 0.08f, -0.55f),
+            new Vector3(-0.28f, 0.08f, -0.55f),
+            new Vector3(0.28f, 0.08f, -0.55f),
+            new Vector3(-0.55f, 0.08f, 0.55f),
+            new Vector3(0f, 0.08f, 0.55f),
+            new Vector3(0.55f, 0.08f, 0.55f),
+            new Vector3(-0.28f, 0.08f, 0.55f),
+            new Vector3(0.28f, 0.08f, 0.55f),
+            new Vector3(-0.55f, 0.08f, 0f),
+            new Vector3(0.55f, 0.08f, 0f)
+        };
+
+        GameObject firstRivet = null;
+        for (int i = 0; i < rivetPositions.Length; i++)
+        {
+            GameObject rivet = CreateLocalPrimitive(name + " Brass Plinth Rivet " + i.ToString("00"), PrimitiveType.Sphere, rivetRoot.transform, rivetPositions[i] * scale, new Vector3(0.055f * scale, 0.035f * scale, 0.055f * scale), brassMaterial);
+            if (firstRivet == null)
+            {
+                firstRivet = rivet;
+            }
+        }
+
+        GameObject oilStain = CreateLocalCube(name + " Oil Streak Below Key", grimeRoot.transform, new Vector3(-0.18f * scale, 0.105f * scale, -0.61f * scale), new Vector3(0.14f * scale, 0.014f * scale, 0.18f * scale), grimeMaterial);
+        oilStain.transform.localRotation = Quaternion.Euler(0f, 0f, -12f);
+        CreateLocalCube(name + " Soot Scorch On Top Plate", grimeRoot.transform, new Vector3(0.24f * scale, 0.155f * scale, 0.18f * scale), new Vector3(0.2f * scale, 0.012f * scale, 0.16f * scale), grimeMaterial);
+        CreateLocalCube(name + " Worn Bright Edge Highlight Left", grimeRoot.transform, new Vector3(-0.67f * scale, 0.17f * scale, 0f), new Vector3(0.018f * scale, 0.012f * scale, 0.96f * scale), grimeMaterial);
+
+        prototype.baseCount = 3;
+        prototype.cradleCount = 15;
+        prototype.gearToothCount = 10;
+        prototype.gaugeCount = 3;
+        prototype.lampCount = 2;
+        prototype.trimCount = 3;
+        prototype.labelCount = 3;
+        prototype.rivetCount = rivetPositions.Length;
+        prototype.grimeCount = 3;
+        prototype.baseRenderer = basePlate.GetComponent<Renderer>();
+        prototype.cradleRenderer = cradleDisc.GetComponent<Renderer>();
+        prototype.gearToothRenderer = firstTooth.GetComponent<Renderer>();
+        prototype.gaugeRenderer = gaugeFace.GetComponent<Renderer>();
+        prototype.lampRenderer = lamp.GetComponent<Renderer>();
+        prototype.trimRenderer = topPlate.GetComponent<Renderer>();
+        prototype.labelRenderer = label.GetComponent<Renderer>();
+        prototype.rivetRenderer = firstRivet.GetComponent<Renderer>();
+        prototype.grimeRenderer = oilStain.GetComponent<Renderer>();
+        prototype.baseRoot = baseRoot.transform;
+        prototype.cradleRoot = cradleRoot.transform;
+        prototype.gaugeRoot = gaugeRoot.transform;
+        prototype.lampRoot = lampRoot.transform;
+        prototype.trimRoot = trimRoot.transform;
+        prototype.labelRoot = labelRoot.transform;
+        prototype.rivetRoot = rivetRoot.transform;
+        prototype.grimeRoot = grimeRoot.transform;
+        return prototype;
     }
 
     private static void CreateRegulatorCrown(string name, Vector3 position, Material ironMaterial, Material brassMaterial, Material warningMaterial, Transform parent)

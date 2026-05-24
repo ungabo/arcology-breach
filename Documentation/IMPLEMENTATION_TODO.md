@@ -1756,6 +1756,32 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.30 Service Lift Call Box Asset Promotion
+
+- [x] Add `ServiceLiftCallBoxPrototype` runtime metadata for promoted route-safe service-lift/hoist call box dressing.
+- [x] Add named call box placements beside all current level transitions.
+- [x] Build the component from Unity-owned geometry: blackened iron backplate, aged brass pull lever, lever guard, cream lift-pressure gauge, amber/red/green lamp language, brass pressure pipes, stamped label plate, rivets, oil streaks, and scorch grime.
+- [x] Add validator coverage for promotion version, placement roles, required named hierarchy, material roles, detail counts, zero colliders, zero `NavMeshObstacle` components, and no gameplay-authority components.
+- [x] Add production brief and status files under `Documentation/AssetProduction/ServiceLiftCallBoxPrototype/`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.30`.
+- [x] Build, package, generate route-QA evidence, generate issue-triage evidence, and generate candidate-readiness evidence for `v0.1.30` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## v0.1.31 Gear Key Plinth Asset Promotion
+
+- [x] Add `GearKeyPlinthPrototype` runtime metadata for promoted route-safe gear-key presentation dressing.
+- [x] Add the named `intake_gear_key_plinth` placement around the existing Level01 gear-key pickup.
+- [x] Build the component from Unity-owned geometry: blackened iron pedestal, aged brass gear cradle, brass gear teeth, cream enamel gauge/label, amber ready lamp, brass trim, rivets, oil streaks, soot, and worn-edge highlights.
+- [x] Preserve the existing GearKey pickup as the only gameplay authority and keep it reachable.
+- [x] Add validator coverage for promotion version, placement role, required named hierarchy, material roles, detail counts, zero colliders, zero `NavMeshObstacle` components, no gameplay-authority components, and pickup reachability.
+- [x] Add production brief and status files under `Documentation/AssetProduction/GearKeyPlinthPrototype/`.
+- [x] Add a docs-only `ValveWheelConsolePrototype` side-agent brief for the next likely route-safe prop slice.
+- [x] Refresh `V0RouteAudit` output for `v0.1.31`.
+- [x] Build, package, generate route-QA evidence, generate issue-triage evidence, and generate candidate-readiness evidence for `v0.1.31` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

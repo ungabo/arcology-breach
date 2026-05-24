@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 10:45 -04:00`
+Last updated: `2026-05-24 11:10 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -17,12 +17,12 @@ Current focus:
 
 Current verified local build:
 
-- `v0.1.30`
-- Build path: `Builds/Windows/v0.1.30/BrassworksBreach_v0.1.30.exe`
-- Package path: `Builds/WindowsPackages/v0.1.30/BrassworksBreach_v0.1.30_Windows.zip`
-- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.30.md`
-- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.30.md`
-- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.30.md`
+- `v0.1.31`
+- Build path: `Builds/Windows/v0.1.31/BrassworksBreach_v0.1.31.exe`
+- Package path: `Builds/WindowsPackages/v0.1.31/BrassworksBreach_v0.1.31_Windows.zip`
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.31.md`
+- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.31.md`
+- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.31.md`
 - Matrix result: `V0_BUILD_MATRIX_PASS` plus `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`
 
 ## Active Side Agents
@@ -79,6 +79,8 @@ Current verified local build:
 | Averroes-RouteTriage | `019e5a3d-a5e2-7541-8557-d35a1597f16b` | v0.1.29 route-triage planning packet | `Documentation/Planning/V0_1_29_RouteTriage/` | `2026-05-24 09:49 -04:00` | completed; packet recommends release-index plus SHA-256 verification fallback if no real route notes appear |
 | Rawls-AssetQueue | `019e5a53-39f1-7692-87c0-9126e71b881f` | v0.1.30 modular asset queue packet | `Documentation/Planning/V0_1_30_AssetQueue/` | `2026-05-24 10:12 -04:00` | completed; packet selects `ServiceLiftCallBoxPrototype` as the next route-safe prop slice |
 | Lagrange-ServiceCallBox | `019e5a60-9d42-77c2-a3ea-04b94dcb552e` | Service lift call box prototype production brief/status | `Documentation/AssetProduction/ServiceLiftCallBoxPrototype/` | `2026-05-24 10:21 -04:00` | completed; docs integrated with the v0.1.30 promoted service lift call box component |
+| Dirac-GearKeyPlinth | `019e5a79-b78f-74b2-8de3-530a723cddb5` | Gear key plinth prototype production brief/status | `Documentation/AssetProduction/GearKeyPlinthPrototype/` | `2026-05-24 10:57 -04:00` | completed; docs integrated with the v0.1.31 promoted gear-key plinth component |
+| Ptolemy-ValveConsole | `019e5a83-cd93-7000-a32a-517002219411` | Valve wheel console prototype production brief/status | `Documentation/AssetProduction/ValveWheelConsolePrototype/` | `2026-05-24 11:03 -04:00` | completed; docs prepared for the next route-safe console prop promotion |
 
 ## Completed Side-Agent Outputs
 

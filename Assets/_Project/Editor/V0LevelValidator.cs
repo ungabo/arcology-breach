@@ -1696,6 +1696,77 @@ public static class V0LevelValidator
         RequireRendererMaterial(prototype.grimeRenderer, sceneName + " service lift call box grime", "Oil");
     }
 
+    private static void ValidateGearKeyPlinthPrototype(string sceneName, string objectName, string expectedPlacementRole)
+    {
+        GameObject root = RequireNamed(objectName, sceneName + " gear key plinth prototype root");
+        GearKeyPlinthPrototype prototype = root.GetComponent<GearKeyPlinthPrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " gear key plinth prototype is missing its marker component (" + objectName + ").");
+        }
+
+        if (prototype.promotionVersion != "v0.1.31" || prototype.placementRole != expectedPlacementRole || prototype.gameplayAuthority != "ExistingGearKeyPickup" || !prototype.HasRequiredParts || root.name.IndexOf(expectedPlacementRole, StringComparison.OrdinalIgnoreCase) < 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " gear key plinth metadata, authority, role, root name, or required parts are incomplete (" + objectName + ").");
+        }
+
+        if (prototype.baseRoot.childCount < 1 || prototype.cradleRoot.childCount < 9 || prototype.gaugeRoot.childCount < 1 || prototype.lampRoot.childCount < 1 || prototype.trimRoot.childCount < 2 || prototype.labelRoot.childCount < 1 || prototype.rivetRoot.childCount < 12 || prototype.grimeRoot.childCount < 3)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " gear key plinth does not have the required pedestal/cradle/gauge/lamp/trim/label/rivet/grime detail counts (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<Collider>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " gear key plinth must remain non-blocking route dressing with no colliders (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<NavMeshObstacle>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " gear key plinth must not add NavMeshObstacle components (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<Pickup>().Length > 0 || root.GetComponentsInChildren<PlayerInteraction>().Length > 0 || root.GetComponentsInChildren<LevelTransitionTrigger>().Length > 0 || root.GetComponentsInChildren<ExitTrigger>().Length > 0 || root.GetComponentsInChildren<SteamValveObjective>().Length > 0 || root.GetComponentsInChildren<SteamHazard>().Length > 0 || root.GetComponentsInChildren<FurnaceHeatHazard>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " gear key plinth must remain visual dressing with no pickup, interaction, or route-authority components (" + objectName + ").");
+        }
+
+        GameObject gearKey = RequireNamed("Pickup - Gear Key", sceneName + " existing gear key pickup");
+        Pickup gearKeyPickup = gearKey.GetComponent<Pickup>();
+        if (gearKeyPickup == null || gearKeyPickup.kind != PickupKind.Key || gearKey.transform.IsChildOf(root.transform) || Vector3.Distance(gearKey.transform.position, root.transform.position) > 1.25f || gearKey.transform.position.y < 0.45f)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " existing gear key pickup must remain the reachable authority object near, but outside, the plinth hierarchy.");
+        }
+
+        RequireNamed(objectName + " Pedestal Root", sceneName + " gear key plinth pedestal root");
+        RequireNamed(objectName + " Gear Cradle Root", sceneName + " gear key plinth cradle root");
+        RequireNamed(objectName + " Label Gauge Root", sceneName + " gear key plinth gauge root");
+        RequireNamed(objectName + " Amber Lamp Root", sceneName + " gear key plinth lamp root");
+        RequireNamed(objectName + " Brass Trim Root", sceneName + " gear key plinth trim root");
+        RequireNamed(objectName + " Metadata Root", sceneName + " gear key plinth label root");
+        RequireNamed(objectName + " Rivet Hardware Root", sceneName + " gear key plinth rivet root");
+        RequireNamed(objectName + " Grime Wear Root", sceneName + " gear key plinth grime root");
+        RequireNamed(objectName + " Blackened Iron Gear Key Pedestal Body", sceneName + " gear key plinth pedestal body");
+        RequireNamed(objectName + " Aged Brass Gear Key Cradle Ring", sceneName + " gear key plinth cradle ring");
+        RequireNamed(objectName + " Aged Brass Gear Tooth 00", sceneName + " gear key plinth gear tooth");
+        RequireNamed(objectName + " Cream Enamel Key Pressure Gauge", sceneName + " gear key plinth gauge");
+        RequireNamed(objectName + " Amber Gear Key Ready Lamp", sceneName + " gear key plinth lamp");
+        RequireNamed(objectName + " Aged Brass Top Plate", sceneName + " gear key plinth trim");
+        RequireNamed(objectName + " Cream Enamel Gear Key Label", sceneName + " gear key plinth label");
+        RequireNamed(objectName + " Brass Plinth Rivet 00", sceneName + " gear key plinth rivet");
+        RequireNamed(objectName + " Oil Streak Below Key", sceneName + " gear key plinth oil streak");
+        RequireNamed(objectName + " Soot Scorch On Top Plate", sceneName + " gear key plinth soot scorch");
+
+        RequireRendererMaterial(prototype.baseRenderer, sceneName + " gear key plinth base", "Iron");
+        RequireRendererMaterial(prototype.cradleRenderer, sceneName + " gear key plinth cradle", "Brass");
+        RequireRendererMaterial(prototype.gearToothRenderer, sceneName + " gear key plinth tooth", "Brass");
+        RequireRendererMaterial(prototype.gaugeRenderer, sceneName + " gear key plinth gauge", "CreamGaugeFace");
+        RequireRendererMaterial(prototype.lampRenderer, sceneName + " gear key plinth lamp", "GearKey");
+        RequireRendererMaterial(prototype.trimRenderer, sceneName + " gear key plinth trim", "Brass");
+        RequireRendererMaterial(prototype.labelRenderer, sceneName + " gear key plinth label", "CreamGaugeFace");
+        RequireRendererMaterial(prototype.rivetRenderer, sceneName + " gear key plinth rivet", "Brass");
+        RequireRendererMaterial(prototype.grimeRenderer, sceneName + " gear key plinth grime", "Oil");
+    }
+
     private static void RequireRendererMaterial(Renderer renderer, string label, string expectedNameFragment)
     {
         if (renderer == null || renderer.sharedMaterial == null || renderer.sharedMaterial.shader == null)
@@ -1727,6 +1798,7 @@ public static class V0LevelValidator
             ValidateFloorDrainGratePrototype(sceneName, "North Star Intake Floor Drain Grate", "intake_floor_drain_grate");
             ValidatePressureTankRackPrototype(sceneName, "North Star Intake Pressure Tank Rack", "intake_pressure_tank_rack");
             ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_intake_service_lift_call_box", "intake_service_lift_call_box");
+            ValidateGearKeyPlinthPrototype(sceneName, "GearKeyPlinthPrototype_intake_gear_key_plinth", "intake_gear_key_plinth");
             RequireNamed("Secret - Intake Pressure Cache", sceneName + " secret pressure cache");
             RequireNamed("Secret Pressure Cache Brass Floor Plate", sceneName + " secret pressure cache floor plate");
             RequireNamed("Level01 Flow Polish V015", sceneName + " flow polish prop root");
