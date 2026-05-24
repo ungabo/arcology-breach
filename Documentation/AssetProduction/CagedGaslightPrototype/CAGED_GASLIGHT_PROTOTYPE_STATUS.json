@@ -1,0 +1,107 @@
+{
+  "asset_name": "CagedGaslightPrototype",
+  "promotion_version": "v0.1.21",
+  "status": "verified",
+  "documentation_status": "integrated",
+  "production_track": "roadmap-fallback",
+  "asset_type": "reusable Unity-generated environment component",
+  "route_role": "route-safe non-blocking wall/ceiling lamp dressing",
+  "manual_route_triage_notes_present": false,
+  "expected_placements": [
+    "Pipeworks",
+    "Boilerheart",
+    "Foundry",
+    "Governor"
+  ],
+  "north_star": {
+    "primary_read": "warm amber gaslight inside a blackened iron cage",
+    "required_visual_elements": [
+      "blackened iron wall bracket or cage",
+      "aged brass caps and ribbing",
+      "amber glass globe",
+      "warm point-light read",
+      "soot-dark mounting plate",
+      "small pipe feed and valve detail",
+      "visible rivets"
+    ]
+  },
+  "acceptance_gates": {
+    "metadata_component": {
+      "expected_name": "CagedGaslightPrototype",
+      "required": true
+    },
+    "promotion_version": {
+      "expected_value": "v0.1.21",
+      "required": true
+    },
+    "minimum_counts": {
+      "amber_glass_globes": 1,
+      "cage_ribs": 4,
+      "brass_caps": 2,
+      "mounting_bracket_or_backplate": 1,
+      "warm_light_emitters": 1,
+      "visible_rivets": 6
+    },
+    "material_role_validation": {
+      "required": true,
+      "roles": [
+        "blackened_iron",
+        "aged_brass",
+        "amber_glass",
+        "soot_dark_plate",
+        "warm_light",
+        "rivet_dark_metal"
+      ]
+    },
+    "named_hierarchy": {
+      "required": true,
+      "suggested_nodes": [
+        "CagedGaslightPrototype_Root",
+        "Mount_Backplate",
+        "Bracket_BlackenedIron",
+        "PipeFeed_Valve",
+        "Globe_AmberGlass",
+        "Cap_Top_AgedBrass",
+        "Cap_Bottom_AgedBrass",
+        "CageRibs_BlackenedIron",
+        "Rivets",
+        "LightEmitter_Warm"
+      ]
+    },
+    "route_safe_dressing": {
+      "no_colliders": true,
+      "non_blocking": true,
+      "supported_mount_styles": [
+        "wall",
+        "ceiling"
+      ]
+    }
+  },
+  "validation_fields": {
+    "metadata_component_found": true,
+    "promotion_version_found": "v0.1.21",
+    "amber_glass_globe_count": 1,
+    "cage_rib_count": 4,
+    "brass_cap_count": 2,
+    "mounting_bracket_or_backplate_count": 2,
+    "warm_light_emitter_count": 1,
+    "visible_rivet_count": 8,
+    "material_roles_validated": true,
+    "named_hierarchy_validated": true,
+    "collider_count": 0,
+    "route_safe_non_blocking_validated": true
+  },
+  "verification": {
+    "verified_at": "2026-05-24 07:51 -04:00",
+    "build_version": "v0.1.21",
+    "executable": "Builds/Windows/v0.1.21/BrassworksBreach_v0.1.21.exe",
+    "package": "Builds/WindowsPackages/v0.1.21/BrassworksBreach_v0.1.21_Windows.zip",
+    "package_sha256": "E9D112131AFE2C50C66B92FDC809A28E79A79131A46E840C362F949CA0ABDB1F",
+    "route_audit": "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.21.md",
+    "qa_packet": "Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.21.md",
+    "issue_triage": "Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.21.md",
+    "candidate_readiness": "Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.21.md",
+    "matrix_marker": "V0_BUILD_MATRIX_PASS"
+  },
+  "notes": "Promoted into playable generated scenes and verified by route audit plus the full v031 V0 build matrix. Unity execution, package, QA packet, issue triage, and candidate-readiness evidence are complete."
+}

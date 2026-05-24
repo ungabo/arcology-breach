@@ -1639,6 +1639,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.21 Caged Gaslight Asset Promotion
+
+- [x] Confirm no real manual route-triage notes exist yet; use the roadmap fallback and proceed to the next modular asset promotion.
+- [x] Add `CagedGaslightPrototype` runtime metadata for promoted route-lighting components.
+- [x] Add named Pipeworks Annex, Boilerheart Core, Furnace Foundry, and Governor Core caged gaslight placements.
+- [x] Build the component from Unity-owned geometry: soot-dark backplate, blackened iron bracket, pipe feed, aged brass valve detail, brass caps, amber glass globe, cage ribs, rivets, warm light core, and warm point light.
+- [x] Add validator coverage for promotion version, placement roles, required named hierarchy, material roles, detail counts, no-collider route safety, and warm point-light settings.
+- [x] Add production brief and status files under `Documentation/AssetProduction/CagedGaslightPrototype/`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.21`.
+- [x] Build, package, generate route-QA evidence, generate issue-triage evidence, and generate candidate-readiness evidence for `v0.1.21` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

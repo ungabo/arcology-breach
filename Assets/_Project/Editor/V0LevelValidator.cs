@@ -1255,6 +1255,58 @@ public static class V0LevelValidator
         RequireRendererMaterial(prototype.crossBraceRenderer, sceneName + " riveted pressure door frame cross brace", "Iron");
     }
 
+    private static void ValidateCagedGaslightPrototype(string sceneName, string objectName, string expectedPlacementRole)
+    {
+        GameObject root = RequireNamed(objectName, sceneName + " caged gaslight prototype root");
+        CagedGaslightPrototype prototype = root.GetComponent<CagedGaslightPrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " caged gaslight prototype is missing its marker component (" + objectName + ").");
+        }
+
+        if (prototype.promotionVersion != "v0.1.21" || prototype.placementRole != expectedPlacementRole || !prototype.HasRequiredParts)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " caged gaslight metadata or required parts are incomplete (" + objectName + ").");
+        }
+
+        if (prototype.mountRoot.childCount < 2 || prototype.capRoot.childCount < 2 || prototype.globeRoot.childCount < 1 || prototype.cageRoot.childCount < 4 || prototype.pipeFeedRoot.childCount < 2 || prototype.rivetRoot.childCount < 6 || prototype.lightRoot.childCount < 2)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " caged gaslight does not have the required mount/cap/globe/cage/pipe/rivet/light detail counts (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<Collider>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " caged gaslight must remain non-blocking route dressing with no colliders (" + objectName + ").");
+        }
+
+        if (!prototype.warmPointLight.enabled || prototype.warmPointLight.type != LightType.Point || prototype.warmPointLight.range < 3f)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " caged gaslight warm point light is missing or too weak (" + objectName + ").");
+        }
+
+        RequireNamed(objectName + " Soot Dark Mount Backplate", sceneName + " caged gaslight mount backplate");
+        RequireNamed(objectName + " Blackened Iron Wall Bracket", sceneName + " caged gaslight wall bracket");
+        RequireNamed(objectName + " Small Brass Pipe Feed", sceneName + " caged gaslight pipe feed");
+        RequireNamed(objectName + " Aged Brass Valve Detail", sceneName + " caged gaslight valve detail");
+        RequireNamed(objectName + " Aged Brass Top Cap", sceneName + " caged gaslight top cap");
+        RequireNamed(objectName + " Aged Brass Bottom Cap", sceneName + " caged gaslight bottom cap");
+        RequireNamed(objectName + " Amber Glass Globe", sceneName + " caged gaslight amber globe");
+        RequireNamed(objectName + " Blackened Iron Cage Rib 00", sceneName + " caged gaslight cage rib");
+        RequireNamed(objectName + " Dark Rivet 00", sceneName + " caged gaslight rivet");
+        RequireNamed(objectName + " Warm Light Core", sceneName + " caged gaslight warm core");
+        RequireNamed(objectName + " Warm Point Light", sceneName + " caged gaslight point light");
+
+        RequireRendererMaterial(prototype.backplateRenderer, sceneName + " caged gaslight backplate", "Iron");
+        RequireRendererMaterial(prototype.bracketRenderer, sceneName + " caged gaslight bracket", "Iron");
+        RequireRendererMaterial(prototype.topCapRenderer, sceneName + " caged gaslight top cap", "Brass");
+        RequireRendererMaterial(prototype.bottomCapRenderer, sceneName + " caged gaslight bottom cap", "Brass");
+        RequireRendererMaterial(prototype.amberGlassRenderer, sceneName + " caged gaslight amber globe", "FurnaceGlow");
+        RequireRendererMaterial(prototype.warmCoreRenderer, sceneName + " caged gaslight warm core", "FurnaceGlow");
+        RequireRendererMaterial(prototype.cageRibRenderer, sceneName + " caged gaslight cage rib", "Iron");
+        RequireRendererMaterial(prototype.pipeFeedRenderer, sceneName + " caged gaslight pipe feed", "Brass");
+        RequireRendererMaterial(prototype.rivetRenderer, sceneName + " caged gaslight rivet", "Iron");
+    }
+
     private static void RequireRendererMaterial(Renderer renderer, string label, string expectedNameFragment)
     {
         if (renderer == null || renderer.sharedMaterial == null || renderer.sharedMaterial.shader == null)
@@ -1301,6 +1353,7 @@ public static class V0LevelValidator
             RequireNamed("Pipeworks Triple Pipe Bundle", sceneName + " pipeworks pipe-bundle visual");
             RequireNamed("North Star Pipeworks Pipe Canopy", sceneName + " north-star pipeworks pipe canopy");
             RequireNamed("North Star Pipeworks Gaslight", sceneName + " north-star pipeworks gaslight");
+            ValidateCagedGaslightPrototype(sceneName, "North Star Pipeworks Gaslight", "pipeworks_route_gaslight");
             RequireNamed("North Star Pipeworks Wall Rivet Band", sceneName + " north-star pipeworks rivet band");
             ValidateWallPipeGaugeClusterPrototype(sceneName, "Pipeworks Prototype Wall Pipe Gauge Cluster", "pipeworks_route_wall");
             ValidateBoilerControlConsolePrototype(sceneName, "Pipeworks Prototype Boiler Control Console", "pipeworks_route_console");
@@ -1322,6 +1375,7 @@ public static class V0LevelValidator
             RequireNamed("Boilerheart Furnace Core", sceneName + " boilerheart furnace core visual");
             RequireNamed("North Star Boilerheart Pipe Canopy", sceneName + " north-star boilerheart pipe canopy");
             RequireNamed("North Star Boilerheart Lamp Cage", sceneName + " north-star boilerheart lamp cage");
+            ValidateCagedGaslightPrototype(sceneName, "North Star Boilerheart Lamp Cage", "boilerheart_route_gaslight");
             RequireNamed("North Star Boilerheart Core Rivet Band", sceneName + " north-star boilerheart rivet band");
             ValidateWallPipeGaugeClusterPrototype(sceneName, "Boilerheart Prototype Wall Pipe Gauge Cluster", "boilerheart_route_wall");
             ValidateBoilerControlConsolePrototype(sceneName, "Boilerheart Prototype Boiler Control Console", "boilerheart_route_console");
@@ -1368,6 +1422,7 @@ public static class V0LevelValidator
             RequireNamed("North Star Foundry Pipe Canopy", sceneName + " north-star foundry pipe canopy");
             RequireNamed("North Star Foundry Catwalk Rail", sceneName + " north-star foundry catwalk rail");
             RequireNamed("North Star Foundry Gaslight West", sceneName + " north-star foundry gaslight");
+            ValidateCagedGaslightPrototype(sceneName, "North Star Foundry Gaslight West", "foundry_route_gaslight");
             RequireNamed("Foundry Furnace Row", sceneName + " foundry furnace row visual");
             RequireNamed("Foundry Steam Hazard - Casting Leak", sceneName + " foundry steam hazard");
             RequireNamed("Foundry Steam Hazard - Crucible Bleed", sceneName + " foundry steam hazard");
@@ -1395,6 +1450,7 @@ public static class V0LevelValidator
             RequireNamed("Governor Core Triple Pipe Bundle", sceneName + " governor core pipe-bundle visual");
             RequireNamed("North Star Governor Pipe Canopy", sceneName + " north-star governor pipe canopy");
             RequireNamed("North Star Governor Gaslight Left", sceneName + " north-star governor gaslight");
+            ValidateCagedGaslightPrototype(sceneName, "North Star Governor Gaslight Left", "governor_route_gaslight");
             RequireNamed("North Star Governor Regulator Crown", sceneName + " north-star governor regulator crown");
             RequireNamed("Governor Core Regulator Pillar", sceneName + " governor core regulator visual");
             RequireNamed("Governor Core Steam Hazard - Regulator Leak", sceneName + " governor core steam hazard");
