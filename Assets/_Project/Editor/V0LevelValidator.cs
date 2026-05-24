@@ -1210,6 +1210,51 @@ public static class V0LevelValidator
         RequireRendererMaterial(prototype.pipeRenderer, sceneName + " boiler control console pipe", "Brass");
     }
 
+    private static void ValidateRivetedPressureDoorFramePrototype(string sceneName, string objectName, string expectedPlacementRole)
+    {
+        GameObject root = RequireNamed(objectName, sceneName + " riveted pressure door frame prototype root");
+        RivetedPressureDoorFramePrototype prototype = root.GetComponent<RivetedPressureDoorFramePrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " riveted pressure door frame prototype is missing its marker component (" + objectName + ").");
+        }
+
+        if (prototype.promotionVersion != "v0.1.20" || prototype.placementRole != expectedPlacementRole || !prototype.HasRequiredParts)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " riveted pressure door frame metadata or required parts are incomplete (" + objectName + ").");
+        }
+
+        if (prototype.archRoot.childCount < 5 || prototype.brassRibRoot.childCount < 4 || prototype.gearRoot.childCount < 10 || prototype.cylinderRoot.childCount < 6 || prototype.gaugeRoot.childCount < 1 || prototype.lampRoot.childCount < 6 || prototype.rivetRoot.childCount < 16 || prototype.crossBraceRoot.childCount < 2)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " riveted pressure door frame does not have the required arch/rib/gear/cylinder/gauge/lamp/rivet/brace detail counts (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<Collider>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " riveted pressure door frame must remain non-blocking route dressing with no colliders (" + objectName + ").");
+        }
+
+        RequireNamed(objectName + " Blackened Iron Left Door Column", sceneName + " riveted pressure door frame left column");
+        RequireNamed(objectName + " Blackened Iron Right Door Column", sceneName + " riveted pressure door frame right column");
+        RequireNamed(objectName + " Aged Brass Upper Arch Rib", sceneName + " riveted pressure door frame arch rib");
+        RequireNamed(objectName + " Central Brass Gear Hub", sceneName + " riveted pressure door frame gear hub");
+        RequireNamed(objectName + " Left Pressure Cylinder", sceneName + " riveted pressure door frame left cylinder");
+        RequireNamed(objectName + " Right Pressure Cylinder", sceneName + " riveted pressure door frame right cylinder");
+        RequireNamed(objectName + " Cream Pressure Gauge Face", sceneName + " riveted pressure door frame gauge face");
+        RequireNamed(objectName + " Amber Warning Lamp 00", sceneName + " riveted pressure door frame lamp");
+        RequireNamed(objectName + " Amber Warning Lamp 01", sceneName + " riveted pressure door frame second lamp");
+        RequireNamed(objectName + " Cross Brace A", sceneName + " riveted pressure door frame cross brace");
+        RequireNamed(objectName + " Face Rivet 00", sceneName + " riveted pressure door frame rivet");
+
+        RequireRendererMaterial(prototype.archRenderer, sceneName + " riveted pressure door frame arch", "Iron");
+        RequireRendererMaterial(prototype.brassRibRenderer, sceneName + " riveted pressure door frame brass rib", "Brass");
+        RequireRendererMaterial(prototype.gearHubRenderer, sceneName + " riveted pressure door frame gear hub", "Brass");
+        RequireRendererMaterial(prototype.pressureCylinderRenderer, sceneName + " riveted pressure door frame pressure cylinder", "Brass");
+        RequireRendererMaterial(prototype.gaugeFaceRenderer, sceneName + " riveted pressure door frame gauge face", "CreamGaugeFace");
+        RequireRendererMaterial(prototype.lampRenderer, sceneName + " riveted pressure door frame warning lamp", "PressureWarning");
+        RequireRendererMaterial(prototype.crossBraceRenderer, sceneName + " riveted pressure door frame cross brace", "Iron");
+    }
+
     private static void RequireRendererMaterial(Renderer renderer, string label, string expectedNameFragment)
     {
         if (renderer == null || renderer.sharedMaterial == null || renderer.sharedMaterial.shader == null)
@@ -1259,6 +1304,7 @@ public static class V0LevelValidator
             RequireNamed("North Star Pipeworks Wall Rivet Band", sceneName + " north-star pipeworks rivet band");
             ValidateWallPipeGaugeClusterPrototype(sceneName, "Pipeworks Prototype Wall Pipe Gauge Cluster", "pipeworks_route_wall");
             ValidateBoilerControlConsolePrototype(sceneName, "Pipeworks Prototype Boiler Control Console", "pipeworks_route_console");
+            ValidateRivetedPressureDoorFramePrototype(sceneName, "Pipeworks Prototype Riveted Pressure Door Frame", "pipeworks_route_pressure_frame");
             RequireNamed("Secret - Pipeworks Cartridge Cache", sceneName + " pipeworks secret cache");
             RequireNamed("Secret Pipeworks Cache Brass Floor Plate", sceneName + " pipeworks secret cache floor plate");
             RequireNamed("Pickup - Pipeworks Secret Pressure Cartridge Pack", sceneName + " pipeworks secret ammo reward");
@@ -1279,6 +1325,7 @@ public static class V0LevelValidator
             RequireNamed("North Star Boilerheart Core Rivet Band", sceneName + " north-star boilerheart rivet band");
             ValidateWallPipeGaugeClusterPrototype(sceneName, "Boilerheart Prototype Wall Pipe Gauge Cluster", "boilerheart_route_wall");
             ValidateBoilerControlConsolePrototype(sceneName, "Boilerheart Prototype Boiler Control Console", "boilerheart_route_console");
+            ValidateRivetedPressureDoorFramePrototype(sceneName, "Boilerheart Prototype Riveted Pressure Door Frame", "boilerheart_route_pressure_frame");
             RequireNamed("Boilerheart Pressure Valve Objective", sceneName + " boilerheart pressure valve objective");
             RequireNamed("Boilerheart Pressure Valve Wheel", sceneName + " boilerheart pressure valve wheel visual");
             RequireNamed("Boilerheart Valve Vented Lamp", sceneName + " boilerheart valve vented signal");

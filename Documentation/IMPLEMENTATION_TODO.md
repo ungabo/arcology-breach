@@ -1625,6 +1625,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.20 Riveted Pressure Door Frame Asset Promotion
+
+- [x] Confirm no real manual route-triage notes exist yet; use the roadmap fallback and proceed to the next modular asset promotion.
+- [x] Add `RivetedPressureDoorFramePrototype` runtime metadata for promoted route-threshold components.
+- [x] Add a named Pipeworks Annex riveted pressure door frame placement near the Boilerheart service lift route.
+- [x] Add a named Boilerheart Core riveted pressure door frame placement near the Foundry service lift route.
+- [x] Build the component from Unity-owned geometry: blackened iron columns and lintel, aged brass ribs, pressure cylinders, animated central gear hub, cross braces, amber warning lamps, cream pressure gauge, and twenty visible rivets.
+- [x] Add validator coverage for promotion version, placement roles, required named hierarchy, material roles, detail counts, and non-blocking collider footprint.
+- [x] Add production brief and status files under `Documentation/AssetProduction/RivetedPressureDoorFramePrototype/`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.20`.
+- [x] Build, package, generate route-QA evidence, generate issue-triage evidence, and generate candidate-readiness evidence for `v0.1.20` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

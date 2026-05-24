@@ -1,0 +1,50 @@
+{
+  "version": "v0.1.20",
+  "component": "RivetedPressureDoorFramePrototype",
+  "status": "verified",
+  "documentation_status": "verified",
+  "placements": [
+    {
+      "scene": "Level02",
+      "object": "Pipeworks Prototype Riveted Pressure Door Frame",
+      "placement_role": "pipeworks_route_pressure_frame"
+    },
+    {
+      "scene": "Level03",
+      "object": "Boilerheart Prototype Riveted Pressure Door Frame",
+      "placement_role": "boilerheart_route_pressure_frame"
+    }
+  ],
+  "validation": {
+    "requires_metadata": true,
+    "metadata_component": "RivetedPressureDoorFramePrototype",
+    "promotion_version": "v0.1.20",
+    "minimum_pressure_cylinder_count": 2,
+    "minimum_warning_lamp_count": 2,
+    "minimum_pressure_gauge_count": 1,
+    "minimum_gear_hub_count": 1,
+    "minimum_rivet_count": 16,
+    "requires_material_role_validation": true,
+    "requires_named_hierarchy": true,
+    "requires_route_safe_collision_footprint": true
+  },
+  "material_roles": [
+    "BlackenedIron",
+    "AgedBrassOrCopper",
+    "CreamPressureGaugeFace",
+    "AmberWarningLampGlass",
+    "DarkMechanicalHardware"
+  ],
+  "notes": "Docs-ready production brief for a Unity-generated reusable steampunk pressure/vault door frame. Asset implementation remains in progress and should preserve route-safe non-blocking frame language."
+  ,
+  "verification": {
+    "verified_at": "2026-05-24 07:26 -04:00",
+    "route_audit": "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.20.md",
+    "qa_packet": "Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.20.md",
+    "issue_triage_packet": "Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.20.md",
+    "candidate_readiness": "Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.20.md",
+    "build": "Builds/Windows/v0.1.20/BrassworksBreach_v0.1.20.exe",
+    "package_zip": "Builds/WindowsPackages/v0.1.20/BrassworksBreach_v0.1.20_Windows.zip",
+    "package_sha256": "6D176B5F201FFA9A76D745E350E4700C8CBC5D40D6E3C53A75D4FAE548694498"
+  }
+}
