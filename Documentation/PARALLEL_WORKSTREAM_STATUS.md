@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 14:31 -04:00`
+Last updated: `2026-05-24 15:36 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -19,23 +19,20 @@ Current focus:
 
 Current verified local build:
 
-- `v0.1.35`
-- Build path: `Builds/Windows/v0.1.35/BrassworksBreach_v0.1.35.exe`
-- Package path: `Builds/WindowsPackages/v0.1.35/BrassworksBreach_v0.1.35_Windows.zip`
-- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.35.md`
-- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.35.md`
-- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.35.md`
-- Matrix result: `V0_BUILD_MATRIX_PASS` plus route audit, `V0_GAMEPLAY_FEEDBACK_PASS`, `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`
+- `v0.1.36`
+- Build path: `Builds/Windows/v0.1.36/BrassworksBreach_v0.1.36.exe`
+- Package path: `Builds/WindowsPackages/v0.1.36/BrassworksBreach_v0.1.36_Windows.zip`
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.36.md`
+- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.36.md`
+- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.36.md`
+- Matrix result: `V0_BUILD_MATRIX_PASS` plus route audit, `SIDECAR_QUARANTINE_IMPORT_PASS`, `V0_GAMEPLAY_FEEDBACK_PASS`, `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`
 
 Current sidecar-gate status:
 
-- Weapon sidecar package: generated, Unity validated, preview rendered, ready for package-shape remediation/validator gate.
-- Mechanical enemy sidecar package: generated, Unity validated, preview rendered, ready for package-shape remediation/validator gate.
-- Steamworks level kit sidecar package: generated and pushed; needs import-smoke metadata before zero-error validator pass.
-- Integration gate tooling: validator/dashboard/checklists generated; validator script was patched for strict-mode dependency handling.
-- Completed package-gate cleanup: weapon, mechanical enemy, and Steamworks level-kit sidecars now pass `Test-SidecarAssetPacks.ps1` individually with 0 errors and 0 warnings.
-- Quarantine import prep: completed and parser-validated in `Tools/SidecarValidation/New-QuarantineReadinessReport.ps1`; the report currently marks weapons and mechanical enemies ready for primary quarantine, feedback FX/audio pending package-local manifest completion, and Steamworks level kit pending generator output.
-- Active sidecar lanes: Feedback FX/audio sidecar package, Materials Set 01, and Steamworks level-kit completion are running in isolated roots.
+- Weapon, mechanical enemy, feedback FX/audio, and Steamworks level-kit sidecars are imported as local packages in `Packages/manifest.json`.
+- `SidecarQuarantineImportValidator` passed with `SIDECAR_QUARANTINE_IMPORT_PASS packages=4 assets=20`.
+- Steamworks level kit recovered to `v0.1.39-p001`, generated 24 prefabs, 16 materials, 4 meshes, and 4 preview renders, and passes package-specific sidecar validation with 0 errors and 0 warnings.
+- Active sidecar lanes: Materials Set 01 is running in an isolated root; global sidecar validation should exclude it until that worker completes.
 
 Current speed adjustment:
 

@@ -42,14 +42,26 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Add runtime feedback smoke coverage and include it in the Windows matrix.
 - [x] Rebuild scenes, run editor validation/smoke, route audit, full Windows matrix, package, QA packet, issue-triage packet, and candidate-readiness generation.
 
-## Current Priority: v0.1.36 Sidecar Package Gate
+## v0.1.36 Sidecar Package Gate And Visual Import
 
 - [x] Create Unity sidecar asset-pack pipeline documentation.
 - [x] Generate weapon, mechanical enemy, level-kit, and integration-gate sidecar bundles in parallel.
 - [x] Run first sidecar validator scan.
-- [ ] Remediate package-local `Documentation~` manifests and import-smoke metadata.
+- [x] Remediate package-local `Documentation~` manifests and import-smoke metadata.
 - [x] Rerun sidecar validator for completed weapon, enemy, and level-kit packages with zero errors and zero warnings.
-- [ ] Commit and push the v0.1.35 playable feedback slice plus completed sidecar gate outputs.
+- [x] Import weapon, mechanical enemy, feedback FX/audio, and Steamworks level-kit sidecars as local Unity packages.
+- [x] Add sidecar quarantine import validator and pass `SIDECAR_QUARANTINE_IMPORT_PASS`.
+- [x] Add visual-only sidecar showcase placements across all five levels.
+- [x] Validate sidecar showcases add no colliders, rigidbodies, autonomous audio, or gameplay authority.
+- [x] Rebuild scenes, run route audit, run full Windows matrix, package, QA packet, issue-triage packet, and candidate-readiness generation.
+- [x] Commit and push the v0.1.36 sidecar visual-import milestone.
+
+## Current Priority: v0.1.37 Materials Set 01 Sidecar
+
+- [ ] Complete broad steampunk material family sidecar package.
+- [ ] Generate package-local manifest and preview swatches/renders.
+- [ ] Run package-specific sidecar validator.
+- [ ] Review import risk and decide whether to import package or bind selected materials into gameplay surfaces.
 
 ## v0.0.7 Steampunk Retheme and Pause Flow
 

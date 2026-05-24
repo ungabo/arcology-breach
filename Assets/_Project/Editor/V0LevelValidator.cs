@@ -2101,6 +2101,8 @@ public static class V0LevelValidator
 
     private static void ValidateEnvironmentPropVisuals(string sceneName)
     {
+        ValidateSidecarQuarantineShowcase(sceneName);
+
         if (sceneName == "Level01")
         {
             RequireNamed("Work Order Board - Intake", sceneName + " intake work-order board visual");
@@ -2300,6 +2302,68 @@ public static class V0LevelValidator
             RequireNamed("Repair Bay Cover Boiler Left", sceneName + " repair bay cover visual");
             RequireNamed("Repair Bay Cover Crate Right", sceneName + " repair bay cover visual");
             RequireNamed("Final Room Cover Stack West", sceneName + " final room cover visual");
+        }
+    }
+
+    private static void ValidateSidecarQuarantineShowcase(string sceneName)
+    {
+        GameObject root = RequireNamed("Sidecar Quarantine Showcase - " + sceneName, sceneName + " sidecar quarantine showcase root");
+        Renderer[] renderers = root.GetComponentsInChildren<Renderer>(true);
+        if (renderers.Length < GetMinimumSidecarShowcaseRendererCount(sceneName))
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " sidecar showcase has too few renderers.");
+        }
+
+        if (root.GetComponentsInChildren<Collider>(true).Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " sidecar showcase must not add gameplay colliders.");
+        }
+
+        if (root.GetComponentsInChildren<Rigidbody>(true).Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " sidecar showcase must not add rigidbodies.");
+        }
+
+        if (root.GetComponentsInChildren<AudioSource>(true).Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " sidecar showcase must not add autonomous audio sources.");
+        }
+
+        RequireNamed("SidecarVisual_" + sceneName + "_" + GetRequiredSidecarShowcaseName(sceneName), sceneName + " required sidecar showcase asset");
+    }
+
+    private static int GetMinimumSidecarShowcaseRendererCount(string sceneName)
+    {
+        switch (sceneName)
+        {
+            case "Level01":
+                return 20;
+            case "Level02":
+            case "Level03":
+            case "Level04":
+            case "Level05":
+                return 12;
+            default:
+                return 1;
+        }
+    }
+
+    private static string GetRequiredSidecarShowcaseName(string sceneName)
+    {
+        switch (sceneName)
+        {
+            case "Level01":
+                return "PressurePistolCore";
+            case "Level02":
+                return "CorridorStraight";
+            case "Level03":
+                return "TJunction";
+            case "Level04":
+                return "ArchedDoor";
+            case "Level05":
+                return "VaultDoor";
+            default:
+                return "";
         }
     }
 

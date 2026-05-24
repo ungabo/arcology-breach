@@ -5675,3 +5675,58 @@ SHA-256:
 `36283A0DD9BE7D407FF4980F947F38359E6308C2643506AB654D8E222B7DDA9E`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 15:39 -04:00
+
+Completed `v0.1.36` sidecar quarantine visual import after connectivity returned.
+
+Added:
+
+- Local Unity package imports for sidecar weapons, mechanical enemies, feedback FX/audio, and Steamworks level kit.
+- `SidecarQuarantineImportValidator` with the marker `SIDECAR_QUARANTINE_IMPORT_PASS packages=4 assets=20`.
+- Visual-only sidecar showcase placements across `Level01` through `Level05`, with package prefabs staged as no-collider, no-rigidbody, no-autonomous-audio review objects.
+- Steamworks level-kit recovery to `v0.1.39-p001`, including 24 prefabs, 16 materials, 4 meshes, package-local manifests, and 4 Unity-rendered preview PNGs.
+- Release notes and QA/candidate evidence for the playable `v0.1.36` Windows build.
+
+Verification completed:
+
+- Feedback FX/audio sidecar validator passed with 0 errors and 0 warnings.
+- Steamworks level-kit sidecar validator passed with 0 errors and 0 warnings.
+- `SIDECAR_QUARANTINE_IMPORT_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_ROUTE_AUDIT_PASS`
+- `V0_BUILD_MATRIX_PASS`
+- `V0_WINDOWS_PACKAGE_PASS`
+- `V0_WINDOWS_QA_PACKET_PASS`
+- `V0_WINDOWS_ISSUE_TRIAGE_PASS`
+- `V0_WINDOWS_CANDIDATE_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.36/BrassworksBreach_v0.1.36.exe`
+
+Package:
+
+`Builds/WindowsPackages/v0.1.36/BrassworksBreach_v0.1.36_Windows.zip`
+
+QA packet:
+
+`Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.36.md`
+
+Issue triage packet:
+
+`Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.36.md`
+
+Candidate readiness:
+
+`Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.36.md`
+
+SHA-256:
+
+`A93D7AF997A21FB333F161562900D0E6B0C7393AF6BBB200637D8B88FAB57C0E`
+
+Active parallel lane:
+
+- `MaterialsSet01` remains isolated and unstaged until its package manifest, preview renders, and package-specific validator pass are complete.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

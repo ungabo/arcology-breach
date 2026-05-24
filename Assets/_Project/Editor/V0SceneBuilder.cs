@@ -123,6 +123,7 @@ public static class V0SceneBuilder
         CreateSteamworksDressing(rivetedIronMaterial, oilStoneMaterial, brassGuideMaterial, pressureWarningMaterial, exitMaterial, brassHazardMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreateSecretCache(brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, healthMaterial, glassVialMaterial, medicinalFluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
         CreateLevel01SignageDecalsV1();
+        CreateSidecarQuarantineShowcase("Level01");
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
         CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, steamScattergunDefinition, scrapperDefinition, lancerDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
@@ -1056,6 +1057,7 @@ public static class V0SceneBuilder
         CreatePipeworksDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, exitMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreatePipeworksSecretCache(brassMaterial, ironMaterial, warningMaterial, healthMaterial, glassMaterial, fluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
         CreatePipeworksFlowPolish(brassMaterial, warningMaterial, exitMaterial, ironMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
+        CreateSidecarQuarantineShowcase("Level02");
         CreatePointLight("Pipeworks Exit Green Light", new Vector3(0f, 2.4f, 22.7f), new Color(0.1f, 1f, 0.3f), 2.8f, 7f);
         CreatePointLight("Pipeworks Furnace Light", new Vector3(-4.1f, 1.6f, 16f), new Color(1f, 0.36f, 0.08f), 2.2f, 5f);
 
@@ -1089,6 +1091,7 @@ public static class V0SceneBuilder
         foundryLift.lockedMessage = "The foundry lift is pressure-locked. Vent the Boilerheart first.";
         CreateBoilerheartFlowPolish(brassMaterial, warningMaterial, exitMaterial, ironMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
         CreateLevel03SignageDecalsV1();
+        CreateSidecarQuarantineShowcase("Level03");
         CreatePointLight("Boilerheart Furnace Light", new Vector3(0f, 2.6f, 15.8f), new Color(1f, 0.32f, 0.08f), 4f, 10f);
         CreatePointLight("Boilerheart Foundry Lift Green Light", new Vector3(0f, 2.6f, 23.8f), new Color(0.1f, 1f, 0.35f), 2.8f, 7f);
 
@@ -1116,6 +1119,7 @@ public static class V0SceneBuilder
         CreateFoundrySecretCache(brassMaterial, ironMaterial, warningMaterial, healthMaterial, glassMaterial, fluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
         CreateFurnaceFoundryDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, exitMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreateFoundryClimaxPolish(brassMaterial, warningMaterial, exitMaterial, ironMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
+        CreateSidecarQuarantineShowcase("Level04");
         CreateLevelTransitionLiftAt("Foundry Emergency Hoist", new Vector3(0f, 1.1f, 28.3f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial, "Level05", "Emergency hoist rising toward the Governor Core");
         CreatePointLight("Foundry Furnace Light West", new Vector3(-4.65f, 2.1f, 14.8f), new Color(1f, 0.32f, 0.08f), 3.2f, 8f);
         CreatePointLight("Foundry Furnace Light East", new Vector3(4.65f, 2.1f, 20.4f), new Color(1f, 0.28f, 0.07f), 3.2f, 8f);
@@ -1150,6 +1154,7 @@ public static class V0SceneBuilder
         finalHoist.guardianLockedPrompt = "defeat the Governor Warden first";
         finalHoist.guardianLockedMessage = "The master override hoist is guarded. Destroy the Governor Warden first.";
         CreateLevel05SignageDecalsV1();
+        CreateSidecarQuarantineShowcase("Level05");
         CreatePointLight("Governor Core Regulator Light", new Vector3(0f, 2.8f, 16.2f), new Color(1f, 0.36f, 0.08f), 4.2f, 10f);
         CreatePointLight("Governor Core Hoist Green Light", new Vector3(0f, 2.6f, 28f), new Color(0.1f, 1f, 0.35f), 2.8f, 7f);
 
@@ -2956,6 +2961,155 @@ public static class V0SceneBuilder
             GameObject segment = CreateLocalCube(name + " Segment " + i, root.transform, position, new Vector3(0.62f, 0.055f, 0.11f), material);
             segment.transform.localRotation = Quaternion.Euler(0f, angle, 0f);
         }
+    }
+
+    private static void CreateSidecarQuarantineShowcase(string sceneName)
+    {
+        SidecarPrefabPlacement[] placements = GetSidecarShowcasePlacements(sceneName);
+        if (placements.Length == 0)
+        {
+            return;
+        }
+
+        GameObject root = new GameObject("Sidecar Quarantine Showcase - " + sceneName);
+
+        for (int i = 0; i < placements.Length; i++)
+        {
+            SidecarPrefabPlacement placement = placements[i];
+            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(placement.AssetPath);
+            if (prefab == null)
+            {
+                throw new InvalidOperationException("Sidecar showcase prefab missing: " + placement.AssetPath);
+            }
+
+            GameObject instance = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
+            if (instance == null)
+            {
+                throw new InvalidOperationException("Sidecar showcase prefab could not be instantiated: " + placement.AssetPath);
+            }
+
+            instance.name = "SidecarVisual_" + sceneName + "_" + placement.Name;
+            instance.transform.SetParent(root.transform);
+            instance.transform.position = placement.Position;
+            instance.transform.rotation = placement.Rotation;
+            instance.transform.localScale = Vector3.one * placement.Scale;
+            StripSidecarPresentationPhysics(instance);
+        }
+
+        CreateSidecarShowcaseLabel(root.transform, sceneName + " sidecar package visuals", placements[0].Position + new Vector3(0f, 1.25f, 0f));
+    }
+
+    private static SidecarPrefabPlacement[] GetSidecarShowcasePlacements(string sceneName)
+    {
+        if (sceneName == "Level01")
+        {
+            return new[]
+            {
+                new SidecarPrefabPlacement("PressurePistolCore", "Packages/com.brassworks.sidecar.steampunk-weapons/Runtime/Prefabs/BB_V0137_PressurePistolCore.prefab", new Vector3(-4.78f, 1.0f, 11.15f), Quaternion.Euler(0f, 35f, 0f), 0.58f),
+                new SidecarPrefabPlacement("CopperCoil", "Packages/com.brassworks.sidecar.steampunk-weapons/Runtime/Prefabs/BB_V0137_CopperCoilAssembly.prefab", new Vector3(-5.15f, 1.45f, 12.35f), Quaternion.Euler(0f, 78f, 0f), 0.8f),
+                new SidecarPrefabPlacement("GaugeAssembly", "Packages/com.brassworks.sidecar.steampunk-weapons/Runtime/Prefabs/BB_V0137_BrassDialGaugeAssembly.prefab", new Vector3(-5.2f, 1.42f, 13.35f), Quaternion.Euler(0f, 88f, 0f), 0.82f),
+                new SidecarPrefabPlacement("WeaponFireFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_WeaponFired.prefab", new Vector3(-4.85f, 1.25f, 14.2f), Quaternion.Euler(0f, 38f, 0f), 0.65f),
+                new SidecarPrefabPlacement("ObjectiveFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_ObjectiveCompleted.prefab", new Vector3(-4.85f, 1.25f, 15.05f), Quaternion.Euler(0f, 38f, 0f), 0.65f)
+            };
+        }
+
+        if (sceneName == "Level02")
+        {
+            return new[]
+            {
+                new SidecarPrefabPlacement("CorridorStraight", "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_CorridorStraight_4m.prefab", new Vector3(-5.35f, 0.05f, 7.0f), Quaternion.Euler(0f, 90f, 0f), 0.32f),
+                new SidecarPrefabPlacement("ValveConsole", "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_ValveConsole.prefab", new Vector3(5.35f, 0.05f, 11.2f), Quaternion.Euler(0f, -90f, 0f), 0.78f),
+                new SidecarPrefabPlacement("RivetLancer", "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Prefabs/SCENM_RivetLancer.prefab", new Vector3(5.25f, 0.08f, 15.15f), Quaternion.Euler(0f, -65f, 0f), 0.58f),
+                new SidecarPrefabPlacement("RouteBlockedFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_RouteBlocked.prefab", new Vector3(-5.25f, 1.28f, 18.1f), Quaternion.Euler(0f, 80f, 0f), 0.7f)
+            };
+        }
+
+        if (sceneName == "Level03")
+        {
+            return new[]
+            {
+                new SidecarPrefabPlacement("TJunction", "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_TJunction_4m.prefab", new Vector3(-4.95f, 0.05f, 6.9f), Quaternion.Euler(0f, 90f, 0f), 0.28f),
+                new SidecarPrefabPlacement("GaugeWall", "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_GaugeWall_4m.prefab", new Vector3(5.18f, 0.1f, 12.25f), Quaternion.Euler(0f, -90f, 0f), 0.55f),
+                new SidecarPrefabPlacement("SawScrapper", "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Prefabs/SCENM_SawScrapper.prefab", new Vector3(-4.85f, 0.08f, 18.4f), Quaternion.Euler(0f, 55f, 0f), 0.62f),
+                new SidecarPrefabPlacement("PickupFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_PickupCollected.prefab", new Vector3(4.88f, 1.24f, 19.35f), Quaternion.Euler(0f, -55f, 0f), 0.72f)
+            };
+        }
+
+        if (sceneName == "Level04")
+        {
+            return new[]
+            {
+                new SidecarPrefabPlacement("ArchedDoor", "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_ArchedPressureDoor_4m.prefab", new Vector3(-5.25f, 0.05f, 10.7f), Quaternion.Euler(0f, 90f, 0f), 0.46f),
+                new SidecarPrefabPlacement("BoilerColumn", "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_BoilerColumn_3m.prefab", new Vector3(5.25f, 0.05f, 16.6f), Quaternion.Euler(0f, -90f, 0f), 0.72f),
+                new SidecarPrefabPlacement("BulwarkFurnace", "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Prefabs/SCENM_BulwarkFurnace.prefab", new Vector3(-5.0f, 0.08f, 21.8f), Quaternion.Euler(0f, 54f, 0f), 0.56f),
+                new SidecarPrefabPlacement("EnemyDeathFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_EnemyDeath.prefab", new Vector3(4.95f, 1.3f, 23.15f), Quaternion.Euler(0f, -55f, 0f), 0.78f)
+            };
+        }
+
+        if (sceneName == "Level05")
+        {
+            return new[]
+            {
+                new SidecarPrefabPlacement("VaultDoor", "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_RivetedVaultDoor_4m.prefab", new Vector3(-5.4f, 0.05f, 10.1f), Quaternion.Euler(0f, 90f, 0f), 0.46f),
+                new SidecarPrefabPlacement("WardenSentinel", "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Prefabs/SCENM_WardenSentinel.prefab", new Vector3(5.05f, 0.08f, 18.25f), Quaternion.Euler(0f, -55f, 0f), 0.55f),
+                new SidecarPrefabPlacement("OverseerBust", "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Prefabs/SCENM_FoundryOverseerBust.prefab", new Vector3(-5.25f, 0.08f, 21.25f), Quaternion.Euler(0f, 62f, 0f), 0.68f),
+                new SidecarPrefabPlacement("BossPhaseFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_BossPhaseChanged.prefab", new Vector3(4.9f, 1.32f, 24.15f), Quaternion.Euler(0f, -55f, 0f), 0.8f)
+            };
+        }
+
+        return Array.Empty<SidecarPrefabPlacement>();
+    }
+
+    private static void StripSidecarPresentationPhysics(GameObject instance)
+    {
+        foreach (Collider collider in instance.GetComponentsInChildren<Collider>(true))
+        {
+            UnityEngine.Object.DestroyImmediate(collider);
+        }
+
+        foreach (Rigidbody body in instance.GetComponentsInChildren<Rigidbody>(true))
+        {
+            UnityEngine.Object.DestroyImmediate(body);
+        }
+
+        foreach (AudioSource audioSource in instance.GetComponentsInChildren<AudioSource>(true))
+        {
+            UnityEngine.Object.DestroyImmediate(audioSource);
+        }
+    }
+
+    private static void CreateSidecarShowcaseLabel(Transform parent, string text, Vector3 position)
+    {
+        GameObject label = new GameObject("Sidecar Quarantine Showcase Label");
+        label.transform.SetParent(parent);
+        label.transform.position = position;
+        label.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+
+        TextMesh textMesh = label.AddComponent<TextMesh>();
+        textMesh.text = text;
+        textMesh.anchor = TextAnchor.MiddleCenter;
+        textMesh.alignment = TextAlignment.Center;
+        textMesh.characterSize = 0.16f;
+        textMesh.fontSize = 48;
+        textMesh.color = new Color(0.95f, 0.68f, 0.26f);
+    }
+
+    private readonly struct SidecarPrefabPlacement
+    {
+        public SidecarPrefabPlacement(string name, string assetPath, Vector3 position, Quaternion rotation, float scale)
+        {
+            Name = name;
+            AssetPath = assetPath;
+            Position = position;
+            Rotation = rotation;
+            Scale = scale;
+        }
+
+        public string Name { get; }
+        public string AssetPath { get; }
+        public Vector3 Position { get; }
+        public Quaternion Rotation { get; }
+        public float Scale { get; }
     }
 
     private static void CreateWorldLabel(string name, string text, Vector3 position, Color color, float characterSize)

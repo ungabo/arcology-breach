@@ -12,12 +12,12 @@ namespace BrassworksBreach.Sidecars.SteamworksLevelKit
 {
     public static class SteamworksLevelKitGenerator
     {
-        public const string Version = "0.1.37";
+        public const string Version = "0.1.39";
         public const string BuildId = "p001";
         public const string PackageName = "com.brassworks.sidecar.steamworks-level-kit";
-        public const string RenderOutputRelativePath = "Documentation/ConceptRenders/V0_1_37_SteamworksLevelKitSidecar";
+        public const string RenderOutputRelativePath = "Documentation/ConceptRenders/V0_1_39_SteamworksLevelKitCompletion";
 
-        private const string MenuRoot = "Brassworks/Sidecars/Steamworks Level Kit v0.1.37/";
+        private const string MenuRoot = "Brassworks/Sidecars/Steamworks Level Kit v0.1.39/";
 
         private static readonly Dictionary<string, Material> Materials = new Dictionary<string, Material>();
         private static readonly Dictionary<string, Mesh> Meshes = new Dictionary<string, Mesh>();
@@ -37,22 +37,33 @@ namespace BrassworksBreach.Sidecars.SteamworksLevelKit
             CreatePrefab("SCLVL_CorridorStraight_4m.prefab", "corridor", "Straight 4m corridor module", new Vector3(4f, 3.2f, 4f), "route shell", BuildCorridorStraight);
             CreatePrefab("SCLVL_CorridorCorner_4m.prefab", "corridor", "Ninety-degree 4m corner corridor", new Vector3(4f, 3.2f, 4f), "route turn", BuildCorridorCorner);
             CreatePrefab("SCLVL_TJunction_4m.prefab", "corridor", "4m T-junction combat read module", new Vector3(8f, 3.2f, 4f), "junction", BuildTJunction);
+            CreatePrefab("SCLVL_RivetedWallSection_4m.prefab", "wall", "Riveted 4m wall section", new Vector3(4f, 3.2f, 0.45f), "wall bay", BuildRivetedWallSection);
             CreatePrefab("SCLVL_BoilerAlcove_4m.prefab", "setpiece", "Boiler alcove wall module", new Vector3(4f, 3.4f, 1.3f), "landmark wall", BuildBoilerAlcove);
             CreatePrefab("SCLVL_GaugeWall_4m.prefab", "setpiece", "Gauge wall and pressure read module", new Vector3(4f, 3.2f, 0.65f), "objective wall", BuildGaugeWall);
+            CreatePrefab("SCLVL_PressureGauge_Single.prefab", "prop", "Single readable pressure gauge", new Vector3(0.72f, 0.72f, 0.18f), "pressure gauge", BuildSinglePressureGauge);
             CreatePrefab("SCLVL_RivetedVaultDoor_4m.prefab", "door", "Riveted round vault door", new Vector3(4.4f, 3.6f, 0.8f), "closed landmark door", BuildRivetedVaultDoor);
             CreatePrefab("SCLVL_PressureLockDoorFrame_4m.prefab", "door", "Pressure-lock door frame with clear aperture", new Vector3(4.2f, 3.2f, 0.65f), "open transition frame", BuildPressureLockDoorFrame);
+            CreatePrefab("SCLVL_ArchedPressureDoor_4m.prefab", "door", "Arched brass pressure door", new Vector3(4.2f, 3.45f, 0.8f), "arched pressure door", BuildArchedPressureDoor);
             CreatePrefab("SCLVL_PipeRailing_4m.prefab", "trim", "Pipe railing module", new Vector3(4f, 1.2f, 0.2f), "edge guard", BuildPipeRailing);
             CreatePrefab("SCLVL_CatwalkFloor_4m.prefab", "floor", "Riveted catwalk floor plate", new Vector3(4f, 0.22f, 4f), "walkable floor", BuildCatwalkFloor);
+            CreatePrefab("SCLVL_FloorGrate_2m.prefab", "floor", "2m modular floor grate", new Vector3(2f, 0.16f, 2f), "floor grate", BuildFloorGrate);
             CreatePrefab("SCLVL_WallColumn_3m.prefab", "trim", "Riveted wall column", new Vector3(0.55f, 3.2f, 0.45f), "wall rhythm", BuildWallColumn);
             CreatePrefab("SCLVL_CeilingPipeCluster_4m.prefab", "ceiling", "Ceiling pipe cluster", new Vector3(4f, 0.65f, 1.2f), "ceiling dressing", BuildCeilingPipeCluster);
+            CreatePrefab("SCLVL_PipeBundle_Wall_4m.prefab", "pipe", "Wall-mounted multi-pipe bundle", new Vector3(4f, 1.4f, 0.55f), "pipe bundle", BuildWallPipeBundle);
+            CreatePrefab("SCLVL_BoilerColumn_3m.prefab", "setpiece", "Vertical boiler pressure column", new Vector3(1.2f, 3.2f, 1.2f), "boiler column", BuildBoilerColumn);
+            CreatePrefab("SCLVL_LanternWallMount.prefab", "prop", "Amber gas lantern wall mount", new Vector3(0.62f, 0.92f, 0.46f), "lantern mount", BuildLanternWallMount);
             CreatePrefab("SCLVL_ValveConsole.prefab", "prop", "Valve console with pressure read", new Vector3(1.35f, 1.45f, 0.9f), "objective prop", BuildValveConsole);
+            CreatePrefab("SCLVL_ValveCluster_2m.prefab", "prop", "Dense valve and regulator cluster", new Vector3(2f, 1.6f, 0.55f), "valve cluster", BuildValveCluster);
             CreatePrefab("SCLVL_VentSmokeEmitterAnchor.prefab", "vfx_anchor", "Vent and smoke emitter anchor", new Vector3(0.9f, 0.75f, 0.6f), "vfx socket", BuildVentSmokeEmitterAnchor);
+            CreatePrefab("SCLVL_SteamVentEmitter_Wall.prefab", "vfx_anchor", "Wall steam vent emitter placeholder", new Vector3(1.2f, 1.05f, 0.55f), "steam emitter placeholder", BuildSteamVentEmitterWall);
+            CreatePrefab("SCLVL_CoverCrate_Brassbound.prefab", "cover", "Brass-bound low cover crate", new Vector3(1.35f, 0.95f, 1.1f), "low cover crate", BuildCoverCrateBrassbound);
+            CreatePrefab("SCLVL_CoverCrate_TallBoilerBox.prefab", "cover", "Tall boiler-service cover box", new Vector3(1.2f, 1.55f, 0.9f), "tall cover crate", BuildCoverCrateTallBoilerBox);
 
             WriteGeneratedManifest();
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
 
-            Debug.Log("Steamworks Level Kit v0.1.37 generated " + GeneratedPrefabs.Count + " prefabs, " + Materials.Count + " materials, and " + Meshes.Count + " mesh assets.");
+            Debug.Log("SCLVL_GENERATE_PASS v0.1.39 prefabs=" + GeneratedPrefabs.Count + " materials=" + Materials.Count + " meshes=" + Meshes.Count);
         }
 
         public static IReadOnlyList<string> EnsureGeneratedPrefabPaths()
@@ -68,16 +79,27 @@ namespace BrassworksBreach.Sidecars.SteamworksLevelKit
                 CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_CorridorStraight_4m.prefab"),
                 CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_CorridorCorner_4m.prefab"),
                 CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_TJunction_4m.prefab"),
+                CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_RivetedWallSection_4m.prefab"),
                 CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_BoilerAlcove_4m.prefab"),
                 CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_GaugeWall_4m.prefab"),
+                CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_PressureGauge_Single.prefab"),
                 CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_RivetedVaultDoor_4m.prefab"),
                 CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_PressureLockDoorFrame_4m.prefab"),
+                CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_ArchedPressureDoor_4m.prefab"),
                 CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_PipeRailing_4m.prefab"),
                 CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_CatwalkFloor_4m.prefab"),
+                CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_FloorGrate_2m.prefab"),
                 CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_WallColumn_3m.prefab"),
                 CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_CeilingPipeCluster_4m.prefab"),
+                CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_PipeBundle_Wall_4m.prefab"),
+                CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_BoilerColumn_3m.prefab"),
+                CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_LanternWallMount.prefab"),
                 CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_ValveConsole.prefab"),
-                CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_VentSmokeEmitterAnchor.prefab")
+                CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_ValveCluster_2m.prefab"),
+                CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_VentSmokeEmitterAnchor.prefab"),
+                CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_SteamVentEmitter_Wall.prefab"),
+                CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_CoverCrate_Brassbound.prefab"),
+                CombineAssetPath(PackageRoot, "Runtime/Prefabs/SCLVL_CoverCrate_TallBoilerBox.prefab")
             };
         }
 
@@ -85,7 +107,7 @@ namespace BrassworksBreach.Sidecars.SteamworksLevelKit
         {
             get
             {
-                PackageInfo packageInfo = PackageInfo.FindForAssembly(typeof(SteamworksLevelKitGenerator).Assembly);
+                UnityEditor.PackageManager.PackageInfo packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssembly(typeof(SteamworksLevelKitGenerator).Assembly);
                 if (packageInfo != null && !string.IsNullOrEmpty(packageInfo.assetPath))
                 {
                     return NormalizeAssetPath(packageInfo.assetPath);
@@ -143,6 +165,10 @@ namespace BrassworksBreach.Sidecars.SteamworksLevelKit
             AddMaterial("SCLVL_GaugeIvory", new Color(0.78f, 0.69f, 0.49f), 0.28f, 0.01f);
             AddMaterial("SCLVL_RubberGasket", new Color(0.018f, 0.017f, 0.015f), 0.16f, 0.0f);
             AddMaterial("SCLVL_SteamWhite", new Color(0.75f, 0.72f, 0.67f, 0.55f), 0.1f, 0.0f);
+            AddMaterial("SCLVL_WalnutWood", new Color(0.28f, 0.13f, 0.06f), 0.34f, 0.0f);
+            AddMaterial("SCLVL_PolishedWearEdge", new Color(0.92f, 0.78f, 0.48f), 0.7f, 0.85f);
+            AddMaterial("SCLVL_SootShadow", new Color(0.012f, 0.011f, 0.01f), 0.08f, 0.0f);
+            AddMaterial("SCLVL_OxidizedCopper", new Color(0.12f, 0.42f, 0.36f), 0.42f, 0.48f);
         }
 
         private static void AddMaterial(string name, Color color, float smoothness, float metallic, Color? emission = null)
@@ -179,6 +205,7 @@ namespace BrassworksBreach.Sidecars.SteamworksLevelKit
             AddMesh("SCLVL_BoxUnit", CreateBoxMesh());
             AddMesh("SCLVL_Cylinder16Unit", CreateCylinderMesh(16));
             AddMesh("SCLVL_Cylinder24Unit", CreateCylinderMesh(24));
+            AddMesh("SCLVL_Cylinder32Unit", CreateCylinderMesh(32));
         }
 
         private static void AddMesh(string name, Mesh mesh)
@@ -290,7 +317,7 @@ namespace BrassworksBreach.Sidecars.SteamworksLevelKit
             GameObject prefab = PrefabUtility.SaveAsPrefabAsset(root, path);
             if (prefab != null)
             {
-                AssetDatabase.SetLabels(prefab, new[] { "SCLVL", "v0.1.37", family, role.Replace(" ", "_") });
+                AssetDatabase.SetLabels(prefab, new[] { "SCLVL", "v0.1.39", family, role.Replace(" ", "_") });
             }
 
             UnityEngine.Object.DestroyImmediate(root);
@@ -508,6 +535,141 @@ namespace BrassworksBreach.Sidecars.SteamworksLevelKit
             clearance.transform.localPosition = new Vector3(0f, 0.38f, -0.85f);
         }
 
+        private static void BuildRivetedWallSection(GameObject root)
+        {
+            Box(root, "soot_brick_backing_4m", new Vector3(0f, 1.6f, 0.08f), new Vector3(4f, 3.2f, 0.16f), "SCLVL_SootBrick");
+            Box(root, "blackened_lower_service_plate", new Vector3(0f, 0.64f, -0.05f), new Vector3(3.7f, 0.82f, 0.16f), "SCLVL_BlackenedIron");
+            Box(root, "blackened_upper_service_plate", new Vector3(0f, 2.25f, -0.05f), new Vector3(3.7f, 0.92f, 0.16f), "SCLVL_BlackenedIron");
+            Box(root, "aged_brass_mid_trim", new Vector3(0f, 1.46f, -0.16f), new Vector3(3.85f, 0.12f, 0.12f), "SCLVL_AgedBrass");
+            Box(root, "oxidized_copper_warning_tab", new Vector3(-1.45f, 1.08f, -0.2f), new Vector3(0.42f, 0.12f, 0.08f), "SCLVL_OxidizedCopper");
+            Box(root, "amber_wall_lens", new Vector3(1.45f, 1.08f, -0.2f), new Vector3(0.42f, 0.12f, 0.08f), "SCLVL_WarmAmberGlass");
+            AddRivetGrid(root, -1.65f, 1.65f, 0.35f, 2.95f, -0.24f, 5, 4);
+        }
+
+        private static void BuildSinglePressureGauge(GameObject root)
+        {
+            Box(root, "black_backplate", new Vector3(0f, 0f, 0.04f), new Vector3(0.72f, 0.72f, 0.08f), "SCLVL_BlackenedIron");
+            Cyl(root, "large_ivory_pressure_face", Vector3.zero, new Vector3(90f, 0f, 0f), new Vector3(0.58f, 0.05f, 0.58f), "SCLVL_GaugeIvory", true);
+            Cyl(root, "polished_brass_bezel", new Vector3(0f, 0f, -0.045f), new Vector3(90f, 0f, 0f), new Vector3(0.69f, 0.04f, 0.69f), "SCLVL_AgedBrass", true);
+            Box(root, "red_pressure_needle", new Vector3(0.1f, 0.02f, -0.09f), new Vector3(0.34f, 0.018f, 0.022f), "SCLVL_HeatRedEnamel");
+            Box(root, "black_needle_pivot", new Vector3(0f, 0f, -0.11f), new Vector3(0.09f, 0.09f, 0.04f), "SCLVL_SootShadow");
+        }
+
+        private static void BuildArchedPressureDoor(GameObject root)
+        {
+            Box(root, "left_arch_jamb", new Vector3(-1.82f, 1.45f, 0f), new Vector3(0.42f, 2.9f, 0.56f), "SCLVL_BlackenedIron");
+            Box(root, "right_arch_jamb", new Vector3(1.82f, 1.45f, 0f), new Vector3(0.42f, 2.9f, 0.56f), "SCLVL_BlackenedIron");
+            Cyl(root, "top_half_arch_ring_visual", new Vector3(0f, 2.53f, -0.02f), new Vector3(90f, 0f, 0f), new Vector3(3.78f, 0.16f, 1.62f), "SCLVL_AgedBrass", true);
+            Box(root, "arched_inner_clearance_shadow", new Vector3(0f, 1.42f, -0.22f), new Vector3(2.62f, 2.42f, 0.18f), "SCLVL_SootShadow");
+            Box(root, "lower_pressure_sill", new Vector3(0f, 0.16f, -0.02f), new Vector3(4.0f, 0.32f, 0.62f), "SCLVL_RubberGasket");
+            Cyl(root, "left_vertical_piston", new Vector3(-1.42f, 1.48f, -0.35f), Vector3.zero, new Vector3(0.14f, 2.55f, 0.14f), "SCLVL_CopperSteamPipe");
+            Cyl(root, "right_vertical_piston", new Vector3(1.42f, 1.48f, -0.35f), Vector3.zero, new Vector3(0.14f, 2.55f, 0.14f), "SCLVL_CopperSteamPipe");
+            Cyl(root, "overhead_pressure_gauge", new Vector3(0f, 2.72f, -0.38f), new Vector3(90f, 0f, 0f), new Vector3(0.42f, 0.05f, 0.42f), "SCLVL_GaugeIvory", true);
+            Box(root, "green_unlocked_lens", new Vector3(0.72f, 2.25f, -0.4f), new Vector3(0.34f, 0.12f, 0.08f), "SCLVL_PressureGreenGlass");
+            Box(root, "red_locked_lens", new Vector3(-0.72f, 2.25f, -0.4f), new Vector3(0.34f, 0.12f, 0.08f), "SCLVL_HeatRedEnamel");
+            AddRivetGrid(root, -1.9f, 1.9f, 0.42f, 2.92f, -0.45f, 6, 4);
+        }
+
+        private static void BuildFloorGrate(GameObject root)
+        {
+            Box(root, "grate_outer_frame", new Vector3(0f, 0.02f, 0f), new Vector3(2f, 0.12f, 2f), "SCLVL_BlackenedIron");
+            Box(root, "dark_open_void_hint", new Vector3(0f, 0.09f, 0f), new Vector3(1.64f, 0.05f, 1.64f), "SCLVL_SootShadow");
+            for (int i = 0; i < 5; i++)
+            {
+                float offset = -0.72f + i * 0.36f;
+                Box(root, "brass_grate_bar_x_" + i, new Vector3(offset, 0.16f, 0f), new Vector3(0.08f, 0.08f, 1.72f), "SCLVL_AgedBrass");
+                Box(root, "copper_grate_bar_z_" + i, new Vector3(0f, 0.17f, offset), new Vector3(1.72f, 0.06f, 0.07f), "SCLVL_CopperSteamPipe");
+            }
+        }
+
+        private static void BuildWallPipeBundle(GameObject root)
+        {
+            Box(root, "wall_mount_backplate", new Vector3(0f, 0.72f, 0.08f), new Vector3(4f, 1.28f, 0.14f), "SCLVL_BlackenedIron");
+            for (int i = 0; i < 4; i++)
+            {
+                float y = 0.34f + i * 0.27f;
+                string material = i % 2 == 0 ? "SCLVL_CopperSteamPipe" : "SCLVL_AgedBrass";
+                Cyl(root, "horizontal_pipe_run_" + i, new Vector3(0f, y, -0.16f), new Vector3(0f, 0f, 90f), new Vector3(0.09f + i * 0.012f, 3.8f, 0.09f + i * 0.012f), material, i == 0);
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                float x = -1.7f + i * 0.85f;
+                Box(root, "pipe_clamp_" + i, new Vector3(x, 0.74f, -0.25f), new Vector3(0.12f, 1.2f, 0.1f), "SCLVL_PolishedWearEdge");
+            }
+            BuildGaugeCluster(root, new Vector3(1.45f, 1.17f, -0.34f), Quaternion.Euler(90f, 0f, 0f));
+        }
+
+        private static void BuildBoilerColumn(GameObject root)
+        {
+            Cyl(root, "vertical_copper_boiler_body", new Vector3(0f, 1.58f, 0f), Vector3.zero, new Vector3(0.82f, 3.05f, 0.82f), "SCLVL_CopperSteamPipe", true);
+            Cyl(root, "top_brass_cap", new Vector3(0f, 3.12f, 0f), Vector3.zero, new Vector3(0.92f, 0.22f, 0.92f), "SCLVL_AgedBrass", true);
+            Cyl(root, "bottom_iron_base", new Vector3(0f, 0.12f, 0f), Vector3.zero, new Vector3(1.05f, 0.24f, 1.05f), "SCLVL_BlackenedIron", true);
+            BuildGaugeCluster(root, new Vector3(0f, 1.85f, -0.47f), Quaternion.Euler(90f, 0f, 0f));
+            Box(root, "vertical_sight_glass", new Vector3(0.37f, 1.42f, -0.35f), new Vector3(0.12f, 1.35f, 0.08f), "SCLVL_WarmAmberGlass");
+            Cyl(root, "side_release_pipe", new Vector3(-0.53f, 1.65f, 0f), Vector3.zero, new Vector3(0.08f, 2.6f, 0.08f), "SCLVL_AgedBrass");
+            for (int i = 0; i < 4; i++)
+            {
+                Cyl(root, "boiler_band_" + i, new Vector3(0f, 0.62f + i * 0.68f, 0f), Vector3.zero, new Vector3(0.86f, 0.055f, 0.86f), "SCLVL_BlackenedIron", true);
+            }
+        }
+
+        private static void BuildLanternWallMount(GameObject root)
+        {
+            Box(root, "iron_wall_plate", new Vector3(0f, 0.5f, 0.08f), new Vector3(0.46f, 0.78f, 0.1f), "SCLVL_BlackenedIron");
+            Cyl(root, "curved_brass_arm_hint", new Vector3(0f, 0.72f, -0.16f), new Vector3(90f, 0f, 0f), new Vector3(0.08f, 0.55f, 0.08f), "SCLVL_AgedBrass");
+            Cyl(root, "amber_glass_lantern", new Vector3(0f, 0.42f, -0.34f), Vector3.zero, new Vector3(0.28f, 0.58f, 0.28f), "SCLVL_WarmAmberGlass", true);
+            Cyl(root, "top_lantern_cap", new Vector3(0f, 0.74f, -0.34f), Vector3.zero, new Vector3(0.34f, 0.08f, 0.34f), "SCLVL_AgedBrass");
+            Cyl(root, "bottom_lantern_cap", new Vector3(0f, 0.1f, -0.34f), Vector3.zero, new Vector3(0.34f, 0.08f, 0.34f), "SCLVL_AgedBrass");
+        }
+
+        private static void BuildValveCluster(GameObject root)
+        {
+            Box(root, "cluster_backplate", new Vector3(0f, 0.83f, 0f), new Vector3(2f, 1.5f, 0.16f), "SCLVL_BlackenedIron");
+            for (int i = 0; i < 3; i++)
+            {
+                float x = -0.62f + i * 0.62f;
+                Cyl(root, "valve_wheel_" + i, new Vector3(x, 0.98f, -0.19f), new Vector3(90f, 0f, 0f), new Vector3(0.36f, 0.06f, 0.36f), i == 1 ? "SCLVL_HeatRedEnamel" : "SCLVL_CopperSteamPipe", true);
+                Cyl(root, "valve_feed_pipe_" + i, new Vector3(x, 0.48f, -0.12f), Vector3.zero, new Vector3(0.07f, 0.92f, 0.07f), "SCLVL_AgedBrass");
+            }
+            Cyl(root, "shared_lower_manifold", new Vector3(0f, 0.32f, -0.16f), new Vector3(0f, 0f, 90f), new Vector3(0.1f, 1.75f, 0.1f), "SCLVL_CopperSteamPipe");
+            BuildGaugeCluster(root, new Vector3(0f, 1.38f, -0.18f), Quaternion.Euler(90f, 0f, 0f));
+            Box(root, "green_route_pressure_lamp", new Vector3(0.78f, 1.38f, -0.2f), new Vector3(0.22f, 0.12f, 0.07f), "SCLVL_PressureGreenGlass");
+        }
+
+        private static void BuildSteamVentEmitterWall(GameObject root)
+        {
+            Box(root, "round_vent_mount_wall_plate", new Vector3(0f, 0.52f, 0.04f), new Vector3(1.2f, 1.05f, 0.12f), "SCLVL_BlackenedIron");
+            Cyl(root, "wide_brass_vent_ring", new Vector3(0f, 0.52f, -0.08f), new Vector3(90f, 0f, 0f), new Vector3(0.82f, 0.08f, 0.82f), "SCLVL_AgedBrass", true);
+            Cyl(root, "dark_inner_vent", new Vector3(0f, 0.52f, -0.13f), new Vector3(90f, 0f, 0f), new Vector3(0.58f, 0.08f, 0.58f), "SCLVL_SootShadow", true);
+            for (int i = 0; i < 4; i++)
+            {
+                Box(root, "vent_crossbar_" + i, new Vector3(0f, 0.52f, -0.2f), new Vector3(0.78f, 0.05f, 0.05f), "SCLVL_CopperSteamPipe").transform.localRotation = Quaternion.Euler(0f, 0f, i * 45f);
+            }
+            GameObject socket = new GameObject("FX_SOCKET_SteamCone_Forward");
+            socket.transform.SetParent(root.transform, false);
+            socket.transform.localPosition = new Vector3(0f, 0.52f, -0.42f);
+            socket.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f);
+        }
+
+        private static void BuildCoverCrateBrassbound(GameObject root)
+        {
+            Box(root, "walnut_crate_body", new Vector3(0f, 0.48f, 0f), new Vector3(1.35f, 0.9f, 1.1f), "SCLVL_WalnutWood");
+            Box(root, "front_brass_band", new Vector3(0f, 0.5f, -0.57f), new Vector3(1.42f, 0.12f, 0.08f), "SCLVL_AgedBrass");
+            Box(root, "top_brass_band", new Vector3(0f, 0.94f, 0f), new Vector3(1.42f, 0.08f, 1.16f), "SCLVL_BlackenedIron");
+            Box(root, "left_edge_wear", new Vector3(-0.7f, 0.5f, 0f), new Vector3(0.08f, 0.9f, 1.16f), "SCLVL_PolishedWearEdge");
+            Box(root, "right_edge_wear", new Vector3(0.7f, 0.5f, 0f), new Vector3(0.08f, 0.9f, 1.16f), "SCLVL_PolishedWearEdge");
+        }
+
+        private static void BuildCoverCrateTallBoilerBox(GameObject root)
+        {
+            Box(root, "tall_iron_storage_body", new Vector3(0f, 0.78f, 0f), new Vector3(1.2f, 1.5f, 0.9f), "SCLVL_BlackenedIron");
+            Box(root, "wood_service_panel_front", new Vector3(0f, 0.88f, -0.48f), new Vector3(0.92f, 0.92f, 0.08f), "SCLVL_WalnutWood");
+            Cyl(root, "side_copper_canister_left", new Vector3(-0.42f, 0.82f, -0.54f), Vector3.zero, new Vector3(0.13f, 1.05f, 0.13f), "SCLVL_CopperSteamPipe");
+            Cyl(root, "side_copper_canister_right", new Vector3(0.42f, 0.82f, -0.54f), Vector3.zero, new Vector3(0.13f, 1.05f, 0.13f), "SCLVL_CopperSteamPipe");
+            Box(root, "red_overpressure_label", new Vector3(0f, 1.34f, -0.55f), new Vector3(0.58f, 0.14f, 0.06f), "SCLVL_HeatRedEnamel");
+            Box(root, "brass_lift_lip", new Vector3(0f, 1.54f, 0f), new Vector3(1.26f, 0.08f, 0.96f), "SCLVL_AgedBrass");
+        }
+
         private static void AddWallPanels(GameObject root, float x, float zOffset, bool lengthwise)
         {
             for (int i = 0; i < 3; i++)
@@ -528,6 +690,19 @@ namespace BrassworksBreach.Sidecars.SteamworksLevelKit
                     float x = -1.5f + ix * (3f / Math.Max(1, xCount - 1));
                     float z = -1.5f + iz * (3f / Math.Max(1, zCount - 1));
                     Cyl(root, "floor_rivet_" + ix + "_" + iz, new Vector3(x, 0.045f, z), Vector3.zero, new Vector3(0.06f, 0.025f, 0.06f), "SCLVL_AgedBrass");
+                }
+            }
+        }
+
+        private static void AddRivetGrid(GameObject root, float minX, float maxX, float minY, float maxY, float z, int xCount, int yCount)
+        {
+            for (int ix = 0; ix < xCount; ix++)
+            {
+                float x = Mathf.Lerp(minX, maxX, ix / Mathf.Max(1f, xCount - 1f));
+                for (int iy = 0; iy < yCount; iy++)
+                {
+                    float y = Mathf.Lerp(minY, maxY, iy / Mathf.Max(1f, yCount - 1f));
+                    Cyl(root, "rivet_grid_" + ix + "_" + iy, new Vector3(x, y, z), new Vector3(90f, 0f, 0f), new Vector3(0.055f, 0.025f, 0.055f), "SCLVL_AgedBrass");
                 }
             }
         }
@@ -566,6 +741,38 @@ namespace BrassworksBreach.Sidecars.SteamworksLevelKit
 
         private static void WriteGeneratedManifest()
         {
+            List<string> materialPaths = new List<string>();
+            foreach (string materialName in Materials.Keys)
+            {
+                materialPaths.Add(CombineAssetPath(PackageRoot, "Runtime/Materials/" + materialName + ".mat"));
+            }
+            materialPaths.Sort(StringComparer.Ordinal);
+
+            List<string> meshPaths = new List<string>();
+            foreach (string meshName in Meshes.Keys)
+            {
+                meshPaths.Add(CombineAssetPath(PackageRoot, "Runtime/Meshes/" + meshName + ".asset"));
+            }
+            meshPaths.Sort(StringComparer.Ordinal);
+
+            string manifestJson = BuildManifestJson(materialPaths, meshPaths);
+            string runtimeManifestPath = ToSystemPath(CombineAssetPath(PackageRoot, "Runtime/Metadata/SCLVL_SteamworksLevelKit_GeneratedManifest.json"));
+            File.WriteAllText(runtimeManifestPath, manifestJson);
+
+            string documentationManifestDirectory = ToSystemPath(CombineAssetPath(PackageRoot, "Documentation~/Manifest"));
+            Directory.CreateDirectory(documentationManifestDirectory);
+            string legacyManifestPath = Path.Combine(documentationManifestDirectory, "SCLVL_SteamworksLevelKit_Manifest_v0.1.37-p001.json");
+            if (File.Exists(legacyManifestPath))
+            {
+                File.Delete(legacyManifestPath);
+            }
+
+            string documentationManifestPath = Path.Combine(documentationManifestDirectory, "SCLVL_SteamworksLevelKit_Manifest_v0.1.39-p001.json");
+            File.WriteAllText(documentationManifestPath, manifestJson);
+        }
+
+        private static string BuildManifestJson(IReadOnlyList<string> materialPaths, IReadOnlyList<string> meshPaths)
+        {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine("{");
             builder.AppendLine("  \"pack_id\": \"SCLVL\",");
@@ -574,6 +781,65 @@ namespace BrassworksBreach.Sidecars.SteamworksLevelKit
             builder.AppendLine("  \"build_id\": \"" + BuildId + "\",");
             builder.AppendLine("  \"unity_version\": \"" + Application.unityVersion + "\",");
             builder.AppendLine("  \"generated_at_utc\": \"" + DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture) + "\",");
+            builder.AppendLine("  \"sidecar_project\": \"UD-SC-LVL-SteamworksLevelKit\",");
+            builder.AppendLine("  \"owner_lane\": \"sidecar-steamworks-level-kit\",");
+            builder.AppendLine("  \"primary_intake_owner\": \"main-lane-art-integration\",");
+            builder.AppendLine("  \"canonical_root\": \"AssetPacks/BrassworksBreach.SteamworksLevelKit\",");
+            builder.AppendLine("  \"package_root\": \"AssetPacks/BrassworksBreach.SteamworksLevelKit\",");
+            builder.AppendLine("  \"package_name\": \"" + PackageName + "\",");
+            builder.AppendLine("  \"upm_package_name\": \"" + PackageName + "\",");
+            builder.AppendLine("  \"generator_menu\": \"" + MenuRoot + "Generate Package Assets\",");
+            builder.AppendLine("  \"preview_menu\": \"" + MenuRoot + "Render Preview PNGs\",");
+            builder.AppendLine("  \"asset_counts\": {");
+            builder.AppendLine("    \"generated_prefabs\": " + GeneratedPrefabs.Count + ",");
+            builder.AppendLine("    \"generated_materials\": " + materialPaths.Count + ",");
+            builder.AppendLine("    \"generated_meshes\": " + meshPaths.Count + ",");
+            builder.AppendLine("    \"textures\": 0,");
+            builder.AppendLine("    \"audio\": 0,");
+            builder.AppendLine("    \"vfx\": 0,");
+            builder.AppendLine("    \"animation_clips\": 0,");
+            builder.AppendLine("    \"preview_renders\": 4");
+            builder.AppendLine("  },");
+            builder.AppendLine("  \"generated_prefabs\": [");
+            for (int i = 0; i < GeneratedPrefabs.Count; i++)
+            {
+                GeneratedPrefabRecord record = GeneratedPrefabs[i];
+                builder.Append("    \"" + record.Path + "\"");
+                if (i < GeneratedPrefabs.Count - 1)
+                {
+                    builder.Append(",");
+                }
+                builder.AppendLine();
+            }
+            builder.AppendLine("  ],");
+            builder.AppendLine("  \"generated_materials\": [");
+            for (int i = 0; i < materialPaths.Count; i++)
+            {
+                builder.Append("    \"" + materialPaths[i] + "\"");
+                if (i < materialPaths.Count - 1)
+                {
+                    builder.Append(",");
+                }
+                builder.AppendLine();
+            }
+            builder.AppendLine("  ],");
+            builder.AppendLine("  \"generated_meshes\": [");
+            for (int i = 0; i < meshPaths.Count; i++)
+            {
+                builder.Append("    \"" + meshPaths[i] + "\"");
+                if (i < meshPaths.Count - 1)
+                {
+                    builder.Append(",");
+                }
+                builder.AppendLine();
+            }
+            builder.AppendLine("  ],");
+            builder.AppendLine("  \"preview_renders\": [");
+            builder.AppendLine("    \"Documentation/ConceptRenders/V0_1_39_SteamworksLevelKitCompletion/SCLVL_PREVIEW_corridor_composition_v0.1.39.png\",");
+            builder.AppendLine("    \"Documentation/ConceptRenders/V0_1_39_SteamworksLevelKitCompletion/SCLVL_PREVIEW_pressure_door_composition_v0.1.39.png\",");
+            builder.AppendLine("    \"Documentation/ConceptRenders/V0_1_39_SteamworksLevelKitCompletion/SCLVL_PREVIEW_object_lineup_v0.1.39.png\",");
+            builder.AppendLine("    \"Documentation/ConceptRenders/V0_1_39_SteamworksLevelKitCompletion/SCLVL_PREVIEW_material_readability_swatch_v0.1.39.png\"");
+            builder.AppendLine("  ],");
             builder.AppendLine("  \"prefabs\": [");
             for (int i = 0; i < GeneratedPrefabs.Count; i++)
             {
@@ -583,6 +849,7 @@ namespace BrassworksBreach.Sidecars.SteamworksLevelKit
                 builder.AppendLine("      \"family\": \"" + record.Family + "\",");
                 builder.AppendLine("      \"display_name\": \"" + record.DisplayName + "\",");
                 builder.AppendLine("      \"role\": \"" + record.Role + "\",");
+                builder.AppendLine("      \"snap\": \"" + SnapForFamily(record.Family, record.Role) + "\",");
                 builder.AppendLine("      \"dimensions_meters\": \"" + FormatVector(record.Dimensions) + "\"");
                 builder.Append("    }");
                 if (i < GeneratedPrefabs.Count - 1)
@@ -592,13 +859,43 @@ namespace BrassworksBreach.Sidecars.SteamworksLevelKit
                 builder.AppendLine();
             }
             builder.AppendLine("  ],");
-            builder.AppendLine("  \"material_count\": " + Materials.Count + ",");
-            builder.AppendLine("  \"mesh_count\": " + Meshes.Count + ",");
+            builder.AppendLine("  \"dependencies\": [],");
             builder.AppendLine("  \"required_primary_changes\": [],");
-            builder.AppendLine("  \"import_status\": \"generated_in_current_project_only\"");
+            builder.AppendLine("  \"path_collisions_checked\": true,");
+            builder.AppendLine("  \"guid_collisions_checked\": true,");
+            builder.AppendLine("  \"guid_collision_check\": \"defer_to_package_static_validator_after_generation\",");
+            builder.AppendLine("  \"import_smoke_status\": \"generated_by_unity_sidecar_batchmode_v0.1.39\",");
+            builder.AppendLine("  \"clean_throwaway_import_status\": \"pending_log_review_in_completion_report\",");
+            builder.AppendLine("  \"primary_quarantine_import_status\": \"not_run\",");
+            builder.AppendLine("  \"unit_scale\": \"1 Unity unit = 1 meter\",");
+            builder.AppendLine("  \"primary_grid_meters\": 4.0,");
+            builder.AppendLine("  \"fine_grid_meters\": 0.5,");
+            builder.AppendLine("  \"known_risks\": [");
+            builder.AppendLine("    \"Generated prefabs are modular visual kit pieces; route collision, nav blocking, and gameplay authority stay in the primary lane.\",");
+            builder.AppendLine("    \"Steam emitter placeholders expose named FX_SOCKET transforms but do not include final particle systems.\",");
+            builder.AppendLine("    \"Procedural materials are Unity material proxies; final AAA texture baking can replace them without changing prefab names.\",");
+            builder.AppendLine("    \"Preview lighting is concept/lookdev only and should not be promoted into shipped levels without budget review.\"");
+            builder.AppendLine("  ],");
+            builder.AppendLine("  \"rollback_path\": \"delete isolated package root or remove local package reference\",");
+            builder.AppendLine("  \"decision\": \"ready_for_primary_quarantine_after_static_validator_and_preview_log_review\"");
             builder.AppendLine("}");
 
-            File.WriteAllText(ToSystemPath(CombineAssetPath(PackageRoot, "Runtime/Metadata/SCLVL_SteamworksLevelKit_GeneratedManifest.json")), builder.ToString());
+            return builder.ToString();
+        }
+
+        private static string SnapForFamily(string family, string role)
+        {
+            if (family == "corridor" || family == "wall" || family == "floor" || role.Contains("door"))
+            {
+                return "4m grid";
+            }
+
+            if (family == "ceiling" || family == "pipe")
+            {
+                return "4m bay or 0.5m fine offset";
+            }
+
+            return "0.5m fine grid";
         }
 
         private readonly struct GeneratedPrefabRecord

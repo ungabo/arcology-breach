@@ -1,0 +1,142 @@
+﻿{
+  "pack_id": "SCFX",
+  "version": "0.1.38-p001",
+  "taxonomy_source": "v0.1.35 GameplayFeedbackController",
+  "events": [
+    {
+      "event_type": "WeaponFired",
+      "family": "weapon",
+      "prefab": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_WeaponFired.prefab",
+      "audio": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Audio/SCFX_AUD_WeaponFired.wav",
+      "visual_intent": "Pressure muzzle flash, copper coil flare, and forward steam ring.",
+      "audio_intent": "Brass clack with a short pressure bark.",
+      "duration_seconds": 0.3
+    },
+    {
+      "event_type": "WeaponImpact",
+      "family": "weapon",
+      "prefab": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_WeaponImpact.prefab",
+      "audio": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Audio/SCFX_AUD_WeaponImpact.wav",
+      "visual_intent": "Rivet spark impact and steam splash on contact.",
+      "audio_intent": "Metal tick, low thud, and fast steam hiss.",
+      "duration_seconds": 0.34
+    },
+    {
+      "event_type": "WeaponEmpty",
+      "family": "weapon",
+      "prefab": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_WeaponEmpty.prefab",
+      "audio": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Audio/SCFX_AUD_WeaponEmpty.wav",
+      "visual_intent": "Dry pressure gauge and red valve stutter.",
+      "audio_intent": "Hollow dry click with a falling gauge tick.",
+      "duration_seconds": 0.24
+    },
+    {
+      "event_type": "WeaponSwitched",
+      "family": "weapon",
+      "prefab": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_WeaponSwitched.prefab",
+      "audio": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Audio/SCFX_AUD_WeaponSwitched.wav",
+      "visual_intent": "Selector gear snaps between pistol and scattergun positions.",
+      "audio_intent": "Ratchet turn with brass latch settle.",
+      "duration_seconds": 0.36
+    },
+    {
+      "event_type": "PickupCollected",
+      "family": "pickup",
+      "prefab": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_PickupCollected.prefab",
+      "audio": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Audio/SCFX_AUD_PickupCollected.wav",
+      "visual_intent": "Cartridge lift, amber glint, and small intake puff.",
+      "audio_intent": "Bright gauge chime with soft valve inhale.",
+      "duration_seconds": 0.38
+    },
+    {
+      "event_type": "EnemyHit",
+      "family": "combat",
+      "prefab": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_EnemyHit.prefab",
+      "audio": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Audio/SCFX_AUD_EnemyHit.wav",
+      "visual_intent": "Hot rivet spark and dented black-iron hit marker.",
+      "audio_intent": "Sharp hammer ping and brief pressure leak.",
+      "duration_seconds": 0.28
+    },
+    {
+      "event_type": "EnemyDeath",
+      "family": "combat",
+      "prefab": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_EnemyDeath.prefab",
+      "audio": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Audio/SCFX_AUD_EnemyDeath.wav",
+      "visual_intent": "Gear rupture, broken boiler cap, and heavy steam bloom.",
+      "audio_intent": "Boiler thunk with gear scatter and vent release.",
+      "duration_seconds": 0.62
+    },
+    {
+      "event_type": "ObjectiveUpdated",
+      "family": "objective",
+      "prefab": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_ObjectiveUpdated.prefab",
+      "audio": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Audio/SCFX_AUD_ObjectiveUpdated.wav",
+      "visual_intent": "Gauge needle tick and brass task plaque pulse.",
+      "audio_intent": "Measured clock tick with tiny steam tick.",
+      "duration_seconds": 0.32
+    },
+    {
+      "event_type": "ObjectiveCompleted",
+      "family": "objective",
+      "prefab": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_ObjectiveCompleted.prefab",
+      "audio": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Audio/SCFX_AUD_ObjectiveCompleted.wav",
+      "visual_intent": "Valve wheel opens into green lamp completion glow.",
+      "audio_intent": "Valve thunk with rising brass chime.",
+      "duration_seconds": 0.54
+    },
+    {
+      "event_type": "RouteBlocked",
+      "family": "navigation",
+      "prefab": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_RouteBlocked.prefab",
+      "audio": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Audio/SCFX_AUD_RouteBlocked.wav",
+      "visual_intent": "Pressure-locked red bulkhead mark with crossed pipes.",
+      "audio_intent": "Heavy lock thunk and blocked steam cough.",
+      "duration_seconds": 0.45
+    },
+    {
+      "event_type": "SecretFound",
+      "family": "navigation",
+      "prefab": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_SecretFound.prefab",
+      "audio": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Audio/SCFX_AUD_SecretFound.wav",
+      "visual_intent": "Hidden cyan gauge aperture and reveal shimmer.",
+      "audio_intent": "Glass chime, soft ratchet, and secret steam whisper.",
+      "duration_seconds": 0.58
+    },
+    {
+      "event_type": "PauseOpened",
+      "family": "ui",
+      "prefab": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_PauseOpened.prefab",
+      "audio": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Audio/SCFX_AUD_PauseOpened.wav",
+      "visual_intent": "Brass menu shutters open around a pressure dial.",
+      "audio_intent": "Soft panel slide with clockwork stop.",
+      "duration_seconds": 0.28
+    },
+    {
+      "event_type": "PauseClosed",
+      "family": "ui",
+      "prefab": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_PauseClosed.prefab",
+      "audio": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Audio/SCFX_AUD_PauseClosed.wav",
+      "visual_intent": "Brass shutters close and extinguish the menu glow.",
+      "audio_intent": "Panel close, latch, and short air release.",
+      "duration_seconds": 0.26
+    },
+    {
+      "event_type": "SettingChanged",
+      "family": "ui",
+      "prefab": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_SettingChanged.prefab",
+      "audio": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Audio/SCFX_AUD_SettingChanged.wav",
+      "visual_intent": "Toggle lever clicks over a small calibration gauge.",
+      "audio_intent": "Small toggle click with a clean gauge tick.",
+      "duration_seconds": 0.22
+    },
+    {
+      "event_type": "BossPhaseChanged",
+      "family": "boss",
+      "prefab": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_BossPhaseChanged.prefab",
+      "audio": "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Audio/SCFX_AUD_BossPhaseChanged.wav",
+      "visual_intent": "Governor alarm gear with red/amber phase lamps and vent surge.",
+      "audio_intent": "Large warning bell, furnace swell, and pressure vent.",
+      "duration_seconds": 0.78
+    }
+  ]
+}
