@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 09:30 -04:00`
+Last updated: `2026-05-24 09:49 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -17,12 +17,12 @@ Current focus:
 
 Current verified local build:
 
-- `v0.1.27`
-- Build path: `Builds/Windows/v0.1.27/BrassworksBreach_v0.1.27.exe`
-- Package path: `Builds/WindowsPackages/v0.1.27/BrassworksBreach_v0.1.27_Windows.zip`
-- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.27.md`
-- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.27.md`
-- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.27.md`
+- `v0.1.28`
+- Build path: `Builds/Windows/v0.1.28/BrassworksBreach_v0.1.28.exe`
+- Package path: `Builds/WindowsPackages/v0.1.28/BrassworksBreach_v0.1.28_Windows.zip`
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.28.md`
+- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.28.md`
+- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.28.md`
 - Matrix result: `V0_BUILD_MATRIX_PASS` plus `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`
 
 ## Active Side Agents
@@ -75,6 +75,8 @@ Current verified local build:
 | Herschel-PressureReliefVent | `019e5a03-a247-7f62-bd45-6eb4e2383dd6` | Pressure relief vent prototype production brief/status | `Documentation/AssetProduction/PressureReliefVentPrototype/` | `2026-05-24 08:43 -04:00` | completed; docs integrated with the v0.1.25 promoted pressure relief vent component |
 | Copernicus-CatwalkRail | `019e5a16-229e-7110-b29c-ce907f969e3e` | Catwalk rail prototype production brief/status | `Documentation/AssetProduction/CatwalkRailPrototype/` | `2026-05-24 09:00 -04:00` | completed; docs integrated with the v0.1.26 promoted catwalk rail component |
 | Newton-FloorDrainGrate | `019e5a26-cdef-7473-aefc-822f645cb6e3` | Floor drain grate prototype production brief/status | `Documentation/AssetProduction/FloorDrainGratePrototype/` | `2026-05-24 09:18 -04:00` | completed; docs integrated with the v0.1.27 promoted floor drain grate component |
+| Laplace-PressureTankRack | `019e5a34-0c7e-71b0-88fd-ab3dc20b3564` | Pressure tank rack prototype production brief/status | `Documentation/AssetProduction/PressureTankRackPrototype/` | `2026-05-24 09:36 -04:00` | completed; docs integrated with the v0.1.28 promoted pressure tank rack component |
+| Averroes-RouteTriage | `019e5a3d-a5e2-7541-8557-d35a1597f16b` | v0.1.29 route-triage planning packet | `Documentation/Planning/V0_1_29_RouteTriage/` | `2026-05-24 09:49 -04:00` | completed; packet recommends release-index plus SHA-256 verification fallback if no real route notes appear |
 
 ## Completed Side-Agent Outputs
 

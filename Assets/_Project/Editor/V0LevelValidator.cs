@@ -1577,6 +1577,57 @@ public static class V0LevelValidator
         RequireRendererMaterial(prototype.steamSeepRenderer, sceneName + " floor drain steam seep", "Steam");
     }
 
+    private static void ValidatePressureTankRackPrototype(string sceneName, string objectName, string expectedPlacementRole)
+    {
+        GameObject root = RequireNamed(objectName, sceneName + " pressure tank rack prototype root");
+        PressureTankRackPrototype prototype = root.GetComponent<PressureTankRackPrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pressure tank rack prototype is missing its marker component (" + objectName + ").");
+        }
+
+        if (prototype.promotionVersion != "v0.1.28" || prototype.placementRole != expectedPlacementRole || !prototype.HasRequiredParts)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pressure tank rack metadata or required parts are incomplete (" + objectName + ").");
+        }
+
+        if (prototype.rackRoot.childCount < 4 || prototype.tankRoot.childCount < 3 || prototype.bandRoot.childCount < 6 || prototype.feederPipeRoot.childCount < 3 || prototype.valveRoot.childCount < 3 || prototype.rivetRoot.childCount < 12 || prototype.tagRoot.childCount < 2 || prototype.steamRoot.childCount < 2)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pressure tank rack does not have the required rack/tank/band/pipe/valve/rivet/tag/steam detail counts (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<Collider>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pressure tank rack must remain non-blocking route dressing with no colliders (" + objectName + ").");
+        }
+
+        RequireNamed(objectName + " Rack Root", sceneName + " pressure tank rack rack root");
+        RequireNamed(objectName + " Tank Root", sceneName + " pressure tank rack tank root");
+        RequireNamed(objectName + " Brass Band Root", sceneName + " pressure tank rack band root");
+        RequireNamed(objectName + " Feeder Pipe Root", sceneName + " pressure tank rack feeder pipe root");
+        RequireNamed(objectName + " Valve Root", sceneName + " pressure tank rack valve root");
+        RequireNamed(objectName + " Rivet Root", sceneName + " pressure tank rack rivet root");
+        RequireNamed(objectName + " Pressure Tag Root", sceneName + " pressure tank rack tag root");
+        RequireNamed(objectName + " Ambient Steam Root", sceneName + " pressure tank rack steam root");
+        RequireNamed(objectName + " Blackened Iron Lower Rack Rail", sceneName + " pressure tank rack frame");
+        RequireNamed(objectName + " Blackened Iron Pressure Tank 00", sceneName + " pressure tank rack tank");
+        RequireNamed(objectName + " Aged Brass Tank Band Low 00", sceneName + " pressure tank rack brass band");
+        RequireNamed(objectName + " Aged Brass Feeder Pipe 00", sceneName + " pressure tank rack feeder pipe");
+        RequireNamed(objectName + " Aged Brass Valve Cap 00", sceneName + " pressure tank rack valve");
+        RequireNamed(objectName + " Brass Rack Bolt 00", sceneName + " pressure tank rack bolt");
+        RequireNamed(objectName + " Amber Pressure Tag", sceneName + " pressure tank rack pressure tag");
+        RequireNamed(objectName + " Pale Ambient Steam Seep Low", sceneName + " pressure tank rack steam seep");
+
+        RequireRendererMaterial(prototype.rackFrameRenderer, sceneName + " pressure tank rack frame", "Iron");
+        RequireRendererMaterial(prototype.tankRenderer, sceneName + " pressure tank rack tank", "Iron");
+        RequireRendererMaterial(prototype.brassBandRenderer, sceneName + " pressure tank rack band", "Brass");
+        RequireRendererMaterial(prototype.feederPipeRenderer, sceneName + " pressure tank rack feeder pipe", "Brass");
+        RequireRendererMaterial(prototype.valveRenderer, sceneName + " pressure tank rack valve", "Brass");
+        RequireRendererMaterial(prototype.rivetRenderer, sceneName + " pressure tank rack bolt", "Brass");
+        RequireRendererMaterial(prototype.pressureTagRenderer, sceneName + " pressure tank rack pressure tag", "Warning");
+        RequireRendererMaterial(prototype.steamSeepRenderer, sceneName + " pressure tank rack steam seep", "Steam");
+    }
+
     private static void RequireRendererMaterial(Renderer renderer, string label, string expectedNameFragment)
     {
         if (renderer == null || renderer.sharedMaterial == null || renderer.sharedMaterial.shader == null)
@@ -1606,6 +1657,7 @@ public static class V0LevelValidator
             ValidateWallValveWheelPrototype(sceneName, "North Star Intake Wall Valve Wheel", "intake_wall_valve_wheel");
             ValidatePressureReliefVentPrototype(sceneName, "North Star Intake Pressure Relief Vent", "intake_pressure_relief_vent");
             ValidateFloorDrainGratePrototype(sceneName, "North Star Intake Floor Drain Grate", "intake_floor_drain_grate");
+            ValidatePressureTankRackPrototype(sceneName, "North Star Intake Pressure Tank Rack", "intake_pressure_tank_rack");
             RequireNamed("Secret - Intake Pressure Cache", sceneName + " secret pressure cache");
             RequireNamed("Secret Pressure Cache Brass Floor Plate", sceneName + " secret pressure cache floor plate");
             RequireNamed("Level01 Flow Polish V015", sceneName + " flow polish prop root");
@@ -1636,6 +1688,7 @@ public static class V0LevelValidator
             ValidatePressureReliefVentPrototype(sceneName, "North Star Pipeworks Pressure Relief Vent", "pipeworks_pressure_relief_vent");
             ValidateCatwalkRailPrototype(sceneName, "North Star Pipeworks Service Rail", "pipeworks_service_rail");
             ValidateFloorDrainGratePrototype(sceneName, "North Star Pipeworks Floor Drain Grate", "pipeworks_floor_drain_grate");
+            ValidatePressureTankRackPrototype(sceneName, "North Star Pipeworks Pressure Tank Rack", "pipeworks_pressure_tank_rack");
             ValidateWallPipeGaugeClusterPrototype(sceneName, "Pipeworks Prototype Wall Pipe Gauge Cluster", "pipeworks_route_wall");
             ValidateBoilerControlConsolePrototype(sceneName, "Pipeworks Prototype Boiler Control Console", "pipeworks_route_console");
             ValidateRivetedPressureDoorFramePrototype(sceneName, "Pipeworks Prototype Riveted Pressure Door Frame", "pipeworks_route_pressure_frame");
@@ -1741,6 +1794,7 @@ public static class V0LevelValidator
             ValidatePipeCanopyPrototype(sceneName, "North Star Governor Pipe Canopy", "governor_route_pipe_canopy");
             RequireNamed("North Star Governor Gaslight Left", sceneName + " north-star governor gaslight");
             ValidateCagedGaslightPrototype(sceneName, "North Star Governor Gaslight Left", "governor_route_gaslight");
+            ValidatePressureTankRackPrototype(sceneName, "North Star Governor Pressure Tank Rack", "governor_pressure_tank_rack");
             RequireNamed("North Star Governor Regulator Crown", sceneName + " north-star governor regulator crown");
             RequireNamed("Governor Core Regulator Pillar", sceneName + " governor core regulator visual");
             RequireNamed("Governor Core Steam Hazard - Regulator Leak", sceneName + " governor core steam hazard");

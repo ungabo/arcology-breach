@@ -1,0 +1,48 @@
+{
+  "packet": "v0.1.29_route_triage",
+  "created_local": "2026-05-24T09:49:11-04:00",
+  "status": "planning_ready",
+  "owned_write_scope": "Documentation/Planning/V0_1_29_RouteTriage/",
+  "inputs_reviewed": [
+    "Documentation/VERSION_MICRO_ROADMAP.md",
+    "Documentation/BUILD_STATUS.md",
+    "Documentation/WORK_LEDGER.md",
+    "Documentation/IMPLEMENTATION_TODO.md",
+    "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.28.md",
+    "Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.28.md",
+    "Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.28.md",
+    "Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.28.md"
+  ],
+  "preconditions": [
+    "v0.1.28 pressure tank rack slice committed and pushed",
+    "v0.1.28 release notes refreshed so candidate readiness no longer has a pending release-notes state",
+    "Main lane starts from a clean baseline before applying v0.1.29 changes"
+  ],
+  "recommendation": {
+    "primary": "Convert accepted manual route-triage notes into tracked v0.1.29 work and fix the highest-impact P0/P1 route issue if one exists.",
+    "fallback_if_no_route_issue": "Perform Windows release-distribution hardening by adding a human-friendly package release index and SHA-256 verification instructions to the packaged build and candidate-readiness evidence.",
+    "route_safe_reason": "The fallback improves the Windows distributable without changing scene geometry, collision, enemy placement, combat balance, or route distances immediately after the pressure tank rack promotion."
+  },
+  "acceptance_gates": [
+    "No accepted P0/P1 manual issue remains untracked after triage.",
+    "Route audit reports no route-blocking scene composition issues.",
+    "Full V0 build matrix passes after any code, scene, package-tooling, or generated-package change.",
+    "Candidate-readiness evidence is refreshed for v0.1.29.",
+    "Fallback package files are present in both the package folder and ZIP when the no-issue fallback is used."
+  ],
+  "verification_commands": [
+    "git status -sb",
+    "rg -n \"Issue ID:|Status: new|Status: accepted|Severity: P0|Severity: P1|blocked|confusing|unreadable\" Documentation/QA/ManualPlaytestV1 Documentation/QA/WindowsRouteQA",
+    ".\\Tools\\RunV0RouteAudit.ps1 -ProjectPath 'D:\\__MY APPS\\Unity Doom' -UnityPath 'C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.6f1\\Editor\\Unity.exe'",
+    ".\\Tools\\RunV0BuildMatrix.ps1 -ProjectPath 'D:\\__MY APPS\\Unity Doom' -UnityPath 'C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.6f1\\Editor\\Unity.exe'",
+    ".\\Tools\\GenerateWindowsCandidateReadiness.ps1 -ProjectPath 'D:\\__MY APPS\\Unity Doom' -LogPrefix '<next-log-prefix>'",
+    "Get-Content 'Documentation\\Planning\\V0_1_29_RouteTriage\\ROUTE_TRIAGE_STATUS.json' | ConvertFrom-Json | Out-Null"
+  ],
+  "risks": [
+    "Automated route audit does not replace human feel/playability review.",
+    "v0.1.28 candidate readiness showed release notes pending when reviewed by this sidecar, then the main lane refreshed readiness before commit.",
+    "Adding another prop immediately after pressure tank rack could hide route readability regressions.",
+    "Distribution files must be checked inside the ZIP, not just in the staging folder."
+  ],
+  "write_scope_compliance": "This sidecar packet only writes under Documentation/Planning/V0_1_29_RouteTriage/."
+}

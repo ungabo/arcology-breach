@@ -1730,6 +1730,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.28 Pressure Tank Rack Asset Promotion
+
+- [x] Confirm no real manual route-triage notes exist yet; use the roadmap fallback and proceed to the next modular asset promotion.
+- [x] Add `PressureTankRackPrototype` runtime metadata for promoted route-safe pressure tank rack dressing.
+- [x] Add named Brassworks Intake, Pipeworks Annex, and Governor Core pressure tank rack placements.
+- [x] Build the component from Unity-owned geometry: blackened iron rack rails/uprights, three dark pressure tanks, aged brass tank bands, feeder pipes, valve caps, twelve brass rack bolts, an amber pressure tag, cream pressure gauge, gauge needle, and pale ambient steam seep puffs.
+- [x] Add validator coverage for promotion version, placement roles, required named hierarchy, material roles, detail counts, and no-collider route safety.
+- [x] Add production brief and status files under `Documentation/AssetProduction/PressureTankRackPrototype/`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.28`.
+- [x] Build, package, generate route-QA evidence, generate issue-triage evidence, and generate candidate-readiness evidence for `v0.1.28` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

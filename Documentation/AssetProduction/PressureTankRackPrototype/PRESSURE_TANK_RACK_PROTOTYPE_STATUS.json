@@ -1,0 +1,179 @@
+{
+  "component": "PressureTankRackPrototype",
+  "targetVersion": "v0.1.28",
+  "promotionVersion": "v0.1.28",
+  "productionState": "full_matrix_passed",
+  "statuses": {
+    "documentation": "integrated",
+    "implementation": "implemented",
+    "validation": "full_matrix_passed"
+  },
+  "ownership": {
+    "assetType": "Unity-owned geometry",
+    "usage": "route-safe industrial pressure tank rack dressing for steampunk corridors",
+    "writeScope": "Documentation/AssetProduction/PressureTankRackPrototype",
+    "docsOnlyHandoff": false,
+    "codeSceneAndSharedDocEditsAllowed": true
+  },
+  "styleNorthStar": {
+    "theme": "Brassworks Breach compact steampunk pressure tank rack",
+    "summary": "Route-safe wall-adjacent pressure storage dressing with blackened iron rack rails, three dark pressure tanks, aged brass bands and valve caps, feeder pipes, twelve brass bolts, a pressure tag/gauge read, and pale ambient steam seep puffs.",
+    "requiredVisualElements": [
+      "blackened iron rack frame",
+      "three dark pressure tanks",
+      "aged brass tank bands",
+      "aged brass feeder pipes and valve caps",
+      "amber pressure tag and cream gauge",
+      "visible brass rack bolts",
+      "pale ambient steam seep puffs"
+    ],
+    "routeSafetyLanguage": [
+      "compact pressure storage infrastructure",
+      "wall-adjacent or alcove-adjacent corridor dressing",
+      "industrial pressure read without explosive or damage gameplay",
+      "rack dressing that does not narrow navigation"
+    ]
+  },
+  "implementedPlacementRoles": [
+    "intake_pressure_tank_rack",
+    "pipeworks_pressure_tank_rack",
+    "governor_pressure_tank_rack"
+  ],
+  "unityContract": {
+    "geometryOnly": true,
+    "unityOwnedGeometryOnly": true,
+    "noExternalMeshDependencyRequired": true,
+    "noColliders": true,
+    "noTriggers": true,
+    "noNavMeshObstacles": true,
+    "noBlocking": true,
+    "noNavigationNarrowing": true,
+    "noStepUpGeometry": true,
+    "noCoverBehavior": true,
+    "noGameplayInteraction": true,
+    "noDestructibleOrExplosiveBehavior": true,
+    "noDamageOrPressureHazard": true,
+    "steamIsAmbientOnly": true
+  },
+  "validatedHierarchy": {
+    "requiredRootObjects": [
+      "Rack Root",
+      "Tank Root",
+      "Brass Band Root",
+      "Feeder Pipe Root",
+      "Valve Root",
+      "Rivet Root",
+      "Pressure Tag Root",
+      "Ambient Steam Root"
+    ],
+    "requiredNamedParts": [
+      "Blackened Iron Lower Rack Rail",
+      "Blackened Iron Upper Rack Rail",
+      "Blackened Iron Pressure Tank 00",
+      "Aged Brass Tank Band Low 00",
+      "Aged Brass Feeder Pipe 00",
+      "Aged Brass Valve Cap 00",
+      "Brass Rack Bolt 00",
+      "Amber Pressure Tag",
+      "Cream Rack Pressure Gauge",
+      "Dark Rack Gauge Needle",
+      "Pale Ambient Steam Seep Low"
+    ]
+  },
+  "materialRoleCoverage": [
+    "blackened_iron_rack_frame",
+    "dark_pressure_tank_shells",
+    "aged_brass_bands",
+    "aged_brass_feeder_pipes",
+    "aged_brass_valve_caps",
+    "brass_hardware_bolts",
+    "pressure_tag_and_gauge",
+    "pale_steam_seep_ambient"
+  ],
+  "validatedMinimumCounts": {
+    "rackRootChildren": ">=4",
+    "tankRootChildren": ">=3",
+    "brassBandRootChildren": ">=6",
+    "feederPipeRootChildren": ">=3",
+    "valveRootChildren": ">=3",
+    "rivetRootChildren": ">=12",
+    "tagRootChildren": ">=2",
+    "steamRootChildren": ">=2",
+    "colliders": 0,
+    "triggers": 0,
+    "navMeshObstacles": 0
+  },
+  "acceptanceGates": [
+    {
+      "id": "metadata_component_present",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "promotion_version_exact",
+      "required": true,
+      "expectedValue": "v0.1.28",
+      "status": "passed"
+    },
+    {
+      "id": "named_hierarchy",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "all_expected_roles_present",
+      "required": true,
+      "expectedRoles": [
+        "intake_pressure_tank_rack",
+        "pipeworks_pressure_tank_rack",
+        "governor_pressure_tank_rack"
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "material_role_coverage",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "minimum_counts_met",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "no_colliders_triggers_or_navmesh_obstacles",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "route_safe_corridor_placement",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "no_explosive_interactable_cover_or_hazard_read",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "ambient_steam_non_damaging_if_present",
+      "required": true,
+      "status": "passed"
+    }
+  ],
+  "verification": {
+    "timestamp": "2026-05-24 09:49 -04:00",
+    "logPrefix": "v038",
+    "routeAudit": "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.28.md",
+    "levelValidationLog": "Logs/v038-level-validation.log",
+    "buildMatrix": "V0_BUILD_MATRIX_PASS",
+    "windowsExecutable": "Builds/Windows/v0.1.28/BrassworksBreach_v0.1.28.exe",
+    "windowsPackage": "Builds/WindowsPackages/v0.1.28/BrassworksBreach_v0.1.28_Windows.zip",
+    "packageSha256": "5899590751B66471916AFB833E5EF0F6BD358E33858EF2BDF727B0938463FD72"
+  },
+  "notes": [
+    "Promoted as Unity-owned geometry in the main generated-scene lane.",
+    "All accepted variants are wall-adjacent route-safe dressing with no colliders.",
+    "Pressure tanks read as industrial infrastructure only; they are not explosive, destructible, interactive, or hazardous."
+  ]
+}

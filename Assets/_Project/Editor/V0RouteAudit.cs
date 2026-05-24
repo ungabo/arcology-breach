@@ -64,9 +64,9 @@ public static class V0RouteAudit
         report.AppendLine();
         report.AppendLine("## Next Actionable Slices");
         report.AppendLine();
-        report.AppendLine("- `v0.1.28`: convert accepted route-triage findings into concrete polish tasks once manual notes exist, or continue prop promotion if no manual notes exist.");
-        report.AppendLine("- `v0.1.29`: continue release-distribution hardening after launcher and quickstart package files are verified.");
-        report.AppendLine("- `v0.1.30`: promote the next authored gameplay prop component after floor drain grate validation.");
+        report.AppendLine("- `v0.1.29`: convert accepted route-triage findings into concrete polish tasks once manual notes exist, or continue prop promotion if no manual notes exist.");
+        report.AppendLine("- `v0.1.30`: continue release-distribution hardening after launcher and quickstart package files are verified.");
+        report.AppendLine("- `v0.1.31`: promote the next authored gameplay prop component after pressure tank rack validation.");
 
         string absoluteOutputPath = Path.Combine(Directory.GetCurrentDirectory(), OutputPath);
         Directory.CreateDirectory(Path.GetDirectoryName(absoluteOutputPath));
