@@ -230,7 +230,7 @@ public class WeaponController : MonoBehaviour
 
         SteamworksAudioCue fireCue = usingSteamScattergun
             ? (secondaryShot ? SteamworksAudioCue.SteamScattergunSlug : SteamworksAudioCue.SteamScattergunFire)
-            : SteamworksAudioCue.PressureFire;
+            : (secondaryShot ? SteamworksAudioCue.PressureBurst : SteamworksAudioCue.PressureFire);
         SteamworksAudio.Play(fireCue);
         weaponView?.PlayFire();
 
@@ -245,6 +245,10 @@ public class WeaponController : MonoBehaviour
             {
                 ScattergunBlastVfx.Spawn(baseRay.origin + baseRay.direction * 0.85f, baseRay.direction);
             }
+        }
+        else if (secondaryShot)
+        {
+            PressureBurstVfx.Spawn(baseRay.origin + baseRay.direction * 0.78f, baseRay.direction);
         }
 
         int resolvedPelletCount = Mathf.Max(1, pelletCount);

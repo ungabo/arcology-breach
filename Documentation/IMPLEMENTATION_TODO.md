@@ -1266,6 +1266,21 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.87 Pressure Burst Feedback Pass
+
+- [x] Add `SteamworksAudioCue.PressureBurst` at the end of the enum without shifting existing serialized cue values.
+- [x] Generate a dedicated procedural pressure-dump audio clip for the Pressure Pistol secondary fire.
+- [x] Add `PressureBurstVfx` pressure-ring, steam-core, brass-valve flash, and shard burst effect.
+- [x] Route Pressure Pistol secondary fire through dedicated Pressure Burst audio/VFX while keeping primary fire unchanged.
+- [x] Expand runtime smoke to verify Pressure Burst cue configuration.
+- [x] Expand combat-scenario smoke to verify Pressure Burst audio routing and VFX spawn.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.87`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

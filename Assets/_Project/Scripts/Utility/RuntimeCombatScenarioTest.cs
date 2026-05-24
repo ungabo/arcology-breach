@@ -37,6 +37,20 @@ public class RuntimeCombatScenarioTest : MonoBehaviour
         RequireEqual(inventory.Ammo, startingAmmo - weapon.secondaryAmmoCost, "ammo after secondary pressure burst");
         yield return null;
 
+        SteamworksAudio audio = UnityEngine.Object.FindAnyObjectByType<SteamworksAudio>();
+        if (audio == null || !audio.HasLastOneShotCue || audio.LastOneShotCue != SteamworksAudioCue.PressureBurst)
+        {
+            Fail("Combat scenario failed: secondary pressure burst did not route through dedicated audio.");
+            yield break;
+        }
+
+        PressureBurstVfx pressureBurstVfx = UnityEngine.Object.FindAnyObjectByType<PressureBurstVfx>();
+        if (pressureBurstVfx == null || pressureBurstVfx.PieceCount < 9)
+        {
+            Fail("Combat scenario failed: secondary pressure burst VFX did not spawn with enough visible pieces.");
+            yield break;
+        }
+
         if (target == null)
         {
             Fail("Combat scenario failed: secondary pressure burst killed enemy before primary-shot verification.");

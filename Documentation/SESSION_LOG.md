@@ -2762,3 +2762,50 @@ Side agents started:
 - Helmholtz: platform-port and VR readiness plan.
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 21:41 -04:00
+
+Completed `v0.0.87` Pressure Burst feedback pass.
+
+Added:
+
+- `SteamworksAudioCue.PressureBurst` appended to the cue list without shifting existing serialized cue values.
+- Dedicated procedural Pressure Burst audio with valve dump, brass snap, pressure wash, and pipe ring.
+- `PressureBurstVfx` pressure ring, steam core, brass valve flash, and shard burst.
+- Pressure Pistol secondary fire now routes through dedicated Pressure Burst audio/VFX while primary fire remains on `PressureFire`.
+- Runtime smoke now verifies Pressure Burst cue configuration.
+- Combat-scenario smoke now verifies secondary Pressure Burst audio routing and VFX spawn before primary-shot checks.
+- Versioned Windows build `v0.0.87`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.87/BrassworksBreach_v0.0.87.exe`
+
+Side-agent update:
+
+- Beauvoir completed `Documentation/PARALLEL_ASSET_GENERATION_BRIEFS.md`.
+- Chandrasekhar completed `Documentation/PARALLEL_LOCAL_ASSET_PACK_INVENTORY.md`.
+- Nietzsche started `Documentation/ASSET_VIEWING_GUIDE.md` and `Documentation/AssetPreviews/`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
