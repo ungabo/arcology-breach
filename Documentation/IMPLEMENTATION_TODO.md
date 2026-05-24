@@ -31,6 +31,23 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Generate and import steampunk north-star concept art.
 - [x] Retheme working title/product metadata to `Brassworks Breach`.
 
+## v0.1.51 Playable Route Expansion Batch
+
+- [x] Add Level02 pressure-bypass route module with generated geometry, collision proxies, authority props, hazards, pickups, Lancer/Scrapper encounter pressure, secret trigger, spawn markers, and visual-only dressing.
+- [x] Add Level03 foundry-gantry route module with gantry geometry, furnace/steam hazard language, pickups, Scrapper/Bellows encounter pressure, authority valves, spawn markers, and visual-only dressing.
+- [x] Add Level04 observatory-pumpworks route module with pumpworks geometry, hazards, pickups, Bulwark/Lancer encounter pressure, pressure-key/regulator authority props, secret trigger, spawn markers, and visual-only dressing.
+- [x] Extend level validation for v0.1.51 route roots, required `GEO`/`COL`/`TRG`/`AUTH`/`SPAWN` containers, required scene object names, and visual-only isolation.
+- [x] Fix ranged-combat smoke target selection so the canonical Pipeworks Lancer remains deterministic after optional route enemies are added.
+- [x] Rebuild generated scenes, run route audit, full Windows matrix, Windows package, QA packet, issue triage, release notes, and candidate-readiness generation.
+- [x] Keep Set07 render/component sidecar outputs in review quarantine rather than bulk-promoting them into gameplay.
+
+## v0.1.52 Surface Material Detail Push
+
+- [ ] Review the active Surface Material Detail Set 08 package when complete.
+- [ ] Accept only texture/material families that improve the corridor/gun render gap toward the steampunk north-star look.
+- [ ] Prefer a broad material/detail import or binding batch over one-object serial tweaks.
+- [ ] Validate no sidecar package gains gameplay authority without a scene-owned promotion plan.
+
 ## v0.1.35 Gameplay Feedback Systems Batch
 
 - [x] Add shared non-authoritative feedback event taxonomy.
@@ -2037,7 +2054,8 @@ Windows is the primary development target. Android, browser/WebGL, and VR are de
 - [x] `v0.1.50`: Accept the completed package wave for surface textures, objective interactables, elite mechanical enemy visuals, Steam FX, and hazard props after review.
 - [x] `v0.1.50`: Accept the Level02-Level04 route-expansion implementation packet for the next playable leap.
 - [x] `v0.1.50`: Normalize Steam FX, Hazard Props, and Mechanical Enemy Elite manifests to the common sidecar schema and rerun validators.
-- [ ] `v0.1.51`: Use the accepted route-expansion packet and selected visual-only package content to create a larger playable route/content expansion.
-- [ ] Start the next parallel sidecar lanes for weapon-component refinement, corridor/room shell set 07, and combat encounter props.
+- [x] `v0.1.51`: Use the accepted route-expansion packet and selected visual-only package content to create a larger playable route/content expansion.
+- [x] Start the next parallel sidecar lanes for weapon-component refinement, corridor/room shell set 07, combat encounter props, render lookdev, and acceptance review.
+- [ ] `v0.1.52`: Complete and review Surface Material Detail Set 08, then decide whether to accept it as docs-only evidence or import/bind selected material families.
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.

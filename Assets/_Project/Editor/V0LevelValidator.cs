@@ -2205,6 +2205,7 @@ public static class V0LevelValidator
             ValidateRivetedPressureDoorFramePrototype(sceneName, "Pipeworks Prototype Riveted Pressure Door Frame", "pipeworks_route_pressure_frame");
             ValidateValveWheelConsolePrototype(sceneName, "ValveWheelConsolePrototype_pipeworks_pressure_console", "pipeworks_pressure_console");
             ValidateV0149RouteShellPromotionPilot(sceneName);
+            ValidateV0151RouteExpansion(sceneName);
             ValidateThresholdRouteDressingBatch(sceneName, "pipeworks");
             ValidateV0134BatchPolishCoverage(sceneName, 4, 2, new[] { "pressure_pistol", "steam_scattergun", "pressure_cartridge_pack", "scrapper", "lancer" });
             RequireNamed("Secret - Pipeworks Cartridge Cache", sceneName + " pipeworks secret cache");
@@ -2236,6 +2237,7 @@ public static class V0LevelValidator
             ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_boilerheart_service_lift_call_box", "boilerheart_service_lift_call_box");
             ValidateValveWheelConsolePrototype(sceneName, "ValveWheelConsolePrototype_boilerheart_pressure_console", "boilerheart_pressure_console");
             ValidateThresholdRouteDressingBatch(sceneName, "boilerheart");
+            ValidateV0151RouteExpansion(sceneName);
             ValidateV0134BatchPolishCoverage(sceneName, 4, 2, new[] { "pressure_pistol", "steam_scattergun", "pressure_cartridge_pack", "steam_scattergun_pickup", "scrapper" });
             RequireNamed("Boilerheart Pressure Valve Objective", sceneName + " boilerheart pressure valve objective");
             RequireNamed("Boilerheart Pressure Valve Wheel", sceneName + " boilerheart pressure valve wheel visual");
@@ -2286,6 +2288,7 @@ public static class V0LevelValidator
             ValidateFloorDrainGratePrototype(sceneName, "North Star Foundry Floor Drain Grate", "foundry_floor_drain_grate");
             ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_foundry_emergency_hoist_call_box", "foundry_emergency_hoist_call_box");
             ValidateThresholdRouteDressingBatch(sceneName, "foundry");
+            ValidateV0151RouteExpansion(sceneName);
             ValidateV0134BatchPolishCoverage(sceneName, 4, 4, new[] { "pressure_pistol", "steam_scattergun", "pressure_cartridge_pack", "scrapper", "lancer", "bulwark" });
             RequireNamed("Foundry Furnace Row", sceneName + " foundry furnace row visual");
             RequireNamed("Foundry Steam Hazard - Casting Leak", sceneName + " foundry steam hazard");
@@ -2452,6 +2455,222 @@ public static class V0LevelValidator
         RequireNamed("V0149 RouteShellPilot Brass Floor Sightline A", sceneName + " route shell floor sightline");
         RequireNamed("V0149 RouteShellPilot Red Collision Authority Plate", sceneName + " route shell authority plate");
         RequireNamed("Label - Route Shell Pilot", sceneName + " route shell world label");
+    }
+
+    private static void ValidateV0151RouteExpansion(string sceneName)
+    {
+        string rootName;
+        string visualRootName;
+        string[] requiredNames;
+
+        if (sceneName == "Level02")
+        {
+            rootName = "ROUTE_L02_PressureBypass_v0_1_50";
+            visualRootName = "VISUALONLY_L02_PressureBypass";
+            requiredNames = new[]
+            {
+                "GEO_L02_PressureDoor_EntryVestibule",
+                "GEO_L02_PressureBypass_WestPipeCorridor",
+                "GEO_L02_PressureBypass_ValveRoomA",
+                "GEO_L02_PressureBypass_CrossPipeHall",
+                "GEO_L02_PressureBypass_PumpRoom",
+                "GEO_L02_PressureBypass_ReturnDrop",
+                "GEO_L02_PressureBypass_ExitSpine",
+                "GEO_L02_PressureBypass_SecretServiceDuct",
+                "GEO_L02_PressureBypass_SecretBoilerNiche",
+                "COL_L02_PressureBypass_WestCorridor_Rails Left",
+                "COL_L02_PressureBypass_WestCorridor_Rails Right",
+                "COL_L02_PressureBypass_PumpRoom_EastGuard",
+                "AUTH_L02_Door_PressureBypassEntry",
+                "AUTH_L02_Door_PumpRoomExit",
+                "AUTH_L02_Grate_SecretServiceDuct",
+                "AUTH_L02_Shortcut_PipeGate",
+                "AUTH_L02_Valve_BypassA",
+                "AUTH_L02_Valve_BypassB",
+                "AUTH_L02_Hazard_SteamJet_C1_A",
+                "AUTH_L02_Hazard_PumpVent_R3_A",
+                "TRG_L02_Secret_BoilerNiche",
+                "SPAWN_L02_Pickup_Health_R2_A",
+                "SPAWN_L02_Pickup_Ammo_R3_A",
+                "SPAWN_L02_Pickup_ArmorShard_R3_A",
+                "SPAWN_L02_Secret_AmmoCache_R4_A",
+                "SPAWN_L02_Secret_Health_R4_A",
+                "SPAWN_L02_R1_Scout_A",
+                "SPAWN_L02_R1_Scout_B",
+                "SPAWN_L02_C1_Ranged_A",
+                "SPAWN_L02_C1_Ranged_B",
+                "SPAWN_L02_Exit_Guard_A",
+                "Pickup - L02 Pressure Bypass Health",
+                "Pickup - L02 Pressure Bypass Cartridge",
+                "Pickup - L02 Secret Ammo Cache",
+                "Pickup - L02 Secret Boiler Health",
+                "Enemy - L02 Pressure Bypass Scout A",
+                "Enemy - L02 Pressure Bypass Ranged A",
+                "Enemy - L02 Pressure Bypass Exit Guard",
+                "VIS_L02_PressureBypass_PipeGallery",
+                "VIS_L02_PressureBypass_GaugeCluster",
+                "VIS_L02_PressureBypass_BoilerColumn",
+                "Label - L02 Pressure Bypass"
+            };
+        }
+        else if (sceneName == "Level03")
+        {
+            rootName = "ROUTE_L03_FoundryGantry_v0_1_50";
+            visualRootName = "VISUALONLY_L03_FoundryGantry";
+            requiredNames = new[]
+            {
+                "GEO_L03_FoundryGantry_EntryRun",
+                "GEO_L03_FoundryGantry_FurnacePit",
+                "GEO_L03_FoundryGantry_CentralLiftBase",
+                "GEO_L03_FoundryGantry_EastServiceRamp",
+                "GEO_L03_FoundryGantry_ControlMezzanine",
+                "GEO_L03_FoundryGantry_WestCoolantDuct",
+                "GEO_L03_FoundryGantry_CoolantPumpRoom",
+                "GEO_L03_FoundryGantry_UpperCatwalk",
+                "GEO_L03_FoundryGantry_RejoinStair",
+                "GEO_L03_FoundryGantry_HighRejoinBalcony",
+                "COL_L03_FurnacePit_WestRail",
+                "COL_L03_Catwalk_NorthRail",
+                "COL_L03_RejoinStair_SideRail",
+                "AUTH_L03_Gate_FurnaceEntry",
+                "AUTH_L03_Lift_CentralGantry",
+                "AUTH_L03_Gate_ControlMezzanine",
+                "AUTH_L03_Gate_HighRejoin",
+                "AUTH_L03_CoolantValve_A",
+                "AUTH_L03_LiftOverride_B",
+                "AUTH_L03_Hazard_FurnaceStrip_West",
+                "AUTH_L03_Hazard_FurnaceStrip_East",
+                "AUTH_L03_Hazard_SlagVent_R3_A",
+                "TRG_L03_Secret_CrucibleShelf",
+                "SPAWN_L03_Pickup_Ammo_R1_A",
+                "SPAWN_L03_Pickup_Health_R1_A",
+                "SPAWN_L03_Pickup_Armor_R4_A",
+                "SPAWN_L03_Pickup_Ammo_C5_A",
+                "SPAWN_L03_Secret_CrucibleCache_A",
+                "SPAWN_L03_R1_Ranged_Teacher",
+                "SPAWN_L03_C4_DetourScrapper_A",
+                "SPAWN_L03_R4_ValveCommit_A",
+                "SPAWN_L03_C5_Catwalk_A",
+                "SPAWN_L03_R5_Rejoin_A",
+                "Pickup - L03 Gantry Ammo",
+                "Pickup - L03 Gantry Health",
+                "Pickup - L03 Catwalk Ammo",
+                "Pickup - L03 Secret Crucible Cache",
+                "Enemy - L03 Gantry Ranged Teacher",
+                "Enemy - L03 Gantry Detour Scrapper",
+                "Enemy - L03 Gantry Bellows Node",
+                "VIS_L03_FoundryGantry_OverheadPipeGallery",
+                "VIS_L03_FoundryGantry_ControlGaugeCluster",
+                "VIS_L03_FoundryGantry_FurnaceColumn",
+                "Label - L03 Foundry Gantry"
+            };
+        }
+        else if (sceneName == "Level04")
+        {
+            rootName = "ROUTE_L04_ObservatoryPumpworks_v0_1_50";
+            visualRootName = "VISUALONLY_L04_ObservatoryPumpworks";
+            requiredNames = new[]
+            {
+                "GEO_L04_Pumpworks_EntryConduit",
+                "GEO_L04_Pumpworks_KeyedAntechamber",
+                "GEO_L04_Pumpworks_LowerSpine",
+                "GEO_L04_Pumpworks_PressureKeyRoom",
+                "GEO_L04_Pumpworks_RegulatorRoom",
+                "GEO_L04_Pumpworks_EastRiser",
+                "GEO_L04_Pumpworks_VerticalPumpArena",
+                "GEO_L04_Pumpworks_SecretReturnDuct",
+                "GEO_L04_Pumpworks_ObservatoryOverlook",
+                "GEO_L04_Pumpworks_MaintenanceStair",
+                "GEO_L04_Pumpworks_RejoinLockroom",
+                "COL_L04_PumpArena_NorthRail",
+                "COL_L04_Overlook_Rail",
+                "COL_L04_SecretDuct_Rail",
+                "AUTH_L04_Door_KeyedMaintenance_A",
+                "AUTH_L04_Door_RegulatorSeal_B",
+                "AUTH_L04_Gate_PumpArenaUpper_C",
+                "AUTH_L04_Door_RejoinLockroom_D",
+                "AUTH_L04_Grate_SecretReturn_E",
+                "AUTH_L04_Item_PressureKey",
+                "AUTH_L04_PumpReroute_A",
+                "AUTH_L04_OverlookSwitch_B",
+                "AUTH_L04_Hazard_PressureJet_R4_North",
+                "AUTH_L04_Hazard_PressureJet_R4_South",
+                "AUTH_L04_Hazard_GearSweep_R4_Deck",
+                "AUTH_L04_Hazard_Overpressure_R3",
+                "TRG_L04_Secret_ReturnDuct",
+                "SPAWN_L04_Pickup_Ammo_R1_A",
+                "SPAWN_L04_Pickup_Health_R2_A",
+                "SPAWN_L04_Pickup_Armor_R3_A",
+                "SPAWN_L04_Pickup_Ammo_R4_A",
+                "SPAWN_L04_Pickup_Health_R4_B",
+                "SPAWN_L04_Secret_Overcharge_R5_A",
+                "SPAWN_L04_Secret_Ammo_R5_B",
+                "SPAWN_L04_R1_Scout_A",
+                "SPAWN_L04_R2_KeyAmbush_A",
+                "SPAWN_L04_R3_PumpCommit_A",
+                "SPAWN_L04_R4_ArenaPinch_A",
+                "SPAWN_L04_R6_Rejoin_A",
+                "Pickup - L04 Pumpworks Ammo",
+                "Pickup - L04 Pumpworks Health",
+                "Pickup - L04 Arena Ammo",
+                "Pickup - L04 Arena Health",
+                "Pickup - L04 Secret Return Ammo",
+                "Enemy - L04 Pumpworks Scout",
+                "Enemy - L04 Pumpworks Lancer",
+                "Enemy - L04 Pumpworks Arena Bulwark",
+                "VIS_L04_Pumpworks_PipeGallery",
+                "VIS_L04_Pumpworks_RegulatorGaugeCluster",
+                "VIS_L04_Pumpworks_VerticalPumpColumn",
+                "Label - L04 Observatory Pumpworks"
+            };
+        }
+        else
+        {
+            return;
+        }
+
+        GameObject root = RequireNamed(rootName, sceneName + " v0.1.51 route expansion root");
+        RequireRouteExpansionChild(root, "GEO", sceneName);
+        RequireRouteExpansionChild(root, "COL", sceneName);
+        RequireRouteExpansionChild(root, "TRG", sceneName);
+        RequireRouteExpansionChild(root, "AUTH", sceneName);
+        RequireRouteExpansionChild(root, "SPAWN", sceneName);
+        GameObject visualRoot = RequireRouteExpansionChild(root, visualRootName, sceneName).gameObject;
+        ValidateV0151VisualOnlyIsolation(sceneName, visualRoot);
+
+        for (int i = 0; i < requiredNames.Length; i++)
+        {
+            RequireNamed(requiredNames[i], sceneName + " v0.1.51 route expansion object " + requiredNames[i]);
+        }
+    }
+
+    private static Transform RequireRouteExpansionChild(GameObject root, string childName, string sceneName)
+    {
+        Transform child = root.transform.Find(childName);
+        if (child == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " v0.1.51 route expansion is missing child container " + childName + ".");
+        }
+
+        return child;
+    }
+
+    private static void ValidateV0151VisualOnlyIsolation(string sceneName, GameObject visualRoot)
+    {
+        if (visualRoot.GetComponentsInChildren<Collider>(true).Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " v0.1.51 visual-only route content must not include colliders.");
+        }
+
+        if (visualRoot.GetComponentsInChildren<Rigidbody>(true).Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " v0.1.51 visual-only route content must not include rigidbodies.");
+        }
+
+        if (visualRoot.GetComponentsInChildren<AudioSource>(true).Length > 0 || visualRoot.GetComponentsInChildren<Camera>(true).Length > 0 || visualRoot.GetComponentsInChildren<Light>(true).Length > 0 || visualRoot.GetComponentsInChildren<ParticleSystem>(true).Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " v0.1.51 visual-only route content must not include autonomous systems.");
+        }
     }
 
     private static int GetMinimumSidecarShowcaseRendererCount(string sceneName)

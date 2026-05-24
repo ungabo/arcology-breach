@@ -1,0 +1,115 @@
+{
+  "review_id": "V0_1_51_Set07AcceptanceReview",
+  "review_date": "2026-05-24",
+  "scope": "sidecar validation and integration prep only",
+  "headline_recommendation": "Do not bulk-accept Set07. Accept InteriorDressingSet07 and MechanicalEnemyPartsSet07 into quarantine with caveats; treat HeroRoomRenderSet07 as concept-only; send RoomShellSet07 back to lookdev; accept WeaponComponentSet07 only with explicit preview/lookdev caveat.",
+  "packages": [
+    {
+      "id": "WCS07",
+      "root": "AssetPacks/BrassworksBreach.WeaponComponentSet07",
+      "package_name": "com.brassworks.sidecar.weapon-component-set07",
+      "version": "0.1.51-p001",
+      "counts": {
+        "runtime_prefabs": 30,
+        "materials": 20,
+        "meshes": 12,
+        "runtime_textures": 0,
+        "preview_pngs": 30,
+        "assembly_lookdev_pngs": 13
+      },
+      "manifest": "AssetPacks/BrassworksBreach.WeaponComponentSet07/Documentation~/Manifest/WCS07_WeaponComponentSet07_Manifest_v0.1.51-p001.json",
+      "runtime_catalog": "AssetPacks/BrassworksBreach.WeaponComponentSet07/Runtime/Metadata/WCS07_RuntimeCatalog_v0.1.51-p001.json",
+      "static_result": "pass",
+      "lookdev_result": "needs_rework_for_package_previews",
+      "acceptance_call": "accept_with_caveats_or_send_back_to_lookdev"
+    },
+    {
+      "id": "RSS07",
+      "root": "AssetPacks/BrassworksBreach.RoomShellSet07",
+      "package_name": "com.brassworks.sidecar.room-shell-set07",
+      "version": "0.1.51-p001",
+      "counts": {
+        "runtime_prefabs": 30,
+        "materials": 18,
+        "meshes": 16,
+        "runtime_textures": 0,
+        "preview_pngs": 28
+      },
+      "manifest": "AssetPacks/BrassworksBreach.RoomShellSet07/Documentation~/Manifest/RSS07_RoomShellSet07_Manifest_v0.1.51-p001.json",
+      "runtime_catalog": "AssetPacks/BrassworksBreach.RoomShellSet07/Runtime/Metadata/RSS07_RuntimeCatalog_v0.1.51.json",
+      "static_result": "pass",
+      "lookdev_result": "fail_flat_swatch_only",
+      "acceptance_call": "send_back_to_lookdev"
+    },
+    {
+      "id": "MEPS07",
+      "root": "AssetPacks/BrassworksBreach.MechanicalEnemyPartsSet07",
+      "package_name": "com.brassworks.sidecar.mechanical-enemy-parts-set07",
+      "version": "0.1.51-p001",
+      "counts": {
+        "runtime_prefabs": 43,
+        "materials": 22,
+        "meshes": 16,
+        "runtime_textures": 22,
+        "preview_pngs": 68
+      },
+      "manifest": "AssetPacks/BrassworksBreach.MechanicalEnemyPartsSet07/Documentation~/Manifest/MEPS07_MechanicalEnemyPartsSet07_Manifest_v0.1.51-p001.json",
+      "runtime_catalog": null,
+      "static_result": "pass",
+      "lookdev_result": "pass_for_quarantine",
+      "acceptance_call": "accept_with_caveats",
+      "caveats": [
+        "visual-only",
+        "no rigging, animation, AI, hit volumes, collision, or gameplay authority",
+        "package contains an Editor generator source file; PM should decide whether to stage or strip before final intake",
+        "no Runtime/Metadata catalog found"
+      ]
+    },
+    {
+      "id": "ID07",
+      "root": "AssetPacks/BrassworksBreach.InteriorDressingSet07",
+      "package_name": "com.brassworks.sidecar.interior-dressing-set07",
+      "version": "0.1.51-p001",
+      "counts": {
+        "runtime_prefabs": 36,
+        "materials": 20,
+        "meshes": 16,
+        "runtime_textures": 20,
+        "preview_pngs": 36
+      },
+      "manifest": "AssetPacks/BrassworksBreach.InteriorDressingSet07/Documentation~/Manifest/ID07_InteriorDressingSet07_Manifest_0.1.51-p001.json",
+      "runtime_catalog": "AssetPacks/BrassworksBreach.InteriorDressingSet07/Runtime/Metadata/ID07_InteriorDressingSet07_Manifest_0.1.51-p001.json",
+      "static_result": "pass",
+      "lookdev_result": "pass_for_quarantine",
+      "acceptance_call": "accept_with_caveats"
+    },
+    {
+      "id": "HRS07",
+      "root": "AssetPacks/BrassworksBreach.HeroRoomRenderSet07",
+      "package_name": "com.brassworks.sidecar.hero-room-render-set07",
+      "version": "0.1.51-p001",
+      "counts": {
+        "runtime_prefabs": 20,
+        "room_prefabs": 8,
+        "module_prefabs": 12,
+        "materials": 19,
+        "meshes": 16,
+        "runtime_textures": 0,
+        "concept_pngs": 10,
+        "light_components": 20
+      },
+      "manifest": "AssetPacks/BrassworksBreach.HeroRoomRenderSet07/Documentation~/Manifest/HRS07_HeroRoomRenderSet07_Manifest_v0.1.51-p001.json",
+      "runtime_catalog": "AssetPacks/BrassworksBreach.HeroRoomRenderSet07/Runtime/Metadata/HRS07_RuntimeCatalog_v0.1.51-p001.json",
+      "static_result": "pass_with_light_caveat",
+      "lookdev_result": "concept_only",
+      "acceptance_call": "accept_for_concept_review_only"
+    }
+  ],
+  "integration_order": [
+    "InteriorDressingSet07",
+    "MechanicalEnemyPartsSet07",
+    "HeroRoomRenderSet07 as review-only",
+    "WeaponComponentSet07 after weapon-owner caveat signoff",
+    "RoomShellSet07 after lookdev rework"
+  ]
+}

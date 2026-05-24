@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 17:59 -04:00`
+Last updated: `2026-05-24 18:36 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -19,13 +19,13 @@ Current focus:
 
 Current verified local build:
 
-- `v0.1.49`
-- Build path: `Builds/Windows/v0.1.49/BrassworksBreach_v0.1.49.exe`
-- Package path: `Builds/WindowsPackages/v0.1.49/BrassworksBreach_v0.1.49_Windows.zip`
-- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.49.md`
-- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.49.md`
-- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.49.md`
-- Matrix result: route audit, full smoke/build/package sequence, `SIDECAR_QUARANTINE_IMPORT_PASS packages=17 assets=150`, route-shell promotion-pilot validation, `V0_GAMEPLAY_FEEDBACK_PASS`, `V0_WORLD_LABEL_READABILITY_PASS`, `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`
+- `v0.1.51`
+- Build path: `Builds/Windows/v0.1.51/BrassworksBreach_v0.1.51.exe`
+- Package path: `Builds/WindowsPackages/v0.1.51/BrassworksBreach_v0.1.51_Windows.zip`
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.51.md`
+- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.51.md`
+- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.51.md`
+- Matrix result: route audit, full smoke/build/package sequence, `SIDECAR_QUARANTINE_IMPORT_PASS packages=17 assets=150`, Level02-Level04 route-expansion validation, deterministic ranged-combat smoke targeting, `V0_GAMEPLAY_FEEDBACK_PASS`, `V0_WORLD_LABEL_READABILITY_PASS`, `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`
 
 Current sidecar-gate status:
 
@@ -33,8 +33,10 @@ Current sidecar-gate status:
 - `SidecarQuarantineImportValidator` passed with `SIDECAR_QUARANTINE_IMPORT_PASS packages=17 assets=150`.
 - Level02 now contains a route-shell promotion pilot proving sidecar visual shells plus main-scene-owned collision proxies.
 - Completed and accepted sidecar lanes pending future import/promotion: Surface Texture Set 05, Objective Interactables Set 05, Mechanical Enemy Elite Set 05, Steam FX Set 06, and Hazard Props Set 06.
-- Completed and accepted route-planning lane pending implementation: Level Expansion Routes for Level02-Level04.
-- Active sidecar lanes: none at this timestamp; refill capacity with disjoint weapon-component, corridor/room shell, combat encounter prop, or QA automation bundles after the v0.1.50 commit.
+- Completed and implemented route-planning lane: Level Expansion Routes for Level02-Level04 is now represented by v0.1.51 pressure-bypass, foundry-gantry, and observatory-pumpworks scene modules.
+- Completed Set07 sidecar/lookdev lanes remain quarantined for review: Weapon Component Set 07, Room Shell Set 07, Mechanical Enemy Parts Set 07, Interior Dressing Set 07, Hero Room Render Set 07, and Set07 acceptance review. The procedural/non-Unity Weapon Component Set 07 assembly lookdev proof is not accepted or staged; any replacement must be Unity-rendered.
+- Current art conclusion: the best corridor render is useful for density/composition but still falls short of final north-star material realism. Do not bulk-promote Set07 into gameplay.
+- Active sidecar lane: Surface Material Detail Set 08, focused on higher-quality brass/copper/iron/wet-stone/grime material families and mini-corridor material boards.
 
 Current speed adjustment:
 
@@ -47,6 +49,11 @@ Current speed adjustment:
 
 | Agent | ID | Scope | Allowed Write Files | Started | Status |
 | --- | --- | --- | --- | --- | --- |
+| Halley | `019e5c1d-e17a-7930-9008-a448ee624b65` | Surface Material Detail Set 08 package for v0.1.52 material/render-gap improvement | `AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/`, `Documentation/AssetProduction/V0_1_52_SurfaceMaterialDetailSet08/`, `Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/`, `Documentation/Planning/V0_1_52_SurfaceMaterialDetailSet08ImportReadiness/`, `Documentation/QA/V0_1_52_SurfaceMaterialDetailSet08ImportReadiness/` | `2026-05-24 18:30 -04:00` | active; expected to deliver broad material families, texture maps, preview renders, manifests, and import-readiness evidence |
+| Jason | `019e5c16-17bc-7692-a910-953c0d32643a` | Set07 acceptance review | `Documentation/Planning/V0_1_51_Set07AcceptanceReview/`, `Documentation/QA/V0_1_51_Set07AcceptanceReview/` | `2026-05-24 18:18 -04:00` | completed; recommends no bulk Set07 promotion, accepts selected packages only with caveats |
+| Parfit | `019e5c0d-c65d-73f0-85ed-d159dca313fe` | Weapon Component Set 07 assembly lookdev | `Documentation/Planning/V0_1_51_WeaponComponentSet07AssemblyLookdev/`, `Documentation/QA/V0_1_51_WeaponComponentSet07AssemblyLookdev/`, `Documentation/ConceptRenders/V0_1_51_WeaponComponentSet07_AssemblyLookdev/` | `2026-05-24 18:10 -04:00` | completed locally but not accepted/staged because the proof was procedural docs-only output; replacement must be Unity-rendered |
+| Popper | `019e5c0b-2220-7a32-b3ee-a037e02e1a46` | Hero Room Render Set 07 corridor/lookdev render set | `AssetPacks/BrassworksBreach.HeroRoomRenderSet07/`, `Documentation/AssetProduction/V0_1_51_HeroRoomRenderSet07/`, `Documentation/ConceptRenders/V0_1_51_HeroRoomRenderSet07/` | `2026-05-24 18:06 -04:00` | completed; corridor beauty pass 02 is review evidence, still below final material quality |
+| Heisenberg | `019e5c04-96b3-7743-86a3-97331a44c3d9` | Playable route-expansion QA packet for v0.1.51 | `Documentation/Planning/V0_1_51_PlayableRouteExpansionQA/`, `Documentation/QA/V0_1_51_PlayableRouteExpansionQA/` | `2026-05-24 18:00 -04:00` | completed; route QA informed the v0.1.51 scene implementation |
 | Helmholtz | `019e5bd3-7c73-7451-a29f-7d7403e8693f` | v0.1.46 import-readiness packet for Weapon Mechanisms Set 04 | `Documentation/Planning/V0_1_46_WeaponMechanismsImportReadiness/`, `Documentation/QA/V0_1_46_WeaponMechanismsImportReadiness/` | `2026-05-24 17:17 -04:00` | completed; proposes future post-import gate `packages=16 assets=138` |
 | Hegel | `019e5bd3-225f-7970-b113-df4b6f87b8cc` | v0.1.46 import-readiness packet for Room Setpiece Kit 04 | `Documentation/Planning/V0_1_46_RoomSetpieceImportReadiness/`, `Documentation/QA/V0_1_46_RoomSetpieceImportReadiness/` | `2026-05-24 17:16 -04:00` | completed; proposes future post-import gate `packages=16 assets=135` |
 | Volta | `019e5bc8-ed91-7b62-82c0-90b39c48bd99` | v0.1.45 import-readiness packet for Level Atmosphere Set 03 and Enemy Animation Proxy Set 01 | `Documentation/Planning/V0_1_45_SidecarImportReadiness/`, `Documentation/QA/V0_1_45_SidecarImportReadiness/` | `2026-05-24 17:00 -04:00` | completed; used by v0.1.45 import |

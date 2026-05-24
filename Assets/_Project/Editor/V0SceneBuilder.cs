@@ -1059,6 +1059,7 @@ public static class V0SceneBuilder
         CreatePipeworksSecretCache(brassMaterial, ironMaterial, warningMaterial, healthMaterial, glassMaterial, fluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
         CreatePipeworksFlowPolish(brassMaterial, warningMaterial, exitMaterial, ironMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
         CreatePipeworksRouteShellPromotionPilot(ironMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, oilStoneMaterial);
+        CreateLevel02PressureBypassExpansion(brassMaterial, warningMaterial, ironMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, healthMaterial, glassMaterial, fluidMaterial, ammoMaterial, enemyMaterial, enemyEyeMaterial, healthPickupDefinition, ammoPickupDefinition, scrapperDefinition, lancerDefinition);
         CreateSidecarQuarantineShowcase("Level02");
         CreatePointLight("Pipeworks Exit Green Light", new Vector3(0f, 2.4f, 22.7f), new Color(0.1f, 1f, 0.3f), 2.8f, 7f);
         CreatePointLight("Pipeworks Furnace Light", new Vector3(-4.1f, 1.6f, 16f), new Color(1f, 0.36f, 0.08f), 2.2f, 5f);
@@ -1093,6 +1094,7 @@ public static class V0SceneBuilder
         foundryLift.lockedMessage = "The foundry lift is pressure-locked. Vent the Boilerheart first.";
         CreateBoilerheartFlowPolish(brassMaterial, warningMaterial, exitMaterial, ironMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
         CreateLevel03SignageDecalsV1();
+        CreateLevel03FoundryGantryExpansion(brassMaterial, warningMaterial, ironMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, healthMaterial, glassMaterial, fluidMaterial, ammoMaterial, enemyMaterial, enemyEyeMaterial, healthPickupDefinition, ammoPickupDefinition, scrapperDefinition, bellowsNodeDefinition);
         CreateSidecarQuarantineShowcase("Level03");
         CreatePointLight("Boilerheart Furnace Light", new Vector3(0f, 2.6f, 15.8f), new Color(1f, 0.32f, 0.08f), 4f, 10f);
         CreatePointLight("Boilerheart Foundry Lift Green Light", new Vector3(0f, 2.6f, 23.8f), new Color(0.1f, 1f, 0.35f), 2.8f, 7f);
@@ -1121,6 +1123,7 @@ public static class V0SceneBuilder
         CreateFoundrySecretCache(brassMaterial, ironMaterial, warningMaterial, healthMaterial, glassMaterial, fluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
         CreateFurnaceFoundryDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, exitMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreateFoundryClimaxPolish(brassMaterial, warningMaterial, exitMaterial, ironMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
+        CreateLevel04ObservatoryPumpworksExpansion(brassMaterial, warningMaterial, ironMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, healthMaterial, glassMaterial, fluidMaterial, ammoMaterial, enemyMaterial, enemyEyeMaterial, healthPickupDefinition, ammoPickupDefinition, scrapperDefinition, lancerDefinition, bulwarkDefinition);
         CreateSidecarQuarantineShowcase("Level04");
         CreateLevelTransitionLiftAt("Foundry Emergency Hoist", new Vector3(0f, 1.1f, 28.3f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial, "Level05", "Emergency hoist rising toward the Governor Core");
         CreatePointLight("Foundry Furnace Light West", new Vector3(-4.65f, 2.1f, 14.8f), new Color(1f, 0.32f, 0.08f), 3.2f, 8f);
@@ -1477,6 +1480,318 @@ public static class V0SceneBuilder
         CreatePipeBundle("Pipeworks Triple Pipe Bundle", new Vector3(0f, 2.35f, 23.72f), Quaternion.Euler(0f, 90f, 0f), 3.6f, brassMaterial, ironMaterial, parent.transform);
         CreateWorkOrderBoard("Work Order Board - Pipeworks", "PIPEWORKS NOTICE\nBOLT FEED LIVE\nKEEP DISTANCE", new Vector3(4.95f, 1.55f, 12f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateLorePlaque("Lore Plaque - Pipeworks Archive", "Pipeworks Archive", "The bolt feed carried messages before it carried weapons; now every valve-rifle repeats the shutdown command.", new Vector3(4.95f, 1.55f, 14.4f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+    }
+
+    private static void CreateLevel02PressureBypassExpansion(Material brassMaterial, Material warningMaterial, Material ironMaterial, Material floorMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial, Material healthMaterial, Material glassMaterial, Material fluidMaterial, Material ammoMaterial, Material enemyMaterial, Material enemyEyeMaterial, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition)
+    {
+        GameObject root = CreateRouteExpansionRoot("ROUTE_L02_PressureBypass_v0_1_50", out Transform geo, out Transform col, out Transform trg, out Transform auth, out Transform spawn, out Transform visual);
+
+        CreateRouteFloor("GEO_L02_PressureDoor_EntryVestibule", new Vector3(-8.8f, 0f, 7.2f), new Vector2(3.8f, 4f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L02_PressureBypass_WestPipeCorridor", new Vector3(-10.4f, 0f, 11.8f), new Vector2(3f, 7.4f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L02_PressureBypass_ValveRoomA", new Vector3(-11.1f, 0f, 16.8f), new Vector2(4.8f, 4.6f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L02_PressureBypass_CrossPipeHall", new Vector3(-8.3f, 0f, 19.2f), new Vector2(7.2f, 3f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L02_PressureBypass_PumpRoom", new Vector3(-10.8f, 0f, 22.2f), new Vector2(5.6f, 4.8f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L02_PressureBypass_ReturnDrop", new Vector3(-7.5f, 0f, 24.2f), new Vector2(3.4f, 3f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L02_PressureBypass_ExitSpine", new Vector3(-4.4f, 0f, 23f), new Vector2(3.6f, 5.4f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L02_PressureBypass_SecretServiceDuct", new Vector3(-13.4f, 0f, 19.5f), new Vector2(2.1f, 4.2f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L02_PressureBypass_SecretBoilerNiche", new Vector3(-13.2f, 0f, 23.4f), new Vector2(2.8f, 2.8f), floorMaterial, geo);
+
+        CreateRouteWallPair("COL_L02_PressureBypass_WestCorridor_Rails", new Vector3(-10.4f, 0.5f, 11.8f), 3.2f, 7.4f, ironMaterial, col);
+        CreateRouteRail("COL_L02_PressureBypass_PumpRoom_EastGuard", new Vector3(-8.25f, 0.55f, 22.2f), new Vector3(0.24f, 1.1f, 4.4f), ironMaterial, col);
+        CreateRouteRail("COL_L02_PressureBypass_SecretLowRail", new Vector3(-12f, 0.45f, 21.4f), new Vector3(0.28f, 0.9f, 4f), ironMaterial, col);
+
+        CreateRouteAuthorityValve("AUTH_L02_Valve_BypassA", new Vector3(-13.55f, 1.25f, 16.6f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, auth);
+        CreateRouteAuthorityValve("AUTH_L02_Valve_BypassB", new Vector3(-8.25f, 1.25f, 21.9f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, auth);
+        CreateRouteAuthorityDoor("AUTH_L02_Door_PressureBypassEntry", new Vector3(-7.05f, 1.35f, 7.2f), new Vector3(0.32f, 2.7f, 2.9f), ironMaterial, brassMaterial, warningMaterial, auth);
+        CreateRouteAuthorityDoor("AUTH_L02_Door_PumpRoomExit", new Vector3(-6.4f, 1.35f, 23f), new Vector3(0.32f, 2.7f, 3.25f), ironMaterial, brassMaterial, warningMaterial, auth);
+        CreateRouteAuthorityDoor("AUTH_L02_Grate_SecretServiceDuct", new Vector3(-12.25f, 0.85f, 19.5f), new Vector3(0.18f, 1.7f, 2.35f), ironMaterial, brassMaterial, warningMaterial, auth);
+        CreateRouteAuthorityDoor("AUTH_L02_Shortcut_PipeGate", new Vector3(-6.05f, 1f, 20.1f), new Vector3(0.2f, 2f, 2.4f), ironMaterial, brassMaterial, warningMaterial, auth);
+        CreateSteamHazard("AUTH_L02_Hazard_SteamJet_C1_A", new Vector3(-10.9f, 0.75f, 12.6f), new Vector3(1.05f, 1.5f, 1.05f), ironMaterial, steamMaterial, warningMaterial, auth);
+        CreateSteamHazard("AUTH_L02_Hazard_PumpVent_R3_A", new Vector3(-11.8f, 0.75f, 22.1f), new Vector3(1.12f, 1.5f, 1.12f), ironMaterial, steamMaterial, warningMaterial, auth);
+
+        CreateRouteSecretTrigger("TRG_L02_Secret_BoilerNiche", "l02-secret-boiler-niche", "SECRET BOILER NICHE FOUND", new Vector3(-13.2f, 0.78f, 23.4f), new Vector3(2.1f, 1.55f, 2.1f), brassMaterial, warningMaterial, trg);
+        CreateRouteSpawnMarker("SPAWN_L02_Pickup_Health_R2_A", new Vector3(-11.4f, 0.08f, 16f), healthMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L02_Pickup_Ammo_R3_A", new Vector3(-10.2f, 0.08f, 21.2f), ammoMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L02_Pickup_ArmorShard_R3_A", new Vector3(-8.7f, 0.08f, 22.7f), brassMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L02_Secret_AmmoCache_R4_A", new Vector3(-13.4f, 0.08f, 22.8f), ammoMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L02_Secret_Health_R4_A", new Vector3(-12.7f, 0.08f, 23.8f), healthMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L02_R1_Scout_A", new Vector3(-9.8f, 0.1f, 9.4f), warningMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L02_R1_Scout_B", new Vector3(-11.2f, 0.1f, 11.4f), warningMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L02_C1_Ranged_A", new Vector3(-11.8f, 0.1f, 15.1f), warningMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L02_C1_Ranged_B", new Vector3(-8.9f, 0.1f, 18.9f), warningMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L02_Exit_Guard_A", new Vector3(-5.1f, 0.1f, 23.5f), warningMaterial, spawn);
+
+        CreateHealthVialPickup("Pickup - L02 Pressure Bypass Health", new Vector3(-11.4f, 0.65f, 16f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
+        CreatePressureCartridgePickup("Pickup - L02 Pressure Bypass Cartridge", new Vector3(-10.2f, 0.55f, 21.2f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
+        CreatePressureCartridgePickup("Pickup - L02 Secret Ammo Cache", new Vector3(-13.4f, 0.55f, 22.8f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
+        CreateHealthVialPickup("Pickup - L02 Secret Boiler Health", new Vector3(-12.7f, 0.65f, 23.8f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
+        CreateEnemy("Enemy - L02 Pressure Bypass Scout A", new Vector3(-9.8f, 1f, 9.4f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
+        CreateLancerEnemy("Enemy - L02 Pressure Bypass Ranged A", new Vector3(-11.8f, 1f, 15.1f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, lancerDefinition);
+        CreateEnemy("Enemy - L02 Pressure Bypass Exit Guard", new Vector3(-5.1f, 1f, 23.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
+
+        CreateRouteVisualPipeGallery("VIS_L02_PressureBypass_PipeGallery", new Vector3(-10.8f, 1.55f, 18.6f), brassMaterial, ironMaterial, warningMaterial, steamMaterial, visual);
+        CreateRouteVisualGaugeCluster("VIS_L02_PressureBypass_GaugeCluster", new Vector3(-7.3f, 1.55f, 20.7f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, visual);
+        CreateRouteVisualBoilerColumn("VIS_L02_PressureBypass_BoilerColumn", new Vector3(-13.7f, 1.2f, 21.8f), ironMaterial, brassMaterial, glowMaterial, visual);
+        CreateWorldLabel("Label - L02 Pressure Bypass", "PRESSURE BYPASS", new Vector3(-9.2f, 2.35f, 7.2f), new Color(1f, 0.78f, 0.28f), 0.16f);
+        CreatePointLight("L02 Pressure Bypass Amber Gaslight", new Vector3(-10.9f, 2.35f, 18.1f), new Color(1f, 0.55f, 0.16f), 2.2f, 6.2f);
+    }
+
+    private static void CreateLevel03FoundryGantryExpansion(Material brassMaterial, Material warningMaterial, Material ironMaterial, Material floorMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial, Material healthMaterial, Material glassMaterial, Material fluidMaterial, Material ammoMaterial, Material enemyMaterial, Material enemyEyeMaterial, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition bellowsNodeDefinition)
+    {
+        GameObject root = CreateRouteExpansionRoot("ROUTE_L03_FoundryGantry_v0_1_50", out Transform geo, out Transform col, out Transform trg, out Transform auth, out Transform spawn, out Transform visual);
+
+        CreateRouteFloor("GEO_L03_FoundryGantry_EntryRun", new Vector3(8.4f, 0f, 6.8f), new Vector2(3.6f, 4.4f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L03_FoundryGantry_FurnacePit", new Vector3(10.4f, 0f, 11.6f), new Vector2(5.4f, 5.2f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L03_FoundryGantry_CentralLiftBase", new Vector3(9.6f, 0f, 15.8f), new Vector2(3.6f, 3.6f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L03_FoundryGantry_EastServiceRamp", new Vector3(12.4f, 0.25f, 17.8f), new Vector2(3f, 5.6f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L03_FoundryGantry_ControlMezzanine", new Vector3(10.8f, 0.5f, 21.3f), new Vector2(5.2f, 3.8f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L03_FoundryGantry_WestCoolantDuct", new Vector3(7.2f, 0.2f, 18.6f), new Vector2(2.8f, 5.2f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L03_FoundryGantry_CoolantPumpRoom", new Vector3(6.9f, 0.25f, 23.1f), new Vector2(4.3f, 3.8f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L03_FoundryGantry_UpperCatwalk", new Vector3(10.3f, 1.8f, 25.1f), new Vector2(7.4f, 2.2f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L03_FoundryGantry_RejoinStair", new Vector3(7.2f, 0.9f, 26.2f), new Vector2(2.6f, 4.1f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L03_FoundryGantry_HighRejoinBalcony", new Vector3(9.4f, 1.8f, 27.7f), new Vector2(4.6f, 2.4f), floorMaterial, geo);
+
+        CreateRouteRail("COL_L03_FurnacePit_WestRail", new Vector3(7.7f, 0.65f, 11.7f), new Vector3(0.24f, 1.3f, 4.8f), ironMaterial, col);
+        CreateRouteRail("COL_L03_Catwalk_NorthRail", new Vector3(10.3f, 2.35f, 26.35f), new Vector3(7f, 1.1f, 0.22f), ironMaterial, col);
+        CreateRouteRail("COL_L03_RejoinStair_SideRail", new Vector3(6f, 1.35f, 26.2f), new Vector3(0.22f, 1.15f, 3.8f), ironMaterial, col);
+
+        CreateRouteAuthorityDoor("AUTH_L03_Gate_FurnaceEntry", new Vector3(7.05f, 1.3f, 7f), new Vector3(0.28f, 2.6f, 2.8f), ironMaterial, brassMaterial, warningMaterial, auth);
+        CreateRouteAuthorityDoor("AUTH_L03_Lift_CentralGantry", new Vector3(9.6f, 0.35f, 15.8f), new Vector3(2f, 0.28f, 2f), ironMaterial, brassMaterial, warningMaterial, auth);
+        CreateRouteAuthorityDoor("AUTH_L03_Gate_ControlMezzanine", new Vector3(10.8f, 1.55f, 19.45f), new Vector3(3.6f, 2.1f, 0.24f), ironMaterial, brassMaterial, warningMaterial, auth);
+        CreateRouteAuthorityDoor("AUTH_L03_Gate_HighRejoin", new Vector3(9.4f, 2.75f, 28.95f), new Vector3(3.5f, 1.7f, 0.22f), ironMaterial, brassMaterial, warningMaterial, auth);
+        CreateRouteAuthorityValve("AUTH_L03_CoolantValve_A", new Vector3(5.1f, 1.45f, 23.1f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, auth);
+        CreateRouteAuthorityValve("AUTH_L03_LiftOverride_B", new Vector3(12.95f, 1.45f, 21.3f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, auth);
+        CreateFurnaceHeatHazard("AUTH_L03_Hazard_FurnaceStrip_West", new Vector3(9f, 0.75f, 11.5f), new Vector3(1.2f, 1.5f, 4.2f), ironMaterial, glowMaterial, warningMaterial, auth, 0.1f);
+        CreateFurnaceHeatHazard("AUTH_L03_Hazard_FurnaceStrip_East", new Vector3(11.8f, 0.75f, 11.9f), new Vector3(1.2f, 1.5f, 4.2f), ironMaterial, glowMaterial, warningMaterial, auth, 1.2f);
+        CreateSteamHazard("AUTH_L03_Hazard_SlagVent_R3_A", new Vector3(10.2f, 0.75f, 20.9f), new Vector3(1.15f, 1.5f, 1.15f), ironMaterial, steamMaterial, warningMaterial, auth);
+
+        CreateRouteSecretTrigger("TRG_L03_Secret_CrucibleShelf", "l03-secret-crucible-shelf", "SECRET CRUCIBLE SHELF FOUND", new Vector3(6.1f, 1.95f, 25.1f), new Vector3(1.8f, 1.55f, 1.4f), brassMaterial, warningMaterial, trg);
+        CreateRouteSpawnMarker("SPAWN_L03_Pickup_Ammo_R1_A", new Vector3(8.5f, 0.08f, 7.7f), ammoMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L03_Pickup_Health_R1_A", new Vector3(9.7f, 0.08f, 9.3f), healthMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L03_Pickup_Armor_R4_A", new Vector3(10.8f, 1.88f, 24.6f), brassMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L03_Pickup_Ammo_C5_A", new Vector3(12.1f, 1.88f, 25.4f), ammoMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L03_Secret_CrucibleCache_A", new Vector3(6.1f, 1.88f, 25.1f), ammoMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L03_R1_Ranged_Teacher", new Vector3(11.3f, 0.1f, 9.4f), warningMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L03_C4_DetourScrapper_A", new Vector3(7.1f, 0.1f, 19.1f), warningMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L03_R4_ValveCommit_A", new Vector3(10.9f, 0.6f, 22f), warningMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L03_C5_Catwalk_A", new Vector3(12f, 1.9f, 25.4f), warningMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L03_R5_Rejoin_A", new Vector3(9.3f, 1.9f, 27.8f), warningMaterial, spawn);
+
+        CreatePressureCartridgePickup("Pickup - L03 Gantry Ammo", new Vector3(8.5f, 0.55f, 7.7f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
+        CreateHealthVialPickup("Pickup - L03 Gantry Health", new Vector3(9.7f, 0.65f, 9.3f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
+        CreatePressureCartridgePickup("Pickup - L03 Catwalk Ammo", new Vector3(12.1f, 2.35f, 25.4f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
+        CreatePressureCartridgePickup("Pickup - L03 Secret Crucible Cache", new Vector3(6.1f, 2.35f, 25.1f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
+        CreateEnemy("Enemy - L03 Gantry Ranged Teacher", new Vector3(11.3f, 1f, 9.4f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
+        CreateEnemy("Enemy - L03 Gantry Detour Scrapper", new Vector3(7.1f, 1f, 19.1f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
+        CreateBellowsNodeEnemy("Enemy - L03 Gantry Bellows Node", new Vector3(10.9f, 1.45f, 22f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, bellowsNodeDefinition);
+
+        CreateRouteVisualPipeGallery("VIS_L03_FoundryGantry_OverheadPipeGallery", new Vector3(10.4f, 2.2f, 14.5f), brassMaterial, ironMaterial, warningMaterial, steamMaterial, visual);
+        CreateRouteVisualGaugeCluster("VIS_L03_FoundryGantry_ControlGaugeCluster", new Vector3(13.35f, 1.7f, 20.5f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, visual);
+        CreateRouteVisualBoilerColumn("VIS_L03_FoundryGantry_FurnaceColumn", new Vector3(12.8f, 1.1f, 11.6f), ironMaterial, brassMaterial, glowMaterial, visual);
+        CreateWorldLabel("Label - L03 Foundry Gantry", "FOUNDRY GANTRY", new Vector3(9.2f, 2.45f, 6.8f), new Color(1f, 0.72f, 0.24f), 0.16f);
+        CreatePointLight("L03 Gantry Amber Worklight", new Vector3(10.8f, 3.2f, 20.8f), new Color(1f, 0.44f, 0.1f), 2.4f, 7.2f);
+    }
+
+    private static void CreateLevel04ObservatoryPumpworksExpansion(Material brassMaterial, Material warningMaterial, Material ironMaterial, Material floorMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial, Material healthMaterial, Material glassMaterial, Material fluidMaterial, Material ammoMaterial, Material enemyMaterial, Material enemyEyeMaterial, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition lancerDefinition, EnemyDefinition bulwarkDefinition)
+    {
+        GameObject root = CreateRouteExpansionRoot("ROUTE_L04_ObservatoryPumpworks_v0_1_50", out Transform geo, out Transform col, out Transform trg, out Transform auth, out Transform spawn, out Transform visual);
+
+        CreateRouteFloor("GEO_L04_Pumpworks_EntryConduit", new Vector3(8.4f, 0f, 7.1f), new Vector2(3.6f, 4.4f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L04_Pumpworks_KeyedAntechamber", new Vector3(10.3f, 0f, 11.5f), new Vector2(5.2f, 4.2f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L04_Pumpworks_LowerSpine", new Vector3(9.6f, 0f, 16.2f), new Vector2(3.4f, 6.8f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L04_Pumpworks_PressureKeyRoom", new Vector3(13f, 0f, 15.1f), new Vector2(4.4f, 4.4f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L04_Pumpworks_RegulatorRoom", new Vector3(9.6f, 0f, 21.1f), new Vector2(5.4f, 4.6f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L04_Pumpworks_EastRiser", new Vector3(12.7f, 0.8f, 23.7f), new Vector2(2.8f, 4.6f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L04_Pumpworks_VerticalPumpArena", new Vector3(10.2f, 0.25f, 26.7f), new Vector2(6.8f, 5.2f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L04_Pumpworks_SecretReturnDuct", new Vector3(6.5f, 0.65f, 24.7f), new Vector2(2.2f, 4.6f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L04_Pumpworks_ObservatoryOverlook", new Vector3(10.2f, 2.1f, 27f), new Vector2(5.4f, 2.2f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L04_Pumpworks_MaintenanceStair", new Vector3(7.7f, 1.1f, 28.4f), new Vector2(2.4f, 4.1f), floorMaterial, geo);
+        CreateRouteFloor("GEO_L04_Pumpworks_RejoinLockroom", new Vector3(10f, 0f, 30.1f), new Vector2(4.6f, 2.8f), floorMaterial, geo);
+
+        CreateRouteRail("COL_L04_PumpArena_NorthRail", new Vector3(10.2f, 0.9f, 29.15f), new Vector3(6.3f, 1.25f, 0.22f), ironMaterial, col);
+        CreateRouteRail("COL_L04_Overlook_Rail", new Vector3(10.2f, 2.55f, 25.9f), new Vector3(5.4f, 0.9f, 0.2f), ironMaterial, col);
+        CreateRouteRail("COL_L04_SecretDuct_Rail", new Vector3(7.55f, 1.1f, 24.7f), new Vector3(0.2f, 1f, 4.2f), ironMaterial, col);
+
+        CreateRouteAuthorityDoor("AUTH_L04_Door_KeyedMaintenance_A", new Vector3(10.2f, 1.25f, 13.3f), new Vector3(3.8f, 2.5f, 0.26f), ironMaterial, brassMaterial, warningMaterial, auth);
+        CreateRouteAuthorityDoor("AUTH_L04_Door_RegulatorSeal_B", new Vector3(9.6f, 1.25f, 18.75f), new Vector3(3.5f, 2.5f, 0.26f), ironMaterial, brassMaterial, warningMaterial, auth);
+        CreateRouteAuthorityDoor("AUTH_L04_Gate_PumpArenaUpper_C", new Vector3(12.7f, 2f, 25.2f), new Vector3(2.4f, 1.6f, 0.24f), ironMaterial, brassMaterial, warningMaterial, auth);
+        CreateRouteAuthorityDoor("AUTH_L04_Door_RejoinLockroom_D", new Vector3(10f, 1.25f, 28.7f), new Vector3(3.5f, 2.5f, 0.26f), ironMaterial, brassMaterial, warningMaterial, auth);
+        CreateRouteAuthorityDoor("AUTH_L04_Grate_SecretReturn_E", new Vector3(7.55f, 1.15f, 23.4f), new Vector3(0.2f, 1.8f, 2.1f), ironMaterial, brassMaterial, warningMaterial, auth);
+        CreateRouteAuthorityKey("AUTH_L04_Item_PressureKey", new Vector3(13f, 0.9f, 15.1f), brassMaterial, ironMaterial, warningMaterial, auth);
+        CreateRouteAuthorityValve("AUTH_L04_PumpReroute_A", new Vector3(7.05f, 1.45f, 21.1f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, auth);
+        CreateRouteAuthorityValve("AUTH_L04_OverlookSwitch_B", new Vector3(10.2f, 2.85f, 27.9f), Quaternion.Euler(0f, 180f, 0f), ironMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, auth);
+        CreateSteamHazard("AUTH_L04_Hazard_PressureJet_R4_North", new Vector3(8.4f, 0.95f, 26.5f), new Vector3(1.05f, 1.5f, 1.05f), ironMaterial, steamMaterial, warningMaterial, auth);
+        CreateSteamHazard("AUTH_L04_Hazard_PressureJet_R4_South", new Vector3(12f, 0.95f, 27.6f), new Vector3(1.05f, 1.5f, 1.05f), ironMaterial, steamMaterial, warningMaterial, auth);
+        CreateFurnaceHeatHazard("AUTH_L04_Hazard_GearSweep_R4_Deck", new Vector3(10.2f, 1f, 26.9f), new Vector3(4.8f, 1.4f, 0.85f), ironMaterial, glowMaterial, warningMaterial, auth, 0.65f);
+        CreateFurnaceHeatHazard("AUTH_L04_Hazard_Overpressure_R3", new Vector3(9.6f, 0.75f, 21.1f), new Vector3(3.2f, 1.5f, 1.15f), ironMaterial, glowMaterial, warningMaterial, auth, 1.45f);
+
+        CreateRouteSecretTrigger("TRG_L04_Secret_ReturnDuct", "l04-secret-return-duct", "SECRET RETURN DUCT FOUND", new Vector3(6.5f, 1.4f, 24.7f), new Vector3(1.8f, 1.7f, 3.7f), brassMaterial, warningMaterial, trg);
+        CreateRouteSpawnMarker("SPAWN_L04_Pickup_Ammo_R1_A", new Vector3(8.4f, 0.08f, 7.8f), ammoMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L04_Pickup_Health_R2_A", new Vector3(10.2f, 0.08f, 11.8f), healthMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L04_Pickup_Armor_R3_A", new Vector3(9.5f, 0.08f, 20.4f), brassMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L04_Pickup_Ammo_R4_A", new Vector3(12.2f, 0.32f, 26.5f), ammoMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L04_Pickup_Health_R4_B", new Vector3(8.7f, 0.32f, 27.4f), healthMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L04_Secret_Overcharge_R5_A", new Vector3(6.5f, 0.75f, 23.9f), warningMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L04_Secret_Ammo_R5_B", new Vector3(6.4f, 0.75f, 25.6f), ammoMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L04_R1_Scout_A", new Vector3(10.4f, 0.1f, 10.4f), warningMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L04_R2_KeyAmbush_A", new Vector3(13.5f, 0.1f, 15.8f), warningMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L04_R3_PumpCommit_A", new Vector3(8.2f, 0.1f, 21.3f), warningMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L04_R4_ArenaPinch_A", new Vector3(11.6f, 0.35f, 26.7f), warningMaterial, spawn);
+        CreateRouteSpawnMarker("SPAWN_L04_R6_Rejoin_A", new Vector3(10f, 0.1f, 30f), warningMaterial, spawn);
+
+        CreatePressureCartridgePickup("Pickup - L04 Pumpworks Ammo", new Vector3(8.4f, 0.55f, 7.8f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
+        CreateHealthVialPickup("Pickup - L04 Pumpworks Health", new Vector3(10.2f, 0.65f, 11.8f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
+        CreatePressureCartridgePickup("Pickup - L04 Arena Ammo", new Vector3(12.2f, 0.8f, 26.5f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
+        CreateHealthVialPickup("Pickup - L04 Arena Health", new Vector3(8.7f, 0.8f, 27.4f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
+        CreatePressureCartridgePickup("Pickup - L04 Secret Return Ammo", new Vector3(6.4f, 1.2f, 25.6f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
+        CreateEnemy("Enemy - L04 Pumpworks Scout", new Vector3(10.4f, 1f, 10.4f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
+        CreateLancerEnemy("Enemy - L04 Pumpworks Lancer", new Vector3(13.5f, 1f, 15.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, lancerDefinition);
+        CreateBulwarkEnemy("Enemy - L04 Pumpworks Arena Bulwark", new Vector3(11.6f, 1.15f, 26.7f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, bulwarkDefinition);
+
+        CreateRouteVisualPipeGallery("VIS_L04_Pumpworks_PipeGallery", new Vector3(10.2f, 2.25f, 23.6f), brassMaterial, ironMaterial, warningMaterial, steamMaterial, visual);
+        CreateRouteVisualGaugeCluster("VIS_L04_Pumpworks_RegulatorGaugeCluster", new Vector3(7.05f, 1.7f, 20.4f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, visual);
+        CreateRouteVisualBoilerColumn("VIS_L04_Pumpworks_VerticalPumpColumn", new Vector3(12.9f, 1.25f, 26.9f), ironMaterial, brassMaterial, glowMaterial, visual);
+        CreateWorldLabel("Label - L04 Observatory Pumpworks", "OBSERVATORY PUMPWORKS", new Vector3(10f, 2.45f, 7f), new Color(1f, 0.72f, 0.24f), 0.14f);
+        CreatePointLight("L04 Pumpworks Amber Dome Light", new Vector3(10.2f, 3.4f, 26.9f), new Color(1f, 0.46f, 0.12f), 2.8f, 8f);
+    }
+
+    private static GameObject CreateRouteExpansionRoot(string name, out Transform geo, out Transform col, out Transform trg, out Transform auth, out Transform spawn, out Transform visual)
+    {
+        GameObject root = new GameObject(name);
+        geo = CreateRouteChild(root.transform, "GEO");
+        col = CreateRouteChild(root.transform, "COL");
+        trg = CreateRouteChild(root.transform, "TRG");
+        auth = CreateRouteChild(root.transform, "AUTH");
+        spawn = CreateRouteChild(root.transform, "SPAWN");
+        visual = CreateRouteChild(root.transform, name.Contains("L02") ? "VISUALONLY_L02_PressureBypass" : name.Contains("L03") ? "VISUALONLY_L03_FoundryGantry" : "VISUALONLY_L04_ObservatoryPumpworks");
+        return root;
+    }
+
+    private static Transform CreateRouteChild(Transform parent, string name)
+    {
+        GameObject child = new GameObject(name);
+        child.transform.SetParent(parent);
+        return child.transform;
+    }
+
+    private static void CreateRouteFloor(string name, Vector3 center, Vector2 footprint, Material material, Transform parent)
+    {
+        CreateCube(name, new Vector3(center.x, center.y - 0.08f, center.z), new Vector3(footprint.x, 0.16f, footprint.y), material, parent);
+        CreateDecoCube(name + " Brass Edge Inlay", new Vector3(center.x, center.y + 0.025f, center.z - footprint.y * 0.42f), new Vector3(footprint.x * 0.82f, 0.035f, 0.06f), material, parent);
+    }
+
+    private static void CreateRouteWallPair(string name, Vector3 center, float width, float length, Material material, Transform parent)
+    {
+        CreateRouteRail(name + " Left", new Vector3(center.x - width * 0.5f, center.y, center.z), new Vector3(0.22f, 1f, length), material, parent);
+        CreateRouteRail(name + " Right", new Vector3(center.x + width * 0.5f, center.y, center.z), new Vector3(0.22f, 1f, length), material, parent);
+    }
+
+    private static void CreateRouteRail(string name, Vector3 position, Vector3 scale, Material material, Transform parent)
+    {
+        CreateCube(name, position, scale, material, parent);
+    }
+
+    private static void CreateRouteAuthorityDoor(string name, Vector3 position, Vector3 scale, Material ironMaterial, Material brassMaterial, Material warningMaterial, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+        CreateLocalCube(name + " Blackened Iron Slab", root.transform, Vector3.zero, scale, ironMaterial);
+        CreateLocalCube(name + " Brass Rib Vertical A", root.transform, new Vector3(-scale.x * 0.42f, 0f, -scale.z * 0.52f), new Vector3(0.08f, scale.y * 0.92f, 0.06f), brassMaterial);
+        CreateLocalCube(name + " Brass Rib Vertical B", root.transform, new Vector3(scale.x * 0.42f, 0f, -scale.z * 0.52f), new Vector3(0.08f, scale.y * 0.92f, 0.06f), brassMaterial);
+        CreateLocalCube(name + " Red Lock Stripe", root.transform, new Vector3(0f, scale.y * 0.28f, -scale.z * 0.56f), new Vector3(scale.x * 0.86f, 0.08f, 0.065f), warningMaterial);
+    }
+
+    private static void CreateRouteAuthorityValve(string name, Vector3 position, Quaternion rotation, Material ironMaterial, Material brassMaterial, Material warningMaterial, Material gaugeFaceMaterial, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+        root.transform.rotation = rotation;
+        CreateLocalCube(name + " Iron Backplate", root.transform, Vector3.zero, new Vector3(1.05f, 1.25f, 0.08f), ironMaterial);
+        CreatePressureGauge(name + " Gauge", position + rotation * new Vector3(0.32f, 0.38f, -0.12f), rotation, brassMaterial, gaugeFaceMaterial, warningMaterial, root.transform);
+        GameObject wheel = CreateLocalEmpty(name + " Wheel Assembly", root.transform, new Vector3(0f, -0.06f, -0.14f), Quaternion.Euler(90f, 0f, 0f));
+        AddSpinner(wheel, 18f);
+        CreateLocalPrimitive(name + " Brass Wheel", PrimitiveType.Cylinder, wheel.transform, Vector3.zero, new Vector3(0.46f, 0.04f, 0.46f), brassMaterial);
+        CreateLocalCube(name + " Red Spoke Horizontal", wheel.transform, Vector3.zero, new Vector3(0.82f, 0.04f, 0.045f), warningMaterial);
+        CreateLocalCube(name + " Red Spoke Vertical", wheel.transform, Vector3.zero, new Vector3(0.045f, 0.04f, 0.82f), warningMaterial);
+    }
+
+    private static void CreateRouteAuthorityKey(string name, Vector3 position, Material brassMaterial, Material ironMaterial, Material warningMaterial, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+        GameObject gear = CreateLocalPrimitive(name + " Brass Gear Key Face", PrimitiveType.Cylinder, root.transform, Vector3.zero, new Vector3(0.42f, 0.06f, 0.42f), brassMaterial);
+        gear.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube(name + " Iron Key Shaft", root.transform, new Vector3(0f, -0.42f, 0f), new Vector3(0.12f, 0.85f, 0.12f), ironMaterial);
+        CreateLocalCube(name + " Red Tagged Bow", root.transform, new Vector3(0f, 0.42f, 0f), new Vector3(0.62f, 0.08f, 0.08f), warningMaterial);
+        AddSpinner(root, 40f);
+    }
+
+    private static void CreateRouteSecretTrigger(string name, string secretId, string message, Vector3 position, Vector3 triggerSize, Material brassMaterial, Material warningMaterial, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+        BoxCollider trigger = root.AddComponent<BoxCollider>();
+        trigger.size = triggerSize;
+        trigger.isTrigger = true;
+        SecretArea secret = root.AddComponent<SecretArea>();
+        secret.secretId = secretId;
+        secret.discoveryMessage = message;
+        CreateLocalCube(name + " Brass Cache Plate", root.transform, new Vector3(0f, -0.76f, 0f), new Vector3(triggerSize.x * 0.75f, 0.05f, triggerSize.z * 0.75f), brassMaterial);
+        CreateLocalCube(name + " Red Service Mark", root.transform, new Vector3(0f, -0.68f, -triggerSize.z * 0.24f), new Vector3(triggerSize.x * 0.55f, 0.06f, 0.08f), warningMaterial);
+    }
+
+    private static void CreateRouteSpawnMarker(string name, Vector3 position, Material material, Transform parent)
+    {
+        CreateDecoCube(name, position, new Vector3(0.38f, 0.08f, 0.38f), material, parent);
+    }
+
+    private static void CreateRouteVisualPipeGallery(string name, Vector3 position, Material brassMaterial, Material ironMaterial, Material warningMaterial, Material steamMaterial, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+        for (int i = 0; i < 4; i++)
+        {
+            GameObject pipe = CreateLocalPrimitive(name + " Pipe " + i.ToString("00"), PrimitiveType.Cylinder, root.transform, new Vector3(-1.2f + i * 0.8f, 0.35f + i * 0.08f, 0f), new Vector3(0.07f, 2.4f, 0.07f), i == 2 ? warningMaterial : brassMaterial);
+            pipe.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+            CreateLocalCube(name + " Iron Clamp " + i.ToString("00"), root.transform, new Vector3(-1.2f + i * 0.8f, 0.35f + i * 0.08f, -0.7f), new Vector3(0.28f, 0.22f, 0.1f), ironMaterial);
+        }
+        CreateLocalPrimitive(name + " Steam Haze Low", PrimitiveType.Sphere, root.transform, new Vector3(-0.6f, -0.4f, 0.1f), new Vector3(0.45f, 0.22f, 0.35f), steamMaterial);
+        CreateLocalPrimitive(name + " Steam Haze High", PrimitiveType.Sphere, root.transform, new Vector3(0.8f, 0.7f, -0.1f), new Vector3(0.38f, 0.34f, 0.3f), steamMaterial);
+    }
+
+    private static void CreateRouteVisualGaugeCluster(string name, Vector3 position, Quaternion rotation, Material brassMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material warningMaterial, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+        root.transform.rotation = rotation;
+        CreateLocalCube(name + " Iron Panel", root.transform, Vector3.zero, new Vector3(1.45f, 1.05f, 0.08f), ironMaterial);
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject gaugeRoot = CreateLocalEmpty(name + " Gauge Pod " + i.ToString("00"), root.transform, new Vector3(-0.46f + i * 0.46f, 0.18f, -0.08f), Quaternion.identity);
+            GameObject bezel = CreateLocalPrimitive(name + " Gauge Bezel " + i.ToString("00"), PrimitiveType.Cylinder, gaugeRoot.transform, Vector3.zero, new Vector3(0.18f, 0.025f, 0.18f), brassMaterial);
+            bezel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+            GameObject face = CreateLocalPrimitive(name + " Gauge Face " + i.ToString("00"), PrimitiveType.Cylinder, gaugeRoot.transform, new Vector3(0f, 0f, -0.03f), new Vector3(0.14f, 0.018f, 0.14f), gaugeFaceMaterial);
+            face.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+            CreateLocalCube(name + " Gauge Needle " + i.ToString("00"), gaugeRoot.transform, new Vector3(0.04f, 0f, -0.05f), new Vector3(0.1f, 0.012f, 0.012f), warningMaterial);
+        }
+        CreateLocalCube(name + " Red Tagged Header", root.transform, new Vector3(0f, -0.42f, -0.08f), new Vector3(1.2f, 0.08f, 0.06f), warningMaterial);
+    }
+
+    private static void CreateRouteVisualBoilerColumn(string name, Vector3 position, Material ironMaterial, Material brassMaterial, Material glowMaterial, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+        CreateLocalPrimitive(name + " Riveted Boiler Shell", PrimitiveType.Cylinder, root.transform, Vector3.zero, new Vector3(0.48f, 1.15f, 0.48f), ironMaterial);
+        CreateLocalCube(name + " Amber Sight Glass", root.transform, new Vector3(0f, 0.12f, -0.48f), new Vector3(0.28f, 0.92f, 0.05f), glowMaterial);
+        CreateLocalPrimitive(name + " Brass Cap", PrimitiveType.Cylinder, root.transform, new Vector3(0f, 1.18f, 0f), new Vector3(0.56f, 0.08f, 0.56f), brassMaterial);
+        CreateLocalPrimitive(name + " Brass Base", PrimitiveType.Cylinder, root.transform, new Vector3(0f, -1.18f, 0f), new Vector3(0.56f, 0.08f, 0.56f), brassMaterial);
     }
 
     private static void Wall(string name, float x, float z, float length, bool horizontal, Material material, Transform parent)

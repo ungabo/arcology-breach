@@ -32,7 +32,7 @@ public class RuntimeRangedCombatTest : MonoBehaviour
 
         PlayerController player = Require<PlayerController>("PlayerController");
         PlayerHealth health = Require<PlayerHealth>("PlayerHealth");
-        RangedEnemyController lancer = Require<RangedEnemyController>("RangedEnemyController");
+        RangedEnemyController lancer = RequireCanonicalLancer();
 
         CharacterController characterController = player.GetComponent<CharacterController>();
         if (characterController != null)
@@ -98,6 +98,18 @@ public class RuntimeRangedCombatTest : MonoBehaviour
 
         LancerFireTellVfx fireTell = lancer.GetComponent<LancerFireTellVfx>();
         return fireTell != null && fireTell.IsActive && fireTell.PieceCount >= 8;
+    }
+
+    private RangedEnemyController RequireCanonicalLancer()
+    {
+        GameObject canonicalLancer = GameObject.Find("Enemy - Pipeworks Lancer");
+        RangedEnemyController lancer = canonicalLancer != null ? canonicalLancer.GetComponent<RangedEnemyController>() : null;
+        if (lancer == null)
+        {
+            lancer = Require<RangedEnemyController>("RangedEnemyController");
+        }
+
+        return lancer;
     }
 
     private IEnumerator WaitUntilOrFail(Func<bool> predicate, string step, float timeoutSeconds)

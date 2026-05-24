@@ -5973,3 +5973,22 @@ Accepted the `v0.1.50` package/readiness wave after main-lane review.
 - No main Unity package manifest import, scene import, or gameplay authority change was performed in this slice.
 
 Next-step directive: commit/push the `v0.1.50` acceptance wave, then immediately begin `v0.1.51` as a larger playable route/content expansion batch.
+
+## 2026-05-24 18:36 -04:00
+
+Completed the main-lane `v0.1.51` playable route/content expansion batch.
+
+- Added Level02 `ROUTE_L02_PressureBypass_v0_1_50` with generated route geometry, collision proxies, authority props, hazards, pickups, encounter objects, secret trigger, spawn markers, and visual-only dressing.
+- Added Level03 `ROUTE_L03_FoundryGantry_v0_1_50` with foundry gantry route geometry, furnace/steam hazard pressure, pickups, Scrapper/Bellows encounter pressure, authority valves, spawn markers, and visual-only dressing.
+- Added Level04 `ROUTE_L04_ObservatoryPumpworks_v0_1_50` with pumpworks route geometry, hazard pressure, pickups, Bulwark/Lancer encounter pressure, pressure-key/regulator authority props, secret trigger, spawn markers, and visual-only dressing.
+- Extended `V0LevelValidator` for the route roots, required child containers, required object names, and visual-only route isolation.
+- Fixed `RuntimeRangedCombatTest` to target the canonical `Enemy - Pipeworks Lancer`, avoiding optional-route Lancer discovery-order drift.
+- Ran scoped diff checks, scene rebuild, level validation, sidecar quarantine import validation, editor smoke, Windows build, runtime smoke, auto-playthrough, combat, ranged combat, Bellows Node, Bulwark, Warden, interaction, hazard, secret, pause, movement, balance, level-flow, audio, display, readability, gameplay-feedback, world-label readability, Windows package generation, route audit, QA packet, issue triage, release notes, and candidate readiness.
+- Created `Builds/Windows/v0.1.51/BrassworksBreach_v0.1.51.exe`.
+- Created `Builds/WindowsPackages/v0.1.51/BrassworksBreach_v0.1.51_Windows.zip`.
+- Package ZIP SHA-256: `95AFF4E508ED8324EE159F4661CD844EAAC686B966A6355A916DA1D1B419E3F8`.
+- Reviewed Set07 visual/lookdev outputs; `HRS07_CORRIDOR_BEAUTY_PASS_02_v0.1.51.png` is useful as a Unity-rendered density/composition check but not final surface quality.
+- Kept the procedural/non-Unity weapon assembly proof out of the commit and out of promotion because future render/lookdev work must stay Unity-only.
+- Started the next material/detail push as a side lane to close the gap between the current procedural renders and the steampunk north-star concept art.
+
+Next-step directive: commit/push the `v0.1.51` playable expansion slice while keeping unaccepted Set07 package roots quarantined, then continue immediately with the next highest-impact unfinished task.
