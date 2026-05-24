@@ -1,0 +1,167 @@
+{
+  "packet": {
+    "id": "v0.1.52-route-expansion-tuning",
+    "version_target": "v0.1.52",
+    "followup_window": "v0.1.53",
+    "source_routes": [
+      "Level02 pressure bypass",
+      "Level03 foundry gantry",
+      "Level04 observatory pumpworks"
+    ],
+    "intent": "Bounded production recommendations for route pacing, hazard readability, secrets, encounter density, route labels, and performance/readability risk."
+  },
+  "recommendations": [
+    {
+      "id": "RTE-052-01",
+      "priority": "P0",
+      "level": "Level02",
+      "area": "Pressure Bypass",
+      "risk": "Players may miss or misread the bypass as incidental side dressing, reducing route-expansion value.",
+      "recommendation": "Batch entrance, midpoint, and rejoin labeling so the bypass reads as a coherent alternate pressure route.",
+      "expected_implementation_touchpoints": [
+        "Level02 route signage prefabs or scene label objects",
+        "Bypass entrance sightline props",
+        "Bypass midpoint branch marker",
+        "Mainline rejoin marker"
+      ],
+      "smoke_validation_coverage": "Start at bypass entrance, navigate to midpoint, identify rejoin label, complete route without relying on minimap/debug camera. Capture entrance/midpoint/rejoin screenshots."
+    },
+    {
+      "id": "RTE-052-02",
+      "priority": "P0",
+      "level": "Level02",
+      "area": "Pressure Bypass",
+      "risk": "Pressure hazards can feel unfair if damage occurs before players learn the vent cycle and safe state.",
+      "recommendation": "Re-time pressure vent hazards into teach, execute, and combine beats with visible safe pockets.",
+      "expected_implementation_touchpoints": [
+        "Pressure vent timing values",
+        "Hazard telegraph materials or lights",
+        "Safe-pocket collision/cover placement",
+        "Bypass corner sightlines"
+      ],
+      "smoke_validation_coverage": "Walk and sprint the bypass route at normal camera height; verify no blind damage while rounding corners and that each vent has an observable idle/safe state."
+    },
+    {
+      "id": "RTE-052-03",
+      "priority": "P1",
+      "level": "Level02",
+      "area": "Pressure Bypass",
+      "risk": "Secrets may become random wall-hug rewards instead of reinforcing pressure-system mastery.",
+      "recommendation": "Place one optional secret behind a readable pressure-system choice after the player has learned at least two hazard tells.",
+      "expected_implementation_touchpoints": [
+        "Optional maintenance branch geometry",
+        "Pressure wheel or timing gate",
+        "Secret reward pickup/lore/cache",
+        "Secret return connector"
+      ],
+      "smoke_validation_coverage": "Complete bypass without secret, then complete secret branch and return; confirm route completion does not require discovering the secret."
+    },
+    {
+      "id": "RTE-052-04",
+      "priority": "P0",
+      "level": "Level03",
+      "area": "Foundry Gantry",
+      "risk": "Height changes can obscure progression, optional branches, and safe return paths.",
+      "recommendation": "Batch label, sightline, and collision cleanup for all gantry height transitions.",
+      "expected_implementation_touchpoints": [
+        "Gantry ramp/stair/lift labels",
+        "Upper/lower platform sightlines",
+        "Railing collision boundaries",
+        "Drop safety visual language"
+      ],
+      "smoke_validation_coverage": "Traverse every gantry height transition; call out destination before committing and verify no collision snagging or ambiguous lethal drop reads."
+    },
+    {
+      "id": "RTE-052-05",
+      "priority": "P0",
+      "level": "Level03",
+      "area": "Foundry Gantry",
+      "risk": "Narrow gantry spans can become forced-damage crossfire lanes when encounter density is too high.",
+      "recommendation": "Cap narrow-span pressure and move heavier threats onto wider platforms with lateral choice.",
+      "expected_implementation_touchpoints": [
+        "Enemy spawn markers",
+        "Encounter trigger timing",
+        "Cover prop placement",
+        "Post-encounter safe pocket"
+      ],
+      "smoke_validation_coverage": "Run gantry encounters at baseline difficulty; verify narrow spans contain no more than one forward pressure source plus one flank/ambient source."
+    },
+    {
+      "id": "RTE-052-06",
+      "priority": "P1",
+      "level": "Level03",
+      "area": "Foundry Gantry",
+      "risk": "Foundry hazards can blend into warm machinery and become readability noise during combat.",
+      "recommendation": "Give each hazard family one distinct tell and preserve safe preview angles before damage exposure.",
+      "expected_implementation_touchpoints": [
+        "Hazard material/light pass",
+        "Moving machinery timing",
+        "Preview-angle prop cleanup",
+        "Hazard audio or motion cue hooks"
+      ],
+      "smoke_validation_coverage": "Capture each hazard from first player-visible angle and during combat; verify hot/danger surfaces are distinct from background machinery."
+    },
+    {
+      "id": "RTE-052-07",
+      "priority": "P0",
+      "level": "Level04",
+      "area": "Observatory Pumpworks",
+      "risk": "Pump interactions may read as disconnected room dressing instead of a connected objective chain.",
+      "recommendation": "Clarify pump objective labels and state-change feedback from intake control through observatory feed.",
+      "expected_implementation_touchpoints": [
+        "Pump objective signage",
+        "Interactable labels",
+        "Pump state feedback",
+        "Route-open indicators",
+        "Post-interaction orientation cues"
+      ],
+      "smoke_validation_coverage": "Complete pump chain in order; after each interaction, identify changed route state and next destination without debug tools."
+    },
+    {
+      "id": "RTE-052-08",
+      "priority": "P1",
+      "level": "Level04",
+      "area": "Observatory Pumpworks",
+      "risk": "Combat or hazards immediately after pump interaction can interrupt comprehension of the route state change.",
+      "recommendation": "Tune pacing from puzzle read to movement release before adding encounter pressure.",
+      "expected_implementation_touchpoints": [
+        "First pump puzzle timing",
+        "Changed-state reveal angle",
+        "Post-pump traversal segment",
+        "Encounter trigger placement"
+      ],
+      "smoke_validation_coverage": "Trigger first pump state change, observe route-open feedback, move through release segment, then enter encounter; verify the changed route is understood before combat starts."
+    },
+    {
+      "id": "RTE-052-09",
+      "priority": "P1",
+      "level": "Level04",
+      "area": "Observatory Pumpworks",
+      "risk": "A pumpworks secret can feel arbitrary if it is visible before the relevant state change or hidden in pipe clutter.",
+      "recommendation": "Add one observatory-side secret that becomes legible after a pump state change and reconnects before the next required encounter.",
+      "expected_implementation_touchpoints": [
+        "Pump-state-gated optional path",
+        "Observatory overlook signal",
+        "Distinct maintenance hatch/gauge/telescope marker",
+        "Secret return connector"
+      ],
+      "smoke_validation_coverage": "Verify secret is not reachable before the intended pump state, becomes readable after the state change, and returns to the mandatory route before next encounter."
+    },
+    {
+      "id": "RTE-052-10",
+      "priority": "P0",
+      "level": "Cross-Level",
+      "area": "Route Polish Compile",
+      "risk": "Route changes can regress readability, soft-lock safety, and performance when labels, particles, machinery, enemies, and geometry are all visible.",
+      "recommendation": "Add a cross-level route-polish validation pass covering labels, hazard readability, route smoke, screenshots, and heaviest-view performance checks.",
+      "expected_implementation_touchpoints": [
+        "Route QA checklist",
+        "Screenshot capture pass",
+        "Scene smoke test notes",
+        "Performance/readability test viewpoints",
+        "Active production tracker"
+      ],
+      "smoke_validation_coverage": "For Level02, Level03, and Level04, capture entrance/midpoint/secret/rejoin evidence and test the busiest combined view for readability and frame stability."
+    }
+  ]
+}

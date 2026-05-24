@@ -1,0 +1,1644 @@
+{
+  "schema": "brassworks.surface_material_detail_catalog.v1",
+  "package": "BrassworksBreach.SurfaceMaterialDetailSet08",
+  "package_id": "com.brassworks.sidecar.surface-material-detail-set08",
+  "version": "0.1.52-p001",
+  "generated_at": "2026-05-24T22:46:04.687765Z",
+  "material_count": 24,
+  "texture_count": 96,
+  "preview_count": 20,
+  "texture_channel_convention": {
+    "ALB": "sRGB base/albedo with baked procedural color variation",
+    "NRM": "linear tangent-space normal/bump-like detail",
+    "RMA": "linear R=metallic intent, G=roughness intent, B=ambient occlusion/grime intent; Standard material scalar smoothness remains authoritative until shader import is tuned",
+    "GRM": "linear R=edgewear/chip mask, G=grime/soot deposit mask, B=wetness/patina mask"
+  },
+  "materials": [
+    {
+      "id": "SMD08_MAT_WetBlackStoneSlab",
+      "display_name": "Wet Black Stone Slab",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_WetBlackStoneSlab.mat",
+      "guid": "a2ec15a2a011e1afef18f52372d15eeb",
+      "status": "final_candidate",
+      "import_priority": "high",
+      "motif": "wet_stone",
+      "metallic": 0.02,
+      "smoothness": 0.72,
+      "bump_scale": 0.62,
+      "use": "Corridor wall blocks, low wall returns, wet floor edges",
+      "description": "Oil-dark stone slabs with recessed mortar, cracks, pooled wetness, and amber glints.",
+      "blunt_note": "Strong final candidate. This directly attacks the flat grey wall/floor gap.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_WetBlackStoneSlab_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_WetBlackStoneSlab_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_WetBlackStoneSlab_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_WetBlackStoneSlab_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_WetBlackStoneMortar",
+      "display_name": "Wet Black Stone Mortar",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_WetBlackStoneMortar.mat",
+      "guid": "c439d7719d688a049616ad9b5805ea78",
+      "status": "final_candidate",
+      "import_priority": "high",
+      "motif": "wet_stone_fine",
+      "metallic": 0.01,
+      "smoothness": 0.66,
+      "bump_scale": 0.7,
+      "use": "Dense wall/floor tiling where visible mortar detail is needed",
+      "description": "Finer black-stone blockwork with damp mortar lines and grime held in cracks.",
+      "blunt_note": "Final candidate, but should be scale-tested in Unity before broad tiling.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_WetBlackStoneMortar_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_WetBlackStoneMortar_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_WetBlackStoneMortar_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_WetBlackStoneMortar_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_ChippedBlackIronWallPanel",
+      "display_name": "Chipped Black Iron Wall Panel",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_ChippedBlackIronWallPanel.mat",
+      "guid": "9592af93ca27f4dd9a7d2189ece65088",
+      "status": "final_candidate",
+      "import_priority": "high",
+      "motif": "iron_panel",
+      "metallic": 0.88,
+      "smoothness": 0.44,
+      "bump_scale": 0.58,
+      "use": "Primary corridor wall plates and doors",
+      "description": "Riveted dark iron panels with chipped brass/steel edges, oxidized seams, and oil smears.",
+      "blunt_note": "Strong final candidate. This is the set anchor for black riveted iron.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_ChippedBlackIronWallPanel_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_ChippedBlackIronWallPanel_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_ChippedBlackIronWallPanel_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_ChippedBlackIronWallPanel_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_ChippedBlackIronServicePlate",
+      "display_name": "Chipped Black Iron Service Plate",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_ChippedBlackIronServicePlate.mat",
+      "guid": "5dabd6eafc0ba61bb2049ca8311cbfd9",
+      "status": "final_candidate",
+      "import_priority": "high",
+      "motif": "iron_dense",
+      "metallic": 0.9,
+      "smoothness": 0.38,
+      "bump_scale": 0.68,
+      "use": "Secondary plates, weapon receiver blocks, service door panels",
+      "description": "Darker service plating with tighter rivet rhythm, scraped corners, and soot-set seams.",
+      "blunt_note": "Final candidate for dark panels; slightly busy at distance by design.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_ChippedBlackIronServicePlate_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_ChippedBlackIronServicePlate_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_ChippedBlackIronServicePlate_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_ChippedBlackIronServicePlate_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_WornBrassPipe",
+      "display_name": "Worn Brass Pipe",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_WornBrassPipe.mat",
+      "guid": "b8ae1981f4c27e356a20aa42a57b0bd8",
+      "status": "final_candidate",
+      "import_priority": "high",
+      "motif": "brass_pipe",
+      "metallic": 0.86,
+      "smoothness": 0.46,
+      "bump_scale": 0.44,
+      "use": "Wall/ceiling pipes, weapon barrels, valve housings",
+      "description": "Aged brass cylinder surface with lengthwise scratches, rubbed highlights, tarnish, and banding.",
+      "blunt_note": "Strong final candidate. Replaces clean yellow brass with worn pressure hardware.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_WornBrassPipe_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_WornBrassPipe_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_WornBrassPipe_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_WornBrassPipe_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_WornBrassValveBody",
+      "display_name": "Worn Brass Valve Body",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_WornBrassValveBody.mat",
+      "guid": "a060c6eacfbbcacc16e9c8e0ef12a95a",
+      "status": "final_candidate",
+      "import_priority": "medium",
+      "motif": "brass_cast",
+      "metallic": 0.84,
+      "smoothness": 0.36,
+      "bump_scale": 0.5,
+      "use": "Valve wheels, receivers, fittings, gauge bezels",
+      "description": "Cast brass with darker patina pockets, raised rim wear, stamped band rhythm, and soot dust.",
+      "blunt_note": "Final candidate for props; not a wall/floor hero.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_WornBrassValveBody_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_WornBrassValveBody_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_WornBrassValveBody_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_WornBrassValveBody_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_OxidizedCopperCoil",
+      "display_name": "Oxidized Copper Coil",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_OxidizedCopperCoil.mat",
+      "guid": "5b055a1de69dfee8c6b53248862ccbe1",
+      "status": "final_candidate",
+      "import_priority": "high",
+      "motif": "copper_coil",
+      "metallic": 0.82,
+      "smoothness": 0.34,
+      "bump_scale": 0.52,
+      "use": "Steam coils, heat exchangers, pressure weapon tubing",
+      "description": "Copper with green-blue oxidation in grooves and fresh copper rubs on exposed coil ridges.",
+      "blunt_note": "Strong final candidate for breaking up brass monotony.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_OxidizedCopperCoil_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_OxidizedCopperCoil_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_OxidizedCopperCoil_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_OxidizedCopperCoil_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_OxidizedCopperRunoff",
+      "display_name": "Oxidized Copper Runoff",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_OxidizedCopperRunoff.mat",
+      "guid": "1d696448b202fbc0903fa481a70fb673",
+      "status": "final_candidate",
+      "import_priority": "medium",
+      "motif": "copper_runoff",
+      "metallic": 0.76,
+      "smoothness": 0.31,
+      "bump_scale": 0.55,
+      "use": "Old pipe backs, leaky walls, drainage-adjacent metal",
+      "description": "Dirtier copper sheet with vertical verdigris runoff and darker soot deposits.",
+      "blunt_note": "Final candidate, best used sparingly because the green can become loud.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_OxidizedCopperRunoff_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_OxidizedCopperRunoff_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_OxidizedCopperRunoff_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_OxidizedCopperRunoff_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_RedPressureEnamel",
+      "display_name": "Red Pressure Enamel",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_RedPressureEnamel.mat",
+      "guid": "0538c5fcacdb73cabc9e11e5cabc7c96",
+      "status": "final_candidate",
+      "import_priority": "high",
+      "motif": "red_enamel",
+      "metallic": 0.2,
+      "smoothness": 0.58,
+      "bump_scale": 0.36,
+      "use": "Pressure warnings, gate strips, hazard caps",
+      "description": "Deep red enamel over metal with chips, scratches, black soot specks, and warm worn edges.",
+      "blunt_note": "Strong final candidate for pressure danger language.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_RedPressureEnamel_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_RedPressureEnamel_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_RedPressureEnamel_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_RedPressureEnamel_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_ChippedRedEnamelEdge",
+      "display_name": "Chipped Red Enamel Edge",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_ChippedRedEnamelEdge.mat",
+      "guid": "650e02ea21e8014279362353510a6625",
+      "status": "final_candidate",
+      "import_priority": "medium",
+      "motif": "red_enamel_chipped",
+      "metallic": 0.25,
+      "smoothness": 0.42,
+      "bump_scale": 0.5,
+      "use": "Weapon details, panel edges, valve warning rims",
+      "description": "Heavier chipped red enamel exposing dark iron and brass undertones around edges and seams.",
+      "blunt_note": "Final candidate but high-detail; should be kept to accents.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_ChippedRedEnamelEdge_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_ChippedRedEnamelEdge_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_ChippedRedEnamelEdge_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_ChippedRedEnamelEdge_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_AmberGaslightGlass",
+      "display_name": "Amber Gaslight Glass",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_AmberGaslightGlass.mat",
+      "guid": "f4808358d3b7f8155e25cf19b2235f89",
+      "status": "final_candidate",
+      "import_priority": "high",
+      "motif": "amber_glass",
+      "metallic": 0.0,
+      "smoothness": 0.86,
+      "bump_scale": 0.18,
+      "use": "Lantern glass, status windows, small warm highlights",
+      "description": "Warm amber glass with smoke scratches, grime, and bright gaslight lens bloom baked into base color.",
+      "blunt_note": "Final candidate for atmosphere. Needs actual light/VFX later for full glow.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_AmberGaslightGlass_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_AmberGaslightGlass_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_AmberGaslightGlass_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_AmberGaslightGlass_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_SmokedAmberGaugeGlass",
+      "display_name": "Smoked Amber Gauge Glass",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_SmokedAmberGaugeGlass.mat",
+      "guid": "29221ad01d6fa1844c43756e42d86df7",
+      "status": "candidate",
+      "import_priority": "medium",
+      "motif": "smoked_glass",
+      "metallic": 0.0,
+      "smoothness": 0.82,
+      "bump_scale": 0.2,
+      "use": "Gauge covers and small instrument windows",
+      "description": "Smokier amber glass with fingerprints, grime arcs, and heavier dark edges for instrument covers.",
+      "blunt_note": "Candidate. Reads well in previews, but transparency needs a project shader decision.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_SmokedAmberGaugeGlass_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_SmokedAmberGaugeGlass_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_SmokedAmberGaugeGlass_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_SmokedAmberGaugeGlass_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_SootDepositOverlay",
+      "display_name": "Soot Deposit Overlay",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_SootDepositOverlay.mat",
+      "guid": "7de10d46a6725b6da2d94c0ec8fdef35",
+      "status": "candidate",
+      "import_priority": "medium",
+      "motif": "soot_overlay",
+      "metallic": 0.02,
+      "smoothness": 0.22,
+      "bump_scale": 0.38,
+      "use": "Future decal/overlay use near vents, weapons, furnace mouths",
+      "description": "Matte black-brown soot clouds with ash speckles and directional exhaust deposits.",
+      "blunt_note": "Candidate overlay. It is authored as an opaque material plus masks until a decal shader is chosen.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_SootDepositOverlay_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_SootDepositOverlay_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_SootDepositOverlay_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_SootDepositOverlay_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_VerticalGrimeStreakOverlay",
+      "display_name": "Vertical Grime Streak Overlay",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_VerticalGrimeStreakOverlay.mat",
+      "guid": "eb7b3cd4cd66b4323f94312cdad351c5",
+      "status": "candidate",
+      "import_priority": "medium",
+      "motif": "grime_streak",
+      "metallic": 0.03,
+      "smoothness": 0.28,
+      "bump_scale": 0.42,
+      "use": "Future decal/overlay use under pipes, corners, and wall seams",
+      "description": "Long oily vertical streaks with wet centers and dusty feathered sides.",
+      "blunt_note": "Candidate overlay. Needs alpha/decal hookup before production placement.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_VerticalGrimeStreakOverlay_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_VerticalGrimeStreakOverlay_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_VerticalGrimeStreakOverlay_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_VerticalGrimeStreakOverlay_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_BlackOilWetFloor",
+      "display_name": "Black Oil Wet Floor",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_BlackOilWetFloor.mat",
+      "guid": "4b11b78234eb7fb9d9c8746b689a077b",
+      "status": "final_candidate",
+      "import_priority": "high",
+      "motif": "oily_floor",
+      "metallic": 0.04,
+      "smoothness": 0.8,
+      "bump_scale": 0.46,
+      "use": "Foundry floors, puddle-heavy service walkways",
+      "description": "Black stone/iron floor with oily puddles, scuffed traffic lanes, and amber wet reflections.",
+      "blunt_note": "Strong final candidate. Use in patches so the level does not become uniformly glossy.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_BlackOilWetFloor_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_BlackOilWetFloor_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_BlackOilWetFloor_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_BlackOilWetFloor_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_OilyBlackStonePuddle",
+      "display_name": "Oily Black Stone Puddle",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_OilyBlackStonePuddle.mat",
+      "guid": "faaa4a5660f3213f0517da3d5e9285f6",
+      "status": "candidate",
+      "import_priority": "medium",
+      "motif": "oil_puddle",
+      "metallic": 0.03,
+      "smoothness": 0.9,
+      "bump_scale": 0.28,
+      "use": "Local puddle surfaces, drainage zones, floor decals later",
+      "description": "Very wet black puddle sheet with rainbow-dark oil edges and soft amber highlights.",
+      "blunt_note": "Candidate. Final look is strong; gameplay readability must be checked because it is very dark.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_OilyBlackStonePuddle_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_OilyBlackStonePuddle_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_OilyBlackStonePuddle_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_OilyBlackStonePuddle_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_ScorchedFurnaceMetal",
+      "display_name": "Scorched Furnace Metal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_ScorchedFurnaceMetal.mat",
+      "guid": "60e7decd0d2b6a7a5c20c2d5dcd88703",
+      "status": "final_candidate",
+      "import_priority": "high",
+      "motif": "furnace_metal",
+      "metallic": 0.9,
+      "smoothness": 0.33,
+      "bump_scale": 0.6,
+      "use": "Furnace doors, heated boiler plates, muzzle shields",
+      "description": "Blackened metal with orange heat scorch, soot halos, heat tint, and blistered roughness.",
+      "blunt_note": "Strong final candidate for furnace-room identity.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_ScorchedFurnaceMetal_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_ScorchedFurnaceMetal_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_ScorchedFurnaceMetal_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_ScorchedFurnaceMetal_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_HeatTintedBoilerIron",
+      "display_name": "Heat Tinted Boiler Iron",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_HeatTintedBoilerIron.mat",
+      "guid": "7b34bd29a4dbd96f48bc89ed4850e494",
+      "status": "final_candidate",
+      "import_priority": "medium",
+      "motif": "heat_iron",
+      "metallic": 0.92,
+      "smoothness": 0.4,
+      "bump_scale": 0.5,
+      "use": "Boiler shells, weapon sleeves, hot pipe brackets",
+      "description": "Oily black iron with blue-brown heat staining, scraped rims, and rivet-adjacent soot.",
+      "blunt_note": "Final candidate, quieter than furnace metal and useful as a bridge material.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_HeatTintedBoilerIron_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_HeatTintedBoilerIron_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_HeatTintedBoilerIron_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_HeatTintedBoilerIron_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_GaugeFaceEnamel",
+      "display_name": "Gauge Face Enamel",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_GaugeFaceEnamel.mat",
+      "guid": "a10e8412ba8e65f7494b3897fac56fe5",
+      "status": "final_candidate",
+      "import_priority": "high",
+      "motif": "gauge_face",
+      "metallic": 0.0,
+      "smoothness": 0.5,
+      "bump_scale": 0.14,
+      "use": "Gauge faces, HUD inserts, pressure instruments",
+      "description": "Aged cream enamel dial with printed ticks, red needle motif, cracks, and dirty brass rim.",
+      "blunt_note": "Strong final candidate. This is important for the pressure-pistol/HUD language.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_GaugeFaceEnamel_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_GaugeFaceEnamel_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_GaugeFaceEnamel_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_GaugeFaceEnamel_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_BakedIvoryGaugeFace",
+      "display_name": "Baked Ivory Gauge Face",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_BakedIvoryGaugeFace.mat",
+      "guid": "15c8c580c126bdc4aeb782ae1c9b43d1",
+      "status": "candidate",
+      "import_priority": "low",
+      "motif": "gauge_ivory",
+      "metallic": 0.0,
+      "smoothness": 0.44,
+      "bump_scale": 0.18,
+      "use": "Secondary old gauge faces and background instrument clusters",
+      "description": "Darker old ivory enamel with fewer red accents, chipped rim dirt, and faded radial marks.",
+      "blunt_note": "Candidate. Useful filler, but less iconic than Gauge Face Enamel.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_BakedIvoryGaugeFace_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_BakedIvoryGaugeFace_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_BakedIvoryGaugeFace_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_BakedIvoryGaugeFace_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_RivetedBrassTrim",
+      "display_name": "Riveted Brass Trim",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_RivetedBrassTrim.mat",
+      "guid": "0bfef2779b9644d36159c7e368883b34",
+      "status": "final_candidate",
+      "import_priority": "high",
+      "motif": "riveted_brass",
+      "metallic": 0.86,
+      "smoothness": 0.43,
+      "bump_scale": 0.42,
+      "use": "Wall trim, door frames, floor thresholds, weapon bands",
+      "description": "Brass strip material with repeating rivets, edge polish, tarnish in recesses, and underside grime.",
+      "blunt_note": "Strong final candidate for north-star brass framing.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_RivetedBrassTrim_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_RivetedBrassTrim_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_RivetedBrassTrim_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_RivetedBrassTrim_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_RivetedBlackIronTrim",
+      "display_name": "Riveted Black Iron Trim",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_RivetedBlackIronTrim.mat",
+      "guid": "72a80b98cfe4cb5e336a0ca40d1e3e19",
+      "status": "final_candidate",
+      "import_priority": "medium",
+      "motif": "riveted_iron",
+      "metallic": 0.9,
+      "smoothness": 0.41,
+      "bump_scale": 0.48,
+      "use": "Iron ribs, panel borders, grate supports",
+      "description": "Black iron trim with brass-touched rivet crowns, oily seams, and rubbed leading edges.",
+      "blunt_note": "Final candidate. Good for giving flat kit pieces a heavy industrial silhouette.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_RivetedBlackIronTrim_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_RivetedBlackIronTrim_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_RivetedBlackIronTrim_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_RivetedBlackIronTrim_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_SteamCondensationBlackMetal",
+      "display_name": "Steam Condensation Black Metal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_SteamCondensationBlackMetal.mat",
+      "guid": "eb0df136f3c92be18a3c7fbd12e0d668",
+      "status": "candidate",
+      "import_priority": "medium",
+      "motif": "condensation",
+      "metallic": 0.82,
+      "smoothness": 0.74,
+      "bump_scale": 0.32,
+      "use": "Cold metal near vents, underside of pipes, damp machinery backs",
+      "description": "Dark metal with condensation trails, bead-like wet noise, and wiped streaks.",
+      "blunt_note": "Candidate. The wetness is useful, but can become noisy without careful scale.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_SteamCondensationBlackMetal_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_SteamCondensationBlackMetal_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_SteamCondensationBlackMetal_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_SteamCondensationBlackMetal_GRM.png"
+      }
+    },
+    {
+      "id": "SMD08_MAT_CrackedBlackRubberGasket",
+      "display_name": "Cracked Black Rubber Gasket",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Materials/SMD08_MAT_CrackedBlackRubberGasket.mat",
+      "guid": "60f552c4ef69c8abf2ce1d5b941ab931",
+      "status": "placeholder",
+      "import_priority": "low",
+      "motif": "rubber",
+      "metallic": 0.0,
+      "smoothness": 0.36,
+      "bump_scale": 0.45,
+      "use": "Temporary gasket, hose, and pressure seal material",
+      "description": "Black rubber gasket surface with cracks, dusted edges, and oil-dark wear.",
+      "blunt_note": "Placeholder. Included for completeness, but it does not move the corridor/gun visual target much.",
+      "textures": {
+        "albedo": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_CrackedBlackRubberGasket_ALB.png",
+        "normal": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_CrackedBlackRubberGasket_NRM.png",
+        "roughness_metallic_intent": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_CrackedBlackRubberGasket_RMA.png",
+        "grime_edgewear_mask": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_CrackedBlackRubberGasket_GRM.png"
+      }
+    }
+  ],
+  "textures": [
+    {
+      "id": "SMD08_MAT_WetBlackStoneSlab_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_WetBlackStoneSlab_ALB.png",
+      "guid": "58f104a22ce847481034e26b4fe3aa8d",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_WetBlackStoneSlab_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_WetBlackStoneSlab_NRM.png",
+      "guid": "324b5fde349bd1ebd4954e3c058eba7e",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_WetBlackStoneSlab_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_WetBlackStoneSlab_RMA.png",
+      "guid": "17773499ad00c8717b141ab12e04f8f1",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_WetBlackStoneSlab_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_WetBlackStoneSlab_GRM.png",
+      "guid": "110f018fe25e8721ac3b0ab5226794b1",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_WetBlackStoneMortar_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_WetBlackStoneMortar_ALB.png",
+      "guid": "c44af0201088be34986dea1584a86a2a",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_WetBlackStoneMortar_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_WetBlackStoneMortar_NRM.png",
+      "guid": "926a40e1ee1d5ccd3a3338e5bb290a9d",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_WetBlackStoneMortar_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_WetBlackStoneMortar_RMA.png",
+      "guid": "9eadc8cd27c2eaa449b72da0acf8e022",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_WetBlackStoneMortar_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_WetBlackStoneMortar_GRM.png",
+      "guid": "9675ebc4031c38a6e3776abd65930395",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_ChippedBlackIronWallPanel_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_ChippedBlackIronWallPanel_ALB.png",
+      "guid": "6e28d304e281739446f12708bf8ddef0",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_ChippedBlackIronWallPanel_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_ChippedBlackIronWallPanel_NRM.png",
+      "guid": "5ad0e906fd91ed834c6217960485375f",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_ChippedBlackIronWallPanel_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_ChippedBlackIronWallPanel_RMA.png",
+      "guid": "e4dac0324a65dbe9d917fda0a5ca7c20",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_ChippedBlackIronWallPanel_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_ChippedBlackIronWallPanel_GRM.png",
+      "guid": "ec06700ec47daf4e54658f05996590ba",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_ChippedBlackIronServicePlate_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_ChippedBlackIronServicePlate_ALB.png",
+      "guid": "f844e095f235372ab94a945316a92217",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_ChippedBlackIronServicePlate_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_ChippedBlackIronServicePlate_NRM.png",
+      "guid": "02f4ec30e1b6acf710eef7caeab4dda4",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_ChippedBlackIronServicePlate_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_ChippedBlackIronServicePlate_RMA.png",
+      "guid": "c600bb6642b0ef1411dbf3d49c9145bd",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_ChippedBlackIronServicePlate_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_ChippedBlackIronServicePlate_GRM.png",
+      "guid": "88c97e6ec54f26d1dcf1f4efc02e68dc",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_WornBrassPipe_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_WornBrassPipe_ALB.png",
+      "guid": "ed112506c20e8f766decc504f688c98d",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_WornBrassPipe_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_WornBrassPipe_NRM.png",
+      "guid": "bda55bcc69cfe97efbbe5494c1aa11d0",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_WornBrassPipe_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_WornBrassPipe_RMA.png",
+      "guid": "dbbcc83052763f94acb33a914cebd09c",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_WornBrassPipe_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_WornBrassPipe_GRM.png",
+      "guid": "31c71305e387b6215ce0b09041283c95",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_WornBrassValveBody_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_WornBrassValveBody_ALB.png",
+      "guid": "92536b33a0883092b8cc0752121a70b5",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_WornBrassValveBody_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_WornBrassValveBody_NRM.png",
+      "guid": "a1933e007512e7a73903c7ac191d1469",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_WornBrassValveBody_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_WornBrassValveBody_RMA.png",
+      "guid": "5f7b31e7a652c042a6ce98752697d737",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_WornBrassValveBody_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_WornBrassValveBody_GRM.png",
+      "guid": "ec86b0453970b3d0038e6e8c1a868be5",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_OxidizedCopperCoil_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_OxidizedCopperCoil_ALB.png",
+      "guid": "d4cca1584ade2e9d3017974c1017f6f9",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_OxidizedCopperCoil_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_OxidizedCopperCoil_NRM.png",
+      "guid": "9305334693795da9d4e7c23a4689a678",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_OxidizedCopperCoil_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_OxidizedCopperCoil_RMA.png",
+      "guid": "b478838a01f00dbdf7340408ac3b25d5",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_OxidizedCopperCoil_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_OxidizedCopperCoil_GRM.png",
+      "guid": "7efeeb86517d3946549d29dd26f5e809",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_OxidizedCopperRunoff_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_OxidizedCopperRunoff_ALB.png",
+      "guid": "8d959b14af8ee88ab0e8eba04f4960bf",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_OxidizedCopperRunoff_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_OxidizedCopperRunoff_NRM.png",
+      "guid": "856882387225e84d6ace125655227561",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_OxidizedCopperRunoff_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_OxidizedCopperRunoff_RMA.png",
+      "guid": "8030b28fe4415e433413ac353c553d28",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_OxidizedCopperRunoff_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_OxidizedCopperRunoff_GRM.png",
+      "guid": "996d1b39de39aa4e9d640ce57a377827",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_RedPressureEnamel_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_RedPressureEnamel_ALB.png",
+      "guid": "bdb62feca2a70fddacad01ac72d3f104",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_RedPressureEnamel_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_RedPressureEnamel_NRM.png",
+      "guid": "67800786731299b1b72bd04ebe42503d",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_RedPressureEnamel_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_RedPressureEnamel_RMA.png",
+      "guid": "571a9c3030ced9a8f808497590006d8f",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_RedPressureEnamel_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_RedPressureEnamel_GRM.png",
+      "guid": "28669e794256a4f5ccf2e797f29eac01",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_ChippedRedEnamelEdge_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_ChippedRedEnamelEdge_ALB.png",
+      "guid": "1c8e2b6ca76d2c1b351971521d220aae",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_ChippedRedEnamelEdge_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_ChippedRedEnamelEdge_NRM.png",
+      "guid": "cbd86c0b66ecc1ff90398ec9592e52d4",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_ChippedRedEnamelEdge_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_ChippedRedEnamelEdge_RMA.png",
+      "guid": "0087d72defb924f84283a6dfa0cf0ed5",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_ChippedRedEnamelEdge_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_ChippedRedEnamelEdge_GRM.png",
+      "guid": "5b72f0d97a2e4eebead02a9cb5fa809e",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_AmberGaslightGlass_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_AmberGaslightGlass_ALB.png",
+      "guid": "f1ac149e2bfed4294c18604b354ed0d4",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_AmberGaslightGlass_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_AmberGaslightGlass_NRM.png",
+      "guid": "00d661d23585b7b70779525373947772",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_AmberGaslightGlass_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_AmberGaslightGlass_RMA.png",
+      "guid": "3a25181baffbaa44fede8fab4c6c7493",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_AmberGaslightGlass_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_AmberGaslightGlass_GRM.png",
+      "guid": "fdfd078e91a92e44a0b516f20bb4482e",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_SmokedAmberGaugeGlass_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_SmokedAmberGaugeGlass_ALB.png",
+      "guid": "c29713cdaa9b7f826c93a50261cc8cfe",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_SmokedAmberGaugeGlass_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_SmokedAmberGaugeGlass_NRM.png",
+      "guid": "31d5b91b8dd0360b305de0982f2e30d2",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_SmokedAmberGaugeGlass_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_SmokedAmberGaugeGlass_RMA.png",
+      "guid": "79bc27627d86e5d5e0d5178ed6579870",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_SmokedAmberGaugeGlass_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_SmokedAmberGaugeGlass_GRM.png",
+      "guid": "4dc55c53b45b1f4d06b79f5ec77a6ced",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_SootDepositOverlay_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_SootDepositOverlay_ALB.png",
+      "guid": "ca01c50957ec236c854bfe8001c6e0af",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_SootDepositOverlay_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_SootDepositOverlay_NRM.png",
+      "guid": "8b10e283afaa477472c53919cda7e56a",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_SootDepositOverlay_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_SootDepositOverlay_RMA.png",
+      "guid": "1bce844ab3ce3a44be6b5fb72bdb5718",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_SootDepositOverlay_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_SootDepositOverlay_GRM.png",
+      "guid": "758066f0cbf99c8ccadba46a7d8c1e58",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_VerticalGrimeStreakOverlay_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_VerticalGrimeStreakOverlay_ALB.png",
+      "guid": "c6d16f38bf28ef0063994553851fd02d",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_VerticalGrimeStreakOverlay_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_VerticalGrimeStreakOverlay_NRM.png",
+      "guid": "5617bc99c3ad34681df8d86b78e79646",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_VerticalGrimeStreakOverlay_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_VerticalGrimeStreakOverlay_RMA.png",
+      "guid": "4fade891b2d91537104848cd4aa73bf8",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_VerticalGrimeStreakOverlay_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_VerticalGrimeStreakOverlay_GRM.png",
+      "guid": "ca1a0d1068c30575f372d0fb89d4651a",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_BlackOilWetFloor_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_BlackOilWetFloor_ALB.png",
+      "guid": "bd7a867b779b59d0f8bef3816b33d82d",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_BlackOilWetFloor_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_BlackOilWetFloor_NRM.png",
+      "guid": "753383e42fe663a3dd30eb1a693c6ef8",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_BlackOilWetFloor_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_BlackOilWetFloor_RMA.png",
+      "guid": "8d49f7956d0e89c0d1967915fcaf9783",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_BlackOilWetFloor_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_BlackOilWetFloor_GRM.png",
+      "guid": "cba2b9b535fb1b63923f207c7500977b",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_OilyBlackStonePuddle_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_OilyBlackStonePuddle_ALB.png",
+      "guid": "42ee7306ce11c016cb54316f0a9a6ef3",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_OilyBlackStonePuddle_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_OilyBlackStonePuddle_NRM.png",
+      "guid": "9dd878c7ae251e30dfa3453a1983b51c",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_OilyBlackStonePuddle_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_OilyBlackStonePuddle_RMA.png",
+      "guid": "a72868bd849b71010f50d72947f73fa1",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_OilyBlackStonePuddle_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_OilyBlackStonePuddle_GRM.png",
+      "guid": "5b580dad16c3385818d5b35ae262a47a",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_ScorchedFurnaceMetal_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_ScorchedFurnaceMetal_ALB.png",
+      "guid": "237d5b8139c5e5812d6840a7fa36ac00",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_ScorchedFurnaceMetal_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_ScorchedFurnaceMetal_NRM.png",
+      "guid": "e5ca46b7f04f6aa41f02b093d4618573",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_ScorchedFurnaceMetal_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_ScorchedFurnaceMetal_RMA.png",
+      "guid": "6fc278d706c4ea6660686a46ba516bf9",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_ScorchedFurnaceMetal_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_ScorchedFurnaceMetal_GRM.png",
+      "guid": "7744d00f456f15b7efbe1cb31ba627c5",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_HeatTintedBoilerIron_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_HeatTintedBoilerIron_ALB.png",
+      "guid": "cad894e0779c4cb1f9ac5e641bc5bad6",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_HeatTintedBoilerIron_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_HeatTintedBoilerIron_NRM.png",
+      "guid": "bc481cf08d6af34508051f2e134339c0",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_HeatTintedBoilerIron_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_HeatTintedBoilerIron_RMA.png",
+      "guid": "d7cd9b1c041202623a32f7450db9b335",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_HeatTintedBoilerIron_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_HeatTintedBoilerIron_GRM.png",
+      "guid": "d7ee715b33ddb350cc2168f7378c6cfe",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_GaugeFaceEnamel_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_GaugeFaceEnamel_ALB.png",
+      "guid": "4e25629698544b01ceca50c69b895894",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_GaugeFaceEnamel_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_GaugeFaceEnamel_NRM.png",
+      "guid": "a11e51ab0c57d60e80748bc5fcc65ef1",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_GaugeFaceEnamel_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_GaugeFaceEnamel_RMA.png",
+      "guid": "fd6ea7ee0751a8b07c6678bd82a99f7a",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_GaugeFaceEnamel_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_GaugeFaceEnamel_GRM.png",
+      "guid": "272e628d85291bebfe1a9bd4b4e7f3df",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_BakedIvoryGaugeFace_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_BakedIvoryGaugeFace_ALB.png",
+      "guid": "b2c90346f356892e84076495b5d0b016",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_BakedIvoryGaugeFace_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_BakedIvoryGaugeFace_NRM.png",
+      "guid": "611bcd46a2d2158c8c4bad07e5eec78a",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_BakedIvoryGaugeFace_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_BakedIvoryGaugeFace_RMA.png",
+      "guid": "8212175fc11050d8e450188261df8070",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_BakedIvoryGaugeFace_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_BakedIvoryGaugeFace_GRM.png",
+      "guid": "fa7d085eb365a40d2166efdceb3177da",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_RivetedBrassTrim_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_RivetedBrassTrim_ALB.png",
+      "guid": "8d83cec5b748d71e9bc6d20678576b11",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_RivetedBrassTrim_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_RivetedBrassTrim_NRM.png",
+      "guid": "37f0dfa3e9ae739e0fc4194d166ace08",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_RivetedBrassTrim_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_RivetedBrassTrim_RMA.png",
+      "guid": "2180009378014ad3f799b6024d692f67",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_RivetedBrassTrim_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_RivetedBrassTrim_GRM.png",
+      "guid": "2aa17015315e3a134432f7e0dd93b9ac",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_RivetedBlackIronTrim_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_RivetedBlackIronTrim_ALB.png",
+      "guid": "57871f997ab03c2e9398de755060631d",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_RivetedBlackIronTrim_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_RivetedBlackIronTrim_NRM.png",
+      "guid": "a923b5c3d0708aad7f69110f0877d740",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_RivetedBlackIronTrim_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_RivetedBlackIronTrim_RMA.png",
+      "guid": "64348fed7a6a1caf100c6a4a33e65b41",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_RivetedBlackIronTrim_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_RivetedBlackIronTrim_GRM.png",
+      "guid": "7141f8a52b21db235d1a99ed27cb919b",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_SteamCondensationBlackMetal_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_SteamCondensationBlackMetal_ALB.png",
+      "guid": "3e2165a14c7e06f249d089c8e3107965",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_SteamCondensationBlackMetal_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_SteamCondensationBlackMetal_NRM.png",
+      "guid": "13ccaac422ce0c1cd89a60f275acba75",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_SteamCondensationBlackMetal_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_SteamCondensationBlackMetal_RMA.png",
+      "guid": "2d0c45e6bd2a821392f83f994e2f88cf",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_SteamCondensationBlackMetal_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_SteamCondensationBlackMetal_GRM.png",
+      "guid": "eb702734c13c41322d81f5af4f3391bc",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    },
+    {
+      "id": "SMD08_MAT_CrackedBlackRubberGasket_ALB",
+      "kind": "albedo",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Albedo/SMD08_MAT_CrackedBlackRubberGasket_ALB.png",
+      "guid": "0a44b00f9d726727bb71ce27eeafe20a",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_CrackedBlackRubberGasket_NRM",
+      "kind": "normal",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/Normal/SMD08_MAT_CrackedBlackRubberGasket_NRM.png",
+      "guid": "a1bccf2a695068edb28baeaa8338fe1e",
+      "resolution": [
+        512,
+        512
+      ]
+    },
+    {
+      "id": "SMD08_MAT_CrackedBlackRubberGasket_RMA",
+      "kind": "roughness_metallic_intent",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_CrackedBlackRubberGasket_RMA.png",
+      "guid": "8b95465288876d8fadd91ff433ae03ed",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=metallic G=roughness B=ambient_occlusion"
+    },
+    {
+      "id": "SMD08_MAT_CrackedBlackRubberGasket_GRM",
+      "kind": "grime_edgewear_mask",
+      "path": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_CrackedBlackRubberGasket_GRM.png",
+      "guid": "901405a76d1aa1952c748d3bc52426b3",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "R=edgewear G=grime B=wetness_or_patina"
+    }
+  ],
+  "previews": [
+    {
+      "id": "SMD08_PREVIEW_01",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_01_mini_corridor_material_board.png",
+      "purpose": "01 mini corridor material board"
+    },
+    {
+      "id": "SMD08_PREVIEW_02",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_02_wet_black_stone_slab_panel.png",
+      "purpose": "02 wet black stone slab panel"
+    },
+    {
+      "id": "SMD08_PREVIEW_03",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_03_chipped_black_iron_wall_panel.png",
+      "purpose": "03 chipped black iron wall panel"
+    },
+    {
+      "id": "SMD08_PREVIEW_04",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_04_worn_brass_pipe_cluster.png",
+      "purpose": "04 worn brass pipe cluster"
+    },
+    {
+      "id": "SMD08_PREVIEW_05",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_05_oxidized_copper_coil_cylinders.png",
+      "purpose": "05 oxidized copper coil cylinders"
+    },
+    {
+      "id": "SMD08_PREVIEW_06",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_06_red_pressure_enamel_valve_plate.png",
+      "purpose": "06 red pressure enamel valve plate"
+    },
+    {
+      "id": "SMD08_PREVIEW_07",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_07_amber_gaslight_glass_cage.png",
+      "purpose": "07 amber gaslight glass cage"
+    },
+    {
+      "id": "SMD08_PREVIEW_08",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_08_vertical_grime_streak_wall.png",
+      "purpose": "08 vertical grime streak wall"
+    },
+    {
+      "id": "SMD08_PREVIEW_09",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_09_black_oil_wet_floor.png",
+      "purpose": "09 black oil wet floor"
+    },
+    {
+      "id": "SMD08_PREVIEW_10",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_10_scorched_furnace_metal_door.png",
+      "purpose": "10 scorched furnace metal door"
+    },
+    {
+      "id": "SMD08_PREVIEW_11",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_11_gauge_face_enamel_cluster.png",
+      "purpose": "11 gauge face enamel cluster"
+    },
+    {
+      "id": "SMD08_PREVIEW_12",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_12_riveted_brass_trim_strips.png",
+      "purpose": "12 riveted brass trim strips"
+    },
+    {
+      "id": "SMD08_PREVIEW_13",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_13_riveted_black_iron_trim_cylinders.png",
+      "purpose": "13 riveted black iron trim cylinders"
+    },
+    {
+      "id": "SMD08_PREVIEW_14",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_14_wet_stone_floor_tiles_soot.png",
+      "purpose": "14 wet stone floor tiles soot"
+    },
+    {
+      "id": "SMD08_PREVIEW_15",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_15_copper_brass_pressure_board.png",
+      "purpose": "15 copper brass pressure board"
+    },
+    {
+      "id": "SMD08_PREVIEW_16",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_16_furnace_material_mix.png",
+      "purpose": "16 furnace material mix"
+    },
+    {
+      "id": "SMD08_PREVIEW_17",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_17_pressure_weapon_receiver_material_strip.png",
+      "purpose": "17 pressure weapon receiver material strip"
+    },
+    {
+      "id": "SMD08_PREVIEW_18",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_18_corridor_corner_surface_board.png",
+      "purpose": "18 corridor corner surface board"
+    },
+    {
+      "id": "SMD08_PREVIEW_19",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_19_small_prop_cylinders_and_gauges.png",
+      "purpose": "19 small prop cylinders and gauges"
+    },
+    {
+      "id": "SMD08_PREVIEW_20",
+      "path": "Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/SMD08_PREVIEW_20_final_candidate_contact_sheet.png",
+      "purpose": "20 final candidate contact sheet"
+    }
+  ],
+  "runtime_contract": "visual/material-only; no scenes, prefabs, meshes, gameplay scripts, colliders, audio, or build settings authored",
+  "v0_1_52_import_binding_assessment": {
+    "status": "pass_with_limitations",
+    "pass_scope": "17 final-candidate materials are strong enough for quarantine import and selective corridor/weapon binding.",
+    "limitations": [
+      "Overlay/decal candidates need a transparent/decal shader path before production placement.",
+      "CrackedBlackRubberGasket is placeholder quality.",
+      "Preview PNGs are procedural documentation boards, not Unity-editor scene captures."
+    ]
+  }
+}

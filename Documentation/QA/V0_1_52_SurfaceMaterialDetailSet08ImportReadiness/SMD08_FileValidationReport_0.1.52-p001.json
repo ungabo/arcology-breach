@@ -1,0 +1,68 @@
+{
+  "schema": "brassworks.file_validation.v1",
+  "package": "BrassworksBreach.SurfaceMaterialDetailSet08",
+  "version": "0.1.52-p001",
+  "generated_at": "2026-05-24T22:46:04.687765Z",
+  "status": "pass",
+  "marker": "SMD08_FILE_VALIDATION_PASS",
+  "checks": [
+    {
+      "name": "material_count",
+      "expected": 24,
+      "actual": 24,
+      "status": "pass"
+    },
+    {
+      "name": "texture_png_count",
+      "expected": 96,
+      "actual": 96,
+      "status": "pass"
+    },
+    {
+      "name": "preview_png_count",
+      "expected": 20,
+      "actual": 20,
+      "status": "pass"
+    },
+    {
+      "name": "png_integrity_dimensions",
+      "expected": "96 material PNGs at 512x512 and 20 preview PNGs at 960x720",
+      "actual": "all PNG files parsed and dimensions matched",
+      "status": "pass"
+    },
+    {
+      "name": "material_guid_reference_integrity",
+      "expected": "all material texture GUID references resolve to package-local meta files",
+      "actual": "144 material texture GUID references resolved",
+      "status": "pass"
+    },
+    {
+      "name": "forbidden_file_types",
+      "expected": "no .blend, .fbx, .unity, or .prefab files",
+      "actual": "none found",
+      "status": "pass"
+    },
+    {
+      "name": "owned_roots_only",
+      "expected": "all generated paths inside Set08 assigned roots",
+      "actual": "generator asserts every write against allowed roots",
+      "status": "pass"
+    },
+    {
+      "name": "runtime_contract",
+      "expected": "materials/textures/metadata only",
+      "actual": "no scenes, prefabs, meshes, scripts, colliders, audio, or build settings authored",
+      "status": "pass"
+    }
+  ],
+  "v0_1_52_import_binding_assessment": {
+    "status": "pass_with_limitations",
+    "pass_scope": "17 final-candidate materials are strong enough for quarantine import and selective corridor/weapon binding.",
+    "limitations": [
+      "Overlay/decal candidates need a transparent/decal shader path before production placement.",
+      "CrackedBlackRubberGasket is placeholder quality.",
+      "Preview PNGs are procedural documentation boards, not Unity-editor scene captures."
+    ]
+  },
+  "unity_editor_import": "not_run_in_live_project_to_respect_no-touch constraint; quarantine import recommended"
+}

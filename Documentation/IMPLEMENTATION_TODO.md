@@ -43,10 +43,24 @@ This checklist tracks implementation work. Detailed production tracking lives in
 
 ## v0.1.52 Surface Material Detail Push
 
-- [ ] Review the active Surface Material Detail Set 08 package when complete.
-- [ ] Accept only texture/material families that improve the corridor/gun render gap toward the steampunk north-star look.
-- [ ] Prefer a broad material/detail import or binding batch over one-object serial tweaks.
-- [ ] Validate no sidecar package gains gameplay authority without a scene-owned promotion plan.
+- [x] Review Surface Material Detail Set 08 after side-agent completion.
+- [x] Normalize the Set08 package-local manifest to the common sidecar schema.
+- [x] Validate Set08 with `Tools/SidecarValidation/Test-SidecarAssetPacks.ps1 -PackageNamePattern 'BrassworksBreach.SurfaceMaterialDetailSet08'`.
+- [x] Accept only texture/material families that improve the corridor/gun render gap toward the steampunk north-star look.
+- [x] Keep Set08 as quarantined material evidence; preview boards are procedural review boards, not final Unity-rendered scene lookdev.
+- [x] Import the Route Expansion Tuning packet into the Unity project docs after the side agent wrote it to the Codex workspace.
+- [x] Validate no sidecar package gains gameplay authority without a scene-owned promotion plan.
+- [x] Copy Meitner's Unity-only Weapon Assembly Lookdev replacement into repo documentation quarantine.
+- [x] Validate the weapon lookdev QA manifest and render-log provenance marker.
+- [x] Record the weapon lookdev recommendation as `Revise`; carry forward only its art-direction cues, not its blockout geometry.
+
+## v0.1.53 Candidate Material Binding And Route Polish Leap
+
+- [ ] Select high-priority Set08 materials for a broad in-game binding pass on corridor, weapon, pipe, trim, gauge, and hazard surfaces.
+- [ ] Apply the P0 route-tuning items for Level02 pressure bypass, Level03 foundry gantry, and Level04 observatory pumpworks in grouped slices.
+- [ ] Use the Unity-only weapon lookdev output to guide material/proportion choices for the active pressure-pistol pass without importing its isolated blockout project.
+- [ ] Add validation for material binding presence, route label consistency, hazard readability gates, and no unintended sidecar gameplay authority.
+- [ ] Rebuild scenes and run the full Windows matrix only after the material/route batch is coherent.
 
 ## v0.1.35 Gameplay Feedback Systems Batch
 
@@ -2056,6 +2070,9 @@ Windows is the primary development target. Android, browser/WebGL, and VR are de
 - [x] `v0.1.50`: Normalize Steam FX, Hazard Props, and Mechanical Enemy Elite manifests to the common sidecar schema and rerun validators.
 - [x] `v0.1.51`: Use the accepted route-expansion packet and selected visual-only package content to create a larger playable route/content expansion.
 - [x] Start the next parallel sidecar lanes for weapon-component refinement, corridor/room shell set 07, combat encounter props, render lookdev, and acceptance review.
-- [ ] `v0.1.52`: Complete and review Surface Material Detail Set 08, then decide whether to accept it as docs-only evidence or import/bind selected material families.
+- [x] `v0.1.52`: Complete and review Surface Material Detail Set 08, then decide whether to accept it as docs-only evidence or import/bind selected material families.
+- [x] `v0.1.52`: Copy the route-expansion tuning packet into the Unity repo and validate its JSON.
+- [x] `v0.1.52`: Accept the Unity-only weapon assembly lookdev replacement as quarantined render evidence with a `Revise` promotion decision.
+- [ ] `v0.1.53`: Convert accepted Set08 materials and P0 route-tuning guidance into one ambitious playable material/route polish build.
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.

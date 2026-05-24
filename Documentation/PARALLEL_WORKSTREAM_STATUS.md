@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 18:36 -04:00`
+Last updated: `2026-05-24 18:58 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -36,7 +36,8 @@ Current sidecar-gate status:
 - Completed and implemented route-planning lane: Level Expansion Routes for Level02-Level04 is now represented by v0.1.51 pressure-bypass, foundry-gantry, and observatory-pumpworks scene modules.
 - Completed Set07 sidecar/lookdev lanes remain quarantined for review: Weapon Component Set 07, Room Shell Set 07, Mechanical Enemy Parts Set 07, Interior Dressing Set 07, Hero Room Render Set 07, and Set07 acceptance review. The procedural/non-Unity Weapon Component Set 07 assembly lookdev proof is not accepted or staged; any replacement must be Unity-rendered.
 - Current art conclusion: the best corridor render is useful for density/composition but still falls short of final north-star material realism. Do not bulk-promote Set07 into gameplay.
-- Active sidecar lane: Surface Material Detail Set 08, focused on higher-quality brass/copper/iron/wet-stone/grime material families and mini-corridor material boards.
+- Completed and accepted sidecar/readiness lanes pending future import or binding: Surface Material Detail Set 08, the v0.1.52 Route Expansion Tuning packet, and Meitner's Unity-only Weapon Assembly Lookdev replacement.
+- Active sidecar lane: no blocking sidecar lane is active after Meitner; next refill should target Unity-only corridor material validation and production-grade material/route polish evidence in parallel with the main v0.1.53 implementation lane.
 
 Current speed adjustment:
 
@@ -49,7 +50,9 @@ Current speed adjustment:
 
 | Agent | ID | Scope | Allowed Write Files | Started | Status |
 | --- | --- | --- | --- | --- | --- |
-| Halley | `019e5c1d-e17a-7930-9008-a448ee624b65` | Surface Material Detail Set 08 package for v0.1.52 material/render-gap improvement | `AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/`, `Documentation/AssetProduction/V0_1_52_SurfaceMaterialDetailSet08/`, `Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/`, `Documentation/Planning/V0_1_52_SurfaceMaterialDetailSet08ImportReadiness/`, `Documentation/QA/V0_1_52_SurfaceMaterialDetailSet08ImportReadiness/` | `2026-05-24 18:30 -04:00` | active; expected to deliver broad material families, texture maps, preview renders, manifests, and import-readiness evidence |
+| Meitner | `019e5c2c-4b2c-7053-a57c-c1c4f0f3b687` | Unity-only Weapon Assembly Lookdev replacement for rejected procedural Set07 weapon proof | `Documentation/ConceptRenders/V0_1_52_UnityWeaponAssemblyLookdev/`, `Documentation/Planning/V0_1_52_UnityWeaponAssemblyLookdev/`, `Documentation/QA/V0_1_52_UnityWeaponAssemblyLookdev/`, renderer source/log copied into `Documentation/AssetProduction/V0_1_52_UnityWeaponAssemblyLookdev/RendererSource/` | `2026-05-24 18:40 -04:00` | completed and copied into repo documentation quarantine; QA manifest parsed, render log contains `UNITY_WEAPON_ASSEMBLY_LOOKDEV_RENDERED`, recommendation is `Revise` rather than production import |
+| Sartre | `019e5c2c-7961-71e3-90b4-b0cd1d014666` | v0.1.52 route-expansion tuning packet | `Documentation/Planning/V0_1_52_RouteExpansionTuning/`, `Documentation/QA/V0_1_52_RouteExpansionTuning/` | `2026-05-24 18:40 -04:00` | completed and copied into Unity repo; JSON parsed |
+| Halley | `019e5c1d-e17a-7930-9008-a448ee624b65` | Surface Material Detail Set 08 package for v0.1.52 material/render-gap improvement | `AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08/`, `Documentation/AssetProduction/V0_1_52_SurfaceMaterialDetailSet08/`, `Documentation/ConceptRenders/V0_1_52_SurfaceMaterialDetailSet08/`, `Documentation/Planning/V0_1_52_SurfaceMaterialDetailSet08ImportReadiness/`, `Documentation/QA/V0_1_52_SurfaceMaterialDetailSet08ImportReadiness/` | `2026-05-24 18:30 -04:00` | completed and accepted into v0.1.52 sidecar/readiness slice after manifest normalization and zero-warning static validation |
 | Jason | `019e5c16-17bc-7692-a910-953c0d32643a` | Set07 acceptance review | `Documentation/Planning/V0_1_51_Set07AcceptanceReview/`, `Documentation/QA/V0_1_51_Set07AcceptanceReview/` | `2026-05-24 18:18 -04:00` | completed; recommends no bulk Set07 promotion, accepts selected packages only with caveats |
 | Parfit | `019e5c0d-c65d-73f0-85ed-d159dca313fe` | Weapon Component Set 07 assembly lookdev | `Documentation/Planning/V0_1_51_WeaponComponentSet07AssemblyLookdev/`, `Documentation/QA/V0_1_51_WeaponComponentSet07AssemblyLookdev/`, `Documentation/ConceptRenders/V0_1_51_WeaponComponentSet07_AssemblyLookdev/` | `2026-05-24 18:10 -04:00` | completed locally but not accepted/staged because the proof was procedural docs-only output; replacement must be Unity-rendered |
 | Popper | `019e5c0b-2220-7a32-b3ee-a037e02e1a46` | Hero Room Render Set 07 corridor/lookdev render set | `AssetPacks/BrassworksBreach.HeroRoomRenderSet07/`, `Documentation/AssetProduction/V0_1_51_HeroRoomRenderSet07/`, `Documentation/ConceptRenders/V0_1_51_HeroRoomRenderSet07/` | `2026-05-24 18:06 -04:00` | completed; corridor beauty pass 02 is review evidence, still below final material quality |

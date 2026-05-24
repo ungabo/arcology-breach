@@ -5992,3 +5992,30 @@ Completed the main-lane `v0.1.51` playable route/content expansion batch.
 - Started the next material/detail push as a side lane to close the gap between the current procedural renders and the steampunk north-star concept art.
 
 Next-step directive: commit/push the `v0.1.51` playable expansion slice while keeping unaccepted Set07 package roots quarantined, then continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 18:52 -04:00
+
+Accepted the `v0.1.52` Surface Material Detail Set 08 and route-tuning readiness slice.
+
+- Reviewed Halley's Surface Material Detail Set 08 package in its assigned roots only.
+- Confirmed Set08 contains 24 Unity `.mat` materials, 96 material texture PNGs, 20 procedural review boards, package manifests/catalogs, production docs, import-readiness notes, and QA evidence.
+- Normalized `SMD08_SurfaceMaterialDetailSet08_Manifest_0.1.52-p001.json` to the shared sidecar schema after the first validator run reported missing common fields.
+- Reran `Tools/SidecarValidation/Test-SidecarAssetPacks.ps1 -PackageNamePattern 'BrassworksBreach.SurfaceMaterialDetailSet08'`; it passed with 0 errors and 0 warnings.
+- Parsed Set08 and route-tuning JSON evidence successfully.
+- Copied Sartre's route-expansion tuning packet from the Codex workspace into the Unity repo under `Documentation/Planning/V0_1_52_RouteExpansionTuning/` and `Documentation/QA/V0_1_52_RouteExpansionTuning/`.
+- Closed Halley and Sartre after completed output review.
+- Kept Set08 as quarantined material evidence; preview boards are procedural documentation boards, not final Unity-rendered scene captures.
+- No main Unity manifest import, scene import, gameplay authority, code change, or executable build was performed in this acceptance slice.
+
+Next-step directive: commit/push the `v0.1.52` sidecar/readiness slice, then continue immediately with the next highest-impact playable material-binding and route-polish batch.
+
+## 2026-05-24 18:58 -04:00
+
+Accepted Meitner's Unity-only Weapon Assembly Lookdev replacement into the `v0.1.52` documentation quarantine.
+
+- Copied nine Unity-rendered PNGs into `Documentation/ConceptRenders/V0_1_52_UnityWeaponAssemblyLookdev/`.
+- Copied planning notes, import/promotion recommendation, QA manifest, renderer source, and batchmode render log into repo documentation roots.
+- Parsed the QA manifest successfully and confirmed the render log contains `UNITY_WEAPON_ASSEMBLY_LOOKDEV_RENDERED`.
+- PM decision: accept as visual evidence with `Revise`; carry forward the brass/iron/copper/amber/gauge/crown-muzzle language, but do not import isolated blockout geometry.
+
+Next-step directive: commit/push the `v0.1.52` acceptance slice, then continue immediately with a larger playable material-binding and route-polish batch.

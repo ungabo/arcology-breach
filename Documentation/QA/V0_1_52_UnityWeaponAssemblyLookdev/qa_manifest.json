@@ -1,0 +1,104 @@
+{
+  "id": "V0_1_52_UnityWeaponAssemblyLookdev",
+  "status": "complete",
+  "recommendation": "revise",
+  "created_date": "2026-05-24",
+  "unity_only_compliance": {
+    "compliant": true,
+    "unity_version": "6000.4.6f1",
+    "isolated_project_root": "AssetPacks/BrassworksBreach.UnityWeaponAssemblyLookdev08/",
+    "renderer_script": "AssetPacks/BrassworksBreach.UnityWeaponAssemblyLookdev08/Assets/Editor/UnityWeaponAssemblyLookdevRenderer.cs",
+    "render_log": "AssetPacks/BrassworksBreach.UnityWeaponAssemblyLookdev08.render.log",
+    "creation_method": "Unity batchmode editor script built the meshes, materials, lighting, cameras, RenderTextures, PNG output, and contact sheet inside Unity.",
+    "verification": [
+      "Unity batchmode exited successfully.",
+      "Render log includes UNITY_WEAPON_ASSEMBLY_LOOKDEV_RENDERED with all nine PNG paths.",
+      "PNG dimensions were verified after render.",
+      "No Blender, Python, PIL, external DCC, or external image-generation tool was used.",
+      "No main gameplay scenes/scripts/shared status docs or main manifest were edited."
+    ]
+  },
+  "renders": [
+    {
+      "file": "Documentation/ConceptRenders/V0_1_52_UnityWeaponAssemblyLookdev/01_full_assembly_three_quarter.png",
+      "description": "Complete pressure-pistol-like weapon assembly, three-quarter review.",
+      "width": 1800,
+      "height": 1200,
+      "bytes": 656605,
+      "sha256": "d0504a299532b6a3483e34881964c1c1d7f9d1436bed12a9226dbb8a14f8a8e9",
+      "creation_method": "Unity camera RenderTexture captured with Texture2D.EncodeToPNG."
+    },
+    {
+      "file": "Documentation/ConceptRenders/V0_1_52_UnityWeaponAssemblyLookdev/02_copper_coil_closeup.png",
+      "description": "Copper coil closeup around a dark iron barrel section.",
+      "width": 1600,
+      "height": 1100,
+      "bytes": 950138,
+      "sha256": "7f228adb55e5fb192f0414f343892f35bb3288b3bda4137b9b46551618ad2f11",
+      "creation_method": "Unity camera RenderTexture captured with Texture2D.EncodeToPNG."
+    },
+    {
+      "file": "Documentation/ConceptRenders/V0_1_52_UnityWeaponAssemblyLookdev/03_gauge_dial_closeup.png",
+      "description": "Gauge/dial closeup with amber rim, needle, tick marks, and pressure tube context.",
+      "width": 1600,
+      "height": 1100,
+      "bytes": 1266655,
+      "sha256": "1e4fc1a2be3cb258fb75fecf7d3ed6db53295e1a751e00a7a0b6d8ad3a7877fb",
+      "creation_method": "Unity camera RenderTexture captured with Texture2D.EncodeToPNG."
+    },
+    {
+      "file": "Documentation/ConceptRenders/V0_1_52_UnityWeaponAssemblyLookdev/04_muzzle_cluster_closeup.png",
+      "description": "Muzzle crown and clustered port closeup.",
+      "width": 1600,
+      "height": 1100,
+      "bytes": 854168,
+      "sha256": "65f7189cb20175fa8472963552d23e7054dba8d19ae277add1c123cb78347d8b",
+      "creation_method": "Unity camera RenderTexture captured with Texture2D.EncodeToPNG."
+    },
+    {
+      "file": "Documentation/ConceptRenders/V0_1_52_UnityWeaponAssemblyLookdev/05_partial_assembled_exploded.png",
+      "description": "Partial assembled/exploded weapon review.",
+      "width": 1800,
+      "height": 1200,
+      "bytes": 613891,
+      "sha256": "74e40568340073b1cb0709b3006fd23e91e24550bb3e4d8adee921deb4fea761",
+      "creation_method": "Unity camera RenderTexture captured with Texture2D.EncodeToPNG."
+    },
+    {
+      "file": "Documentation/ConceptRenders/V0_1_52_UnityWeaponAssemblyLookdev/06_first_person_scale_proxy.png",
+      "description": "First-person scale proxy with simplified forearms/gloves and review grid.",
+      "width": 1800,
+      "height": 1200,
+      "bytes": 547507,
+      "sha256": "0b7f1e3f10abe0032dfc3b4cbc60ca437422113bbbf3baf6035d31049ad1549d",
+      "creation_method": "Unity camera RenderTexture captured with Texture2D.EncodeToPNG."
+    },
+    {
+      "file": "Documentation/ConceptRenders/V0_1_52_UnityWeaponAssemblyLookdev/07_material_stress_warm_light.png",
+      "description": "Material stress render under warm lighting.",
+      "width": 1800,
+      "height": 1200,
+      "bytes": 717140,
+      "sha256": "2f54a51d38e3c8c04e448153b1b827eb7e2b8a1f4ca2d58b9f85741035691fe9",
+      "creation_method": "Unity camera RenderTexture captured with Texture2D.EncodeToPNG."
+    },
+    {
+      "file": "Documentation/ConceptRenders/V0_1_52_UnityWeaponAssemblyLookdev/08_material_stress_cool_light.png",
+      "description": "Material stress render under cool lighting.",
+      "width": 1800,
+      "height": 1200,
+      "bytes": 679850,
+      "sha256": "8a52b98329e48b53d3a42629ff564145535316a7b3267bfe4a4fbe4414264378",
+      "creation_method": "Unity camera RenderTexture captured with Texture2D.EncodeToPNG."
+    },
+    {
+      "file": "Documentation/ConceptRenders/V0_1_52_UnityWeaponAssemblyLookdev/09_contact_sheet.png",
+      "description": "Unity-composited contact sheet of the first eight review renders.",
+      "width": 2740,
+      "height": 1052,
+      "bytes": 1468346,
+      "sha256": "7c1ca9ae39b857d302944568ed98cc806b5b8ddb6b98918b1f80ff1296454840",
+      "creation_method": "Unity Texture2D loaded the Unity-rendered PNGs, copied scaled pixels, and exported via Texture2D.EncodeToPNG."
+    }
+  ]
+}
