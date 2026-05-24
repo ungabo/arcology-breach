@@ -366,6 +366,7 @@ public static class V0LevelValidator
             RequireApprox(enemy.definition.moveSpeed, GameBalance.BulwarkMoveSpeed, sceneName + " Bulwark definition speed");
             RequireEqual(enemy.definition.attackDamage, GameBalance.BulwarkAttackDamage, sceneName + " Bulwark definition damage");
             RequireMachineMotion(enemy.gameObject, sceneName + " Bulwark machine motion");
+            RequireBulwarkAttackTell(enemy.gameObject, sceneName + " Bulwark attack tell");
         }
 
         BellowsNodeController[] bellowsNodes = UnityEngine.Object.FindObjectsByType<BellowsNodeController>(FindObjectsSortMode.None);
@@ -454,6 +455,15 @@ public static class V0LevelValidator
         if (fireTell == null || !fireTell.IsConfigured)
         {
             throw new InvalidOperationException("Level validation failed: " + label + " is missing configured LancerFireTellVfx.");
+        }
+    }
+
+    private static void RequireBulwarkAttackTell(GameObject enemy, string label)
+    {
+        BulwarkAttackTellVfx attackTell = enemy.GetComponent<BulwarkAttackTellVfx>();
+        if (attackTell == null || !attackTell.IsConfigured)
+        {
+            throw new InvalidOperationException("Level validation failed: " + label + " is missing configured BulwarkAttackTellVfx.");
         }
     }
 

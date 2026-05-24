@@ -21,7 +21,8 @@ public enum SteamworksAudioCue
     SteamScattergunSlug,
     PressureBurst,
     EnemyAttackTell,
-    LancerFireTell
+    LancerFireTell,
+    BulwarkAttackTell
 }
 
 [RequireComponent(typeof(AudioSource))]
@@ -115,6 +116,7 @@ public class SteamworksAudio : MonoBehaviour
         clips[SteamworksAudioCue.PressureBurst] = CreateClip("Pressure Burst", 0.24f, PressureBurstSample);
         clips[SteamworksAudioCue.EnemyAttackTell] = CreateClip("Enemy Attack Tell", 0.18f, EnemyAttackTellSample);
         clips[SteamworksAudioCue.LancerFireTell] = CreateClip("Lancer Fire Tell", 0.2f, LancerFireTellSample);
+        clips[SteamworksAudioCue.BulwarkAttackTell] = CreateClip("Bulwark Attack Tell", 0.36f, BulwarkAttackTellSample);
         clips[SteamworksAudioCue.EmptyClick] = CreateClip("Empty Click", 0.09f, (t, _) => Noise(t) * 0.26f * Envelope(t, 0.001f, 0.025f, 0.09f));
         clips[SteamworksAudioCue.HealthPickup] = CreateClip("Health Pickup", 0.2f, (t, _) => Tone(Slide(520f, 780f, t), t) * Envelope(t, 0.005f, 0.08f, 0.2f));
         clips[SteamworksAudioCue.AmmoPickup] = CreateClip("Ammo Pickup", 0.18f, (t, _) => Tone(Slide(410f, 760f, t), t) * Envelope(t, 0.003f, 0.07f, 0.18f));
@@ -248,6 +250,16 @@ public class SteamworksAudio : MonoBehaviour
         float coilCharge = Tone(Slide(330f, 860f, normalized), t) * 0.26f * Envelope(t, 0.006f, 0.16f, 0.2f);
         float steamNeedle = Noise(sampleIndex * 0.00027f) * 0.16f * Envelope(t, 0.002f, 0.18f, 0.2f);
         return Mathf.Clamp(valveTick + coilCharge + steamNeedle, -1f, 1f);
+    }
+
+    private static float BulwarkAttackTellSample(float t, int sampleIndex)
+    {
+        float normalized = t / 0.36f;
+        float hammerRatchet = t < 0.12f ? Tone(820f, t) * 0.22f * Envelope(t, 0.002f, 0.085f, 0.12f) : 0f;
+        float boilerRise = Tone(Slide(96f, 310f, normalized), t) * 0.38f * Envelope(t, 0.006f, 0.28f, 0.36f);
+        float chainDrag = Noise(sampleIndex * 0.00021f) * 0.24f * Envelope(t, 0.003f, 0.32f, 0.36f);
+        float preImpactKnock = t > 0.24f ? Tone(54f, t - 0.24f) * 0.42f * Envelope(t - 0.24f, 0.001f, 0.08f, 0.12f) : 0f;
+        return Mathf.Clamp(hammerRatchet + boilerRise + chainDrag + preImpactKnock, -1f, 1f);
     }
 
     private static float WinSample(float t, int sampleIndex)

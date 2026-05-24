@@ -26,10 +26,39 @@ public class RuntimeBulwarkCombatTest : MonoBehaviour
         }
 
         PlayerController player = Require<PlayerController>("PlayerController");
+        PlayerHealth health = Require<PlayerHealth>("PlayerHealth");
         WeaponController weapon = Require<WeaponController>("WeaponController");
         BulwarkEnemyController target = Require<BulwarkEnemyController>("BulwarkEnemyController");
 
         DisableOtherEnemies(target);
+        PlaceAttackActors(player, target);
+
+        int healthBeforeTell = health.CurrentHealth;
+        yield return WaitUntilOrFail(() => HasActiveBulwarkAttackTell(target), "Bulwark hammer windup tell", 1.5f);
+        if (failed)
+        {
+            yield break;
+        }
+
+        if (health.CurrentHealth != healthBeforeTell)
+        {
+            Fail("Bulwark combat smoke failed: Bulwark damage landed before the hammer windup tell could be observed.");
+            yield break;
+        }
+
+        SteamworksAudio audio = UnityEngine.Object.FindAnyObjectByType<SteamworksAudio>();
+        if (audio == null || !audio.HasClip(SteamworksAudioCue.BulwarkAttackTell) || !audio.HasLastSpatialCue || audio.LastSpatialCue != SteamworksAudioCue.BulwarkAttackTell)
+        {
+            Fail("Bulwark combat smoke failed: Bulwark hammer windup audio did not play before slam damage.");
+            yield break;
+        }
+
+        yield return WaitUntilOrFail(() => health.CurrentHealth < healthBeforeTell, "Bulwark slam damage after tell", 2f);
+        if (failed)
+        {
+            yield break;
+        }
+
         PlaceCombatActors(player, target);
         target.enabled = false;
 
@@ -81,6 +110,17 @@ public class RuntimeBulwarkCombatTest : MonoBehaviour
         Application.Quit(0);
     }
 
+    private static bool HasActiveBulwarkAttackTell(BulwarkEnemyController target)
+    {
+        if (target == null)
+        {
+            return false;
+        }
+
+        BulwarkAttackTellVfx attackTell = target.GetComponent<BulwarkAttackTellVfx>();
+        return attackTell != null && attackTell.IsActive && attackTell.PieceCount >= 10;
+    }
+
     private static void DisableOtherEnemies(BulwarkEnemyController target)
     {
         EnemyController[] enemies = UnityEngine.Object.FindObjectsByType<EnemyController>();
@@ -121,6 +161,28 @@ public class RuntimeBulwarkCombatTest : MonoBehaviour
         }
 
         target.transform.position = new Vector3(0f, 1.15f, 4.2f);
+        target.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+
+        SetControllerEnabled(targetController, true);
+        SetControllerEnabled(playerController, true);
+    }
+
+    private static void PlaceAttackActors(PlayerController player, BulwarkEnemyController target)
+    {
+        CharacterController playerController = player.GetComponent<CharacterController>();
+        CharacterController targetController = target.GetComponent<CharacterController>();
+
+        SetControllerEnabled(playerController, false);
+        SetControllerEnabled(targetController, false);
+
+        player.transform.position = Vector3.zero;
+        player.transform.rotation = Quaternion.identity;
+        if (player.playerCamera != null)
+        {
+            player.playerCamera.localRotation = Quaternion.identity;
+        }
+
+        target.transform.position = new Vector3(0f, 1.15f, 1.35f);
         target.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
 
         SetControllerEnabled(targetController, true);

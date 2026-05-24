@@ -155,6 +155,7 @@ Every major asset should eventually have three quality targets:
 | VFX-019 | Pressure Burst dump | P1 | prototype | `PressureBurstVfx` adds a pressure ring, steam core, brass valve flash, and shard burst to Pressure Pistol alternate fire; verified by combat-scenario smoke. |
 | VFX-020 | Scrapper attack tell | P1 | prototype | `ScrapperAttackTellVfx` adds pre-damage warning pieces around Scrapper cutter arms, furnace eye, pressure tank, and floor threat area; verified by level validation and combat-edge smoke. |
 | VFX-021 | Lancer fire tell | P1 | verified | `LancerFireTellVfx` adds pre-shot warning pieces around Lancer muzzle, valve rifle, hot coil, furnace lens, and back pressure tank; verified by level validation and ranged-combat smoke. |
+| VFX-022 | Bulwark attack tell | P1 | verified | `BulwarkAttackTellVfx` adds a slam-warning ground ring, hammer lift plates, furnace overpressure, tank steam surge, pressure timing ring, and brass sparks before Bulwark slam damage; verified by level validation and Bulwark combat smoke. |
 
 ## 8. Audio
 
@@ -178,6 +179,7 @@ Every major asset should eventually have three quality targets:
 | AUD-016 | Steam Scattergun slug | P1 | prototype | Dedicated procedural pressure crack, bolt clang, pipe whistle, and steam jet cue for Steam Scattergun alternate fire; verified by runtime and weapon-switch smoke. |
 | AUD-017 | Pressure Burst dump | P1 | prototype | Dedicated procedural valve dump, brass snap, pressure wash, and pipe ring cue for Pressure Pistol alternate fire; verified by runtime and combat-scenario smoke. |
 | AUD-018 | Scrapper attack tell | P1 | prototype | Dedicated procedural ratchet/pressure-rise/cutter-scrape cue for Scrapper melee windup; verified by runtime and combat-edge smoke. |
+| AUD-019 | Bulwark attack tell | P1 | prototype | Dedicated procedural hammer-ratchet, boiler-rise, chain-drag, and pre-impact knock cue for Bulwark slam windup; verified by runtime and Bulwark combat smoke. |
 
 ## 9. UI and HUD
 

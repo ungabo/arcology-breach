@@ -1344,6 +1344,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.93 Bulwark Attack Readability Pass
+
+- [x] Add `BulwarkAttackTellVfx` with slam-warning ground ring, hammer plates, furnace overpressure, steam surge, timing ring, and brass sparks.
+- [x] Add `SteamworksAudioCue.BulwarkAttackTell` at the end of the enum without shifting existing serialized cue values.
+- [x] Generate a dedicated procedural hammer/boiler/chain windup audio clip.
+- [x] Attach configured attack-tell components to generated Bulwarks.
+- [x] Expand level validation to require configured Bulwark attack-tell components.
+- [x] Expand runtime smoke to verify the new Bulwark attack-tell audio cue.
+- [x] Expand Bulwark combat smoke to verify tell VFX/audio before slam damage.
+- [x] Build `v0.0.93` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

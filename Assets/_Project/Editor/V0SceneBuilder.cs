@@ -1973,6 +1973,13 @@ public static class V0SceneBuilder
             new[] { "Bulwark Left Hammer Arm", "Bulwark Left Hammer Head", "Bulwark Left Piston Leg", "Bulwark Left Heavy Foot" },
             new[] { "Bulwark Right Hammer Arm", "Bulwark Right Hammer Head", "Bulwark Right Piston Leg", "Bulwark Right Heavy Foot" },
             new[] { "Bulwark Furnace Belly", "Bulwark Back Pressure Tank" });
+        BulwarkAttackTellVfx attackTell = enemy.AddComponent<BulwarkAttackTellVfx>();
+        attackTell.leftHammerArm = enemy.transform.Find("Bulwark Left Hammer Arm");
+        attackTell.rightHammerArm = enemy.transform.Find("Bulwark Right Hammer Arm");
+        attackTell.leftHammerHead = enemy.transform.Find("Bulwark Left Hammer Head");
+        attackTell.rightHammerHead = enemy.transform.Find("Bulwark Right Hammer Head");
+        attackTell.furnaceBelly = enemy.transform.Find("Bulwark Furnace Belly");
+        attackTell.backPressureTank = enemy.transform.Find("Bulwark Back Pressure Tank");
 
         CharacterController controller = enemy.AddComponent<CharacterController>();
         controller.height = 2.35f;
@@ -1981,6 +1988,7 @@ public static class V0SceneBuilder
 
         BulwarkEnemyController bulwark = enemy.AddComponent<BulwarkEnemyController>();
         bulwark.definition = definition;
+        bulwark.attackTellVfx = attackTell;
         bulwark.maxHealth = GameBalance.BulwarkHealth;
         bulwark.detectionRange = GameBalance.BulwarkDetectionRange;
         bulwark.moveSpeed = GameBalance.BulwarkMoveSpeed;

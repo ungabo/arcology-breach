@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.92`.
+Current state: `v0.0.93`.
 
 Implemented:
 
@@ -76,6 +76,7 @@ Implemented:
 - `MachineMotionVfx` procedural enemy body, limb, and pressure-part animation for Scrappers, Lancers, Bulwarks, and the Governor Warden, with validation and runtime smoke coverage.
 - `PressureBoltVfx` glow/trail/spark projectile readability for Lancer and Governor Warden pressure bolts, with ranged-combat smoke coverage.
 - `PressureBoltImpactVfx` pressure flash/ring/steam/brass-shard impact feedback when pressure bolts hit the player or world, with ranged-combat smoke coverage.
+- `BulwarkAttackTellVfx` slam-warning VFX/audio before Bulwark heavy melee damage, with level validation and Bulwark combat smoke coverage.
 - `ImpactDecalVfx` pressure-pistol impact decal and spark feedback, with combat-scenario smoke coverage.
 - `PlayerDamageVfx` first-person pressure/heat/brass hurt burst on player damage, with combat-edge smoke coverage.
 - `LorePlaque` archive plaques placed in every current gameplay level, with level validation and interaction smoke coverage.

@@ -14,6 +14,7 @@ public class BulwarkEnemyController : MonoBehaviour, IDamageable
     public float attackWindup = GameBalance.BulwarkAttackWindup;
     public Color hitFlashColor = Color.white;
     public Color attackTellColor = new Color(1f, 0.2f, 0.04f);
+    public BulwarkAttackTellVfx attackTellVfx;
 
     private CharacterController characterController;
     private PlayerHealth playerHealth;
@@ -30,6 +31,11 @@ public class BulwarkEnemyController : MonoBehaviour, IDamageable
         ApplyDefinition();
         characterController = GetComponent<CharacterController>();
         playerHealth = Object.FindAnyObjectByType<PlayerHealth>();
+        if (attackTellVfx == null)
+        {
+            attackTellVfx = GetComponent<BulwarkAttackTellVfx>();
+        }
+
         renderers = GetComponentsInChildren<Renderer>();
         originalColors = new Color[renderers.Length];
 
@@ -141,6 +147,8 @@ public class BulwarkEnemyController : MonoBehaviour, IDamageable
         windingUpAttack = true;
         attackResolveTime = Time.time + attackWindup;
         SetColor(attackTellColor);
+        attackTellVfx?.StartTell(attackWindup);
+        SteamworksAudio.PlayAt(SteamworksAudioCue.BulwarkAttackTell, transform.position);
     }
 
     private void ResolveAttack(float distance)
@@ -148,6 +156,7 @@ public class BulwarkEnemyController : MonoBehaviour, IDamageable
         windingUpAttack = false;
         nextAttackTime = Time.time + attackCooldown;
         RestoreColors();
+        attackTellVfx?.StopTell();
 
         if (distance <= attackRange + 0.35f)
         {
@@ -165,6 +174,7 @@ public class BulwarkEnemyController : MonoBehaviour, IDamageable
 
         windingUpAttack = false;
         RestoreColors();
+        attackTellVfx?.StopTell();
     }
 
     private void Die()
