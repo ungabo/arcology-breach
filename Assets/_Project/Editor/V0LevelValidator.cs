@@ -35,11 +35,12 @@ public static class V0LevelValidator
         ValidateUIHudV1SpriteImports();
 
         EditorSceneManager.OpenScene(MainMenuScenePath);
-        Require<MainMenuController>("MainMenuController");
+        MainMenuController mainMenu = Require<MainMenuController>("MainMenuController");
         RuntimePerformanceProfile mainMenuPerformanceProfile = Require<RuntimePerformanceProfile>("MainMenu RuntimePerformanceProfile");
         ValidatePlatformQualityProfile("MainMenu", mainMenuPerformanceProfile);
         Require<SteamworksSpinner>("MainMenu SteamworksSpinner");
         ValidateMainMenuUIHudV1();
+        ValidateMainMenuSettings(mainMenu);
 
         EditorSceneManager.OpenScene(Level01ScenePath);
         ValidateGameplayScene("Level01", requirePressureGate: true, requireTransition: true, requireFinalExit: false, requireRangedEnemy: false);
@@ -145,6 +146,34 @@ public static class V0LevelValidator
         RequireImageSprite("MainMenu", "Menu Sensitivity Slider Valve Handle", "Panels/PANEL_Menu_SliderHandle_48x48.png");
         RequireImageSprite("MainMenu", "Menu Volume Slider Track", "Panels/PANEL_Menu_SliderTrack_360x40.png");
         RequireImageSprite("MainMenu", "Menu Volume Slider Valve Handle", "Panels/PANEL_Menu_SliderHandle_48x48.png");
+        RequireImageSprite("MainMenu", "Menu Flash Slider Track", "Panels/PANEL_Menu_SliderTrack_360x40.png");
+        RequireImageSprite("MainMenu", "Menu Flash Slider Valve Handle", "Panels/PANEL_Menu_SliderHandle_48x48.png");
+    }
+
+    private static void ValidateMainMenuSettings(MainMenuController mainMenu)
+    {
+        if (mainMenu.sensitivitySlider == null || mainMenu.volumeSlider == null || mainMenu.flashSlider == null || mainMenu.sensitivityValueText == null || mainMenu.volumeValueText == null || mainMenu.flashValueText == null)
+        {
+            throw new InvalidOperationException("Level validation failed: MainMenu is missing settings slider wiring.");
+        }
+
+        ValidateFlashSlider("MainMenu", mainMenu.flashSlider);
+    }
+
+    private static void ValidatePauseMenuSettings(string sceneName, PauseMenuController pauseMenu)
+    {
+        if (pauseMenu.sensitivitySlider == null || pauseMenu.volumeSlider == null || pauseMenu.flashSlider == null || pauseMenu.sensitivityValueText == null || pauseMenu.volumeValueText == null || pauseMenu.flashValueText == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " PauseMenu is missing settings slider wiring.");
+        }
+
+        ValidateFlashSlider(sceneName + " PauseMenu", pauseMenu.flashSlider);
+    }
+
+    private static void ValidateFlashSlider(string label, Slider slider)
+    {
+        RequireApprox(slider.minValue, GameSettings.MinFlashIntensity, label + " flash slider minimum");
+        RequireApprox(slider.maxValue, GameSettings.MaxFlashIntensity, label + " flash slider maximum");
     }
 
     private static void ValidateGameplayUIHudV1(string sceneName, HUDController hud)
@@ -172,6 +201,8 @@ public static class V0LevelValidator
         RequireImageSprite(sceneName, "Brass Reticle UIHudV1", "Reticles/RETICLE_BrassCrosshair_64x64.png");
         RequireImageSprite(sceneName, "Pause Brass Panel UIHudV1", "Panels/PANEL_Menu_BrassPanel_768x384.png");
         RequireImageSprite(sceneName, "Pause Header Panel UIHudV1", "Panels/PANEL_Menu_Header_768x96.png");
+        RequireImageSprite(sceneName, "Pause Flash Slider Track", "Panels/PANEL_Menu_SliderTrack_360x40.png");
+        RequireImageSprite(sceneName, "Pause Flash Slider Valve Handle", "Panels/PANEL_Menu_SliderHandle_48x48.png");
     }
 
     private static void RequireFinalMaterialBinding(string materialName, string familyName)
@@ -253,7 +284,8 @@ public static class V0LevelValidator
 
         ValidateGameplayUIHudV1(sceneName, hud);
 
-        Require<PauseMenuController>(sceneName + " PauseMenuController");
+        PauseMenuController pauseMenu = Require<PauseMenuController>(sceneName + " PauseMenuController");
+        ValidatePauseMenuSettings(sceneName, pauseMenu);
         Require<RuntimeInteractionTest>(sceneName + " RuntimeInteractionTest");
         Require<RuntimeCombatScenarioTest>(sceneName + " RuntimeCombatScenarioTest");
         Require<RuntimeBellowsNodeTest>(sceneName + " RuntimeBellowsNodeTest");

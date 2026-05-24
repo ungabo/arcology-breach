@@ -22,7 +22,20 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<WeaponController>("WeaponController");
         Require<GameStateController>("GameStateController");
         Require<LevelTransitionController>("LevelTransitionController");
-        Require<PauseMenuController>("PauseMenuController");
+        PauseMenuController pauseMenu = Require<PauseMenuController>("PauseMenuController");
+        if (pauseMenu.flashSlider == null || pauseMenu.flashValueText == null)
+        {
+            Debug.LogError("Runtime smoke test failed: flash intensity controls are not wired.");
+            Application.Quit(1);
+        }
+
+        GameSettings.Load();
+        if (GameSettings.FlashIntensity < GameSettings.MinFlashIntensity || GameSettings.FlashIntensity > GameSettings.MaxFlashIntensity)
+        {
+            Debug.LogError("Runtime smoke test failed: flash intensity setting is outside the supported range.");
+            Application.Quit(1);
+        }
+
         SteamworksAudio audio = Require<SteamworksAudio>("SteamworksAudio");
         if (!audio.AmbienceActive || audio.AmbienceSampleCount <= 0)
         {

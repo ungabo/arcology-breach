@@ -9,8 +9,10 @@ public class PauseMenuController : MonoBehaviour
     public Button quitButton;
     public Slider sensitivitySlider;
     public Slider volumeSlider;
+    public Slider flashSlider;
     public Text sensitivityValueText;
     public Text volumeValueText;
+    public Text flashValueText;
 
     public bool IsVisible => root != null && root.activeSelf;
 
@@ -41,6 +43,11 @@ public class PauseMenuController : MonoBehaviour
         if (volumeSlider != null)
         {
             volumeSlider.onValueChanged.AddListener(SetMasterVolume);
+        }
+
+        if (flashSlider != null)
+        {
+            flashSlider.onValueChanged.AddListener(SetFlashIntensity);
         }
 
         SetVisible(false);
@@ -87,6 +94,12 @@ public class PauseMenuController : MonoBehaviour
         UpdateSettingLabels();
     }
 
+    public void SetFlashIntensity(float value)
+    {
+        GameSettings.SetFlashIntensity(value);
+        UpdateSettingLabels();
+    }
+
     private void SyncSettingControls()
     {
         if (sensitivitySlider != null)
@@ -97,6 +110,11 @@ public class PauseMenuController : MonoBehaviour
         if (volumeSlider != null)
         {
             volumeSlider.SetValueWithoutNotify(GameSettings.MasterVolume);
+        }
+
+        if (flashSlider != null)
+        {
+            flashSlider.SetValueWithoutNotify(GameSettings.FlashIntensity);
         }
 
         UpdateSettingLabels();
@@ -112,6 +130,11 @@ public class PauseMenuController : MonoBehaviour
         if (volumeValueText != null)
         {
             volumeValueText.text = Mathf.RoundToInt(GameSettings.MasterVolume * 100f) + "%";
+        }
+
+        if (flashValueText != null)
+        {
+            flashValueText.text = Mathf.RoundToInt(GameSettings.FlashIntensity * 100f) + "%";
         }
     }
 }

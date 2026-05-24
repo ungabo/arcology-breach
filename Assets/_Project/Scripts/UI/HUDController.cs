@@ -93,7 +93,8 @@ public class HUDController : MonoBehaviour
             return;
         }
 
-        damageFlashAlpha = 0.35f;
+        GameSettings.Load();
+        damageFlashAlpha = 0.35f * GameSettings.FlashIntensity;
         Color color = damageFlashImage.color;
         color.a = damageFlashAlpha;
         damageFlashImage.color = color;

@@ -10,8 +10,10 @@ public class MainMenuController : MonoBehaviour
     public Button quitButton;
     public Slider sensitivitySlider;
     public Slider volumeSlider;
+    public Slider flashSlider;
     public Text sensitivityValueText;
     public Text volumeValueText;
+    public Text flashValueText;
 
     private static readonly string[] AutomationArguments =
     {
@@ -53,6 +55,11 @@ public class MainMenuController : MonoBehaviour
         if (volumeSlider != null)
         {
             volumeSlider.onValueChanged.AddListener(SetMasterVolume);
+        }
+
+        if (flashSlider != null)
+        {
+            flashSlider.onValueChanged.AddListener(SetFlashIntensity);
         }
 
         SyncSettingControls();
@@ -129,6 +136,12 @@ public class MainMenuController : MonoBehaviour
         UpdateSettingLabels();
     }
 
+    public void SetFlashIntensity(float value)
+    {
+        GameSettings.SetFlashIntensity(value);
+        UpdateSettingLabels();
+    }
+
     private void SyncSettingControls()
     {
         if (sensitivitySlider != null)
@@ -139,6 +152,11 @@ public class MainMenuController : MonoBehaviour
         if (volumeSlider != null)
         {
             volumeSlider.SetValueWithoutNotify(GameSettings.MasterVolume);
+        }
+
+        if (flashSlider != null)
+        {
+            flashSlider.SetValueWithoutNotify(GameSettings.FlashIntensity);
         }
 
         UpdateSettingLabels();
@@ -154,6 +172,11 @@ public class MainMenuController : MonoBehaviour
         if (volumeValueText != null)
         {
             volumeValueText.text = Mathf.RoundToInt(GameSettings.MasterVolume * 100f) + "%";
+        }
+
+        if (flashValueText != null)
+        {
+            flashValueText.text = Mathf.RoundToInt(GameSettings.FlashIntensity * 100f) + "%";
         }
     }
 

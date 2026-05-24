@@ -2,11 +2,11 @@
 
 Build:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.93\BrassworksBreach_v0.0.93.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.1.0\BrassworksBreach_v0.1.0.exe`
 
 Controls: mouse look, `WASD` move, left mouse fire, right mouse alternate fire, `E` interact, `1` Pressure Pistol, `2` Steam Scattergun after pickup, `Esc` pause, `R` restart after death or win. No jump or crouch required.
 
-Purpose: evaluate whether a Windows tester can read objectives, prompts, HUD, color language, hazards, combat tells, and navigation without accessibility options beyond sensitivity and master volume.
+Purpose: evaluate whether a Windows tester can read objectives, prompts, HUD, color language, hazards, combat tells, and navigation with the current sensitivity, master volume, and flash-intensity options.
 
 Recommended tester behavior:
 
@@ -35,6 +35,7 @@ Most successful readability cue:
 
 - [ ] PASS / [ ] FAIL: mouse sensitivity can be adjusted enough for the tester.
 - [ ] PASS / [ ] FAIL: master volume can be adjusted enough for the tester.
+- [ ] PASS / [ ] FAIL: flash intensity can be reduced enough for damage feedback comfort while remaining readable.
 - [ ] PASS / [ ] FAIL: `Esc` pause is discoverable and responsive.
 - [ ] PASS / [ ] FAIL: pause resume/restart/quit options are readable.
 - [ ] PASS / [ ] FAIL: `E` interaction prompts are visible before the tester needs them.
@@ -45,6 +46,7 @@ Notes prompt:
 ```text
 Sensitivity setting used:
 Volume setting used:
+Flash intensity setting used:
 Any missing setting the tester expected:
 Prompt or menu text that was hard to read:
 ```
@@ -126,7 +128,7 @@ Any sound too loud, quiet, sharp, or muddy:
 
 ## Expected Current Limitations
 
-- Settings currently cover sensitivity and master volume only.
-- Resolution, flash intensity, subtitle/caption support, and color-readability modes are not implemented.
+- Settings currently cover sensitivity, master volume, and flash intensity only.
+- Resolution, subtitle/caption support, and color-readability modes are not implemented.
 - Current art is primitive and may not represent final contrast/material quality.
 - VR comfort rules are future-facing; this Windows build still uses standard mouse-look FPS controls.

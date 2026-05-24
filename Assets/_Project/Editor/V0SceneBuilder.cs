@@ -1591,6 +1591,8 @@ public static class V0SceneBuilder
         mainMenu.sensitivityValueText = menuSensitivityValue;
         mainMenu.volumeSlider = CreateSettingsSlider("Menu Volume Slider", "VOLUME", canvasObject.transform, font, new Vector2(0f, -190f), 0f, 1f, GameSettings.DefaultMasterVolume, out Text menuVolumeValue);
         mainMenu.volumeValueText = menuVolumeValue;
+        mainMenu.flashSlider = CreateSettingsSlider("Menu Flash Slider", "FLASH", canvasObject.transform, font, new Vector2(0f, -244f), GameSettings.MinFlashIntensity, GameSettings.MaxFlashIntensity, GameSettings.DefaultFlashIntensity, out Text menuFlashValue);
+        mainMenu.flashValueText = menuFlashValue;
         CreateText("Menu Version", canvasObject.transform, font, GameBranding.BuildVersion, 18, TextAnchor.LowerRight, new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-18f, 12f), new Vector2(220f, 32f));
 
         GameObject eventSystemObject = new GameObject("EventSystem");
@@ -1705,6 +1707,8 @@ public static class V0SceneBuilder
         pauseMenu.sensitivityValueText = pauseSensitivityValue;
         pauseMenu.volumeSlider = CreateSettingsSlider("Pause Volume Slider", "VOLUME", root.transform, font, new Vector2(0f, -226f), 0f, 1f, GameSettings.DefaultMasterVolume, out Text pauseVolumeValue);
         pauseMenu.volumeValueText = pauseVolumeValue;
+        pauseMenu.flashSlider = CreateSettingsSlider("Pause Flash Slider", "FLASH", root.transform, font, new Vector2(0f, -278f), GameSettings.MinFlashIntensity, GameSettings.MaxFlashIntensity, GameSettings.DefaultFlashIntensity, out Text pauseFlashValue);
+        pauseMenu.flashValueText = pauseFlashValue;
 
         return pauseMenu;
     }

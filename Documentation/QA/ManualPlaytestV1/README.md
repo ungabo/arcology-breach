@@ -65,7 +65,7 @@ Current registered secrets:
 - Enemy navigation uses simple side-steering, not a full NavMesh solution.
 - Balance values have automated coverage but still need human feel tuning.
 - Audio is procedural placeholder content and needs a manual listen pass.
-- Settings are limited to sensitivity and master volume; resolution, flash intensity, and color-readability options are deferred.
+- Settings currently include sensitivity, master volume, and flash intensity; resolution and color-readability options are deferred.
 - Windows is the only current playable target. Android, WebGL, PC VR, and Meta Quest are planned but deferred.
 - Health and ammo persist across level transitions, but future weapon inventory and campaign flags still need expansion.
 - There is no save system; boss and late-route retests require replaying the route unless a developer provides a special build later.

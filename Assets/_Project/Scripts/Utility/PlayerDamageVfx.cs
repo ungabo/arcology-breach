@@ -5,6 +5,7 @@ public class PlayerDamageVfx : MonoBehaviour
     private Transform[] pieces;
     private Vector3[] basePositions;
     private Vector3[] baseScales;
+    private float effectIntensity = 1f;
 
     public int PieceCount => pieces == null ? 0 : pieces.Length;
 
@@ -22,8 +23,10 @@ public class PlayerDamageVfx : MonoBehaviour
         }
 
         PlayerDamageVfx vfx = root.AddComponent<PlayerDamageVfx>();
+        GameSettings.Load();
+        vfx.effectIntensity = GameSettings.FlashIntensity;
         vfx.BuildPieces();
-        Destroy(root, 0.65f);
+        Destroy(root, Mathf.Lerp(0.35f, 0.65f, vfx.effectIntensity));
         return vfx;
     }
 
@@ -79,7 +82,7 @@ public class PlayerDamageVfx : MonoBehaviour
         piece.name = pieceName;
         piece.transform.SetParent(transform, false);
         piece.transform.localPosition = localPosition;
-        piece.transform.localScale = localScale;
+        piece.transform.localScale = localScale * Mathf.Lerp(0.45f, 1f, effectIntensity);
 
         Collider pieceCollider = piece.GetComponent<Collider>();
         if (pieceCollider != null)
@@ -90,7 +93,7 @@ public class PlayerDamageVfx : MonoBehaviour
         Renderer pieceRenderer = piece.GetComponent<Renderer>();
         if (pieceRenderer != null)
         {
-            pieceRenderer.material.color = color;
+            pieceRenderer.material.color = Color.Lerp(new Color(0.16f, 0.05f, 0.03f), color, effectIntensity);
         }
 
         return piece.transform;

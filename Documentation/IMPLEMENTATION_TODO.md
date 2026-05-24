@@ -1357,6 +1357,17 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.0 Settings Accessibility Slice
+
+- [x] Add persisted flash-intensity setting to `GameSettings`.
+- [x] Add flash sliders to the generated main menu and pause menu.
+- [x] Apply flash intensity to HUD damage flash and first-person player damage VFX.
+- [x] Expand scene validation for flash slider references and min/max range.
+- [x] Expand runtime pause-flow smoke to verify the flash setting and label.
+- [x] Build `v0.1.0` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

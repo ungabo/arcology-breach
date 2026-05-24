@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.99` versioned build for `Brassworks Breach`.
+`v0.1.0` versioned build for `Brassworks Breach`.
 
-`v0.0.99` is a verified AudioV1 authored-audio integration build. It wires the staged AudioV1 WAV pack into `SteamworksAudio` as preferred authored ambience and cue clips while retaining procedural fallback, validates every `SteamworksAudioCue` binding in generated scenes, and expands runtime smoke coverage so authored ambience and cue routing must be active. The full `v099b` matrix passed on `2026-05-24 01:52 -04:00`, verifying `Builds/Windows/v0.0.99/BrassworksBreach_v0.0.99.exe`.
+`v0.1.0` is a verified settings/accessibility polish build. It adds a persisted flash-intensity slider to the main menu and pause menu, scales HUD damage flash and first-person player damage VFX from that setting, validates flash slider wiring in generated scenes, and expands runtime pause-flow smoke coverage for the new control. The full `v010` matrix passed on `2026-05-24 02:01 -04:00`, verifying `Builds/Windows/v0.1.0/BrassworksBreach_v0.1.0.exe`.
 
 `v0.0` core loop is complete. The current build now prefers staged AudioV1 WAV ambience and gameplay cues while keeping procedural fallback, gives interaction prompts context icons and key-denial lamp feedback, gives Bulwark hammer windups dedicated slam-warning VFX/audio before damage lands, gives pressure bolts dedicated impact VFX on player/world hits, gives Lancer pressure-bolt windups dedicated fire-tell VFX/audio, gives Scrapper deaths a richer dedicated shutdown burst, gives Scrapper melee windups dedicated warning VFX/audio before damage lands, and gives the Pressure Pistol right-mouse Pressure Burst its own pressure-dump audio cue, dedicated pressure/steam/brass burst VFX, and first-person pressure-dump viewmodel motion with a kicking gauge needle, spinning valve wheel, snapping dump lever, recoiling pressure chamber, and side vent flash. This sits on top of Level03 Steam Scattergun pickup readability cues, the richer pickup display stand, dedicated Steam Scattergun slug audio/VFX, dedicated weapon-pickup acquisition audio, real pickup-route acquisition, dedicated brass/steam weapon-pickup VFX, Bellows Node pulse audio, visible brass/steam pressure-boost VFX for over-pressurized Scrappers, Bellows Node support-machine boost behavior, first Bellows Node support-machine prototype in Level03, dedicated Steam Scattergun pressure-ring/steam/brass-spark blast VFX, Steam Scattergun first-person viewmodel, Steam Scattergun prototype, Pressure Burst alternate fire, the brassworks ambience loop, Level02 Pipeworks cartridge-cache secret, Pipeworks routing valve objective, interactable lore plaques, first-person player damage VFX, pressure-pistol impact decal VFX, visible pressure-bolt projectile VFX, reusable procedural machine motion, animated furnace heat-ripple readability, animated steam hazard puffs, health/ammo/key pickup VFX, service-lift activation VFX, pressure-gate opening VFX, non-lethal machine hit VFX, animated steampunk machinery, standard machine death VFX plus Scrapper-specific shutdown detail, persistent objective HUD guidance, Warden shutdown VFX, the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
@@ -33,6 +33,7 @@
 - Packaged combat smoke test for pressure-pistol damage against a Scrapper.
 - Pause menu with resume, restart, and quit.
 - Main menu with start, quit, sensitivity, and volume controls.
+- Flash intensity accessibility slider on the main menu and pause menu, persisted through `GameSettings` and applied to HUD/player damage feedback.
 - Generated Level02 Pipeworks Annex scene.
 - Service lift transition from Level01 into Level02.
 - Windows standalone build flow.
@@ -119,16 +120,16 @@
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.98`.
+Latest fully verified build: `v0.1.0`.
 
-Current `v0.0.98` verification:
+Current `v0.1.0` verification:
 
-- Scene rebuild: passed (`V0 scenes rebuilt`) through `Logs/v098c-scene.log`.
+- Scene rebuild: passed (`V0 scenes rebuilt`) through `Logs/v010-scene.log`.
 - Level validation: passed (`V0_LEVEL_VALIDATION_PASS`).
 - Editor smoke: passed (`V0_SMOKE_TEST_PASS`).
 - Windows build: passed (`V0_WINDOWS_BUILD_PASS`).
 - Packaged runtime tests: passed `V0_RUNTIME_SMOKE_PASS`, `V0_AUTO_PLAYTHROUGH_PASS`, `V0_COMBAT_SMOKE_PASS`, `V0_COMBAT_EDGE_PASS`, `V0_COMBAT_SCENARIO_PASS`, `V0_WEAPON_SWITCH_PASS`, `V0_BELLOWS_NODE_PASS`, `V0_RANGED_COMBAT_PASS`, `V0_BULWARK_COMBAT_PASS`, `V0_WARDEN_COMBAT_PASS`, `V0_INTERACTION_SMOKE_PASS`, `V0_HAZARD_PASS`, `V0_SECRET_PASS`, and `V0_PAUSE_FLOW_PASS`.
-- Build path: `Builds/Windows/v0.0.98/BrassworksBreach_v0.0.98.exe`.
+- Build path: `Builds/Windows/v0.1.0/BrassworksBreach_v0.1.0.exe`.
 
 Current `v0.0.93` verification:
 
@@ -1426,8 +1427,9 @@ Current target:
 - `2026-05-24 01:04 -04:00`: `v0.0.97` full build matrix passed after importing UIHudV1 sprites into gameplay/menu UI and adding validator coverage for sprite wiring.
 - `2026-05-24 01:23 -04:00`: `v0.0.98` full build matrix passed after adding context interaction icons, denied key-lamp feedback, and interaction-smoke coverage for the prompt artwork.
 - `2026-05-24 01:52 -04:00`: `v0.0.99` full build matrix passed after wiring staged AudioV1 WAV ambience and cue clips into `SteamworksAudio`, adding validator coverage for every authored cue binding, and requiring authored AudioV1 routing in runtime smoke. This final `v099b` pass also verified the project after Recovery08 output refresh and ENV Recovery03 quarantine.
+- `2026-05-24 02:01 -04:00`: `v0.1.0` full build matrix passed after adding persisted flash-intensity controls to main/pause settings, applying that value to HUD damage flash and first-person player damage VFX, and extending validation/runtime pause-flow checks for the setting.
 
-Future builds should increment as `v0.1.0`, `v0.1.1`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.1.1`, `v0.1.2`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
@@ -1441,5 +1443,5 @@ Future builds should increment as `v0.1.0`, `v0.1.1`, etc. when meaningful progr
 - AudioV1 staged WAV placeholders are now wired into gameplay, but they still need a human listen pass, mix tuning, compression settings, and final authored replacements.
 - Staged material textures and the UIHudV1 runtime sprites are now bound into active gameplay; final geometry and final raster art still need production passes.
 - Health and ammo persist across level transitions; future weapon inventory and campaign flags still need expansion.
-- Settings exist for sensitivity and master volume only; resolution, flash intensity, and color readability are still planned.
+- Settings exist for sensitivity, master volume, and flash intensity; resolution and color readability are still planned.
 - Android, browser/WebGL, SteamVR/OpenXR, and Meta Quest builds are planned but deferred.
