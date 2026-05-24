@@ -19,6 +19,8 @@ public static class V0SceneBuilder
     private const string MaterialFolder = "Assets/_Project/Materials";
     private const string TextureFolder = "Assets/_Project/Textures";
     private const string DataFolder = "Assets/_Project/Data";
+    private const string SignageDecalsTextureFolder = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures";
+    private const float SignageDecalsAtlasPixels = 2048f;
     private const string WindowsBuildFolder = "Builds/Windows";
 
     private enum ProceduralTextureKind
@@ -26,6 +28,15 @@ public static class V0SceneBuilder
         OilStone,
         RivetedIron,
         BrassPipe
+    }
+
+    private enum SignageDecalSheet
+    {
+        ObjectivePlates,
+        WarningHazardStrips,
+        RouteArrowsChevrons,
+        StencilMachineryLore,
+        SecretServiceMarks
     }
 
     [MenuItem("Project Tools/Rebuild v0.0 Scene")]
@@ -94,6 +105,7 @@ public static class V0SceneBuilder
         CreateObjectiveGuides(brassGuideMaterial, pressureWarningMaterial, keyMaterial, exitMaterial);
         CreateSteamworksDressing(rivetedIronMaterial, oilStoneMaterial, brassGuideMaterial, pressureWarningMaterial, brassHazardMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreateSecretCache(brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, healthMaterial, glassVialMaterial, medicinalFluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
+        CreateLevel01SignageDecalsV1();
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
         CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, steamScattergunDefinition, scrapperDefinition, lancerDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
@@ -945,6 +957,7 @@ public static class V0SceneBuilder
         pressureValve.hazardsToDisableOnComplete = boilerheartHazards;
         foundryLift.requiredValve = pressureValve;
         foundryLift.lockedMessage = "The foundry lift is pressure-locked. Vent the Boilerheart first.";
+        CreateLevel03SignageDecalsV1();
         CreatePointLight("Boilerheart Furnace Light", new Vector3(0f, 2.6f, 15.8f), new Color(1f, 0.32f, 0.08f), 4f, 10f);
         CreatePointLight("Boilerheart Foundry Lift Green Light", new Vector3(0f, 2.6f, 23.8f), new Color(0.1f, 1f, 0.35f), 2.8f, 7f);
 
@@ -1003,6 +1016,7 @@ public static class V0SceneBuilder
         finalHoist.requiredGuardian = guardianObjective;
         finalHoist.guardianLockedPrompt = "defeat the Governor Warden first";
         finalHoist.guardianLockedMessage = "The master override hoist is guarded. Destroy the Governor Warden first.";
+        CreateLevel05SignageDecalsV1();
         CreatePointLight("Governor Core Regulator Light", new Vector3(0f, 2.8f, 16.2f), new Color(1f, 0.36f, 0.08f), 4.2f, 10f);
         CreatePointLight("Governor Core Hoist Green Light", new Vector3(0f, 2.6f, 28f), new Color(0.1f, 1f, 0.35f), 2.8f, 7f);
 
@@ -2203,6 +2217,212 @@ public static class V0SceneBuilder
         textMesh.characterSize = characterSize;
         textMesh.fontSize = 48;
         textMesh.color = color;
+    }
+
+    private static void CreateLevel01SignageDecalsV1()
+    {
+        GameObject parent = new GameObject("Signage Decals V1 - Level01");
+
+        CreateSignageDecal("OBJ-L01-01", "Gear Key Ahead", SignageDecalSheet.ObjectivePlates, 70f, 86f, 581f, 284f, new Vector2(1.2f, 0.3f), new Vector3(14f, 1.9f, 14.03f), Quaternion.Euler(0f, 180f, 0f), parent.transform);
+        CreateSignageDecal("OBJ-L01-02", "Pressure Gate", SignageDecalSheet.ObjectivePlates, 733f, 86f, 581f, 284f, new Vector2(1.35f, 0.32f), new Vector3(0f, 2.55f, 21.87f), Quaternion.Euler(0f, 180f, 0f), parent.transform);
+        CreateSignageDecal("OBJ-L01-03", "Service Lift", SignageDecalSheet.ObjectivePlates, 1396f, 86f, 581f, 284f, new Vector2(1.25f, 0.3f), new Vector3(0f, 2.42f, 35.98f), Quaternion.identity, parent.transform);
+
+        CreateSignageDecal("HAZ-L01-01", "Pressure Locked", SignageDecalSheet.WarningHazardStrips, 70f, 86f, 581f, 284f, new Vector2(1.2f, 0.22f), new Vector3(-1.15f, 1.62f, 21.87f), Quaternion.Euler(0f, 180f, 0f), parent.transform);
+        CreateSignageDecal("HAZ-L01-03", "Gate Crush", SignageDecalSheet.WarningHazardStrips, 1396f, 86f, 581f, 284f, new Vector2(1f, 0.2f), new Vector3(0f, 0.035f, 21.18f), Quaternion.Euler(90f, 0f, 0f), parent.transform);
+
+        CreateSignageDecal("ARR-L01-01", "To Key", SignageDecalSheet.RouteArrowsChevrons, 70f, 86f, 581f, 284f, new Vector2(0.85f, 0.3f), new Vector3(7.7f, 0.04f, 17f), Quaternion.Euler(90f, 0f, 0f), parent.transform);
+        CreateSignageDecal("ARR-L01-02", "To Gate", SignageDecalSheet.RouteArrowsChevrons, 733f, 86f, 581f, 284f, new Vector2(0.85f, 0.3f), new Vector3(8.2f, 0.041f, 18.9f), Quaternion.Euler(90f, 0f, 0f), parent.transform);
+        CreateSignageDecal("ARR-L01-03", "To Lift", SignageDecalSheet.RouteArrowsChevrons, 1396f, 86f, 581f, 284f, new Vector2(0.85f, 0.3f), new Vector3(0f, 0.042f, 32.2f), Quaternion.Euler(90f, 0f, 0f), parent.transform);
+
+        CreateSignageDecal("SEC-L01-01", "Warm Seam", SignageDecalSheet.SecretServiceMarks, 70f, 74f, 581f, 308f, new Vector2(0.45f, 0.18f), new Vector3(-5.98f, 0.92f, 18.08f), Quaternion.Euler(0f, -90f, 0f), parent.transform);
+        CreateSignageDecal("SEC-L01-02", "Three Rivets Out", SignageDecalSheet.SecretServiceMarks, 733f, 74f, 581f, 308f, new Vector2(0.55f, 0.18f), new Vector3(-5.98f, 0.68f, 18.72f), Quaternion.Euler(0f, -90f, 0f), parent.transform);
+    }
+
+    private static void CreateLevel03SignageDecalsV1()
+    {
+        GameObject parent = new GameObject("Signage Decals V1 - Level03");
+
+        CreateSignageDecal("OBJ-L03-01", "Vent Core Pressure", SignageDecalSheet.ObjectivePlates, 70f, 882f, 581f, 284f, new Vector2(1.45f, 0.32f), new Vector3(0f, 1.92f, -1.74f), Quaternion.Euler(0f, 180f, 0f), parent.transform);
+        CreateSignageDecal("OBJ-L03-02", "Pressure Valve", SignageDecalSheet.ObjectivePlates, 733f, 882f, 581f, 284f, new Vector2(1.25f, 0.3f), new Vector3(5.98f, 1.9f, 17.4f), Quaternion.Euler(0f, 90f, 0f), parent.transform);
+        CreateSignageDecal("OBJ-L03-03", "Foundry Lift", SignageDecalSheet.ObjectivePlates, 1396f, 882f, 581f, 284f, new Vector2(1.2f, 0.3f), new Vector3(0f, 2.42f, 25.74f), Quaternion.identity, parent.transform);
+
+        CreateSignageDecal("HAZ-L03-01", "Furnace Leak", SignageDecalSheet.WarningHazardStrips, 70f, 882f, 581f, 284f, new Vector2(1.1f, 0.22f), new Vector3(-5.98f, 1.12f, 20.8f), Quaternion.Euler(0f, -90f, 0f), parent.transform);
+        CreateSignageDecal("HAZ-L03-02", "Core Bleed", SignageDecalSheet.WarningHazardStrips, 733f, 882f, 581f, 284f, new Vector2(1f, 0.22f), new Vector3(0f, 2.42f, 14.43f), Quaternion.identity, parent.transform);
+        CreateSignageDecal("HAZ-L03-03", "Pressure Pulse", SignageDecalSheet.WarningHazardStrips, 1396f, 882f, 581f, 284f, new Vector2(1.2f, 0.22f), new Vector3(3.6f, 0.04f, 15.1f), Quaternion.Euler(90f, 0f, 0f), parent.transform);
+
+        CreateSignageDecal("ARR-L03-01", "To Valve", SignageDecalSheet.RouteArrowsChevrons, 70f, 882f, 581f, 284f, new Vector2(0.9f, 0.3f), new Vector3(-2.2f, 0.041f, 8.8f), Quaternion.Euler(90f, 0f, 0f), parent.transform);
+        CreateSignageDecal("ARR-L03-02", "To Tool", SignageDecalSheet.RouteArrowsChevrons, 733f, 882f, 581f, 284f, new Vector2(0.85f, 0.3f), new Vector3(0f, 0.042f, 12.8f), Quaternion.Euler(90f, 0f, 0f), parent.transform);
+        CreateSignageDecal("ARR-L03-03", "To Foundry", SignageDecalSheet.RouteArrowsChevrons, 1396f, 882f, 581f, 284f, new Vector2(1f, 0.3f), new Vector3(0f, 0.043f, 22.7f), Quaternion.Euler(90f, 0f, 0f), parent.transform);
+
+        CreateSignageDecal("MAC-L03-01", "Boilerheart Core", SignageDecalSheet.StencilMachineryLore, 70f, 882f, 316f, 284f, new Vector2(1.05f, 0.18f), new Vector3(0f, 2.72f, 14.42f), Quaternion.identity, parent.transform);
+        CreateSignageDecal("SEC-L03-01", "Gauge Lies", SignageDecalSheet.SecretServiceMarks, 70f, 870f, 581f, 308f, new Vector2(0.45f, 0.18f), new Vector3(-5.98f, 0.9f, 12.1f), Quaternion.Euler(0f, -90f, 0f), parent.transform);
+        CreateSignageDecal("SEC-L03-02", "Shutter Drags", SignageDecalSheet.SecretServiceMarks, 733f, 870f, 581f, 308f, new Vector2(0.5f, 0.18f), new Vector3(-5.98f, 0.66f, 12.68f), Quaternion.Euler(0f, -90f, 0f), parent.transform);
+    }
+
+    private static void CreateLevel05SignageDecalsV1()
+    {
+        GameObject parent = new GameObject("Signage Decals V1 - Level05");
+
+        CreateSignageDecal("OBJ-L05-01", "Regulator Ring", SignageDecalSheet.ObjectivePlates, 70f, 1678f, 581f, 284f, new Vector2(1.25f, 0.3f), new Vector3(0f, 1.92f, -1.74f), Quaternion.Euler(0f, 180f, 0f), parent.transform);
+        CreateSignageDecal("OBJ-L05-02", "Warden Lock", SignageDecalSheet.ObjectivePlates, 733f, 1678f, 581f, 284f, new Vector2(1.15f, 0.3f), new Vector3(-1.2f, 1.8f, 29.73f), Quaternion.identity, parent.transform);
+        CreateSignageDecal("OBJ-L05-03", "Master Override", SignageDecalSheet.ObjectivePlates, 1396f, 1678f, 581f, 284f, new Vector2(1.4f, 0.32f), new Vector3(1.1f, 2.42f, 29.73f), Quaternion.identity, parent.transform);
+
+        CreateSignageDecal("HAZ-L05-01", "Regulator Leak", SignageDecalSheet.WarningHazardStrips, 70f, 1678f, 581f, 284f, new Vector2(1.2f, 0.22f), new Vector3(-6.98f, 1.12f, 20.8f), Quaternion.Euler(0f, -90f, 0f), parent.transform);
+        CreateSignageDecal("HAZ-L05-02", "Surge Floor", SignageDecalSheet.WarningHazardStrips, 733f, 1678f, 581f, 284f, new Vector2(1f, 0.22f), new Vector3(0f, 0.041f, 18.9f), Quaternion.Euler(90f, 0f, 0f), parent.transform);
+        CreateSignageDecal("HAZ-L05-03", "Warden Active", SignageDecalSheet.WarningHazardStrips, 1396f, 1678f, 581f, 284f, new Vector2(1.15f, 0.22f), new Vector3(6.98f, 1.24f, 22.7f), Quaternion.Euler(0f, 90f, 0f), parent.transform);
+
+        CreateSignageDecal("ARR-L05-01", "To Core", SignageDecalSheet.RouteArrowsChevrons, 70f, 1678f, 581f, 284f, new Vector2(0.85f, 0.3f), new Vector3(0f, 0.041f, 7.5f), Quaternion.Euler(90f, 0f, 0f), parent.transform);
+        CreateSignageDecal("ARR-L05-02", "To Override", SignageDecalSheet.RouteArrowsChevrons, 733f, 1678f, 581f, 284f, new Vector2(1f, 0.3f), new Vector3(0f, 0.042f, 25.2f), Quaternion.Euler(90f, 0f, 0f), parent.transform);
+        CreateSignageDecal("ARR-L05-03", "Green Hoist", SignageDecalSheet.RouteArrowsChevrons, 1396f, 1678f, 581f, 284f, new Vector2(1f, 0.3f), new Vector3(0f, 0.043f, 27.35f), Quaternion.Euler(90f, 0f, 0f), parent.transform);
+
+        CreateSignageDecal("MAC-L05-01", "Governor Core", SignageDecalSheet.StencilMachineryLore, 70f, 1678f, 316f, 284f, new Vector2(1f, 0.18f), new Vector3(0f, 2.58f, 15.54f), Quaternion.identity, parent.transform);
+        CreateSignageDecal("SEC-L05-01", "Wrong Clerk Tag", SignageDecalSheet.SecretServiceMarks, 70f, 1666f, 581f, 308f, new Vector2(0.55f, 0.18f), new Vector3(-6.98f, 0.88f, 17.15f), Quaternion.Euler(0f, -90f, 0f), parent.transform);
+        CreateSignageDecal("SEC-L05-02", "Index 5B", SignageDecalSheet.SecretServiceMarks, 733f, 1666f, 581f, 308f, new Vector2(0.4f, 0.16f), new Vector3(-6.98f, 0.64f, 17.65f), Quaternion.Euler(0f, -90f, 0f), parent.transform);
+    }
+
+    private static GameObject CreateSignageDecal(string id, string label, SignageDecalSheet sheet, float sourceX, float sourceY, float sourceWidth, float sourceHeight, Vector2 sizeMeters, Vector3 position, Quaternion rotation, Transform parent)
+    {
+        GameObject decal = new GameObject("Signage Decal - " + id + " - " + label);
+        decal.transform.SetParent(parent, false);
+        decal.transform.position = position;
+        decal.transform.rotation = rotation;
+
+        float halfWidth = sizeMeters.x * 0.5f;
+        float halfHeight = sizeMeters.y * 0.5f;
+        float uMin = sourceX / SignageDecalsAtlasPixels;
+        float uMax = (sourceX + sourceWidth) / SignageDecalsAtlasPixels;
+        float vMax = 1f - (sourceY / SignageDecalsAtlasPixels);
+        float vMin = 1f - ((sourceY + sourceHeight) / SignageDecalsAtlasPixels);
+
+        Mesh mesh = new Mesh();
+        mesh.name = "SignageDecalsV1_" + id + "_Mesh";
+        mesh.vertices = new[]
+        {
+            new Vector3(-halfWidth, -halfHeight, 0f),
+            new Vector3(halfWidth, -halfHeight, 0f),
+            new Vector3(-halfWidth, halfHeight, 0f),
+            new Vector3(halfWidth, halfHeight, 0f)
+        };
+        mesh.uv = new[]
+        {
+            new Vector2(uMin, vMin),
+            new Vector2(uMax, vMin),
+            new Vector2(uMin, vMax),
+            new Vector2(uMax, vMax)
+        };
+        mesh.triangles = new[] { 0, 2, 1, 2, 3, 1, 0, 1, 2, 2, 1, 3 };
+        mesh.normals = new[] { Vector3.back, Vector3.back, Vector3.back, Vector3.back };
+        mesh.RecalculateBounds();
+
+        MeshFilter meshFilter = decal.AddComponent<MeshFilter>();
+        meshFilter.sharedMesh = mesh;
+        MeshRenderer meshRenderer = decal.AddComponent<MeshRenderer>();
+        meshRenderer.sharedMaterial = CreateSignageDecalMaterial(id, sheet);
+        return decal;
+    }
+
+    private static Material CreateSignageDecalMaterial(string id, SignageDecalSheet sheet)
+    {
+        string texturePath = GetSignageDecalTexturePath(sheet);
+        Texture2D texture = AssetDatabase.LoadAssetAtPath<Texture2D>(texturePath);
+        if (texture == null)
+        {
+            throw new FileNotFoundException("Missing staged signage texture", texturePath);
+        }
+
+        Shader shader = Shader.Find("Unlit/Transparent");
+        if (shader == null)
+        {
+            shader = Shader.Find("Universal Render Pipeline/Unlit");
+        }
+
+        if (shader == null)
+        {
+            shader = Shader.Find("Standard");
+        }
+
+        Material material = new Material(shader);
+        material.name = "M_SignageDecalsV1_" + id;
+        material.mainTexture = texture;
+        if (material.HasProperty("_BaseMap"))
+        {
+            material.SetTexture("_BaseMap", texture);
+        }
+
+        if (material.HasProperty("_Color"))
+        {
+            material.SetColor("_Color", Color.white);
+        }
+
+        if (material.HasProperty("_BaseColor"))
+        {
+            material.SetColor("_BaseColor", Color.white);
+        }
+
+        ConfigureSignageMaterial(material);
+        return material;
+    }
+
+    private static void ConfigureSignageMaterial(Material material)
+    {
+        material.SetOverrideTag("RenderType", "Transparent");
+        if (material.HasProperty("_Mode"))
+        {
+            material.SetFloat("_Mode", 3f);
+        }
+
+        if (material.HasProperty("_Surface"))
+        {
+            material.SetFloat("_Surface", 1f);
+        }
+
+        if (material.HasProperty("_Blend"))
+        {
+            material.SetFloat("_Blend", 0f);
+        }
+
+        if (material.HasProperty("_SrcBlend"))
+        {
+            material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+        }
+
+        if (material.HasProperty("_DstBlend"))
+        {
+            material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+        }
+
+        if (material.HasProperty("_ZWrite"))
+        {
+            material.SetInt("_ZWrite", 0);
+        }
+
+        if (material.HasProperty("_Cull"))
+        {
+            material.SetInt("_Cull", (int)UnityEngine.Rendering.CullMode.Off);
+        }
+
+        material.EnableKeyword("_ALPHABLEND_ON");
+        material.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
+        material.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
+    }
+
+    private static string GetSignageDecalTexturePath(SignageDecalSheet sheet)
+    {
+        switch (sheet)
+        {
+            case SignageDecalSheet.ObjectivePlates:
+                return SignageDecalsTextureFolder + "/T_SignageDecalsV1_ObjectivePlates_2048.png";
+            case SignageDecalSheet.WarningHazardStrips:
+                return SignageDecalsTextureFolder + "/T_SignageDecalsV1_WarningHazardStrips_2048.png";
+            case SignageDecalSheet.RouteArrowsChevrons:
+                return SignageDecalsTextureFolder + "/T_SignageDecalsV1_RouteArrowsChevrons_2048.png";
+            case SignageDecalSheet.StencilMachineryLore:
+                return SignageDecalsTextureFolder + "/T_SignageDecalsV1_StencilMachineryLore_2048.png";
+            case SignageDecalSheet.SecretServiceMarks:
+                return SignageDecalsTextureFolder + "/T_SignageDecalsV1_SecretServiceMarks_2048.png";
+            default:
+                throw new ArgumentOutOfRangeException(nameof(sheet), sheet, "Unknown signage decal sheet.");
+        }
     }
 
     private static void CreateSecretCache(Material brassMaterial, Material ironMaterial, Material warningMaterial, Material healthMaterial, Material glassMaterial, Material fluidMaterial, Material ammoMaterial, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition)

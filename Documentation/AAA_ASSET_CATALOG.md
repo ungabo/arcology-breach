@@ -211,6 +211,7 @@ Every major asset should eventually have three quality targets:
 | LVL-006 | Furnace Foundry prototype | P2 | prototype | Generated fourth level with foundry blockout, mixed Scrapper/Lancer/Bulwark pressure, steam hazards, pulsing furnace heat lanes, secret coal cache, furnace-row dressing, and emergency-hoist transition to Level05. |
 | LVL-007 | Governor Core prototype | P2 | prototype | Generated fifth level with core-ring blockout, mixed Scrapper/Lancer/Bulwark/Warden pressure, steam hazard, furnace-heat surge, regulator dressing, Warden-locked master override hoist, and win state. |
 | LVL-008 | V1 signage/decal kit | P1 | review | Side-agent package under `Assets/_Project/ArtStaging/SignageDecalsV1/` and `Documentation/AssetProduction/SignageDecalsV1/` includes 85 signage/decal entries, 79 ready and 6 rough, with objective plates, warning/hazard strips, route arrows/chevrons, machinery/lore/work-order labels, secret service marks, copy deck, manifest, source rectangles, import settings, and contact sheet. |
+| LVL-009 | SignageDecalsV1 playable integration | P1 | verified | Generated Level01, Level03, and Level05 now include static atlas-sliced SignageDecalsV1 quads for objective plates, warning/hazard signage, route arrows, machinery labels, and service/secret marks, with validator coverage for expected scene objects and staged texture references. Verified in `v0.0.94` with the full V0 build matrix. |
 
 ## 11. Platform Variants
 

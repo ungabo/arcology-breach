@@ -112,3 +112,25 @@
   - `CONTACTSHEET_HFLD_Recovery04_pressure_pistol_unity_proof.jpg`
   - `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/`
 - The Unity proof must remain outside gameplay scenes and Build Settings until it passes acceptance gates.
+
+## 2026-05-24 00:06:54 -04:00
+
+- Generated Recovery04 full-gun Unity proof with temporary editor-created content and RenderTexture JPG output.
+- Added:
+  - `RENDER_HFLD_Recovery04_pressure_pistol_unity_proof.jpg`
+  - `CONTACTSHEET_HFLD_Recovery04_pressure_pistol_unity_proof.jpg`
+  - `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/HFLD_RECOVERY04_UNITY_PRESSURE_PISTOL_PROOF_REPORT.md`
+- PM visual review rejected Recovery04: smoke rendered as opaque slab shapes, framing was too cropped/side-on, materials skewed too orange, and the full-gun primitive assembly was not close enough to the north-star concept.
+
+## 2026-05-24 00:21:40 -04:00
+
+- Pivoted pressure-pistol Unity lookdev to component-first proofing.
+- Added Recovery05 component proof files:
+  - `CONTACTSHEET_HFLD_Recovery05_pressure_pistol_components_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery05_coil_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery05_gauge_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery05_barrel_tank_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery05_muzzle_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery05_grip_hand_unity_proof.jpg`
+- Added component report and metrics under `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/`.
+- Current component result: coil, gauge, barrel/tank, and muzzle pass gates; grip/hand is partial; smoke is omitted until transparent sprites are proven.

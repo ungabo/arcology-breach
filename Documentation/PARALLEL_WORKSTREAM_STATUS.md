@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 00:03 -04:00`
+Last updated: `2026-05-24 00:23 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -17,8 +17,8 @@ Current focus:
 
 Current verified local build:
 
-- `v0.0.93`
-- Build path: `Builds/Windows/v0.0.93/BrassworksBreach_v0.0.93.exe`
+- `v0.0.94`
+- Build path: `Builds/Windows/v0.0.94/BrassworksBreach_v0.0.94.exe`
 - Matrix result: `V0_BUILD_MATRIX_PASS`
 
 ## Active Side Agents
@@ -47,10 +47,11 @@ Current verified local build:
 | Parfit | `019e5801-0ee0-71b3-bfba-3b8df1d41e70` | V1 audio production/staging lane | `Assets/_Project/ArtStaging/AudioV1/`, `Documentation/AssetProduction/AudioV1/` | `2026-05-23 23:26 -04:00` | completed |
 | Singer | `019e5805-3d47-70c2-b58b-e556a173f473` | Superseded external-render unblock lane | `Documentation/AssetProduction/HighFidelityLookdevRecovery/` | `2026-05-23 23:32 -04:00` | superseded by Unity-only direction |
 | Turing | `019e580e-5d21-76b3-81a4-80455fe93c12` | V1 signage/decal text and staging sheets | `Documentation/AssetProduction/SignageDecalsV1/`, `Assets/_Project/ArtStaging/SignageDecalsV1/` | `2026-05-23 23:54 -04:00` | completed |
-| Aquinas | `019e580e-5ece-7361-b0d2-1a820f927d13` | V1 manual playtest route sheets | `Documentation/QA/ManualPlaytestV1/` | `2026-05-23 23:54 -04:00` | running |
-| Galileo | `019e581e-6aaf-74e2-8389-1401c29ef000` | Unity-only pressure-pistol Recovery04 proof render | `Assets/_Project/Editor/UnityPressurePistolProofRenderer.cs`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/`, selected `Documentation/ConceptRenders/*Recovery04_pressure_pistol_unity_proof*` | `2026-05-23 23:55 -04:00` | running |
-| Dalton | `019e5826-5ad4-7fd2-99d2-d2c146deb564` | `v0.0.94` playable signage/decal integration | `Assets/_Project/Editor/V0SceneBuilder.cs`, `Assets/_Project/Editor/V0LevelValidator.cs`, generated scenes, focused docs/build output | `2026-05-23 23:55 -04:00` | running |
-| Hubble | `019e5826-8d5d-7723-ae93-104777386f06` | Unity concept-match production standard | `Documentation/ArtDirection/UNITY_CONCEPT_MATCH_PRODUCTION_STANDARD.md`, `Documentation/ArtDirection/UNITY_ASSET_ACCEPTANCE_GATES.md`, `Documentation/ProductionManagement/UNITY_ART_PRODUCTION_BREAKDOWN_V1.md` | `2026-05-23 23:55 -04:00` | running |
+| Aquinas | `019e580e-5ece-7361-b0d2-1a820f927d13` | V1 manual playtest route sheets | `Documentation/QA/ManualPlaytestV1/` | `2026-05-23 23:54 -04:00` | status unavailable in current manager session |
+| Galileo | `019e581e-6aaf-74e2-8389-1401c29ef000` | Unity-only pressure-pistol Recovery04/Recovery05 proof render | `Assets/_Project/Editor/UnityPressurePistolProofRenderer.cs`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/`, selected `Documentation/ConceptRenders/*Recovery04*`, selected `Documentation/ConceptRenders/*Recovery05*` | `2026-05-23 23:55 -04:00` | outputs integrated for review |
+| Dalton | `019e5826-5ad4-7fd2-99d2-d2c146deb564` | `v0.0.94` playable signage/decal integration | `Assets/_Project/Editor/V0SceneBuilder.cs`, `Assets/_Project/Editor/V0LevelValidator.cs`, generated scenes, focused docs/build output | `2026-05-23 23:55 -04:00` | completed and verified |
+| Hubble | `019e5826-8d5d-7723-ae93-104777386f06` | Unity concept-match production standard | `Documentation/ArtDirection/UNITY_CONCEPT_MATCH_PRODUCTION_STANDARD.md`, `Documentation/ArtDirection/UNITY_ASSET_ACCEPTANCE_GATES.md`, `Documentation/ProductionManagement/UNITY_ART_PRODUCTION_BREAKDOWN_V1.md` | `2026-05-23 23:55 -04:00` | completed |
+| Poincare-Component | `019e582d-14bb-7b00-9bc6-e03b5190b865` | Pressure-pistol component build plan/gates | `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/PRESSURE_PISTOL_COMPONENT_BUILD_PLAN.md`, `PRESSURE_PISTOL_COMPONENT_ACCEPTANCE_GATES.md` | `2026-05-24 00:00 -04:00` | completed |
 
 ## Completed Side-Agent Outputs
 
@@ -88,9 +89,10 @@ Current verified local build:
 | Singer | `2026-05-23 23:43 -04:00` | `Documentation/AssetProduction/HighFidelityLookdevRecovery/RENDER_TOOLCHAIN_UNBLOCK_PLAN.md`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UNITY_PRESSURE_PISTOL_RECOVERY04_BRIEF.md` | Superseded the external-render plan and converted the recovery direction to Unity-only lookdev/test rendering. |
 | Turing | `2026-05-23 23:46 -04:00` | `Documentation/AssetProduction/SignageDecalsV1/`, `Assets/_Project/ArtStaging/SignageDecalsV1/` | Completed V1 signage/decal staging: 85 entries, 79 ready, 6 rough, with objective plates, warning/hazard strips, route arrows/chevrons, machinery/lore/work-order labels, secret marks, copy deck, manifest, and contact sheet. |
 | Aquinas | `2026-05-23 23:54 -04:00` | `Documentation/QA/ManualPlaytestV1/` | Running manual playtest route sheet generation from level-polish backlog item P-04. |
-| Galileo | `2026-05-23 23:55 -04:00` | `Assets/_Project/Editor/UnityPressurePistolProofRenderer.cs`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/`, selected `Documentation/ConceptRenders/*Recovery04_pressure_pistol_unity_proof*` | Running Unity-only pressure-pistol proof render lane with temporary editor-created lookdev content and RenderTexture output. |
-| Dalton | `2026-05-23 23:55 -04:00` | `Assets/_Project/Editor/V0SceneBuilder.cs`, `Assets/_Project/Editor/V0LevelValidator.cs`, generated scenes, focused docs/build output | Running `v0.0.94` signage/decal integration to push staged signage into playable levels with validator coverage. |
-| Hubble | `2026-05-23 23:55 -04:00` | `Documentation/ArtDirection/`, `Documentation/ProductionManagement/UNITY_ART_PRODUCTION_BREAKDOWN_V1.md` | Running concept-match production standard work to translate the north-star art into concrete Unity asset gates and implementation slices. |
+| Galileo | `2026-05-24 00:21 -04:00` | `Assets/_Project/Editor/UnityPressurePistolProofRenderer.cs`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/`, `Documentation/ConceptRenders/*Recovery04*`, `Documentation/ConceptRenders/*Recovery05*` | Produced Recovery04 rejected full-gun Unity proof and Recovery05 component-first Unity proof set. Coil, gauge, barrel/tank, and muzzle pass component gates; grip/hand remains partial; smoke is omitted until transparent sprites are proven. |
+| Dalton | `2026-05-24 00:20 -04:00` | `Assets/_Project/Editor/V0SceneBuilder.cs`, `Assets/_Project/Editor/V0LevelValidator.cs`, generated scenes, focused docs/build output | Completed `v0.0.94` SignageDecalsV1 playable integration. Full V0 matrix passed and produced `Builds/Windows/v0.0.94/BrassworksBreach_v0.0.94.exe`. |
+| Hubble | `2026-05-24 00:00 -04:00` | `Documentation/ArtDirection/UNITY_CONCEPT_MATCH_PRODUCTION_STANDARD.md`, `Documentation/ArtDirection/UNITY_ASSET_ACCEPTANCE_GATES.md`, `Documentation/ProductionManagement/UNITY_ART_PRODUCTION_BREAKDOWN_V1.md` | Completed Unity concept-match production standard, asset acceptance gates, and production breakdown. Highest-priority slices are material implementation, corridor core, pipe/gauge/gaslight dressing, pressure gate language, and component-proofed pressure pistol. |
+| Poincare-Component | `2026-05-24 00:00 -04:00` | `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/PRESSURE_PISTOL_COMPONENT_BUILD_PLAN.md`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/PRESSURE_PISTOL_COMPONENT_ACCEPTANCE_GATES.md` | Completed component-first pressure-pistol plan and measurable gates for material calibration, gauge, coil, barrel/tank, muzzle, grip/hand, fasteners/plates, steam/smoke, and final assembly. |
 
 ## Integration Rules
 

@@ -3080,3 +3080,27 @@ Build executable:
 `Builds/Windows/v0.0.93/BrassworksBreach_v0.0.93.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 00:13 -04:00
+
+Prepared and verified `v0.0.94` SignageDecalsV1 playable integration.
+
+Added:
+
+- Static atlas-sliced SignageDecalsV1 quads in generated Level01, Level03, and Level05.
+- Objective plates, warning/hazard strips, route arrows, machinery labels, and service/secret marks using the staged PNG sheets under `Assets/_Project/ArtStaging/SignageDecalsV1/Textures/`.
+- Scene-only signage materials named `M_SignageDecalsV1_*`, with staged atlas texture references.
+- Validator coverage for the Level01/Level03/Level05 signage roots, representative decal objects, sliced meshes, material names, and atlas texture paths.
+- Version string bumped to `v0.0.94` for the next Windows build path.
+
+Verification attempted:
+
+- `V0 scenes rebuilt` passed through `Logs/v094-scene.log`.
+- Full `Tools/RunV0BuildMatrix.ps1 -LogPrefix v094` passed after the Unity lookdev editor script finished generating its component-proof entrypoint.
+- Passed markers: `V0_LEVEL_VALIDATION_PASS`, `V0_SMOKE_TEST_PASS`, `V0_WINDOWS_BUILD_PASS`, `V0_RUNTIME_SMOKE_PASS`, `V0_AUTO_PLAYTHROUGH_PASS`, `V0_COMBAT_SMOKE_PASS`, `V0_COMBAT_EDGE_PASS`, `V0_COMBAT_SCENARIO_PASS`, `V0_WEAPON_SWITCH_PASS`, `V0_BELLOWS_NODE_PASS`, `V0_RANGED_COMBAT_PASS`, `V0_BULWARK_COMBAT_PASS`, `V0_WARDEN_COMBAT_PASS`, `V0_INTERACTION_SMOKE_PASS`, `V0_HAZARD_PASS`, `V0_SECRET_PASS`, and `V0_PAUSE_FLOW_PASS`.
+
+Build executable:
+
+`Builds/Windows/v0.0.94/BrassworksBreach_v0.0.94.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

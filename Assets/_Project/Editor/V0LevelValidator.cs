@@ -11,6 +11,11 @@ public static class V0LevelValidator
     private const string Level03ScenePath = "Assets/_Project/Scenes/Level03.unity";
     private const string Level04ScenePath = "Assets/_Project/Scenes/Level04.unity";
     private const string Level05ScenePath = "Assets/_Project/Scenes/Level05.unity";
+    private const string SignageObjectiveTexturePath = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png";
+    private const string SignageWarningTexturePath = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png";
+    private const string SignageRouteTexturePath = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png";
+    private const string SignageStencilTexturePath = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png";
+    private const string SignageSecretTexturePath = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png";
 
     [MenuItem("Project Tools/Validate v0 Levels")]
     public static void RunValidation()
@@ -105,6 +110,7 @@ public static class V0LevelValidator
         ValidateSecrets(sceneName);
         ValidateEnvironmentPropVisuals(sceneName);
         ValidateLorePlaques(sceneName);
+        ValidateSignageDecalsV1(sceneName);
         ValidateMachineryMotion(sceneName);
 
         if (requirePressureGate)
@@ -818,6 +824,103 @@ public static class V0LevelValidator
             {
                 throw new InvalidOperationException("Level validation failed: " + sceneName + " lore plaque " + plaque.name + " is missing narrative text.");
             }
+        }
+    }
+
+    private static void ValidateSignageDecalsV1(string sceneName)
+    {
+        if (sceneName == "Level01")
+        {
+            RequireSignageRoot(sceneName, "Signage Decals V1 - Level01", 10);
+            RequireSignageDecal(sceneName, "OBJ-L01-01", "Gear Key Ahead", SignageObjectiveTexturePath);
+            RequireSignageDecal(sceneName, "OBJ-L01-02", "Pressure Gate", SignageObjectiveTexturePath);
+            RequireSignageDecal(sceneName, "OBJ-L01-03", "Service Lift", SignageObjectiveTexturePath);
+            RequireSignageDecal(sceneName, "HAZ-L01-01", "Pressure Locked", SignageWarningTexturePath);
+            RequireSignageDecal(sceneName, "HAZ-L01-03", "Gate Crush", SignageWarningTexturePath);
+            RequireSignageDecal(sceneName, "ARR-L01-01", "To Key", SignageRouteTexturePath);
+            RequireSignageDecal(sceneName, "ARR-L01-03", "To Lift", SignageRouteTexturePath);
+            RequireSignageDecal(sceneName, "SEC-L01-01", "Warm Seam", SignageSecretTexturePath);
+            RequireSignageDecal(sceneName, "SEC-L01-02", "Three Rivets Out", SignageSecretTexturePath);
+        }
+        else if (sceneName == "Level03")
+        {
+            RequireSignageRoot(sceneName, "Signage Decals V1 - Level03", 12);
+            RequireSignageDecal(sceneName, "OBJ-L03-01", "Vent Core Pressure", SignageObjectiveTexturePath);
+            RequireSignageDecal(sceneName, "OBJ-L03-02", "Pressure Valve", SignageObjectiveTexturePath);
+            RequireSignageDecal(sceneName, "OBJ-L03-03", "Foundry Lift", SignageObjectiveTexturePath);
+            RequireSignageDecal(sceneName, "HAZ-L03-01", "Furnace Leak", SignageWarningTexturePath);
+            RequireSignageDecal(sceneName, "HAZ-L03-02", "Core Bleed", SignageWarningTexturePath);
+            RequireSignageDecal(sceneName, "HAZ-L03-03", "Pressure Pulse", SignageWarningTexturePath);
+            RequireSignageDecal(sceneName, "ARR-L03-01", "To Valve", SignageRouteTexturePath);
+            RequireSignageDecal(sceneName, "ARR-L03-02", "To Tool", SignageRouteTexturePath);
+            RequireSignageDecal(sceneName, "ARR-L03-03", "To Foundry", SignageRouteTexturePath);
+            RequireSignageDecal(sceneName, "MAC-L03-01", "Boilerheart Core", SignageStencilTexturePath);
+            RequireSignageDecal(sceneName, "SEC-L03-01", "Gauge Lies", SignageSecretTexturePath);
+        }
+        else if (sceneName == "Level05")
+        {
+            RequireSignageRoot(sceneName, "Signage Decals V1 - Level05", 12);
+            RequireSignageDecal(sceneName, "OBJ-L05-01", "Regulator Ring", SignageObjectiveTexturePath);
+            RequireSignageDecal(sceneName, "OBJ-L05-02", "Warden Lock", SignageObjectiveTexturePath);
+            RequireSignageDecal(sceneName, "OBJ-L05-03", "Master Override", SignageObjectiveTexturePath);
+            RequireSignageDecal(sceneName, "HAZ-L05-01", "Regulator Leak", SignageWarningTexturePath);
+            RequireSignageDecal(sceneName, "HAZ-L05-02", "Surge Floor", SignageWarningTexturePath);
+            RequireSignageDecal(sceneName, "HAZ-L05-03", "Warden Active", SignageWarningTexturePath);
+            RequireSignageDecal(sceneName, "ARR-L05-01", "To Core", SignageRouteTexturePath);
+            RequireSignageDecal(sceneName, "ARR-L05-02", "To Override", SignageRouteTexturePath);
+            RequireSignageDecal(sceneName, "ARR-L05-03", "Green Hoist", SignageRouteTexturePath);
+            RequireSignageDecal(sceneName, "MAC-L05-01", "Governor Core", SignageStencilTexturePath);
+            RequireSignageDecal(sceneName, "SEC-L05-01", "Wrong Clerk Tag", SignageSecretTexturePath);
+        }
+    }
+
+    private static void RequireSignageRoot(string sceneName, string rootName, int minimumChildren)
+    {
+        GameObject root = RequireNamed(rootName, sceneName + " SignageDecalsV1 root");
+        if (root.transform.childCount < minimumChildren)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " SignageDecalsV1 root has only " + root.transform.childCount + " decals.");
+        }
+    }
+
+    private static void RequireSignageDecal(string sceneName, string id, string label, string expectedTexturePath)
+    {
+        string objectName = "Signage Decal - " + id + " - " + label;
+        GameObject decal = RequireNamed(objectName, sceneName + " SignageDecalsV1 decal " + id);
+
+        MeshFilter meshFilter = decal.GetComponent<MeshFilter>();
+        if (meshFilter == null || meshFilter.sharedMesh == null || meshFilter.sharedMesh.uv == null || meshFilter.sharedMesh.uv.Length < 4)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " signage decal " + id + " has no sliced quad mesh.");
+        }
+
+        Renderer renderer = decal.GetComponent<Renderer>();
+        if (renderer == null || renderer.sharedMaterial == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " signage decal " + id + " has no material.");
+        }
+
+        Material material = renderer.sharedMaterial;
+        if (!material.name.Contains("M_SignageDecalsV1_" + id))
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " signage decal " + id + " has the wrong material name.");
+        }
+
+        Texture texture = material.mainTexture;
+        if (texture == null && material.HasProperty("_BaseMap"))
+        {
+            texture = material.GetTexture("_BaseMap");
+        }
+
+        if (texture == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " signage decal " + id + " has no atlas texture.");
+        }
+
+        string texturePath = AssetDatabase.GetAssetPath(texture).Replace("\\", "/");
+        if (texturePath != expectedTexturePath)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " signage decal " + id + " expected texture " + expectedTexturePath + " but found " + texturePath + ".");
         }
     }
 
