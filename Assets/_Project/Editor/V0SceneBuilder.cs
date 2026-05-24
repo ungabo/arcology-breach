@@ -1875,6 +1875,11 @@ public static class V0SceneBuilder
             new[] { "Scrapper Left Piston Arm", "Scrapper Left Cutter", "Scrapper Left Leg", "Scrapper Left Foot" },
             new[] { "Scrapper Right Piston Arm", "Scrapper Right Cutter", "Scrapper Right Leg", "Scrapper Right Foot" },
             new[] { "Scrapper Furnace Eye", "Scrapper Pressure Tank" });
+        ScrapperAttackTellVfx attackTell = enemy.AddComponent<ScrapperAttackTellVfx>();
+        attackTell.leftCutter = enemy.transform.Find("Scrapper Left Cutter");
+        attackTell.rightCutter = enemy.transform.Find("Scrapper Right Cutter");
+        attackTell.furnaceEye = enemy.transform.Find("Scrapper Furnace Eye");
+        attackTell.pressureTank = enemy.transform.Find("Scrapper Pressure Tank");
 
         CharacterController controller = enemy.AddComponent<CharacterController>();
         controller.height = 2f;
@@ -1883,6 +1888,7 @@ public static class V0SceneBuilder
 
         EnemyController enemyController = enemy.AddComponent<EnemyController>();
         enemyController.definition = definition;
+        enemyController.attackTellVfx = attackTell;
         enemyController.maxHealth = GameBalance.ScrapperHealth;
         enemyController.moveSpeed = GameBalance.ScrapperMoveSpeed;
         enemyController.detectionRange = GameBalance.ScrapperDetectionRange;

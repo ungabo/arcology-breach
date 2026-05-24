@@ -109,7 +109,7 @@ Every major asset should eventually have three quality targets:
 | ANIM-001 | Weapon idle/fire | P1 | prototype | Pressure Pistol and Steam Scattergun each have a procedural first-person viewmodel with shared recoil/flash support; Pressure Pistol secondary fire also kicks gauge/valve/lever/chamber/vent pieces; dedicated authored animations remain planned. |
 | ANIM-002 | Pressure Pistol reload/check | P2 | planned | Optional if reloads become part of gameplay. |
 | ANIM-003 | Scrapper idle/chase | P1 | prototype | `MachineMotionVfx` now gives Scrappers baseline boiler bob, piston/cutter motion, and pressure pulsing; final pass should replace it with authored stride/attack clips. |
-| ANIM-004 | Scrapper attack tell | P1 | planned | Cutter arm windup before damage. |
+| ANIM-004 | Scrapper attack tell | P1 | verified | `ScrapperAttackTellVfx` now adds cutter-edge warning glows, furnace flare, pressure surge, steam puffs, brass sparks, and a ground warning ring during melee windup, with dedicated `EnemyAttackTell` audio and combat-edge smoke coverage before damage lands. |
 | ANIM-005 | Scrapper hit/death | P1 | planned | Sparks, stagger, collapse, or shutdown. |
 | ANIM-006 | Lancer aim/fire | P1 | planned | Valve charge tell and shot release. |
 | ANIM-007 | Gate open/close | P1 | prototype | Existing sliding motion, needs gear-driven animation. |
@@ -149,6 +149,7 @@ Every major asset should eventually have three quality targets:
 | VFX-017 | Weapon pickup burst | P1 | prototype | `WeaponPickupVfx` adds a brass/steam weapon-acquisition ring, core, globe, and shell burst for weapon pickups; the Steam Scattergun world pickup route is verified by weapon-switch smoke. |
 | VFX-018 | Scattergun slug pressure spear | P1 | prototype | `ScattergunSlugVfx` adds a narrow pressure spear, brass collar, steam core, and sparks to Steam Scattergun alternate fire; verified by weapon-switch smoke. |
 | VFX-019 | Pressure Burst dump | P1 | prototype | `PressureBurstVfx` adds a pressure ring, steam core, brass valve flash, and shard burst to Pressure Pistol alternate fire; verified by combat-scenario smoke. |
+| VFX-020 | Scrapper attack tell | P1 | prototype | `ScrapperAttackTellVfx` adds pre-damage warning pieces around Scrapper cutter arms, furnace eye, pressure tank, and floor threat area; verified by level validation and combat-edge smoke. |
 
 ## 8. Audio
 
@@ -171,6 +172,7 @@ Every major asset should eventually have three quality targets:
 | AUD-015 | Weapon pickup acquisition | P1 | prototype | Dedicated procedural brass latch, pressure rise, gear chime, and steam bloom cue for weapon pickups; the Steam Scattergun real pickup route is verified by runtime and weapon-switch smoke. |
 | AUD-016 | Steam Scattergun slug | P1 | prototype | Dedicated procedural pressure crack, bolt clang, pipe whistle, and steam jet cue for Steam Scattergun alternate fire; verified by runtime and weapon-switch smoke. |
 | AUD-017 | Pressure Burst dump | P1 | prototype | Dedicated procedural valve dump, brass snap, pressure wash, and pipe ring cue for Pressure Pistol alternate fire; verified by runtime and combat-scenario smoke. |
+| AUD-018 | Scrapper attack tell | P1 | prototype | Dedicated procedural ratchet/pressure-rise/cutter-scrape cue for Scrapper melee windup; verified by runtime and combat-edge smoke. |
 
 ## 9. UI and HUD
 

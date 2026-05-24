@@ -35,6 +35,19 @@ public class RuntimeCombatEdgeTest : MonoBehaviour
 
         PlaceMeleeActors(player, meleeEnemy);
         int healthBeforeMelee = health.CurrentHealth;
+        yield return WaitUntilOrFail(() => HasActiveScrapperAttackTell(meleeEnemy), "Scrapper attack tell", 1.5f);
+        if (failed)
+        {
+            yield break;
+        }
+
+        SteamworksAudio audio = UnityEngine.Object.FindAnyObjectByType<SteamworksAudio>();
+        if (audio == null || !audio.HasClip(SteamworksAudioCue.EnemyAttackTell) || !audio.HasLastSpatialCue || audio.LastSpatialCue != SteamworksAudioCue.EnemyAttackTell)
+        {
+            Fail("Combat edge smoke failed: Scrapper attack tell audio did not play before melee damage.");
+            yield break;
+        }
+
         yield return WaitUntilOrFail(() => health.CurrentHealth < healthBeforeMelee, "Scrapper melee damage", 3f);
         if (failed)
         {
@@ -126,6 +139,17 @@ public class RuntimeCombatEdgeTest : MonoBehaviour
 
         SetControllerEnabled(targetController, true);
         SetControllerEnabled(playerController, true);
+    }
+
+    private static bool HasActiveScrapperAttackTell(EnemyController target)
+    {
+        if (target == null)
+        {
+            return false;
+        }
+
+        ScrapperAttackTellVfx attackTell = target.GetComponent<ScrapperAttackTellVfx>();
+        return attackTell != null && attackTell.IsActive && attackTell.PieceCount >= 8;
     }
 
     private IEnumerator WaitUntilOrFail(Func<bool> predicate, string step, float timeoutSeconds)

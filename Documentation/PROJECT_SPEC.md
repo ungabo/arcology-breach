@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.88`.
+Current state: `v0.0.89`.
 
 Implemented:
 
@@ -23,7 +23,7 @@ Implemented:
 - Plain HUD and crosshair.
 - Muzzle flash, damage flash, bobbing pickups, sliding gate, colored accent lights.
 - Procedural steamworks audio cues for firing, pickups, enemy hits/death, player hurt, gate feedback, and win.
-- Scrapper attack windup with red-orange pressure tell.
+- Scrapper attack windup with red-orange pressure tell, dedicated warning VFX, and procedural tell audio.
 - Scrapper obstacle probing and simple side-steering.
 - Gear-key pedestal, gate/lift guide strips, and world labels.
 - Procedural steampunk dressing pass with oil-dark stone patches, copper pipes, boiler stacks, and gate hazard details.
@@ -91,6 +91,7 @@ Implemented:
 - Pressure Pistol Pressure Burst now has first-person pressure-dump motion cues: gauge needle kick, valve wheel spin, dump lever snap, pressure chamber recoil, and side vent flash, verified by level validation and combat-scenario smoke.
 - First staged production assets are present under `Assets/_Project/ArtStaging/`: PBR material texture maps, mechanical enemy OBJ blockouts, weapon/prop OBJ blockouts, and modular corridor-kit OBJ meshes, with manifests and preview sheets under `Documentation/AssetProduction/`.
 - View-only concept renders for staged assets and steampunk room/object mockups are present under `Documentation/ConceptRenders/`; these are review files and are not part of the Unity build.
+- Scrapper melee attacks now have a clearer pre-damage warning state with cutter-edge glows, furnace flare, pressure surge, steam puffs, brass sparks, and a dedicated `EnemyAttackTell` audio cue, verified by runtime and combat-edge smoke.
 
 ## 3. Target Platform
 

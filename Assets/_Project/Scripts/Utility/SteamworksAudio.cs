@@ -19,7 +19,8 @@ public enum SteamworksAudioCue
     BellowsNodePulse,
     WeaponPickup,
     SteamScattergunSlug,
-    PressureBurst
+    PressureBurst,
+    EnemyAttackTell
 }
 
 [RequireComponent(typeof(AudioSource))]
@@ -111,6 +112,7 @@ public class SteamworksAudio : MonoBehaviour
         clips[SteamworksAudioCue.WeaponPickup] = CreateClip("Weapon Pickup", 0.46f, WeaponPickupSample);
         clips[SteamworksAudioCue.SteamScattergunSlug] = CreateClip("Steam Scattergun Slug", 0.34f, ScattergunSlugSample);
         clips[SteamworksAudioCue.PressureBurst] = CreateClip("Pressure Burst", 0.24f, PressureBurstSample);
+        clips[SteamworksAudioCue.EnemyAttackTell] = CreateClip("Enemy Attack Tell", 0.18f, EnemyAttackTellSample);
         clips[SteamworksAudioCue.EmptyClick] = CreateClip("Empty Click", 0.09f, (t, _) => Noise(t) * 0.26f * Envelope(t, 0.001f, 0.025f, 0.09f));
         clips[SteamworksAudioCue.HealthPickup] = CreateClip("Health Pickup", 0.2f, (t, _) => Tone(Slide(520f, 780f, t), t) * Envelope(t, 0.005f, 0.08f, 0.2f));
         clips[SteamworksAudioCue.AmmoPickup] = CreateClip("Ammo Pickup", 0.18f, (t, _) => Tone(Slide(410f, 760f, t), t) * Envelope(t, 0.003f, 0.07f, 0.18f));
@@ -226,6 +228,15 @@ public class SteamworksAudio : MonoBehaviour
         float pressureWash = Noise(sampleIndex * 0.00024f) * 0.28f * Envelope(t, 0.001f, 0.19f, 0.24f);
         float pipeRing = Tone(310f + Mathf.Sin(t * 96f) * 22f, t) * 0.14f * Envelope(t, 0.002f, 0.17f, 0.24f);
         return Mathf.Clamp(valveDump + brassSnap + pressureWash + pipeRing, -1f, 1f);
+    }
+
+    private static float EnemyAttackTellSample(float t, int sampleIndex)
+    {
+        float normalized = t / 0.18f;
+        float ratchet = t < 0.075f ? Tone(1040f, t) * 0.28f * Envelope(t, 0.001f, 0.045f, 0.075f) : 0f;
+        float pressureRise = Tone(Slide(220f, 520f, normalized), t) * 0.24f * Envelope(t, 0.004f, 0.13f, 0.18f);
+        float cutterScrape = Noise(sampleIndex * 0.00032f) * 0.18f * Envelope(t, 0.001f, 0.15f, 0.18f);
+        return Mathf.Clamp(ratchet + pressureRise + cutterScrape, -1f, 1f);
     }
 
     private static float WinSample(float t, int sampleIndex)

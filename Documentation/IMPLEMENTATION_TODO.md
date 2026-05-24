@@ -1294,6 +1294,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.89 Scrapper Attack Readability Pass
+
+- [x] Add `ScrapperAttackTellVfx` with cutter-edge warning glows, furnace flare, pressure surge, steam puffs, brass sparks, and ground warning ring.
+- [x] Add `SteamworksAudioCue.EnemyAttackTell` at the end of the enum without shifting existing serialized cue values.
+- [x] Generate a dedicated procedural ratchet/pressure-rise attack-tell audio clip.
+- [x] Attach configured attack-tell components to generated Scrappers.
+- [x] Expand level validation to require configured Scrapper attack-tell components.
+- [x] Expand runtime smoke to verify the new attack-tell audio cue.
+- [x] Expand combat-edge smoke to verify Scrapper tell VFX/audio before melee damage.
+- [x] Build `v0.0.89` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

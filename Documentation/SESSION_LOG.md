@@ -2857,3 +2857,45 @@ Side-agent update:
 - Poincare completed the staged modular corridor kit under `Assets/_Project/ArtStaging/ModularKit/` and `Documentation/AssetProduction/ModularKit/`.
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 22:17 -04:00
+
+Completed `v0.0.89` Scrapper attack readability pass.
+
+Added:
+
+- `ScrapperAttackTellVfx` warning state with ground ring, cutter-edge glows, furnace flare, pressure surge, steam puffs, and brass sparks.
+- `SteamworksAudioCue.EnemyAttackTell` appended to the cue list without shifting existing serialized cue values.
+- Dedicated procedural Scrapper attack-tell audio with ratchet, pressure-rise, and cutter-scrape character.
+- Generated Scrappers now receive configured `ScrapperAttackTellVfx` references.
+- Level validation now requires configured Scrapper attack-tell components.
+- Runtime smoke now verifies the `EnemyAttackTell` cue is configured.
+- Combat-edge smoke now verifies Scrapper attack-tell VFX/audio before melee damage.
+- Versioned Windows build `v0.0.89`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.89/BrassworksBreach_v0.0.89.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

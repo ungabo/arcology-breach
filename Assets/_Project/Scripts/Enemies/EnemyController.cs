@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour, IDamageable
     public float obstacleProbeRadius = 0.35f;
     public Color hitFlashColor = Color.white;
     public Color attackTellColor = new Color(1f, 0.08f, 0.7f);
+    public ScrapperAttackTellVfx attackTellVfx;
 
     private CharacterController characterController;
     private PlayerHealth playerHealth;
@@ -38,6 +39,11 @@ public class EnemyController : MonoBehaviour, IDamageable
         ApplyDefinition();
         characterController = GetComponent<CharacterController>();
         playerHealth = Object.FindAnyObjectByType<PlayerHealth>();
+        if (attackTellVfx == null)
+        {
+            attackTellVfx = GetComponent<ScrapperAttackTellVfx>();
+        }
+
         renderers = GetComponentsInChildren<Renderer>();
         originalColors = new Color[renderers.Length];
 
@@ -182,6 +188,8 @@ public class EnemyController : MonoBehaviour, IDamageable
         windingUpAttack = true;
         attackResolveTime = Time.time + attackWindup;
         SetColor(attackTellColor);
+        attackTellVfx?.StartTell(attackWindup);
+        SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyAttackTell, transform.position);
     }
 
     private void ResolveAttack(float distance)
@@ -189,6 +197,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         windingUpAttack = false;
         nextAttackTime = Time.time + attackCooldown;
         RestoreColors();
+        attackTellVfx?.StopTell();
 
         if (distance <= attackRange + 0.25f)
         {
@@ -205,6 +214,7 @@ public class EnemyController : MonoBehaviour, IDamageable
 
         windingUpAttack = false;
         RestoreColors();
+        attackTellVfx?.StopTell();
     }
 
     private Vector3 GetSteeredDirection(Vector3 desiredDirection)

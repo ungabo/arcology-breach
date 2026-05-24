@@ -309,6 +309,7 @@ public static class V0LevelValidator
             RequireApprox(enemy.definition.moveSpeed, GameBalance.ScrapperMoveSpeed, sceneName + " Scrapper definition speed");
             RequireEqual(enemy.definition.attackDamage, GameBalance.ScrapperAttackDamage, sceneName + " Scrapper definition damage");
             RequireMachineMotion(enemy.gameObject, sceneName + " Scrapper machine motion");
+            RequireScrapperAttackTell(enemy.gameObject, sceneName + " Scrapper attack tell");
         }
 
         RangedEnemyController[] rangedEnemies = UnityEngine.Object.FindObjectsByType<RangedEnemyController>(FindObjectsSortMode.None);
@@ -434,6 +435,15 @@ public static class V0LevelValidator
         if (motion == null || !motion.IsConfigured)
         {
             throw new InvalidOperationException("Level validation failed: " + label + " is missing configured MachineMotionVfx.");
+        }
+    }
+
+    private static void RequireScrapperAttackTell(GameObject enemy, string label)
+    {
+        ScrapperAttackTellVfx attackTell = enemy.GetComponent<ScrapperAttackTellVfx>();
+        if (attackTell == null || !attackTell.IsConfigured)
+        {
+            throw new InvalidOperationException("Level validation failed: " + label + " is missing configured ScrapperAttackTellVfx.");
         }
     }
 
