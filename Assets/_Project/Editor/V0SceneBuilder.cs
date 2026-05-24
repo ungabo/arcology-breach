@@ -1186,6 +1186,7 @@ public static class V0SceneBuilder
         CreateCagedGaslight("North Star Governor Gaslight Right", new Vector3(4.85f, 2.08f, 20.2f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "governor_route_gaslight");
         CreatePressureTankRackPrototype("North Star Governor Pressure Tank Rack", new Vector3(6.86f, 0.76f, 13.4f), Quaternion.Euler(0f, -90f, 0f), 1.05f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, steamMaterial, "governor_pressure_tank_rack", parent.transform);
         CreateServiceLiftCallBoxPrototype("ServiceLiftCallBoxPrototype_governor_master_hoist_call_box", new Vector3(1.76f, 1.28f, 27.88f), Quaternion.identity, 1.08f, ironMaterial, brassMaterial, gaugeFaceMaterial, warningMaterial, exitMaterial, floorPatchMaterial, "governor_master_hoist_call_box", parent.transform);
+        CreateThresholdRouteDressingBatch("governor", parent.transform, ironMaterial, brassMaterial, warningMaterial, exitMaterial, gaugeFaceMaterial, floorPatchMaterial);
         CreateRegulatorCrown("North Star Governor Regulator Crown", new Vector3(0f, 2.72f, 16.2f), ironMaterial, brassMaterial, warningMaterial, parent.transform);
         CreateSteamHazard("Governor Core Steam Hazard - Regulator Leak", new Vector3(-4.8f, 0.75f, 20.8f), new Vector3(1.25f, 1.5f, 1.25f), ironMaterial, steamMaterial, warningMaterial, parent.transform);
         CreateFurnaceHeatHazard("Governor Core Furnace Heat Hazard - Regulator Surge", new Vector3(0f, 0.75f, 18.9f), new Vector3(4.4f, 1.5f, 1.25f), ironMaterial, glowMaterial, warningMaterial, parent.transform, 0.8f);
@@ -1226,6 +1227,7 @@ public static class V0SceneBuilder
         CreatePressureReliefVentPrototype("North Star Foundry Pressure Relief Vent", new Vector3(-6.28f, 1.05f, 21.55f), Quaternion.Euler(0f, 90f, 0f), 1.08f, brassMaterial, ironMaterial, steamMaterial, warningMaterial, "foundry_pressure_relief_vent", parent.transform);
         CreateFloorDrainGratePrototype("North Star Foundry Floor Drain Grate", new Vector3(-4.72f, 0.045f, 14.25f), Quaternion.identity, 1.42f, 1.06f, ironMaterial, brassMaterial, floorPatchMaterial, steamMaterial, "foundry_floor_drain_grate", parent.transform);
         CreateServiceLiftCallBoxPrototype("ServiceLiftCallBoxPrototype_foundry_emergency_hoist_call_box", new Vector3(1.72f, 1.26f, 27.58f), Quaternion.identity, 1.02f, ironMaterial, brassMaterial, gaugeFaceMaterial, warningMaterial, exitMaterial, floorPatchMaterial, "foundry_emergency_hoist_call_box", parent.transform);
+        CreateThresholdRouteDressingBatch("foundry", parent.transform, ironMaterial, brassMaterial, warningMaterial, exitMaterial, gaugeFaceMaterial, floorPatchMaterial);
         CreatePressureGauge("Foundry Gauge A", new Vector3(-6.45f, 1.65f, 12.2f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreatePressureGauge("Foundry Gauge B", new Vector3(6.45f, 1.65f, 21.6f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateValveWheel("Foundry Valve A", new Vector3(-6.45f, 1.35f, 19.2f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, warningMaterial, parent.transform);
@@ -1286,6 +1288,7 @@ public static class V0SceneBuilder
         CreateBoilerControlConsolePrototype("Boilerheart Prototype Boiler Control Console", new Vector3(5.52f, 0.62f, 18.62f), Quaternion.Euler(0f, -90f, 0f), 0.92f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "boilerheart_route_console", parent.transform);
         CreateRivetedPressureDoorFramePrototype("Boilerheart Prototype Riveted Pressure Door Frame", new Vector3(0f, 1.58f, 23.52f), Quaternion.identity, 1f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "boilerheart_route_pressure_frame", parent.transform);
         CreateServiceLiftCallBoxPrototype("ServiceLiftCallBoxPrototype_boilerheart_service_lift_call_box", new Vector3(1.66f, 1.26f, 23.62f), Quaternion.identity, 0.98f, ironMaterial, brassMaterial, gaugeFaceMaterial, warningMaterial, exitMaterial, floorPatchMaterial, "boilerheart_service_lift_call_box", parent.transform);
+        CreateThresholdRouteDressingBatch("boilerheart", parent.transform, ironMaterial, brassMaterial, warningMaterial, exitMaterial, gaugeFaceMaterial, floorPatchMaterial);
         CreatePressureGauge("Boilerheart Gauge A", new Vector3(-5.95f, 1.65f, 12.4f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateValveWheel("Boilerheart Valve A", new Vector3(5.95f, 1.45f, 17.4f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, warningMaterial, parent.transform);
         CreateSteamVent("Boilerheart Steam Vent A", new Vector3(-4.8f, 0.05f, 20.8f), brassMaterial, steamMaterial, parent.transform);
@@ -1459,6 +1462,7 @@ public static class V0SceneBuilder
         CreateWallPipeGaugeClusterPrototype("Pipeworks Prototype Wall Pipe Gauge Cluster", new Vector3(4.94f, 1.58f, 5.7f), Quaternion.Euler(0f, -90f, 0f), 1f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "pipeworks_route_wall", parent.transform);
         CreateBoilerControlConsolePrototype("Pipeworks Prototype Boiler Control Console", new Vector3(-4.82f, 0.62f, 18.72f), Quaternion.Euler(0f, 90f, 0f), 0.96f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "pipeworks_route_console", parent.transform);
         CreateRivetedPressureDoorFramePrototype("Pipeworks Prototype Riveted Pressure Door Frame", new Vector3(0f, 1.58f, 22.42f), Quaternion.identity, 0.98f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "pipeworks_route_pressure_frame", parent.transform);
+        CreateThresholdRouteDressingBatch("pipeworks", parent.transform, ironMaterial, brassMaterial, warningMaterial, exitMaterial, gaugeFaceMaterial, floorPatchMaterial);
         CreatePressureGauge("Pipeworks Gauge A", new Vector3(4.95f, 1.65f, 7f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateSteamVent("Pipeworks Steam Vent A", new Vector3(3.8f, 0.05f, 5.5f), brassMaterial, steamMaterial, parent.transform);
         CreatePipeBundle("Pipeworks Triple Pipe Bundle", new Vector3(0f, 2.35f, 23.72f), Quaternion.Euler(0f, 90f, 0f), 3.6f, brassMaterial, ironMaterial, parent.transform);
@@ -3184,6 +3188,7 @@ public static class V0SceneBuilder
         CreateFloorDrainGratePrototype("North Star Intake Floor Drain Grate", new Vector3(2.72f, 0.045f, 7.68f), Quaternion.identity, 1.24f, 0.9f, rivetedIronMaterial, brassMaterial, oilStoneMaterial, steamPuffMaterial, "intake_floor_drain_grate", parent.transform);
         CreatePressureTankRackPrototype("North Star Intake Pressure Tank Rack", new Vector3(5.82f, 0.76f, 26.7f), Quaternion.Euler(0f, -90f, 0f), 0.94f, brassMaterial, rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, steamPuffMaterial, "intake_pressure_tank_rack", parent.transform);
         CreateServiceLiftCallBoxPrototype("ServiceLiftCallBoxPrototype_intake_service_lift_call_box", new Vector3(1.72f, 1.26f, 34.02f), Quaternion.identity, 0.98f, rivetedIronMaterial, brassMaterial, gaugeFaceMaterial, warningMaterial, exitMaterial, oilStoneMaterial, "intake_service_lift_call_box", parent.transform);
+        CreateThresholdRouteDressingBatch("intake", parent.transform, rivetedIronMaterial, brassMaterial, warningMaterial, exitMaterial, gaugeFaceMaterial, oilStoneMaterial);
         CreateWorkOrderBoard("Work Order Board - Intake", "ORDER 17\nSEAL MAIN\nWATCH PSI", new Vector3(-5.92f, 1.55f, 10.8f), Quaternion.Euler(0f, 90f, 0f), rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateLorePlaque("Lore Plaque - Intake Archive", "Intake Archive", "The Brassworks sealed itself when the master governor jammed and every service machine obeyed the wrong pressure order.", new Vector3(-5.92f, 1.55f, 13.2f), Quaternion.Euler(0f, 90f, 0f), rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateWorkOrderBoard("Work Order Board - Gate", "KEY CREW\nBLEED LOCK\nNO OPEN FLAME", new Vector3(1.45f, 1.75f, 22.15f), Quaternion.Euler(0f, 180f, 0f), rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
@@ -3972,6 +3977,213 @@ public static class V0SceneBuilder
         CreateLocalCube(name + " Red Danger Tick Band", gaugeRoot.transform, new Vector3(-radius * 0.2f, radius * 0.34f, -radius * 0.205f), new Vector3(radius * 0.35f, radius * 0.04f, radius * 0.025f), warningMaterial);
         CreateLocalPrimitive(name + " Brass Needle Hub", PrimitiveType.Sphere, gaugeRoot.transform, new Vector3(0f, 0f, -radius * 0.22f), new Vector3(radius * 0.13f, radius * 0.13f, radius * 0.07f), brassMaterial);
         return face;
+    }
+
+    private static void CreateThresholdRouteDressingBatch(string levelKey, Transform parent, Material ironMaterial, Material brassMaterial, Material warningMaterial, Material exitMaterial, Material gaugeFaceMaterial, Material grimeMaterial)
+    {
+        switch (levelKey)
+        {
+            case "intake":
+                CreateThresholdRouteDressingPrototype("PistonDoorBracePrototype", "intake_pressure_gate_brace", new Vector3(0f, 1.45f, 21.82f), Quaternion.identity, 1.05f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("PipeClampCouplerSetPrototype", "intake_gate_pipe_clamps", new Vector3(-2.65f, 2.62f, 21.82f), Quaternion.identity, 0.9f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("OilSootGrimePanelSetPrototype", "intake_gate_lift_grime", new Vector3(4.95f, 0.52f, 31.1f), Quaternion.Euler(0f, -90f, 0f), 0.88f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("AmberIndicatorPlatePrototype", "intake_key_gate_route_plates", new Vector3(1.72f, 1.85f, 21.78f), Quaternion.identity, 0.88f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("BrassThresholdKickPlatePrototype", "intake_gate_lift_kick_plates", new Vector3(0f, 0.07f, 22.04f), Quaternion.identity, 1.05f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("RivetedPatchRepairPlatePrototype", "intake_route_wall_patches", new Vector3(-5.92f, 1.38f, 11.85f), Quaternion.Euler(0f, 90f, 0f), 0.92f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("PressureSealGasketRingPrototype", "intake_pressure_gate_seals", new Vector3(0f, 1.55f, 22.18f), Quaternion.identity, 1.02f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("RouteReturnPipeMarkerPrototype", "intake_key_return_pipe_markers", new Vector3(11.6f, 1.45f, 19.95f), Quaternion.identity, 0.86f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("SteamVentResidueCollarPrototype", "intake_relief_vent_residue", new Vector3(-5.9f, 0.78f, 15.72f), Quaternion.Euler(0f, 90f, 0f), 0.9f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("HoistChainAnchorPlatePrototype", "intake_service_lift_anchors", new Vector3(0f, 2.25f, 33.92f), Quaternion.identity, 0.9f, ironMaterial, brassMaterial, exitMaterial, grimeMaterial, parent);
+                break;
+            case "pipeworks":
+                CreateThresholdRouteDressingPrototype("PistonDoorBracePrototype", "pipeworks_boiler_lift_brace", new Vector3(0f, 1.45f, 22.18f), Quaternion.identity, 0.98f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("PipeClampCouplerSetPrototype", "pipeworks_routing_valve_couplers", new Vector3(-4.94f, 1.92f, 19.9f), Quaternion.Euler(0f, 90f, 0f), 0.92f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("OilSootGrimePanelSetPrototype", "pipeworks_valve_lift_grime", new Vector3(-4.96f, 0.62f, 18.7f), Quaternion.Euler(0f, 90f, 0f), 0.86f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("AmberIndicatorPlatePrototype", "pipeworks_valve_route_plates", new Vector3(1.7f, 1.82f, 22.3f), Quaternion.identity, 0.86f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("BrassThresholdKickPlatePrototype", "pipeworks_lift_kick_plates", new Vector3(0f, 0.07f, 22.28f), Quaternion.identity, 0.98f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("RivetedPatchRepairPlatePrototype", "pipeworks_service_wall_patches", new Vector3(4.98f, 1.5f, 12.2f), Quaternion.Euler(0f, -90f, 0f), 0.86f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("PressureSealGasketRingPrototype", "pipeworks_locked_lift_seals", new Vector3(0f, 1.54f, 22.45f), Quaternion.identity, 0.96f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("RouteReturnPipeMarkerPrototype", "pipeworks_restored_flow_markers", new Vector3(4.98f, 1.45f, 17.2f), Quaternion.Euler(0f, -90f, 0f), 0.86f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("SteamVentResidueCollarPrototype", "pipeworks_pipe_leak_residue", new Vector3(3.78f, 0.75f, 5.55f), Quaternion.identity, 0.86f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("HoistChainAnchorPlatePrototype", "pipeworks_lift_anchors", new Vector3(0f, 2.26f, 22.55f), Quaternion.identity, 0.88f, ironMaterial, brassMaterial, exitMaterial, grimeMaterial, parent);
+                break;
+            case "boilerheart":
+                CreateThresholdRouteDressingPrototype("PistonDoorBracePrototype", "boilerheart_foundry_lift_brace", new Vector3(0f, 1.46f, 23.28f), Quaternion.identity, 1f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("PipeClampCouplerSetPrototype", "boilerheart_pressure_valve_couplers", new Vector3(5.88f, 1.92f, 17.4f), Quaternion.Euler(0f, -90f, 0f), 0.92f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("OilSootGrimePanelSetPrototype", "boilerheart_valve_heat_grime", new Vector3(5.96f, 0.58f, 18.6f), Quaternion.Euler(0f, -90f, 0f), 0.88f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("AmberIndicatorPlatePrototype", "boilerheart_valve_lift_plates", new Vector3(1.72f, 1.86f, 23.4f), Quaternion.identity, 0.88f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("BrassThresholdKickPlatePrototype", "boilerheart_lift_ring_kick_plates", new Vector3(0f, 0.07f, 23.45f), Quaternion.identity, 1f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("RivetedPatchRepairPlatePrototype", "boilerheart_boiler_wall_patches", new Vector3(-5.94f, 1.48f, 11.9f), Quaternion.Euler(0f, 90f, 0f), 0.9f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("PressureSealGasketRingPrototype", "boilerheart_pressure_valve_seals", new Vector3(5.96f, 1.48f, 17.42f), Quaternion.Euler(0f, -90f, 0f), 0.9f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("RouteReturnPipeMarkerPrototype", "boilerheart_valve_return_markers", new Vector3(-5.94f, 1.42f, 18.4f), Quaternion.Euler(0f, 90f, 0f), 0.86f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("SteamVentResidueCollarPrototype", "boilerheart_steam_hazard_residue", new Vector3(-4.82f, 0.76f, 20.8f), Quaternion.identity, 0.86f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("HoistChainAnchorPlatePrototype", "boilerheart_lift_anchors", new Vector3(0f, 2.28f, 23.65f), Quaternion.identity, 0.9f, ironMaterial, brassMaterial, exitMaterial, grimeMaterial, parent);
+                break;
+            case "foundry":
+                CreateThresholdRouteDressingPrototype("PistonDoorBracePrototype", "foundry_emergency_hoist_brace", new Vector3(0f, 1.47f, 27.45f), Quaternion.identity, 1.02f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("PipeClampCouplerSetPrototype", "foundry_heat_bypass_couplers", new Vector3(5.96f, 2.02f, 18.8f), Quaternion.Euler(0f, -90f, 0f), 0.96f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("OilSootGrimePanelSetPrototype", "foundry_furnace_hoist_grime", new Vector3(5.96f, 0.62f, 21.2f), Quaternion.Euler(0f, -90f, 0f), 0.92f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("AmberIndicatorPlatePrototype", "foundry_hoist_route_plates", new Vector3(1.72f, 1.86f, 27.48f), Quaternion.identity, 0.92f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("BrassThresholdKickPlatePrototype", "foundry_hoist_kick_plates", new Vector3(0f, 0.07f, 27.58f), Quaternion.identity, 1.02f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("RivetedPatchRepairPlatePrototype", "foundry_battered_wall_patches", new Vector3(-6.42f, 1.5f, 16.2f), Quaternion.Euler(0f, 90f, 0f), 0.92f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("PressureSealGasketRingPrototype", "foundry_heat_gate_seals", new Vector3(0f, 1.1f, 23.6f), Quaternion.identity, 0.94f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("RouteReturnPipeMarkerPrototype", "foundry_emergency_flow_markers", new Vector3(-6.38f, 1.42f, 21.4f), Quaternion.Euler(0f, 90f, 0f), 0.88f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("SteamVentResidueCollarPrototype", "foundry_furnace_residue", new Vector3(3.65f, 0.76f, 21.5f), Quaternion.identity, 0.9f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("HoistChainAnchorPlatePrototype", "foundry_emergency_hoist_anchors", new Vector3(0f, 2.34f, 27.7f), Quaternion.identity, 0.94f, ironMaterial, brassMaterial, exitMaterial, grimeMaterial, parent);
+                break;
+            case "governor":
+                CreateThresholdRouteDressingPrototype("PistonDoorBracePrototype", "governor_final_hoist_brace", new Vector3(0f, 1.48f, 27.82f), Quaternion.identity, 1.06f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("PipeClampCouplerSetPrototype", "governor_final_pressure_couplers", new Vector3(4.9f, 2.02f, 20.4f), Quaternion.Euler(0f, -90f, 0f), 0.94f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("OilSootGrimePanelSetPrototype", "governor_warden_hoist_grime", new Vector3(4.96f, 0.6f, 22.4f), Quaternion.Euler(0f, -90f, 0f), 0.9f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("AmberIndicatorPlatePrototype", "governor_final_route_plates", new Vector3(1.78f, 1.9f, 27.84f), Quaternion.identity, 0.92f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("BrassThresholdKickPlatePrototype", "governor_final_hoist_kick_plates", new Vector3(0f, 0.07f, 27.88f), Quaternion.identity, 1.04f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("RivetedPatchRepairPlatePrototype", "governor_regulator_wall_patches", new Vector3(-6.86f, 1.5f, 15.4f), Quaternion.Euler(0f, 90f, 0f), 0.94f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("PressureSealGasketRingPrototype", "governor_master_hoist_seals", new Vector3(0f, 1.52f, 28f), Quaternion.identity, 1.02f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("RouteReturnPipeMarkerPrototype", "governor_final_flow_markers", new Vector3(-6.86f, 1.42f, 20.2f), Quaternion.Euler(0f, 90f, 0f), 0.88f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("SteamVentResidueCollarPrototype", "governor_regulator_residue", new Vector3(-4.8f, 0.76f, 20.8f), Quaternion.identity, 0.9f, ironMaterial, brassMaterial, warningMaterial, grimeMaterial, parent);
+                CreateThresholdRouteDressingPrototype("HoistChainAnchorPlatePrototype", "governor_final_hoist_anchors", new Vector3(0f, 2.36f, 28.05f), Quaternion.identity, 0.96f, ironMaterial, brassMaterial, exitMaterial, grimeMaterial, parent);
+                break;
+        }
+    }
+
+    private static ThresholdRouteDressingPrototype CreateThresholdRouteDressingPrototype(string family, string placementRole, Vector3 position, Quaternion rotation, float scale, Material ironMaterial, Material brassMaterial, Material accentMaterial, Material grimeMaterial, Transform parent)
+    {
+        string name = family + "_" + placementRole;
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+        root.transform.rotation = rotation;
+
+        ThresholdRouteDressingPrototype prototype = root.AddComponent<ThresholdRouteDressingPrototype>();
+        prototype.componentFamily = family;
+        prototype.placementRole = placementRole;
+
+        GameObject structureRoot = CreateLocalEmpty(name + " Structure Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject detailRoot = CreateLocalEmpty(name + " Detail Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject signalRoot = CreateLocalEmpty(name + " Signal Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject grimeRoot = CreateLocalEmpty(name + " Grime Root", root.transform, Vector3.zero, Quaternion.identity);
+
+        GameObject primary = CreateLocalCube(name + " Blackened Iron Structure 00", structureRoot.transform, Vector3.zero, new Vector3(0.72f * scale, 0.72f * scale, 0.055f * scale), ironMaterial);
+        GameObject secondary = CreateLocalCube(name + " Aged Brass Detail 00", detailRoot.transform, new Vector3(0f, 0.02f * scale, -0.06f * scale), new Vector3(0.52f * scale, 0.08f * scale, 0.045f * scale), brassMaterial);
+        GameObject accent = CreateLocalCube(name + " Amber Signal 00", signalRoot.transform, new Vector3(0.24f * scale, 0.24f * scale, -0.08f * scale), new Vector3(0.14f * scale, 0.06f * scale, 0.035f * scale), accentMaterial);
+        GameObject grime = CreateLocalCube(name + " Oil Soot Grime 00", grimeRoot.transform, new Vector3(-0.24f * scale, -0.28f * scale, -0.082f * scale), new Vector3(0.18f * scale, 0.22f * scale, 0.018f * scale), grimeMaterial);
+
+        if (family == "PistonDoorBracePrototype")
+        {
+            CreateLocalCube(name + " Blackened Iron Side Brace Left", structureRoot.transform, new Vector3(-0.64f * scale, 0f, -0.02f * scale), new Vector3(0.18f * scale, 1.35f * scale, 0.09f * scale), ironMaterial);
+            CreateLocalCube(name + " Blackened Iron Side Brace Right", structureRoot.transform, new Vector3(0.64f * scale, 0f, -0.02f * scale), new Vector3(0.18f * scale, 1.35f * scale, 0.09f * scale), ironMaterial);
+            CreateLocalPrimitive(name + " Brass Piston Cylinder Left", PrimitiveType.Cylinder, detailRoot.transform, new Vector3(-0.38f * scale, 0f, -0.12f * scale), new Vector3(0.07f * scale, 0.46f * scale, 0.07f * scale), brassMaterial).transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+            CreateLocalPrimitive(name + " Brass Piston Cylinder Right", PrimitiveType.Cylinder, detailRoot.transform, new Vector3(0.38f * scale, 0f, -0.12f * scale), new Vector3(0.07f * scale, 0.46f * scale, 0.07f * scale), brassMaterial);
+            AddThresholdRivets(name, detailRoot.transform, 14, scale, brassMaterial);
+        }
+        else if (family == "PipeClampCouplerSetPrototype")
+        {
+            CreateLocalPrimitive(name + " Aged Brass Route Pipe", PrimitiveType.Cylinder, structureRoot.transform, new Vector3(0f, 0.02f * scale, -0.08f * scale), new Vector3(0.06f * scale, 0.86f * scale, 0.06f * scale), brassMaterial).transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+            for (int i = 0; i < 5; i++)
+            {
+                float x = Mathf.Lerp(-0.48f, 0.48f, i / 4f) * scale;
+                CreateLocalCube(name + " Blackened Iron Clamp " + i.ToString("00"), detailRoot.transform, new Vector3(x, 0.02f * scale, -0.13f * scale), new Vector3(0.08f * scale, 0.22f * scale, 0.05f * scale), ironMaterial);
+            }
+            AddThresholdRivets(name, detailRoot.transform, 10, scale, brassMaterial);
+        }
+        else if (family == "OilSootGrimePanelSetPrototype")
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                float x = Mathf.Lerp(-0.42f, 0.42f, i / 4f) * scale;
+                CreateLocalCube(name + " Oil Soot Grime Panel " + i.ToString("00"), grimeRoot.transform, new Vector3(x, -0.08f * i * scale, -0.095f * scale), new Vector3(0.18f * scale, (0.2f + 0.04f * i) * scale, 0.016f * scale), grimeMaterial);
+            }
+            CreateLocalCube(name + " Aged Brass Drip Lip", detailRoot.transform, new Vector3(0f, 0.34f * scale, -0.11f * scale), new Vector3(0.78f * scale, 0.035f * scale, 0.035f * scale), brassMaterial);
+        }
+        else if (family == "AmberIndicatorPlatePrototype")
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                float x = (-0.24f + i * 0.24f) * scale;
+                CreateLocalPrimitive(name + " Amber Indicator Lamp " + i.ToString("00"), PrimitiveType.Sphere, signalRoot.transform, new Vector3(x, 0.16f * scale, -0.1f * scale), new Vector3(0.08f * scale, 0.08f * scale, 0.045f * scale), accentMaterial);
+                CreateLocalCube(name + " Aged Brass Lamp Bezel " + i.ToString("00"), detailRoot.transform, new Vector3(x, 0.16f * scale, -0.125f * scale), new Vector3(0.15f * scale, 0.035f * scale, 0.026f * scale), brassMaterial);
+            }
+            CreateLocalCube(name + " Cream Enamel Tiny Route Plate", detailRoot.transform, new Vector3(0f, -0.18f * scale, -0.112f * scale), new Vector3(0.46f * scale, 0.09f * scale, 0.025f * scale), accentMaterial);
+        }
+        else if (family == "BrassThresholdKickPlatePrototype")
+        {
+            CreateLocalCube(name + " Aged Brass Floor Kick Plate Long", structureRoot.transform, new Vector3(0f, -0.34f * scale, 0f), new Vector3(1.36f * scale, 0.035f * scale, 0.22f * scale), brassMaterial);
+            CreateLocalCube(name + " Blackened Iron Threshold Shadow Plate", structureRoot.transform, new Vector3(0f, -0.39f * scale, 0.05f * scale), new Vector3(1.48f * scale, 0.026f * scale, 0.14f * scale), ironMaterial);
+            AddThresholdRivets(name, detailRoot.transform, 12, scale, brassMaterial);
+        }
+        else if (family == "RivetedPatchRepairPlatePrototype")
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                float x = (-0.36f + i * 0.24f) * scale;
+                CreateLocalCube(name + " Blackened Iron Repair Plate " + i.ToString("00"), structureRoot.transform, new Vector3(x, Mathf.Sin(i) * 0.08f * scale, -0.04f * scale), new Vector3(0.22f * scale, 0.28f * scale, 0.045f * scale), ironMaterial);
+            }
+            AddThresholdRivets(name, detailRoot.transform, 16, scale, brassMaterial);
+        }
+        else if (family == "PressureSealGasketRingPrototype")
+        {
+            CreateLocalCube(name + " Dark Pressure Seal Left", structureRoot.transform, new Vector3(-0.58f * scale, 0f, -0.04f * scale), new Vector3(0.08f * scale, 1.1f * scale, 0.045f * scale), ironMaterial);
+            CreateLocalCube(name + " Dark Pressure Seal Right", structureRoot.transform, new Vector3(0.58f * scale, 0f, -0.04f * scale), new Vector3(0.08f * scale, 1.1f * scale, 0.045f * scale), ironMaterial);
+            CreateLocalCube(name + " Aged Brass Seal Header", detailRoot.transform, new Vector3(0f, 0.56f * scale, -0.08f * scale), new Vector3(1.24f * scale, 0.055f * scale, 0.04f * scale), brassMaterial);
+            CreateLocalCube(name + " Aged Brass Seal Footer", detailRoot.transform, new Vector3(0f, -0.56f * scale, -0.08f * scale), new Vector3(1.24f * scale, 0.055f * scale, 0.04f * scale), brassMaterial);
+            AddThresholdRivets(name, detailRoot.transform, 12, scale, brassMaterial);
+        }
+        else if (family == "RouteReturnPipeMarkerPrototype")
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                float y = (-0.22f + i * 0.22f) * scale;
+                GameObject stub = CreateLocalPrimitive(name + " Brass Return Pipe Stub " + i.ToString("00"), PrimitiveType.Cylinder, structureRoot.transform, new Vector3(-0.26f * scale, y, -0.08f * scale), new Vector3(0.05f * scale, 0.28f * scale, 0.05f * scale), brassMaterial);
+                stub.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+                CreateLocalCube(name + " Amber Return Flow Tag " + i.ToString("00"), signalRoot.transform, new Vector3(0.24f * scale, y, -0.1f * scale), new Vector3(0.18f * scale, 0.045f * scale, 0.03f * scale), accentMaterial);
+            }
+            AddThresholdRivets(name, detailRoot.transform, 8, scale, brassMaterial);
+        }
+        else if (family == "SteamVentResidueCollarPrototype")
+        {
+            GameObject collar = CreateLocalPrimitive(name + " Blackened Iron Vent Collar", PrimitiveType.Cylinder, structureRoot.transform, Vector3.zero, new Vector3(0.34f * scale, 0.05f * scale, 0.34f * scale), ironMaterial);
+            collar.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+            CreateLocalCube(name + " Amber Heat Warning Slash", signalRoot.transform, new Vector3(0.26f * scale, 0.26f * scale, -0.1f * scale), new Vector3(0.32f * scale, 0.04f * scale, 0.03f * scale), accentMaterial).transform.localRotation = Quaternion.Euler(0f, 0f, -22f);
+            for (int i = 0; i < 4; i++)
+            {
+                CreateLocalCube(name + " Oil Soot Residue Halo " + i.ToString("00"), grimeRoot.transform, new Vector3((i - 1.5f) * 0.16f * scale, -0.24f * scale, -0.105f * scale), new Vector3(0.12f * scale, 0.18f * scale, 0.016f * scale), grimeMaterial);
+            }
+        }
+        else if (family == "HoistChainAnchorPlatePrototype")
+        {
+            CreateLocalCube(name + " Blackened Iron Hoist Anchor Plate", structureRoot.transform, Vector3.zero, new Vector3(0.82f * scale, 0.62f * scale, 0.065f * scale), ironMaterial);
+            for (int i = 0; i < 5; i++)
+            {
+                float y = (0.3f - i * 0.12f) * scale;
+                CreateLocalCube(name + " Aged Brass Chain Link " + i.ToString("00"), detailRoot.transform, new Vector3(0f, y, -0.11f * scale), new Vector3(0.12f * scale, 0.07f * scale, 0.035f * scale), brassMaterial);
+            }
+            CreateLocalCube(name + " Green Safe Hoist Tick", signalRoot.transform, new Vector3(0.3f * scale, -0.22f * scale, -0.1f * scale), new Vector3(0.16f * scale, 0.05f * scale, 0.03f * scale), accentMaterial);
+            AddThresholdRivets(name, detailRoot.transform, 10, scale, brassMaterial);
+        }
+
+        prototype.primaryRenderer = primary.GetComponent<Renderer>();
+        prototype.secondaryRenderer = secondary.GetComponent<Renderer>();
+        prototype.accentRenderer = accent.GetComponent<Renderer>();
+        prototype.grimeRenderer = grime.GetComponent<Renderer>();
+        prototype.structureRoot = structureRoot.transform;
+        prototype.detailRoot = detailRoot.transform;
+        prototype.signalRoot = signalRoot.transform;
+        prototype.grimeRoot = grimeRoot.transform;
+        prototype.structureCount = structureRoot.transform.childCount;
+        prototype.detailCount = detailRoot.transform.childCount;
+        prototype.signalCount = signalRoot.transform.childCount;
+        prototype.grimeCount = grimeRoot.transform.childCount;
+        return prototype;
+    }
+
+    private static void AddThresholdRivets(string name, Transform parent, int count, float scale, Material brassMaterial)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            float x = Mathf.Lerp(-0.46f, 0.46f, count == 1 ? 0f : i / (float)(count - 1)) * scale;
+            float y = (i % 2 == 0 ? 0.35f : -0.35f) * scale;
+            CreateLocalPrimitive(name + " Aged Brass Rivet " + i.ToString("00"), PrimitiveType.Sphere, parent, new Vector3(x, y, -0.12f * scale), new Vector3(0.035f * scale, 0.035f * scale, 0.02f * scale), brassMaterial);
+        }
     }
 
     private static PressureReliefVentPrototype CreatePressureReliefVentPrototype(string name, Vector3 position, Quaternion rotation, float scale, Material brassMaterial, Material ironMaterial, Material steamMaterial, Material warningMaterial, string placementRole, Transform parent)

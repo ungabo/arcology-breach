@@ -1,6 +1,6 @@
 # Brassworks Breach - Batch Production Mode
 
-Last updated: `2026-05-24 11:55 -04:00`
+Last updated: `2026-05-24 12:46 -04:00`
 
 ## Why This Exists
 
@@ -41,14 +41,13 @@ One-prop releases are reserved for focused blockers, regressions, or risky isola
 
 ## Suggested Next Batch
 
-`v0.1.33` should promote a threshold-and-route dressing milestone instead of a single prop:
+`v0.1.34` should keep the batch size aggressive by combining multiple parallel crew outputs into one playable polish leap:
 
-- `PistonDoorBracePrototype` on selected door/lift thresholds.
-- Additional pressure pipe clamps/couplers around existing route valves.
-- Extra oil/soot grime panels near pressure consoles and lift machinery.
-- Route-safe amber indicator plates near pressure locks.
-- Cable/conduit bundles, kick plates, nameplates, repair patches, and repeated fastener/wear accents where safe.
-- Multi-level placement coverage across Level01 through Level05 when route clearances permit.
+- Weapon/prop staging: improve pressure-pistol, scattergun display, pickup, ammo, and console/readability silhouettes where safe.
+- Enemy/readability staging: promote Scrapper, Lancer, Bulwark, and Warden tell/readability improvements that do not require final rigging.
+- Level-density placement: add route-safe density where the v0.1.33 dressing pass proved clearances are stable.
+- QA/validation: add batch-level acceptance gates for enemy/weapon readability and object authority preservation.
+- Keep independent crews running in parallel; the main lane should integrate several families at once.
 
 Expected verification: scene rebuild, level validation, targeted route smoke during development, then route audit and full V0 matrix when the batch is coherent.
 

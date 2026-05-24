@@ -1801,17 +1801,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 ## v0.1.33 Visible Threshold And Route Dressing Milestone
 
-- [ ] Integrate the 10-family threshold/route dressing plan from `Documentation/Planning/V0_1_33_BatchPlan/`.
-- [ ] Implement `PistonDoorBracePrototype` across major gate/lift/hoist thresholds where clearance allows.
-- [ ] Implement `PipeClampCouplerSetPrototype` grouped placements across existing route pipework.
-- [ ] Implement `OilSootGrimePanelSetPrototype` grouped machinery/grime placements across all levels.
-- [ ] Implement `AmberIndicatorPlatePrototype` grouped route-attention plates across all levels.
-- [ ] Implement `BrassThresholdKickPlatePrototype` at repeated gate/lift/hoist aprons.
-- [ ] Implement `RivetedPatchRepairPlatePrototype` on route-adjacent walls and service panels.
-- [ ] Implement at least two optional families from pressure gasket rings, route return pipe markers, steam vent residue collars, and hoist chain anchor plates.
-- [ ] Touch at least four levels, with Level01 through Level05 preferred.
-- [ ] Use targeted compile, scene rebuild, level validation, and route smoke during development.
-- [ ] Run route audit and full V0 matrix only when the whole milestone is coherent.
+- [x] Integrate the 10-family threshold/route dressing plan from `Documentation/Planning/V0_1_33_BatchPlan/`.
+- [x] Implement `PistonDoorBracePrototype` across major gate/lift/hoist thresholds where clearance allows.
+- [x] Implement `PipeClampCouplerSetPrototype` grouped placements across existing route pipework.
+- [x] Implement `OilSootGrimePanelSetPrototype` grouped machinery/grime placements across all levels.
+- [x] Implement `AmberIndicatorPlatePrototype` grouped route-attention plates across all levels.
+- [x] Implement `BrassThresholdKickPlatePrototype` at repeated gate/lift/hoist aprons.
+- [x] Implement `RivetedPatchRepairPlatePrototype` on route-adjacent walls and service panels.
+- [x] Implement at least two optional families from pressure gasket rings, route return pipe markers, steam vent residue collars, and hoist chain anchor plates.
+- [x] Touch at least four levels, with Level01 through Level05 preferred.
+- [x] Use targeted compile, scene rebuild, level validation, and route smoke during development.
+- [x] Run route audit and full V0 matrix only when the whole milestone is coherent.
+
+Completed in `v0.1.33`: 10 route-dressing families, 50 placements, all five levels, route audit, package, QA packet, issue triage, and candidate readiness.
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 

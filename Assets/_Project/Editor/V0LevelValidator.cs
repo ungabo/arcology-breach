@@ -1512,6 +1512,165 @@ public static class V0LevelValidator
         RequireRendererMaterial(prototype.grimeRenderer, sceneName + " valve wheel console grime", "Oil");
     }
 
+    private static void ValidateThresholdRouteDressingPrototype(string sceneName, string objectName, string expectedFamily, string expectedPlacementRole)
+    {
+        GameObject root = RequireNamed(objectName, sceneName + " threshold route dressing root");
+        ThresholdRouteDressingPrototype prototype = root.GetComponent<ThresholdRouteDressingPrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " threshold route dressing is missing its marker component (" + objectName + ").");
+        }
+
+        if (prototype.promotionVersion != "v0.1.33"
+            || prototype.batchId != "v0.1.33_threshold_route_dressing"
+            || prototype.componentFamily != expectedFamily
+            || prototype.placementRole != expectedPlacementRole
+            || prototype.gameplayAuthority != "VisualOnlyNoGameplay"
+            || !prototype.HasRequiredParts
+            || root.name.IndexOf(expectedFamily, StringComparison.OrdinalIgnoreCase) < 0
+            || root.name.IndexOf(expectedPlacementRole, StringComparison.OrdinalIgnoreCase) < 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " threshold route dressing metadata, family, role, authority, root name, or required parts are incomplete (" + objectName + ").");
+        }
+
+        if (prototype.structureRoot.childCount < 1 || prototype.detailRoot.childCount < 1 || prototype.signalRoot.childCount < 1 || prototype.grimeRoot.childCount < 1)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " threshold route dressing does not have the required structure/detail/signal/grime counts (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<Collider>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " threshold route dressing must remain non-blocking route dressing with no colliders (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<NavMeshObstacle>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " threshold route dressing must not add NavMeshObstacle components (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<Pickup>().Length > 0 || root.GetComponentsInChildren<PlayerInteraction>().Length > 0 || root.GetComponentsInChildren<LevelTransitionTrigger>().Length > 0 || root.GetComponentsInChildren<ExitTrigger>().Length > 0 || root.GetComponentsInChildren<SteamValveObjective>().Length > 0 || root.GetComponentsInChildren<SteamHazard>().Length > 0 || root.GetComponentsInChildren<FurnaceHeatHazard>().Length > 0 || root.GetComponentsInChildren<GuardianDefeatObjective>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " threshold route dressing must remain visual dressing with no pickup, interaction, objective, damage, or route-authority components (" + objectName + ").");
+        }
+
+        RequireNamed(objectName + " Structure Root", sceneName + " threshold route dressing structure root");
+        RequireNamed(objectName + " Detail Root", sceneName + " threshold route dressing detail root");
+        RequireNamed(objectName + " Signal Root", sceneName + " threshold route dressing signal root");
+        RequireNamed(objectName + " Grime Root", sceneName + " threshold route dressing grime root");
+        RequireNamed(objectName + " Blackened Iron Structure 00", sceneName + " threshold route dressing blackened iron structure");
+        RequireNamed(objectName + " Aged Brass Detail 00", sceneName + " threshold route dressing aged brass detail");
+        RequireNamed(objectName + " Amber Signal 00", sceneName + " threshold route dressing amber signal");
+        RequireNamed(objectName + " Oil Soot Grime 00", sceneName + " threshold route dressing oil soot grime");
+
+        RequireRendererMaterial(prototype.primaryRenderer, sceneName + " threshold route dressing primary material", "Iron");
+        RequireRendererMaterial(prototype.secondaryRenderer, sceneName + " threshold route dressing secondary material", "Brass");
+        RequireRendererMaterial(prototype.grimeRenderer, sceneName + " threshold route dressing grime material", "Oil");
+    }
+
+    private static void ValidateThresholdRouteDressingBatch(string sceneName, string levelKey)
+    {
+        string[] families =
+        {
+            "PistonDoorBracePrototype",
+            "PipeClampCouplerSetPrototype",
+            "OilSootGrimePanelSetPrototype",
+            "AmberIndicatorPlatePrototype",
+            "BrassThresholdKickPlatePrototype",
+            "RivetedPatchRepairPlatePrototype",
+            "PressureSealGasketRingPrototype",
+            "RouteReturnPipeMarkerPrototype",
+            "SteamVentResidueCollarPrototype",
+            "HoistChainAnchorPlatePrototype"
+        };
+
+        string[] roles;
+        if (levelKey == "intake")
+        {
+            roles = new[]
+            {
+                "intake_pressure_gate_brace",
+                "intake_gate_pipe_clamps",
+                "intake_gate_lift_grime",
+                "intake_key_gate_route_plates",
+                "intake_gate_lift_kick_plates",
+                "intake_route_wall_patches",
+                "intake_pressure_gate_seals",
+                "intake_key_return_pipe_markers",
+                "intake_relief_vent_residue",
+                "intake_service_lift_anchors"
+            };
+        }
+        else if (levelKey == "pipeworks")
+        {
+            roles = new[]
+            {
+                "pipeworks_boiler_lift_brace",
+                "pipeworks_routing_valve_couplers",
+                "pipeworks_valve_lift_grime",
+                "pipeworks_valve_route_plates",
+                "pipeworks_lift_kick_plates",
+                "pipeworks_service_wall_patches",
+                "pipeworks_locked_lift_seals",
+                "pipeworks_restored_flow_markers",
+                "pipeworks_pipe_leak_residue",
+                "pipeworks_lift_anchors"
+            };
+        }
+        else if (levelKey == "boilerheart")
+        {
+            roles = new[]
+            {
+                "boilerheart_foundry_lift_brace",
+                "boilerheart_pressure_valve_couplers",
+                "boilerheart_valve_heat_grime",
+                "boilerheart_valve_lift_plates",
+                "boilerheart_lift_ring_kick_plates",
+                "boilerheart_boiler_wall_patches",
+                "boilerheart_pressure_valve_seals",
+                "boilerheart_valve_return_markers",
+                "boilerheart_steam_hazard_residue",
+                "boilerheart_lift_anchors"
+            };
+        }
+        else if (levelKey == "foundry")
+        {
+            roles = new[]
+            {
+                "foundry_emergency_hoist_brace",
+                "foundry_heat_bypass_couplers",
+                "foundry_furnace_hoist_grime",
+                "foundry_hoist_route_plates",
+                "foundry_hoist_kick_plates",
+                "foundry_battered_wall_patches",
+                "foundry_heat_gate_seals",
+                "foundry_emergency_flow_markers",
+                "foundry_furnace_residue",
+                "foundry_emergency_hoist_anchors"
+            };
+        }
+        else
+        {
+            roles = new[]
+            {
+                "governor_final_hoist_brace",
+                "governor_final_pressure_couplers",
+                "governor_warden_hoist_grime",
+                "governor_final_route_plates",
+                "governor_final_hoist_kick_plates",
+                "governor_regulator_wall_patches",
+                "governor_master_hoist_seals",
+                "governor_final_flow_markers",
+                "governor_regulator_residue",
+                "governor_final_hoist_anchors"
+            };
+        }
+
+        for (int i = 0; i < families.Length; i++)
+        {
+            ValidateThresholdRouteDressingPrototype(sceneName, families[i] + "_" + roles[i], families[i], roles[i]);
+        }
+    }
+
     private static void ValidatePressureReliefVentPrototype(string sceneName, string objectName, string expectedPlacementRole)
     {
         GameObject root = RequireNamed(objectName, sceneName + " pressure relief vent prototype root");
@@ -1869,6 +2028,7 @@ public static class V0LevelValidator
             ValidatePressureTankRackPrototype(sceneName, "North Star Intake Pressure Tank Rack", "intake_pressure_tank_rack");
             ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_intake_service_lift_call_box", "intake_service_lift_call_box");
             ValidateGearKeyPlinthPrototype(sceneName, "GearKeyPlinthPrototype_intake_gear_key_plinth", "intake_gear_key_plinth");
+            ValidateThresholdRouteDressingBatch(sceneName, "intake");
             RequireNamed("Secret - Intake Pressure Cache", sceneName + " secret pressure cache");
             RequireNamed("Secret Pressure Cache Brass Floor Plate", sceneName + " secret pressure cache floor plate");
             RequireNamed("Level01 Flow Polish V015", sceneName + " flow polish prop root");
@@ -1905,6 +2065,7 @@ public static class V0LevelValidator
             ValidateBoilerControlConsolePrototype(sceneName, "Pipeworks Prototype Boiler Control Console", "pipeworks_route_console");
             ValidateRivetedPressureDoorFramePrototype(sceneName, "Pipeworks Prototype Riveted Pressure Door Frame", "pipeworks_route_pressure_frame");
             ValidateValveWheelConsolePrototype(sceneName, "ValveWheelConsolePrototype_pipeworks_pressure_console", "pipeworks_pressure_console");
+            ValidateThresholdRouteDressingBatch(sceneName, "pipeworks");
             RequireNamed("Secret - Pipeworks Cartridge Cache", sceneName + " pipeworks secret cache");
             RequireNamed("Secret Pipeworks Cache Brass Floor Plate", sceneName + " pipeworks secret cache floor plate");
             RequireNamed("Pickup - Pipeworks Secret Pressure Cartridge Pack", sceneName + " pipeworks secret ammo reward");
@@ -1933,6 +2094,7 @@ public static class V0LevelValidator
             ValidateRivetedPressureDoorFramePrototype(sceneName, "Boilerheart Prototype Riveted Pressure Door Frame", "boilerheart_route_pressure_frame");
             ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_boilerheart_service_lift_call_box", "boilerheart_service_lift_call_box");
             ValidateValveWheelConsolePrototype(sceneName, "ValveWheelConsolePrototype_boilerheart_pressure_console", "boilerheart_pressure_console");
+            ValidateThresholdRouteDressingBatch(sceneName, "boilerheart");
             RequireNamed("Boilerheart Pressure Valve Objective", sceneName + " boilerheart pressure valve objective");
             RequireNamed("Boilerheart Pressure Valve Wheel", sceneName + " boilerheart pressure valve wheel visual");
             RequireNamed("Boilerheart Valve Vented Lamp", sceneName + " boilerheart valve vented signal");
@@ -1981,6 +2143,7 @@ public static class V0LevelValidator
             ValidatePressureReliefVentPrototype(sceneName, "North Star Foundry Pressure Relief Vent", "foundry_pressure_relief_vent");
             ValidateFloorDrainGratePrototype(sceneName, "North Star Foundry Floor Drain Grate", "foundry_floor_drain_grate");
             ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_foundry_emergency_hoist_call_box", "foundry_emergency_hoist_call_box");
+            ValidateThresholdRouteDressingBatch(sceneName, "foundry");
             RequireNamed("Foundry Furnace Row", sceneName + " foundry furnace row visual");
             RequireNamed("Foundry Steam Hazard - Casting Leak", sceneName + " foundry steam hazard");
             RequireNamed("Foundry Steam Hazard - Crucible Bleed", sceneName + " foundry steam hazard");
@@ -2012,6 +2175,7 @@ public static class V0LevelValidator
             ValidateCagedGaslightPrototype(sceneName, "North Star Governor Gaslight Left", "governor_route_gaslight");
             ValidatePressureTankRackPrototype(sceneName, "North Star Governor Pressure Tank Rack", "governor_pressure_tank_rack");
             ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_governor_master_hoist_call_box", "governor_master_hoist_call_box");
+            ValidateThresholdRouteDressingBatch(sceneName, "governor");
             RequireNamed("North Star Governor Regulator Crown", sceneName + " north-star governor regulator crown");
             RequireNamed("Governor Core Regulator Pillar", sceneName + " governor core regulator visual");
             RequireNamed("Governor Core Steam Hazard - Regulator Leak", sceneName + " governor core steam hazard");
