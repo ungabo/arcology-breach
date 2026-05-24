@@ -1184,6 +1184,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Run full packaged smoke matrix through the runner.
 - [x] Commit and push `v0.0.80`.
 
+## v0.0.81 Bellows Node Pulse Audio Pass
+
+- [x] Add `SteamworksAudioCue.BellowsNodePulse` without shifting existing serialized cue values.
+- [x] Add dedicated procedural bellows/steam pulse clip.
+- [x] Track last spatial audio cue in `SteamworksAudio` for packaged routing verification.
+- [x] Route Bellows Node pulses through the dedicated support cue.
+- [x] Expand runtime smoke for support cue configuration.
+- [x] Expand Bellows Node smoke for dedicated spatial pulse-audio routing.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.81`.
+
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
 ## v0.2 Combat Feel Slice

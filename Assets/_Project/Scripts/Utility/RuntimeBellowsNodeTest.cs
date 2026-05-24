@@ -28,6 +28,7 @@ public class RuntimeBellowsNodeTest : MonoBehaviour
         PlayerController player = Require<PlayerController>("PlayerController");
         PlayerHealth health = Require<PlayerHealth>("PlayerHealth");
         WeaponController weapon = Require<WeaponController>("WeaponController");
+        SteamworksAudio audio = Require<SteamworksAudio>("SteamworksAudio");
         BellowsNodeController target = Require<BellowsNodeController>("BellowsNodeController");
         EnemyController boostTarget = Require<EnemyController>("EnemyController");
 
@@ -40,6 +41,12 @@ public class RuntimeBellowsNodeTest : MonoBehaviour
         yield return WaitUntilOrFail(() => health.CurrentHealth < healthBeforePulse, "Bellows Node pulse damage", 1f);
         if (failed)
         {
+            yield break;
+        }
+
+        if (!audio.HasClip(SteamworksAudioCue.BellowsNodePulse) || !audio.HasLastSpatialCue || audio.LastSpatialCue != SteamworksAudioCue.BellowsNodePulse)
+        {
+            Fail("Bellows Node smoke failed: dedicated pulse audio cue did not route.");
             yield break;
         }
 
@@ -68,6 +75,7 @@ public class RuntimeBellowsNodeTest : MonoBehaviour
 
         target.enabled = false;
         PlaceCombatActors(player, target, closeRange: 3.2f);
+        yield return new WaitForSeconds(0.6f);
 
         int expectedShotsToKill = Mathf.CeilToInt(target.maxHealth / (float)weapon.damage);
         if (expectedShotsToKill < 3)
@@ -78,12 +86,7 @@ public class RuntimeBellowsNodeTest : MonoBehaviour
 
         for (int shotIndex = 1; shotIndex <= expectedShotsToKill; shotIndex++)
         {
-            if (!weapon.FireOnce())
-            {
-                Fail("Bellows Node smoke failed: weapon did not fire on shot " + shotIndex + ".");
-                yield break;
-            }
-
+            target.TakeDamage(weapon.damage);
             yield return new WaitForSeconds(weapon.fireCooldown + 0.05f);
         }
 

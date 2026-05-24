@@ -146,7 +146,7 @@ public class BellowsNodeController : MonoBehaviour, IDamageable
         RestoreColors();
 
         BellowsNodePulseVfx.Spawn(transform.position + Vector3.up * 0.32f);
-        SteamworksAudio.PlayAt(SteamworksAudioCue.GateDenied, transform.position);
+        SteamworksAudio.PlayAt(SteamworksAudioCue.BellowsNodePulse, transform.position);
 
         if (playerHealth == null)
         {

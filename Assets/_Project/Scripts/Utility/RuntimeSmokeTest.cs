@@ -32,10 +32,11 @@ public class RuntimeSmokeTest : MonoBehaviour
 
         bool scattergunCueConfigured = audio.HasClip(SteamworksAudioCue.PressureFire)
             && audio.HasClip(SteamworksAudioCue.SteamScattergunFire)
+            && audio.HasClip(SteamworksAudioCue.BellowsNodePulse)
             && audio.GetClipSampleCount(SteamworksAudioCue.SteamScattergunFire) > audio.GetClipSampleCount(SteamworksAudioCue.PressureFire);
         if (!scattergunCueConfigured)
         {
-            Debug.LogError("Runtime smoke test failed: Steam Scattergun audio cue is not configured.");
+            Debug.LogError("Runtime smoke test failed: expected weapon/support audio cues are not configured.");
             Application.Quit(1);
         }
 

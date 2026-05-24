@@ -15,7 +15,8 @@ public enum SteamworksAudioCue
     EnemyDeath,
     PlayerHurt,
     Win,
-    SteamScattergunFire
+    SteamScattergunFire,
+    BellowsNodePulse
 }
 
 [RequireComponent(typeof(AudioSource))]
@@ -37,6 +38,8 @@ public class SteamworksAudio : MonoBehaviour
     public int AmbienceSampleCount => source != null && source.clip != null ? source.clip.samples : 0;
     public bool HasLastOneShotCue { get; private set; }
     public SteamworksAudioCue LastOneShotCue { get; private set; }
+    public bool HasLastSpatialCue { get; private set; }
+    public SteamworksAudioCue LastSpatialCue { get; private set; }
 
     private void Awake()
     {
@@ -85,6 +88,8 @@ public class SteamworksAudio : MonoBehaviour
         float volume = Mathf.Clamp01(masterVolume);
         if (position.HasValue)
         {
+            HasLastSpatialCue = true;
+            LastSpatialCue = cue;
             AudioSource.PlayClipAtPoint(clip, position.Value, volume);
         }
         else
@@ -99,6 +104,7 @@ public class SteamworksAudio : MonoBehaviour
     {
         clips[SteamworksAudioCue.PressureFire] = CreateClip("Pressure Fire", 0.16f, (t, _) => Tone(Slide(620f, 140f, t), t) * Envelope(t, 0.005f, 0.06f, 0.16f) + Noise(t) * 0.14f * Envelope(t, 0.001f, 0.04f, 0.16f));
         clips[SteamworksAudioCue.SteamScattergunFire] = CreateClip("Steam Scattergun Fire", 0.28f, ScattergunFireSample);
+        clips[SteamworksAudioCue.BellowsNodePulse] = CreateClip("Bellows Node Pulse", 0.42f, BellowsNodePulseSample);
         clips[SteamworksAudioCue.EmptyClick] = CreateClip("Empty Click", 0.09f, (t, _) => Noise(t) * 0.26f * Envelope(t, 0.001f, 0.025f, 0.09f));
         clips[SteamworksAudioCue.HealthPickup] = CreateClip("Health Pickup", 0.2f, (t, _) => Tone(Slide(520f, 780f, t), t) * Envelope(t, 0.005f, 0.08f, 0.2f));
         clips[SteamworksAudioCue.AmmoPickup] = CreateClip("Ammo Pickup", 0.18f, (t, _) => Tone(Slide(410f, 760f, t), t) * Envelope(t, 0.003f, 0.07f, 0.18f));
@@ -173,6 +179,16 @@ public class SteamworksAudio : MonoBehaviour
         float steam = Noise(sampleIndex * 0.00018f) * 0.32f * Envelope(t, 0.002f, 0.22f, 0.28f);
         float pipeResonance = Tone(118f + Mathf.Sin(t * 70f) * 12f, t) * 0.16f * Envelope(t, 0.004f, 0.2f, 0.28f);
         return Mathf.Clamp(blast + brassClack + steam + pipeResonance, -1f, 1f);
+    }
+
+    private static float BellowsNodePulseSample(float t, int sampleIndex)
+    {
+        float normalized = t / 0.42f;
+        float bellows = Tone(Slide(168f, 58f, normalized), t) * 0.46f * Envelope(t, 0.003f, 0.3f, 0.42f);
+        float valveThump = Tone(42f + Mathf.Sin(t * 32f) * 7f, t) * 0.36f * Envelope(t, 0.001f, 0.24f, 0.42f);
+        float brassSnap = t < 0.075f ? Tone(760f, t) * 0.2f * Envelope(t, 0.001f, 0.045f, 0.075f) : 0f;
+        float steam = Noise(sampleIndex * 0.00022f) * 0.3f * Envelope(t, 0.004f, 0.36f, 0.42f);
+        return Mathf.Clamp(bellows + valveThump + brassSnap + steam, -1f, 1f);
     }
 
     private static float WinSample(float t, int sampleIndex)
