@@ -103,6 +103,8 @@ $exePath = Join-Path $ProjectPath "Builds\Windows\$version\${executableStem}_$ve
 $routeAuditPath = Join-Path $ProjectPath "Documentation\QA\RouteAudit\ROUTE_AUDIT_$version.md"
 $qaPacketPath = Join-Path $ProjectPath "Documentation\QA\WindowsRouteQA\QA_PACKET_$version.md"
 $qaPacketManifestPath = Join-Path $ProjectPath "Documentation\QA\WindowsRouteQA\QA_PACKET_$version.json"
+$issueTriagePath = Join-Path $ProjectPath "Documentation\QA\WindowsRouteQA\ISSUE_TRIAGE_$version.md"
+$issueTriageManifestPath = Join-Path $ProjectPath "Documentation\QA\WindowsRouteQA\ISSUE_TRIAGE_$version.json"
 $packageManifestPath = Join-Path $ProjectPath "Builds\WindowsPackages\$version\${executableStem}_${version}_WindowsPackageManifest.json"
 $releaseNotesPath = Join-Path $ProjectPath "Documentation\Releases\RELEASE_NOTES_$version.md"
 $readinessRoot = Join-Path $ProjectPath "Documentation\Releases\CandidateReadiness"
@@ -112,6 +114,8 @@ Require-Path -Path $exePath -Label "Windows executable"
 Require-Path -Path $routeAuditPath -Label "route audit report"
 Require-Path -Path $qaPacketPath -Label "Windows QA packet"
 Require-Path -Path $qaPacketManifestPath -Label "Windows QA packet manifest"
+Require-Path -Path $issueTriagePath -Label "Windows issue triage packet"
+Require-Path -Path $issueTriageManifestPath -Label "Windows issue triage packet manifest"
 Require-Path -Path $packageManifestPath -Label "Windows package manifest"
 
 $packageManifest = Get-Content -LiteralPath $packageManifestPath -Raw | ConvertFrom-Json
@@ -161,6 +165,7 @@ $readinessManifestPath = Join-Path $readinessRoot "CANDIDATE_READINESS_$version.
 $releaseNotesState = if (Test-Path -LiteralPath $releaseNotesPath) { "present" } else { "pending until docs refresh" }
 $routeAuditRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $routeAuditPath)
 $qaPacketRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $qaPacketPath)
+$issueTriageRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $issueTriagePath)
 $exeRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $exePath)
 $packageRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $packageZip)
 $hashCode = Convert-ToInlineCode -Value $packageHash
@@ -187,6 +192,7 @@ $readinessLines = @(
     "- Package SHA-256: $hashCode",
     "- Route audit: $routeAuditRepo",
     "- QA packet: $qaPacketRepo",
+    "- Issue triage packet: $issueTriageRepo",
     "- Release notes: $releaseNotesRepo ($releaseNotesState)",
     "",
     "## Automated Verification Markers",
@@ -220,6 +226,7 @@ $manifest = [ordered]@{
     package_sha256 = $packageHash
     route_audit = $routeAuditPath
     qa_packet = $qaPacketPath
+    issue_triage_packet = $issueTriagePath
     release_notes = $releaseNotesPath
     release_notes_state = $releaseNotesState
     readiness_report = $readinessPath

@@ -1570,6 +1570,21 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.16 Windows Issue Triage Packet Automation
+
+- [x] Add `Tools/GenerateWindowsIssueTriagePacket.ps1`.
+- [x] Generate a Markdown issue-triage packet with severity rules, issue buckets, an intake template, and candidate-gate rules.
+- [x] Generate `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.16.md`.
+- [x] Generate `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.16.json`.
+- [x] Refresh `Documentation/QA/ManualPlaytestV1/README.md` with the exact current issue-triage packet path.
+- [x] Wire issue-triage packet generation into `Tools/RunV0BuildMatrix.ps1`.
+- [x] Add `V0_WINDOWS_ISSUE_TRIAGE_PASS` to the full matrix.
+- [x] Update candidate-readiness automation so candidate evidence requires and links the issue-triage packet.
+- [x] Refresh `V0RouteAudit` output for `v0.1.16`.
+- [x] Build, package, generate route-QA evidence, generate issue-triage evidence, and generate candidate-readiness evidence for `v0.1.16` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

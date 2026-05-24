@@ -5,6 +5,7 @@ param(
     [switch]$SkipSceneRebuild,
     [switch]$SkipPackage,
     [switch]$SkipQAPacket,
+    [switch]$SkipIssueTriage,
     [switch]$SkipCandidateReadiness
 )
 
@@ -221,6 +222,16 @@ if (-not $SkipQAPacket) {
 
     Write-Host "Running Windows QA packet step"
     & $qaPacketScript -ProjectPath $ProjectPath
+}
+
+if (-not $SkipIssueTriage) {
+    $issueTriageScript = Join-Path $ProjectPath "Tools\GenerateWindowsIssueTriagePacket.ps1"
+    if (-not (Test-Path -LiteralPath $issueTriageScript)) {
+        throw "Windows issue triage packet script was not found: $issueTriageScript"
+    }
+
+    Write-Host "Running Windows issue triage packet step"
+    & $issueTriageScript -ProjectPath $ProjectPath
 }
 
 if (-not $SkipCandidateReadiness) {

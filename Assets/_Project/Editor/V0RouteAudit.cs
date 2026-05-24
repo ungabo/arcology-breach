@@ -64,9 +64,9 @@ public static class V0RouteAudit
         report.AppendLine();
         report.AppendLine("## Next Actionable Slices");
         report.AppendLine();
-        report.AppendLine("- `v0.1.16`: expand route QA evidence capture after manual playtest notes land.");
         report.AppendLine("- `v0.1.17`: next modular environment component promotion after pressure-pistol coil review.");
         report.AppendLine("- `v0.1.18`: begin final Windows release-candidate polish tasks from readiness report gaps.");
+        report.AppendLine("- `v0.1.19`: convert accepted route-triage findings into concrete polish tasks once manual notes exist.");
 
         string absoluteOutputPath = Path.Combine(Directory.GetCurrentDirectory(), OutputPath);
         Directory.CreateDirectory(Path.GetDirectoryName(absoluteOutputPath));
