@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-23 22:08 -04:00`
+Last updated: `2026-05-23 22:12 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -33,7 +33,7 @@ Current verified local build:
 | Beauvoir | `019e57a1-a809-7f20-9ead-228500ae4ad9` | Concrete asset generation/import briefs | `Documentation/PARALLEL_ASSET_GENERATION_BRIEFS.md` | `2026-05-23 21:37 -04:00` | completed |
 | Nietzsche | `019e57a8-8d30-7543-af03-13e33acbdd3d` | Asset viewing guide and preview swatches | `Documentation/ASSET_VIEWING_GUIDE.md`, `Documentation/AssetPreviews/` | `2026-05-23 21:45 -04:00` | completed |
 | Curie | `019e57ac-ba96-75f2-a362-cc3af0f1d0cd` | Staged PBR material and texture production | `Assets/_Project/ArtStaging/MaterialsPBR/`, `Documentation/AssetProduction/MaterialsPBR/` | `2026-05-23 21:49 -04:00` | completed |
-| Poincare | `019e57ad-10a2-71d3-b094-4c469c95ca42` | Staged modular environment kit meshes | `Assets/_Project/ArtStaging/ModularKit/`, `Documentation/AssetProduction/ModularKit/` | `2026-05-23 21:49 -04:00` | running |
+| Poincare | `019e57ad-10a2-71d3-b094-4c469c95ca42` | Staged modular environment kit meshes | `Assets/_Project/ArtStaging/ModularKit/`, `Documentation/AssetProduction/ModularKit/` | `2026-05-23 21:49 -04:00` | completed |
 | Rawls | `019e57ad-3c85-71f3-b860-9187f4e58b2e` | Staged weapon and gameplay prop meshes | `Assets/_Project/ArtStaging/WeaponsProps/`, `Documentation/AssetProduction/WeaponsProps/` | `2026-05-23 21:49 -04:00` | completed |
 | Linnaeus | `019e57ad-64ad-73c3-94e0-eb3c6980117e` | Staged mechanical enemy blockout meshes | `Assets/_Project/ArtStaging/Enemies/`, `Documentation/AssetProduction/Enemies/` | `2026-05-23 21:49 -04:00` | completed |
 | Hooke | `019e57ae-0c70-74e2-9627-20c741592f05` | View-only object and room concept renders | `Documentation/ConceptRenders/` | `2026-05-23 21:50 -04:00` | completed |
@@ -53,6 +53,7 @@ Current verified local build:
 | Linnaeus | `2026-05-23 21:58 -04:00` | `Assets/_Project/ArtStaging/Enemies/`, `Documentation/AssetProduction/Enemies/` | Created enemy OBJ blockouts for Scrapper, Lancer, Sentinel Turret, and reusable mechanical parts, plus manifests and preview sheets. |
 | Rawls | `2026-05-23 22:00 -04:00` | `Assets/_Project/ArtStaging/WeaponsProps/`, `Documentation/AssetProduction/WeaponsProps/` | Created weapon/prop OBJ blockouts for Pressure Pistol, Steam Scattergun, ammo pickups, pressure station, and crank lever, plus manifests and preview sheets. |
 | Hooke | `2026-05-23 22:06 -04:00` | `Documentation/ConceptRenders/` | Created 13 view-only JPG concept renders/contact sheets plus index, render plan, and work log. Best first file: `Documentation/ConceptRenders/CONTACTSHEET_staged_assets_current.jpg`. |
+| Poincare | `2026-05-23 22:11 -04:00` | `Assets/_Project/ArtStaging/ModularKit/`, `Documentation/AssetProduction/ModularKit/` | Created first modular corridor kit with 12 OBJ meshes, 8 base-color texture PNGs, material library, manifests, previews, and contact sheet. |
 
 ## Integration Rules
 

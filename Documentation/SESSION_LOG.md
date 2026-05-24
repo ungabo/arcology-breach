@@ -2854,6 +2854,6 @@ Side-agent update:
 - Linnaeus completed staged mechanical enemy OBJ blockouts and preview sheets under `Assets/_Project/ArtStaging/Enemies/` and `Documentation/AssetProduction/Enemies/`.
 - Rawls completed staged weapon/prop OBJ blockouts and preview sheets under `Assets/_Project/ArtStaging/WeaponsProps/` and `Documentation/AssetProduction/WeaponsProps/`.
 - Hooke completed view-only concept renders and contact sheets under `Documentation/ConceptRenders/`.
-- Poincare continues running on modular kit meshes.
+- Poincare completed the staged modular corridor kit under `Assets/_Project/ArtStaging/ModularKit/` and `Documentation/AssetProduction/ModularKit/`.
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.

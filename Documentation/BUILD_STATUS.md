@@ -101,7 +101,7 @@
 - `PressureBoostVfx` now gives boosted Scrappers a visible animated overdrive ring/vent state, verified by packaged Bellows Node smoke.
 - Bellows Node pulses now use a dedicated procedural audio cue, with runtime clip configuration and Bellows Node spatial routing smoke coverage.
 - Pressure Pistol secondary fire now animates first-person pressure-dump cues: gauge needle kick, valve wheel spin, dump lever snap, chamber recoil, and side vent flash, verified by level validation and combat-scenario smoke.
-- First side-agent material, enemy, and weapon/prop staging packages exist under `Assets/_Project/ArtStaging/`, with 1024px PBR texture maps, OBJ blockouts, Unity `.meta` sidecars, manifests, and preview sheets in `Documentation/AssetProduction/`.
+- First side-agent material, enemy, weapon/prop, and modular corridor-kit staging packages exist under `Assets/_Project/ArtStaging/`, with 1024px PBR texture maps, OBJ blockouts, Unity `.meta` sidecars, manifests, and preview sheets in `Documentation/AssetProduction/`.
 - View-only concept renders for staged assets and room/object mockups exist under `Documentation/ConceptRenders/` and are intentionally outside Unity build assets.
 
 ## Verification Results

@@ -1,0 +1,449 @@
+{
+  "kit_name": "Brassworks Breach ModularKit 01 - Steampunk Corridor/Room Starter",
+  "generated_at_local": "2026-05-23T22:07:25-04:00",
+  "unit_scale": "1 OBJ unit = 1 Unity meter",
+  "coordinate_system": "+Y up, +Z forward; authored for Unity OBJ import",
+  "material_library": "KIT_ModularKit_Materials.mtl",
+  "materials": [
+    {
+      "name": "MAT_AgedBrass",
+      "base_color_texture": "KIT_MAT_AgedBrass_BaseColor.png",
+      "metallic_note": 1.0,
+      "roughness_note": 0.72,
+      "alpha": 1.0
+    },
+    {
+      "name": "MAT_RivetedIron",
+      "base_color_texture": "KIT_MAT_RivetedIron_BaseColor.png",
+      "metallic_note": 1.0,
+      "roughness_note": 0.82,
+      "alpha": 1.0
+    },
+    {
+      "name": "MAT_OilDarkMasonry",
+      "base_color_texture": "KIT_MAT_OilDarkMasonry_BaseColor.png",
+      "metallic_note": 0.0,
+      "roughness_note": 0.96,
+      "alpha": 1.0
+    },
+    {
+      "name": "MAT_DarkGrate",
+      "base_color_texture": "KIT_MAT_DarkGrate_BaseColor.png",
+      "metallic_note": 1.0,
+      "roughness_note": 0.88,
+      "alpha": 1.0
+    },
+    {
+      "name": "MAT_OxidizedPipe",
+      "base_color_texture": "KIT_MAT_OxidizedPipe_BaseColor.png",
+      "metallic_note": 1.0,
+      "roughness_note": 0.78,
+      "alpha": 1.0
+    },
+    {
+      "name": "MAT_LampGlass",
+      "base_color_texture": "KIT_MAT_LampGlass_BaseColor.png",
+      "metallic_note": 0.0,
+      "roughness_note": 0.12,
+      "alpha": 0.45
+    },
+    {
+      "name": "MAT_WarmLampGlow",
+      "base_color_texture": "KIT_MAT_WarmLampGlow_BaseColor.png",
+      "metallic_note": 0.0,
+      "roughness_note": 0.35,
+      "alpha": 1.0
+    },
+    {
+      "name": "MAT_GaugeFace",
+      "base_color_texture": "KIT_MAT_GaugeFace_BaseColor.png",
+      "metallic_note": 0.0,
+      "roughness_note": 0.74,
+      "alpha": 1.0
+    },
+    {
+      "name": "MAT_GaugeNeedle",
+      "base_color_texture": null,
+      "metallic_note": 0.0,
+      "roughness_note": 0.55,
+      "alpha": 1.0
+    }
+  ],
+  "meshes": [
+    {
+      "name": "SM_WallPanel_RivetedTrim_4m",
+      "file": "SM_WallPanel_RivetedTrim_4m.obj",
+      "description": "4m wall panel with riveted brass trim and oil-dark masonry slabs",
+      "dimensions_m_xyz": [
+        4,
+        3,
+        0.29
+      ],
+      "bbox_min_xyz_m": [
+        -2,
+        0,
+        -0.16
+      ],
+      "bbox_max_xyz_m": [
+        2,
+        3,
+        0.13
+      ],
+      "pivot_note": "Origin at lower center of front module; face detail points toward +Z",
+      "material_slots": [
+        "MAT_AgedBrass",
+        "MAT_OilDarkMasonry",
+        "MAT_RivetedIron"
+      ],
+      "face_count": 1086,
+      "vertex_count_authored": 3648,
+      "source_units": "meters"
+    },
+    {
+      "name": "SM_FloorTile_GrateSeams_4m",
+      "file": "SM_FloorTile_GrateSeams_4m.obj",
+      "description": "4m floor tile with recessed grate, raised plate seams, brass trim",
+      "dimensions_m_xyz": [
+        4,
+        0.21,
+        4
+      ],
+      "bbox_min_xyz_m": [
+        -2,
+        -0.14,
+        -2
+      ],
+      "bbox_max_xyz_m": [
+        2,
+        0.07,
+        2
+      ],
+      "pivot_note": "Origin at tile center, walking surface near Y=0",
+      "material_slots": [
+        "MAT_AgedBrass",
+        "MAT_DarkGrate",
+        "MAT_RivetedIron"
+      ],
+      "face_count": 744,
+      "vertex_count_authored": 2592,
+      "source_units": "meters"
+    },
+    {
+      "name": "SM_CeilingPanel_PipeChannels_4m",
+      "file": "SM_CeilingPanel_PipeChannels_4m.obj",
+      "description": "4m ceiling panel with underside pipe channels and straps",
+      "dimensions_m_xyz": [
+        4,
+        0.395,
+        4
+      ],
+      "bbox_min_xyz_m": [
+        -2,
+        -0.235,
+        -2
+      ],
+      "bbox_max_xyz_m": [
+        2,
+        0.16,
+        2
+      ],
+      "pivot_note": "Origin at panel center; place underside around ceiling height",
+      "material_slots": [
+        "MAT_AgedBrass",
+        "MAT_DarkGrate",
+        "MAT_OxidizedPipe",
+        "MAT_RivetedIron"
+      ],
+      "face_count": 96,
+      "vertex_count_authored": 352,
+      "source_units": "meters"
+    },
+    {
+      "name": "SM_CorridorShell_Straight_4m",
+      "file": "SM_CorridorShell_Straight_4m.obj",
+      "description": "4m straight corridor shell segment, open at both ends",
+      "dimensions_m_xyz": [
+        4,
+        3.3,
+        4
+      ],
+      "bbox_min_xyz_m": [
+        -2,
+        -0.14,
+        -2
+      ],
+      "bbox_max_xyz_m": [
+        2,
+        3.16,
+        2
+      ],
+      "pivot_note": "Origin centered on corridor bay; floor top at Y=0",
+      "material_slots": [
+        "MAT_AgedBrass",
+        "MAT_OilDarkMasonry",
+        "MAT_OxidizedPipe",
+        "MAT_RivetedIron"
+      ],
+      "face_count": 690,
+      "vertex_count_authored": 2344,
+      "source_units": "meters"
+    },
+    {
+      "name": "SM_DoorwayThreshold_Frame_4m",
+      "file": "SM_DoorwayThreshold_Frame_4m.obj",
+      "description": "4m wall module doorway frame and threshold",
+      "dimensions_m_xyz": [
+        4,
+        3.1,
+        0.65
+      ],
+      "bbox_min_xyz_m": [
+        -2,
+        -0.1,
+        -0.26
+      ],
+      "bbox_max_xyz_m": [
+        2,
+        3,
+        0.39
+      ],
+      "pivot_note": "Origin at doorway centerline; clear opening approx. 1.76m W x 2.32m H",
+      "material_slots": [
+        "MAT_AgedBrass",
+        "MAT_DarkGrate",
+        "MAT_OilDarkMasonry",
+        "MAT_RivetedIron"
+      ],
+      "face_count": 480,
+      "vertex_count_authored": 1632,
+      "source_units": "meters"
+    },
+    {
+      "name": "SM_CornerIntersection_Marker_4m",
+      "file": "SM_CornerIntersection_Marker_4m.obj",
+      "description": "4m intersection marker plate with brass cross markers and corner bollards",
+      "dimensions_m_xyz": [
+        4,
+        0.595,
+        4
+      ],
+      "bbox_min_xyz_m": [
+        -2,
+        -0.07,
+        -2
+      ],
+      "bbox_max_xyz_m": [
+        2,
+        0.525,
+        2
+      ],
+      "pivot_note": "Origin at center of intersection marker",
+      "material_slots": [
+        "MAT_AgedBrass",
+        "MAT_DarkGrate",
+        "MAT_RivetedIron"
+      ],
+      "face_count": 408,
+      "vertex_count_authored": 1376,
+      "source_units": "meters"
+    },
+    {
+      "name": "SM_PipeRun_Straight_4m",
+      "file": "SM_PipeRun_Straight_4m.obj",
+      "description": "4m straight pipe run with flanges and brackets",
+      "dimensions_m_xyz": [
+        4.02,
+        0.56,
+        0.44
+      ],
+      "bbox_min_xyz_m": [
+        -2.01,
+        -0.34,
+        -0.22
+      ],
+      "bbox_max_xyz_m": [
+        2.01,
+        0.22,
+        0.22
+      ],
+      "pivot_note": "Origin centered on pipe centerline",
+      "material_slots": [
+        "MAT_AgedBrass",
+        "MAT_OxidizedPipe",
+        "MAT_RivetedIron"
+      ],
+      "face_count": 252,
+      "vertex_count_authored": 864,
+      "source_units": "meters"
+    },
+    {
+      "name": "SM_PipeElbow_90deg",
+      "file": "SM_PipeElbow_90deg.obj",
+      "description": "90 degree oxidized pipe elbow with brass flanges",
+      "dimensions_m_xyz": [
+        1.01,
+        0.4,
+        1.01
+      ],
+      "bbox_min_xyz_m": [
+        -0.19,
+        -0.2,
+        -0.19
+      ],
+      "bbox_max_xyz_m": [
+        0.82,
+        0.2,
+        0.82
+      ],
+      "pivot_note": "Origin at elbow bend corner center",
+      "material_slots": [
+        "MAT_AgedBrass",
+        "MAT_OxidizedPipe"
+      ],
+      "face_count": 408,
+      "vertex_count_authored": 1552,
+      "source_units": "meters"
+    },
+    {
+      "name": "SM_ValveWheel_Prop",
+      "file": "SM_ValveWheel_Prop.obj",
+      "description": "Valve wheel prop with rim, spokes, hub, and stem",
+      "dimensions_m_xyz": [
+        0.696,
+        0.696,
+        0.27
+      ],
+      "bbox_min_xyz_m": [
+        -0.348,
+        -0.348,
+        -0.21
+      ],
+      "bbox_max_xyz_m": [
+        0.348,
+        0.348,
+        0.06
+      ],
+      "pivot_note": "Origin at valve hub center",
+      "material_slots": [
+        "MAT_AgedBrass",
+        "MAT_OxidizedPipe",
+        "MAT_RivetedIron"
+      ],
+      "face_count": 578,
+      "vertex_count_authored": 2148,
+      "source_units": "meters"
+    },
+    {
+      "name": "SM_PressureGauge_Prop",
+      "file": "SM_PressureGauge_Prop.obj",
+      "description": "Pressure gauge prop with dial face, rim, needle, and pipe socket",
+      "dimensions_m_xyz": [
+        0.49,
+        0.66,
+        0.193
+      ],
+      "bbox_min_xyz_m": [
+        -0.245,
+        -0.415,
+        -0.074
+      ],
+      "bbox_max_xyz_m": [
+        0.245,
+        0.245,
+        0.119
+      ],
+      "pivot_note": "Origin at gauge dial center",
+      "material_slots": [
+        "MAT_AgedBrass",
+        "MAT_GaugeFace",
+        "MAT_GaugeNeedle",
+        "MAT_OxidizedPipe",
+        "MAT_RivetedIron"
+      ],
+      "face_count": 527,
+      "vertex_count_authored": 1927,
+      "source_units": "meters"
+    },
+    {
+      "name": "SM_LampHousing_Prop",
+      "file": "SM_LampHousing_Prop.obj",
+      "description": "Caged steampunk lamp housing with glass and warm glow slot",
+      "dimensions_m_xyz": [
+        0.56,
+        0.79,
+        0.46
+      ],
+      "bbox_min_xyz_m": [
+        -0.28,
+        0.01,
+        -0.23
+      ],
+      "bbox_max_xyz_m": [
+        0.28,
+        0.8,
+        0.23
+      ],
+      "pivot_note": "Origin at lamp base center",
+      "material_slots": [
+        "MAT_AgedBrass",
+        "MAT_LampGlass",
+        "MAT_RivetedIron",
+        "MAT_WarmLampGlow"
+      ],
+      "face_count": 468,
+      "vertex_count_authored": 1568,
+      "source_units": "meters"
+    },
+    {
+      "name": "KIT_ModularKit_ReferenceAssembly",
+      "file": "KIT_ModularKit_ReferenceAssembly.obj",
+      "description": "Combined reference corridor bay for import sanity checks",
+      "dimensions_m_xyz": [
+        4,
+        3.3,
+        4
+      ],
+      "bbox_min_xyz_m": [
+        -2,
+        -0.14,
+        -2
+      ],
+      "bbox_max_xyz_m": [
+        2,
+        3.16,
+        2
+      ],
+      "pivot_note": "Origin centered in 4m corridor bay",
+      "material_slots": [
+        "MAT_AgedBrass",
+        "MAT_LampGlass",
+        "MAT_OilDarkMasonry",
+        "MAT_OxidizedPipe",
+        "MAT_RivetedIron",
+        "MAT_WarmLampGlow"
+      ],
+      "face_count": 258,
+      "vertex_count_authored": 884,
+      "source_units": "meters"
+    }
+  ],
+  "previews": [
+    "PREVIEW_SM_WallPanel_RivetedTrim_4m.png",
+    "PREVIEW_SM_FloorTile_GrateSeams_4m.png",
+    "PREVIEW_SM_CeilingPanel_PipeChannels_4m.png",
+    "PREVIEW_SM_CorridorShell_Straight_4m.png",
+    "PREVIEW_SM_DoorwayThreshold_Frame_4m.png",
+    "PREVIEW_SM_CornerIntersection_Marker_4m.png",
+    "PREVIEW_SM_PipeRun_Straight_4m.png",
+    "PREVIEW_SM_PipeElbow_90deg.png",
+    "PREVIEW_SM_ValveWheel_Prop.png",
+    "PREVIEW_SM_PressureGauge_Prop.png",
+    "PREVIEW_SM_LampHousing_Prop.png",
+    "PREVIEW_KIT_ModularKit_ReferenceAssembly.png",
+    "PREVIEW_ModularKit_ContactSheet.png",
+    "PREVIEW_TextureSwatches.png"
+  ],
+  "collision_notes": "Use simple box colliders for wall/floor/ceiling/shell/doorway modules; capsule colliders for pipe runs; convex mesh or primitive colliders for valve/gauge/lamp props. Avoid visual rivets/grate bars as gameplay collision.",
+  "lod_notes": "LOD0 only in this staging pass. Suggested LOD1 removes rivets, individual grate bars, and cage rods; suggested LOD2 uses proxy boxes/cylinders only.",
+  "import_notes": "Import OBJ files into Unity at scale factor 1.0. Keep the MTL and KIT_MAT_* textures beside the OBJ files so material slots resolve. If Unity does not auto-wire the MTL maps, assign the listed textures manually."
+}

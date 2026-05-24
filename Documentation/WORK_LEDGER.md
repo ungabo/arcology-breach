@@ -107,6 +107,7 @@ The active step sequence is driven by this ledger plus `VERSION_MICRO_ROADMAP.md
 | ARTSTAGE-001 | Stage first mechanical enemy OBJ package | art/asset | P1 | review | v0.0.88 | Side-agent package includes Scrapper, Lancer, Sentinel Turret, reusable mechanical part OBJ blockouts, manifests, and preview sheets. |
 | ARTSTAGE-002 | Stage first weapon and prop OBJ package | art/asset | P1 | review | v0.0.88 | Side-agent package includes Pressure Pistol, Steam Scattergun, pressure-cell ammo, scattergun slug canister, pressure station, crank lever OBJ blockouts, manifests, and preview sheets. |
 | ARTSTAGE-003 | Create view-only concept render lane | art/process | P1 | review | v0.0.88 | `Documentation/ConceptRenders/` contains 13 JPG mockup/staged review renders plus an index, render plan, and work log; files stay outside Unity build assets. |
+| ARTSTAGE-004 | Stage first modular corridor kit | art/asset | P1 | review | v0.0.88 | Side-agent package includes 4m wall/floor/ceiling/corridor/doorway/corner modules, pipe/valve/gauge/lamp props, 8 base-color textures, manifests, and preview sheets. |
 
 ## Ready Next
 

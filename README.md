@@ -513,7 +513,7 @@ Individual Unity entry points remain available:
 - The gauge needle kicks, valve wheel spins, dump lever snaps, pressure chamber recoils, and side vent flashes during `Pressure Burst`.
 - Level validation checks the new relief nozzle, dump lever, gauge needle, and valve wheel cues.
 - Combat-scenario smoke verifies the secondary-fire viewmodel cues animate along with dedicated Pressure Burst audio/VFX.
-- First side-agent material, enemy, and weapon/prop staging packages landed under `Assets/_Project/ArtStaging/` with texture maps, OBJ blockouts, manifests, and preview sheets.
+- First side-agent material, enemy, weapon/prop, and modular corridor-kit staging packages landed under `Assets/_Project/ArtStaging/` with texture maps, OBJ blockouts, manifests, and preview sheets.
 - View-only concept renders landed under `Documentation/ConceptRenders/`; start with `CONTACTSHEET_staged_assets_current.jpg`.
 - Full V0 matrix produced `Builds/Windows/v0.0.88/BrassworksBreach_v0.0.88.exe`.
 

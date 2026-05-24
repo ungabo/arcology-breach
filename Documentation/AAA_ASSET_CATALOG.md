@@ -51,6 +51,7 @@ Every major asset should eventually have three quality targets:
 | GEO-008 | Boiler stack wall | P2 | prototype | Primitive boiler stacks with light strips. |
 | GEO-009 | Catwalk/rail kit | P2 | planned | Simple vertical-looking geometry, used carefully for readability. |
 | GEO-010 | Secret service hatch | P2 | planned | Hidden route/secret entry module. |
+| GEO-011 | Staged modular corridor kit | P1 | review | Side-agent package under `Assets/_Project/ArtStaging/ModularKit/` includes 4m wall, floor, ceiling, straight corridor, doorway, corner/intersection marker, pipe run, pipe elbow, valve wheel, pressure gauge, lamp housing, and reference assembly OBJ meshes, with 8 base-color textures, Unity `.meta` files, manifests, and preview contact sheets. |
 
 ## 3. Props and Objective Objects
 
