@@ -1051,6 +1051,7 @@ public static class V0SceneBuilder
         boilerheartLift.lockedMessage = "The Boilerheart lift is pressure-locked. Route the Pipeworks valve first.";
         CreatePipeworksDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreatePipeworksSecretCache(brassMaterial, ironMaterial, warningMaterial, healthMaterial, glassMaterial, fluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
+        CreatePipeworksFlowPolish(brassMaterial, warningMaterial, exitMaterial, ironMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
         CreatePointLight("Pipeworks Exit Green Light", new Vector3(0f, 2.4f, 22.7f), new Color(0.1f, 1f, 0.3f), 2.8f, 7f);
         CreatePointLight("Pipeworks Furnace Light", new Vector3(-4.1f, 1.6f, 16f), new Color(1f, 0.36f, 0.08f), 2.2f, 5f);
 
@@ -1082,6 +1083,7 @@ public static class V0SceneBuilder
         pressureValve.hazardsToDisableOnComplete = boilerheartHazards;
         foundryLift.requiredValve = pressureValve;
         foundryLift.lockedMessage = "The foundry lift is pressure-locked. Vent the Boilerheart first.";
+        CreateBoilerheartFlowPolish(brassMaterial, warningMaterial, exitMaterial, ironMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
         CreateLevel03SignageDecalsV1();
         CreatePointLight("Boilerheart Furnace Light", new Vector3(0f, 2.6f, 15.8f), new Color(1f, 0.32f, 0.08f), 4f, 10f);
         CreatePointLight("Boilerheart Foundry Lift Green Light", new Vector3(0f, 2.6f, 23.8f), new Color(0.1f, 1f, 0.35f), 2.8f, 7f);
@@ -1918,6 +1920,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeMovementFeelTest>();
         stateObject.AddComponent<RuntimeBalanceEnvelopeTest>();
         stateObject.AddComponent<RuntimeLevel01FlowTest>();
+        stateObject.AddComponent<RuntimeMidgameFlowTest>();
     }
 
     private static void ConfigureSteamworksAudioV1(SteamworksAudio audio)
@@ -2528,6 +2531,64 @@ public static class V0SceneBuilder
         GameObject misalignedPlate = CreateDecoCube("Level01 Secret Misaligned Service Plate", new Vector3(-5.99f, 0.72f, 18.7f), new Vector3(0.045f, 0.62f, 0.82f), ironMaterial, parent.transform);
         misalignedPlate.transform.rotation = Quaternion.Euler(0f, -90f, 3f);
         CreatePointLight("Level01 Secret Warm Seam Light", new Vector3(-5.62f, 1.18f, 18.62f), new Color(1f, 0.44f, 0.12f), 0.95f, 2.8f);
+    }
+
+    private static void CreatePipeworksFlowPolish(Material brassMaterial, Material warningMaterial, Material exitMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material glowMaterial)
+    {
+        GameObject parent = new GameObject("Level02 Pipeworks Flow Polish V016");
+
+        CreateDecoCube("Level02 Pipeworks Condensate Spine Center", new Vector3(0f, 0.055f, 12.4f), new Vector3(0.26f, 0.08f, 16.4f), brassMaterial, parent.transform);
+        CreateDecoCube("Level02 Pipeworks Locked Boilerheart Lift Stop Bar", new Vector3(0f, 0.07f, 21.72f), new Vector3(3.25f, 0.08f, 0.22f), warningMaterial, parent.transform);
+        CreateDecoCube("Level02 Pipeworks Locked Lift Pressure Line", new Vector3(0f, 2.42f, 22.25f), new Vector3(3.1f, 0.1f, 0.08f), warningMaterial, parent.transform);
+        CreatePressureGauge("Level02 Pipeworks Lift Lock Gauge", new Vector3(1.65f, 1.62f, 22.25f), Quaternion.identity, brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+        CreateDecoCube("Level02 Routing Valve Floor Lead", new Vector3(-3.35f, 0.06f, 18.7f), new Vector3(0.18f, 0.08f, 3.15f), brassMaterial, parent.transform);
+        CreateDecoCube("Level02 Routing Valve Return Elbow", new Vector3(-2.18f, 0.061f, 20f), new Vector3(2.45f, 0.08f, 0.18f), brassMaterial, parent.transform);
+        CreateCagedGaslight("Level02 Routing Valve Amber Gaslight", new Vector3(-4.86f, 2.06f, 20.95f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform);
+        CreatePointLight("Level02 Routing Valve Amber Point Light", new Vector3(-3.9f, 2.2f, 20f), new Color(1f, 0.58f, 0.16f), 1.55f, 4.4f);
+
+        CreateCube("Level02 Lancer Sightline Brass Cover West", new Vector3(-1.25f, 0.55f, 15.6f), new Vector3(0.95f, 1.1f, 0.9f), brassMaterial, parent.transform);
+        CreateCube("Level02 Lancer Sightline Iron Cover East", new Vector3(4.05f, 0.52f, 16.6f), new Vector3(0.78f, 1.04f, 1.05f), ironMaterial, parent.transform);
+        CreateDecoCube("Level02 Lancer Sightline Warning Rail", new Vector3(2.25f, 0.065f, 14.6f), new Vector3(2.7f, 0.08f, 0.16f), warningMaterial, parent.transform);
+
+        CreateDecoCube("Level02 Secret Cold Pipe Clue", new Vector3(-5.02f, 1.08f, 5.95f), new Vector3(0.1f, 0.1f, 1.35f), brassMaterial, parent.transform);
+        CreateValveWheel("Level02 Secret Service Wheel", new Vector3(-5.02f, 1.26f, 5.35f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, warningMaterial, parent.transform);
+        CreatePointLight("Level02 Secret Cool Glint Light", new Vector3(-4.75f, 1.08f, 5.4f), new Color(0.42f, 0.82f, 1f), 0.65f, 2.4f);
+    }
+
+    private static void CreateBoilerheartFlowPolish(Material brassMaterial, Material warningMaterial, Material exitMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material glowMaterial)
+    {
+        GameObject parent = new GameObject("Level03 Boilerheart Flow Polish V016");
+
+        CreateDecoCube("Level03 Boilerheart Ring Brass Guide South", new Vector3(0f, 0.056f, 11.45f), new Vector3(4.8f, 0.08f, 0.18f), brassMaterial, parent.transform);
+        CreateDecoCube("Level03 Boilerheart Ring Brass Guide North", new Vector3(0f, 0.057f, 19.65f), new Vector3(4.8f, 0.08f, 0.18f), brassMaterial, parent.transform);
+        CreateDecoCube("Level03 Scattergun Trial Lane Strip", new Vector3(0f, 0.058f, 12.65f), new Vector3(0.32f, 0.08f, 2.45f), warningMaterial, parent.transform);
+        CreatePressureGauge("Level03 Scattergun Display Pressure Gauge", new Vector3(1.55f, 1.62f, 13.18f), Quaternion.identity, brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+
+        CreateFloorRing("Level03 Bellows Pulse Radius Marker", new Vector3(3.6f, 0.066f, 15.1f), GameBalance.BellowsNodePulseRange * 0.32f, warningMaterial, parent.transform);
+        CreateDecoCube("Level03 Bellows Boost Pipe To Scrapper Lane", new Vector3(3.05f, 1.92f, 17.15f), new Vector3(0.12f, 0.12f, 4.2f), brassMaterial, parent.transform);
+        CreateDecoCube("Level03 Bellows Warning Backplate", new Vector3(5.98f, 1.34f, 15.1f), new Vector3(0.08f, 0.62f, 1.52f), warningMaterial, parent.transform);
+        CreatePointLight("Level03 Bellows Amber Pulse Read Light", new Vector3(3.6f, 1.85f, 15.1f), new Color(1f, 0.5f, 0.12f), 1.35f, 4.2f);
+
+        CreateDecoCube("Level03 Valve To Lift Green Return Strip", new Vector3(2.6f, 0.06f, 21.6f), new Vector3(0.28f, 0.08f, 4.25f), exitMaterial, parent.transform);
+        CreateDecoCube("Level03 Foundry Lift Locked Stop Bar", new Vector3(0f, 0.07f, 23.08f), new Vector3(3.2f, 0.08f, 0.22f), warningMaterial, parent.transform);
+        CreateDecoCube("Level03 Hazard Shutdown Sight Glass", new Vector3(4.92f, 1.32f, 20.35f), new Vector3(0.1f, 0.62f, 0.34f), exitMaterial, parent.transform);
+        CreatePointLight("Level03 Valve Return Green Beacon", new Vector3(2.6f, 2.2f, 21.6f), new Color(0.16f, 1f, 0.32f), 1.65f, 5.1f);
+    }
+
+    private static void CreateFloorRing(string name, Vector3 center, float radius, Material material, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = center;
+
+        for (int i = 0; i < 12; i++)
+        {
+            float angle = i * 30f;
+            float radians = angle * Mathf.Deg2Rad;
+            Vector3 position = new Vector3(Mathf.Sin(radians) * radius, 0f, Mathf.Cos(radians) * radius);
+            GameObject segment = CreateLocalCube(name + " Segment " + i, root.transform, position, new Vector3(0.62f, 0.055f, 0.11f), material);
+            segment.transform.localRotation = Quaternion.Euler(0f, angle, 0f);
+        }
     }
 
     private static void CreateWorldLabel(string name, string text, Vector3 position, Color color, float characterSize)

@@ -1427,6 +1427,23 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.6 Level02/Level03 Midgame Readability Polish
+
+- [x] Add generated Pipeworks locked-lift stop bar, pressure line, and lock gauge.
+- [x] Add generated Pipeworks routing-valve lead/return cues and amber valve light.
+- [x] Add generated Pipeworks Lancer sightline cover/readability props without blocking ranged smoke.
+- [x] Add generated Pipeworks secret clue props near the cartridge cache without moving the secret trigger.
+- [x] Add generated Boilerheart ring guide strips and scattergun trial-lane cues.
+- [x] Add generated Bellows Node pulse-radius marker, boost pipe, and amber pulse-read light.
+- [x] Add generated Boilerheart valve-to-lift green return strip, foundry-lift stop bar, and hazard shutdown sight glass.
+- [x] Add validator coverage for the new Level02/Level03 flow-polish props.
+- [x] Add `RuntimeMidgameFlowTest` and `-v0MidgameFlowSmoke` packaged launch coverage.
+- [x] Expand runtime smoke and the full build matrix for `V0_MIDGAME_FLOW_PASS`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.6`.
+- [x] Build `v0.1.6` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -1437,6 +1454,7 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Tune `Pressure Pistol` damage, fire rate, ammo, and feedback.
 - [x] Tune `Scrapper` speed, detection range, damage, and attack cooldown.
 - [x] Confirm `Brassworks Intake` route object placement and room flow against `LEVEL_DESIGN_AND_MAPS.md` through deterministic smoke coverage.
+- [x] Confirm Pipeworks and Boilerheart route object placement through deterministic midgame smoke coverage.
 - [ ] Manual readability pass for Scrapper attack tells and world labels.
 - [ ] Manual listen pass for procedural audio levels and tone.
 

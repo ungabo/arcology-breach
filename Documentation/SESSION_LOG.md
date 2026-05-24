@@ -432,6 +432,51 @@ Build executable:
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## 2026-05-24 03:15 -04:00
+
+Completed `v0.1.6` Level02/Level03 midgame readability polish.
+
+Added:
+
+- Generated `Level02 Pipeworks Flow Polish V016` route props for the locked Boilerheart lift, routing-valve branch, first Lancer sightline cover, and Pipeworks secret clue language.
+- Generated `Level03 Boilerheart Flow Polish V016` route props for the Boilerheart ring, Steam Scattergun approach, Bellows Node pulse radius, valve-to-lift return route, foundry-lift lock read, and hazard shutdown sight glass.
+- `RuntimeMidgameFlowTest` verifies the named Level02/Level03 route props and route ordering in packaged builds.
+- `RuntimeSmokeTest`, `MainMenuController`, `V0LevelValidator`, and `Tools/RunV0BuildMatrix.ps1` now include `-v0MidgameFlowSmoke` / `V0_MIDGAME_FLOW_PASS`.
+- `V0RouteAudit` next-action list now advances past the completed midgame slice.
+- Version string bumped to `v0.1.6`.
+
+Verification completed:
+
+- `V0_ROUTE_AUDIT_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_MOVEMENT_FEEL_PASS`
+- `V0_BALANCE_ENVELOPE_PASS`
+- `V0_LEVEL01_FLOW_PASS`
+- `V0_MIDGAME_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.6/BrassworksBreach_v0.1.6.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## 2026-05-24 03:06 -04:00
 
 Completed `v0.1.5` Level01 Brassworks Intake flow polish.

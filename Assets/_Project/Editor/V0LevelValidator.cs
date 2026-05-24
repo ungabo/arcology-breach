@@ -977,6 +977,11 @@ public static class V0LevelValidator
             RequireNamed("Secret - Pipeworks Cartridge Cache", sceneName + " pipeworks secret cache");
             RequireNamed("Secret Pipeworks Cache Brass Floor Plate", sceneName + " pipeworks secret cache floor plate");
             RequireNamed("Pickup - Pipeworks Secret Pressure Cartridge Pack", sceneName + " pipeworks secret ammo reward");
+            RequireNamed("Level02 Pipeworks Flow Polish V016", sceneName + " Pipeworks flow polish root");
+            RequireNamed("Level02 Pipeworks Locked Boilerheart Lift Stop Bar", sceneName + " Pipeworks locked lift stop bar");
+            RequireNamed("Level02 Routing Valve Floor Lead", sceneName + " Pipeworks routing valve floor lead");
+            RequireNamed("Level02 Lancer Sightline Brass Cover West", sceneName + " Pipeworks Lancer cover");
+            RequireNamed("Level02 Secret Cold Pipe Clue", sceneName + " Pipeworks secret clue");
         }
         else if (sceneName == "Level03")
         {
@@ -1012,6 +1017,14 @@ public static class V0LevelValidator
             RequireNamed("Bellows Node Exhaust Horn", sceneName + " Bellows Node horn visual");
             RequireNamed("Boilerheart Steam Hazard - Furnace Leak", sceneName + " boilerheart steam hazard");
             RequireNamed("Boilerheart Steam Hazard - Core Bleed", sceneName + " boilerheart steam hazard");
+            RequireNamed("Level03 Boilerheart Flow Polish V016", sceneName + " Boilerheart flow polish root");
+            RequireNamed("Level03 Boilerheart Ring Brass Guide South", sceneName + " Boilerheart ring guide");
+            RequireNamed("Level03 Scattergun Trial Lane Strip", sceneName + " Boilerheart scattergun trial lane");
+            RequireNamed("Level03 Bellows Pulse Radius Marker", sceneName + " Bellows pulse radius marker");
+            RequireNamed("Level03 Bellows Boost Pipe To Scrapper Lane", sceneName + " Bellows boost pipe");
+            RequireNamed("Level03 Valve To Lift Green Return Strip", sceneName + " Boilerheart valve-to-lift return strip");
+            RequireNamed("Level03 Foundry Lift Locked Stop Bar", sceneName + " Boilerheart foundry lift locked stop bar");
+            RequireNamed("Level03 Hazard Shutdown Sight Glass", sceneName + " Boilerheart hazard shutdown sight glass");
         }
         else if (sceneName == "Level04")
         {

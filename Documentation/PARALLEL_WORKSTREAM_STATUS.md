@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 03:06 -04:00`
+Last updated: `2026-05-24 03:15 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -17,8 +17,8 @@ Current focus:
 
 Current verified local build:
 
-- `v0.1.5`
-- Build path: `Builds/Windows/v0.1.5/BrassworksBreach_v0.1.5.exe`
+- `v0.1.6`
+- Build path: `Builds/Windows/v0.1.6/BrassworksBreach_v0.1.6.exe`
 - Matrix result: `V0_BUILD_MATRIX_PASS`
 
 ## Active Side Agents

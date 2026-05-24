@@ -33,7 +33,8 @@ public class MainMenuController : MonoBehaviour
         "-v0PauseFlow",
         "-v0MovementSmoke",
         "-v0BalanceSmoke",
-        "-v0Level01FlowSmoke"
+        "-v0Level01FlowSmoke",
+        "-v0MidgameFlowSmoke"
     };
 
     private void Awake()
@@ -75,6 +76,13 @@ public class MainMenuController : MonoBehaviour
         Cursor.visible = true;
 
         if (HasArgument("-v0RangedCombatSmoke"))
+        {
+            RunProgress.Reset();
+            SceneManager.LoadScene("Level02");
+            return;
+        }
+
+        if (HasArgument("-v0MidgameFlowSmoke"))
         {
             RunProgress.Reset();
             SceneManager.LoadScene("Level02");
