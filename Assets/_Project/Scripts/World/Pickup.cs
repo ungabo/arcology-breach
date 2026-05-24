@@ -90,6 +90,7 @@ public class Pickup : MonoBehaviour
             ResourcePickupVfx.Spawn(transform.position + Vector3.up * 0.2f, kind);
         }
 
+        GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.PickupCollected, kind.ToString(), transform.position + Vector3.up * 0.24f, GetFeedbackColor());
         ApplyPickup(inventory, health);
         SteamworksAudio.Play(GetAudioCue());
 
@@ -181,6 +182,23 @@ public class Pickup : MonoBehaviour
                 return "Weapon acquired";
             default:
                 return string.Empty;
+        }
+    }
+
+    private Color GetFeedbackColor()
+    {
+        switch (kind)
+        {
+            case PickupKind.Health:
+                return new Color(0.95f, 0.18f, 0.18f);
+            case PickupKind.Ammo:
+                return new Color(0.95f, 0.72f, 0.18f);
+            case PickupKind.Key:
+                return new Color(1f, 0.82f, 0.26f);
+            case PickupKind.Weapon:
+                return new Color(1f, 0.58f, 0.1f);
+            default:
+                return Color.white;
         }
     }
 

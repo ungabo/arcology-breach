@@ -203,6 +203,7 @@ Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0ClimaxFlowSmok
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0AudioMixSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-audio-mix-smoke.log") -Marker "V0_AUDIO_MIX_PASS"
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0DisplaySettingsSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-display-settings-smoke.log") -Marker "V0_DISPLAY_SETTINGS_PASS"
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0ReadabilitySmoke" -LogPath (Join-Path $logsPath "$LogPrefix-readability-smoke.log") -Marker "V0_READABILITY_SETTINGS_PASS"
+Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0GameplayFeedbackSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-gameplay-feedback-smoke.log") -Marker "V0_GAMEPLAY_FEEDBACK_PASS"
 
 if (-not $SkipPackage) {
     $packageScript = Join-Path $ProjectPath "Tools\PackageWindowsBuild.ps1"

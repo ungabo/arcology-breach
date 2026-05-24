@@ -1,0 +1,42 @@
+{
+  "packVersion": "v0.1.37",
+  "meshPolicy": "Unity built-in primitives only; no Blender or external DCC meshes.",
+  "performanceTarget": "Mid to low level Windows gaming PC, with geometry kept modular and modest.",
+  "recipes": [
+    {
+      "assetId": "BB_V0137_PressurePistolCore",
+      "primitiveFamilies": ["Cylinder barrel", "Cylinder pressure chamber", "Cylinder coil bands", "Cube leather grip", "Cube trigger guard", "Sphere rivets"],
+      "expectedRendererCount": 33
+    },
+    {
+      "assetId": "BB_V0137_CopperCoilAssembly",
+      "primitiveFamilies": ["Cylinder core", "Cylinder coil bands", "Cube brass cradle", "Sphere rivets"],
+      "expectedRendererCount": 24
+    },
+    {
+      "assetId": "BB_V0137_BrassDialGaugeAssembly",
+      "primitiveFamilies": ["Cylinder gauge case", "Cylinder glass face", "Cube needle", "Sphere screws"],
+      "expectedRendererCount": 17
+    },
+    {
+      "assetId": "BB_V0137_LeatherGrip",
+      "primitiveFamilies": ["Cube grip spine", "Cube leather panels", "Cylinder brass pins"],
+      "expectedRendererCount": 13
+    },
+    {
+      "assetId": "BB_V0137_PressureCartridge",
+      "primitiveFamilies": ["Cylinder pressure vial", "Cylinder brass cap", "Cylinder copper band", "Cube stamped notch"],
+      "expectedRendererCount": 12
+    },
+    {
+      "assetId": "BB_V0137_AmmoCabinetShell",
+      "primitiveFamilies": ["Cube cabinet frame", "Cube shelves", "Cylinder cartridges", "Cylinder gauge", "Cube glass door"],
+      "expectedRendererCount": 48
+    },
+    {
+      "assetId": "BB_V0137_WallWeaponDisplay",
+      "primitiveFamilies": ["Cube wall plank", "Cylinder pipe rails", "Cube weapon hooks", "Cylinder display weapon"],
+      "expectedRendererCount": 42
+    }
+  ]
+}

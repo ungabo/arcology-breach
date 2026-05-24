@@ -163,10 +163,12 @@ public class GovernorWardenController : MonoBehaviour, IDamageable
         {
             enraged = true;
             HUDController.Instance?.ShowTemporaryMessage("GOVERNOR PRESSURE RISING", 0.9f);
+            GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.BossPhaseChanged, "governor_warden_enraged", transform.position + Vector3.up * 1.2f, enragedColor);
         }
 
         MachineHitVfx.Spawn(transform.position + Vector3.up * 1.1f, 1.45f);
         SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyHit, transform.position);
+        GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.EnemyHit, "governor_warden", transform.position + Vector3.up * 1.1f, new Color(1f, 0.32f, 0.06f));
         StartCoroutine(FlashHit());
     }
 
@@ -250,6 +252,7 @@ public class GovernorWardenController : MonoBehaviour, IDamageable
         dead = true;
         WardenShutdownVfx.Spawn(transform.position + Vector3.up * 0.45f);
         SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyDeath, transform.position);
+        GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.EnemyDeath, "governor_warden", transform.position + Vector3.up * 0.95f, new Color(1f, 0.28f, 0.04f));
         HUDController.Instance?.ShowTemporaryMessage("Governor Warden vented", 0.9f);
         HUDController.Instance?.HideBossHealth();
         Destroy(gameObject);

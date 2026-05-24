@@ -91,5 +91,6 @@ public class LevelTransitionTrigger : MonoBehaviour, IInteractable
         lastLockedFeedbackTime = Time.unscaledTime;
         HUDController.Instance?.ShowTemporaryMessage(lockedMessage, 1.4f);
         SteamworksAudio.Play(SteamworksAudioCue.GateDenied);
+        GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.RouteBlocked, targetSceneName + "_lift_locked", transform.position + Vector3.up * 0.75f, new Color(0.95f, 0.12f, 0.04f));
     }
 }

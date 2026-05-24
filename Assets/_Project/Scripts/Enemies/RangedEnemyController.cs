@@ -133,6 +133,7 @@ public class RangedEnemyController : MonoBehaviour, IDamageable
         {
             MachineHitVfx.Spawn(transform.position + Vector3.up * 0.72f);
             SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyHit, transform.position);
+            GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.EnemyHit, "lancer", transform.position + Vector3.up * 0.72f, new Color(1f, 0.42f, 0.08f));
             StartCoroutine(FlashHit());
         }
     }
@@ -204,6 +205,7 @@ public class RangedEnemyController : MonoBehaviour, IDamageable
         dead = true;
         MachineDeathVfx.Spawn(transform.position + Vector3.up * 0.65f);
         SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyDeath, transform.position);
+        GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.EnemyDeath, "lancer", transform.position + Vector3.up * 0.65f, new Color(1f, 0.32f, 0.06f));
         HUDController.Instance?.ShowTemporaryMessage("Lancer down", 0.6f);
         Destroy(gameObject);
     }

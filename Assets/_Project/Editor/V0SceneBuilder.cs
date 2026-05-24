@@ -202,6 +202,8 @@ public static class V0SceneBuilder
         RequireObject<RuntimeMovementFeelTest>("RuntimeMovementFeelTest");
         RequireObject<RuntimeBalanceEnvelopeTest>("RuntimeBalanceEnvelopeTest");
         RequireObject<RuntimeAudioMixTest>("RuntimeAudioMixTest");
+        RequireObject<GameplayFeedbackController>("GameplayFeedbackController");
+        RequireObject<RuntimeGameplayFeedbackTest>("RuntimeGameplayFeedbackTest");
         RequireObject<HUDController>("HUDController");
         RequireObject<EnemyController>("EnemyController");
         RequireObject<Pickup>("Pickup");
@@ -2039,6 +2041,7 @@ public static class V0SceneBuilder
     private static void CreateGameState(HUDController hud, PlatformQualityProfile qualityProfile, string startMessage)
     {
         GameObject stateObject = new GameObject("Game State");
+        stateObject.AddComponent<GameplayFeedbackController>();
         GameStateController state = stateObject.AddComponent<GameStateController>();
         state.hud = hud;
         state.pauseMenu = UnityEngine.Object.FindAnyObjectByType<PauseMenuController>();
@@ -2069,6 +2072,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeAudioMixTest>();
         stateObject.AddComponent<RuntimeDisplaySettingsTest>();
         stateObject.AddComponent<RuntimeReadabilitySettingsTest>();
+        stateObject.AddComponent<RuntimeGameplayFeedbackTest>();
     }
 
     private static void ConfigureSteamworksAudioV1(SteamworksAudio audio)

@@ -1,6 +1,6 @@
 # Brassworks Breach - Batch Production Mode
 
-Last updated: `2026-05-24 13:31 -04:00`
+Last updated: `2026-05-24 14:20 -04:00`
 
 ## Why This Exists
 
@@ -86,17 +86,16 @@ All sidecar output must come back through manifests, previews, import notes, and
 
 One-prop releases are reserved for focused blockers, regressions, or risky isolated fixes.
 
-## Suggested Next Batch
+## Current Batch Direction
 
-`v0.1.35` should keep the batch size aggressive by combining main-lane gameplay feedback improvements with the next parallel side-agent bundles:
+`v0.1.35` completed as the first large systems-plus-sidecar leap. The next batch should keep the same speed posture by finishing sidecar package gates and preparing the first safe quarantine imports without letting asset packages take gameplay or route authority.
 
-- Gameplay systems: improve hit feedback, pickup clarity, secret/objective feedback, route affordance, pause/settings polish, and audio/VFX hooks in one coherent playable leap.
-- Weapon/prop arsenal: prepare pressure-pistol, scattergun, ammo, weapon-display, cabinet/vending, and future-weapon silhouettes as one staging package.
-- Mechanical enemies: prepare Scrapper, Lancer, Bulwark, Warden, shutdown fragments, and one elite/miniboss silhouette as one staging package.
-- Level modules and setpieces: prepare corridor, pressure/vault door, pipe gallery, furnace alcove, catwalk, trim, lighting, and five-level placement plans as one staging package.
-- QA/validation: require batch-level gates that prove the new polish adds no unauthorized route authority, colliders, triggers, nav obstacles, or gameplay-state owners.
+- Sidecar gate remediation: package-local manifests, changelogs, import-smoke metadata, GUID collision notes, and zero blocking validator errors.
+- Quarantine import prep: weapon/prop and mechanical enemy packages first, level kit after package metadata and import gates are clean.
+- Main-lane follow-up: promote only small, route-safe visual references from sidecars until package import behavior is proven.
+- QA/validation: require sidecar validator, quarantine import report, editor validation, route audit, and full matrix only when promoted content reaches playable scenes.
 
-Expected verification: scene rebuild, level validation, targeted route smoke during development, then route audit and full V0 matrix when the batch is coherent.
+Expected verification: sidecar validator first, then targeted Unity import smoke for package lanes; reserve route audit/full V0 matrix for any main playable promotion.
 
 ## Subagent Directive
 

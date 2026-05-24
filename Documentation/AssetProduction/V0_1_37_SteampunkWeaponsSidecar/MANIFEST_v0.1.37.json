@@ -1,0 +1,72 @@
+{
+  "packId": "BrassworksBreach.SteampunkWeapons",
+  "packageName": "com.brassworksbreach.steampunkweapons",
+  "version": "v0.1.37",
+  "status": "unity-generated-rendered-and-ready-for-quarantine-import-review",
+  "writeScopes": [
+    "AssetPacks/BrassworksBreach.SteampunkWeapons/**",
+    "Documentation/AssetProduction/V0_1_37_SteampunkWeaponsSidecar/**",
+    "Documentation/ConceptRenders/V0_1_37_SteampunkWeaponsSidecar/**"
+  ],
+  "expectedMaterials": [
+    "AssetPacks/BrassworksBreach.SteampunkWeapons/Runtime/Materials/BB_AgedBrass.mat",
+    "AssetPacks/BrassworksBreach.SteampunkWeapons/Runtime/Materials/BB_OxidizedCopper.mat",
+    "AssetPacks/BrassworksBreach.SteampunkWeapons/Runtime/Materials/BB_BlackenedIron.mat",
+    "AssetPacks/BrassworksBreach.SteampunkWeapons/Runtime/Materials/BB_DarkVarnishedWood.mat",
+    "AssetPacks/BrassworksBreach.SteampunkWeapons/Runtime/Materials/BB_WornLeather.mat",
+    "AssetPacks/BrassworksBreach.SteampunkWeapons/Runtime/Materials/BB_GlowingAmberGlass.mat",
+    "AssetPacks/BrassworksBreach.SteampunkWeapons/Runtime/Materials/BB_OilyWetStone.mat"
+  ],
+  "expectedPrefabs": [
+    {
+      "assetId": "BB_V0137_PressurePistolCore",
+      "path": "AssetPacks/BrassworksBreach.SteampunkWeapons/Runtime/Prefabs/BB_V0137_PressurePistolCore.prefab",
+      "targetRendererCount": 33
+    },
+    {
+      "assetId": "BB_V0137_CopperCoilAssembly",
+      "path": "AssetPacks/BrassworksBreach.SteampunkWeapons/Runtime/Prefabs/BB_V0137_CopperCoilAssembly.prefab",
+      "targetRendererCount": 24
+    },
+    {
+      "assetId": "BB_V0137_BrassDialGaugeAssembly",
+      "path": "AssetPacks/BrassworksBreach.SteampunkWeapons/Runtime/Prefabs/BB_V0137_BrassDialGaugeAssembly.prefab",
+      "targetRendererCount": 17
+    },
+    {
+      "assetId": "BB_V0137_LeatherGrip",
+      "path": "AssetPacks/BrassworksBreach.SteampunkWeapons/Runtime/Prefabs/BB_V0137_LeatherGrip.prefab",
+      "targetRendererCount": 13
+    },
+    {
+      "assetId": "BB_V0137_PressureCartridge",
+      "path": "AssetPacks/BrassworksBreach.SteampunkWeapons/Runtime/Prefabs/BB_V0137_PressureCartridge.prefab",
+      "targetRendererCount": 12
+    },
+    {
+      "assetId": "BB_V0137_AmmoCabinetShell",
+      "path": "AssetPacks/BrassworksBreach.SteampunkWeapons/Runtime/Prefabs/BB_V0137_AmmoCabinetShell.prefab",
+      "targetRendererCount": 48
+    },
+    {
+      "assetId": "BB_V0137_WallWeaponDisplay",
+      "path": "AssetPacks/BrassworksBreach.SteampunkWeapons/Runtime/Prefabs/BB_V0137_WallWeaponDisplay.prefab",
+      "targetRendererCount": 42
+    }
+  ],
+  "expectedRenderPaths": [
+    "Documentation/ConceptRenders/V0_1_37_SteampunkWeaponsSidecar/BB_V0137_PressurePistolCore_preview.png",
+    "Documentation/ConceptRenders/V0_1_37_SteampunkWeaponsSidecar/BB_V0137_CopperCoilAssembly_preview.png",
+    "Documentation/ConceptRenders/V0_1_37_SteampunkWeaponsSidecar/BB_V0137_BrassDialGaugeAssembly_preview.png",
+    "Documentation/ConceptRenders/V0_1_37_SteampunkWeaponsSidecar/BB_V0137_LeatherGrip_preview.png",
+    "Documentation/ConceptRenders/V0_1_37_SteampunkWeaponsSidecar/BB_V0137_PressureCartridge_preview.png",
+    "Documentation/ConceptRenders/V0_1_37_SteampunkWeaponsSidecar/BB_V0137_AmmoCabinetShell_preview.png",
+    "Documentation/ConceptRenders/V0_1_37_SteampunkWeaponsSidecar/BB_V0137_WallWeaponDisplay_preview.png"
+  ],
+  "importRisks": [
+    "Generated prefabs use Unity primitive meshes and should be visually refined later with authored mesh assets.",
+    "Material surfaces are procedural/color-based first pass and do not yet include authored texture maps.",
+    "Preview render menu must be run in a quarantine Unity project before promotion into the main game package manifest.",
+    "If imported into a URP-only project, material shader fallback should be checked for expected metallic/smoothness behavior."
+  ]
+}

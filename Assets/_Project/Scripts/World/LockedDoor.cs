@@ -103,6 +103,7 @@ public class LockedDoor : MonoBehaviour, IInteractable
         SteamworksAudio.Play(SteamworksAudioCue.GateDenied);
         HUDController.Instance?.ShowTemporaryMessage(lockedPrompt, 0.8f);
         HUDController.Instance?.FlashKeyDenied(0.75f);
+        GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.RouteBlocked, "pressure_gate_locked", transform.position + Vector3.up * 1.1f, new Color(0.95f, 0.12f, 0.04f));
     }
 
     private void Open()
@@ -117,5 +118,6 @@ public class LockedDoor : MonoBehaviour, IInteractable
         SteamworksAudio.Play(SteamworksAudioCue.GateOpen);
         GameStateController.Instance?.SetObjective("Ride the service lift.");
         HUDController.Instance?.ShowTemporaryMessage("Pressure gate opened", 1f);
+        GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.ObjectiveCompleted, "pressure_gate_opened", transform.position + Vector3.up * 1.2f, new Color(0.28f, 0.95f, 0.48f));
     }
 }

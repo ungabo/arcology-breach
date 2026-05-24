@@ -36,6 +36,7 @@ public class SecretArea : MonoBehaviour
         RunStats.MarkSecretDiscovered(secretId);
         HUDController.Instance?.ShowTemporaryMessage(discoveryMessage, 1.8f);
         SteamworksAudio.Play(SteamworksAudioCue.GearKey);
+        GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.SecretFound, secretId, transform.position + Vector3.up * 0.45f, new Color(0.36f, 0.9f, 1f));
         return true;
     }
 }

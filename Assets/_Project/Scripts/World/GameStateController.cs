@@ -57,6 +57,10 @@ public class GameStateController : MonoBehaviour
     public void SetObjective(string objective)
     {
         hud?.SetObjective(objective);
+        if (!string.IsNullOrWhiteSpace(objective))
+        {
+            GameplayFeedbackController.Report(GameplayFeedbackEventType.ObjectiveUpdated, objective);
+        }
     }
 
     private void Update()
@@ -81,20 +85,31 @@ public class GameStateController : MonoBehaviour
 
     public void Pause()
     {
+        if (State == GameRunState.Paused)
+        {
+            return;
+        }
+
         State = GameRunState.Paused;
         Time.timeScale = 0f;
         SetCursorLocked(false);
         hud?.ClearMessage();
         pauseMenu?.SetVisible(true);
+        GameplayFeedbackController.Report(GameplayFeedbackEventType.PauseOpened, "pause_menu");
     }
 
     public void ResumeGameplay()
     {
+        bool wasPaused = State == GameRunState.Paused;
         State = GameRunState.Playing;
         Time.timeScale = 1f;
         SetCursorLocked(true);
         pauseMenu?.SetVisible(false);
         hud?.ClearMessage();
+        if (wasPaused)
+        {
+            GameplayFeedbackController.Report(GameplayFeedbackEventType.PauseClosed, "pause_menu");
+        }
     }
 
     public void PlayerDied()
@@ -110,6 +125,7 @@ public class GameStateController : MonoBehaviour
         pauseMenu?.SetVisible(false);
         SetObjective("Recover and try the run again.");
         hud?.ShowPersistentMessage("YOU DIED\nPress R to restart");
+        GameplayFeedbackController.Report(GameplayFeedbackEventType.ObjectiveUpdated, "player_died_retry");
     }
 
     public void PlayerWon()
@@ -127,6 +143,7 @@ public class GameStateController : MonoBehaviour
         SetObjective("Run complete.");
         string secretSummary = RunStats.TotalSecrets > 0 ? "\nSECRETS " + RunStats.DiscoveredSecrets + "/" + RunStats.TotalSecrets : string.Empty;
         hud?.ShowPersistentMessage("SERVICE LIFT REACHED" + secretSummary + "\nPress R to run again");
+        GameplayFeedbackController.Report(GameplayFeedbackEventType.ObjectiveCompleted, "run_complete");
     }
 
     public void RestartLevel()

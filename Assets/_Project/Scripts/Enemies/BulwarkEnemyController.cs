@@ -132,6 +132,7 @@ public class BulwarkEnemyController : MonoBehaviour, IDamageable
 
         MachineHitVfx.Spawn(transform.position + Vector3.up * 0.85f, 1.25f);
         SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyHit, transform.position);
+        GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.EnemyHit, "bulwark", transform.position + Vector3.up * 0.85f, new Color(1f, 0.2f, 0.04f));
         StartCoroutine(FlashHit());
     }
 
@@ -182,6 +183,7 @@ public class BulwarkEnemyController : MonoBehaviour, IDamageable
         dead = true;
         MachineDeathVfx.SpawnBulwarkShutdown(transform.position + Vector3.up * 0.75f);
         SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyDeath, transform.position);
+        GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.EnemyDeath, "bulwark", transform.position + Vector3.up * 0.75f, new Color(1f, 0.28f, 0.04f));
         HUDController.Instance?.ShowTemporaryMessage("Bulwark down", 0.6f);
         Destroy(gameObject);
     }

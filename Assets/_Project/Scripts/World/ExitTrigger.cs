@@ -81,5 +81,6 @@ public class ExitTrigger : MonoBehaviour, IInteractable
         string message = IsGuardianLocked ? guardianLockedMessage : lockedMessage;
         HUDController.Instance?.ShowTemporaryMessage(message, 1.4f);
         SteamworksAudio.Play(SteamworksAudioCue.GateDenied);
+        GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.RouteBlocked, IsGuardianLocked ? "final_hoist_guardian_locked" : "final_hoist_pressure_locked", transform.position + Vector3.up * 0.75f, new Color(0.95f, 0.12f, 0.04f));
     }
 }

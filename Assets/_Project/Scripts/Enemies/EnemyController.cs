@@ -146,6 +146,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         {
             MachineHitVfx.Spawn(transform.position + Vector3.up * 0.65f);
             SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyHit, transform.position);
+            GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.EnemyHit, "scrapper", transform.position + Vector3.up * 0.65f, new Color(1f, 0.32f, 0.06f));
             StartCoroutine(FlashHit());
         }
     }
@@ -179,6 +180,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         dead = true;
         MachineDeathVfx.SpawnScrapperShutdown(transform.position + Vector3.up * 0.55f);
         SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyDeath, transform.position);
+        GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.EnemyDeath, "scrapper", transform.position + Vector3.up * 0.55f, new Color(1f, 0.28f, 0.04f));
         HUDController.Instance?.ShowTemporaryMessage("Enemy down", 0.6f);
         Destroy(gameObject);
     }

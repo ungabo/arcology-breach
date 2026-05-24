@@ -432,6 +432,86 @@ Build executable:
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## 2026-05-24 14:20 -04:00
+
+Completed `v0.1.35` gameplay feedback systems batch and widened sidecar asset-pack production.
+
+Added:
+
+- `GameplayFeedbackController` with v0.1.35 feedback taxonomy and non-authoritative event counters.
+- `GameplayFeedbackPulseVfx` primitive fallback pulses for world-space feedback.
+- Feedback hooks for weapon fire/impact/empty/switch, pickup collection, enemy hit/death, route-blocked states, objective completion, secret discovery, pause/resume, settings changes, and Warden phase/death beats.
+- `RuntimeGameplayFeedbackTest` plus matrix wiring for `-v0GameplayFeedbackSmoke`.
+- Unity sidecar package lanes for steampunk weapons, mechanical enemies, Steamworks level kit, and integration-gate validation.
+- Package/QA/candidate records for the verified Windows build.
+
+Verification completed:
+
+- `V0_ROUTE_AUDIT_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_MOVEMENT_FEEL_PASS`
+- `V0_BALANCE_ENVELOPE_PASS`
+- `V0_LEVEL01_FLOW_PASS`
+- `V0_MIDGAME_FLOW_PASS`
+- `V0_CLIMAX_FLOW_PASS`
+- `V0_AUDIO_MIX_PASS`
+- `V0_DISPLAY_SETTINGS_PASS`
+- `V0_READABILITY_SETTINGS_PASS`
+- `V0_GAMEPLAY_FEEDBACK_PASS`
+- `V0_WINDOWS_PACKAGE_PASS`
+- `V0_WINDOWS_QA_PACKET_PASS`
+- `V0_WINDOWS_ISSUE_TRIAGE_PASS`
+- `V0_WINDOWS_CANDIDATE_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.35/BrassworksBreach_v0.1.35.exe`
+
+Package:
+
+`Builds/WindowsPackages/v0.1.35/BrassworksBreach_v0.1.35_Windows.zip`
+
+QA packet:
+
+`Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.35.md`
+
+Issue triage packet:
+
+`Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.35.md`
+
+Candidate readiness:
+
+`Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.35.md`
+
+SHA-256:
+
+`DAD08132FA7F714DEFA73FFAE84AC337884C6D62E99EA48BC1CB210843F8E183`
+
+Sidecar validator status:
+
+- Validator script now runs after strict-mode dependency handling fix.
+- Current package-gate scan found missing package-local manifests for weapon/enemy packages and one missing import-smoke field in the level-kit manifest.
+- Descartes is remediating package-local sidecar manifests and validator errors in isolated package folders.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## 2026-05-24 03:23 -04:00
 
 Completed `v0.1.7` Level04/Level05 climax readability polish.

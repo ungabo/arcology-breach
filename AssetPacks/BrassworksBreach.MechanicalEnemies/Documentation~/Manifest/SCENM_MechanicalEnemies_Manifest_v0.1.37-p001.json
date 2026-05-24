@@ -1,0 +1,81 @@
+{
+  "pack_id": "SCENM",
+  "display_name": "Mechanical Enemies Sidecar",
+  "version": "0.1.37",
+  "build_id": "p001",
+  "unity_version": "6000.4.6f1",
+  "sidecar_project": "UD-SC-ENM-MechanicalEnemyVisuals",
+  "owner_lane": "sidecar-mechanical-enemy-visuals",
+  "primary_intake_owner": "main-lane-art-integration",
+  "canonical_root": "AssetPacks/BrassworksBreach.MechanicalEnemies",
+  "package_root": "AssetPacks/BrassworksBreach.MechanicalEnemies",
+  "package_name": "com.brassworks.sidecar.mechanical-enemies",
+  "package_version": "0.1.37-p001",
+  "asset_counts": {
+    "generated_prefabs": 5,
+    "generated_materials": 10,
+    "generated_meshes": 7,
+    "preview_renders": 6,
+    "runtime_scripts": 0,
+    "editor_scripts": 1
+  },
+  "generated_prefabs": [
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Prefabs/SCENM_SawScrapper.prefab",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Prefabs/SCENM_RivetLancer.prefab",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Prefabs/SCENM_BulwarkFurnace.prefab",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Prefabs/SCENM_WardenSentinel.prefab",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Prefabs/SCENM_FoundryOverseerBust.prefab"
+  ],
+  "generated_materials": [
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Materials/SCENM_MAT_AgedBrass.mat",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Materials/SCENM_MAT_BlackenedIron.mat",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Materials/SCENM_MAT_OilyLeather.mat",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Materials/SCENM_MAT_GrimyGlass.mat",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Materials/SCENM_MAT_AmberFurnaceGlow.mat",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Materials/SCENM_MAT_CyanChargeTell.mat",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Materials/SCENM_MAT_SootAndOil.mat",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Materials/SCENM_MAT_HazardPaint.mat",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Materials/SCENM_MAT_HitboxMarker.mat",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Materials/SCENM_MAT_PolishedRivetWear.mat"
+  ],
+  "generated_meshes": [
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Meshes/SCENM_MESH_24ToothSawBlade.asset",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Meshes/SCENM_MESH_RivetLanceTip.asset",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Meshes/SCENM_MESH_CurvedClawHook.asset",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Meshes/SCENM_MESH_BulwarkShieldPlate.asset",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Meshes/SCENM_MESH_GearRing.asset",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Meshes/SCENM_MESH_PressureGaugeFace.asset",
+    "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Meshes/SCENM_MESH_OverseerShoulderFin.asset"
+  ],
+  "preview_renders": [
+    "Documentation/ConceptRenders/V0_1_37_MechanicalEnemiesSidecar/SCENM_v0.1.37_lineup.png",
+    "Documentation/ConceptRenders/V0_1_37_MechanicalEnemiesSidecar/SCENM_SawScrapper_v0.1.37.png",
+    "Documentation/ConceptRenders/V0_1_37_MechanicalEnemiesSidecar/SCENM_RivetLancer_v0.1.37.png",
+    "Documentation/ConceptRenders/V0_1_37_MechanicalEnemiesSidecar/SCENM_BulwarkFurnace_v0.1.37.png",
+    "Documentation/ConceptRenders/V0_1_37_MechanicalEnemiesSidecar/SCENM_WardenSentinel_v0.1.37.png",
+    "Documentation/ConceptRenders/V0_1_37_MechanicalEnemiesSidecar/SCENM_FoundryOverseerBust_v0.1.37.png"
+  ],
+  "dependencies": [
+    "UnityEngine built-in primitives",
+    "UnityEditor prefab and scene APIs for generation",
+    "Built-in, URP, or HDRP lit shader fallback"
+  ],
+  "required_primary_changes": [],
+  "path_collisions_checked": true,
+  "guid_collisions_checked": true,
+  "guid_collision_check": "passed_package_local_meta_scan_2026-05-24T14:17:33-04:00_no_duplicate_meta_guids_detected",
+  "import_smoke_status": "clean_throwaway_import_generation_and_preview_render_passed_2026-05-24T14:02:46-04:00",
+  "validation": {
+    "package_json_valid": true,
+    "manifest_json_valid": true,
+    "unity_disposable_project_smoke": "passed",
+    "unity_log_error_scan": "passed",
+    "preview_png_dimension_scan": "passed"
+  },
+  "known_risks": [
+    "Generated assets remain visual-only and should not be treated as final gameplay rigs.",
+    "Hitbox marker children are review aids, not approved combat tuning.",
+    "Primary quarantine import still needs to confirm no dependency drift in the main project."
+  ],
+  "rollback_path": "delete isolated imported package root or remove local package reference"
+}

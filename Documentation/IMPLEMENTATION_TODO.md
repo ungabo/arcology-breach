@@ -31,6 +31,26 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Generate and import steampunk north-star concept art.
 - [x] Retheme working title/product metadata to `Brassworks Breach`.
 
+## v0.1.35 Gameplay Feedback Systems Batch
+
+- [x] Add shared non-authoritative feedback event taxonomy.
+- [x] Add `GameplayFeedbackController` and primitive fallback pulse VFX.
+- [x] Hook feedback events into weapon fire, impact, empty, and switch paths.
+- [x] Hook feedback events into health/ammo/key/weapon pickup collection.
+- [x] Hook feedback events into Scrapper, Lancer, Bellows Node, Bulwark, and Warden hit/death paths.
+- [x] Hook feedback events into route-blocked, objective-complete, secret-found, pause/resume, settings, and Warden phase-change paths.
+- [x] Add runtime feedback smoke coverage and include it in the Windows matrix.
+- [x] Rebuild scenes, run editor validation/smoke, route audit, full Windows matrix, package, QA packet, issue-triage packet, and candidate-readiness generation.
+
+## Current Priority: v0.1.36 Sidecar Package Gate
+
+- [x] Create Unity sidecar asset-pack pipeline documentation.
+- [x] Generate weapon, mechanical enemy, level-kit, and integration-gate sidecar bundles in parallel.
+- [x] Run first sidecar validator scan.
+- [ ] Remediate package-local `Documentation~` manifests and import-smoke metadata.
+- [x] Rerun sidecar validator for completed weapon, enemy, and level-kit packages with zero errors and zero warnings.
+- [ ] Commit and push the v0.1.35 playable feedback slice plus completed sidecar gate outputs.
+
 ## v0.0.7 Steampunk Retheme and Pause Flow
 
 - [x] Remove old build/version wording from active progress/to-do docs.

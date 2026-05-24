@@ -167,6 +167,7 @@ public class WeaponController : MonoBehaviour
             HUDController.Instance?.ShowTemporaryMessage("Pressure Pistol ready", 0.9f);
         }
 
+        GameplayFeedbackController.Report(GameplayFeedbackEventType.WeaponSwitched, PressurePistolId);
         return true;
     }
 
@@ -191,6 +192,7 @@ public class WeaponController : MonoBehaviour
             HUDController.Instance?.ShowTemporaryMessage("Steam Scattergun ready", 0.9f);
         }
 
+        GameplayFeedbackController.Report(GameplayFeedbackEventType.WeaponSwitched, SteamScattergunId);
         return true;
     }
 
@@ -225,6 +227,7 @@ public class WeaponController : MonoBehaviour
         {
             SteamworksAudio.Play(SteamworksAudioCue.EmptyClick);
             HUDController.Instance?.ShowTemporaryMessage(emptyMessage, 0.75f);
+            GameplayFeedbackController.Report(GameplayFeedbackEventType.WeaponEmpty, usingSteamScattergun ? SteamScattergunId : PressurePistolId);
             return false;
         }
 
@@ -235,6 +238,8 @@ public class WeaponController : MonoBehaviour
         weaponView?.PlayFire(secondaryShot);
 
         Ray baseRay = aimCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        string activeWeaponId = usingSteamScattergun ? SteamScattergunId : PressurePistolId;
+        GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.WeaponFired, activeWeaponId, baseRay.origin + baseRay.direction * 0.75f, new Color(1f, 0.58f, 0.1f));
         if (usingSteamScattergun)
         {
             if (secondaryShot)
@@ -261,6 +266,7 @@ public class WeaponController : MonoBehaviour
                 IDamageable damageable = hit.collider.GetComponentInParent<IDamageable>();
                 damageable?.TakeDamage(shotDamage);
                 SpawnHitMarker(hit.point, hit.normal);
+                GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.WeaponImpact, damageable != null ? activeWeaponId + "_enemy_hit" : activeWeaponId + "_world_hit", hit.point, damageable != null ? new Color(1f, 0.32f, 0.06f) : new Color(1f, 0.58f, 0.1f));
             }
         }
 

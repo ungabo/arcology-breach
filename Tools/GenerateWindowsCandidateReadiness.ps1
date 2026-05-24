@@ -196,7 +196,8 @@ $logChecks = @(
     @{ Name = "Climax flow"; File = "$LogPrefix-climax-flow-smoke.log"; Marker = "V0_CLIMAX_FLOW_PASS" },
     @{ Name = "Audio mix"; File = "$LogPrefix-audio-mix-smoke.log"; Marker = "V0_AUDIO_MIX_PASS" },
     @{ Name = "Display settings"; File = "$LogPrefix-display-settings-smoke.log"; Marker = "V0_DISPLAY_SETTINGS_PASS" },
-    @{ Name = "Readability"; File = "$LogPrefix-readability-smoke.log"; Marker = "V0_READABILITY_SETTINGS_PASS" }
+    @{ Name = "Readability"; File = "$LogPrefix-readability-smoke.log"; Marker = "V0_READABILITY_SETTINGS_PASS" },
+    @{ Name = "Gameplay feedback"; File = "$LogPrefix-gameplay-feedback-smoke.log"; Marker = "V0_GAMEPLAY_FEEDBACK_PASS" }
 )
 
 foreach ($check in $logChecks) {

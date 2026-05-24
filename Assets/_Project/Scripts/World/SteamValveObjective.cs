@@ -56,6 +56,7 @@ public class SteamValveObjective : MonoBehaviour, IInteractable
 
         HUDController.Instance?.ShowTemporaryMessage(completeMessage, 2.5f);
         SteamworksAudio.Play(SteamworksAudioCue.GateOpen);
+        GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.ObjectiveCompleted, name, transform.position + Vector3.up * 0.75f, new Color(0.28f, 0.95f, 0.48f));
     }
 
     private void SetSignalState()

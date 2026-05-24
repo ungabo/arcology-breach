@@ -126,6 +126,7 @@ public class BellowsNodeController : MonoBehaviour, IDamageable
 
         MachineHitVfx.Spawn(transform.position + Vector3.up * 0.78f, 1.05f);
         SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyHit, transform.position);
+        GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.EnemyHit, "bellows_node", transform.position + Vector3.up * 0.78f, new Color(1f, 0.24f, 0.08f));
         if (isActiveAndEnabled)
         {
             StartCoroutine(FlashHit());
@@ -200,6 +201,7 @@ public class BellowsNodeController : MonoBehaviour, IDamageable
         dead = true;
         MachineDeathVfx.Spawn(transform.position + Vector3.up * 0.7f, 1.1f);
         SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyDeath, transform.position);
+        GameplayFeedbackController.ReportWorld(GameplayFeedbackEventType.EnemyDeath, "bellows_node", transform.position + Vector3.up * 0.7f, new Color(1f, 0.28f, 0.04f));
         HUDController.Instance?.ShowTemporaryMessage("Bellows Node vented", 0.7f);
         Destroy(gameObject);
     }

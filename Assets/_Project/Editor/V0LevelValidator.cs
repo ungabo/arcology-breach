@@ -356,6 +356,8 @@ public static class V0LevelValidator
         Require<LevelTransitionController>(sceneName + " LevelTransitionController");
         SteamworksAudio audio = Require<SteamworksAudio>(sceneName + " SteamworksAudio");
         ValidateSteamworksAudio(sceneName, audio);
+        GameplayFeedbackController feedback = Require<GameplayFeedbackController>(sceneName + " GameplayFeedbackController");
+        ValidateGameplayFeedback(sceneName, feedback);
         RuntimePerformanceProfile performanceProfile = Require<RuntimePerformanceProfile>(sceneName + " RuntimePerformanceProfile");
         ValidatePlatformQualityProfile(sceneName, performanceProfile);
         HUDController hud = Require<HUDController>(sceneName + " HUDController");
@@ -395,6 +397,7 @@ public static class V0LevelValidator
         Require<RuntimeAudioMixTest>(sceneName + " RuntimeAudioMixTest");
         Require<RuntimeDisplaySettingsTest>(sceneName + " RuntimeDisplaySettingsTest");
         Require<RuntimeReadabilitySettingsTest>(sceneName + " RuntimeReadabilitySettingsTest");
+        Require<RuntimeGameplayFeedbackTest>(sceneName + " RuntimeGameplayFeedbackTest");
         Require<EnemyController>(sceneName + " EnemyController");
         Require<Pickup>(sceneName + " Pickup");
 
@@ -984,6 +987,14 @@ public static class V0LevelValidator
         if (!audio.IsSpatialMixCue(SteamworksAudioCue.EnemyAttackTell) || !audio.IsSpatialMixCue(SteamworksAudioCue.LancerFireTell) || !audio.IsSpatialMixCue(SteamworksAudioCue.BulwarkAttackTell) || !audio.IsSpatialMixCue(SteamworksAudioCue.BellowsNodePulse))
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " SteamworksAudio priority enemy/hazard tells must be marked as spatial mix cues.");
+        }
+    }
+
+    private static void ValidateGameplayFeedback(string sceneName, GameplayFeedbackController feedback)
+    {
+        if (!feedback.HasV0135Coverage || feedback.SupportedEventTypeCount < 15 || feedback.pulseScaleMultiplier <= 0f)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " GameplayFeedbackController is missing v0.1.35 feedback coverage.");
         }
     }
 

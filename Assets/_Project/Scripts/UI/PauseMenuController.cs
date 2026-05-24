@@ -107,36 +107,42 @@ public class PauseMenuController : MonoBehaviour
     {
         GameSettings.SetMouseSensitivity(value);
         UpdateSettingLabels();
+        GameplayFeedbackController.Report(GameplayFeedbackEventType.SettingChanged, "mouse_sensitivity");
     }
 
     public void SetMasterVolume(float value)
     {
         GameSettings.SetMasterVolume(value);
         UpdateSettingLabels();
+        GameplayFeedbackController.Report(GameplayFeedbackEventType.SettingChanged, "master_volume");
     }
 
     public void SetFlashIntensity(float value)
     {
         GameSettings.SetFlashIntensity(value);
         UpdateSettingLabels();
+        GameplayFeedbackController.Report(GameplayFeedbackEventType.SettingChanged, "flash_intensity");
     }
 
     public void CycleResolution()
     {
         GameSettings.CycleResolution();
         UpdateSettingLabels();
+        GameplayFeedbackController.Report(GameplayFeedbackEventType.SettingChanged, "resolution");
     }
 
     public void SetFullscreen(bool value)
     {
         GameSettings.SetFullscreen(value);
         UpdateSettingLabels();
+        GameplayFeedbackController.Report(GameplayFeedbackEventType.SettingChanged, "fullscreen");
     }
 
     public void SetHighContrast(bool value)
     {
         GameSettings.SetHighContrast(value);
         UpdateSettingLabels();
+        GameplayFeedbackController.Report(GameplayFeedbackEventType.SettingChanged, "high_contrast");
     }
 
     private void SyncSettingControls()
