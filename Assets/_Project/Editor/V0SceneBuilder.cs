@@ -63,6 +63,7 @@ public static class V0SceneBuilder
         WeaponDefinition steamScattergunDefinition = CreateSteamScattergunDefinition();
         EnemyDefinition scrapperDefinition = CreateScrapperDefinition();
         EnemyDefinition lancerDefinition = CreateLancerDefinition();
+        EnemyDefinition bellowsNodeDefinition = CreateBellowsNodeDefinition();
         EnemyDefinition bulwarkDefinition = CreateBulwarkDefinition();
         EnemyDefinition governorWardenDefinition = CreateGovernorWardenDefinition();
         PickupDefinition healthPickupDefinition = CreateHealthPickupDefinition();
@@ -96,7 +97,7 @@ public static class V0SceneBuilder
 
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), ScenePath);
         CreatePipeworksAnnexScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, steamScattergunDefinition, scrapperDefinition, lancerDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
-        CreateBoilerheartScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, steamScattergunDefinition, scrapperDefinition, healthPickupDefinition, ammoPickupDefinition, steamScattergunPickupDefinition, windowsQualityProfile);
+        CreateBoilerheartScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, steamScattergunDefinition, scrapperDefinition, bellowsNodeDefinition, healthPickupDefinition, ammoPickupDefinition, steamScattergunPickupDefinition, windowsQualityProfile);
         CreateFurnaceFoundryScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, steamScattergunDefinition, scrapperDefinition, lancerDefinition, bulwarkDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
         CreateGovernorCoreScene(wallMaterial, floorMaterial, exitMaterial, enemyMaterial, enemyEyeMaterial, healthMaterial, ammoMaterial, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, brassGuideMaterial, pressureWarningMaterial, rivetedIronMaterial, oilStoneMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial, glassVialMaterial, medicinalFluidMaterial, pressurePistolDefinition, steamScattergunDefinition, scrapperDefinition, lancerDefinition, bulwarkDefinition, governorWardenDefinition, healthPickupDefinition, ammoPickupDefinition, windowsQualityProfile);
         CreateMainMenuScene(brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, furnaceGlowMaterial, oilStoneMaterial, windowsQualityProfile);
@@ -162,6 +163,7 @@ public static class V0SceneBuilder
         RequireObject<RuntimeCombatTest>("RuntimeCombatTest");
         RequireObject<RuntimeCombatEdgeTest>("RuntimeCombatEdgeTest");
         RequireObject<RuntimeRangedCombatTest>("RuntimeRangedCombatTest");
+        RequireObject<RuntimeBellowsNodeTest>("RuntimeBellowsNodeTest");
         RequireObject<RuntimeBulwarkCombatTest>("RuntimeBulwarkCombatTest");
         RequireObject<RuntimeWardenCombatTest>("RuntimeWardenCombatTest");
         RequireObject<RuntimeHazardTest>("RuntimeHazardTest");
@@ -186,6 +188,7 @@ public static class V0SceneBuilder
         RequireObject<PlayerController>("Level03 PlayerController");
         RequireObject<GameStateController>("Level03 GameStateController");
         RequireObject<EnemyController>("Level03 EnemyController");
+        RequireObject<BellowsNodeController>("Level03 BellowsNodeController");
         RequireObject<LevelTransitionTrigger>("Level03 LevelTransitionTrigger");
         RequireObject<SteamHazard>("Level03 SteamHazard");
 
@@ -406,6 +409,29 @@ public static class V0SceneBuilder
         definition.fireWindup = GameBalance.LancerFireWindup;
         definition.projectileDamage = GameBalance.LancerProjectileDamage;
         definition.projectileSpeed = GameBalance.LancerProjectileSpeed;
+        EditorUtility.SetDirty(definition);
+        return definition;
+    }
+
+    private static EnemyDefinition CreateBellowsNodeDefinition()
+    {
+        string path = $"{DataFolder}/BellowsNodeDefinition.asset";
+        EnemyDefinition definition = AssetDatabase.LoadAssetAtPath<EnemyDefinition>(path);
+        if (definition == null)
+        {
+            definition = ScriptableObject.CreateInstance<EnemyDefinition>();
+            AssetDatabase.CreateAsset(definition, path);
+        }
+
+        definition.displayName = "Bellows Node";
+        definition.attackStyle = EnemyAttackStyle.Support;
+        definition.maxHealth = GameBalance.BellowsNodeHealth;
+        definition.detectionRange = GameBalance.BellowsNodeDetectionRange;
+        definition.moveSpeed = 0f;
+        definition.attackRange = GameBalance.BellowsNodePulseRange;
+        definition.attackDamage = GameBalance.BellowsNodePulseDamage;
+        definition.attackCooldown = GameBalance.BellowsNodePulseCooldown;
+        definition.attackWindup = GameBalance.BellowsNodePulseWindup;
         EditorUtility.SetDirty(definition);
         return definition;
     }
@@ -894,7 +920,7 @@ public static class V0SceneBuilder
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), Level02ScenePath);
     }
 
-    private static void CreateBoilerheartScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, WeaponDefinition steamScattergunDefinition, EnemyDefinition scrapperDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PickupDefinition steamScattergunPickupDefinition, PlatformQualityProfile windowsQualityProfile)
+    private static void CreateBoilerheartScene(Material wallMaterial, Material floorMaterial, Material exitMaterial, Material enemyMaterial, Material enemyEyeMaterial, Material healthMaterial, Material ammoMaterial, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material oilStoneMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial, Material glassMaterial, Material fluidMaterial, WeaponDefinition pressurePistolDefinition, WeaponDefinition steamScattergunDefinition, EnemyDefinition scrapperDefinition, EnemyDefinition bellowsNodeDefinition, PickupDefinition healthPickupDefinition, PickupDefinition ammoPickupDefinition, PickupDefinition steamScattergunPickupDefinition, PlatformQualityProfile windowsQualityProfile)
     {
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -908,6 +934,7 @@ public static class V0SceneBuilder
 
         CreateEnemy("Enemy - Boilerheart Floor Guard", new Vector3(-2.6f, 1f, 12.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateEnemy("Enemy - Boilerheart Lift Guard", new Vector3(2.4f, 1f, 19.2f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
+        CreateBellowsNodeEnemy("Enemy - Boilerheart Bellows Node", new Vector3(3.6f, 0.95f, 15.1f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, bellowsNodeDefinition);
         CreateHealthVialPickup("Pickup - Boilerheart Health Vial", new Vector3(-3.6f, 0.65f, 9.4f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
         CreatePressureCartridgePickup("Pickup - Boilerheart Pressure Cartridge Pack", new Vector3(3.4f, 0.55f, 9.8f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
         CreateSteamScattergunPickup("Pickup - Steam Scattergun", new Vector3(0f, 0.72f, 13.9f), gunMaterial, brassMaterial, ironMaterial, warningMaterial, steamScattergunPickupDefinition);
@@ -1630,6 +1657,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeCombatEdgeTest>();
         stateObject.AddComponent<RuntimeCombatScenarioTest>();
         stateObject.AddComponent<RuntimeRangedCombatTest>();
+        stateObject.AddComponent<RuntimeBellowsNodeTest>();
         stateObject.AddComponent<RuntimeBulwarkCombatTest>();
         stateObject.AddComponent<RuntimeWardenCombatTest>();
         stateObject.AddComponent<RuntimeInteractionTest>();
@@ -1878,6 +1906,33 @@ public static class V0SceneBuilder
         ranged.projectileSpeed = GameBalance.LancerProjectileSpeed;
     }
 
+    private static void CreateBellowsNodeEnemy(string name, Vector3 position, Material material, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial, EnemyDefinition definition)
+    {
+        GameObject enemy = new GameObject(name);
+        enemy.transform.position = position;
+
+        CreateBellowsNodeVisual(enemy.transform, material, eyeMaterial, brassMaterial, ironMaterial, warningMaterial);
+        AddMachineMotion(enemy, 0.7f,
+            "Bellows Node Brass Bellows Body",
+            new[] { "Bellows Node Left Clamp", "Bellows Node Left Pipe" },
+            new[] { "Bellows Node Right Clamp", "Bellows Node Right Pipe" },
+            new[] { "Bellows Node Furnace Lens", "Bellows Node Pressure Bladder", "Bellows Node Exhaust Horn" });
+
+        CharacterController controller = enemy.AddComponent<CharacterController>();
+        controller.height = 1.7f;
+        controller.radius = 0.5f;
+        controller.center = Vector3.zero;
+
+        BellowsNodeController node = enemy.AddComponent<BellowsNodeController>();
+        node.definition = definition;
+        node.maxHealth = GameBalance.BellowsNodeHealth;
+        node.detectionRange = GameBalance.BellowsNodeDetectionRange;
+        node.pulseRange = GameBalance.BellowsNodePulseRange;
+        node.pulseDamage = GameBalance.BellowsNodePulseDamage;
+        node.pulseCooldown = GameBalance.BellowsNodePulseCooldown;
+        node.pulseWindup = GameBalance.BellowsNodePulseWindup;
+    }
+
     private static void CreateBulwarkEnemy(string name, Vector3 position, Material material, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial, EnemyDefinition definition)
     {
         GameObject enemy = new GameObject(name);
@@ -1978,6 +2033,28 @@ public static class V0SceneBuilder
         guardianObjective.lockedSignal.SetActive(true);
         guardianObjective.clearedSignal.SetActive(false);
         return guardianObjective;
+    }
+
+    private static void CreateBellowsNodeVisual(Transform parent, Material bodyMaterial, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial)
+    {
+        CreateLocalCube("Bellows Node Brass Bellows Body", parent, new Vector3(0f, 0.05f, 0f), new Vector3(0.86f, 0.72f, 0.62f), brassMaterial);
+        CreateLocalCube("Bellows Node Furnace Lens", parent, new Vector3(0f, 0.18f, 0.36f), new Vector3(0.48f, 0.22f, 0.08f), eyeMaterial);
+        CreateLocalPrimitive("Bellows Node Pressure Bladder", PrimitiveType.Sphere, parent, new Vector3(0f, 0.3f, -0.36f), new Vector3(0.58f, 0.42f, 0.36f), bodyMaterial);
+        CreateLocalPrimitive("Bellows Node Exhaust Horn", PrimitiveType.Cylinder, parent, new Vector3(0f, 0.36f, 0.72f), new Vector3(0.18f, 0.42f, 0.18f), warningMaterial).transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalPrimitive("Bellows Node Top Pressure Gauge", PrimitiveType.Cylinder, parent, new Vector3(0f, 0.72f, 0.08f), new Vector3(0.22f, 0.04f, 0.22f), ironMaterial);
+
+        for (int i = 0; i < 5; i++)
+        {
+            float z = -0.22f + i * 0.12f;
+            CreateLocalCube("Bellows Node Accordion Rib " + i, parent, new Vector3(0f, 0.05f, z), new Vector3(0.96f, 0.08f, 0.045f), ironMaterial);
+        }
+
+        CreateLocalCube("Bellows Node Left Clamp", parent, new Vector3(-0.56f, 0.04f, 0f), new Vector3(0.14f, 0.7f, 0.2f), ironMaterial);
+        CreateLocalCube("Bellows Node Right Clamp", parent, new Vector3(0.56f, 0.04f, 0f), new Vector3(0.14f, 0.7f, 0.2f), ironMaterial);
+        CreateLocalCube("Bellows Node Left Pipe", parent, new Vector3(-0.72f, 0.24f, -0.18f), new Vector3(0.13f, 0.16f, 0.68f), brassMaterial).transform.localRotation = Quaternion.Euler(0f, -8f, 0f);
+        CreateLocalCube("Bellows Node Right Pipe", parent, new Vector3(0.72f, 0.24f, -0.18f), new Vector3(0.13f, 0.16f, 0.68f), brassMaterial).transform.localRotation = Quaternion.Euler(0f, 8f, 0f);
+        CreateLocalCube("Bellows Node Iron Anchor Foot", parent, new Vector3(0f, -0.44f, 0f), new Vector3(1.12f, 0.16f, 0.82f), ironMaterial);
+        CreateLocalCube("Bellows Node Warning Pressure Line", parent, new Vector3(0f, -0.18f, 0.42f), new Vector3(0.62f, 0.06f, 0.06f), warningMaterial);
     }
 
     private static void CreateBulwarkVisual(Transform parent, Material bodyMaterial, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial)

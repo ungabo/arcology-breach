@@ -2397,3 +2397,45 @@ Build executable:
 `Builds/Windows/v0.0.77/BrassworksBreach_v0.0.77.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 20:14 -04:00
+
+Completed `v0.0.78` Bellows Node support enemy pass.
+
+Added:
+
+- `BellowsNodeController` stationary support-machine prototype.
+- `BellowsNodePulseVfx` radial pressure-pulse feedback.
+- `BellowsNodeDefinition.asset` generated from new Bellows Node balance values.
+- Primitive Level03 Bellows Node silhouette with bellows body, furnace lens, pressure bladder, exhaust horn, pipes, and anchor foot.
+- Level validation for Bellows Node definition, balance, visual pieces, and machine motion.
+- `RuntimeBellowsNodeTest` and `V0_BELLOWS_NODE_PASS` in the full matrix.
+- Deterministic automation disables Bellows Nodes during auto-playthrough and hazard smoke.
+- Versioned Windows build `v0.0.78`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.78/BrassworksBreach_v0.0.78.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

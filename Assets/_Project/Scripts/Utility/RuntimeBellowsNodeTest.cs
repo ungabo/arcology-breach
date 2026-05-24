@@ -1,0 +1,196 @@
+using System;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class RuntimeBellowsNodeTest : MonoBehaviour
+{
+    private const string BellowsNodeArgument = "-v0BellowsNodeSmoke";
+    private const string BellowsNodeSceneName = "Level03";
+
+    private bool failed;
+
+    private IEnumerator Start()
+    {
+        if (!HasArgument(BellowsNodeArgument))
+        {
+            yield break;
+        }
+
+        yield return null;
+
+        if (SceneManager.GetActiveScene().name != BellowsNodeSceneName)
+        {
+            SceneManager.LoadScene(BellowsNodeSceneName);
+            yield break;
+        }
+
+        PlayerController player = Require<PlayerController>("PlayerController");
+        PlayerHealth health = Require<PlayerHealth>("PlayerHealth");
+        WeaponController weapon = Require<WeaponController>("WeaponController");
+        BellowsNodeController target = Require<BellowsNodeController>("BellowsNodeController");
+
+        DisableOtherEnemies(target);
+        PlaceCombatActors(player, target, closeRange: 2.6f);
+
+        int healthBeforePulse = health.CurrentHealth;
+        target.ForcePulseForTest();
+        yield return WaitUntilOrFail(() => health.CurrentHealth < healthBeforePulse, "Bellows Node pulse damage", 1f);
+        if (failed)
+        {
+            yield break;
+        }
+
+        BellowsNodePulseVfx pulseVfx = UnityEngine.Object.FindAnyObjectByType<BellowsNodePulseVfx>();
+        if (pulseVfx == null || pulseVfx.PieceCount < 10)
+        {
+            Fail("Bellows Node smoke failed: pulse VFX did not spawn with enough visible pieces.");
+            yield break;
+        }
+
+        target.enabled = false;
+        PlaceCombatActors(player, target, closeRange: 3.2f);
+
+        int expectedShotsToKill = Mathf.CeilToInt(target.maxHealth / (float)weapon.damage);
+        if (expectedShotsToKill < 3)
+        {
+            Fail("Bellows Node smoke failed: Bellows Node should require at least three pressure-pistol shots.");
+            yield break;
+        }
+
+        for (int shotIndex = 1; shotIndex <= expectedShotsToKill; shotIndex++)
+        {
+            if (!weapon.FireOnce())
+            {
+                Fail("Bellows Node smoke failed: weapon did not fire on shot " + shotIndex + ".");
+                yield break;
+            }
+
+            yield return new WaitForSeconds(weapon.fireCooldown + 0.05f);
+        }
+
+        yield return WaitUntilOrFail(() => target == null, "Bellows Node destruction", 2f);
+        if (failed)
+        {
+            yield break;
+        }
+
+        MachineDeathVfx deathVfx = UnityEngine.Object.FindAnyObjectByType<MachineDeathVfx>();
+        if (deathVfx == null || deathVfx.PieceCount < 8)
+        {
+            Fail("Bellows Node smoke failed: destruction VFX did not spawn with enough visible pieces.");
+            yield break;
+        }
+
+        Debug.Log("V0_BELLOWS_NODE_PASS");
+        Application.Quit(0);
+    }
+
+    private static void DisableOtherEnemies(BellowsNodeController target)
+    {
+        EnemyController[] enemies = UnityEngine.Object.FindObjectsByType<EnemyController>();
+        foreach (EnemyController enemy in enemies)
+        {
+            enemy.gameObject.SetActive(false);
+        }
+
+        RangedEnemyController[] rangedEnemies = UnityEngine.Object.FindObjectsByType<RangedEnemyController>();
+        foreach (RangedEnemyController enemy in rangedEnemies)
+        {
+            enemy.gameObject.SetActive(false);
+        }
+
+        BulwarkEnemyController[] bulwarks = UnityEngine.Object.FindObjectsByType<BulwarkEnemyController>();
+        foreach (BulwarkEnemyController enemy in bulwarks)
+        {
+            enemy.gameObject.SetActive(false);
+        }
+
+        BellowsNodeController[] nodes = UnityEngine.Object.FindObjectsByType<BellowsNodeController>();
+        foreach (BellowsNodeController node in nodes)
+        {
+            if (node != target)
+            {
+                node.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private static void PlaceCombatActors(PlayerController player, BellowsNodeController target, float closeRange)
+    {
+        CharacterController playerController = player.GetComponent<CharacterController>();
+        CharacterController targetController = target.GetComponent<CharacterController>();
+
+        SetControllerEnabled(playerController, false);
+        SetControllerEnabled(targetController, false);
+
+        player.transform.position = Vector3.zero;
+        player.transform.rotation = Quaternion.identity;
+        if (player.playerCamera != null)
+        {
+            player.playerCamera.localRotation = Quaternion.identity;
+        }
+
+        target.transform.position = new Vector3(0f, 0.95f, closeRange);
+        target.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+
+        SetControllerEnabled(targetController, true);
+        SetControllerEnabled(playerController, true);
+    }
+
+    private IEnumerator WaitUntilOrFail(Func<bool> predicate, string step, float timeoutSeconds)
+    {
+        float startTime = Time.realtimeSinceStartup;
+        while (Time.realtimeSinceStartup - startTime < timeoutSeconds)
+        {
+            if (predicate())
+            {
+                yield break;
+            }
+
+            yield return null;
+        }
+
+        Fail("Bellows Node smoke failed while waiting for " + step + ".");
+    }
+
+    private T Require<T>(string label) where T : UnityEngine.Object
+    {
+        T value = UnityEngine.Object.FindAnyObjectByType<T>();
+        if (value == null)
+        {
+            Fail("Bellows Node smoke failed: missing " + label + ".");
+        }
+
+        return value;
+    }
+
+    private void Fail(string message)
+    {
+        failed = true;
+        Debug.LogError(message);
+        Application.Quit(1);
+    }
+
+    private static void SetControllerEnabled(CharacterController controller, bool enabled)
+    {
+        if (controller != null)
+        {
+            controller.enabled = enabled;
+        }
+    }
+
+    private static bool HasArgument(string argument)
+    {
+        string[] args = Environment.GetCommandLineArgs();
+        for (int i = 0; i < args.Length; i++)
+        {
+            if (string.Equals(args[i], argument, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}

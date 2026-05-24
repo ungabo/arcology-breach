@@ -390,6 +390,12 @@ public class RuntimeAutoPlaythroughTest : MonoBehaviour
             enemy.gameObject.SetActive(false);
         }
 
+        BellowsNodeController[] bellowsNodes = UnityEngine.Object.FindObjectsByType<BellowsNodeController>();
+        foreach (BellowsNodeController enemy in bellowsNodes)
+        {
+            enemy.gameObject.SetActive(false);
+        }
+
         GovernorWardenController[] wardens = UnityEngine.Object.FindObjectsByType<GovernorWardenController>();
         foreach (GovernorWardenController enemy in wardens)
         {

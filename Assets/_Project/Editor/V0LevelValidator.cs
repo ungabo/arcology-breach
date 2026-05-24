@@ -90,6 +90,7 @@ public static class V0LevelValidator
         Require<PauseMenuController>(sceneName + " PauseMenuController");
         Require<RuntimeInteractionTest>(sceneName + " RuntimeInteractionTest");
         Require<RuntimeCombatScenarioTest>(sceneName + " RuntimeCombatScenarioTest");
+        Require<RuntimeBellowsNodeTest>(sceneName + " RuntimeBellowsNodeTest");
         Require<RuntimeBulwarkCombatTest>(sceneName + " RuntimeBulwarkCombatTest");
         Require<RuntimeWardenCombatTest>(sceneName + " RuntimeWardenCombatTest");
         Require<RuntimeHazardTest>(sceneName + " RuntimeHazardTest");
@@ -211,6 +212,11 @@ public static class V0LevelValidator
         if (sceneName == "Level04" || sceneName == "Level05")
         {
             Require<BulwarkEnemyController>(sceneName + " BulwarkEnemyController");
+        }
+
+        if (sceneName == "Level03")
+        {
+            Require<BellowsNodeController>(sceneName + " BellowsNodeController");
         }
 
         if (sceneName == "Level05")
@@ -353,6 +359,32 @@ public static class V0LevelValidator
             RequireApprox(enemy.definition.moveSpeed, GameBalance.BulwarkMoveSpeed, sceneName + " Bulwark definition speed");
             RequireEqual(enemy.definition.attackDamage, GameBalance.BulwarkAttackDamage, sceneName + " Bulwark definition damage");
             RequireMachineMotion(enemy.gameObject, sceneName + " Bulwark machine motion");
+        }
+
+        BellowsNodeController[] bellowsNodes = UnityEngine.Object.FindObjectsByType<BellowsNodeController>(FindObjectsSortMode.None);
+        foreach (BellowsNodeController enemy in bellowsNodes)
+        {
+            if (enemy.GetComponent<CharacterController>() == null)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " Bellows Node missing CharacterController.");
+            }
+
+            RequireEqual(enemy.maxHealth, GameBalance.BellowsNodeHealth, sceneName + " Bellows Node health balance");
+            RequireApprox(enemy.detectionRange, GameBalance.BellowsNodeDetectionRange, sceneName + " Bellows Node detection balance");
+            RequireApprox(enemy.pulseRange, GameBalance.BellowsNodePulseRange, sceneName + " Bellows Node pulse range balance");
+            RequireEqual(enemy.pulseDamage, GameBalance.BellowsNodePulseDamage, sceneName + " Bellows Node pulse damage balance");
+            RequireApprox(enemy.pulseCooldown, GameBalance.BellowsNodePulseCooldown, sceneName + " Bellows Node pulse cooldown balance");
+            RequireApprox(enemy.pulseWindup, GameBalance.BellowsNodePulseWindup, sceneName + " Bellows Node pulse windup balance");
+            if (enemy.definition == null)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " Bellows Node is missing an EnemyDefinition.");
+            }
+
+            RequireEqual((int)enemy.definition.attackStyle, (int)EnemyAttackStyle.Support, sceneName + " Bellows Node definition style");
+            RequireEqual(enemy.definition.maxHealth, GameBalance.BellowsNodeHealth, sceneName + " Bellows Node definition health");
+            RequireApprox(enemy.definition.attackRange, GameBalance.BellowsNodePulseRange, sceneName + " Bellows Node definition pulse range");
+            RequireEqual(enemy.definition.attackDamage, GameBalance.BellowsNodePulseDamage, sceneName + " Bellows Node definition pulse damage");
+            RequireMachineMotion(enemy.gameObject, sceneName + " Bellows Node machine motion");
         }
 
         GovernorWardenController[] wardens = UnityEngine.Object.FindObjectsByType<GovernorWardenController>(FindObjectsSortMode.None);
@@ -657,6 +689,10 @@ public static class V0LevelValidator
             RequireNamed("Boilerheart Valve Vented Lamp", sceneName + " boilerheart valve vented signal");
             RequireNamed("Pickup - Steam Scattergun", sceneName + " Steam Scattergun pickup");
             RequireNamed("Pickup - Steam Scattergun Weapon Visual", sceneName + " Steam Scattergun pickup visual");
+            RequireNamed("Enemy - Boilerheart Bellows Node", sceneName + " Bellows Node enemy");
+            RequireNamed("Bellows Node Brass Bellows Body", sceneName + " Bellows Node body visual");
+            RequireNamed("Bellows Node Furnace Lens", sceneName + " Bellows Node lens visual");
+            RequireNamed("Bellows Node Exhaust Horn", sceneName + " Bellows Node horn visual");
             RequireNamed("Boilerheart Steam Hazard - Furnace Leak", sceneName + " boilerheart steam hazard");
             RequireNamed("Boilerheart Steam Hazard - Core Bleed", sceneName + " boilerheart steam hazard");
         }

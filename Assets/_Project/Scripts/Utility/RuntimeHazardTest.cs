@@ -134,6 +134,12 @@ public class RuntimeHazardTest : MonoBehaviour
         {
             enemy.gameObject.SetActive(false);
         }
+
+        BellowsNodeController[] bellowsNodes = UnityEngine.Object.FindObjectsByType<BellowsNodeController>();
+        foreach (BellowsNodeController enemy in bellowsNodes)
+        {
+            enemy.gameObject.SetActive(false);
+        }
     }
 
     private static void Teleport(PlayerController player, Vector3 position)

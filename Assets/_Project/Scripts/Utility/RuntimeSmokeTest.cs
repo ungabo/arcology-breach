@@ -44,6 +44,7 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<RuntimeCombatTest>("RuntimeCombatTest");
         Require<RuntimeInteractionTest>("RuntimeInteractionTest");
         Require<RuntimeCombatScenarioTest>("RuntimeCombatScenarioTest");
+        Require<RuntimeBellowsNodeTest>("RuntimeBellowsNodeTest");
         Require<RuntimeBulwarkCombatTest>("RuntimeBulwarkCombatTest");
         Require<RuntimeWardenCombatTest>("RuntimeWardenCombatTest");
         Require<RuntimeHazardTest>("RuntimeHazardTest");

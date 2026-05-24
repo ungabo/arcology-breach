@@ -75,6 +75,7 @@ Near-term:
 - Hazard smoke covers Level03 steam damage and Level04 furnace-heat damage without ending the run from one tick/pulse. Level05 also includes validated steam and furnace-heat hazards.
 - Each current level now has a scene-specific objective briefing at spawn.
 - Venting the Boilerheart pressure valve shuts down the linked Level03 steam hazards.
+- Level03 now includes a Bellows Node support-machine prototype near the Boilerheart core; its pressure pulse is verified by packaged Bellows Node smoke and disabled during deterministic objective/hazard automation.
 - Level01 includes the first secret pressure cache reward space.
 - Level02 includes a Pipeworks cartridge-cache secret reward space.
 - Level04 includes a second foundry coal-cache secret reward space.
@@ -173,8 +174,8 @@ New mechanics:
 
 - Current prototype: Boilerheart pressure-valve objective, locked foundry lift, and linked hazard shutdown.
 - Current prototype: first Steam Scattergun pickup, introducing close-range weapon switching before the foundry escalation.
+- Current prototype: `Bellows Node` stationary support machine with pressure-pulse damage and pulse VFX.
 - Planned: expanded valve/gauge lock sequence.
-- Planned: `Bellows Node` support enemy.
 - Current prototype: steam hazard zones with vent/puff visuals.
 
 Current top-down sketch:

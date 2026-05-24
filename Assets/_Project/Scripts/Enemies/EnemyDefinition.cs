@@ -5,7 +5,8 @@ public enum EnemyAttackStyle
     Melee,
     Ranged,
     Heavy,
-    Boss
+    Boss,
+    Support
 }
 
 [CreateAssetMenu(menuName = "Brassworks/Enemy Definition")]

@@ -1146,6 +1146,22 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.78 Bellows Node Support Enemy Pass
+
+- [x] Add `BellowsNodeController`.
+- [x] Add `BellowsNodePulseVfx`.
+- [x] Add Bellows Node balance values and `BellowsNodeDefinition.asset`.
+- [x] Add primitive Bellows Node silhouette to Level03.
+- [x] Add packaged `RuntimeBellowsNodeTest`.
+- [x] Add `V0_BELLOWS_NODE_PASS` to the one-command matrix.
+- [x] Expand validation for Bellows Node definition, balance, visual pieces, and machine motion.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.78`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

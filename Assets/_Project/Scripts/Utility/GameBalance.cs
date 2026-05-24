@@ -43,6 +43,13 @@ public static class GameBalance
     public const int LancerProjectileDamage = 7;
     public const float LancerProjectileSpeed = 7.8f;
 
+    public const int BellowsNodeHealth = 60;
+    public const float BellowsNodeDetectionRange = 9f;
+    public const float BellowsNodePulseRange = 4.2f;
+    public const int BellowsNodePulseDamage = 7;
+    public const float BellowsNodePulseCooldown = 1.65f;
+    public const float BellowsNodePulseWindup = 0.55f;
+
     public const int BulwarkHealth = 125;
     public const float BulwarkDetectionRange = 12f;
     public const float BulwarkMoveSpeed = 1.15f;

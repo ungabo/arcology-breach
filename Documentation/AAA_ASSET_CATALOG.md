@@ -95,7 +95,7 @@ Every major asset should eventually have three quality targets:
 | ENEMY-003 | Boiler Tick | P1 | planned | Squat scout with clockwork legs and pressure tank body. |
 | ENEMY-004 | Lancer | P1 | verified | Thin ranged valve-rifle automaton with primitive tripod silhouette, pressure-bolt attack, and data-driven definition asset. |
 | ENEMY-005 | Bulwark | P2 | prototype | Primitive furnace-plated machine with boiler body, hammer arms, data-driven definition, Level04/Level05 placement, and combat smoke coverage. |
-| ENEMY-006 | Bellows Node | P2 | planned | Stationary pressure amplifier that buffs nearby machines. |
+| ENEMY-006 | Bellows Node | P2 | prototype | Stationary pressure amplifier prototype in Level03 with data-driven definition, primitive bellows silhouette, pressure-pulse damage, pulse VFX, validation, and packaged smoke coverage. Future pass can add true nearby-machine buffs. |
 | ENEMY-007 | Governor Warden | P1 | prototype | Final guardian prototype with data-driven definition, Level05 placement, stomp attack, pressure-bolt attack, enraged half-health behavior, primitive core body/furnace heart/pressure crown/pressure cannon silhouette, boss health HUD integration, shutdown VFX, validation, and combat smoke coverage. |
 
 ## 6. Animations
@@ -134,6 +134,7 @@ Every major asset should eventually have three quality targets:
 | VFX-012 | Pressure-pistol impact decal | P1 | prototype | `ImpactDecalVfx` adds a scorch disc, brass impact plate, and short spark burst to pressure-pistol raycast hits. |
 | VFX-013 | Player damage burst | P1 | prototype | `PlayerDamageVfx` adds first-person pressure slashes, heat edges, and brass sparks on player damage. |
 | VFX-014 | Scattergun pressure blast | P1 | prototype | `ScattergunBlastVfx` adds a close-range pressure ring, steam core, and brass/warning spark cone to Steam Scattergun fire, verified by weapon-switch smoke. |
+| VFX-015 | Bellows Node pulse | P1 | prototype | `BellowsNodePulseVfx` adds a radial steam/brass pressure burst to the Bellows Node pulse attack, verified by Bellows Node smoke. |
 
 ## 8. Audio
 

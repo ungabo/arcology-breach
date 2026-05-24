@@ -21,6 +21,7 @@ public class MainMenuController : MonoBehaviour
         "-v0CombatEdgeSmoke",
         "-v0CombatScenarioSmoke",
         "-v0WeaponSwitchSmoke",
+        "-v0BellowsNodeSmoke",
         "-v0RangedCombatSmoke",
         "-v0BulwarkCombatSmoke",
         "-v0WardenCombatSmoke",
@@ -67,6 +68,13 @@ public class MainMenuController : MonoBehaviour
         {
             RunProgress.Reset();
             SceneManager.LoadScene("Level02");
+            return;
+        }
+
+        if (HasArgument("-v0BellowsNodeSmoke"))
+        {
+            RunProgress.Reset();
+            SceneManager.LoadScene("Level03");
             return;
         }
 
