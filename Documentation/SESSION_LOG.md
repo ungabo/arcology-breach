@@ -3710,3 +3710,26 @@ Build executable:
 `Builds/Windows/v0.1.8/BrassworksBreach_v0.1.8.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 03:44 -04:00
+
+Integrated Banach side-lane output for Unity-only pressure-pistol component lookdev.
+
+Added:
+
+- `PressurePistolLookDevRenderer.RenderBatch` for view-only Unity component renders outside playable build assets.
+- Pressure-pistol coil/gauge component breakdown and acceptance checklist.
+- Component renders for copper/brass coil pack and pressure gauge/dial.
+- Contact sheet and metrics JSON under `Documentation/ConceptRenders/PressurePistolComponents/` and `Documentation/AssetProduction/PressurePistolLookDev/`.
+
+Verification completed:
+
+- Unity batch renderer exited with return code `0`.
+- Component, contact-sheet, nonblank, no-magenta, and material-separation checks passed per the renderer report.
+
+PM review:
+
+- The component-first method is now working and should continue.
+- The current render style is useful directionally but still not final north-star realism; next pressure-pistol lookdev pass should reduce over-bright emissive flattening, improve gauge camera/typography, and add boiler chamber, barrel/muzzle, grip, and valve component proofs before another full-gun reassembly attempt.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
