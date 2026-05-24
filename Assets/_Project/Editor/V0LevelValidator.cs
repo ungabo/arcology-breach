@@ -11,6 +11,8 @@ public static class V0LevelValidator
     private const string Level03ScenePath = "Assets/_Project/Scenes/Level03.unity";
     private const string Level04ScenePath = "Assets/_Project/Scenes/Level04.unity";
     private const string Level05ScenePath = "Assets/_Project/Scenes/Level05.unity";
+    private const string MaterialFolder = "Assets/_Project/Materials";
+    private const string FinalMaterialsTextureFolder = "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures";
     private const string SignageObjectiveTexturePath = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png";
     private const string SignageWarningTexturePath = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png";
     private const string SignageRouteTexturePath = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png";
@@ -27,6 +29,7 @@ public static class V0LevelValidator
     public static void ValidateProjectScenes()
     {
         ValidateBuildSceneOrder();
+        ValidateFinalMaterialsV1();
 
         EditorSceneManager.OpenScene(MainMenuScenePath);
         Require<MainMenuController>("MainMenuController");
@@ -56,6 +59,65 @@ public static class V0LevelValidator
         if (scenes.Length < 6 || scenes[0].path != MainMenuScenePath || scenes[1].path != Level01ScenePath || scenes[2].path != Level02ScenePath || scenes[3].path != Level03ScenePath || scenes[4].path != Level04ScenePath || scenes[5].path != Level05ScenePath)
         {
             throw new InvalidOperationException("Level validation failed: build scenes must be MainMenu, Level01, Level02, Level03, Level04, Level05.");
+        }
+    }
+
+    private static void ValidateFinalMaterialsV1()
+    {
+        RequireFinalMaterialBinding("M_Greybox_SootBrickWall", "SootBrick");
+        RequireFinalMaterialBinding("M_Greybox_OilStoneFloor", "WetOilDarkStone");
+        RequireFinalMaterialBinding("M_Greybox_PressureGate", "BlackenedRivetedIron");
+        RequireFinalMaterialBinding("M_Greybox_GearKey", "AgedBrass");
+        RequireFinalMaterialBinding("M_Greybox_BrassTrim", "AgedBrass");
+        RequireFinalMaterialBinding("M_Greybox_BrassGuide", "CopperPipe");
+        RequireFinalMaterialBinding("M_Greybox_PressureWarning", "HazardEnamel");
+        RequireFinalMaterialBinding("M_Steam_RivetedIron", "BlackenedRivetedIron");
+        RequireFinalMaterialBinding("M_Steam_OilDarkStone", "WetOilDarkStone");
+        RequireFinalMaterialBinding("M_Steam_CreamGaugeFace", "CreamEnamelGauge");
+        RequireFinalMaterialBinding("M_Greybox_WalnutGrip", "GreasyWalnut");
+    }
+
+    private static void RequireFinalMaterialBinding(string materialName, string familyName)
+    {
+        Material material = AssetDatabase.LoadAssetAtPath<Material>(MaterialFolder + "/" + materialName + ".mat");
+        if (material == null)
+        {
+            throw new InvalidOperationException("Level validation failed: missing FinalMaterialsV1-bound material " + materialName + ".");
+        }
+
+        RequireMaterialTexture(material, materialName, familyName, "BaseColor", "_BaseMap", "_MainTex");
+        RequireMaterialTexture(material, materialName, familyName, "Normal", "_BumpMap", null);
+        RequireMaterialTexture(material, materialName, familyName, "ORM", "_OcclusionMap", null);
+    }
+
+    private static void RequireMaterialTexture(Material material, string materialName, string familyName, string suffix, string primaryProperty, string fallbackProperty)
+    {
+        Texture texture = null;
+        if (material.HasProperty(primaryProperty))
+        {
+            texture = material.GetTexture(primaryProperty);
+        }
+
+        if (texture == null && !string.IsNullOrEmpty(fallbackProperty) && material.HasProperty(fallbackProperty))
+        {
+            texture = material.GetTexture(fallbackProperty);
+        }
+
+        if (texture == null && suffix == "BaseColor")
+        {
+            texture = material.mainTexture;
+        }
+
+        if (texture == null)
+        {
+            throw new InvalidOperationException("Level validation failed: material " + materialName + " is missing its FinalMaterialsV1 " + suffix + " texture.");
+        }
+
+        string expectedPath = FinalMaterialsTextureFolder + "/T_BBW_" + familyName + "_" + suffix + "_2048.png";
+        string actualPath = AssetDatabase.GetAssetPath(texture).Replace("\\", "/");
+        if (actualPath != expectedPath)
+        {
+            throw new InvalidOperationException("Level validation failed: material " + materialName + " expected " + expectedPath + " but found " + actualPath + ".");
         }
     }
 

@@ -25,18 +25,18 @@ Every major asset should eventually have three quality targets:
 | --- | --- | --- | --- | --- |
 | MAT-001 | Greybox wall | P0 | prototype | Existing flat wall material for blockouts. |
 | MAT-002 | Greybox floor | P0 | prototype | Existing dark floor material for blockouts. |
-| MAT-003 | Oil-dark stone | P1 | verified | Generated procedural texture assigned to Brassworks service floors; final art polish can still improve wear/decal variation. |
-| MAT-004 | Riveted iron panel | P1 | verified | Generated procedural riveted-iron texture assigned to boiler/gate pieces; final modular panel geometry still needed. |
-| MAT-005 | Brass/copper pipe material | P1 | verified | Generated procedural pipe texture assigned to brass/copper pipe strips; final pipe geometry still needed. |
-| MAT-006 | Soot-brick wall | P1 | planned | Primary corridor wall style. |
-| MAT-007 | Walnut grip/wood trim | P2 | planned | Weapon grips, tool handles, occasional prop trim. |
+| MAT-003 | Oil-dark stone | P1 | verified | FinalMaterialsV1 wet oil-dark stone BaseColor, Normal, and ORM maps are bound into active floor materials; final geometry/decal layering can still improve wear variety. |
+| MAT-004 | Riveted iron panel | P1 | verified | FinalMaterialsV1 blackened riveted iron BaseColor, Normal, and ORM maps are bound into active gate, machinery, and iron trim materials; final modular panel geometry still needed. |
+| MAT-005 | Brass/copper pipe material | P1 | verified | FinalMaterialsV1 aged brass and copper pipe texture sets are bound into active brass, enemy, ammo, key, lift, and guide materials; final pipe geometry still needed. |
+| MAT-006 | Soot-brick wall | P1 | verified | FinalMaterialsV1 soot-brick BaseColor, Normal, and ORM maps are bound into active wall materials. |
+| MAT-007 | Walnut grip/wood trim | P2 | verified | FinalMaterialsV1 greasy walnut texture set is bound into the active weapon-grip material. |
 | MAT-008 | Amber furnace glow | P1 | prototype | Gauge, furnace, and hazard accents. |
-| MAT-009 | Red pressure warning surface | P1 | planned | Gate denial and pressure danger material. |
+| MAT-009 | Red pressure warning surface | P1 | verified | FinalMaterialsV1 hazard enamel texture set is bound into active pressure-warning materials. |
 | MAT-010 | Green service-lift surface | P1 | planned | Exit/lift material with restored-pressure cue. |
-| MAT-011 | Gauge glass and cream enamel | P2 | planned | HUD, gauges, and readable labels. |
+| MAT-011 | Gauge glass and cream enamel | P2 | verified | FinalMaterialsV1 cream enamel gauge and amber glass texture sets are bound into active gauge/glass materials. |
 | MAT-012 | Oil/scorch decal set | P2 | planned | Combat and machinery wear. |
 | MAT-013 | Staged PBR material batch 01 | P1 | review | Side-agent package under `Assets/_Project/ArtStaging/MaterialsPBR/` includes 1024px BaseColor, Normal, and ORM maps for aged brass, riveted blackened iron, soot-stained brick, wet oil-dark stone, oxidized copper, grimy amber glass, leather bellows, and hazard enamel, with manifests and preview sheets in `Documentation/AssetProduction/MaterialsPBR/`. |
-| MAT-014 | V1 final material texture pack | P1 | review | Side-agent package under `Assets/_Project/ArtStaging/FinalMaterialsV1/` includes 11 material families, 34 texture maps at 2048x2048, 4 preview sheets, manifest, acceptance report, and generator. Materials cover aged brass, blackened riveted iron, wet oil-dark stone, soot brick, copper pipe, greasy walnut, cream enamel gauge, amber glass, leather bellows, hazard enamel, and scorch/oil decal atlas. |
+| MAT-014 | V1 final material texture pack | P1 | verified | Side-agent package under `Assets/_Project/ArtStaging/FinalMaterialsV1/` includes 11 material families, 34 texture maps at 2048x2048, 4 preview sheets, manifest, acceptance report, and generator. `v0.0.95` binds the gameplay-ready material families into active Unity materials and validates BaseColor, Normal, and ORM texture references. |
 
 ## 2. Modular Geometry
 

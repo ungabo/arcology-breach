@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.94` versioned build for `Brassworks Breach`.
+`v0.0.95` versioned build for `Brassworks Breach`.
 
-`v0.0.94` is a verified signage/decal integration build. It adds static SignageDecalsV1 objective plates, warning/hazard strips, route arrows, machinery labels, and service/secret marks to generated Level01, Level03, and Level05, with validator checks for the expected signage roots, sliced quad meshes, and staged PNG atlas references. The full `v094` matrix passed on `2026-05-24 00:20 -04:00`, producing `Builds/Windows/v0.0.94/BrassworksBreach_v0.0.94.exe`.
+`v0.0.95` is a verified FinalMaterialsV1 playable material-binding build. It promotes the staged 2048px steampunk material pack from review-only art staging into active gameplay materials: soot brick, wet oil-dark stone, blackened riveted iron, aged brass, copper pipe, greasy walnut, cream enamel gauge, amber glass, and hazard enamel now bind BaseColor, Normal, and ORM texture maps through generated Unity materials. The validator checks the expected texture bindings, and the full `v095` matrix passed on `2026-05-24 00:34 -04:00`, producing `Builds/Windows/v0.0.95/BrassworksBreach_v0.0.95.exe`.
 
 `v0.0` core loop is complete. The current build gives Bulwark hammer windups dedicated slam-warning VFX/audio before damage lands, gives pressure bolts dedicated impact VFX on player/world hits, gives Lancer pressure-bolt windups dedicated fire-tell VFX/audio, gives Scrapper deaths a richer dedicated shutdown burst, gives Scrapper melee windups dedicated warning VFX/audio before damage lands, and gives the Pressure Pistol right-mouse Pressure Burst its own procedural pressure-dump audio cue, dedicated pressure/steam/brass burst VFX, and first-person pressure-dump viewmodel motion with a kicking gauge needle, spinning valve wheel, snapping dump lever, recoiling pressure chamber, and side vent flash. This sits on top of Level03 Steam Scattergun pickup readability cues, the richer pickup display stand, dedicated Steam Scattergun slug audio/VFX, dedicated weapon-pickup acquisition audio, real pickup-route acquisition, dedicated brass/steam weapon-pickup VFX, Bellows Node pulse audio, visible brass/steam pressure-boost VFX for over-pressurized Scrappers, Bellows Node support-machine boost behavior, first Bellows Node support-machine prototype in Level03, dedicated Steam Scattergun procedural fire cue, dedicated Steam Scattergun pressure-ring/steam/brass-spark blast VFX, Steam Scattergun first-person viewmodel, Steam Scattergun prototype, Pressure Burst alternate fire, the procedural brassworks ambience loop, Level02 Pipeworks cartridge-cache secret, Pipeworks routing valve objective, interactable lore plaques, first-person player damage VFX, pressure-pistol impact decal VFX, visible pressure-bolt projectile VFX, reusable procedural machine motion, animated furnace heat-ripple readability, animated steam hazard puffs, health/ammo/key pickup VFX, service-lift activation VFX, pressure-gate opening VFX, non-lethal machine hit VFX, animated steampunk machinery, standard machine death VFX plus Scrapper-specific shutdown detail, persistent objective HUD guidance, Warden shutdown VFX, the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
@@ -105,6 +105,7 @@
 - Bellows Node pulses now use a dedicated procedural audio cue, with runtime clip configuration and Bellows Node spatial routing smoke coverage.
 - Pressure Pistol secondary fire now animates first-person pressure-dump cues: gauge needle kick, valve wheel spin, dump lever snap, chamber recoil, and side vent flash, verified by level validation and combat-scenario smoke.
 - First side-agent material, enemy, weapon/prop, and modular corridor-kit staging packages exist under `Assets/_Project/ArtStaging/`, with 1024px PBR texture maps, OBJ blockouts, Unity `.meta` sidecars, manifests, and preview sheets in `Documentation/AssetProduction/`.
+- FinalMaterialsV1 texture maps now drive the active generated gameplay materials for wall, floor, pressure-gate, brass/copper, weapon grip, gauge face, glass, and hazard surfaces, with validator coverage.
 - View-only concept renders for staged assets and room/object mockups exist under `Documentation/ConceptRenders/` and are intentionally outside Unity build assets.
 - Scrapper melee windup now has dedicated warning VFX and `EnemyAttackTell` audio, verified by level validation, runtime smoke, and combat-edge smoke before player damage.
 - Scrapper shutdown VFX now has a dedicated richer death variant, verified by combat smoke.
@@ -117,16 +118,16 @@
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.94`.
+Latest fully verified build: `v0.0.95`.
 
-Current `v0.0.94` verification:
+Current `v0.0.95` verification:
 
-- Scene rebuild: passed (`V0 scenes rebuilt`) through `Logs/v094-scene.log`.
+- Scene rebuild: passed (`V0 scenes rebuilt`) through `Logs/v095-scene.log`.
 - Level validation: passed (`V0_LEVEL_VALIDATION_PASS`).
 - Editor smoke: passed (`V0_SMOKE_TEST_PASS`).
 - Windows build: passed (`V0_WINDOWS_BUILD_PASS`).
 - Packaged runtime tests: passed `V0_RUNTIME_SMOKE_PASS`, `V0_AUTO_PLAYTHROUGH_PASS`, `V0_COMBAT_SMOKE_PASS`, `V0_COMBAT_EDGE_PASS`, `V0_COMBAT_SCENARIO_PASS`, `V0_WEAPON_SWITCH_PASS`, `V0_BELLOWS_NODE_PASS`, `V0_RANGED_COMBAT_PASS`, `V0_BULWARK_COMBAT_PASS`, `V0_WARDEN_COMBAT_PASS`, `V0_INTERACTION_SMOKE_PASS`, `V0_HAZARD_PASS`, `V0_SECRET_PASS`, and `V0_PAUSE_FLOW_PASS`.
-- Build path: `Builds/Windows/v0.0.94/BrassworksBreach_v0.0.94.exe`.
+- Build path: `Builds/Windows/v0.0.95/BrassworksBreach_v0.0.95.exe`.
 
 Current `v0.0.93` verification:
 
@@ -174,7 +175,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.93\BrassworksBreach_v0.0.93.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.95\BrassworksBreach_v0.0.95.exe`
 
 ## Latest Build Verification
 
@@ -1419,8 +1420,9 @@ Current target:
 - `2026-05-23 23:28 -04:00`: `v0.0.93` packaged pause-flow smoke passed.
 - `2026-05-24 00:11 -04:00`: `v0.0.94` scene rebuild passed with SignageDecalsV1 objects generated in Level01, Level03, and Level05.
 - `2026-05-24 00:20 -04:00`: `v0.0.94` full build matrix passed, including level validation, editor smoke, Windows build, packaged runtime smoke, auto-playthrough, combat, weapon, Bellows Node, ranged, Bulwark, Warden, interaction, hazard, secret, and pause-flow tests.
+- `2026-05-24 00:34 -04:00`: `v0.0.95` full build matrix passed after binding FinalMaterialsV1 BaseColor, Normal, and ORM textures into active gameplay materials and adding validator coverage for those bindings.
 
-Future builds should increment as `v0.0.95`, `v0.0.96`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.96`, `v0.0.97`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
@@ -1432,7 +1434,7 @@ Future builds should increment as `v0.0.95`, `v0.0.96`, etc. when meaningful pro
 - Scrapper attack windup is smoke-tested but still needs manual feel tuning.
 - Balance values have an initial automated pass; human feel tuning is still needed.
 - Audio is procedural placeholder content and still needs a human listen/tuning pass.
-- Generated material textures exist; sprites, decals, and final raster art still need production passes.
+- Staged material textures are now bound into active gameplay materials; sprites, decals, final geometry, and final raster art still need production passes.
 - Health and ammo persist across level transitions; future weapon inventory and campaign flags still need expansion.
 - Settings exist for sensitivity and master volume only; resolution, flash intensity, and color readability are still planned.
 - Android, browser/WebGL, SteamVR/OpenXR, and Meta Quest builds are planned but deferred.

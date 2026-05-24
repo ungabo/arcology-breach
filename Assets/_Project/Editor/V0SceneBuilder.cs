@@ -19,6 +19,7 @@ public static class V0SceneBuilder
     private const string MaterialFolder = "Assets/_Project/Materials";
     private const string TextureFolder = "Assets/_Project/Textures";
     private const string DataFolder = "Assets/_Project/Data";
+    private const string FinalMaterialsTextureFolder = "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures";
     private const string SignageDecalsTextureFolder = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures";
     private const float SignageDecalsAtlasPixels = 2048f;
     private const string WindowsBuildFolder = "Builds/Windows";
@@ -66,10 +67,22 @@ public static class V0SceneBuilder
         Material furnaceGlowMaterial = CreateMaterial("M_Steam_FurnaceGlow", new Color(1f, 0.36f, 0.08f));
         Material glassVialMaterial = CreateMaterial("M_Steam_FrostedGlassVial", new Color(0.58f, 0.78f, 0.8f));
         Material medicinalFluidMaterial = CreateMaterial("M_Steam_RedMedicinalFluid", new Color(0.82f, 0.05f, 0.04f));
-        ApplyProceduralTexture(oilStoneMaterial, "T_Steam_OilDarkStone", ProceduralTextureKind.OilStone);
-        ApplyProceduralTexture(rivetedIronMaterial, "T_Steam_RivetedIron", ProceduralTextureKind.RivetedIron);
-        ApplyProceduralTexture(brassGuideMaterial, "T_Steam_BrassPipe", ProceduralTextureKind.BrassPipe);
-        ApplyProceduralTexture(brassHazardMaterial, "T_Steam_BrassHazardPipe", ProceduralTextureKind.BrassPipe);
+        ApplyFinalMaterialTextureSet(wallMaterial, "SootBrick", new Vector2(2.2f, 2.2f), 0f, 0.2f);
+        ApplyFinalMaterialTextureSet(floorMaterial, "WetOilDarkStone", new Vector2(2.8f, 2.8f), 0f, 0.62f);
+        ApplyFinalMaterialTextureSet(doorMaterial, "BlackenedRivetedIron", new Vector2(1.35f, 1.35f), 0.72f, 0.34f);
+        ApplyFinalMaterialTextureSet(keyMaterial, "AgedBrass", new Vector2(1.2f, 1.2f), 0.85f, 0.48f);
+        ApplyFinalMaterialTextureSet(exitMaterial, "AgedBrass", new Vector2(1.35f, 1.35f), 0.78f, 0.42f);
+        ApplyFinalMaterialTextureSet(enemyMaterial, "AgedBrass", new Vector2(1.25f, 1.25f), 0.82f, 0.4f);
+        ApplyFinalMaterialTextureSet(ammoMaterial, "CopperPipe", new Vector2(1.8f, 1.05f), 0.84f, 0.43f);
+        ApplyFinalMaterialTextureSet(gunMaterial, "GreasyWalnut", new Vector2(1.2f, 1.2f), 0f, 0.34f);
+        ApplyFinalMaterialTextureSet(gunTrimMaterial, "AgedBrass", new Vector2(1.1f, 1.1f), 0.85f, 0.48f);
+        ApplyFinalMaterialTextureSet(brassGuideMaterial, "CopperPipe", new Vector2(1.8f, 1.05f), 0.84f, 0.43f);
+        ApplyFinalMaterialTextureSet(pressureWarningMaterial, "HazardEnamel", new Vector2(1.35f, 1.35f), 0.18f, 0.34f);
+        ApplyFinalMaterialTextureSet(rivetedIronMaterial, "BlackenedRivetedIron", new Vector2(1.45f, 1.45f), 0.72f, 0.34f);
+        ApplyFinalMaterialTextureSet(oilStoneMaterial, "WetOilDarkStone", new Vector2(2.8f, 2.8f), 0f, 0.62f);
+        ApplyFinalMaterialTextureSet(brassHazardMaterial, "AgedBrass", new Vector2(1.3f, 1.3f), 0.82f, 0.45f);
+        ApplyFinalMaterialTextureSet(gaugeFaceMaterial, "CreamEnamelGauge", new Vector2(1f, 1f), 0f, 0.32f);
+        ApplyFinalMaterialTextureSet(glassVialMaterial, "AmberGlass", new Vector2(1f, 1f), 0f, 0.7f);
         WeaponDefinition pressurePistolDefinition = CreatePressurePistolDefinition();
         WeaponDefinition steamScattergunDefinition = CreateSteamScattergunDefinition();
         EnemyDefinition scrapperDefinition = CreateScrapperDefinition();
@@ -319,6 +332,113 @@ public static class V0SceneBuilder
 
         EditorUtility.SetDirty(material);
         return material;
+    }
+
+    private static void ApplyFinalMaterialTextureSet(Material material, string familyName, Vector2 tiling, float metallic, float smoothness)
+    {
+        Texture2D baseColor = LoadFinalMaterialTexture(familyName, "BaseColor", TextureImporterType.Default, true);
+        Texture2D normal = LoadFinalMaterialTexture(familyName, "Normal", TextureImporterType.NormalMap, false);
+        Texture2D orm = LoadFinalMaterialTexture(familyName, "ORM", TextureImporterType.Default, false);
+
+        SetMaterialTexture(material, "_MainTex", baseColor, tiling);
+        SetMaterialTexture(material, "_BaseMap", baseColor, tiling);
+        SetMaterialTexture(material, "_BumpMap", normal, tiling);
+        SetMaterialTexture(material, "_OcclusionMap", orm, tiling);
+
+        if (material.HasProperty("_Metallic"))
+        {
+            material.SetFloat("_Metallic", metallic);
+        }
+
+        if (material.HasProperty("_Glossiness"))
+        {
+            material.SetFloat("_Glossiness", smoothness);
+        }
+
+        if (material.HasProperty("_Smoothness"))
+        {
+            material.SetFloat("_Smoothness", smoothness);
+        }
+
+        if (material.HasProperty("_BumpScale"))
+        {
+            material.SetFloat("_BumpScale", 0.92f);
+        }
+
+        material.mainTexture = baseColor;
+        material.mainTextureScale = tiling;
+        material.EnableKeyword("_NORMALMAP");
+        material.EnableKeyword("_OCCLUSIONMAP");
+        EditorUtility.SetDirty(material);
+    }
+
+    private static Texture2D LoadFinalMaterialTexture(string familyName, string suffix, TextureImporterType textureType, bool sRgb)
+    {
+        string path = $"{FinalMaterialsTextureFolder}/T_BBW_{familyName}_{suffix}_2048.png";
+        Texture2D texture = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+        if (texture == null)
+        {
+            throw new FileNotFoundException("Missing FinalMaterialsV1 texture", path);
+        }
+
+        ConfigureFinalMaterialTextureImporter(path, textureType, sRgb);
+        return texture;
+    }
+
+    private static void ConfigureFinalMaterialTextureImporter(string path, TextureImporterType textureType, bool sRgb)
+    {
+        TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
+        if (importer == null)
+        {
+            return;
+        }
+
+        bool changed = false;
+        if (importer.textureType != textureType)
+        {
+            importer.textureType = textureType;
+            changed = true;
+        }
+
+        if (textureType == TextureImporterType.Default && importer.sRGBTexture != sRgb)
+        {
+            importer.sRGBTexture = sRgb;
+            changed = true;
+        }
+
+        if (importer.mipmapEnabled == false)
+        {
+            importer.mipmapEnabled = true;
+            changed = true;
+        }
+
+        if (importer.wrapMode != TextureWrapMode.Repeat)
+        {
+            importer.wrapMode = TextureWrapMode.Repeat;
+            changed = true;
+        }
+
+        if (importer.maxTextureSize != 2048)
+        {
+            importer.maxTextureSize = 2048;
+            changed = true;
+        }
+
+        if (changed)
+        {
+            importer.SaveAndReimport();
+        }
+    }
+
+    private static void SetMaterialTexture(Material material, string propertyName, Texture texture, Vector2 tiling)
+    {
+        if (!material.HasProperty(propertyName))
+        {
+            return;
+        }
+
+        material.SetTexture(propertyName, texture);
+        material.SetTextureScale(propertyName, tiling);
     }
 
     private static WeaponDefinition CreatePressurePistolDefinition()

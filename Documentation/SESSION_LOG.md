@@ -3104,3 +3104,41 @@ Build executable:
 `Builds/Windows/v0.0.94/BrassworksBreach_v0.0.94.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 00:35 -04:00
+
+Completed `v0.0.95` FinalMaterialsV1 playable material binding.
+
+Added:
+
+- Active gameplay materials now bind staged FinalMaterialsV1 2048px BaseColor, Normal, and ORM textures for soot brick, wet oil-dark stone, blackened riveted iron, aged brass, copper pipe, greasy walnut, cream enamel gauge, amber glass, and hazard enamel.
+- Unity texture import settings now mark Normal maps as normal maps and ORM maps as non-sRGB repeat textures.
+- Level validation now checks the expected FinalMaterialsV1 texture references before validating generated gameplay scenes.
+- Version string bumped to `v0.0.95`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.95/BrassworksBreach_v0.0.95.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
