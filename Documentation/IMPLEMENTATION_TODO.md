@@ -1598,6 +1598,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.18 Windows Distribution Polish
+
+- [x] Add `LAUNCH_BRASSWORKS_BREACH.bat` to the staged Windows package.
+- [x] Add `QUICKSTART_WINDOWS.txt` with extract, launch, controls, quit, and first-run notes.
+- [x] Add `SUPPORT_INFO_WINDOWS.txt` with issue-reporting fields and candidate scope notes.
+- [x] Expand `README_WINDOWS.txt` with launcher, direct EXE launch, folder integrity, and quit/close guidance.
+- [x] Add launcher, README, quickstart, and support-info paths to the package manifest.
+- [x] Expand candidate-readiness automation to require those files and verify them inside the ZIP.
+- [x] Refresh `V0RouteAudit` output for `v0.1.18`.
+- [x] Build, package, generate route-QA evidence, generate issue-triage evidence, and generate candidate-readiness evidence for `v0.1.18` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

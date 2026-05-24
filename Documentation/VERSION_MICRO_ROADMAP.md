@@ -53,14 +53,15 @@ The roadmap is a living plan, not a promise that every version number is immutab
 | v0.1.15 | Windows candidate-release cleanup | Completed: added a candidate-readiness generator, wired it into the full matrix, and generated Markdown/JSON release-candidate evidence tying together the executable, package, route audit, QA packet, release notes, hash, and smoke-log markers. | Route audit passed; full V0 matrix passed with `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`. |
 | v0.1.16 | Route QA evidence capture expansion | Completed: added a generated issue-triage packet with severity rules, issue buckets, intake template, candidate gates, manual index links, and candidate-readiness linkage. | Route audit passed; full V0 matrix passed with `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`. |
 | v0.1.17 | Modular environment component promotion | Completed: promoted a reusable wall-pipe gauge cluster component into Pipeworks Annex and Boilerheart Core, with metadata, production docs, named part hierarchy, material-role checks, and detail-count gates. | Route audit passed; full V0 matrix passed with level validation, package, QA packet, issue-triage packet, and candidate-readiness evidence. |
+| v0.1.18 | Windows release distribution polish | Completed: added package launcher, quickstart, support info, expanded README, package-manifest paths, and candidate-readiness ZIP-content checks for player-facing Windows distribution files. | Route audit passed; full V0 matrix passed with package, QA packet, issue-triage packet, candidate-readiness evidence, and distribution-file verification. |
 
 ## Near-Term Proposed Sequence
 
 | Version | Planned Slice | Intent | Expected Verification |
 | --- | --- | --- | --- |
-| v0.1.18 | Windows release-candidate polish gap pass | Begin closing the highest-value gaps identified by the candidate-readiness and QA packets, starting with any human-readable release/distribution friction before new platform work. | Full V0 matrix plus refreshed candidate-readiness evidence. |
 | v0.1.19 | Accepted route-triage task conversion | Convert any real manual issue notes into concrete ledger tasks; if notes are still absent, proceed to the next modular asset promotion instead. | Full V0 matrix if code/scene changes occur; docs-only verification if only triage records change. |
 | v0.1.20 | Next authored gameplay prop promotion | Promote the next accepted Unity-authored prop component into playable scenes after wall-pipe cluster validation, likely pressure-door/boiler-console language from the same steampunk brassworks kit. | Full V0 matrix with validator coverage for named hierarchy, material roles, and route readability. |
+| v0.1.21 | Further release-distribution hardening | Continue package/release polish after launcher and quickstart verification, likely checksum instructions, signed-build notes, or human-friendly release index. | Full V0 matrix plus refreshed candidate-readiness evidence if package tooling changes. |
 
 ## Later Follow-Up Areas
 

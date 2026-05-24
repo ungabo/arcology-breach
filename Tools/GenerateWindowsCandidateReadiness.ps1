@@ -90,6 +90,31 @@ function Assert-LogMarker {
     }
 }
 
+function Get-ZipEntryNames {
+    param([string]$ZipPath)
+
+    Add-Type -AssemblyName System.IO.Compression.FileSystem
+    $zipFile = [System.IO.Compression.ZipFile]::OpenRead($ZipPath)
+    try {
+        return @($zipFile.Entries | ForEach-Object { $_.FullName })
+    }
+    finally {
+        $zipFile.Dispose()
+    }
+}
+
+function Assert-ZipContainsLeaf {
+    param(
+        [string[]]$EntryNames,
+        [string]$LeafName
+    )
+
+    $match = $EntryNames | Where-Object { $_.Replace('\', '/').EndsWith("/$LeafName", [System.StringComparison]::OrdinalIgnoreCase) -or $_.Equals($LeafName, [System.StringComparison]::OrdinalIgnoreCase) } | Select-Object -First 1
+    if (-not $match) {
+        throw "Windows candidate readiness failed: package ZIP does not contain $LeafName."
+    }
+}
+
 $ProjectPath = (Resolve-Path -LiteralPath $ProjectPath).Path
 $branding = Get-Branding -RootPath $ProjectPath
 $version = $branding.Version
@@ -121,7 +146,21 @@ Require-Path -Path $packageManifestPath -Label "Windows package manifest"
 $packageManifest = Get-Content -LiteralPath $packageManifestPath -Raw | ConvertFrom-Json
 $packageZip = [string]$packageManifest.zip_path
 $packageHash = [string]$packageManifest.sha256
+$packageLauncherPath = [string]$packageManifest.launcher
+$packageReadmePath = [string]$packageManifest.readme
+$packageQuickstartPath = [string]$packageManifest.quickstart
+$packageSupportInfoPath = [string]$packageManifest.support_info
 Require-Path -Path $packageZip -Label "Windows package ZIP"
+Require-Path -Path $packageLauncherPath -Label "Windows package launcher"
+Require-Path -Path $packageReadmePath -Label "Windows package README"
+Require-Path -Path $packageQuickstartPath -Label "Windows package quickstart"
+Require-Path -Path $packageSupportInfoPath -Label "Windows package support info"
+
+$zipEntryNames = Get-ZipEntryNames -ZipPath $packageZip
+Assert-ZipContainsLeaf -EntryNames $zipEntryNames -LeafName "LAUNCH_BRASSWORKS_BREACH.bat"
+Assert-ZipContainsLeaf -EntryNames $zipEntryNames -LeafName "README_WINDOWS.txt"
+Assert-ZipContainsLeaf -EntryNames $zipEntryNames -LeafName "QUICKSTART_WINDOWS.txt"
+Assert-ZipContainsLeaf -EntryNames $zipEntryNames -LeafName "SUPPORT_INFO_WINDOWS.txt"
 
 $logChecks = @(
     @{ Name = "Scene rebuild"; File = "$LogPrefix-scene.log"; Marker = "V0 scenes rebuilt" },
@@ -168,6 +207,10 @@ $qaPacketRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $Proje
 $issueTriageRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $issueTriagePath)
 $exeRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $exePath)
 $packageRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $packageZip)
+$launcherRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $packageLauncherPath)
+$packageReadmeRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $packageReadmePath)
+$quickstartRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $packageQuickstartPath)
+$supportInfoRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $packageSupportInfoPath)
 $hashCode = Convert-ToInlineCode -Value $packageHash
 $releaseNotesRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $releaseNotesPath)
 $generatedCode = Convert-ToInlineCode -Value $generatedLocal
@@ -194,6 +237,10 @@ $readinessLines = @(
     "- QA packet: $qaPacketRepo",
     "- Issue triage packet: $issueTriageRepo",
     "- Release notes: $releaseNotesRepo ($releaseNotesState)",
+    "- Package launcher: $launcherRepo",
+    "- Package README: $packageReadmeRepo",
+    "- Package quickstart: $quickstartRepo",
+    "- Package support info: $supportInfoRepo",
     "",
     "## Automated Verification Markers",
     "",
@@ -204,6 +251,7 @@ $readinessLines = @(
     "## Candidate Rules",
     "",
     "- Ship only the ZIP package, not a loose executable alone.",
+    "- Keep the launcher, quickstart, README, support info, Data folder, UnityPlayer.dll, and MonoBleedingEdge folder together after extraction.",
     "- Keep the SHA-256 hash with any shared package.",
     "- Use the QA packet as the manual route-test starting point.",
     "- Treat this as a Windows candidate snapshot, not Android, WebGL, SteamVR, or Meta Quest readiness.",
@@ -224,6 +272,10 @@ $manifest = [ordered]@{
     executable = $exePath
     package_zip = $packageZip
     package_sha256 = $packageHash
+    package_launcher = $packageLauncherPath
+    package_readme = $packageReadmePath
+    package_quickstart = $packageQuickstartPath
+    package_support_info = $packageSupportInfoPath
     route_audit = $routeAuditPath
     qa_packet = $qaPacketPath
     issue_triage_packet = $issueTriagePath

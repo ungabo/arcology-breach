@@ -4300,3 +4300,78 @@ SHA-256:
 `4EFCD44346BA805D7D7407EABDAA8954CB10CC3C139490978ADC61318E517D92`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 06:36 -04:00
+
+Completed `v0.1.18` Windows distribution polish.
+
+Added:
+
+- `LAUNCH_BRASSWORKS_BREACH.bat` to the staged Windows package.
+- `QUICKSTART_WINDOWS.txt` with extraction, launch, control, quit, and first-run notes.
+- `SUPPORT_INFO_WINDOWS.txt` with issue-reporting fields and Windows-candidate scope notes.
+- Expanded `README_WINDOWS.txt` with launcher, direct EXE launch, folder integrity, and quit/close guidance.
+- Package-manifest paths for the launcher, README, quickstart, and support-info files.
+- Candidate-readiness checks requiring those files and verifying they are present inside the ZIP.
+- Route-audit next-action list updated for the post-distribution-polish sequence.
+- Version string bumped to `v0.1.18`.
+
+Verification completed:
+
+- `V0_ROUTE_AUDIT_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_MOVEMENT_FEEL_PASS`
+- `V0_BALANCE_ENVELOPE_PASS`
+- `V0_LEVEL01_FLOW_PASS`
+- `V0_MIDGAME_FLOW_PASS`
+- `V0_CLIMAX_FLOW_PASS`
+- `V0_AUDIO_MIX_PASS`
+- `V0_DISPLAY_SETTINGS_PASS`
+- `V0_READABILITY_SETTINGS_PASS`
+- `V0_WINDOWS_PACKAGE_PASS`
+- `V0_WINDOWS_QA_PACKET_PASS`
+- `V0_WINDOWS_ISSUE_TRIAGE_PASS`
+- `V0_WINDOWS_CANDIDATE_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.18/BrassworksBreach_v0.1.18.exe`
+
+Package:
+
+`Builds/WindowsPackages/v0.1.18/BrassworksBreach_v0.1.18_Windows.zip`
+
+QA packet:
+
+`Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.18.md`
+
+Issue triage packet:
+
+`Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.18.md`
+
+Candidate readiness:
+
+`Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.18.md`
+
+SHA-256:
+
+`8AE31EE0FB1DB296EE6E3236C1563A365BAFD8C3836A728A4306CAF2F447AA0A`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

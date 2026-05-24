@@ -88,7 +88,10 @@ $readmePath = Join-Path $stagingFolder "README_WINDOWS.txt"
 $readmeLines = @(
     "Brassworks Breach $version - Windows Build",
     "",
-    "Run $exeName to play.",
+    "Recommended launch path: run LAUNCH_BRASSWORKS_BREACH.bat.",
+    "Direct launch path: run $exeName from this same folder.",
+    "",
+    "Keep this folder together. The executable needs the Data folder, UnityPlayer.dll, and MonoBleedingEdge folder beside it.",
     "",
     "Controls:",
     "- Mouse: look",
@@ -97,6 +100,10 @@ $readmeLines = @(
     "- Right Mouse: Pressure Burst",
     "- E: interact",
     "- Esc: pause or access quit/restart",
+    "",
+    "Quit:",
+    "- Press Esc in game, then use Quit from the pause menu.",
+    "- Alt+F4 also closes the Windows player.",
     "",
     "Verification:",
     "- Route audit: V0_ROUTE_AUDIT_PASS",
@@ -108,6 +115,64 @@ $readmeLines = @(
     "- Current art is verified prototype art unless a specific asset doc says otherwise."
 )
 Set-Content -LiteralPath $readmePath -Value $readmeLines -Encoding UTF8
+
+$launcherPath = Join-Path $stagingFolder "LAUNCH_BRASSWORKS_BREACH.bat"
+$launcherLines = @(
+    "@echo off",
+    "setlocal",
+    "cd /d ""%~dp0""",
+    "start ""Brassworks Breach"" ""$exeName"""
+)
+Set-Content -LiteralPath $launcherPath -Value $launcherLines -Encoding ASCII
+
+$quickstartPath = Join-Path $stagingFolder "QUICKSTART_WINDOWS.txt"
+$quickstartLines = @(
+    "Brassworks Breach $version - Quickstart",
+    "",
+    "1. Extract the whole ZIP before playing.",
+    "2. Open the extracted folder.",
+    "3. Double-click LAUNCH_BRASSWORKS_BREACH.bat.",
+    "4. If the launcher is blocked by local policy, run $exeName directly from this folder.",
+    "",
+    "Core controls:",
+    "- Mouse: look",
+    "- WASD: move",
+    "- Left Mouse: fire",
+    "- Right Mouse: Pressure Burst",
+    "- E: interact",
+    "- Esc: pause, restart, or quit",
+    "",
+    "First-run notes:",
+    "- This is an unsigned local Windows development build, so Windows may show a trust warning.",
+    "- Do not move the EXE away from its Data folder.",
+    "- This package targets a mid/low gaming PC and is not the Android, browser, or VR build."
+)
+Set-Content -LiteralPath $quickstartPath -Value $quickstartLines -Encoding UTF8
+
+$supportInfoPath = Join-Path $stagingFolder "SUPPORT_INFO_WINDOWS.txt"
+$supportInfoLines = @(
+    "Brassworks Breach $version - Support Info",
+    "",
+    "Executable: $exeName",
+    "Package folder: $stagingFolderName",
+    "Package manifest: ${executableStem}_${version}_WindowsPackageManifest.json",
+    "QA packet source: Documentation/QA/WindowsRouteQA/QA_PACKET_$version.md",
+    "Issue triage source: Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_$version.md",
+    "",
+    "When reporting an issue, include:",
+    "- Build version",
+    "- Level name",
+    "- What you were doing",
+    "- Expected result",
+    "- Actual result",
+    "- Whether it blocks progress",
+    "",
+    "Known scope:",
+    "- Windows candidate snapshot only.",
+    "- Prototype art remains in places unless called out as promoted in an asset-production document.",
+    "- Android, WebGL, SteamVR, and Meta Quest ports are planned but deferred."
+)
+Set-Content -LiteralPath $supportInfoPath -Value $supportInfoLines -Encoding UTF8
 
 $zipPath = Join-Path $packageFolder "${executableStem}_${version}_Windows.zip"
 if (-not $SkipZip) {
@@ -129,6 +194,10 @@ $manifest = [ordered]@{
     executable = $exeName
     build_folder = $buildFolder
     staging_folder = $stagingFolder
+    launcher = $launcherPath
+    readme = $readmePath
+    quickstart = $quickstartPath
+    support_info = $supportInfoPath
     zip_path = if ($SkipZip) { $null } else { $zipPath }
     sha256 = $hash
     generated_utc = (Get-Date).ToUniversalTime().ToString("o")
