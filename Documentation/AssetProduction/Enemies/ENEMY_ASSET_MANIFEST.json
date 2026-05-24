@@ -1,0 +1,153 @@
+{
+  "generated_by": "Worker D",
+  "timestamp": "2026-05-23 21:57 -04:00",
+  "unity_units": "1 Unity unit = 1 meter",
+  "axis": "+Y up, +Z forward",
+  "material_file": "Assets/_Project/ArtStaging/Enemies/ENEMY_BlockoutMaterials.mtl",
+  "assets": [
+    {
+      "name": "ENEMY_ScrapperAutomaton_Blockout_LOD0",
+      "obj": "Assets/_Project/ArtStaging/Enemies/ENEMY_ScrapperAutomaton_Blockout_LOD0.obj",
+      "preview": "Documentation/AssetProduction/Enemies/PREVIEW_ENEMY_ScrapperAutomaton_Blockout_LOD0.png",
+      "dimensions_m": [
+        1.442,
+        1.489,
+        1.211
+      ],
+      "vertices": 1150,
+      "estimated_triangles": 2068,
+      "role": "Compact melee worker-machine with hunched boiler torso, oversized claw arms, and broad piston feet.",
+      "pivot": "Origin at ground footprint center. Keep +Y up, +Z forward; place melee hit sockets at claw palms.",
+      "collider": "Primary capsule 0.85m diameter x 1.55m height, centered near Y 0.78. Add optional trigger boxes on claw arcs during attack frames.",
+      "lod": "LOD1 can remove rivets, shoulder gear teeth, and backpack bends. LOD2 should collapse claws to simple mitts and replace cylinders with six-sided rods.",
+      "rig": "Root, pelvis, boiler/spine, head visor, left/right cog shoulder, elbow, wrist/claw, hip, knee, ankle, backpack exhaust controls.",
+      "animation": "Idle pressure bob, scuttle walk, claw windup, double swipe, stagger, shutdown with furnace core dim."
+    },
+    {
+      "name": "ENEMY_LancerAutomaton_Blockout_LOD0",
+      "obj": "Assets/_Project/ArtStaging/Enemies/ENEMY_LancerAutomaton_Blockout_LOD0.obj",
+      "preview": "Documentation/AssetProduction/Enemies/PREVIEW_ENEMY_LancerAutomaton_Blockout_LOD0.png",
+      "dimensions_m": [
+        0.734,
+        1.928,
+        2.166
+      ],
+      "vertices": 1071,
+      "estimated_triangles": 1926,
+      "role": "Tall ranged automaton with narrow body, stilt piston legs, and a pressure lance/cannon extending forward.",
+      "pivot": "Origin at ground footprint center. Barrel points +Z; muzzle socket should be placed at lance tip.",
+      "collider": "Primary capsule 0.70m diameter x 2.05m height. Use separate narrow raycast origin/muzzle transform for projectile or hitscan.",
+      "lod": "LOD1 can reduce lance supports and backpack pipes. LOD2 keeps only torso, head, legs, and one barrel cylinder for combat readability.",
+      "rig": "Root, hips, torso, neck/head, shoulder braces, lance aim/recoil bone, hip/knee/ankle pistons, backpack hose controls.",
+      "animation": "Idle aiming sway, brace legs, charge pressure pulse, fire recoil, vent steam, stagger, collapse."
+    },
+    {
+      "name": "ENEMY_SentinelTurret_Blockout_LOD0",
+      "obj": "Assets/_Project/ArtStaging/Enemies/ENEMY_SentinelTurret_Blockout_LOD0.obj",
+      "preview": "Documentation/AssetProduction/Enemies/PREVIEW_ENEMY_SentinelTurret_Blockout_LOD0.png",
+      "dimensions_m": [
+        1.02,
+        1.07,
+        1.58
+      ],
+      "vertices": 630,
+      "estimated_triangles": 1148,
+      "role": "Static sentinel turret with floor, wall, and ceiling mounting cues in one universal blockout.",
+      "pivot": "Origin at floor mount center for default placement. For wall/ceiling variants, duplicate mesh later and move pivot to mount plate center.",
+      "collider": "Use a cylinder or box for base/housing and a short non-blocking barrel trigger. Avoid mesh collision.",
+      "lod": "LOD1 removes gear teeth and side drums. LOD2 is a box housing plus single barrel; static batching is recommended.",
+      "rig": "No full character rig required. Use separate yaw base and pitch barrel transforms; optional recoil child for muzzle.",
+      "animation": "Search sweep, target acquire snap, fire recoil, overheat vent, destroyed droop."
+    },
+    {
+      "name": "PART_CogShoulderJoint_Blockout",
+      "obj": "Assets/_Project/ArtStaging/Enemies/PART_CogShoulderJoint_Blockout.obj",
+      "preview": "Documentation/AssetProduction/Enemies/PREVIEW_PART_CogShoulderJoint_Blockout.png",
+      "dimensions_m": [
+        0.24,
+        0.8,
+        0.8
+      ],
+      "vertices": 268,
+      "estimated_triangles": 484,
+      "role": "Reusable cog shoulder or hip joint with readable gear teeth and rivet rhythm.",
+      "pivot": "Origin centered on axle. X axis runs through socket for shoulder placement.",
+      "collider": "No gameplay collider; visual only unless used as a weak-point hit target.",
+      "lod": "Bake gear teeth to normal map or collapse to 10-sided cylinder for LOD2.",
+      "rig": "Parent under upper-arm or shoulder bone; rotate around local X.",
+      "animation": "Can counter-rotate subtly during idle/walk to sell clockwork motion."
+    },
+    {
+      "name": "PART_PistonLeg_Blockout",
+      "obj": "Assets/_Project/ArtStaging/Enemies/PART_PistonLeg_Blockout.obj",
+      "preview": "Documentation/AssetProduction/Enemies/PREVIEW_PART_PistonLeg_Blockout.png",
+      "dimensions_m": [
+        0.28,
+        0.9,
+        0.37
+      ],
+      "vertices": 90,
+      "estimated_triangles": 160,
+      "role": "Reusable piston leg assembly with hip mount, brass knee socket, telescoping lower rod, and broad metal foot.",
+      "pivot": "Origin remains at floor center for preview. For production rigging, pivot hip block at upper socket.",
+      "collider": "Character capsule handles collision; optional footstep contact box only for VFX/audio timing.",
+      "lod": "Remove knee sphere rivets and simplify lower rod to box at distance.",
+      "rig": "Hip, knee, ankle, and piston stretch helper bones.",
+      "animation": "Use IK for planted foot and piston compression on step impact."
+    },
+    {
+      "name": "PART_BrassMaskVisor_Blockout",
+      "obj": "Assets/_Project/ArtStaging/Enemies/PART_BrassMaskVisor_Blockout.obj",
+      "preview": "Documentation/AssetProduction/Enemies/PREVIEW_PART_BrassMaskVisor_Blockout.png",
+      "dimensions_m": [
+        0.71,
+        0.421,
+        0.209
+      ],
+      "vertices": 60,
+      "estimated_triangles": 96,
+      "role": "Reusable enemy face plate with cream enamel mask, brass cheek hinges, snout filter, and dark visor slit.",
+      "pivot": "Origin is under the mask for preview. Production pivot should sit at neck/head joint center.",
+      "collider": "Head hitbox can be simple box matching mask silhouette.",
+      "lod": "At LOD2, keep the visor slit as dark/emissive material strip and merge hinges into the mask body.",
+      "rig": "Parent to head bone; optional jaw/filter bob during venting.",
+      "animation": "Small visor pulse or filter shake during alert/firing states."
+    },
+    {
+      "name": "PART_FurnaceCore_Blockout",
+      "obj": "Assets/_Project/ArtStaging/Enemies/PART_FurnaceCore_Blockout.obj",
+      "preview": "Documentation/AssetProduction/Enemies/PREVIEW_PART_FurnaceCore_Blockout.png",
+      "dimensions_m": [
+        0.6,
+        0.591,
+        0.343
+      ],
+      "vertices": 162,
+      "estimated_triangles": 308,
+      "role": "Reusable glowing amber furnace core/weak-point insert with brass retaining ring.",
+      "pivot": "Origin at core center. Forward-facing ring is +Z.",
+      "collider": "Optional sphere trigger 0.45m diameter for weak-point tests.",
+      "lod": "LOD1 can become flat emissive disc; LOD2 can bake glow into torso material.",
+      "rig": "Usually parented to torso; scale pulse helper optional.",
+      "animation": "Low-amplitude glow pulse, damage flare, shutdown dim."
+    },
+    {
+      "name": "PART_PipeBackpack_Blockout",
+      "obj": "Assets/_Project/ArtStaging/Enemies/PART_PipeBackpack_Blockout.obj",
+      "preview": "Documentation/AssetProduction/Enemies/PREVIEW_PART_PipeBackpack_Blockout.png",
+      "dimensions_m": [
+        0.843,
+        0.825,
+        0.46
+      ],
+      "vertices": 128,
+      "estimated_triangles": 228,
+      "role": "Reusable boiler backpack with tank, paired vertical pipes, exhaust bends, and mount collar.",
+      "pivot": "Origin centered on tank. For production, pivot at spine mount plate.",
+      "collider": "Visual only; use character capsule unless backpack is intended as targetable silhouette.",
+      "lod": "LOD1 removes pipe bends; LOD2 merges tank and pipes into a single low-sided hull.",
+      "rig": "Parent to spine/torso. Exhaust outlets need sockets for steam VFX.",
+      "animation": "Idle vent puffs, overheat shake, burst steam on death."
+    }
+  ]
+}

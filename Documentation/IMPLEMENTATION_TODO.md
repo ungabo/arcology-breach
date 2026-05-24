@@ -1281,6 +1281,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.88 Pressure Pistol Viewmodel Polish Pass
+
+- [x] Add secondary-fire animation support to `WeaponView`.
+- [x] Add Pressure Pistol pressure-dump viewmodel cue references: gauge needle, valve wheel, dump lever, pressure chamber, and vent flash.
+- [x] Route secondary fire through `WeaponView.PlayFire(secondaryShot: true)` while keeping primary recoil behavior intact.
+- [x] Add Pressure Pistol relief nozzle and dump lever geometry to generated scenes.
+- [x] Expand level validation to require the new pressure-dump cue objects.
+- [x] Expand combat-scenario smoke to verify secondary pressure viewmodel cues animate.
+- [x] Build `v0.0.88` through the full V0 matrix.
+- [x] Integrate completed side-agent staging outputs for PBR material textures, enemy OBJ blockouts, and weapon/prop OBJ blockouts.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

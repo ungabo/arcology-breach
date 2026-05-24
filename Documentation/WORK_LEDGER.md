@@ -102,6 +102,11 @@ The active step sequence is driven by this ledger plus `VERSION_MICRO_ROADMAP.md
 | LVL-012 | Add Steam Scattergun pickup readability cues | level/art/test | P1 | verified | v0.0.86 | Level03 Steam Scattergun pickup has route strips, chevrons, sign backplate, lamps, pressure pipes, world label, and level validation coverage. |
 | DOC-009 | Track parallel side-agent workstreams | docs/process | P1 | verified | v0.0.86 | `PARALLEL_WORKSTREAM_STATUS.md` records active side-agent IDs, scopes, allowed write files, and integration rules. |
 | WPN-007B | Add Pressure Burst feedback identity | weapon/vfx/audio/test | P1 | verified | v0.0.87 | Pressure Pistol alternate fire uses dedicated Pressure Burst audio/VFX and combat-scenario smoke verifies the cue and VFX before primary-shot checks. |
+| WPN-007C | Add Pressure Burst viewmodel feedback | weapon/animation/test | P1 | verified | v0.0.88 | Pressure Pistol alternate fire now kicks the gauge needle, spins the valve wheel, snaps the dump lever, recoils the pressure chamber, flashes the side vent, and passes combat-scenario smoke. |
+| ARTSTAGE-000 | Stage first PBR material texture package | art/asset | P1 | review | v0.0.88 | Side-agent package includes 8 steampunk material IDs and 24 1024px BaseColor/Normal/ORM texture maps with manifests, acceptance checklist, and preview contact sheets. |
+| ARTSTAGE-001 | Stage first mechanical enemy OBJ package | art/asset | P1 | review | v0.0.88 | Side-agent package includes Scrapper, Lancer, Sentinel Turret, reusable mechanical part OBJ blockouts, manifests, and preview sheets. |
+| ARTSTAGE-002 | Stage first weapon and prop OBJ package | art/asset | P1 | review | v0.0.88 | Side-agent package includes Pressure Pistol, Steam Scattergun, pressure-cell ammo, scattergun slug canister, pressure station, crank lever OBJ blockouts, manifests, and preview sheets. |
+| ARTSTAGE-003 | Create view-only concept render lane | art/process | P1 | review | v0.0.88 | `Documentation/ConceptRenders/` contains 13 JPG mockup/staged review renders plus an index, render plan, and work log; files stay outside Unity build assets. |
 
 ## Ready Next
 

@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.87` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.88` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -8,7 +8,7 @@ Public repository:
 
 Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, readable lore plaques, animated gears/valves/pulleys, brass HUD with persistent objective guidance and boss health readout, hitscan pressure-pistol shooting with right-mouse pressure-burst alternate fire, dedicated Pressure Burst audio/VFX, and impact decal VFX, Steam Scattergun weapon unlock/switching through the real Level03 world pickup with a richer display-stand silhouette plus route/signage/lamp readability cues, its own first-person viewmodel, dedicated primary blast VFX/audio, dedicated slug VFX/audio, dedicated pickup audio, and dedicated weapon-pickup VFX, first-person player damage VFX, procedural audio cues, procedural brassworks ambience, mechanical melee/ranged/heavy/boss/support enemies with procedural machine motion, a stationary Bellows Node pressure-pulse enemy that can over-pressurize nearby Scrappers with visible boost-state VFX and a dedicated pulse audio cue, animated pressure-bolt projectiles, animated steam hazards, animated furnace-heat hazards, three multi-level secret caches, health/ammo/key pickup VFX, a pressure gate with opening VFX, service-lift transitions with activation VFX, a Pipeworks routing valve, a Boilerheart pressure valve that unlocks the foundry lift, a Furnace Foundry route, machine hit/shutdown VFX, and a Governor Core finale with a Warden shutdown effect and master override hoist.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, readable lore plaques, animated gears/valves/pulleys, brass HUD with persistent objective guidance and boss health readout, hitscan pressure-pistol shooting with right-mouse pressure-burst alternate fire, dedicated Pressure Burst audio/VFX, pressure-dump viewmodel motion cues, and impact decal VFX, Steam Scattergun weapon unlock/switching through the real Level03 world pickup with a richer display-stand silhouette plus route/signage/lamp readability cues, its own first-person viewmodel, dedicated primary blast VFX/audio, dedicated slug VFX/audio, dedicated pickup audio, and dedicated weapon-pickup VFX, first-person player damage VFX, procedural audio cues, procedural brassworks ambience, mechanical melee/ranged/heavy/boss/support enemies with procedural machine motion, a stationary Bellows Node pressure-pulse enemy that can over-pressurize nearby Scrappers with visible boost-state VFX and a dedicated pulse audio cue, animated pressure-bolt projectiles, animated steam hazards, animated furnace-heat hazards, three multi-level secret caches, health/ammo/key pickup VFX, a pressure gate with opening VFX, service-lift transitions with activation VFX, a Pipeworks routing valve, a Boilerheart pressure valve that unlocks the foundry lift, a Furnace Foundry route, machine hit/shutdown VFX, and a Governor Core finale with a Warden shutdown effect and master override hoist.
 
 Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
 
@@ -64,7 +64,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.87\BrassworksBreach_v0.0.87.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.88\BrassworksBreach_v0.0.88.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -506,7 +506,16 @@ Individual Unity entry points remain available:
 - Pressure Pistol right-mouse Pressure Burst now routes through a dedicated procedural pressure-dump audio cue.
 - Pressure Burst now spawns its own pressure-ring, steam-core, brass-valve, and shard VFX instead of relying on generic pistol feedback.
 - Runtime and combat-scenario smoke verify Pressure Burst cue configuration, audio routing, VFX spawn, ammo accounting, and non-lethal setup before primary-shot checks.
-- Full V0 matrix produced `Builds/Windows/v0.0.87/BrassworksBreach_v0.0.87.exe`.
+
+## What v0.0.88 Adds
+
+- Pressure Pistol secondary fire now drives distinct viewmodel pressure-dump motion.
+- The gauge needle kicks, valve wheel spins, dump lever snaps, pressure chamber recoils, and side vent flashes during `Pressure Burst`.
+- Level validation checks the new relief nozzle, dump lever, gauge needle, and valve wheel cues.
+- Combat-scenario smoke verifies the secondary-fire viewmodel cues animate along with dedicated Pressure Burst audio/VFX.
+- First side-agent material, enemy, and weapon/prop staging packages landed under `Assets/_Project/ArtStaging/` with texture maps, OBJ blockouts, manifests, and preview sheets.
+- View-only concept renders landed under `Documentation/ConceptRenders/`; start with `CONTACTSHEET_staged_assets_current.jpg`.
+- Full V0 matrix produced `Builds/Windows/v0.0.88/BrassworksBreach_v0.0.88.exe`.
 
 ## Good Next Steps
 

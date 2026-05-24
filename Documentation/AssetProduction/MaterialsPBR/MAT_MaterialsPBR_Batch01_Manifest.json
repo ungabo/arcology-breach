@@ -1,0 +1,489 @@
+{
+  "batchId": "MAT_MaterialsPBR_Batch01",
+  "project": "Brassworks Breach",
+  "worker": "Worker A",
+  "status": "production-staged procedural prototype",
+  "textureResolution": [
+    1024,
+    1024
+  ],
+  "mapPacking": {
+    "ORM": "R=ambient occlusion, G=roughness, B=metallic",
+    "baseColor": "sRGB PNG; GrimyAmberGlass includes alpha opacity prototype",
+    "normal": "tangent-space normal PNG, import as Unity normal map"
+  },
+  "materials": [
+    {
+      "id": "MAT_AgedBrass",
+      "displayName": "Aged Brass",
+      "role": "trim, pipes, pressure hardware, ornate panels",
+      "source": "Worker A deterministic procedural generation, 1024x1024 PNG maps",
+      "status": "production-staged prototype",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_AgedBrass_BaseColor.png",
+        "normal": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_AgedBrass_Normal.png",
+        "orm": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_AgedBrass_ORM.png"
+      },
+      "mapNotes": {
+        "baseColor": "sRGB. Grimy Amber Glass stores prototype opacity in the alpha channel; other BaseColor maps are RGB.",
+        "normal": "Tangent-space PNG generated from procedural height. Import as Unity Normal Map.",
+        "orm": "Packed mask: R=ambient occlusion, G=roughness, B=metallic. Import linear/non-sRGB."
+      },
+      "notes": [
+        "Tarnished brass with green patina pockets, pitting, scratches, and low rivet relief.",
+        "Metallic channel remains high but drops slightly in oxidized grime zones."
+      ]
+    },
+    {
+      "id": "MAT_RivetedBlackenedIron",
+      "displayName": "Riveted Blackened Iron",
+      "role": "doors, enemy armor, wall plates, industrial braces",
+      "source": "Worker A deterministic procedural generation, 1024x1024 PNG maps",
+      "status": "production-staged prototype",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_RivetedBlackenedIron_BaseColor.png",
+        "normal": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_RivetedBlackenedIron_Normal.png",
+        "orm": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_RivetedBlackenedIron_ORM.png"
+      },
+      "mapNotes": {
+        "baseColor": "sRGB. Grimy Amber Glass stores prototype opacity in the alpha channel; other BaseColor maps are RGB.",
+        "normal": "Tangent-space PNG generated from procedural height. Import as Unity Normal Map.",
+        "orm": "Packed mask: R=ambient occlusion, G=roughness, B=metallic. Import linear/non-sRGB."
+      },
+      "notes": [
+        "Dark iron plate grid with raised rivets, seam shadow, scratches, and early orange-brown corrosion.",
+        "Designed to replace current greybox riveted iron primitives after Unity material setup."
+      ]
+    },
+    {
+      "id": "MAT_SootStainedBrick",
+      "displayName": "Soot-Stained Brick",
+      "role": "furnace rooms, dungeon walls, chimney recesses",
+      "source": "Worker A deterministic procedural generation, 1024x1024 PNG maps",
+      "status": "production-staged prototype",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_SootStainedBrick_BaseColor.png",
+        "normal": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_SootStainedBrick_Normal.png",
+        "orm": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_SootStainedBrick_ORM.png"
+      },
+      "mapNotes": {
+        "baseColor": "sRGB. Grimy Amber Glass stores prototype opacity in the alpha channel; other BaseColor maps are RGB.",
+        "normal": "Tangent-space PNG generated from procedural height. Import as Unity Normal Map.",
+        "orm": "Packed mask: R=ambient occlusion, G=roughness, B=metallic. Import linear/non-sRGB."
+      },
+      "notes": [
+        "Offset brickwork with dark mortar and soot blooms suitable for furnace-adjacent masonry.",
+        "Top-down soot staining is prototype art-directed and may need final tiling variants."
+      ]
+    },
+    {
+      "id": "MAT_WetOilDarkStone",
+      "displayName": "Wet Oil-Dark Stone",
+      "role": "floors, service tunnels, damp dungeon slabs",
+      "source": "Worker A deterministic procedural generation, 1024x1024 PNG maps",
+      "status": "production-staged prototype",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_WetOilDarkStone_BaseColor.png",
+        "normal": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_WetOilDarkStone_Normal.png",
+        "orm": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_WetOilDarkStone_ORM.png"
+      },
+      "mapNotes": {
+        "baseColor": "sRGB. Grimy Amber Glass stores prototype opacity in the alpha channel; other BaseColor maps are RGB.",
+        "normal": "Tangent-space PNG generated from procedural height. Import as Unity Normal Map.",
+        "orm": "Packed mask: R=ambient occlusion, G=roughness, B=metallic. Import linear/non-sRGB."
+      },
+      "notes": [
+        "Dark stone slab texture with glossy oil pooling in low regions and occluded cracks.",
+        "Roughness channel deliberately drops in oil puddles for wet specular response."
+      ]
+    },
+    {
+      "id": "MAT_GreenOxidizedCopper",
+      "displayName": "Green Oxidized Copper",
+      "role": "pipes, tanks, service machinery, antique trim",
+      "source": "Worker A deterministic procedural generation, 1024x1024 PNG maps",
+      "status": "production-staged prototype",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_GreenOxidizedCopper_BaseColor.png",
+        "normal": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_GreenOxidizedCopper_Normal.png",
+        "orm": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_GreenOxidizedCopper_ORM.png"
+      },
+      "mapNotes": {
+        "baseColor": "sRGB. Grimy Amber Glass stores prototype opacity in the alpha channel; other BaseColor maps are RGB.",
+        "normal": "Tangent-space PNG generated from procedural height. Import as Unity Normal Map.",
+        "orm": "Packed mask: R=ambient occlusion, G=roughness, B=metallic. Import linear/non-sRGB."
+      },
+      "notes": [
+        "Verdigris-heavy copper with exposed warm copper scratches and plate seams.",
+        "Metallic map distinguishes oxidized surface from exposed copper wear."
+      ]
+    },
+    {
+      "id": "MAT_GrimyAmberGlass",
+      "displayName": "Grimy Amber Glass",
+      "role": "gauge lenses, lamps, vats, small windows",
+      "source": "Worker A deterministic procedural generation, 1024x1024 PNG maps",
+      "status": "production-staged prototype",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_GrimyAmberGlass_BaseColor.png",
+        "normal": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_GrimyAmberGlass_Normal.png",
+        "orm": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_GrimyAmberGlass_ORM.png"
+      },
+      "mapNotes": {
+        "baseColor": "sRGB. Grimy Amber Glass stores prototype opacity in the alpha channel; other BaseColor maps are RGB.",
+        "normal": "Tangent-space PNG generated from procedural height. Import as Unity Normal Map.",
+        "orm": "Packed mask: R=ambient occlusion, G=roughness, B=metallic. Import linear/non-sRGB."
+      },
+      "notes": [
+        "Amber glass base color uses alpha for prototype opacity; grime raises roughness to break up highlights.",
+        "Needs final shader tuning in Unity for transparency sorting and reflection behavior."
+      ]
+    },
+    {
+      "id": "MAT_LeatherBellows",
+      "displayName": "Leather Bellows",
+      "role": "pump machinery, accordion joints, pressure organs",
+      "source": "Worker A deterministic procedural generation, 1024x1024 PNG maps",
+      "status": "production-staged prototype",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_LeatherBellows_BaseColor.png",
+        "normal": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_LeatherBellows_Normal.png",
+        "orm": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_LeatherBellows_ORM.png"
+      },
+      "mapNotes": {
+        "baseColor": "sRGB. Grimy Amber Glass stores prototype opacity in the alpha channel; other BaseColor maps are RGB.",
+        "normal": "Tangent-space PNG generated from procedural height. Import as Unity Normal Map.",
+        "orm": "Packed mask: R=ambient occlusion, G=roughness, B=metallic. Import linear/non-sRGB."
+      },
+      "notes": [
+        "Ribbed dark leather with fold valleys, worn creases, and stitched side seams.",
+        "Procedural fold spacing should be replaced by bespoke UV-aware bellows textures for hero machinery."
+      ]
+    },
+    {
+      "id": "MAT_HazardEnamel",
+      "displayName": "Hazard Enamel",
+      "role": "danger panels, doors, pressure signage, machinery guards",
+      "source": "Worker A deterministic procedural generation, 1024x1024 PNG maps",
+      "status": "production-staged prototype",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_HazardEnamel_BaseColor.png",
+        "normal": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_HazardEnamel_Normal.png",
+        "orm": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_HazardEnamel_ORM.png"
+      },
+      "mapNotes": {
+        "baseColor": "sRGB. Grimy Amber Glass stores prototype opacity in the alpha channel; other BaseColor maps are RGB.",
+        "normal": "Tangent-space PNG generated from procedural height. Import as Unity Normal Map.",
+        "orm": "Packed mask: R=ambient occlusion, G=roughness, B=metallic. Import linear/non-sRGB."
+      },
+      "notes": [
+        "Chipped diagonal black/yellow enamel exposing darker metal below with grime streaks and riveted fasteners.",
+        "Works as a hazard-readability prototype; final art should align stripe scale to UVs and gameplay signage."
+      ]
+    }
+  ],
+  "files": [
+    {
+      "materialId": "MAT_AgedBrass",
+      "mapType": "baseColor",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_AgedBrass_BaseColor.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "8a3aac37129e4a1e4408ec0a39d1c4496c9155bbe5635f858dff6d178d5cf6b4"
+    },
+    {
+      "materialId": "MAT_AgedBrass",
+      "mapType": "normal",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_AgedBrass_Normal.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "0fd3b8ce80b03f13bb84a79d604f2861e3ec6f9767899cebab0eed602d4fc1bc"
+    },
+    {
+      "materialId": "MAT_AgedBrass",
+      "mapType": "orm",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_AgedBrass_ORM.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "73c6e8e0161ea5890ab439962b5a24c762c238ae73e4623bd981b2cf41f91140"
+    },
+    {
+      "materialId": "MAT_RivetedBlackenedIron",
+      "mapType": "baseColor",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_RivetedBlackenedIron_BaseColor.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "856054bda34ff165e837aec7ff82359e2b8079c5c91be73ad9f1ed6a1616e5a3"
+    },
+    {
+      "materialId": "MAT_RivetedBlackenedIron",
+      "mapType": "normal",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_RivetedBlackenedIron_Normal.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "a40ca1280b13c6efc39a224e19efdd73deb924106f60db7d59488cf43cf53510"
+    },
+    {
+      "materialId": "MAT_RivetedBlackenedIron",
+      "mapType": "orm",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_RivetedBlackenedIron_ORM.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "85c16831ea7d90d3a461c76e6588bbd4cb8896cb548436ab27119c583d754dbc"
+    },
+    {
+      "materialId": "MAT_SootStainedBrick",
+      "mapType": "baseColor",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_SootStainedBrick_BaseColor.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "8e64619b6246e41b8810df0e2e458c875117948bd15a396907d0ea35f475f772"
+    },
+    {
+      "materialId": "MAT_SootStainedBrick",
+      "mapType": "normal",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_SootStainedBrick_Normal.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "beae0c91f899ce79e36701a4b6197d4a3b538c0fa2fbb7656c9273895267a6db"
+    },
+    {
+      "materialId": "MAT_SootStainedBrick",
+      "mapType": "orm",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_SootStainedBrick_ORM.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "4b855bf8df0f86429ce037dd4555f65f0a3d4875c250b8f8a6140d0ada4c4f8b"
+    },
+    {
+      "materialId": "MAT_WetOilDarkStone",
+      "mapType": "baseColor",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_WetOilDarkStone_BaseColor.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "858286843ae0a0bd36d8d4732d7fefa638e78a853aba2327a62f3e35c17f71e5"
+    },
+    {
+      "materialId": "MAT_WetOilDarkStone",
+      "mapType": "normal",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_WetOilDarkStone_Normal.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "2de09e496c1078d6acc858c5adb25c32450194f65aa465e01ae80001a1f8d518"
+    },
+    {
+      "materialId": "MAT_WetOilDarkStone",
+      "mapType": "orm",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_WetOilDarkStone_ORM.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "288c61415a94caac307dd90c41d3a2f261f4a7e3d347ee1aab5b9eabc6722b22"
+    },
+    {
+      "materialId": "MAT_GreenOxidizedCopper",
+      "mapType": "baseColor",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_GreenOxidizedCopper_BaseColor.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "9fbaacdb35aae8be89abac5688ea0996b300f1a1b656a527d28d93efb3154c22"
+    },
+    {
+      "materialId": "MAT_GreenOxidizedCopper",
+      "mapType": "normal",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_GreenOxidizedCopper_Normal.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "6ad49260a3158bd2a6bf858dfc9f23b9e7da42f83f5d718b6000cf6cb10c0b52"
+    },
+    {
+      "materialId": "MAT_GreenOxidizedCopper",
+      "mapType": "orm",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_GreenOxidizedCopper_ORM.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "52ff91bc577e35aa5d4c4850adbdd9f0603b0f2bfe62644ece05b82b8776fc51"
+    },
+    {
+      "materialId": "MAT_GrimyAmberGlass",
+      "mapType": "baseColor",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_GrimyAmberGlass_BaseColor.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "sha256": "99440e2c9a23f3de54cba33bffcbeae92dfb16f002a0833be751b5843396c096"
+    },
+    {
+      "materialId": "MAT_GrimyAmberGlass",
+      "mapType": "normal",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_GrimyAmberGlass_Normal.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "004158cb9fd0bfae14ddffb1bd42044c722e0a9befb5bdfe6db23e9d23807f20"
+    },
+    {
+      "materialId": "MAT_GrimyAmberGlass",
+      "mapType": "orm",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_GrimyAmberGlass_ORM.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "e9b62321d089bcd586e221cc10969e8700ff5240e4b61bd65fc9a1032176050c"
+    },
+    {
+      "materialId": "MAT_LeatherBellows",
+      "mapType": "baseColor",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_LeatherBellows_BaseColor.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "199f926f9c6e54105b2a63adcd323f43fbc3f9ffdbfce3fbb8b3dd6f64745c59"
+    },
+    {
+      "materialId": "MAT_LeatherBellows",
+      "mapType": "normal",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_LeatherBellows_Normal.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "dcc8370905fff8b4e2fec7970fcb7e9cc2928eceb41629c9f3214619258a6340"
+    },
+    {
+      "materialId": "MAT_LeatherBellows",
+      "mapType": "orm",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_LeatherBellows_ORM.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "a6f0317c6bbc0f1d29ae5a7e615129120f6d80ae0f52116f05e8a69bed77533b"
+    },
+    {
+      "materialId": "MAT_HazardEnamel",
+      "mapType": "baseColor",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_HazardEnamel_BaseColor.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "c34c3ebd29c01715f73da8a7c7a9aaf2ef5e4c2fbb8247611241f70b83cca4d2"
+    },
+    {
+      "materialId": "MAT_HazardEnamel",
+      "mapType": "normal",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_HazardEnamel_Normal.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "c8061bcab3427f218bb5937b5fa0a9436e77315ddff6e4dc9dfb9fce074222bc"
+    },
+    {
+      "materialId": "MAT_HazardEnamel",
+      "mapType": "orm",
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Textures/T_HazardEnamel_ORM.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "59c58ff5b5bad17c82c010e665c3f69eaf1d139183028e1d6016fc8708ff1ec3"
+    }
+  ],
+  "previews": [
+    {
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Previews/T_MaterialsPBR_Batch01_MapTriplets_ContactSheet.png",
+      "size": [
+        976,
+        2552
+      ],
+      "mode": "RGB",
+      "sha256": "e5151e588be451a53f0141b3c2f2a58defa79ac79d87775dea0aa648b6862c6c"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Previews/T_MaterialsPBR_Batch01_MapTriplets_ContactSheet.jpg",
+      "size": [
+        976,
+        2552
+      ],
+      "mode": "RGB",
+      "sha256": "4197fae665f8a61e20157caa2764bc6f9730650cc64c7ccbdfca180f9b5ae15e"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Previews/T_MaterialsPBR_Batch01_BaseColorTiling_ContactSheet.png",
+      "size": [
+        1200,
+        762
+      ],
+      "mode": "RGB",
+      "sha256": "44d9264fc1e0f1ae500cc745cc545a6b4224cdc6c62c8efae4285fc0946c7f8c"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/MaterialsPBR/Previews/T_MaterialsPBR_Batch01_SwatchSheet.png",
+      "size": [
+        768,
+        624
+      ],
+      "mode": "RGB",
+      "sha256": "941a49d7e205f59b8daf0e9b0446bfc8da479b36a28bc845137803e9ebc08d2d"
+    }
+  ]
+}

@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.87`.
+Current state: `v0.0.88`.
 
 Implemented:
 
@@ -88,6 +88,9 @@ Implemented:
 - Dedicated Steam Scattergun slug VFX/audio with weapon-switch smoke coverage.
 - Dedicated weapon-pickup procedural audio cue with runtime and weapon-switch smoke coverage.
 - Bellows Node support-machine prototype in Level03 with a pressure-pulse attack, dedicated pulse audio cue, nearby Scrapper pressure boost, boost-state VFX, pulse VFX, data-driven definition, validation, and packaged smoke coverage.
+- Pressure Pistol Pressure Burst now has first-person pressure-dump motion cues: gauge needle kick, valve wheel spin, dump lever snap, pressure chamber recoil, and side vent flash, verified by level validation and combat-scenario smoke.
+- First staged production assets are present under `Assets/_Project/ArtStaging/`: PBR material texture maps, mechanical enemy OBJ blockouts, and weapon/prop OBJ blockouts, with manifests and preview sheets under `Documentation/AssetProduction/`.
+- View-only concept renders for staged assets and steampunk room/object mockups are present under `Documentation/ConceptRenders/`; these are review files and are not part of the Unity build.
 
 ## 3. Target Platform
 

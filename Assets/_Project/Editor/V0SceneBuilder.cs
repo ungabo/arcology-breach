@@ -1766,12 +1766,17 @@ public static class V0SceneBuilder
         gaugeBezel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
         GameObject gauge = CreateLocalPrimitive("Pressure Pistol Gauge Face", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(-0.18f, 0.18f, -0.01f), new Vector3(0.16f, 0.02f, 0.16f), gaugeFaceMaterial);
         gauge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
-        CreateLocalCube("Pressure Pistol Gauge Needle", weaponRoot.transform, new Vector3(-0.14f, 0.18f, -0.035f), new Vector3(0.12f, 0.012f, 0.012f), warningMaterial).transform.localRotation = Quaternion.Euler(0f, 0f, 18f);
+        GameObject gaugeNeedle = CreateLocalCube("Pressure Pistol Gauge Needle", weaponRoot.transform, new Vector3(-0.14f, 0.18f, -0.035f), new Vector3(0.12f, 0.012f, 0.012f), warningMaterial);
+        gaugeNeedle.transform.localRotation = Quaternion.Euler(0f, 0f, 18f);
         CreateLocalCube("Pressure Pistol Bolt Handle", weaponRoot.transform, new Vector3(0.31f, 0.02f, 0.05f), new Vector3(0.18f, 0.05f, 0.05f), ironMaterial);
         CreateLocalPrimitive("Pressure Pistol Bolt Knob", PrimitiveType.Sphere, weaponRoot.transform, new Vector3(0.42f, 0.02f, 0.05f), new Vector3(0.075f, 0.075f, 0.075f), gunTrimMaterial);
+        GameObject pressureDumpLever = CreateLocalCube("Pressure Pistol Pressure Dump Lever", weaponRoot.transform, new Vector3(0.31f, 0.15f, 0.16f), new Vector3(0.06f, 0.2f, 0.035f), warningMaterial);
+        pressureDumpLever.transform.localRotation = Quaternion.Euler(-8f, 0f, -12f);
         GameObject steamVent = CreateLocalPrimitive("Pressure Pistol Steam Vent Chimney", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(0.16f, 0.25f, 0.16f), new Vector3(0.045f, 0.16f, 0.045f), ironMaterial);
         steamVent.transform.localRotation = Quaternion.identity;
         CreateLocalPrimitive("Pressure Pistol Steam Vent Cap", PrimitiveType.Sphere, weaponRoot.transform, new Vector3(0.16f, 0.42f, 0.16f), new Vector3(0.06f, 0.04f, 0.06f), gunTrimMaterial);
+        GameObject reliefNozzle = CreateLocalPrimitive("Pressure Pistol Pressure Relief Nozzle", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(0.26f, 0.28f, 0.2f), new Vector3(0.035f, 0.16f, 0.035f), ironMaterial);
+        reliefNozzle.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
 
         GameObject valveWheel = CreateLocalPrimitive("Pressure Pistol Valve Wheel", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(0.23f, 0.1f, 0.08f), new Vector3(0.12f, 0.025f, 0.12f), gunTrimMaterial);
         valveWheel.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
@@ -1787,11 +1792,20 @@ public static class V0SceneBuilder
             CreateLocalPrimitive("Pressure Pistol Receiver Rivet " + i, PrimitiveType.Sphere, weaponRoot.transform, new Vector3(x, y, -0.18f), new Vector3(0.035f, 0.035f, 0.035f), gunTrimMaterial);
         }
 
+        GameObject pressureDumpFlash = CreateLocalPrimitive("Pressure Pistol Pressure Dump Flash", PrimitiveType.Sphere, weaponRoot.transform, new Vector3(0.4f, 0.28f, 0.2f), new Vector3(0.24f, 0.14f, 0.14f), muzzleFlashMaterial);
+        pressureDumpFlash.SetActive(false);
         GameObject flash = CreateLocalCube("Muzzle Flash", weaponRoot.transform, new Vector3(0f, 0.09f, 0.91f), new Vector3(0.45f, 0.45f, 0.08f), muzzleFlashMaterial);
         flash.SetActive(false);
 
         WeaponView weaponView = weaponRoot.AddComponent<WeaponView>();
         weaponView.muzzleFlash = flash;
+        weaponView.pressureDumpFlash = pressureDumpFlash;
+        weaponView.pressureGaugeNeedle = gaugeNeedle.transform;
+        weaponView.pressureValveWheel = valveWheel.transform;
+        weaponView.pressureDumpLever = pressureDumpLever.transform;
+        weaponView.pressureChamber = pressureTank.transform;
+        weaponView.secondaryRecoilOffset = new Vector3(0f, -0.06f, -0.15f);
+        weaponView.secondaryFlashDuration = 0.14f;
         return weaponView;
     }
 

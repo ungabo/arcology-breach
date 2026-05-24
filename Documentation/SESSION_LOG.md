@@ -2809,3 +2809,51 @@ Side-agent update:
 - Nietzsche started `Documentation/ASSET_VIEWING_GUIDE.md` and `Documentation/AssetPreviews/`.
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 21:58 -04:00
+
+Completed `v0.0.88` Pressure Pistol viewmodel polish pass.
+
+Added:
+
+- Secondary-fire animation support in `WeaponView`.
+- Pressure Pistol Pressure Burst now kicks the gauge needle, spins the valve wheel, snaps the dump lever, recoils the pressure chamber, and flashes the side vent.
+- Generated scenes now include the Pressure Pistol pressure relief nozzle and pressure dump lever.
+- Level validation now requires the new Pressure Pistol pressure-dump cue objects.
+- Combat-scenario smoke now verifies secondary viewmodel pressure-dump cues animate.
+- Versioned Windows build `v0.0.88`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.88/BrassworksBreach_v0.0.88.exe`
+
+Side-agent update:
+
+- Curie completed staged PBR material textures and preview sheets under `Assets/_Project/ArtStaging/MaterialsPBR/` and `Documentation/AssetProduction/MaterialsPBR/`.
+- Linnaeus completed staged mechanical enemy OBJ blockouts and preview sheets under `Assets/_Project/ArtStaging/Enemies/` and `Documentation/AssetProduction/Enemies/`.
+- Rawls completed staged weapon/prop OBJ blockouts and preview sheets under `Assets/_Project/ArtStaging/WeaponsProps/` and `Documentation/AssetProduction/WeaponsProps/`.
+- Hooke completed view-only concept renders and contact sheets under `Documentation/ConceptRenders/`.
+- Poincare continues running on modular kit meshes.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

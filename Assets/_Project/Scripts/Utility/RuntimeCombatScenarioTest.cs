@@ -51,6 +51,12 @@ public class RuntimeCombatScenarioTest : MonoBehaviour
             yield break;
         }
 
+        if (weapon.weaponView == null || !weapon.weaponView.HasSecondaryPressureCues || !weapon.weaponView.IsSecondaryPressureMotionActive)
+        {
+            Fail("Combat scenario failed: pressure pistol secondary viewmodel cues did not animate.");
+            yield break;
+        }
+
         if (target == null)
         {
             Fail("Combat scenario failed: secondary pressure burst killed enemy before primary-shot verification.");

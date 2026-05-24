@@ -654,6 +654,10 @@ public static class V0LevelValidator
         RequireNamed("Pressure Pistol Pressure Tank", sceneName + " pressure pistol pressure tank visual");
         RequireNamed("Pressure Pistol Muzzle Crown", sceneName + " pressure pistol muzzle crown visual");
         RequireNamed("Pressure Pistol Steam Vent Chimney", sceneName + " pressure pistol steam vent visual");
+        RequireNamed("Pressure Pistol Pressure Relief Nozzle", sceneName + " pressure pistol pressure relief nozzle visual");
+        RequireNamed("Pressure Pistol Pressure Dump Lever", sceneName + " pressure pistol pressure dump lever visual");
+        RequireNamed("Pressure Pistol Gauge Needle", sceneName + " pressure pistol gauge needle visual");
+        RequireNamed("Pressure Pistol Valve Wheel", sceneName + " pressure pistol valve wheel visual");
         RequireNamed("Pressure Pistol Front Sight", sceneName + " pressure pistol front sight visual");
         RequireNamed("Steam Scattergun Viewmodel", sceneName + " Steam Scattergun viewmodel");
         RequireNamed("Steam Scattergun Brass Receiver", sceneName + " Steam Scattergun receiver visual");

@@ -232,7 +232,7 @@ public class WeaponController : MonoBehaviour
             ? (secondaryShot ? SteamworksAudioCue.SteamScattergunSlug : SteamworksAudioCue.SteamScattergunFire)
             : (secondaryShot ? SteamworksAudioCue.PressureBurst : SteamworksAudioCue.PressureFire);
         SteamworksAudio.Play(fireCue);
-        weaponView?.PlayFire();
+        weaponView?.PlayFire(secondaryShot);
 
         Ray baseRay = aimCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         if (usingSteamScattergun)

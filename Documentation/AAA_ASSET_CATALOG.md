@@ -35,6 +35,7 @@ Every major asset should eventually have three quality targets:
 | MAT-010 | Green service-lift surface | P1 | planned | Exit/lift material with restored-pressure cue. |
 | MAT-011 | Gauge glass and cream enamel | P2 | planned | HUD, gauges, and readable labels. |
 | MAT-012 | Oil/scorch decal set | P2 | planned | Combat and machinery wear. |
+| MAT-013 | Staged PBR material batch 01 | P1 | review | Side-agent package under `Assets/_Project/ArtStaging/MaterialsPBR/` includes 1024px BaseColor, Normal, and ORM maps for aged brass, riveted blackened iron, soot-stained brick, wet oil-dark stone, oxidized copper, grimy amber glass, leather bellows, and hazard enamel, with manifests and preview sheets in `Documentation/AssetProduction/MaterialsPBR/`. |
 
 ## 2. Modular Geometry
 
@@ -79,12 +80,13 @@ Every major asset should eventually have three quality targets:
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
 | WPN-001 | Pressure Pistol prototype | P0 | prototype | Primitive first-person brass-and-walnut pneumatic sidearm with receiver, pressure tube, gauge, valve, trigger, and side pipes. |
-| WPN-002 | Pressure Pistol final | P1 | verified | Procedural brass-and-walnut pneumatic sidearm with pressure tank, muzzle crown, sights, vent, valve, gauge, pipes, rivets, recoil/flash feedback, right-mouse Pressure Burst alternate fire, and data-driven definition asset. |
+| WPN-002 | Pressure Pistol final | P1 | verified | Procedural brass-and-walnut pneumatic sidearm with pressure tank, muzzle crown, sights, vent, valve, gauge, dump lever, pipes, rivets, recoil/flash feedback, right-mouse Pressure Burst alternate fire, secondary pressure-dump viewmodel cues, and data-driven definition asset. |
 | WPN-003 | Steam Scattergun | P1 | prototype | Close-range breaching weapon prototype with data-driven pellet fire, slug alternate fire, polished Level03 display-stand pickup silhouette, route/signage/lamp readability cues, distinct first-person triple-barrel viewmodel, dedicated primary blast VFX/audio, dedicated slug VFX/audio, dedicated pickup VFX/audio, unlock persistence, and real world-pickup weapon-switch smoke coverage. Final animation and balance polish remain planned. |
 | WPN-004 | Rivet Launcher | P2 | planned | Mechanical precision weapon for stronger machines. |
 | WPN-005 | Weapon pickup shells | P2 | prototype | World pickup visuals/audio for weapons; Steam Scattergun pickup now has a display stand, yoke, nameplate, shell rack, brass route strips, chevrons, lamps, `WeaponPickupVfx` brass shell pieces, steam core, pressure ring, and a dedicated acquisition cue. |
 | WPN-006 | Ammo family | P1 | prototype | Pressure cartridge pack exists with data-driven pickup definition; rivet bundles and boiler caps remain planned. |
-| WPN-007 | Pressure Burst alternate fire | P1 | verified | Short-range deterministic pellet burst using three cartridges, separate cooldown/range/spread tuning, dedicated pressure-dump audio, dedicated pressure/steam/brass VFX, and combat-scenario smoke coverage. Final pass should add authored pressure dump/recoil animation. |
+| WPN-007 | Pressure Burst alternate fire | P1 | verified | Short-range deterministic pellet burst using three cartridges, separate cooldown/range/spread tuning, dedicated pressure-dump audio, dedicated pressure/steam/brass VFX, secondary viewmodel gauge/valve/lever/chamber/vent motion, and combat-scenario smoke coverage. Final pass should replace procedural cue motion with authored animation. |
+| WPN-008 | Staged weapon/prop blockout pack | P1 | review | Side-agent OBJ package under `Assets/_Project/ArtStaging/WeaponsProps/` includes Pressure Pistol, Steam Scattergun, pressure-cell ammo, scattergun slug canister, wall pressure station, and crank lever blockouts with preview sheets and manifests in `Documentation/AssetProduction/WeaponsProps/`. |
 
 ## 5. Mechanical Enemies
 
@@ -97,12 +99,13 @@ Every major asset should eventually have three quality targets:
 | ENEMY-005 | Bulwark | P2 | prototype | Primitive furnace-plated machine with boiler body, hammer arms, data-driven definition, Level04/Level05 placement, and combat smoke coverage. |
 | ENEMY-006 | Bellows Node | P2 | prototype | Stationary pressure amplifier prototype in Level03 with data-driven definition, primitive bellows silhouette, pressure-pulse damage, dedicated pulse audio, short nearby-Scrapper boost, pulse VFX, boost-state VFX, validation, and packaged smoke coverage. Future pass can add richer support behavior for more machine types. |
 | ENEMY-007 | Governor Warden | P1 | prototype | Final guardian prototype with data-driven definition, Level05 placement, stomp attack, pressure-bolt attack, enraged half-health behavior, primitive core body/furnace heart/pressure crown/pressure cannon silhouette, boss health HUD integration, shutdown VFX, validation, and combat smoke coverage. |
+| ENEMY-008 | Staged enemy blockout pack | P1 | review | Side-agent OBJ package under `Assets/_Project/ArtStaging/Enemies/` includes Scrapper Automaton, Lancer Automaton, Sentinel Turret, cog shoulder joint, piston leg, brass mask/visor, furnace core, and pipe backpack blockouts with preview sheets and manifests in `Documentation/AssetProduction/Enemies/`. |
 
 ## 6. Animations
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
-| ANIM-001 | Weapon idle/fire | P1 | prototype | Pressure Pistol and Steam Scattergun each have a procedural first-person viewmodel with shared recoil/flash support; dedicated authored animations remain planned. |
+| ANIM-001 | Weapon idle/fire | P1 | prototype | Pressure Pistol and Steam Scattergun each have a procedural first-person viewmodel with shared recoil/flash support; Pressure Pistol secondary fire also kicks gauge/valve/lever/chamber/vent pieces; dedicated authored animations remain planned. |
 | ANIM-002 | Pressure Pistol reload/check | P2 | planned | Optional if reloads become part of gameplay. |
 | ANIM-003 | Scrapper idle/chase | P1 | prototype | `MachineMotionVfx` now gives Scrappers baseline boiler bob, piston/cutter motion, and pressure pulsing; final pass should replace it with authored stride/attack clips. |
 | ANIM-004 | Scrapper attack tell | P1 | planned | Cutter arm windup before damage. |
@@ -112,6 +115,12 @@ Every major asset should eventually have three quality targets:
 | ANIM-008 | Pickup bob/spin | P1 | prototype | Existing bobbing/spin can become clockwork hover or plinth animation. |
 | ANIM-009 | Machinery spinner loop | P1 | prototype | Reusable local-axis spinner loop for pressure gates, service lifts, valve wheels, and menu steamworks motion; final pass should vary speed, timing, linkage, and sound. |
 | ANIM-010 | Shared machine enemy motion | P1 | prototype | `MachineMotionVfx` applies reusable procedural body, limb, and pressure-part motion to Scrappers, Lancers, Bulwarks, and the Governor Warden. |
+
+## 6A. Review Renders
+
+| ID | Asset | Priority | Status | Description |
+| --- | --- | --- | --- | --- |
+| RENDER-001 | Concept render lane | P1 | review | `Documentation/ConceptRenders/` contains mockup and staged-asset JPG contact sheets for objects, room mood, staged PBR materials, enemy blockouts, and weapon/prop blockouts. These are user-review files outside Unity build assets. |
 
 ## 7. VFX
 

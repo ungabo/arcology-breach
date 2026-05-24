@@ -1,0 +1,637 @@
+{
+  "generated_at": "2026-05-23 22:00:01 -04:00",
+  "worker": "Worker C",
+  "project": "Brassworks Breach",
+  "scope": [
+    "Assets/_Project/ArtStaging/WeaponsProps",
+    "Documentation/AssetProduction/WeaponsProps"
+  ],
+  "unity_import": {
+    "scale": "1 Unity unit = 1 meter; import OBJ scale factor 1.0.",
+    "axis": "+Y up, +Z forward/down-barrel for weapons, +Z room-facing for wall props.",
+    "materials": "Shared MTL: Assets/_Project/ArtStaging/WeaponsProps/WPN_PROP_PICKUP_WeaponsProps_BlockoutMaterials.mtl",
+    "socket_markers": "Magenta geometry groups named SOCKET_* are temporary locator meshes; recreate as empty transforms or sockets during prefab integration."
+  },
+  "materials": {
+    "MAT_Brass_Worn": "Worn aged brass, intended metallic 1.0 roughness 0.42.",
+    "MAT_Brass_PolishedEdge": "Bright brass edge/collar material, intended metallic 1.0 roughness 0.30.",
+    "MAT_BlackenedIron": "Blackened iron and soot-dark frame, intended metallic 0.85 roughness 0.60.",
+    "MAT_HeatStainedSteel": "Heat-stained steel for barrels and slug bodies.",
+    "MAT_CopperPipe_Aged": "Aged copper pipe/tube material.",
+    "MAT_WalnutLeather_Dark": "Dark walnut or leather grip material.",
+    "MAT_GaugeFace_Cream": "Cream enamel gauge or label face.",
+    "MAT_Glass_PressureAmber": "Amber pressure glass; author translucent/emissive variant in Unity if desired.",
+    "MAT_RedValve_Warning": "Red valve/warning accent.",
+    "MAT_SocketMarker_Magenta": "Temporary visible socket locator geometry. Hide/delete after anchors are recreated."
+  },
+  "assets": [
+    {
+      "name": "WPN_PressurePistol_Viewmodel_Blockout",
+      "title": "Pressure Pistol Hero Viewmodel Blockout",
+      "category": "Weapon / first-person viewmodel",
+      "obj": "Assets/_Project/ArtStaging/WeaponsProps/WPN_PressurePistol_Viewmodel_Blockout.obj",
+      "preview": "Documentation/AssetProduction/WeaponsProps/PREVIEW_WPN_PressurePistol_Viewmodel_Blockout.png",
+      "approx_dimensions_m": "Approx 0.22 m W x 0.33 m H x 0.82 m L including socket markers; readable compact sidearm silhouette.",
+      "computed_bounds_m": {
+        "min": [
+          -0.1429,
+          -0.1485,
+          0.0938
+        ],
+        "max": [
+          0.1507,
+          0.2575,
+          0.7956
+        ],
+        "size": [
+          0.2935,
+          0.406,
+          0.7019
+        ]
+      },
+      "pivot": "Origin near dominant hand grip center; +Z points down barrel, +Y up.",
+      "vertex_count": 1404,
+      "triangle_count": 2596,
+      "materials": [
+        "MAT_BlackenedIron",
+        "MAT_Brass_PolishedEdge",
+        "MAT_Brass_Worn",
+        "MAT_CopperPipe_Aged",
+        "MAT_GaugeFace_Cream",
+        "MAT_Glass_PressureAmber",
+        "MAT_RedValve_Warning",
+        "MAT_SocketMarker_Magenta",
+        "MAT_WalnutLeather_Dark"
+      ],
+      "sockets": [
+        {
+          "name": "SOCKET_Muzzle",
+          "position_m": [
+            0.0,
+            0.205,
+            0.77
+          ],
+          "purpose": "Muzzle flash, projectile origin, primary and burst VFX."
+        },
+        {
+          "name": "SOCKET_Grip_Dominant",
+          "position_m": [
+            0.0,
+            -0.03,
+            0.16
+          ],
+          "purpose": "Right-hand grip pose; one-hand VR dominant grip."
+        },
+        {
+          "name": "SOCKET_PressureChamber",
+          "position_m": [
+            0.0,
+            0.095,
+            0.43
+          ],
+          "purpose": "Underbarrel chamber highlight and alternate fire pressure dump."
+        },
+        {
+          "name": "SOCKET_Valve",
+          "position_m": [
+            0.125,
+            0.155,
+            0.42
+          ],
+          "purpose": "Side valve twist for reload/check and empty click."
+        },
+        {
+          "name": "SOCKET_Vent_Right",
+          "position_m": [
+            0.095,
+            0.205,
+            0.31
+          ],
+          "purpose": "Steam vent puff during alternate pressure burst."
+        },
+        {
+          "name": "SOCKET_Trigger",
+          "position_m": [
+            0.0,
+            0.07,
+            0.25
+          ],
+          "purpose": "Trigger motion anchor."
+        }
+      ],
+      "import_notes": [
+        "Import OBJ at scale factor 1.0; 1 Unity unit equals 1 meter.",
+        "Use mesh as a viewmodel LOD0 blockout/proportion target, not gameplay collision.",
+        "Material slots intentionally separate brass, blackened iron, walnut/leather, copper, gauge face, amber glass, and socket markers."
+      ],
+      "animation_notes": [
+        "Receiver and barrel recoil as one assembly: kick back -Z 0.035 m and pitch up 4-6 degrees.",
+        "Underbarrel pressure chamber pulses/glows for alternate fire; vent from right side socket.",
+        "Side valve rotates around local X for check/reload and empty click.",
+        "Gauge needle can tremble during idle and snap upward during pressure burst.",
+        "Trigger rotates slightly backward; grip remains stable for VR one-hand pose."
+      ],
+      "collision_notes": [
+        "Use no mesh collider for viewmodel.",
+        "Future world pickup should use a simple box/capsule proxy around receiver and grip."
+      ],
+      "lod_notes": [
+        "LOD0 final target can keep distinct gauge/valve/tube elements.",
+        "LOD1 should collapse rivets and socket marker geometry.",
+        "LOD2/mobile can remove side valve spokes and copper pipe loops."
+      ]
+    },
+    {
+      "name": "WPN_SteamScattergun_Viewmodel_Blockout",
+      "title": "Steam Scattergun Hero Viewmodel Blockout",
+      "category": "Weapon / first-person viewmodel",
+      "obj": "Assets/_Project/ArtStaging/WeaponsProps/WPN_SteamScattergun_Viewmodel_Blockout.obj",
+      "preview": "Documentation/AssetProduction/WeaponsProps/PREVIEW_WPN_SteamScattergun_Viewmodel_Blockout.png",
+      "approx_dimensions_m": "Approx 0.38 m W x 0.42 m H x 1.12 m L including socket markers; broad triple-barrel breacher silhouette.",
+      "computed_bounds_m": {
+        "min": [
+          -0.19,
+          -0.1527,
+          0.1443
+        ],
+        "max": [
+          0.1984,
+          0.3185,
+          1.0834
+        ],
+        "size": [
+          0.3884,
+          0.4712,
+          0.9391
+        ]
+      },
+      "pivot": "Origin near rear dominant grip; +Z points down barrels, +Y up.",
+      "vertex_count": 2420,
+      "triangle_count": 4560,
+      "materials": [
+        "MAT_BlackenedIron",
+        "MAT_Brass_PolishedEdge",
+        "MAT_Brass_Worn",
+        "MAT_CopperPipe_Aged",
+        "MAT_HeatStainedSteel",
+        "MAT_RedValve_Warning",
+        "MAT_SocketMarker_Magenta",
+        "MAT_WalnutLeather_Dark"
+      ],
+      "sockets": [
+        {
+          "name": "SOCKET_Muzzle",
+          "position_m": [
+            0.0,
+            0.235,
+            1.055
+          ],
+          "purpose": "Center of triple-barrel muzzle flash; cone/slug VFX should branch per barrel."
+        },
+        {
+          "name": "SOCKET_Grip_Dominant",
+          "position_m": [
+            0.0,
+            0.02,
+            0.26
+          ],
+          "purpose": "Right-hand grip/trigger pose."
+        },
+        {
+          "name": "SOCKET_Grip_Support",
+          "position_m": [
+            0.0,
+            0.055,
+            0.66
+          ],
+          "purpose": "Support hand/pump pose; optional VR second hand."
+        },
+        {
+          "name": "SOCKET_Pump",
+          "position_m": [
+            0.0,
+            0.06,
+            0.67
+          ],
+          "purpose": "Pump group slides along Z after primary fire."
+        },
+        {
+          "name": "SOCKET_PressureChamber",
+          "position_m": [
+            0.0,
+            0.105,
+            0.38
+          ],
+          "purpose": "Rear pressure chamber lock/slug charge."
+        },
+        {
+          "name": "SOCKET_Valve",
+          "position_m": [
+            0.17,
+            0.19,
+            0.31
+          ],
+          "purpose": "Rotating cap/valve for slug chamber lock."
+        },
+        {
+          "name": "SOCKET_Vent_Left",
+          "position_m": [
+            -0.15,
+            0.22,
+            0.46
+          ],
+          "purpose": "Broad steam vent after blast."
+        }
+      ],
+      "import_notes": [
+        "Import OBJ at scale factor 1.0.",
+        "Viewmodel is intentionally oversized and asymmetric for first-person readability.",
+        "Triple barrels, pump, shell rack, pressure chamber, valve, and socket markers are distinct OBJ groups."
+      ],
+      "animation_notes": [
+        "Whole weapon bucks back -Z 0.055 m with 7-9 degree pitch on primary.",
+        "MOVING_PumpGrip slides -Z 0.08 m then returns after primary blast.",
+        "Right valve wheel rotates around local X before alternate slug fire.",
+        "Rear pressure chamber coils can vibrate at idle and brighten during slug charge.",
+        "Side shell rack can index or shake as a non-critical secondary motion."
+      ],
+      "collision_notes": [
+        "No mesh collider for viewmodel.",
+        "Future pickup/world version can use a compound box collider: receiver, barrel cluster, pump grip."
+      ],
+      "lod_notes": [
+        "LOD0 final target should preserve the triple muzzle cluster and side shell rack.",
+        "LOD1 can merge barrel bands and simplify valve spokes.",
+        "LOD2/mobile can remove coil rings and shell rack cylinders while preserving broad silhouette."
+      ]
+    },
+    {
+      "name": "PICKUP_PressureCell_Ammo_Blockout",
+      "title": "Pressure Pistol Ammo / Pressure Cell Pickup",
+      "category": "Pickup / ammo",
+      "obj": "Assets/_Project/ArtStaging/WeaponsProps/PICKUP_PressureCell_Ammo_Blockout.obj",
+      "preview": "Documentation/AssetProduction/WeaponsProps/PREVIEW_PICKUP_PressureCell_Ammo_Blockout.png",
+      "approx_dimensions_m": "Approx 0.24 m W x 0.43 m H x 0.20 m D including socket markers; small upright pressure cell.",
+      "computed_bounds_m": {
+        "min": [
+          -0.09,
+          0.02,
+          -0.085
+        ],
+        "max": [
+          0.085,
+          0.4116,
+          0.0955
+        ],
+        "size": [
+          0.175,
+          0.3916,
+          0.1805
+        ]
+      },
+      "pivot": "Origin at base center for stable world placement.",
+      "vertex_count": 938,
+      "triangle_count": 1772,
+      "materials": [
+        "MAT_BlackenedIron",
+        "MAT_Brass_PolishedEdge",
+        "MAT_Brass_Worn",
+        "MAT_GaugeFace_Cream",
+        "MAT_Glass_PressureAmber",
+        "MAT_RedValve_Warning",
+        "MAT_SocketMarker_Magenta"
+      ],
+      "sockets": [
+        {
+          "name": "SOCKET_PickupVFX",
+          "position_m": [
+            0.0,
+            0.39,
+            0.0
+          ],
+          "purpose": "Amber pickup glint/steam puff origin."
+        },
+        {
+          "name": "SOCKET_Valve",
+          "position_m": [
+            0.0,
+            0.35,
+            0.0
+          ],
+          "purpose": "Tiny top valve spin or idle hiss."
+        },
+        {
+          "name": "SOCKET_Collision",
+          "position_m": [
+            0.0,
+            0.19,
+            0.0
+          ],
+          "purpose": "Suggested trigger capsule center, radius 0.16 m, height 0.42 m."
+        }
+      ],
+      "import_notes": [
+        "Import OBJ at scale factor 1.0.",
+        "Readable as pistol ammo at floor height; top valve and amber glass identify pressure contents."
+      ],
+      "animation_notes": [
+        "Idle pickup can bob 0.03 m and rotate slowly around Y.",
+        "Top valve can spin briefly on pickup.",
+        "Amber tube can pulse with ammo highlight material."
+      ],
+      "collision_notes": [
+        "Use a trigger capsule: radius 0.16 m, height 0.42 m.",
+        "Optional small cylinder/box visual mesh only; do not use detailed mesh as collision."
+      ],
+      "lod_notes": [
+        "No LOD needed for v0 if used sparingly.",
+        "Mobile variant can remove rivets and top wheel spokes."
+      ]
+    },
+    {
+      "name": "PICKUP_ScattergunSlugCanister_Blockout",
+      "title": "Scattergun Ammo / Slug Canister Pickup",
+      "category": "Pickup / ammo",
+      "obj": "Assets/_Project/ArtStaging/WeaponsProps/PICKUP_ScattergunSlugCanister_Blockout.obj",
+      "preview": "Documentation/AssetProduction/WeaponsProps/PREVIEW_PICKUP_ScattergunSlugCanister_Blockout.png",
+      "approx_dimensions_m": "Approx 0.46 m W x 0.38 m H x 0.31 m D including socket markers; squat ammo canister with visible brass slugs.",
+      "computed_bounds_m": {
+        "min": [
+          -0.2029,
+          0.0,
+          -0.11
+        ],
+        "max": [
+          0.205,
+          0.383,
+          0.122
+        ],
+        "size": [
+          0.4079,
+          0.383,
+          0.232
+        ]
+      },
+      "pivot": "Origin at bottom center for floor placement.",
+      "vertex_count": 576,
+      "triangle_count": 1036,
+      "materials": [
+        "MAT_BlackenedIron",
+        "MAT_Brass_PolishedEdge",
+        "MAT_Brass_Worn",
+        "MAT_CopperPipe_Aged",
+        "MAT_GaugeFace_Cream",
+        "MAT_HeatStainedSteel",
+        "MAT_RedValve_Warning",
+        "MAT_SocketMarker_Magenta",
+        "MAT_WalnutLeather_Dark"
+      ],
+      "sockets": [
+        {
+          "name": "SOCKET_PickupVFX",
+          "position_m": [
+            0.0,
+            0.36,
+            0.0
+          ],
+          "purpose": "Pickup glint and slug ammo steam puff."
+        },
+        {
+          "name": "SOCKET_LidHinge",
+          "position_m": [
+            -0.18,
+            0.24,
+            -0.07
+          ],
+          "purpose": "Optional lid flip/inspect animation."
+        },
+        {
+          "name": "SOCKET_Collision",
+          "position_m": [
+            0.0,
+            0.16,
+            0.0
+          ],
+          "purpose": "Suggested trigger box 0.46 m W x 0.38 m H x 0.32 m D."
+        }
+      ],
+      "import_notes": [
+        "Import OBJ at scale factor 1.0.",
+        "Designed as a world pickup silhouette, not a viewmodel part.",
+        "Slug tubes are intentionally separated as material-readable brass rounds."
+      ],
+      "animation_notes": [
+        "Canister can rotate/bob as a pickup.",
+        "Lid hinge can pop open for pickup feedback.",
+        "Visible slug tubes can glow or flash on pickup."
+      ],
+      "collision_notes": [
+        "Use a trigger box 0.46 m W x 0.38 m H x 0.32 m D.",
+        "Optional simple rigidbody collider can be a box around rack base only if used as set dressing."
+      ],
+      "lod_notes": [
+        "LOD0 keeps visible slug tubes.",
+        "LOD1 can merge rack and remove handle bolts.",
+        "LOD2/mobile can replace individual slugs with a single brass insert block."
+      ]
+    },
+    {
+      "name": "PROP_WallPressureStation_Blockout",
+      "title": "Wall-Mounted Pressure Station Prop",
+      "category": "Prop / interactable station",
+      "obj": "Assets/_Project/ArtStaging/WeaponsProps/PROP_WallPressureStation_Blockout.obj",
+      "preview": "Documentation/AssetProduction/WeaponsProps/PREVIEW_PROP_WallPressureStation_Blockout.png",
+      "approx_dimensions_m": "Approx 0.78 m W x 1.12 m H x 0.29 m D including socket markers; wall-mounted station with gauges and valve.",
+      "computed_bounds_m": {
+        "min": [
+          -0.36,
+          0.03,
+          -0.0297
+        ],
+        "max": [
+          0.36,
+          1.0905,
+          0.2297
+        ],
+        "size": [
+          0.72,
+          1.0605,
+          0.2594
+        ]
+      },
+      "pivot": "Origin at bottom-center of wall contact plane; back face sits near Z 0.",
+      "vertex_count": 1954,
+      "triangle_count": 3652,
+      "materials": [
+        "MAT_BlackenedIron",
+        "MAT_Brass_PolishedEdge",
+        "MAT_Brass_Worn",
+        "MAT_CopperPipe_Aged",
+        "MAT_GaugeFace_Cream",
+        "MAT_RedValve_Warning",
+        "MAT_SocketMarker_Magenta"
+      ],
+      "sockets": [
+        {
+          "name": "SOCKET_Interact",
+          "position_m": [
+            0.0,
+            0.47,
+            0.2
+          ],
+          "purpose": "Player interaction trace target."
+        },
+        {
+          "name": "SOCKET_ValveWheel",
+          "position_m": [
+            0.0,
+            0.47,
+            0.13
+          ],
+          "purpose": "Valve wheel rotation anchor."
+        },
+        {
+          "name": "SOCKET_SteamVent",
+          "position_m": [
+            0.0,
+            1.05,
+            0.12
+          ],
+          "purpose": "Steam puff/pressure release VFX."
+        },
+        {
+          "name": "SOCKET_Hose",
+          "position_m": [
+            0.28,
+            0.28,
+            0.18
+          ],
+          "purpose": "Future hose/nozzle attach point."
+        },
+        {
+          "name": "SOCKET_WallMount",
+          "position_m": [
+            0.0,
+            0.56,
+            0.0
+          ],
+          "purpose": "Backplate wall align point."
+        }
+      ],
+      "import_notes": [
+        "Import OBJ at scale factor 1.0.",
+        "Place against a wall with local +Z facing into the room.",
+        "Use as a staged interactable prop; gameplay hook should target SOCKET_Interact later."
+      ],
+      "animation_notes": [
+        "Large valve wheel rotates around local Z 100-160 degrees during use.",
+        "Gauge needles can swing up/down during pressure station activation.",
+        "Top vent emits short steam burst after interaction.",
+        "Copper side pipes can pulse via material animation."
+      ],
+      "collision_notes": [
+        "Use a simple box collider around the backplate, approx 0.74 m W x 1.08 m H x 0.10 m D.",
+        "If interactive, add a trigger/interact volume protruding 0.35 m from the valve wheel."
+      ],
+      "lod_notes": [
+        "LOD0 keeps gauges, valve spokes, cylinders, and pipe routes.",
+        "LOD1 can flatten small rivets and simplify pipe elbows.",
+        "LOD2/mobile can replace wheel spokes with a disk silhouette and remove needles."
+      ]
+    },
+    {
+      "name": "PROP_CrankLeverSwitch_Blockout",
+      "title": "Crank Lever / Switch Prop",
+      "category": "Prop / interactable switch",
+      "obj": "Assets/_Project/ArtStaging/WeaponsProps/PROP_CrankLeverSwitch_Blockout.obj",
+      "preview": "Documentation/AssetProduction/WeaponsProps/PREVIEW_PROP_CrankLeverSwitch_Blockout.png",
+      "approx_dimensions_m": "Approx 0.38 m W x 0.55 m H x 0.22 m D including socket markers; compact crank switch silhouette.",
+      "computed_bounds_m": {
+        "min": [
+          -0.155,
+          0.0,
+          -0.025
+        ],
+        "max": [
+          0.19,
+          0.5,
+          0.185
+        ],
+        "size": [
+          0.345,
+          0.5,
+          0.2099
+        ]
+      },
+      "pivot": "Origin at bottom-center of wall contact plane; back face sits near Z 0.",
+      "vertex_count": 560,
+      "triangle_count": 1000,
+      "materials": [
+        "MAT_BlackenedIron",
+        "MAT_Brass_PolishedEdge",
+        "MAT_Brass_Worn",
+        "MAT_GaugeFace_Cream",
+        "MAT_RedValve_Warning",
+        "MAT_SocketMarker_Magenta",
+        "MAT_WalnutLeather_Dark"
+      ],
+      "sockets": [
+        {
+          "name": "SOCKET_Interact",
+          "position_m": [
+            0.07,
+            0.18,
+            0.16
+          ],
+          "purpose": "Player interaction trace target near handle."
+        },
+        {
+          "name": "SOCKET_LeverPivot",
+          "position_m": [
+            0.0,
+            0.32,
+            0.09
+          ],
+          "purpose": "Lever/crank rotates around local Z from idle to pulled state."
+        },
+        {
+          "name": "SOCKET_Handle",
+          "position_m": [
+            0.13,
+            0.07,
+            0.13
+          ],
+          "purpose": "Hand/contact point for pull animation."
+        },
+        {
+          "name": "SOCKET_WallMount",
+          "position_m": [
+            0.0,
+            0.25,
+            0.0
+          ],
+          "purpose": "Wall/console align point."
+        }
+      ],
+      "import_notes": [
+        "Import OBJ at scale factor 1.0.",
+        "Place on wall panels, machinery, or console fronts with +Z facing the player.",
+        "MOVING_LeverArm and MOVING_WoodHandle groups should become separate child meshes for animation if integrated."
+      ],
+      "animation_notes": [
+        "Lever rotates around SOCKET_LeverPivot/local Z by roughly 70 degrees.",
+        "Wood handle can counter-rotate around its own X axis while lever moves.",
+        "Ratchet teeth can click via audio/VFX at start, midpoint, and end stops."
+      ],
+      "collision_notes": [
+        "Use a small box collider on plate, approx 0.32 m W x 0.50 m H x 0.08 m D.",
+        "Use a trigger/interact volume around handle, approx 0.20 m radius."
+      ],
+      "lod_notes": [
+        "LOD0 keeps ratchet teeth, hub, lever, handle, and rivets.",
+        "LOD1 can merge plate and hub details.",
+        "LOD2/mobile can remove ratchet teeth and socket marker geometry."
+      ]
+    }
+  ]
+}
