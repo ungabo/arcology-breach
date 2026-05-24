@@ -64,10 +64,9 @@ public static class V0RouteAudit
         report.AppendLine();
         report.AppendLine("## Next Actionable Slices");
         report.AppendLine();
-        report.AppendLine("- `v0.1.10`: high-contrast/readability settings verification.");
-        report.AppendLine("- `v0.1.11`: final-direction asset promotion pass.");
-        report.AppendLine("- `v0.1.12`: Windows distribution polish pass.");
         report.AppendLine("- `v0.1.13`: route cohesion and manual-playtest automation prep.");
+        report.AppendLine("- `v0.1.14`: next single-component asset promotion after pressure-gauge prototype review.");
+        report.AppendLine("- `v0.1.15`: Windows candidate-release cleanup after manual route feedback.");
 
         string absoluteOutputPath = Path.Combine(Directory.GetCurrentDirectory(), OutputPath);
         Directory.CreateDirectory(Path.GetDirectoryName(absoluteOutputPath));

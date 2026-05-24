@@ -47,14 +47,15 @@ The roadmap is a living plan, not a promise that every version number is immutab
 | v0.1.9 | Settings, readability, and Windows options polish | Completed: persisted resolution/fullscreen controls now exist on main and pause menus, HUD prompt/objective/message readability constraints are validated, stale Unity lock cleanup is in the runners, and packaged display-settings smoke coverage is part of the matrix. | Route audit passed; full V0 matrix passed with `V0_DISPLAY_SETTINGS_PASS`. |
 | v0.1.10 | High-contrast readability controls | Completed: persisted high-contrast controls now exist on main and pause menus, HUD text/backplates respond at runtime, and packaged readability-settings smoke coverage is part of the matrix. | Route audit passed; full V0 matrix passed with `V0_READABILITY_SETTINGS_PASS`. |
 | v0.1.11 | Pressure gauge asset promotion | Completed: kept lookdev renders reference-only, promoted one Unity-owned pressure-gauge component language into the Pressure Pistol viewmodel and Level01 pressure gate, and added `PressureGaugePrototype` metadata/validator coverage. | Route audit passed; full V0 matrix passed with pressure-gauge validation included. |
+| v0.1.12 | Windows distribution packaging | Completed: added a Windows package script, wired it into the full matrix, and generated a package folder/ZIP with README, manifest, and SHA-256 hash. | Route audit passed; full V0 matrix passed with `V0_WINDOWS_PACKAGE_PASS`. |
 
 ## Near-Term Proposed Sequence
 
 | Version | Planned Slice | Intent | Expected Verification |
 | --- | --- | --- | --- |
-| v0.1.12 | Windows distribution polish pass | Harden the first polished Windows package: performance profile review, build naming, icon/splash metadata where available, readme/release notes, smoke-tested quit/restart flow, and distributable folder cleanup. | Full V0 matrix; packaged Windows executable launches, plays, pauses, restarts, quits, and reaches win state on the current route. |
 | v0.1.13 | Route cohesion and manual-playtest automation prep | Convert the current route audit/manual sheets into a tighter repeatable QA loop for Windows route feel and later platform passes. | Route audit plus full V0 matrix; manual-playtest docs updated with exact current build paths and route notes. |
 | v0.1.14 | Next safe asset-promotion slice | Promote the next single component after review, likely a pressure-pistol coil pack or reusable wall/pipe gauge cluster, with the same metadata/validation discipline used in `v0.1.11`. | Full V0 matrix; validation covers named component hierarchy/material roles and no route readability regression. |
+| v0.1.15 | Windows candidate-release cleanup | Fold in manual route feedback, tighten release docs, and prepare the first candidate Windows distribution checklist. | Full V0 matrix plus package verification and updated release notes. |
 
 ## Later Follow-Up Areas
 

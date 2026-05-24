@@ -3899,3 +3899,61 @@ Build executable:
 `Builds/Windows/v0.1.11/BrassworksBreach_v0.1.11.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 04:57 -04:00
+
+Completed `v0.1.12` Windows distribution polish.
+
+Added:
+
+- `Tools/PackageWindowsBuild.ps1` to validate Windows build artifacts and create a staged package.
+- Package output under `Builds/WindowsPackages/v0.1.12/`, including a Windows ZIP, `README_WINDOWS.txt`, manifest JSON, and SHA-256 hash.
+- Package step integration at the end of `Tools/RunV0BuildMatrix.ps1`.
+- Release notes at `Documentation/Releases/RELEASE_NOTES_v0.1.12.md`.
+- Route-audit next-action list updated for the post-packaging sequence.
+- Version string bumped to `v0.1.12`.
+
+Verification completed:
+
+- `V0_ROUTE_AUDIT_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_MOVEMENT_FEEL_PASS`
+- `V0_BALANCE_ENVELOPE_PASS`
+- `V0_LEVEL01_FLOW_PASS`
+- `V0_MIDGAME_FLOW_PASS`
+- `V0_CLIMAX_FLOW_PASS`
+- `V0_AUDIO_MIX_PASS`
+- `V0_DISPLAY_SETTINGS_PASS`
+- `V0_READABILITY_SETTINGS_PASS`
+- `V0_WINDOWS_PACKAGE_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.12/BrassworksBreach_v0.1.12.exe`
+
+Package:
+
+`Builds/WindowsPackages/v0.1.12/BrassworksBreach_v0.1.12_Windows.zip`
+
+SHA-256:
+
+`869ABA999F99FD7226792AAF2550A64E77181BE20A1C16EB1F3BCD52BE2D90B6`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

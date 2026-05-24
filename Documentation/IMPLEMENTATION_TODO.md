@@ -1517,6 +1517,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.12 Windows Distribution Polish
+
+- [x] Add `Tools/PackageWindowsBuild.ps1`.
+- [x] Verify required Windows build artifacts before packaging.
+- [x] Generate `README_WINDOWS.txt` in the staged package folder.
+- [x] Generate a Windows package manifest and SHA-256 hash.
+- [x] Create `Builds/WindowsPackages/v0.1.12/BrassworksBreach_v0.1.12_Windows.zip`.
+- [x] Wire the package step into `Tools/RunV0BuildMatrix.ps1`.
+- [x] Add `Documentation/Releases/RELEASE_NOTES_v0.1.12.md`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.12`.
+- [x] Build and package `v0.1.12` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
