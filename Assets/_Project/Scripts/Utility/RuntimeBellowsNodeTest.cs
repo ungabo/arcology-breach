@@ -29,9 +29,11 @@ public class RuntimeBellowsNodeTest : MonoBehaviour
         PlayerHealth health = Require<PlayerHealth>("PlayerHealth");
         WeaponController weapon = Require<WeaponController>("WeaponController");
         BellowsNodeController target = Require<BellowsNodeController>("BellowsNodeController");
+        EnemyController boostTarget = Require<EnemyController>("EnemyController");
 
-        DisableOtherEnemies(target);
+        DisableOtherEnemies(target, boostTarget);
         PlaceCombatActors(player, target, closeRange: 2.6f);
+        PlaceBoostTarget(boostTarget, new Vector3(1.25f, 1f, 2.6f));
 
         int healthBeforePulse = health.CurrentHealth;
         target.ForcePulseForTest();
@@ -48,6 +50,13 @@ public class RuntimeBellowsNodeTest : MonoBehaviour
             yield break;
         }
 
+        if (!boostTarget.IsPressureBoosted || boostTarget.CurrentMoveSpeed <= boostTarget.moveSpeed)
+        {
+            Fail("Bellows Node smoke failed: pressure pulse did not boost a nearby Scrapper.");
+            yield break;
+        }
+
+        boostTarget.gameObject.SetActive(false);
         target.enabled = false;
         PlaceCombatActors(player, target, closeRange: 3.2f);
 
@@ -86,12 +95,15 @@ public class RuntimeBellowsNodeTest : MonoBehaviour
         Application.Quit(0);
     }
 
-    private static void DisableOtherEnemies(BellowsNodeController target)
+    private static void DisableOtherEnemies(BellowsNodeController target, EnemyController boostTarget)
     {
         EnemyController[] enemies = UnityEngine.Object.FindObjectsByType<EnemyController>();
         foreach (EnemyController enemy in enemies)
         {
-            enemy.gameObject.SetActive(false);
+            if (enemy != boostTarget)
+            {
+                enemy.gameObject.SetActive(false);
+            }
         }
 
         RangedEnemyController[] rangedEnemies = UnityEngine.Object.FindObjectsByType<RangedEnemyController>();
@@ -114,6 +126,17 @@ public class RuntimeBellowsNodeTest : MonoBehaviour
                 node.gameObject.SetActive(false);
             }
         }
+    }
+
+    private static void PlaceBoostTarget(EnemyController boostTarget, Vector3 position)
+    {
+        CharacterController controller = boostTarget.GetComponent<CharacterController>();
+        SetControllerEnabled(controller, false);
+
+        boostTarget.transform.position = position;
+        boostTarget.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+
+        SetControllerEnabled(controller, true);
     }
 
     private static void PlaceCombatActors(PlayerController player, BellowsNodeController target, float closeRange)

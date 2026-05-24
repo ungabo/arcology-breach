@@ -24,9 +24,14 @@ public class EnemyController : MonoBehaviour, IDamageable
     private int currentHealth;
     private float nextAttackTime;
     private float attackResolveTime;
+    private float pressureBoostUntil;
+    private float pressureBoostMultiplier = 1f;
     private bool dead;
     private bool windingUpAttack;
     private int avoidanceSide = 1;
+
+    public bool IsPressureBoosted => Time.time < pressureBoostUntil;
+    public float CurrentMoveSpeed => moveSpeed * (IsPressureBoosted ? pressureBoostMultiplier : 1f);
 
     private void Awake()
     {
@@ -89,7 +94,7 @@ public class EnemyController : MonoBehaviour, IDamageable
             if (direction.sqrMagnitude > 0.001f)
             {
                 transform.rotation = Quaternion.LookRotation(direction);
-                characterController.Move(direction * moveSpeed * Time.deltaTime);
+                characterController.Move(direction * CurrentMoveSpeed * Time.deltaTime);
             }
 
             return;
@@ -137,6 +142,17 @@ public class EnemyController : MonoBehaviour, IDamageable
             SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyHit, transform.position);
             StartCoroutine(FlashHit());
         }
+    }
+
+    public void ApplyPressureBoost(float duration, float speedMultiplier)
+    {
+        if (dead || duration <= 0f || speedMultiplier <= 1f)
+        {
+            return;
+        }
+
+        pressureBoostUntil = Mathf.Max(pressureBoostUntil, Time.time + duration);
+        pressureBoostMultiplier = Mathf.Max(pressureBoostMultiplier, speedMultiplier);
     }
 
     private IEnumerator FlashHit()

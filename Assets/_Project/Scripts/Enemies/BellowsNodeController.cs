@@ -11,6 +11,8 @@ public class BellowsNodeController : MonoBehaviour, IDamageable
     public int pulseDamage = GameBalance.BellowsNodePulseDamage;
     public float pulseCooldown = GameBalance.BellowsNodePulseCooldown;
     public float pulseWindup = GameBalance.BellowsNodePulseWindup;
+    public float boostDuration = GameBalance.BellowsNodeBoostDuration;
+    public float boostMultiplier = GameBalance.BellowsNodeBoostMultiplier;
     public Color hitFlashColor = Color.white;
     public Color pulseTellColor = new Color(1f, 0.24f, 0.08f);
 
@@ -161,6 +163,28 @@ public class BellowsNodeController : MonoBehaviour, IDamageable
         if (toPlayer.magnitude <= pulseRange)
         {
             playerHealth.TakeDamage(pulseDamage);
+        }
+
+        BoostNearbyScrappers();
+    }
+
+    private void BoostNearbyScrappers()
+    {
+        EnemyController[] scrappers = Object.FindObjectsByType<EnemyController>(FindObjectsSortMode.None);
+        foreach (EnemyController scrapper in scrappers)
+        {
+            if (scrapper == null || !scrapper.gameObject.activeInHierarchy)
+            {
+                continue;
+            }
+
+            Vector3 toScrapper = scrapper.transform.position - transform.position;
+            toScrapper.y = 0f;
+            if (toScrapper.magnitude <= pulseRange)
+            {
+                scrapper.ApplyPressureBoost(boostDuration, boostMultiplier);
+                MachineHitVfx.Spawn(scrapper.transform.position + Vector3.up * 0.65f, 0.75f);
+            }
         }
     }
 

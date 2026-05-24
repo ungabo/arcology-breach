@@ -375,6 +375,8 @@ public static class V0LevelValidator
             RequireEqual(enemy.pulseDamage, GameBalance.BellowsNodePulseDamage, sceneName + " Bellows Node pulse damage balance");
             RequireApprox(enemy.pulseCooldown, GameBalance.BellowsNodePulseCooldown, sceneName + " Bellows Node pulse cooldown balance");
             RequireApprox(enemy.pulseWindup, GameBalance.BellowsNodePulseWindup, sceneName + " Bellows Node pulse windup balance");
+            RequireApprox(enemy.boostDuration, GameBalance.BellowsNodeBoostDuration, sceneName + " Bellows Node boost duration balance");
+            RequireApprox(enemy.boostMultiplier, GameBalance.BellowsNodeBoostMultiplier, sceneName + " Bellows Node boost multiplier balance");
             if (enemy.definition == null)
             {
                 throw new InvalidOperationException("Level validation failed: " + sceneName + " Bellows Node is missing an EnemyDefinition.");

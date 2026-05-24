@@ -95,7 +95,7 @@ Every major asset should eventually have three quality targets:
 | ENEMY-003 | Boiler Tick | P1 | planned | Squat scout with clockwork legs and pressure tank body. |
 | ENEMY-004 | Lancer | P1 | verified | Thin ranged valve-rifle automaton with primitive tripod silhouette, pressure-bolt attack, and data-driven definition asset. |
 | ENEMY-005 | Bulwark | P2 | prototype | Primitive furnace-plated machine with boiler body, hammer arms, data-driven definition, Level04/Level05 placement, and combat smoke coverage. |
-| ENEMY-006 | Bellows Node | P2 | prototype | Stationary pressure amplifier prototype in Level03 with data-driven definition, primitive bellows silhouette, pressure-pulse damage, pulse VFX, validation, and packaged smoke coverage. Future pass can add true nearby-machine buffs. |
+| ENEMY-006 | Bellows Node | P2 | prototype | Stationary pressure amplifier prototype in Level03 with data-driven definition, primitive bellows silhouette, pressure-pulse damage, short nearby-Scrapper boost, pulse VFX, validation, and packaged smoke coverage. Future pass can add richer buff visuals and support behavior for more machine types. |
 | ENEMY-007 | Governor Warden | P1 | prototype | Final guardian prototype with data-driven definition, Level05 placement, stomp attack, pressure-bolt attack, enraged half-health behavior, primitive core body/furnace heart/pressure crown/pressure cannon silhouette, boss health HUD integration, shutdown VFX, validation, and combat smoke coverage. |
 
 ## 6. Animations

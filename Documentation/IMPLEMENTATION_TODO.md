@@ -1160,6 +1160,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Run full packaged smoke matrix through the runner.
 - [x] Commit and push `v0.0.78`.
 
+## v0.0.79 Bellows Node Pressure Boost Pass
+
+- [x] Add reusable pressure-boost state to standard `EnemyController` machines.
+- [x] Let Bellows Node pulses boost nearby Scrappers for a short duration.
+- [x] Add Bellows Node boost duration and multiplier balance constants.
+- [x] Wire boost values into generated Bellows Node scene placement.
+- [x] Expand validation for Bellows Node boost tuning.
+- [x] Expand packaged `RuntimeBellowsNodeTest` to verify nearby Scrapper boost.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.79`.
+
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
 ## v0.2 Combat Feel Slice

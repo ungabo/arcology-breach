@@ -88,6 +88,7 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 | VFX-014 | Add Steam Scattergun blast VFX | vfx/code/test | P1 | verified | v0.0.76 | Dedicated pressure-ring, steam-core, and brass-spark blast VFX are verified by weapon-switch smoke. |
 | AUD-013 | Add Steam Scattergun fire cue | audio/code/test | P1 | verified | v0.0.77 | Dedicated procedural scattergun fire audio is configured in runtime smoke and routed by weapon-switch smoke. |
 | ENEMY-006 | Add Bellows Node support enemy prototype | code/art/vfx/test | P1 | verified | v0.0.78 | Level03 Bellows Node definition, primitive silhouette, pressure pulse, pulse VFX, validation, and V0_BELLOWS_NODE_PASS coverage are verified. |
+| ENEMY-006B | Add Bellows Node pressure boost | code/test | P1 | verified | v0.0.79 | Bellows Node pulses boost nearby Scrappers and V0_BELLOWS_NODE_PASS verifies the boost. |
 
 ## Ready Next
 
@@ -219,3 +220,4 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 - `2026-05-23`: `v0.0.76` Steam Scattergun blast VFX build created at `Builds/Windows/v0.0.76/BrassworksBreach_v0.0.76.exe` and passed the complete V0 matrix, including weapon-switch coverage for scattergun blast VFX spawn. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.77` Steam Scattergun audio cue build created at `Builds/Windows/v0.0.77/BrassworksBreach_v0.0.77.exe` and passed the complete V0 matrix, including runtime cue configuration and weapon-switch audio routing coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.78` Bellows Node support enemy build created at `Builds/Windows/v0.0.78/BrassworksBreach_v0.0.78.exe` and passed the complete V0 matrix, including Bellows Node pulse/damage/destruction smoke coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.79` Bellows Node pressure-boost build created at `Builds/Windows/v0.0.79/BrassworksBreach_v0.0.79.exe` and passed the complete V0 matrix, including nearby Scrapper pressure-boost smoke coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.

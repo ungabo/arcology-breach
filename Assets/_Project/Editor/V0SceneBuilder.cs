@@ -1931,6 +1931,8 @@ public static class V0SceneBuilder
         node.pulseDamage = GameBalance.BellowsNodePulseDamage;
         node.pulseCooldown = GameBalance.BellowsNodePulseCooldown;
         node.pulseWindup = GameBalance.BellowsNodePulseWindup;
+        node.boostDuration = GameBalance.BellowsNodeBoostDuration;
+        node.boostMultiplier = GameBalance.BellowsNodeBoostMultiplier;
     }
 
     private static void CreateBulwarkEnemy(string name, Vector3 position, Material material, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial, EnemyDefinition definition)

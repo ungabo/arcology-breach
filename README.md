@@ -1,6 +1,6 @@
 # Brassworks Breach
 
-Current state: playable `v0.0.78` proof of concept with automated Windows build/test matrix.
+Current state: playable `v0.0.79` proof of concept with automated Windows build/test matrix.
 
 Public repository:
 
@@ -8,7 +8,7 @@ Public repository:
 
 Note: the GitHub repo name still reflects the previous placeholder. The active game title, Unity product name, and executable stem are now `Brassworks Breach` / `BrassworksBreach`.
 
-This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, readable lore plaques, animated gears/valves/pulleys, brass HUD with persistent objective guidance and boss health readout, hitscan pressure-pistol shooting with right-mouse pressure-burst alternate fire and impact decal VFX, Steam Scattergun weapon unlock/switching with its own first-person viewmodel, dedicated blast VFX, and dedicated fire audio, first-person player damage VFX, procedural audio cues, procedural brassworks ambience, mechanical melee/ranged/heavy/boss/support enemies with procedural machine motion, a stationary Bellows Node pressure-pulse enemy, animated pressure-bolt projectiles, animated steam hazards, animated furnace-heat hazards, three multi-level secret caches, health/ammo/key pickup VFX, a pressure gate with opening VFX, service-lift transitions with activation VFX, a Pipeworks routing valve, a Boilerheart pressure valve that unlocks the foundry lift, a Furnace Foundry route, machine hit/shutdown VFX, and a Governor Core finale with a Warden shutdown effect and master override hoist.
+This Unity project contains a simple first-person steampunk dungeon crawler/shooter for Windows. It is intentionally compact: primitive geometry, procedural steamworks dressing, readable lore plaques, animated gears/valves/pulleys, brass HUD with persistent objective guidance and boss health readout, hitscan pressure-pistol shooting with right-mouse pressure-burst alternate fire and impact decal VFX, Steam Scattergun weapon unlock/switching with its own first-person viewmodel, dedicated blast VFX, and dedicated fire audio, first-person player damage VFX, procedural audio cues, procedural brassworks ambience, mechanical melee/ranged/heavy/boss/support enemies with procedural machine motion, a stationary Bellows Node pressure-pulse enemy that can over-pressurize nearby Scrappers, animated pressure-bolt projectiles, animated steam hazards, animated furnace-heat hazards, three multi-level secret caches, health/ammo/key pickup VFX, a pressure gate with opening VFX, service-lift transitions with activation VFX, a Pipeworks routing valve, a Boilerheart pressure valve that unlocks the foundry lift, a Furnace Foundry route, machine hit/shutdown VFX, and a Governor Core finale with a Warden shutdown effect and master override hoist.
 
 Long-term direction: an original heavily stylized steampunk action game set inside a sealed brassworks where pressure systems and clockwork machines have become hostile.
 
@@ -64,7 +64,7 @@ Goal:
 
 Windows build output:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.78\BrassworksBreach_v0.0.78.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.79\BrassworksBreach_v0.0.79.exe`
 
 Versioned builds use incrementing folders/names such as `v0.0.1`, `v0.0.2`, and so on when meaningful progress is ready to try.
 
@@ -455,6 +455,11 @@ Individual Unity entry points remain available:
 - Level03 now includes a stationary Bellows Node support-machine prototype.
 - Bellows Node emits a damaging pressure pulse with dedicated pulse VFX and can be destroyed.
 - Full matrix includes packaged `V0_BELLOWS_NODE_PASS` coverage.
+
+## What v0.0.79 Adds
+
+- Bellows Node pressure pulses now over-pressurize nearby Scrappers with a short speed boost.
+- Bellows Node smoke verifies pulse damage, pulse VFX, nearby Scrapper boost, durability, and destruction VFX.
 
 ## Good Next Steps
 

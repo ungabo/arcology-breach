@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.78`.
+Current state: `v0.0.79`.
 
 Implemented:
 
@@ -85,7 +85,7 @@ Implemented:
 - Distinct first-person Steam Scattergun viewmodel with runtime weapon-view swapping and smoke coverage.
 - Dedicated Steam Scattergun blast VFX with pressure ring, steam core, brass sparks, and smoke coverage.
 - Dedicated Steam Scattergun procedural fire audio cue with runtime and weapon-switch smoke coverage.
-- Bellows Node support-machine prototype in Level03 with a pressure-pulse attack, pulse VFX, data-driven definition, validation, and packaged smoke coverage.
+- Bellows Node support-machine prototype in Level03 with a pressure-pulse attack, nearby Scrapper pressure boost, pulse VFX, data-driven definition, validation, and packaged smoke coverage.
 
 ## 3. Target Platform
 
@@ -186,7 +186,7 @@ Future enemy family:
 - `Lancer`: ranged valve-rifle automaton.
 - `Bulwark`: heavy furnace-plated machine.
 - `Governor Warden`: final guardian pressure engine.
-- `Bellows Node`: stationary pressure amplifier. Current prototype emits damaging pressure pulses; future pass can add true nearby-machine buffs.
+- `Bellows Node`: stationary pressure amplifier. Current prototype emits damaging pressure pulses and short nearby-Scrapper boosts; future pass can expand support behavior to more enemy types and add stronger visual buff states.
 
 ### World
 

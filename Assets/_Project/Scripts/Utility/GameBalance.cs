@@ -49,6 +49,8 @@ public static class GameBalance
     public const int BellowsNodePulseDamage = 7;
     public const float BellowsNodePulseCooldown = 1.65f;
     public const float BellowsNodePulseWindup = 0.55f;
+    public const float BellowsNodeBoostDuration = 2.4f;
+    public const float BellowsNodeBoostMultiplier = 1.35f;
 
     public const int BulwarkHealth = 125;
     public const float BulwarkDetectionRange = 12f;
