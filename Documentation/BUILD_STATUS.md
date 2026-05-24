@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.84` versioned build for `Brassworks Breach`.
+`v0.0.85` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build gives the Steam Scattergun right-mouse slug its own procedural audio cue and pressure-spear VFX, verified through the real weapon-switch smoke route. This sits on top of dedicated weapon-pickup acquisition audio, real pickup-route acquisition, dedicated brass/steam weapon-pickup VFX, Bellows Node pulse audio, visible brass/steam pressure-boost VFX for over-pressurized Scrappers, Bellows Node support-machine boost behavior, first Bellows Node support-machine prototype in Level03, dedicated Steam Scattergun procedural fire cue, dedicated Steam Scattergun pressure-ring/steam/brass-spark blast VFX, Steam Scattergun first-person viewmodel, Steam Scattergun prototype, Pressure Burst alternate fire, the procedural brassworks ambience loop, Level02 Pipeworks cartridge-cache secret, Pipeworks routing valve objective, interactable lore plaques, first-person player damage VFX, pressure-pistol impact decal VFX, visible pressure-bolt projectile VFX, reusable procedural machine motion, animated furnace heat-ripple readability, animated steam hazard puffs, health/ammo/key pickup VFX, service-lift activation VFX, pressure-gate opening VFX, non-lethal machine hit VFX, animated steampunk machinery, standard machine death VFX, persistent objective HUD guidance, Warden shutdown VFX, the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build upgrades the Level03 Steam Scattergun world pickup with a richer steampunk display stand, iron yoke, enamel nameplate, brass/walnut weapon details, pressure coil, rear valve wheel, and shell rack, with validation coverage for the named pickup pieces. This sits on top of dedicated Steam Scattergun slug audio/VFX, dedicated weapon-pickup acquisition audio, real pickup-route acquisition, dedicated brass/steam weapon-pickup VFX, Bellows Node pulse audio, visible brass/steam pressure-boost VFX for over-pressurized Scrappers, Bellows Node support-machine boost behavior, first Bellows Node support-machine prototype in Level03, dedicated Steam Scattergun procedural fire cue, dedicated Steam Scattergun pressure-ring/steam/brass-spark blast VFX, Steam Scattergun first-person viewmodel, Steam Scattergun prototype, Pressure Burst alternate fire, the procedural brassworks ambience loop, Level02 Pipeworks cartridge-cache secret, Pipeworks routing valve objective, interactable lore plaques, first-person player damage VFX, pressure-pistol impact decal VFX, visible pressure-bolt projectile VFX, reusable procedural machine motion, animated furnace heat-ripple readability, animated steam hazard puffs, health/ammo/key pickup VFX, service-lift activation VFX, pressure-gate opening VFX, non-lethal machine hit VFX, animated steampunk machinery, standard machine death VFX, persistent objective HUD guidance, Warden shutdown VFX, the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -95,15 +95,16 @@
 - Steam Scattergun acquisition now routes through the real Level03 world pickup, and weapon pickups spawn dedicated brass/steam acquisition VFX verified by weapon-switch smoke.
 - Weapon pickups now have a dedicated procedural acquisition audio cue, and the Steam Scattergun pickup definition routes through it with runtime and weapon-switch smoke coverage.
 - Steam Scattergun secondary slug now has dedicated procedural audio, pressure-spear VFX, and weapon-switch smoke coverage before the primary-fire kill check.
+- Steam Scattergun world pickup now has a richer Level03 display stand, iron yoke, enamel nameplate, brass top rib, walnut pump grip, pressure coil, rear valve wheel, and shell rack with validation coverage.
 - Bellows Node support-machine prototype now exists in Level03 with a data-driven definition, primitive bellows silhouette, pressure-pulse attack, nearby Scrapper pressure boost, pulse VFX, validation, and packaged `V0_BELLOWS_NODE_PASS` coverage.
 - `PressureBoostVfx` now gives boosted Scrappers a visible animated overdrive ring/vent state, verified by packaged Bellows Node smoke.
 - Bellows Node pulses now use a dedicated procedural audio cue, with runtime clip configuration and Bellows Node spatial routing smoke coverage.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.84`.
+Latest fully verified build: `v0.0.85`.
 
-Current `v0.0.84` verification:
+Current `v0.0.85` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -149,7 +150,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.84\BrassworksBreach_v0.0.84.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.85\BrassworksBreach_v0.0.85.exe`
 
 ## Latest Build Verification
 
@@ -1221,8 +1222,27 @@ Current target:
 - `2026-05-23 21:12 -04:00`: `v0.0.84` packaged hazard smoke passed.
 - `2026-05-23 21:12 -04:00`: `v0.0.84` packaged secret smoke passed.
 - `2026-05-23 21:12 -04:00`: `v0.0.84` packaged pause-flow smoke passed.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` one-command build matrix runner passed.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` scene rebuild passed.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` level validation passed with Level03 named scattergun pickup art coverage.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` editor smoke passed.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` Windows build passed.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` packaged runtime smoke passed with weapon-pickup and scattergun-slug cue coverage.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` packaged auto-playthrough passed.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` packaged combat smoke passed.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` packaged combat-edge smoke passed.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` packaged combat-scenario smoke passed.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` packaged weapon-switch smoke passed with the real Level03 Steam Scattergun pickup route.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` packaged Bellows Node smoke passed.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` packaged ranged combat smoke passed.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` packaged Bulwark combat smoke passed.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` packaged Warden combat smoke passed.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` packaged interaction smoke passed.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` packaged hazard smoke passed.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` packaged secret smoke passed.
+- `2026-05-23 21:18 -04:00`: `v0.0.85` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.85`, `v0.0.86`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.86`, `v0.0.87`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

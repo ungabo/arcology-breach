@@ -63,7 +63,7 @@ Near-term:
 - Lancer pressure bolts now carry visible glow/trail/spark VFX, with shared VFX also attached to Warden pressure bolts.
 - Pressure-pistol hits now leave short-lived scorch/brass impact decal VFX, verified by combat-scenario smoke.
 - The Pressure Pistol now includes a short-range right-mouse Pressure Burst alternate fire, giving close encounters a distinct ammo-cost tradeoff while keeping the core weapon VR-compatible.
-- Level03 now includes a Steam Scattergun pickup prototype with real acquisition smoke coverage, and the unlock persists through later service-lift transitions.
+- Level03 now includes a Steam Scattergun pickup prototype with a readable display-stand silhouette, real acquisition smoke coverage, and an unlock that persists through later service-lift transitions.
 - The Steam Scattergun now swaps to a distinct first-person viewmodel when equipped, preserving readable weapon identity for later VR hand mapping.
 - Steam Scattergun fire now has a dedicated pressure-ring, steam-core, and brass-spark blast VFX so close-range weapon readability is not dependent on shared pistol feedback.
 - Steam Scattergun fire now uses a dedicated low-pressure procedural audio cue so weapon identity is readable by sound as well as viewmodel/VFX.
@@ -175,7 +175,7 @@ Approximate footprint:
 New mechanics:
 
 - Current prototype: Boilerheart pressure-valve objective, locked foundry lift, and linked hazard shutdown.
-- Current prototype: first Steam Scattergun pickup with dedicated acquisition VFX/audio and real pickup-route automation, introducing close-range weapon switching before the foundry escalation.
+- Current prototype: first Steam Scattergun pickup with display stand, yoke, nameplate, shell rack, dedicated acquisition VFX/audio, and real pickup-route automation, introducing close-range weapon switching before the foundry escalation.
 - Current prototype: `Bellows Node` stationary support machine with pressure-pulse damage, dedicated pulse audio, short nearby Scrapper boost, pulse VFX, and boost-state VFX.
 - Planned: expanded valve/gauge lock sequence.
 - Current prototype: steam hazard zones with vent/puff visuals.

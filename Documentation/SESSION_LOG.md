@@ -2678,3 +2678,41 @@ Build executable:
 `Builds/Windows/v0.0.84/BrassworksBreach_v0.0.84.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 21:18 -04:00
+
+Completed `v0.0.85` Steam Scattergun world pickup art pass.
+
+Added:
+
+- Level03 Steam Scattergun pickup display stand, iron yoke, and enamel nameplate.
+- Brass top rib, walnut pump grip, pressure coil, rear valve wheel, and shell-rack rounds on the world pickup.
+- Level validation now requires named pickup-polish pieces so the pickup silhouette survives scene regeneration.
+- Versioned Windows build `v0.0.85`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.85/BrassworksBreach_v0.0.85.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

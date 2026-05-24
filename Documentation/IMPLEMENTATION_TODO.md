@@ -1241,6 +1241,18 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.85 Steam Scattergun World Pickup Art Pass
+
+- [x] Add a Level03 pickup display stand, iron yoke, and enamel nameplate.
+- [x] Add brass top rib, walnut pump grip, pressure coil, rear valve wheel, and shell-rack rounds to the Steam Scattergun world pickup.
+- [x] Expand Level03 validation to require named pickup-polish pieces.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.85`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

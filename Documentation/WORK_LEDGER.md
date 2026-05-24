@@ -98,6 +98,7 @@ The active step sequence is driven by this ledger plus `VERSION_MICRO_ROADMAP.md
 | VFX-017 | Add weapon pickup VFX | vfx/code/test | P1 | verified | v0.0.82 | Steam Scattergun world pickup spawns dedicated acquisition VFX and weapon-switch smoke verifies the real pickup route. |
 | AUD-015 | Add weapon pickup audio | audio/code/test | P1 | verified | v0.0.83 | Steam Scattergun world pickup uses a dedicated acquisition cue verified by runtime and weapon-switch smoke. |
 | WPN-003B | Add Steam Scattergun slug identity | weapon/vfx/audio/test | P1 | verified | v0.0.84 | Steam Scattergun alternate fire uses dedicated slug audio/VFX and weapon-switch smoke verifies slug behavior before primary kill. |
+| ART-012 | Polish Steam Scattergun world pickup | art/level/test | P1 | verified | v0.0.85 | Level03 Steam Scattergun pickup has a richer display stand, iron yoke, enamel nameplate, brass/walnut weapon details, shell rack, and level validation coverage. |
 
 ## Ready Next
 
@@ -235,3 +236,4 @@ The active step sequence is driven by this ledger plus `VERSION_MICRO_ROADMAP.md
 - `2026-05-23`: `v0.0.82` Steam Scattergun pickup-feedback build created at `Builds/Windows/v0.0.82/BrassworksBreach_v0.0.82.exe` and passed the complete V0 matrix, including real Level03 weapon-pickup acquisition and weapon-pickup VFX coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.83` weapon-pickup audio build created at `Builds/Windows/v0.0.83/BrassworksBreach_v0.0.83.exe` and passed the complete V0 matrix, including dedicated Steam Scattergun pickup audio coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.84` Steam Scattergun slug-identity build created at `Builds/Windows/v0.0.84/BrassworksBreach_v0.0.84.exe` and passed the complete V0 matrix, including dedicated slug audio/VFX coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.85` Steam Scattergun world-pickup art build created at `Builds/Windows/v0.0.85/BrassworksBreach_v0.0.85.exe` and passed the complete V0 matrix, including Level03 named pickup art validation coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.

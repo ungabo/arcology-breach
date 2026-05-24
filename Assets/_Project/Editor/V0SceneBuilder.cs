@@ -2613,9 +2613,15 @@ public static class V0SceneBuilder
         visualRoot.transform.localPosition = Vector3.zero;
         visualRoot.transform.localRotation = Quaternion.Euler(0f, 24f, 0f);
 
+        CreateLocalCube(name + " Brass Display Stand", visualRoot.transform, new Vector3(0f, -0.58f, 0.04f), new Vector3(0.92f, 0.08f, 1.08f), brassMaterial);
+        CreateLocalCube(name + " Iron Display Yoke Left", visualRoot.transform, new Vector3(-0.38f, -0.36f, 0.08f), new Vector3(0.08f, 0.42f, 0.08f), ironMaterial);
+        CreateLocalCube(name + " Iron Display Yoke Right", visualRoot.transform, new Vector3(0.38f, -0.36f, 0.08f), new Vector3(0.08f, 0.42f, 0.08f), ironMaterial);
+        CreateLocalCube(name + " Enamel Name Plate", visualRoot.transform, new Vector3(0f, -0.51f, -0.52f), new Vector3(0.56f, 0.05f, 0.08f), warningMaterial);
         CreateLocalCube(name + " Walnut Stock", visualRoot.transform, new Vector3(0f, -0.18f, -0.38f), new Vector3(0.28f, 0.26f, 0.58f), gripMaterial);
         CreateLocalCube(name + " Brass Receiver", visualRoot.transform, new Vector3(0f, -0.03f, 0f), new Vector3(0.54f, 0.34f, 0.42f), brassMaterial);
         CreateLocalCube(name + " Iron Trigger Guard", visualRoot.transform, new Vector3(0f, -0.28f, -0.06f), new Vector3(0.32f, 0.08f, 0.24f), ironMaterial);
+        CreateLocalCube(name + " Brass Top Rib", visualRoot.transform, new Vector3(0f, 0.24f, 0.22f), new Vector3(0.5f, 0.07f, 0.9f), brassMaterial);
+        CreateLocalCube(name + " Walnut Pump Grip", visualRoot.transform, new Vector3(0f, -0.16f, 0.36f), new Vector3(0.5f, 0.09f, 0.22f), gripMaterial);
 
         for (int i = 0; i < 3; i++)
         {
@@ -2628,6 +2634,18 @@ public static class V0SceneBuilder
 
         GameObject pressureDrum = CreateLocalPrimitive(name + " Side Pressure Drum", PrimitiveType.Cylinder, visualRoot.transform, new Vector3(-0.38f, -0.02f, 0.04f), new Vector3(0.18f, 0.28f, 0.18f), ironMaterial);
         pressureDrum.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        GameObject pressureCoil = CreateLocalPrimitive(name + " Brass Pressure Coil", PrimitiveType.Cylinder, visualRoot.transform, new Vector3(-0.5f, -0.02f, 0.04f), new Vector3(0.22f, 0.026f, 0.22f), brassMaterial);
+        pressureCoil.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        GameObject valveWheel = CreateLocalPrimitive(name + " Rear Valve Wheel", PrimitiveType.Cylinder, visualRoot.transform, new Vector3(0f, 0.04f, -0.72f), new Vector3(0.22f, 0.035f, 0.22f), brassMaterial);
+        valveWheel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube(name + " Valve Wheel Crossbar A", visualRoot.transform, new Vector3(0f, 0.04f, -0.75f), new Vector3(0.42f, 0.028f, 0.028f), brassMaterial);
+        CreateLocalCube(name + " Valve Wheel Crossbar B", visualRoot.transform, new Vector3(0f, 0.04f, -0.75f), new Vector3(0.028f, 0.42f, 0.028f), brassMaterial);
+        for (int i = 0; i < 4; i++)
+        {
+            float z = -0.28f + i * 0.16f;
+            CreateLocalCube(name + " Brass Shell Rack Round " + i, visualRoot.transform, new Vector3(0.48f, -0.17f, z), new Vector3(0.07f, 0.07f, 0.12f), brassMaterial);
+        }
+
         CreateLocalCube(name + " Red Pressure Line", visualRoot.transform, new Vector3(0.36f, -0.02f, 0.16f), new Vector3(0.045f, 0.06f, 0.72f), warningMaterial);
         CreateLocalPrimitive(name + " Brass Gauge", PrimitiveType.Cylinder, visualRoot.transform, new Vector3(0.32f, 0.23f, -0.1f), new Vector3(0.13f, 0.035f, 0.13f), brassMaterial).transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
     }
