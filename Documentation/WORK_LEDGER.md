@@ -140,6 +140,7 @@ The active step sequence is driven by this ledger plus `VERSION_MICRO_ROADMAP.md
 | TEST-010 | Add deterministic route audit | test/tool/docs | P1 | verified | v0.1.2 | `V0RouteAudit` and `Tools/RunV0RouteAudit.ps1` inspect Level01-Level05 route objects, counts, transitions, and distances, then write `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.2.md`. Route audit and full `v012` matrix passed. |
 | MOVE-001 | Tune player movement and camera feel | code/test | P1 | verified | v0.1.3 | `PlayerController` uses acceleration/deceleration, grounded stick velocity, centralized gravity, pitch limit, and settings sensitivity clamps; route audit and full `v013` matrix passed. |
 | BAL-001 | Tune weapon and enemy pressure values | code/test | P1 | verified | v0.1.4 | `RuntimeBalanceEnvelopeTest` verifies intended shot-count, pickup, ammo reserve, and enemy damage envelopes; route audit and full `v014` matrix passed. |
+| LVL-014 | Polish Level01 route readability | level/art/test | P1 | verified | v0.1.5 | Gate-preview sightline rails, key-branch return cues, service-lift green runway/beacon cues, and secret-clue props are generated and verified by `V0_LEVEL01_FLOW_PASS`; route audit and full `v015` matrix passed. |
 
 ## Ready Next
 

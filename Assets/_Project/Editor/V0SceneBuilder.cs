@@ -118,6 +118,7 @@ public static class V0SceneBuilder
         CreateLevelTransitionLift(exitMaterial, rivetedIronMaterial, brassGuideMaterial, gaugeFaceMaterial, "Level02");
         CreateAccentLights();
         CreateObjectiveGuides(brassGuideMaterial, pressureWarningMaterial, keyMaterial, exitMaterial);
+        CreateLevel01FlowPolish(brassGuideMaterial, pressureWarningMaterial, keyMaterial, exitMaterial, rivetedIronMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
         CreateSteamworksDressing(rivetedIronMaterial, oilStoneMaterial, brassGuideMaterial, pressureWarningMaterial, brassHazardMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreateSecretCache(brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, healthMaterial, glassVialMaterial, medicinalFluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
         CreateLevel01SignageDecalsV1();
@@ -1916,6 +1917,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeWeaponSwitchTest>();
         stateObject.AddComponent<RuntimeMovementFeelTest>();
         stateObject.AddComponent<RuntimeBalanceEnvelopeTest>();
+        stateObject.AddComponent<RuntimeLevel01FlowTest>();
     }
 
     private static void ConfigureSteamworksAudioV1(SteamworksAudio audio)
@@ -2489,6 +2491,43 @@ public static class V0SceneBuilder
         CreateWorldLabel("Label - Gear Key", "GEAR KEY", new Vector3(16f, 2.2f, 16.25f), new Color(1f, 0.82f, 0.28f), 0.28f);
         CreateWorldLabel("Label - Pressure Gate", "PRESSURE GATE: KEY REQUIRED", new Vector3(0f, 2.9f, 21.95f), new Color(1f, 0.45f, 0.16f), 0.22f);
         CreateWorldLabel("Label - Service Lift", "SERVICE LIFT", new Vector3(0f, 2.75f, 33.95f), new Color(0.45f, 1f, 0.52f), 0.26f);
+    }
+
+    private static void CreateLevel01FlowPolish(Material brassMaterial, Material warningMaterial, Material keyMaterial, Material exitMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material glowMaterial)
+    {
+        GameObject parent = new GameObject("Level01 Flow Polish V015");
+
+        CreateDecoCube("Level01 Gate Preview Brass Sightline Rail Left", new Vector3(-1.15f, 0.055f, 19.35f), new Vector3(0.12f, 0.08f, 4.2f), brassMaterial, parent.transform);
+        CreateDecoCube("Level01 Gate Preview Brass Sightline Rail Right", new Vector3(1.15f, 0.055f, 19.35f), new Vector3(0.12f, 0.08f, 4.2f), brassMaterial, parent.transform);
+        CreateDecoCube("Level01 Gate Preview Red Locking Header", new Vector3(0f, 2.25f, 20.72f), new Vector3(2.85f, 0.12f, 0.08f), warningMaterial, parent.transform);
+        CreatePressureGauge("Level01 Gate Preview Pressure Gauge", new Vector3(-1.46f, 1.72f, 20.88f), Quaternion.Euler(0f, 180f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+        CreateCagedGaslight("Level01 Gate Preview Amber Gaslight", new Vector3(1.5f, 1.86f, 20.82f), Quaternion.Euler(0f, 180f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform);
+        CreatePointLight("Level01 Gate Preview Amber Point Light", new Vector3(0f, 2.35f, 20.35f), new Color(1f, 0.52f, 0.12f), 1.65f, 5.1f);
+
+        CreateDecoCube("Level01 Key Branch Return Brass Pipe A", new Vector3(12.25f, 0.09f, 17f), new Vector3(5.35f, 0.08f, 0.08f), brassMaterial, parent.transform);
+        CreateDecoCube("Level01 Key Branch Return Brass Pipe B", new Vector3(8.25f, 0.09f, 18.28f), new Vector3(0.08f, 0.08f, 2.7f), brassMaterial, parent.transform);
+        CreateDecoCube("Level01 Key Branch Return Amber Plate", new Vector3(10.05f, 0.055f, 18.85f), new Vector3(1.25f, 0.06f, 0.28f), keyMaterial, parent.transform);
+        GameObject returnChevronA = CreateDecoCube("Level01 Key Branch Return Chevron A", new Vector3(8.85f, 0.065f, 18.74f), new Vector3(0.64f, 0.07f, 0.16f), keyMaterial, parent.transform);
+        returnChevronA.transform.rotation = Quaternion.Euler(0f, -32f, 0f);
+        GameObject returnChevronB = CreateDecoCube("Level01 Key Branch Return Chevron B", new Vector3(8.85f, 0.066f, 18.98f), new Vector3(0.64f, 0.07f, 0.16f), keyMaterial, parent.transform);
+        returnChevronB.transform.rotation = Quaternion.Euler(0f, 32f, 0f);
+        CreatePressureGauge("Level01 Key Branch Return Gauge", new Vector3(9.78f, 1.45f, 20.02f), Quaternion.identity, brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
+
+        CreateDecoCube("Level01 Service Lift Green Runway Center", new Vector3(0f, 0.055f, 31.05f), new Vector3(0.32f, 0.08f, 4.35f), exitMaterial, parent.transform);
+        CreateDecoCube("Level01 Service Lift Green Runway Left Rail", new Vector3(-1.18f, 0.055f, 31.65f), new Vector3(0.11f, 0.08f, 3.15f), exitMaterial, parent.transform);
+        CreateDecoCube("Level01 Service Lift Green Runway Right Rail", new Vector3(1.18f, 0.055f, 31.65f), new Vector3(0.11f, 0.08f, 3.15f), exitMaterial, parent.transform);
+        GameObject liftChevronA = CreateDecoCube("Level01 Service Lift Green Chevron A", new Vector3(-0.36f, 0.07f, 32.55f), new Vector3(0.76f, 0.08f, 0.16f), exitMaterial, parent.transform);
+        liftChevronA.transform.rotation = Quaternion.Euler(0f, -34f, 0f);
+        GameObject liftChevronB = CreateDecoCube("Level01 Service Lift Green Chevron B", new Vector3(0.36f, 0.071f, 32.55f), new Vector3(0.76f, 0.08f, 0.16f), exitMaterial, parent.transform);
+        liftChevronB.transform.rotation = Quaternion.Euler(0f, 34f, 0f);
+        CreateDecoCube("Level01 Service Lift Green Overhead Pipe", new Vector3(0f, 2.78f, 32.55f), new Vector3(2.9f, 0.12f, 0.08f), exitMaterial, parent.transform);
+        CreatePointLight("Level01 Service Lift Green Beacon Light", new Vector3(0f, 2.55f, 32.6f), new Color(0.16f, 1f, 0.32f), 2.2f, 6f);
+
+        CreateDecoCube("Level01 Secret Warm Pipe Clue", new Vector3(-5.98f, 1.28f, 17.52f), new Vector3(0.08f, 0.1f, 1.55f), brassMaterial, parent.transform);
+        CreateValveWheel("Level01 Secret Loose Service Valve", new Vector3(-5.95f, 1.08f, 18.42f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, warningMaterial, parent.transform);
+        GameObject misalignedPlate = CreateDecoCube("Level01 Secret Misaligned Service Plate", new Vector3(-5.99f, 0.72f, 18.7f), new Vector3(0.045f, 0.62f, 0.82f), ironMaterial, parent.transform);
+        misalignedPlate.transform.rotation = Quaternion.Euler(0f, -90f, 3f);
+        CreatePointLight("Level01 Secret Warm Seam Light", new Vector3(-5.62f, 1.18f, 18.62f), new Color(1f, 0.44f, 0.12f), 0.95f, 2.8f);
     }
 
     private static void CreateWorldLabel(string name, string text, Vector3 position, Color color, float characterSize)

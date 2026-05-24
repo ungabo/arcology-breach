@@ -1413,6 +1413,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.5 Level01 Brassworks Intake Flow Polish
+
+- [x] Add generated gate-preview sightline rails/header/gauge/lamp before the pressure gate.
+- [x] Add generated key-branch return pipe, amber plate, chevrons, and gauge cues.
+- [x] Add generated service-lift green runway, chevrons, overhead pipe, and beacon light.
+- [x] Add generated secret-cache clue props near the Intake pressure cache without moving the secret trigger.
+- [x] Add validator coverage for the new Level01 flow-polish props.
+- [x] Add `RuntimeLevel01FlowTest` and `-v0Level01FlowSmoke` packaged launch coverage.
+- [x] Expand runtime smoke and the full build matrix for `V0_LEVEL01_FLOW_PASS`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.5`.
+- [x] Build `v0.1.5` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
@@ -1422,7 +1436,7 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Tune player movement speed and camera feel.
 - [x] Tune `Pressure Pistol` damage, fire rate, ammo, and feedback.
 - [x] Tune `Scrapper` speed, detection range, damage, and attack cooldown.
-- [ ] Confirm `Brassworks Intake` scale and room flow against `LEVEL_DESIGN_AND_MAPS.md`.
+- [x] Confirm `Brassworks Intake` route object placement and room flow against `LEVEL_DESIGN_AND_MAPS.md` through deterministic smoke coverage.
 - [ ] Manual readability pass for Scrapper attack tells and world labels.
 - [ ] Manual listen pass for procedural audio levels and tone.
 

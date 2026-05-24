@@ -296,6 +296,7 @@ public static class V0LevelValidator
         Require<RuntimeWeaponSwitchTest>(sceneName + " RuntimeWeaponSwitchTest");
         Require<RuntimeMovementFeelTest>(sceneName + " RuntimeMovementFeelTest");
         Require<RuntimeBalanceEnvelopeTest>(sceneName + " RuntimeBalanceEnvelopeTest");
+        Require<RuntimeLevel01FlowTest>(sceneName + " RuntimeLevel01FlowTest");
         Require<EnemyController>(sceneName + " EnemyController");
         Require<Pickup>(sceneName + " Pickup");
 
@@ -952,6 +953,15 @@ public static class V0LevelValidator
             RequireNamed("North Star Gate Rivet Band", sceneName + " north-star gate rivet band");
             RequireNamed("Secret - Intake Pressure Cache", sceneName + " secret pressure cache");
             RequireNamed("Secret Pressure Cache Brass Floor Plate", sceneName + " secret pressure cache floor plate");
+            RequireNamed("Level01 Flow Polish V015", sceneName + " flow polish prop root");
+            RequireNamed("Level01 Gate Preview Brass Sightline Rail Left", sceneName + " gate preview sightline rail");
+            RequireNamed("Level01 Gate Preview Red Locking Header", sceneName + " gate preview locking header");
+            RequireNamed("Level01 Key Branch Return Brass Pipe A", sceneName + " key branch return pipe");
+            RequireNamed("Level01 Key Branch Return Chevron A", sceneName + " key branch return chevron");
+            RequireNamed("Level01 Service Lift Green Runway Center", sceneName + " service lift runway");
+            RequireNamed("Level01 Service Lift Green Beacon Light", sceneName + " service lift beacon");
+            RequireNamed("Level01 Secret Warm Pipe Clue", sceneName + " secret clue pipe");
+            RequireNamed("Level01 Secret Misaligned Service Plate", sceneName + " secret clue plate");
         }
         else if (sceneName == "Level02")
         {
