@@ -1504,6 +1504,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.11 Pressure Gauge Asset Promotion
+
+- [x] Review Unity-only lookdev outputs and keep non-production renders in the reference lane.
+- [x] Add `PressureGaugePrototype` runtime metadata for promoted gauge components.
+- [x] Replace the Pressure Pistol viewmodel gauge with a named multi-part gauge prototype.
+- [x] Replace the Level01 pressure-gate panel gauge with the same component language.
+- [x] Add editor validation for gauge metadata, named parts, tick/rivet counts, and material roles.
+- [x] Add asset-promotion review and pressure-gauge prototype production docs.
+- [x] Refresh `V0RouteAudit` output for `v0.1.11`.
+- [x] Build `v0.1.11` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

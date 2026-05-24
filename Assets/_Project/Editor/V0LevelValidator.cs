@@ -414,6 +414,7 @@ public static class V0LevelValidator
             RequireNamed("Pressure Gate Frame Assembly", sceneName + " pressure gate frame visual");
             RequireNamed("Pressure Gate Key Socket", sceneName + " pressure gate key socket visual");
             RequireNamed("Pressure Gate Warning Lamp Left", sceneName + " pressure gate warning lamp visual");
+            ValidatePressureGaugePrototype(sceneName, "Pressure Gate Prototype Gauge", "pressure_gate_panel");
             RequireNamed("Pickup - Gear Key Clockwork Key Visual", sceneName + " gear-key visual root");
             RequireNamed("Pickup - Gear Key Key Bit Lower", sceneName + " gear-key bit visual");
         }
@@ -1048,7 +1049,7 @@ public static class V0LevelValidator
         RequireNamed("Pressure Pistol Steam Vent Chimney", sceneName + " pressure pistol steam vent visual");
         RequireNamed("Pressure Pistol Pressure Relief Nozzle", sceneName + " pressure pistol pressure relief nozzle visual");
         RequireNamed("Pressure Pistol Pressure Dump Lever", sceneName + " pressure pistol pressure dump lever visual");
-        RequireNamed("Pressure Pistol Gauge Needle", sceneName + " pressure pistol gauge needle visual");
+        ValidatePressureGaugePrototype(sceneName, "Pressure Pistol Prototype Pressure Gauge", "viewmodel");
         RequireNamed("Pressure Pistol Valve Wheel", sceneName + " pressure pistol valve wheel visual");
         RequireNamed("Pressure Pistol Front Sight", sceneName + " pressure pistol front sight visual");
         RequireNamed("Steam Scattergun Viewmodel", sceneName + " Steam Scattergun viewmodel");
@@ -1056,6 +1057,54 @@ public static class V0LevelValidator
         RequireNamed("Steam Scattergun Barrel 0", sceneName + " Steam Scattergun barrel visual");
         RequireNamed("Steam Scattergun Pressure Drum", sceneName + " Steam Scattergun pressure drum visual");
         RequireNamed("Steam Scattergun Pump Handle", sceneName + " Steam Scattergun pump handle visual");
+    }
+
+    private static void ValidatePressureGaugePrototype(string sceneName, string objectName, string expectedPlacementRole)
+    {
+        GameObject root = RequireNamed(objectName, sceneName + " pressure gauge prototype root");
+        PressureGaugePrototype prototype = root.GetComponent<PressureGaugePrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pressure gauge prototype is missing its marker component (" + objectName + ").");
+        }
+
+        if (prototype.promotionVersion != "v0.1.11" || prototype.placementRole != expectedPlacementRole || !prototype.HasRequiredParts)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pressure gauge prototype metadata or required parts are incomplete (" + objectName + ").");
+        }
+
+        if (prototype.tickRoot.childCount < 16 || prototype.rivetRoot.childCount < 12)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pressure gauge prototype does not have the required tick/rivet count (" + objectName + ").");
+        }
+
+        RequireNamed(objectName + " Aged Brass Bezel", sceneName + " pressure gauge brass bezel");
+        RequireNamed(objectName + " Blackened Iron Backplate", sceneName + " pressure gauge iron backplate");
+        RequireNamed(objectName + " Cream Enamel Face", sceneName + " pressure gauge enamel face");
+        RequireNamed(objectName + " Amber Glass Lens", sceneName + " pressure gauge glass lens");
+        RequireNamed(objectName + " Red Pressure Warning Band", sceneName + " pressure gauge warning band");
+        RequireNamed(objectName + " Needle Pivot", sceneName + " pressure gauge needle pivot");
+        RequireNamed(objectName + " Tick 00", sceneName + " pressure gauge tick mark");
+        RequireNamed(objectName + " Bezel Rivet 00", sceneName + " pressure gauge bezel rivet");
+
+        RequireRendererMaterial(prototype.bezelRenderer, sceneName + " pressure gauge bezel", "Brass");
+        RequireRendererMaterial(prototype.backplateRenderer, sceneName + " pressure gauge backplate", "Iron");
+        RequireRendererMaterial(prototype.faceRenderer, sceneName + " pressure gauge face", "CreamGaugeFace");
+        RequireRendererMaterial(prototype.glassRenderer, sceneName + " pressure gauge glass", "Glass");
+        RequireRendererMaterial(prototype.warningBandRenderer, sceneName + " pressure gauge warning band", "PressureWarning");
+    }
+
+    private static void RequireRendererMaterial(Renderer renderer, string label, string expectedNameFragment)
+    {
+        if (renderer == null || renderer.sharedMaterial == null || renderer.sharedMaterial.shader == null)
+        {
+            throw new InvalidOperationException("Level validation failed: missing renderer material for " + label + ".");
+        }
+
+        if (renderer.sharedMaterial.name.IndexOf(expectedNameFragment, StringComparison.OrdinalIgnoreCase) < 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + label + " expected material containing '" + expectedNameFragment + "' but found '" + renderer.sharedMaterial.name + "'.");
+        }
     }
 
     private static void ValidateEnvironmentPropVisuals(string sceneName)

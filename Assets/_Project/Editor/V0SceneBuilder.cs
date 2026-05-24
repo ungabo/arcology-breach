@@ -107,7 +107,7 @@ public static class V0SceneBuilder
         CreateGreyboxLevel(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
         CreateGameState(hud, windowsQualityProfile, "Find the gear key. Open the pressure gate.");
-        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, rivetedIronMaterial, pressureWarningMaterial, pressurePistolDefinition, steamScattergunDefinition);
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, glassVialMaterial, rivetedIronMaterial, pressureWarningMaterial, pressurePistolDefinition, steamScattergunDefinition);
         CreateEnemy("Enemy - First Room", new Vector3(0f, 1f, 16.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
         CreateEnemy("Enemy - Key Room", new Vector3(14.5f, 1f, 17f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
         CreateEnemy("Enemy - Final Left", new Vector3(-3.2f, 1f, 30.5f), enemyMaterial, enemyEyeMaterial, brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, scrapperDefinition);
@@ -115,7 +115,7 @@ public static class V0SceneBuilder
         CreateHealthVialPickup("Pickup - Health Vial", new Vector3(-3.6f, 0.65f, 20f), healthMaterial, glassVialMaterial, medicinalFluidMaterial, brassGuideMaterial, healthPickupDefinition);
         CreatePressureCartridgePickup("Pickup - Pressure Cartridge Pack", new Vector3(4.2f, 0.55f, 19f), ammoMaterial, rivetedIronMaterial, brassGuideMaterial, ammoPickupDefinition);
         CreateGearKeyPickup("Pickup - Gear Key", new Vector3(16f, 0.55f, 17f), Vector3.one * 1.1f, keyMaterial, rivetedIronMaterial, gearKeyDefinition);
-        CreateLockedDoor(doorMaterial, brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, pressureWarningMaterial);
+        CreateLockedDoor(doorMaterial, brassGuideMaterial, rivetedIronMaterial, gaugeFaceMaterial, glassVialMaterial, pressureWarningMaterial);
         CreateLevelTransitionLift(exitMaterial, rivetedIronMaterial, brassGuideMaterial, gaugeFaceMaterial, "Level02");
         CreateAccentLights();
         CreateObjectiveGuides(brassGuideMaterial, pressureWarningMaterial, keyMaterial, exitMaterial);
@@ -1040,7 +1040,7 @@ public static class V0SceneBuilder
         CreatePipeworksAnnexBlockout(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
         CreateGameState(hud, windowsQualityProfile, "Route pipe pressure. Ride the lift to the Boilerheart.");
-        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition, steamScattergunDefinition);
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, glassMaterial, ironMaterial, warningMaterial, pressurePistolDefinition, steamScattergunDefinition);
 
         CreateEnemy("Enemy - Pipeworks Gatehouse", new Vector3(-2.2f, 1f, 9.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateLancerEnemy("Enemy - Pipeworks Lancer", new Vector3(2.2f, 1f, 17.5f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, lancerDefinition);
@@ -1070,7 +1070,7 @@ public static class V0SceneBuilder
         CreateBoilerheartBlockout(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
         CreateGameState(hud, windowsQualityProfile, "Vent the Boilerheart pressure valve. Ride the foundry lift.");
-        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition, steamScattergunDefinition);
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, glassMaterial, ironMaterial, warningMaterial, pressurePistolDefinition, steamScattergunDefinition);
 
         CreateEnemy("Enemy - Boilerheart Floor Guard", new Vector3(-2.6f, 1f, 12.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateEnemy("Enemy - Boilerheart Lift Guard", new Vector3(2.4f, 1f, 19.2f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
@@ -1103,7 +1103,7 @@ public static class V0SceneBuilder
         CreateFurnaceFoundryBlockout(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
         CreateGameState(hud, windowsQualityProfile, "Cross the Furnace Foundry. Reach the emergency hoist.");
-        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition, steamScattergunDefinition);
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, glassMaterial, ironMaterial, warningMaterial, pressurePistolDefinition, steamScattergunDefinition);
 
         CreateEnemy("Enemy - Foundry Intake Scrapper", new Vector3(-2.9f, 1f, 9.2f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateLancerEnemy("Enemy - Foundry Catwalk Lancer", new Vector3(2.8f, 1f, 15.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, lancerDefinition);
@@ -1132,7 +1132,7 @@ public static class V0SceneBuilder
         CreateGovernorCoreBlockout(wallMaterial, floorMaterial);
         HUDController hud = CreateHud();
         CreateGameState(hud, windowsQualityProfile, "Breach the Governor Core. Reach the master override hoist.");
-        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial, pressurePistolDefinition, steamScattergunDefinition);
+        CreatePlayer(gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, glassMaterial, ironMaterial, warningMaterial, pressurePistolDefinition, steamScattergunDefinition);
 
         CreateEnemy("Enemy - Governor Core Intake Scrapper", new Vector3(-2.9f, 1f, 8.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, scrapperDefinition);
         CreateLancerEnemy("Enemy - Governor Core Lancer", new Vector3(3.2f, 1f, 15.8f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, lancerDefinition);
@@ -2181,7 +2181,7 @@ public static class V0SceneBuilder
             || path.IndexOf("Loop.wav", StringComparison.OrdinalIgnoreCase) >= 0;
     }
 
-    private static void CreatePlayer(Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial, Material ironMaterial, Material warningMaterial, WeaponDefinition weaponDefinition, WeaponDefinition steamScattergunDefinition)
+    private static void CreatePlayer(Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial, Material gaugeGlassMaterial, Material ironMaterial, Material warningMaterial, WeaponDefinition weaponDefinition, WeaponDefinition steamScattergunDefinition)
     {
         GameObject player = new GameObject("Player");
         player.transform.position = new Vector3(0f, 0f, 0f);
@@ -2231,14 +2231,14 @@ public static class V0SceneBuilder
         weapon.secondaryRange = GameBalance.PressureBurstRange;
         weapon.secondarySpread = GameBalance.PressureBurstSpread;
 
-        WeaponView weaponView = CreateWeaponView(cameraObject.transform, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial);
+        WeaponView weaponView = CreateWeaponView(cameraObject.transform, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, gaugeGlassMaterial, ironMaterial, warningMaterial);
         WeaponView scattergunView = CreateSteamScattergunView(cameraObject.transform, gunMaterial, gunTrimMaterial, muzzleFlashMaterial, gaugeFaceMaterial, ironMaterial, warningMaterial);
         weapon.weaponView = weaponView;
         weapon.pressurePistolView = weaponView;
         weapon.steamScattergunView = scattergunView;
     }
 
-    private static WeaponView CreateWeaponView(Transform cameraTransform, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial, Material ironMaterial, Material warningMaterial)
+    private static WeaponView CreateWeaponView(Transform cameraTransform, Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial, Material gaugeGlassMaterial, Material ironMaterial, Material warningMaterial)
     {
         GameObject weaponRoot = new GameObject("Pressure Pistol Viewmodel");
         weaponRoot.transform.SetParent(cameraTransform, false);
@@ -2275,12 +2275,7 @@ public static class V0SceneBuilder
         CreateLocalCube("Pressure Pistol Rear Sight", weaponRoot.transform, new Vector3(0f, 0.23f, -0.08f), new Vector3(0.2f, 0.045f, 0.045f), ironMaterial);
         CreateLocalCube("Pressure Pistol Front Sight", weaponRoot.transform, new Vector3(0f, 0.25f, 0.7f), new Vector3(0.06f, 0.12f, 0.045f), ironMaterial);
 
-        GameObject gaugeBezel = CreateLocalPrimitive("Pressure Pistol Gauge Bezel", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(-0.18f, 0.18f, 0.02f), new Vector3(0.2f, 0.03f, 0.2f), gunTrimMaterial);
-        gaugeBezel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
-        GameObject gauge = CreateLocalPrimitive("Pressure Pistol Gauge Face", PrimitiveType.Cylinder, weaponRoot.transform, new Vector3(-0.18f, 0.18f, -0.01f), new Vector3(0.16f, 0.02f, 0.16f), gaugeFaceMaterial);
-        gauge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
-        GameObject gaugeNeedle = CreateLocalCube("Pressure Pistol Gauge Needle", weaponRoot.transform, new Vector3(-0.14f, 0.18f, -0.035f), new Vector3(0.12f, 0.012f, 0.012f), warningMaterial);
-        gaugeNeedle.transform.localRotation = Quaternion.Euler(0f, 0f, 18f);
+        PressureGaugePrototype gaugePrototype = CreatePressureGaugePrototype("Pressure Pistol Prototype Pressure Gauge", weaponRoot.transform, new Vector3(-0.18f, 0.18f, 0.01f), 0.46f, gunTrimMaterial, ironMaterial, gaugeFaceMaterial, gaugeGlassMaterial, warningMaterial, "viewmodel");
         CreateLocalCube("Pressure Pistol Bolt Handle", weaponRoot.transform, new Vector3(0.31f, 0.02f, 0.05f), new Vector3(0.18f, 0.05f, 0.05f), ironMaterial);
         CreateLocalPrimitive("Pressure Pistol Bolt Knob", PrimitiveType.Sphere, weaponRoot.transform, new Vector3(0.42f, 0.02f, 0.05f), new Vector3(0.075f, 0.075f, 0.075f), gunTrimMaterial);
         GameObject pressureDumpLever = CreateLocalCube("Pressure Pistol Pressure Dump Lever", weaponRoot.transform, new Vector3(0.31f, 0.15f, 0.16f), new Vector3(0.06f, 0.2f, 0.035f), warningMaterial);
@@ -2313,7 +2308,7 @@ public static class V0SceneBuilder
         WeaponView weaponView = weaponRoot.AddComponent<WeaponView>();
         weaponView.muzzleFlash = flash;
         weaponView.pressureDumpFlash = pressureDumpFlash;
-        weaponView.pressureGaugeNeedle = gaugeNeedle.transform;
+        weaponView.pressureGaugeNeedle = gaugePrototype.needlePivot;
         weaponView.pressureValveWheel = valveWheel.transform;
         weaponView.pressureDumpLever = pressureDumpLever.transform;
         weaponView.pressureChamber = pressureTank.transform;
@@ -3379,6 +3374,70 @@ public static class V0SceneBuilder
         CreateLocalCube(name + " Needle", root.transform, new Vector3(0.08f, 0f, -0.07f), new Vector3(0.23f, 0.018f, 0.018f), needleMaterial);
     }
 
+    private static PressureGaugePrototype CreatePressureGaugePrototype(string name, Transform parent, Vector3 localPosition, float size, Material brassMaterial, Material ironMaterial, Material faceMaterial, Material glassMaterial, Material warningMaterial, string placementRole)
+    {
+        float radius = size * 0.5f;
+        float depth = size * 0.08f;
+
+        GameObject root = CreateLocalEmpty(name, parent, localPosition, Quaternion.identity);
+        PressureGaugePrototype prototype = root.AddComponent<PressureGaugePrototype>();
+        prototype.placementRole = placementRole;
+        prototype.tickMarkCount = 16;
+
+        GameObject backplate = CreateLocalPrimitive(name + " Blackened Iron Backplate", PrimitiveType.Cylinder, root.transform, new Vector3(0f, 0f, depth * 0.45f), new Vector3(radius * 1.08f, depth * 0.8f, radius * 1.08f), ironMaterial);
+        backplate.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+
+        GameObject bezel = CreateLocalPrimitive(name + " Aged Brass Bezel", PrimitiveType.Cylinder, root.transform, Vector3.zero, new Vector3(radius, depth, radius), brassMaterial);
+        bezel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+
+        GameObject face = CreateLocalPrimitive(name + " Cream Enamel Face", PrimitiveType.Cylinder, root.transform, new Vector3(0f, 0f, -depth * 0.75f), new Vector3(radius * 0.78f, depth * 0.42f, radius * 0.78f), faceMaterial);
+        face.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+
+        GameObject glass = CreateLocalPrimitive(name + " Amber Glass Lens", PrimitiveType.Cylinder, root.transform, new Vector3(0f, 0f, -depth * 1.22f), new Vector3(radius * 0.72f, depth * 0.22f, radius * 0.72f), glassMaterial);
+        glass.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+
+        GameObject warningBand = CreateLocalCube(name + " Red Pressure Warning Band", root.transform, new Vector3(0f, -radius * 0.7f, -depth * 1.55f), new Vector3(radius * 1.05f, radius * 0.1f, depth * 0.42f), warningMaterial);
+        GameObject highlight = CreateLocalCube(name + " Glass Crescent Highlight", root.transform, new Vector3(-radius * 0.2f, radius * 0.25f, -depth * 1.7f), new Vector3(radius * 0.45f, radius * 0.045f, depth * 0.34f), glassMaterial);
+        highlight.transform.localRotation = Quaternion.Euler(0f, 0f, -18f);
+
+        GameObject tickRoot = CreateLocalEmpty(name + " Tick Root", root.transform, Vector3.zero, Quaternion.identity);
+        for (int i = 0; i < 16; i++)
+        {
+            float angle = i * 22.5f;
+            float radians = angle * Mathf.Deg2Rad;
+            Vector3 tickPosition = new Vector3(Mathf.Sin(radians) * radius * 0.56f, Mathf.Cos(radians) * radius * 0.56f, -depth * 1.7f);
+            GameObject tick = CreateLocalCube(name + " Tick " + i.ToString("00"), tickRoot.transform, tickPosition, new Vector3(radius * 0.035f, radius * (i % 4 == 0 ? 0.18f : 0.1f), depth * 0.22f), ironMaterial);
+            tick.transform.localRotation = Quaternion.Euler(0f, 0f, -angle);
+        }
+
+        GameObject rivetRoot = CreateLocalEmpty(name + " Rivet Root", root.transform, Vector3.zero, Quaternion.identity);
+        for (int i = 0; i < 12; i++)
+        {
+            float angle = i * 30f;
+            float radians = angle * Mathf.Deg2Rad;
+            Vector3 rivetPosition = new Vector3(Mathf.Sin(radians) * radius * 0.86f, Mathf.Cos(radians) * radius * 0.86f, -depth * 0.92f);
+            CreateLocalPrimitive(name + " Bezel Rivet " + i.ToString("00"), PrimitiveType.Sphere, rivetRoot.transform, rivetPosition, new Vector3(radius * 0.085f, radius * 0.085f, depth * 0.48f), brassMaterial);
+        }
+
+        GameObject needlePivot = CreateLocalEmpty(name + " Needle Pivot", root.transform, new Vector3(0f, 0f, -depth * 2f), Quaternion.Euler(0f, 0f, -32f));
+        GameObject needle = CreateLocalCube(name + " Needle", needlePivot.transform, new Vector3(radius * 0.22f, 0f, 0f), new Vector3(radius * 0.82f, radius * 0.045f, depth * 0.32f), warningMaterial);
+        CreateLocalPrimitive(name + " Needle Hub", PrimitiveType.Sphere, needlePivot.transform, Vector3.zero, new Vector3(radius * 0.12f, radius * 0.12f, depth * 0.5f), brassMaterial);
+
+        GameObject lowerPipe = CreateLocalPrimitive(name + " Lower Pipe Nipple", PrimitiveType.Cylinder, root.transform, new Vector3(0f, -radius * 1.04f, -depth * 0.15f), new Vector3(radius * 0.12f, radius * 0.22f, radius * 0.12f), brassMaterial);
+        lowerPipe.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+
+        prototype.bezelRenderer = bezel.GetComponent<Renderer>();
+        prototype.backplateRenderer = backplate.GetComponent<Renderer>();
+        prototype.faceRenderer = face.GetComponent<Renderer>();
+        prototype.glassRenderer = glass.GetComponent<Renderer>();
+        prototype.warningBandRenderer = warningBand.GetComponent<Renderer>();
+        prototype.needlePivot = needlePivot.transform;
+        prototype.needle = needle.transform;
+        prototype.tickRoot = tickRoot.transform;
+        prototype.rivetRoot = rivetRoot.transform;
+        return prototype;
+    }
+
     private static void CreateValveWheel(string name, Vector3 position, Quaternion rotation, Material brassMaterial, Material warningMaterial, Transform parent)
     {
         GameObject root = new GameObject(name);
@@ -3693,7 +3752,7 @@ public static class V0SceneBuilder
         EditorUtility.SetDirty(pickup);
     }
 
-    private static void CreateLockedDoor(Material material, Material brassMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material warningMaterial)
+    private static void CreateLockedDoor(Material material, Material brassMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material gaugeGlassMaterial, Material warningMaterial)
     {
         GameObject frameRoot = new GameObject("Pressure Gate Frame Assembly");
         CreateDecoCube("Pressure Gate Frame Left Post", new Vector3(-1.88f, 1.67f, 22.45f), new Vector3(0.28f, 3.35f, 0.72f), ironMaterial, frameRoot.transform);
@@ -3745,9 +3804,7 @@ public static class V0SceneBuilder
             tooth.transform.localRotation = Quaternion.Euler(0f, -angle, 0f);
         }
 
-        GameObject gauge = CreateLocalPrimitive("Pressure Gate Gauge Face", PrimitiveType.Cylinder, door.transform, new Vector3(-0.58f, 0.62f, -0.47f), new Vector3(0.2f, 0.025f, 0.2f), gaugeFaceMaterial);
-        gauge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
-        CreateLocalCube("Pressure Gate Gauge Needle", door.transform, new Vector3(-0.53f, 0.62f, -0.51f), new Vector3(0.14f, 0.014f, 0.014f), warningMaterial);
+        CreatePressureGaugePrototype("Pressure Gate Prototype Gauge", door.transform, new Vector3(-0.58f, 0.62f, -0.47f), 0.46f, brassMaterial, ironMaterial, gaugeFaceMaterial, gaugeGlassMaterial, warningMaterial, "pressure_gate_panel");
 
         CreateLocalPrimitive("Pressure Gate Left Pressure Cylinder", PrimitiveType.Cylinder, door.transform, new Vector3(-1.04f, 0f, -0.4f), new Vector3(0.08f, 0.88f, 0.08f), brassMaterial);
         CreateLocalPrimitive("Pressure Gate Right Pressure Cylinder", PrimitiveType.Cylinder, door.transform, new Vector3(1.04f, 0f, -0.4f), new Vector3(0.08f, 0.88f, 0.08f), brassMaterial);

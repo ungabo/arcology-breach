@@ -1,0 +1,33 @@
+{
+  "version": "v0.1.11",
+  "status": "implemented_prototype",
+  "owner_lane": "main Unity lane / asset production pressure gauge prototype",
+  "files_expected": [
+    "PRESSURE_GAUGE_PROTOTYPE_BRIEF_v0.1.11.md",
+    "PRESSURE_GAUGE_PROTOTYPE_STATUS.json",
+    "Assets/_Project/Scripts/Utility/PressureGaugePrototype.cs",
+    "Assets/_Project/Scripts/Utility/PressureGaugePrototype.cs.meta",
+    "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.11.md",
+    "Builds/Windows/v0.1.11/BrassworksBreach_v0.1.11.exe"
+  ],
+  "gates": {
+    "COM-01": "pass: north-star pressure-system role is declared and implemented as a prototype",
+    "COM-02": "pass-with-notes: Unity generated-scene proof, route audit, and full matrix passed; human screenshot review still pending",
+    "COM-03": "pass-with-notes: brass/iron/enamel/glass/pressure-band style implemented procedurally",
+    "COM-04": "pass-with-notes: prototype uses approved active material families by name",
+    "COM-05": "pending: texture import settings require future asset package",
+    "COM-06": "pending: geometry budget documented, measured counts unavailable",
+    "COM-07": "pending: LOD plan documented, LOD assets unavailable",
+    "COM-08": "pass-with-notes: generated viewmodel/gate gauge parts are decorative with no snagging render-mesh collision",
+    "COM-09": "pass-with-notes: validator and route audit pass; human lighting/readability screenshots still pending",
+    "COM-10": "pass-with-notes: platform reduction notes documented; import-tier assets pending",
+    "COM-11": "pass: v0.1.11 prototype naming and marker metadata are validated",
+    "COM-12": "pass-with-notes: component dependencies and future sockets documented; VFX/audio hookups pending"
+  },
+  "notes": [
+    "Side task created the brief/status docs; the main lane then implemented the procedural Unity prototype in generated gameplay scenes.",
+    "Pressure Pistol viewmodel and Level01 pressure gate use the promoted gauge language as of v0.1.11.",
+    "Route audit and full V0 matrix passed for Builds/Windows/v0.1.11/BrassworksBreach_v0.1.11.exe.",
+    "Final AAA promotion remains blocked until authored mesh/material production, measured budgets, LODs, platform tiering, screenshot review, and art-review signoff exist."
+  ]
+}
