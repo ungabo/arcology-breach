@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-23 23:48 -04:00`
+Last updated: `2026-05-23 23:54 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -46,6 +46,8 @@ Current verified local build:
 | Lagrange | `019e5801-0e76-7f92-bff6-5aa46c5fb8b2` | V1 HUD/UI art staging package | `Assets/_Project/ArtStaging/UIHudV1/`, `Documentation/AssetProduction/UIHudV1/` | `2026-05-23 23:26 -04:00` | completed |
 | Parfit | `019e5801-0ee0-71b3-bfba-3b8df1d41e70` | V1 audio production/staging lane | `Assets/_Project/ArtStaging/AudioV1/`, `Documentation/AssetProduction/AudioV1/` | `2026-05-23 23:26 -04:00` | completed |
 | Singer | `019e5805-3d47-70c2-b58b-e556a173f473` | Render/toolchain unblock for Blender pressure-pistol Recovery04 proof | `Documentation/AssetProduction/HighFidelityLookdevRecovery/RENDER_TOOLCHAIN_UNBLOCK_PLAN.md`, `BLENDER_PRESSURE_PISTOL_RECOVERY04_BRIEF.md`, `PressurePistolProof/blender_pressure_pistol_recovery04_scene.py` | `2026-05-23 23:32 -04:00` | completed; blocked on Blender install |
+| Turing | `019e580e-5d21-76b3-81a4-80455fe93c12` | V1 signage/decal text and staging sheets | `Documentation/AssetProduction/SignageDecalsV1/`, `Assets/_Project/ArtStaging/SignageDecalsV1/` | `2026-05-23 23:54 -04:00` | running |
+| Aquinas | `019e580e-5ece-7361-b0d2-1a820f927d13` | V1 manual playtest route sheets | `Documentation/QA/ManualPlaytestV1/` | `2026-05-23 23:54 -04:00` | running |
 
 ## Completed Side-Agent Outputs
 
@@ -81,6 +83,8 @@ Current verified local build:
 | Locke | `2026-05-23 23:26 -04:00` | `Assets/_Project/ArtStaging/FinalMaterialsV1/`, `Documentation/AssetProduction/FinalMaterialsV1/` | Running final-direction material staging for later review/import. |
 | Parfit | `2026-05-23 23:31 -04:00` | `Assets/_Project/ArtStaging/AudioV1/`, `Documentation/AssetProduction/AudioV1/` | Completed V1 audio staging: 33 generated 48 kHz 16-bit PCM WAV placeholders, including 7 loops, with manifest, asset plan, QA listen checklist, integration plan, and generator. |
 | Singer | `2026-05-23 23:43 -04:00` | `Documentation/AssetProduction/HighFidelityLookdevRecovery/RENDER_TOOLCHAIN_UNBLOCK_PLAN.md`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/BLENDER_PRESSURE_PISTOL_RECOVERY04_BRIEF.md`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/PressurePistolProof/blender_pressure_pistol_recovery04_scene.py` | Confirmed Blender/equivalent renderer is not locally available, documented exact unblock commands, and prepared a Blender Recovery04 pressure-pistol proof script ready to run after install. |
+| Turing | `2026-05-23 23:54 -04:00` | `Documentation/AssetProduction/SignageDecalsV1/`, `Assets/_Project/ArtStaging/SignageDecalsV1/` | Running V1 signage/decal sheet staging from level-polish backlog item P-01. |
+| Aquinas | `2026-05-23 23:54 -04:00` | `Documentation/QA/ManualPlaytestV1/` | Running manual playtest route sheet generation from level-polish backlog item P-04. |
 
 ## Integration Rules
 
