@@ -1,0 +1,1528 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Text;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.Rendering;
+
+public static class UnityEnvironmentRecovery03ProofRenderer
+{
+    private static readonly List<Texture> OwnedTextures = new List<Texture>();
+
+    private const int ModuleWidth = 1600;
+    private const int ModuleHeight = 1000;
+    private const int AssembledWidth = 1920;
+    private const int AssembledHeight = 1080;
+    private const int ContactWidth = 2400;
+    private const int ContactHeight = 1700;
+
+    private const string TextureFolderRelativePath = "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures";
+    private const string ReportRelativePath = "Documentation/AssetProduction/EnvironmentLookdev/ENV_RECOVERY03_UNITY_ENVIRONMENT_LOOKDEV_REPORT.md";
+    private const string MetricsRelativePath = "Documentation/AssetProduction/EnvironmentLookdev/env_recovery03_unity_environment_lookdev_metrics.json";
+    private const string ContactRelativePath = "Documentation/ConceptRenders/CONTACTSHEET_ENV_Recovery03_unity_environment_lookdev_proof.jpg";
+    private const string WallBayRelativePath = "Documentation/ConceptRenders/RENDER_ENV_Recovery03_modular_wall_bay_unity_proof.jpg";
+    private const string PipeCanopyRelativePath = "Documentation/ConceptRenders/RENDER_ENV_Recovery03_pipe_canopy_gauge_cluster_unity_proof.jpg";
+    private const string PressureDoorRelativePath = "Documentation/ConceptRenders/RENDER_ENV_Recovery03_pressure_door_module_unity_proof.jpg";
+    private const string AssembledSliceRelativePath = "Documentation/ConceptRenders/RENDER_ENV_Recovery03_assembled_corridor_slice_unity_proof.jpg";
+    private const string LogRelativePath = "Logs/env-recovery03-unity-environment-lookdev.log";
+    private const string ExactUnityCommandUsed = "\"C:\\Program Files\\Unity\\Hub\\Editor\\6000.4.6f1\\Editor\\Unity.exe\" -batchmode -quit -projectPath \"D:\\__MY APPS\\Unity Doom\" -executeMethod UnityEnvironmentRecovery03ProofRenderer.RenderBatch -logFile \"D:\\__MY APPS\\Unity Doom\\Logs\\env-recovery03-unity-environment-lookdev.log\"";
+
+    [MenuItem("Project Tools/Lookdev/Render Recovery03 Unity Environment Proof")]
+    public static void RenderFromMenu()
+    {
+        RenderBatch();
+    }
+
+    public static void RenderBatch()
+    {
+        try
+        {
+            RenderProof();
+        }
+        catch (Exception exception)
+        {
+            Debug.LogException(exception);
+            if (Application.isBatchMode)
+            {
+                EditorApplication.Exit(1);
+            }
+
+            throw;
+        }
+    }
+
+    private static void RenderProof()
+    {
+        string projectRoot = GetProjectRoot();
+        Directory.CreateDirectory(Path.Combine(projectRoot, "Documentation/ConceptRenders"));
+        Directory.CreateDirectory(Path.Combine(projectRoot, "Documentation/AssetProduction/EnvironmentLookdev"));
+        Directory.CreateDirectory(Path.Combine(projectRoot, "Logs"));
+
+        EnvironmentLookdevMetrics metrics = new EnvironmentLookdevMetrics
+        {
+            timestamp = DateTimeOffset.Now.ToString("yyyy-MM-dd HH:mm:ss zzz", CultureInfo.InvariantCulture),
+            unityVersion = Application.unityVersion,
+            batchmodeEntrypoint = "UnityEnvironmentRecovery03ProofRenderer.RenderBatch",
+            exactUnityCommandUsed = ExactUnityCommandUsed,
+            logPath = LogRelativePath,
+            textureSourceFolder = TextureFolderRelativePath,
+            reportPath = ReportRelativePath,
+            metricsPath = MetricsRelativePath,
+            contactSheetPath = ContactRelativePath,
+            moduleRenderWidth = ModuleWidth,
+            moduleRenderHeight = ModuleHeight,
+            assembledRenderWidth = AssembledWidth,
+            assembledRenderHeight = AssembledHeight,
+            contactSheetWidth = ContactWidth,
+            contactSheetHeight = ContactHeight,
+            materialSourcesUsed = new string[]
+            {
+                "T_BBW_WetOilDarkStone_*_2048.png",
+                "T_BBW_SootBrick_*_2048.png",
+                "T_BBW_BlackenedRivetedIron_*_2048.png",
+                "T_BBW_AgedBrass_*_2048.png",
+                "T_BBW_CopperPipe_*_2048.png",
+                "T_BBW_AmberGlass_*_2048.png",
+                "T_BBW_CreamEnamelGauge_*_2048.png",
+                "T_BBW_HazardEnamel_*_2048.png",
+                "T_BBW_LeatherBellows_*_2048.png",
+                "T_BBW_ScorchOilDecalAtlas_*_2048.png"
+            }
+        };
+
+        Recovery03Materials materials = null;
+        Texture2D contactSheet = null;
+        List<RenderResult> results = new List<RenderResult>();
+
+        try
+        {
+            OwnedTextures.Clear();
+            EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+            materials = CreateMaterials(projectRoot, metrics);
+
+            results.Add(RenderSingle(projectRoot, metrics, "modular_wall_bay", "Modular wall bay", WallBayRelativePath, ModuleWidth, ModuleHeight, materials, BuildWallBayScene, new Vector3(3.45f, 1.78f, -4.25f), new Vector3(0.0f, 1.35f, 1.55f), 40.0f));
+            results.Add(RenderSingle(projectRoot, metrics, "pipe_canopy_gauge_cluster", "Pipe canopy and gauge cluster", PipeCanopyRelativePath, ModuleWidth, ModuleHeight, materials, BuildPipeCanopyScene, new Vector3(2.75f, 2.8f, -3.55f), new Vector3(0.0f, 1.95f, 1.25f), 38.0f));
+            results.Add(RenderSingle(projectRoot, metrics, "pressure_door_module", "Pressure vault door module", PressureDoorRelativePath, ModuleWidth, ModuleHeight, materials, BuildPressureDoorScene, new Vector3(0.0f, 1.55f, -5.45f), new Vector3(0.0f, 1.45f, 1.25f), 34.0f));
+            results.Add(RenderSingle(projectRoot, metrics, "assembled_corridor_slice", "Assembled corridor slice", AssembledSliceRelativePath, AssembledWidth, AssembledHeight, materials, BuildAssembledCorridorScene, new Vector3(0.25f, 1.42f, -5.9f), new Vector3(0.0f, 1.45f, 3.3f), 43.0f));
+
+            metrics.renderedImageCount = results.Count;
+            metrics.imageMetrics = BuildImageMetrics(projectRoot, results);
+            metrics.gates = BuildGates(metrics);
+            metrics.overallStatus = DetermineOverallStatus(metrics.gates);
+
+            contactSheet = BuildContactSheet(projectRoot, results);
+            string contactPath = Path.Combine(projectRoot, ContactRelativePath);
+            File.WriteAllBytes(contactPath, contactSheet.EncodeToJPG(94));
+            metrics.contactSheetImageMetric = AnalyzeImage("contact_sheet", ContactRelativePath, contactSheet);
+            metrics.gates = BuildGates(metrics);
+            metrics.overallStatus = DetermineOverallStatus(metrics.gates);
+
+            File.WriteAllText(Path.Combine(projectRoot, MetricsRelativePath), JsonUtility.ToJson(metrics, true));
+            File.WriteAllText(Path.Combine(projectRoot, ReportRelativePath), BuildReport(metrics));
+
+            Debug.Log("ENV Recovery03 Unity environment lookdev contact sheet written to " + contactPath);
+            Debug.Log("ENV Recovery03 Unity environment lookdev report written to " + Path.Combine(projectRoot, ReportRelativePath));
+        }
+        finally
+        {
+            DestroyTexture(contactSheet);
+            for (int i = 0; i < results.Count; i++)
+            {
+                DestroyTexture(results[i].Image);
+            }
+
+            if (materials != null)
+            {
+                materials.DestroyAll();
+            }
+
+            DestroyOwnedTextures();
+            EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+        }
+    }
+
+    private static RenderResult RenderSingle(string projectRoot, EnvironmentLookdevMetrics metrics, string key, string title, string relativePath, int width, int height, Recovery03Materials materials, SceneBuilder builder, Vector3 cameraPosition, Vector3 lookAt, float fov)
+    {
+        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+        ConfigureRenderSettings();
+
+        GameObject root = new GameObject("ENV_Recovery03_" + key);
+        builder(root.transform, materials, metrics);
+        BuildSharedLighting(metrics);
+
+        Camera camera = CreateCamera("ENV_Recovery03_Camera_" + key, cameraPosition, lookAt, fov, width, height);
+        Texture2D image = CaptureCamera(camera, width, height, new Color(0.018f, 0.015f, 0.012f, 1f));
+        File.WriteAllBytes(Path.Combine(projectRoot, relativePath), image.EncodeToJPG(95));
+        DestroyTexture(image);
+
+        return new RenderResult
+        {
+            Key = key,
+            Title = title,
+            RelativePath = relativePath,
+            Width = width,
+            Height = height,
+            Image = null
+        };
+    }
+
+    private static void ConfigureRenderSettings()
+    {
+        RenderSettings.ambientMode = AmbientMode.Flat;
+        RenderSettings.ambientLight = new Color(0.038f, 0.032f, 0.026f);
+        RenderSettings.fog = true;
+        RenderSettings.fogColor = new Color(0.033f, 0.029f, 0.025f);
+        RenderSettings.fogMode = FogMode.ExponentialSquared;
+        RenderSettings.fogDensity = 0.029f;
+        RenderSettings.reflectionIntensity = 0.48f;
+    }
+
+    private static Recovery03Materials CreateMaterials(string projectRoot, EnvironmentLookdevMetrics metrics)
+    {
+        Recovery03Materials materials = new Recovery03Materials();
+        materials.WetStone = CreatePbrMaterial(projectRoot, "WetOilDarkStone", "ENV_R03_WetOilDarkStone", 0.05f, 0.82f, new Vector2(2.0f, 4.2f), metrics, false, false, Color.white);
+        materials.SootBrick = CreatePbrMaterial(projectRoot, "SootBrick", "ENV_R03_SootBrick", 0.0f, 0.34f, new Vector2(2.3f, 2.5f), metrics, false, false, new Color(0.72f, 0.69f, 0.63f));
+        materials.BlackenedIron = CreatePbrMaterial(projectRoot, "BlackenedRivetedIron", "ENV_R03_BlackenedRivetedIron", 0.88f, 0.42f, new Vector2(1.4f, 1.4f), metrics, false, false, Color.white);
+        materials.AgedBrass = CreatePbrMaterial(projectRoot, "AgedBrass", "ENV_R03_AgedBrass", 0.94f, 0.58f, new Vector2(1.2f, 1.2f), metrics, false, false, Color.white);
+        materials.CopperPipe = CreatePbrMaterial(projectRoot, "CopperPipe", "ENV_R03_CopperPipe", 0.95f, 0.64f, new Vector2(1.7f, 1.0f), metrics, false, false, Color.white);
+        materials.AmberGlass = CreatePbrMaterial(projectRoot, "AmberGlass", "ENV_R03_AmberGlass", 0.0f, 0.78f, Vector2.one, metrics, true, true, new Color(1.0f, 0.72f, 0.32f, 0.58f));
+        materials.CreamGauge = CreatePbrMaterial(projectRoot, "CreamEnamelGauge", "ENV_R03_CreamGauge", 0.0f, 0.5f, Vector2.one, metrics, false, false, Color.white);
+        materials.HazardEnamel = CreatePbrMaterial(projectRoot, "HazardEnamel", "ENV_R03_HazardEnamel", 0.0f, 0.52f, Vector2.one, metrics, false, false, Color.white);
+        materials.LeatherBellows = CreatePbrMaterial(projectRoot, "LeatherBellows", "ENV_R03_LeatherBellows", 0.0f, 0.37f, Vector2.one, metrics, false, false, Color.white);
+        materials.Decal = CreateDecalMaterial(projectRoot, metrics);
+        materials.WetHighlight = CreateTransparentColorMaterial("ENV_R03_WetHighlight", new Color(1.0f, 0.62f, 0.22f, 0.24f), 0.0f, 0.95f);
+        materials.Steam = CreateTransparentColorMaterial("ENV_R03_SteamFog", new Color(0.78f, 0.72f, 0.62f, 0.24f), 0.0f, 0.3f);
+        materials.WarmGlow = CreateUnlitColorMaterial("ENV_R03_WarmLampGlow", new Color(1.0f, 0.52f, 0.15f, 1f), true);
+        materials.LineDark = CreateUnlitColorMaterial("ENV_R03_LineDark", new Color(0.035f, 0.027f, 0.019f, 1f), false);
+        materials.RedGlow = CreateUnlitColorMaterial("ENV_R03_RedGlow", new Color(1.0f, 0.1f, 0.035f, 1f), true);
+        materials.GreenGlow = CreateUnlitColorMaterial("ENV_R03_GreenGlow", new Color(0.22f, 0.95f, 0.42f, 1f), true);
+        materials.ContactBack = CreateUnlitColorMaterial("ENV_R03_ContactBack", new Color(0.025f, 0.021f, 0.018f, 1f), false);
+        metrics.materialFamiliesUsed = 13;
+        return materials;
+    }
+
+    private static Material CreatePbrMaterial(string projectRoot, string materialKey, string materialName, float defaultMetallic, float defaultSmoothness, Vector2 tiling, EnvironmentLookdevMetrics metrics, bool transparent, bool emission, Color tint)
+    {
+        Shader shader = Shader.Find("Universal Render Pipeline/Lit");
+        if (shader == null)
+        {
+            shader = Shader.Find("Standard");
+        }
+
+        Material material = new Material(shader);
+        material.name = materialName;
+
+        Texture2D baseMap = LoadTextureFromDisk(projectRoot, materialKey, "BaseColor", false, metrics);
+        Texture2D normalMap = LoadTextureFromDisk(projectRoot, materialKey, "Normal", true, metrics);
+        Texture2D ormMap = LoadTextureFromDisk(projectRoot, materialKey, "ORM", true, metrics);
+        Texture2D metallicSmoothness = null;
+        Texture2D occlusion = null;
+        if (ormMap != null)
+        {
+            metallicSmoothness = CreateMetallicSmoothnessFromOrm(ormMap, materialName + "_MetallicSmoothness");
+            occlusion = CreateOcclusionFromOrm(ormMap, materialName + "_Occlusion");
+        }
+
+        SetMaterialTexture(material, "_MainTex", baseMap);
+        SetMaterialTexture(material, "_BaseMap", baseMap);
+        SetMaterialTexture(material, "_BumpMap", normalMap);
+        SetMaterialTexture(material, "_NormalMap", normalMap);
+        SetMaterialTexture(material, "_OcclusionMap", occlusion);
+        SetMaterialTexture(material, "_MetallicGlossMap", metallicSmoothness);
+        SetMaterialFloat(material, "_Metallic", defaultMetallic);
+        SetMaterialFloat(material, "_Glossiness", defaultSmoothness);
+        SetMaterialFloat(material, "_Smoothness", defaultSmoothness);
+        SetMaterialColor(material, tint);
+
+        if (baseMap != null)
+        {
+            material.mainTexture = baseMap;
+        }
+
+        SetMaterialTextureScale(material, "_MainTex", tiling);
+        SetMaterialTextureScale(material, "_BaseMap", tiling);
+        material.EnableKeyword("_NORMALMAP");
+        material.EnableKeyword("_OCCLUSIONMAP");
+        material.EnableKeyword("_METALLICGLOSSMAP");
+
+        if (transparent)
+        {
+            material.SetOverrideTag("RenderType", "Transparent");
+            material.renderQueue = (int)RenderQueue.Transparent;
+            SetMaterialFloat(material, "_Surface", 1.0f);
+            SetMaterialFloat(material, "_Mode", 3.0f);
+            SetMaterialInt(material, "_SrcBlend", (int)BlendMode.SrcAlpha);
+            SetMaterialInt(material, "_DstBlend", (int)BlendMode.OneMinusSrcAlpha);
+            SetMaterialInt(material, "_ZWrite", 0);
+            material.EnableKeyword("_ALPHABLEND_ON");
+        }
+
+        if (emission)
+        {
+            SetMaterialColor(material, "_EmissionColor", new Color(1.0f, 0.44f, 0.11f) * 1.6f);
+            material.EnableKeyword("_EMISSION");
+        }
+
+        TrackOwnedTexture(baseMap);
+        TrackOwnedTexture(normalMap);
+        TrackOwnedTexture(ormMap);
+        TrackOwnedTexture(metallicSmoothness);
+        TrackOwnedTexture(occlusion);
+        return material;
+    }
+
+    private static Material CreateDecalMaterial(string projectRoot, EnvironmentLookdevMetrics metrics)
+    {
+        Material material = CreatePbrMaterial(projectRoot, "ScorchOilDecalAtlas", "ENV_R03_ScorchOilDecal", 0.0f, 0.62f, Vector2.one, metrics, true, false, new Color(1f, 1f, 1f, 0.46f));
+        Texture2D alpha = LoadTextureFromDisk(projectRoot, "ScorchOilDecalAtlas", "Alpha", true, metrics);
+        SetMaterialTexture(material, "_BaseMap", material.mainTexture);
+        SetMaterialTexture(material, "_MainTex", material.mainTexture);
+        if (alpha != null)
+        {
+            SetMaterialTexture(material, "_AlphaTex", alpha);
+        }
+
+        TrackOwnedTexture(alpha);
+        return material;
+    }
+
+    private static Material CreateTransparentColorMaterial(string materialName, Color color, float metallic, float smoothness)
+    {
+        Shader shader = Shader.Find("Universal Render Pipeline/Lit");
+        if (shader == null)
+        {
+            shader = Shader.Find("Standard");
+        }
+
+        Material material = new Material(shader);
+        material.name = materialName;
+        SetMaterialColor(material, color);
+        SetMaterialColor(material, "_BaseColor", color);
+        SetMaterialFloat(material, "_Metallic", metallic);
+        SetMaterialFloat(material, "_Smoothness", smoothness);
+        SetMaterialFloat(material, "_Glossiness", smoothness);
+        SetMaterialFloat(material, "_Surface", 1f);
+        SetMaterialFloat(material, "_Mode", 3f);
+        SetMaterialInt(material, "_SrcBlend", (int)BlendMode.SrcAlpha);
+        SetMaterialInt(material, "_DstBlend", (int)BlendMode.OneMinusSrcAlpha);
+        SetMaterialInt(material, "_ZWrite", 0);
+        material.SetOverrideTag("RenderType", "Transparent");
+        material.renderQueue = (int)RenderQueue.Transparent + 12;
+        material.EnableKeyword("_ALPHABLEND_ON");
+        return material;
+    }
+
+    private static Material CreateUnlitColorMaterial(string materialName, Color color, bool emission)
+    {
+        Shader shader = Shader.Find("Universal Render Pipeline/Unlit");
+        if (shader == null)
+        {
+            shader = Shader.Find("Universal Render Pipeline/Lit");
+        }
+
+        if (shader == null)
+        {
+            shader = Shader.Find("Standard");
+        }
+
+        Material material = new Material(shader);
+        material.name = materialName;
+        SetMaterialColor(material, color);
+        SetMaterialColor(material, "_BaseColor", color);
+        if (emission)
+        {
+            SetMaterialColor(material, "_EmissionColor", color * 1.8f);
+            material.EnableKeyword("_EMISSION");
+        }
+
+        return material;
+    }
+
+    private static Texture2D LoadTextureFromDisk(string projectRoot, string materialKey, string textureRole, bool linear, EnvironmentLookdevMetrics metrics)
+    {
+        string relativePath = TextureFolderRelativePath + "/T_BBW_" + materialKey + "_" + textureRole + "_2048.png";
+        string absolutePath = Path.Combine(projectRoot, relativePath.Replace("/", Path.DirectorySeparatorChar.ToString()));
+        metrics.textureFilesExpected++;
+        if (!File.Exists(absolutePath))
+        {
+            metrics.textureFilesMissing++;
+            metrics.missingTextureNotes.Add(relativePath);
+            return null;
+        }
+
+        Texture2D texture = new Texture2D(2, 2, TextureFormat.RGBA32, false, linear);
+        if (!texture.LoadImage(File.ReadAllBytes(absolutePath)))
+        {
+            metrics.textureFilesMissing++;
+            metrics.missingTextureNotes.Add(relativePath + " failed LoadImage");
+            UnityEngine.Object.DestroyImmediate(texture);
+            return null;
+        }
+
+        texture.name = "ENV_R03_Loaded_" + materialKey + "_" + textureRole;
+        texture.wrapMode = TextureWrapMode.Repeat;
+        texture.filterMode = FilterMode.Trilinear;
+        texture.anisoLevel = 4;
+        metrics.textureFilesLoaded++;
+        return texture;
+    }
+
+    private static Texture2D CreateMetallicSmoothnessFromOrm(Texture2D orm, string name)
+    {
+        Texture2D output = new Texture2D(orm.width, orm.height, TextureFormat.RGBA32, false, true);
+        Color[] pixels = orm.GetPixels();
+        for (int i = 0; i < pixels.Length; i++)
+        {
+            Color pixel = pixels[i];
+            float roughness = pixel.g;
+            output.SetPixel(i % orm.width, i / orm.width, new Color(pixel.b, pixel.b, pixel.b, 1.0f - roughness));
+        }
+
+        output.name = name;
+        output.wrapMode = TextureWrapMode.Repeat;
+        output.filterMode = FilterMode.Trilinear;
+        output.Apply(false, false);
+        TrackOwnedTexture(output);
+        return output;
+    }
+
+    private static Texture2D CreateOcclusionFromOrm(Texture2D orm, string name)
+    {
+        Texture2D output = new Texture2D(orm.width, orm.height, TextureFormat.RGBA32, false, true);
+        Color[] pixels = orm.GetPixels();
+        for (int i = 0; i < pixels.Length; i++)
+        {
+            float ao = pixels[i].r;
+            output.SetPixel(i % orm.width, i / orm.width, new Color(ao, ao, ao, 1f));
+        }
+
+        output.name = name;
+        output.wrapMode = TextureWrapMode.Repeat;
+        output.filterMode = FilterMode.Trilinear;
+        output.Apply(false, false);
+        TrackOwnedTexture(output);
+        return output;
+    }
+
+    private static void BuildWallBayScene(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics)
+    {
+        BuildCorridorShell(root, materials, metrics, 4.8f, 5.2f, false);
+        BuildWallBay(root, materials, metrics, -2.45f, 2.2f, true);
+        BuildWallBay(root, materials, metrics, 2.45f, 2.2f, false);
+        BuildRail(root, materials, metrics, -2.08f, 0.88f, -1.8f, 4.8f, true);
+        BuildGasLamp(root, materials, metrics, new Vector3(-2.19f, 1.95f, 1.05f), Vector3.right, 1.35f);
+        BuildGauge(root, materials, metrics, new Vector3(-2.2f, 1.44f, 2.25f), Vector3.right, 0.26f);
+        BuildValveWheel(root, materials, metrics, new Vector3(-2.18f, 1.13f, 2.85f), Vector3.right, 0.26f);
+        BuildSteamCluster(root, materials, metrics, new Vector3(-2.05f, 1.78f, 3.7f), 0.7f, 6);
+        AddOilDecal(root, materials, metrics, new Vector3(-0.75f, 0.075f, 2.4f), new Vector3(1.0f, 0.01f, 0.44f), 12f);
+    }
+
+    private static void BuildPipeCanopyScene(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics)
+    {
+        BuildCorridorShell(root, materials, metrics, 5.2f, 5.0f, true);
+        BuildPipeCanopy(root, materials, metrics, -2.2f, 4.5f, 1.0f);
+        BuildPipeCanopy(root, materials, metrics, 0.4f, 4.5f, 0.72f);
+        BuildGaugeCluster(root, materials, metrics, new Vector3(1.95f, 1.72f, 1.2f), Vector3.left);
+        BuildGasLamp(root, materials, metrics, new Vector3(-1.2f, 2.45f, 1.4f), Vector3.down, 1.45f);
+        BuildGasLamp(root, materials, metrics, new Vector3(1.45f, 2.35f, 2.9f), Vector3.down, 1.15f);
+        BuildSteamCluster(root, materials, metrics, new Vector3(-1.75f, 2.34f, 3.15f), 0.82f, 8);
+        BuildSteamCluster(root, materials, metrics, new Vector3(1.8f, 1.95f, 0.35f), 0.54f, 5);
+    }
+
+    private static void BuildPressureDoorScene(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics)
+    {
+        BuildCorridorShell(root, materials, metrics, 4.9f, 4.8f, false);
+        BuildPressureDoor(root, materials, metrics, new Vector3(0f, 1.46f, 2.5f), Vector3.back, true);
+        BuildRail(root, materials, metrics, -2.08f, 0.84f, -0.6f, 2.0f, true);
+        BuildRail(root, materials, metrics, 2.08f, 0.84f, -0.6f, 2.0f, false);
+        BuildGasLamp(root, materials, metrics, new Vector3(-1.86f, 1.95f, 2.12f), Vector3.back, 1.45f);
+        BuildGasLamp(root, materials, metrics, new Vector3(1.86f, 1.95f, 2.12f), Vector3.back, 1.45f);
+        BuildSteamCluster(root, materials, metrics, new Vector3(-1.8f, 0.85f, 2.0f), 0.55f, 5);
+        BuildSteamCluster(root, materials, metrics, new Vector3(1.95f, 2.2f, 1.85f), 0.62f, 5);
+    }
+
+    private static void BuildAssembledCorridorScene(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics)
+    {
+        BuildCorridorShell(root, materials, metrics, 5.3f, 8.8f, true);
+        BuildWallBay(root, materials, metrics, -2.45f, 1.1f, true);
+        BuildWallBay(root, materials, metrics, -2.45f, 4.4f, true);
+        BuildWallBay(root, materials, metrics, 2.45f, 1.1f, false);
+        BuildWallBay(root, materials, metrics, 2.45f, 4.4f, false);
+        BuildPipeCanopy(root, materials, metrics, -1.95f, 7.4f, 0.92f);
+        BuildPipeCanopy(root, materials, metrics, 0.82f, 7.4f, 0.72f);
+        BuildRail(root, materials, metrics, -2.08f, 0.84f, -1.4f, 5.6f, true);
+        BuildRail(root, materials, metrics, 2.08f, 0.84f, -0.5f, 4.7f, false);
+        BuildPressureDoor(root, materials, metrics, new Vector3(0f, 1.48f, 5.95f), Vector3.back, true);
+        BuildGasLamp(root, materials, metrics, new Vector3(-2.18f, 1.98f, 0.75f), Vector3.right, 1.1f);
+        BuildGasLamp(root, materials, metrics, new Vector3(2.18f, 1.98f, 2.25f), Vector3.left, 0.95f);
+        BuildGasLamp(root, materials, metrics, new Vector3(-1.34f, 2.52f, 3.65f), Vector3.down, 1.2f);
+        BuildGasLamp(root, materials, metrics, new Vector3(1.92f, 1.94f, 5.45f), Vector3.back, 1.35f);
+        BuildGaugeCluster(root, materials, metrics, new Vector3(-2.17f, 1.45f, 3.0f), Vector3.right);
+        BuildValveWheel(root, materials, metrics, new Vector3(2.18f, 1.22f, 4.5f), Vector3.left, 0.32f);
+        BuildSteamCluster(root, materials, metrics, new Vector3(-2.0f, 1.7f, 4.25f), 0.78f, 8);
+        BuildSteamCluster(root, materials, metrics, new Vector3(1.75f, 0.85f, 5.55f), 0.64f, 6);
+        AddOilDecal(root, materials, metrics, new Vector3(0.65f, 0.077f, 1.15f), new Vector3(1.15f, 0.012f, 0.46f), -9f);
+        AddOilDecal(root, materials, metrics, new Vector3(-0.8f, 0.078f, 3.65f), new Vector3(1.4f, 0.012f, 0.56f), 14f);
+    }
+
+    private static void BuildCorridorShell(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics, float width, float length, bool includeCeiling)
+    {
+        float halfWidth = width * 0.5f;
+        float zCenter = length * 0.5f - 0.3f;
+        CreateBox("wet broken stone foundation", new Vector3(0f, 0f, zCenter), new Vector3(width, 0.12f, length), Quaternion.identity, materials.WetStone, root);
+        CreateBox("left soot brick wall field", new Vector3(-halfWidth, 1.45f, zCenter), new Vector3(0.18f, 2.9f, length), Quaternion.identity, materials.SootBrick, root);
+        CreateBox("right soot brick wall field", new Vector3(halfWidth, 1.45f, zCenter), new Vector3(0.18f, 2.9f, length), Quaternion.identity, materials.SootBrick, root);
+
+        if (includeCeiling)
+        {
+            CreateBox("blackened iron low ceiling", new Vector3(0f, 2.92f, zCenter), new Vector3(width, 0.14f, length), Quaternion.identity, materials.BlackenedIron, root);
+        }
+
+        int tileColumns = 5;
+        int tileRows = Mathf.Max(4, Mathf.RoundToInt(length / 0.8f));
+        for (int x = 0; x < tileColumns; x++)
+        {
+            for (int z = 0; z < tileRows; z++)
+            {
+                float px = Mathf.Lerp(-halfWidth + 0.55f, halfWidth - 0.55f, x / (float)(tileColumns - 1));
+                float pz = -0.1f + z * (length / tileRows);
+                float heightJitter = PseudoRange(x * 31 + z * 17, -0.008f, 0.006f);
+                Vector3 size = new Vector3(width / tileColumns - 0.06f, 0.035f, length / tileRows - 0.045f);
+                CreateBox("individual wet stone slab " + x.ToString(CultureInfo.InvariantCulture) + "_" + z.ToString(CultureInfo.InvariantCulture), new Vector3(px, 0.076f + heightJitter, pz), size, Quaternion.identity, materials.WetStone, root);
+                metrics.floorTilePieces++;
+            }
+        }
+
+        for (float z = -0.2f; z < length - 0.2f; z += 1.55f)
+        {
+            CreateBox("left iron vertical rib", new Vector3(-halfWidth + 0.04f, 1.52f, z), new Vector3(0.2f, 2.95f, 0.16f), Quaternion.identity, materials.BlackenedIron, root);
+            CreateBox("right iron vertical rib", new Vector3(halfWidth - 0.04f, 1.52f, z), new Vector3(0.2f, 2.95f, 0.16f), Quaternion.identity, materials.BlackenedIron, root);
+            CreateBox("overhead rib crossbar", new Vector3(0f, 2.82f, z), new Vector3(width, 0.14f, 0.18f), Quaternion.identity, materials.BlackenedIron, root);
+            metrics.modularWallBays += 2;
+            metrics.ironRibs += 3;
+            AddRivetRow(root, materials, metrics, new Vector3(-halfWidth + 0.16f, 0.35f, z + 0.1f), Vector3.up, Vector3.forward, 12, 0.21f, 0.035f);
+            AddRivetRow(root, materials, metrics, new Vector3(halfWidth - 0.16f, 0.35f, z + 0.1f), Vector3.up, Vector3.forward, 12, 0.21f, 0.035f);
+        }
+
+        AddWetHighlight(root, materials, metrics, new Vector3(-0.65f, 0.105f, 0.75f), new Vector3(1.4f, 0.012f, 0.26f), -8f);
+        AddWetHighlight(root, materials, metrics, new Vector3(0.72f, 0.106f, 2.25f), new Vector3(1.1f, 0.012f, 0.22f), 4f);
+        AddWetHighlight(root, materials, metrics, new Vector3(-0.1f, 0.107f, 4.45f), new Vector3(1.8f, 0.012f, 0.24f), 11f);
+    }
+
+    private static void BuildWallBay(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics, float wallX, float zCenter, bool leftWall)
+    {
+        float facing = leftWall ? 1f : -1f;
+        Quaternion wallRotation = Quaternion.Euler(0f, leftWall ? 0f : 180f, 0f);
+        CreateBox("riveted iron kick plate", new Vector3(wallX + facing * 0.075f, 0.54f, zCenter), new Vector3(0.12f, 0.48f, 2.15f), wallRotation, materials.BlackenedIron, root);
+        CreateBox("brass horizontal service rail", new Vector3(wallX + facing * 0.14f, 1.1f, zCenter), new Vector3(0.1f, 0.09f, 2.25f), wallRotation, materials.AgedBrass, root);
+        CreateBox("upper iron lintel panel", new Vector3(wallX + facing * 0.08f, 2.25f, zCenter), new Vector3(0.12f, 0.28f, 2.1f), wallRotation, materials.BlackenedIron, root);
+        CreateCylinderBetween("vertical copper riser", new Vector3(wallX + facing * 0.18f, 0.48f, zCenter - 0.75f), new Vector3(wallX + facing * 0.18f, 2.45f, zCenter - 0.75f), 0.045f, materials.CopperPipe, root);
+        CreateCylinderBetween("horizontal brass manifold", new Vector3(wallX + facing * 0.19f, 1.78f, zCenter - 1.0f), new Vector3(wallX + facing * 0.19f, 1.78f, zCenter + 1.0f), 0.045f, materials.AgedBrass, root);
+        AddRivetRow(root, materials, metrics, new Vector3(wallX + facing * 0.18f, 0.34f, zCenter - 0.92f), Vector3.forward, Vector3.up, 10, 0.21f, 0.028f);
+        AddRivetRow(root, materials, metrics, new Vector3(wallX + facing * 0.18f, 2.18f, zCenter - 0.92f), Vector3.forward, Vector3.up, 10, 0.21f, 0.028f);
+        metrics.pipeSegments += 2;
+        metrics.wallBayDetailPieces += 5;
+    }
+
+    private static void BuildPipeCanopy(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics, float zStart, float length, float heightOffset)
+    {
+        float yBase = 2.58f - heightOffset * 0.14f;
+        CreateCylinderBetween("main overhead copper pipe", new Vector3(-1.85f, yBase, zStart), new Vector3(-1.85f, yBase, zStart + length), 0.075f, materials.CopperPipe, root);
+        CreateCylinderBetween("secondary overhead brass pipe", new Vector3(-1.25f, yBase + 0.12f, zStart + 0.15f), new Vector3(-1.25f, yBase + 0.12f, zStart + length), 0.055f, materials.AgedBrass, root);
+        CreateCylinderBetween("right overhead black iron pipe", new Vector3(1.55f, yBase + 0.03f, zStart + 0.05f), new Vector3(1.55f, yBase + 0.03f, zStart + length), 0.07f, materials.BlackenedIron, root);
+
+        for (int i = 0; i < 5; i++)
+        {
+            float z = zStart + 0.45f + i * (length - 0.9f) / 4f;
+            CreateCylinderBetween("cross canopy pipe " + i.ToString(CultureInfo.InvariantCulture), new Vector3(-1.85f, yBase, z), new Vector3(1.55f, yBase + 0.03f, z), 0.035f, materials.AgedBrass, root);
+            CreateBox("brass pipe clamp " + i.ToString(CultureInfo.InvariantCulture), new Vector3(-1.85f, yBase - 0.02f, z), new Vector3(0.24f, 0.09f, 0.08f), Quaternion.identity, materials.AgedBrass, root);
+            CreateBox("iron pipe clamp " + i.ToString(CultureInfo.InvariantCulture), new Vector3(1.55f, yBase - 0.02f, z), new Vector3(0.24f, 0.09f, 0.08f), Quaternion.identity, materials.BlackenedIron, root);
+            metrics.pipeSegments += 3;
+        }
+
+        metrics.pipeSegments += 3;
+        metrics.ceilingPipeCanopies++;
+    }
+
+    private static void BuildPressureDoor(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics, Vector3 center, Vector3 axis, bool dense)
+    {
+        CreateBox("pressure door wall frame", center + new Vector3(0f, 0f, 0.1f), new Vector3(3.95f, 2.85f, 0.18f), Quaternion.identity, materials.BlackenedIron, root);
+        CreateBox("aged brass pressure door outer frame", center + new Vector3(0f, 0f, -0.02f), new Vector3(3.42f, 2.46f, 0.14f), Quaternion.identity, materials.AgedBrass, root);
+        CreateBox("black iron door slab", center + new Vector3(0f, 0f, -0.08f), new Vector3(3.02f, 2.14f, 0.16f), Quaternion.identity, materials.BlackenedIron, root);
+
+        CreateDisc("outer circular pressure seal", center + new Vector3(0f, 0.12f, -0.22f), 1.02f, 0.08f, axis, materials.AgedBrass, root);
+        CreateDisc("dark inner pressure wheel plate", center + new Vector3(0f, 0.12f, -0.27f), 0.78f, 0.09f, axis, materials.BlackenedIron, root);
+        CreateDisc("central brass locking hub", center + new Vector3(0f, 0.12f, -0.34f), 0.28f, 0.1f, axis, materials.AgedBrass, root);
+        CreateDisc("inner dark hub cap", center + new Vector3(0f, 0.12f, -0.41f), 0.13f, 0.08f, axis, materials.BlackenedIron, root);
+
+        for (int i = 0; i < 12; i++)
+        {
+            float angle = i * Mathf.PI * 2f / 12f;
+            Vector3 offset = new Vector3(Mathf.Cos(angle) * 0.72f, Mathf.Sin(angle) * 0.72f, -0.39f);
+            Quaternion rotation = Quaternion.Euler(0f, 0f, -angle * Mathf.Rad2Deg);
+            CreateBox("radial door locking spoke", center + new Vector3(offset.x, 0.12f + offset.y, offset.z), new Vector3(0.58f, 0.055f, 0.06f), rotation, materials.AgedBrass, root);
+            CreateSphere("door ring rivet " + i.ToString(CultureInfo.InvariantCulture), center + new Vector3(Mathf.Cos(angle) * 1.2f, 0.12f + Mathf.Sin(angle) * 1.0f, -0.35f), 0.055f, materials.AgedBrass, root);
+            metrics.rivets++;
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            float x = -1.25f + i * 0.28f;
+            CreateBox("lower barred vent " + i.ToString(CultureInfo.InvariantCulture), center + new Vector3(x, -0.9f, -0.33f), new Vector3(0.06f, 0.42f, 0.07f), Quaternion.identity, materials.AgedBrass, root);
+        }
+
+        BuildGauge(root, materials, metrics, center + new Vector3(1.28f, 0.95f, -0.38f), Vector3.back, 0.18f);
+        BuildValveWheel(root, materials, metrics, center + new Vector3(-1.32f, 0.84f, -0.38f), Vector3.back, 0.22f);
+        CreateBox("hazard enamel pressure tag", center + new Vector3(0.0f, -1.04f, -0.39f), new Vector3(0.74f, 0.18f, 0.05f), Quaternion.identity, materials.HazardEnamel, root);
+        CreateSphere("red lock state jewel", center + new Vector3(1.07f, -0.72f, -0.4f), 0.075f, materials.RedGlow, root);
+        CreateSphere("green service state jewel", center + new Vector3(1.28f, -0.72f, -0.4f), 0.075f, materials.GreenGlow, root);
+
+        if (dense)
+        {
+            for (int row = 0; row < 4; row++)
+            {
+                for (int col = 0; col < 9; col++)
+                {
+                    float x = -1.72f + col * 0.43f;
+                    float y = -1.18f + row * 0.78f;
+                    CreateSphere("frame rivet " + row.ToString(CultureInfo.InvariantCulture) + "_" + col.ToString(CultureInfo.InvariantCulture), center + new Vector3(x, y, -0.18f), 0.038f, materials.AgedBrass, root);
+                    metrics.rivets++;
+                }
+            }
+        }
+
+        metrics.pressureDoorModules++;
+        metrics.wallBayDetailPieces += 5;
+    }
+
+    private static void BuildGaugeCluster(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics, Vector3 center, Vector3 axis)
+    {
+        BuildGauge(root, materials, metrics, center + new Vector3(0f, 0.28f, 0f), axis, 0.25f);
+        BuildGauge(root, materials, metrics, center + new Vector3(0f, -0.18f, 0.44f), axis, 0.2f);
+        BuildValveWheel(root, materials, metrics, center + new Vector3(0f, -0.5f, -0.35f), axis, 0.24f);
+        CreateCylinderBetween("cluster copper feed pipe", center + new Vector3(0f, -0.52f, -0.8f), center + new Vector3(0f, 0.58f, 0.78f), 0.035f, materials.CopperPipe, root);
+        CreateBox("small hazard calibration plate", center + new Vector3(0f, -0.86f, 0.22f), new Vector3(0.12f, 0.18f, 0.58f), Quaternion.identity, materials.HazardEnamel, root);
+        metrics.pipeSegments++;
+    }
+
+    private static void BuildGauge(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics, Vector3 center, Vector3 axis, float radius)
+    {
+        Vector3 forward = axis.normalized;
+        CreateDisc("brass gauge rim", center, radius, 0.055f, forward, materials.AgedBrass, root);
+        CreateDisc("cream enamel gauge face", center + forward * 0.035f, radius * 0.78f, 0.025f, forward, materials.CreamGauge, root);
+        Vector3 right = Vector3.Cross(Vector3.up, forward);
+        if (right.sqrMagnitude < 0.001f)
+        {
+            right = Vector3.right;
+        }
+
+        right.Normalize();
+        Vector3 up = Vector3.Cross(forward, right).normalized;
+        for (int i = 0; i < 12; i++)
+        {
+            float angle = (-135f + i * 270f / 11f) * Mathf.Deg2Rad;
+            Vector3 tickPos = center + forward * 0.07f + (right * Mathf.Cos(angle) + up * Mathf.Sin(angle)) * radius * 0.62f;
+            Quaternion tickRotation = Quaternion.LookRotation(forward, up) * Quaternion.Euler(0f, 0f, -angle * Mathf.Rad2Deg);
+            CreateBox("gauge tick mark", tickPos, new Vector3(radius * 0.03f, radius * 0.14f, 0.012f), tickRotation, materials.LineDark, root);
+            metrics.gaugeTickMarks++;
+        }
+
+        Quaternion needleRotation = Quaternion.LookRotation(forward, up) * Quaternion.Euler(0f, 0f, -38f);
+        CreateBox("gauge pressure needle", center + forward * 0.085f, new Vector3(radius * 0.025f, radius * 0.52f, 0.014f), needleRotation, materials.RedGlow, root);
+        CreateSphere("gauge brass pivot", center + forward * 0.095f, radius * 0.1f, materials.AgedBrass, root);
+        metrics.gauges++;
+    }
+
+    private static void BuildValveWheel(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics, Vector3 center, Vector3 axis, float radius)
+    {
+        Vector3 forward = axis.normalized;
+        CreateDisc("valve wheel outer brass disk", center, radius, 0.045f, forward, materials.AgedBrass, root);
+        CreateDisc("valve wheel dark negative center", center + forward * 0.035f, radius * 0.62f, 0.035f, forward, materials.BlackenedIron, root);
+        CreateDisc("valve wheel center cap", center + forward * 0.07f, radius * 0.2f, 0.045f, forward, materials.AgedBrass, root);
+
+        Vector3 right = Vector3.Cross(Vector3.up, forward);
+        if (right.sqrMagnitude < 0.001f)
+        {
+            right = Vector3.right;
+        }
+
+        right.Normalize();
+        Vector3 up = Vector3.Cross(forward, right).normalized;
+        for (int i = 0; i < 6; i++)
+        {
+            float angle = i * Mathf.PI * 2f / 6f;
+            Vector3 spokeCenter = center + forward * 0.08f + (right * Mathf.Cos(angle) + up * Mathf.Sin(angle)) * radius * 0.33f;
+            Quaternion spokeRotation = Quaternion.LookRotation(forward, up) * Quaternion.Euler(0f, 0f, -angle * Mathf.Rad2Deg);
+            CreateBox("valve spoke", spokeCenter, new Vector3(radius * 0.08f, radius * 0.74f, 0.018f), spokeRotation, materials.AgedBrass, root);
+        }
+
+        metrics.valves++;
+    }
+
+    private static void BuildGasLamp(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics, Vector3 center, Vector3 axis, float intensity)
+    {
+        Vector3 forward = axis.normalized;
+        CreateDisc("lamp brass top cap", center + Vector3.up * 0.22f, 0.13f, 0.07f, Vector3.up, materials.AgedBrass, root);
+        CreateDisc("lamp brass bottom cap", center + Vector3.down * 0.22f, 0.13f, 0.07f, Vector3.up, materials.AgedBrass, root);
+        CreateCylinderBetween("lamp amber glass body", center + Vector3.down * 0.22f, center + Vector3.up * 0.22f, 0.105f, materials.AmberGlass, root);
+        for (int i = 0; i < 6; i++)
+        {
+            float angle = i * Mathf.PI * 2f / 6f;
+            Vector3 offset = new Vector3(Mathf.Cos(angle) * 0.12f, 0f, Mathf.Sin(angle) * 0.12f);
+            CreateCylinderBetween("lamp cage brass bar", center + offset + Vector3.down * 0.25f, center + offset + Vector3.up * 0.25f, 0.012f, materials.AgedBrass, root);
+        }
+
+        GameObject lightObject = new GameObject("ENV_R03_Warm_Gaslight");
+        lightObject.transform.parent = root;
+        lightObject.transform.position = center + forward * 0.08f;
+        Light light = lightObject.AddComponent<Light>();
+        light.type = LightType.Point;
+        light.color = new Color(1.0f, 0.55f, 0.22f);
+        light.intensity = 3.3f * intensity;
+        light.range = 4.2f;
+        light.shadows = LightShadows.Soft;
+        metrics.gaslights++;
+    }
+
+    private static void BuildRail(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics, float x, float y, float zStart, float length, bool left)
+    {
+        CreateCylinderBetween("catwalk top rail", new Vector3(x, y + 0.36f, zStart), new Vector3(x, y + 0.36f, zStart + length), 0.028f, materials.AgedBrass, root);
+        CreateCylinderBetween("catwalk mid rail", new Vector3(x, y + 0.1f, zStart), new Vector3(x, y + 0.1f, zStart + length), 0.022f, materials.AgedBrass, root);
+        for (int i = 0; i <= 5; i++)
+        {
+            float z = zStart + length * i / 5f;
+            CreateCylinderBetween("rail stanchion", new Vector3(x, y - 0.15f, z), new Vector3(x, y + 0.42f, z), 0.027f, materials.AgedBrass, root);
+        }
+
+        metrics.catwalkRailModules++;
+        metrics.pipeSegments += 8;
+    }
+
+    private static void BuildSteamCluster(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics, Vector3 center, float spread, int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            float px = PseudoRange(i * 17 + 2, -spread, spread);
+            float py = PseudoRange(i * 23 + 5, -spread * 0.25f, spread * 0.62f);
+            float pz = PseudoRange(i * 31 + 7, -spread * 0.35f, spread * 0.35f);
+            float size = PseudoRange(i * 37 + 11, 0.18f, 0.42f);
+            GameObject puff = CreateSphere("soft steam puff", center + new Vector3(px, py, pz), size, materials.Steam, root);
+            Renderer renderer = puff.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                renderer.shadowCastingMode = ShadowCastingMode.Off;
+                renderer.receiveShadows = false;
+            }
+        }
+
+        metrics.steamVentClusters++;
+        metrics.steamPuffs += count;
+    }
+
+    private static void AddWetHighlight(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics, Vector3 center, Vector3 size, float yRotation)
+    {
+        CreateBox("broken amber wet floor reflection", center, size, Quaternion.Euler(0f, yRotation, 0f), materials.WetHighlight, root);
+        metrics.floorWetHighlightPatches++;
+    }
+
+    private static void AddOilDecal(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics, Vector3 center, Vector3 size, float yRotation)
+    {
+        CreateBox("oil scorch decal patch", center, size, Quaternion.Euler(0f, yRotation, 0f), materials.Decal, root);
+        metrics.oilScorchDecals++;
+    }
+
+    private static void AddRivetRow(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics, Vector3 start, Vector3 stepAxis, Vector3 outwardAxis, int count, float spacing, float radius)
+    {
+        Vector3 step = stepAxis.normalized * spacing;
+        Vector3 outward = outwardAxis.normalized * radius * 0.2f;
+        for (int i = 0; i < count; i++)
+        {
+            CreateSphere("ordered brass rivet", start + step * i + outward, radius, materials.AgedBrass, root);
+            metrics.rivets++;
+        }
+    }
+
+    private static void BuildSharedLighting(EnvironmentLookdevMetrics metrics)
+    {
+        GameObject key = new GameObject("ENV_R03_Warm_Key_Light");
+        key.transform.position = new Vector3(-2.3f, 2.6f, -1.5f);
+        key.transform.rotation = Quaternion.Euler(56f, 30f, 0f);
+        Light keyLight = key.AddComponent<Light>();
+        keyLight.type = LightType.Directional;
+        keyLight.color = new Color(1.0f, 0.58f, 0.24f);
+        keyLight.intensity = 0.85f;
+        keyLight.shadows = LightShadows.Soft;
+
+        GameObject fill = new GameObject("ENV_R03_Cool_Fill_Light");
+        fill.transform.position = new Vector3(2.8f, 2.2f, -3.0f);
+        Light fillLight = fill.AddComponent<Light>();
+        fillLight.type = LightType.Point;
+        fillLight.color = new Color(0.30f, 0.42f, 0.58f);
+        fillLight.intensity = 1.25f;
+        fillLight.range = 6.0f;
+
+        GameObject floorRake = new GameObject("ENV_R03_Low_Amber_Floor_Rake");
+        floorRake.transform.position = new Vector3(0f, 0.32f, -2.8f);
+        Light rake = floorRake.AddComponent<Light>();
+        rake.type = LightType.Point;
+        rake.color = new Color(1.0f, 0.48f, 0.16f);
+        rake.intensity = 1.95f;
+        rake.range = 5.4f;
+
+        metrics.warmKeyLight = true;
+        metrics.coolFillLight = true;
+        metrics.wetFloorRakeLight = true;
+    }
+
+    private static Camera CreateCamera(string name, Vector3 position, Vector3 lookAt, float fieldOfView, int width, int height)
+    {
+        GameObject cameraObject = new GameObject(name);
+        cameraObject.transform.position = position;
+        cameraObject.transform.rotation = Quaternion.LookRotation(lookAt - position, Vector3.up);
+        Camera camera = cameraObject.AddComponent<Camera>();
+        camera.clearFlags = CameraClearFlags.SolidColor;
+        camera.backgroundColor = new Color(0.018f, 0.015f, 0.012f, 1f);
+        camera.fieldOfView = fieldOfView;
+        camera.nearClipPlane = 0.05f;
+        camera.farClipPlane = 80f;
+        camera.aspect = width / (float)height;
+        camera.allowHDR = true;
+        camera.allowMSAA = true;
+        return camera;
+    }
+
+    private static Texture2D CaptureCamera(Camera camera, int width, int height, Color background)
+    {
+        camera.backgroundColor = background;
+        RenderTextureDescriptor descriptor = new RenderTextureDescriptor(width, height, RenderTextureFormat.ARGB32, 24)
+        {
+            msaaSamples = 4,
+            sRGB = true
+        };
+
+        RenderTexture renderTexture = new RenderTexture(descriptor);
+        RenderTexture previousActive = RenderTexture.active;
+        RenderTexture previousTarget = camera.targetTexture;
+        try
+        {
+            camera.targetTexture = renderTexture;
+            RenderTexture.active = renderTexture;
+            camera.Render();
+
+            Texture2D texture = new Texture2D(width, height, TextureFormat.RGB24, false, false);
+            texture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+            texture.Apply(false, false);
+            return texture;
+        }
+        finally
+        {
+            camera.targetTexture = previousTarget;
+            RenderTexture.active = previousActive;
+            renderTexture.Release();
+            UnityEngine.Object.DestroyImmediate(renderTexture);
+        }
+    }
+
+    private static Texture2D BuildContactSheet(string projectRoot, List<RenderResult> results)
+    {
+        Texture2D contact = new Texture2D(ContactWidth, ContactHeight, TextureFormat.RGB24, false, false);
+        FillRect(contact, new RectInt(0, 0, ContactWidth, ContactHeight), new Color(0.024f, 0.020f, 0.016f, 1f));
+        FillRect(contact, new RectInt(0, ContactHeight - 110, ContactWidth, 110), new Color(0.045f, 0.034f, 0.025f, 1f));
+        FillRect(contact, new RectInt(0, ContactHeight - 116, ContactWidth, 6), new Color(0.73f, 0.43f, 0.16f, 1f));
+        FillRect(contact, new RectInt(0, 0, ContactWidth, 54), new Color(0.045f, 0.034f, 0.025f, 1f));
+        FillRect(contact, new RectInt(0, 52, ContactWidth, 5), new Color(0.73f, 0.43f, 0.16f, 1f));
+
+        RectInt[] rects =
+        {
+            new RectInt(54, 910, 1104, 650),
+            new RectInt(1242, 910, 1104, 650),
+            new RectInt(54, 150, 1104, 650),
+            new RectInt(1242, 150, 1104, 650)
+        };
+
+        Color[] borders =
+        {
+            new Color(0.69f, 0.43f, 0.18f, 1f),
+            new Color(0.77f, 0.54f, 0.22f, 1f),
+            new Color(0.62f, 0.33f, 0.13f, 1f),
+            new Color(0.94f, 0.64f, 0.27f, 1f)
+        };
+
+        for (int i = 0; i < results.Count && i < rects.Length; i++)
+        {
+            DrawBorder(contact, rects[i], borders[i], 6);
+            RectInt inner = new RectInt(rects[i].x + 10, rects[i].y + 10, rects[i].width - 20, rects[i].height - 20);
+            Texture2D source = LoadGeneratedImage(projectRoot, results[i].RelativePath);
+            try
+            {
+                DrawImageContain(contact, source, inner);
+            }
+            finally
+            {
+                DestroyTexture(source);
+            }
+        }
+
+        contact.Apply(false, false);
+        return contact;
+    }
+
+    private static ImageMetric[] BuildImageMetrics(string projectRoot, List<RenderResult> results)
+    {
+        ImageMetric[] metrics = new ImageMetric[results.Count];
+        for (int i = 0; i < results.Count; i++)
+        {
+            Texture2D source = LoadGeneratedImage(projectRoot, results[i].RelativePath);
+            try
+            {
+                metrics[i] = AnalyzeImage(results[i].Key, results[i].RelativePath, source);
+            }
+            finally
+            {
+                DestroyTexture(source);
+            }
+        }
+
+        return metrics;
+    }
+
+    private static Texture2D LoadGeneratedImage(string projectRoot, string relativePath)
+    {
+        string path = Path.Combine(projectRoot, relativePath.Replace("/", Path.DirectorySeparatorChar.ToString()));
+        if (!File.Exists(path))
+        {
+            throw new FileNotFoundException("Generated Recovery03 image is missing.", path);
+        }
+
+        Texture2D texture = new Texture2D(2, 2, TextureFormat.RGB24, false, false);
+        if (!texture.LoadImage(File.ReadAllBytes(path)))
+        {
+            UnityEngine.Object.DestroyImmediate(texture);
+            throw new InvalidDataException("Generated Recovery03 image could not be decoded: " + path);
+        }
+
+        return texture;
+    }
+
+    private static ImageMetric AnalyzeImage(string key, string path, Texture2D texture)
+    {
+        Color32[] pixels = texture.GetPixels32();
+        double luminance = 0.0;
+        int dark = 0;
+        int nearBlack = 0;
+        int bright = 0;
+        int warm = 0;
+        int saturated = 0;
+        int magenta = 0;
+
+        for (int i = 0; i < pixels.Length; i++)
+        {
+            Color32 p = pixels[i];
+            float r = p.r / 255f;
+            float g = p.g / 255f;
+            float b = p.b / 255f;
+            float l = 0.2126f * r + 0.7152f * g + 0.0722f * b;
+            luminance += l;
+            if (l < 0.11f)
+            {
+                dark++;
+            }
+
+            if (l < 0.018f)
+            {
+                nearBlack++;
+            }
+
+            if (l > 0.62f)
+            {
+                bright++;
+            }
+
+            if (r > g * 1.18f && g > b * 1.05f && l > 0.12f)
+            {
+                warm++;
+            }
+
+            if (Mathf.Max(r, Mathf.Max(g, b)) - Mathf.Min(r, Mathf.Min(g, b)) > 0.27f)
+            {
+                saturated++;
+            }
+
+            if (r > 0.72f && b > 0.72f && g < 0.2f)
+            {
+                magenta++;
+            }
+        }
+
+        float total = Mathf.Max(1, pixels.Length);
+        float avg = (float)(luminance / total);
+        float nearBlackPercent = nearBlack * 100f / total;
+        float brightPercent = bright * 100f / total;
+        float warmPercent = warm * 100f / total;
+        float magentaPercent = magenta * 100f / total;
+
+        return new ImageMetric
+        {
+            key = key,
+            path = path,
+            width = texture.width,
+            height = texture.height,
+            averageLuminance = avg,
+            darkPixelPercent = dark * 100f / total,
+            nearBlackPixelPercent = nearBlackPercent,
+            brightPixelPercent = brightPercent,
+            warmHighlightPercent = warmPercent,
+            saturatedAccentPercent = saturated * 100f / total,
+            magentaPixelPercent = magentaPercent,
+            passesNotEmptyCheck = avg > 0.055f && nearBlackPercent < 45f && (brightPercent > 0.2f || warmPercent > 4f),
+            passesNoMagentaCheck = magentaPercent < 0.5f
+        };
+    }
+
+    private static GateMetric[] BuildGates(EnvironmentLookdevMetrics metrics)
+    {
+        List<GateMetric> gates = new List<GateMetric>();
+        gates.Add(new GateMetric
+        {
+            gate = "Scope",
+            status = "Pass",
+            evidence = "Renderer writes only ENV Recovery03 editor lookdev proof outputs under Documentation/ConceptRenders and Documentation/AssetProduction/EnvironmentLookdev."
+        });
+        gates.Add(new GateMetric
+        {
+            gate = "Unity-only render path",
+            status = "Pass",
+            evidence = "All images are temporary Unity editor scenes captured by Unity Camera.Render into RenderTextures."
+        });
+        gates.Add(new GateMetric
+        {
+            gate = "Texture source load",
+            status = metrics.textureFilesMissing == 0 ? "Pass" : "Fail",
+            evidence = metrics.textureFilesLoaded.ToString(CultureInfo.InvariantCulture) + " / " + metrics.textureFilesExpected.ToString(CultureInfo.InvariantCulture) + " texture files loaded from FinalMaterialsV1."
+        });
+        gates.Add(new GateMetric
+        {
+            gate = "Required module coverage",
+            status = metrics.renderedImageCount >= 4 && metrics.pressureDoorModules >= 2 && metrics.ceilingPipeCanopies >= 3 && metrics.gauges >= 5 ? "Pass" : "Fail",
+            evidence = "Renders include modular wall bay, pipe canopy/gauge cluster, pressure door module, and assembled corridor slice."
+        });
+        gates.Add(new GateMetric
+        {
+            gate = "North-star material separation",
+            status = metrics.materialFamiliesUsed >= 10 && metrics.pipeSegments >= 25 && metrics.rivets >= 120 && metrics.gaslights >= 5 ? "Pass" : "Fail",
+            evidence = "Wet dark tile, soot brick, blackened iron, aged brass, copper pipes, amber glass, gauges, rivets, steam, oil/scorch decals, and warm lights are separately assigned."
+        });
+
+        bool imagePass = true;
+        bool magentaPass = true;
+        if (metrics.imageMetrics != null)
+        {
+            for (int i = 0; i < metrics.imageMetrics.Length; i++)
+            {
+                if (!metrics.imageMetrics[i].passesNotEmptyCheck)
+                {
+                    imagePass = false;
+                }
+
+                if (!metrics.imageMetrics[i].passesNoMagentaCheck)
+                {
+                    magentaPass = false;
+                }
+            }
+        }
+
+        if (metrics.contactSheetImageMetric != null && !metrics.contactSheetImageMetric.passesNoMagentaCheck)
+        {
+            magentaPass = false;
+        }
+
+        gates.Add(new GateMetric
+        {
+            gate = "Readable renders",
+            status = imagePass ? "Pass" : "Fail",
+            evidence = imagePass ? "All individual renders pass non-empty luminance/highlight checks." : "At least one individual render failed the non-empty luminance/highlight check."
+        });
+        gates.Add(new GateMetric
+        {
+            gate = "No magenta shader errors",
+            status = magentaPass ? "Pass" : "Fail",
+            evidence = magentaPass ? "Magenta-pixel detector stayed below 0.5% for all individual renders and the contact sheet." : "Magenta-pixel detector exceeded 0.5%; shader/material path needs repair."
+        });
+        gates.Add(new GateMetric
+        {
+            gate = "Production readiness",
+            status = "Fail",
+            evidence = "This is a Unity procedural lookdev proof, not authored modular meshes, prefab pivots, collision, LODs, UV2/lightmap proof, or shipping art."
+        });
+        gates.Add(new GateMetric
+        {
+            gate = "Human north-star review",
+            status = "Pending",
+            evidence = "Human review is still required against the north-star steampunk corridor image."
+        });
+        return gates.ToArray();
+    }
+
+    private static string DetermineOverallStatus(GateMetric[] gates)
+    {
+        bool technicalFail = false;
+        for (int i = 0; i < gates.Length; i++)
+        {
+            if (gates[i].status == "Fail" && gates[i].gate != "Production readiness")
+            {
+                technicalFail = true;
+            }
+        }
+
+        return technicalFail ? "Technical fail: proof generated, but at least one render/material gate failed." : "Lookdev pass / production fail: Unity proof replaces Recovery02 and is ready for human art review, but is not final art.";
+    }
+
+    private static string BuildReport(EnvironmentLookdevMetrics metrics)
+    {
+        StringBuilder builder = new StringBuilder();
+        builder.AppendLine("# ENV Recovery03 Unity Environment Lookdev Report");
+        builder.AppendLine();
+        builder.AppendLine("Status: " + metrics.overallStatus);
+        builder.AppendLine("Date/time: " + metrics.timestamp);
+        builder.AppendLine("Unity version: " + metrics.unityVersion);
+        builder.AppendLine("Subject: Unity-only replacement for failed ENV Recovery02 modular corridor proof");
+        builder.AppendLine("Tool lane: Unity editor batchmode, temporary in-memory scenes, Camera plus RenderTexture JPG export");
+        builder.AppendLine("Batchmode command entrypoint: `" + metrics.batchmodeEntrypoint + "`");
+        builder.AppendLine("Exact Unity command used: `" + metrics.exactUnityCommandUsed + "`");
+        builder.AppendLine("Unity log path: `" + metrics.logPath + "`");
+        builder.AppendLine("Gameplay-write policy: no generated gameplay scenes, `V0SceneBuilder`, `V0LevelValidator`, gameplay scripts, build settings, or shared status docs were edited by this renderer.");
+        builder.AppendLine();
+        builder.AppendLine("## Outputs");
+        builder.AppendLine();
+        builder.AppendLine("| File | Purpose | Dimensions |");
+        builder.AppendLine("| --- | --- | ---: |");
+        builder.AppendLine("| `" + WallBayRelativePath + "` | Modular wall bay proof with brick, iron ribs, brass rail, gauge, valve, steam, and wet floor | " + ModuleWidth.ToString(CultureInfo.InvariantCulture) + "x" + ModuleHeight.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| `" + PipeCanopyRelativePath + "` | Pipe canopy and gauge-cluster proof with overhead brass/copper pipework and caged gaslights | " + ModuleWidth.ToString(CultureInfo.InvariantCulture) + "x" + ModuleHeight.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| `" + PressureDoorRelativePath + "` | Pressure vault door module proof with circular seals, spokes, gauges, valves, lamps, vents, and rivets | " + ModuleWidth.ToString(CultureInfo.InvariantCulture) + "x" + ModuleHeight.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| `" + AssembledSliceRelativePath + "` | Assembled corridor slice proof combining wall bays, pipe canopy, rail, wet floor, and pressure door | " + AssembledWidth.ToString(CultureInfo.InvariantCulture) + "x" + AssembledHeight.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| `" + ContactRelativePath + "` | Contact sheet for all Recovery03 environment views | " + ContactWidth.ToString(CultureInfo.InvariantCulture) + "x" + ContactHeight.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| `" + MetricsRelativePath + "` | Machine-readable metrics and gates | n/a |");
+        builder.AppendLine();
+        builder.AppendLine("## Methodology");
+        builder.AppendLine();
+        builder.AppendLine("- Created temporary Unity editor scenes in memory and discarded them after rendering.");
+        builder.AppendLine("- Used URP Lit materials loaded from the staged `FinalMaterialsV1` texture PNGs, including ORM conversion for metallic/smoothness and occlusion.");
+        builder.AppendLine("- Rebuilt the failed Recovery02 idea as four smaller readable module proofs: wall bay, pipe canopy/gauge cluster, pressure door, and assembled corridor.");
+        builder.AppendLine("- Added separate material roles for wet dark stone, soot brick, blackened iron, aged brass, copper pipe, amber glass, cream enamel gauges, hazard enamel, steam, wet reflections, and oil/scorch decals.");
+        builder.AppendLine("- Captured the result from Unity cameras into RenderTextures, wrote JPGs, and ran luminance plus magenta-pixel checks.");
+        builder.AppendLine();
+        builder.AppendLine("## Count Metrics");
+        builder.AppendLine();
+        builder.AppendLine("| Check | Result |");
+        builder.AppendLine("| --- | ---: |");
+        builder.AppendLine("| Texture files loaded | " + metrics.textureFilesLoaded.ToString(CultureInfo.InvariantCulture) + " / " + metrics.textureFilesExpected.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Material families used | " + metrics.materialFamiliesUsed.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Rendered individual images | " + metrics.renderedImageCount.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Modular wall bay markers | " + metrics.modularWallBays.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Floor tile pieces | " + metrics.floorTilePieces.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Iron ribs | " + metrics.ironRibs.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Wall detail pieces | " + metrics.wallBayDetailPieces.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Ceiling pipe canopies | " + metrics.ceilingPipeCanopies.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Pipe/rail segments | " + metrics.pipeSegments.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Gaslights | " + metrics.gaslights.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Gauges | " + metrics.gauges.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Gauge tick marks | " + metrics.gaugeTickMarks.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Valves | " + metrics.valves.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Pressure door modules | " + metrics.pressureDoorModules.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Rivets/bolts | " + metrics.rivets.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Steam vent clusters | " + metrics.steamVentClusters.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Steam puffs | " + metrics.steamPuffs.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Oil/scorch decals | " + metrics.oilScorchDecals.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine("| Wet highlight patches | " + metrics.floorWetHighlightPatches.ToString(CultureInfo.InvariantCulture) + " |");
+        builder.AppendLine();
+        builder.AppendLine("## Image Readability");
+        builder.AppendLine();
+        builder.AppendLine("| Image | Average luminance | Near-black % | Bright % | Warm highlight % | Saturated accent % | Magenta % | Empty check | No magenta check |");
+        builder.AppendLine("| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- |");
+        AppendImageMetricRows(builder, metrics.imageMetrics);
+        if (metrics.contactSheetImageMetric != null)
+        {
+            AppendImageMetricRow(builder, metrics.contactSheetImageMetric);
+        }
+
+        builder.AppendLine();
+        builder.AppendLine("## Gates");
+        builder.AppendLine();
+        builder.AppendLine("| Gate | Status | Evidence |");
+        builder.AppendLine("| --- | --- | --- |");
+        for (int i = 0; i < metrics.gates.Length; i++)
+        {
+            builder.AppendLine("| " + metrics.gates[i].gate + " | " + metrics.gates[i].status + " | " + metrics.gates[i].evidence + " |");
+        }
+
+        builder.AppendLine();
+        builder.AppendLine("## Frank Visual Read");
+        builder.AppendLine();
+        builder.AppendLine("Recovery03 is intentionally narrower than the failed Recovery02 pass: it proves the corridor language through four focused Unity renders instead of trying to solve a whole kit at once. It should read closer to the north-star image because the values are darker, the materials are separated, the brass/copper pipe silhouette is denser, the pressure door is a clear destination, and warm gaslight plus steam/fog are present. It is still procedural Unity lookdev, not final authored AAA environment art.");
+        builder.AppendLine();
+        builder.AppendLine("## Next Art Steps");
+        builder.AppendLine();
+        builder.AppendLine("- Convert the accepted shapes into real modular prefabs with authored pivots, snap metadata, colliders, LODs, UV2/lightmap proof, and material-instance policy.");
+        builder.AppendLine("- Keep the component-first method: pressure door, wall bay, pipe canopy, rail, gauge, lamp, and wet floor should each get their own Unity proof before final assembly.");
+        builder.AppendLine("- Preserve the dark wet-stone/brass/gaslight/steam value range when the main build integrates this into playable spaces.");
+        return builder.ToString();
+    }
+
+    private static void AppendImageMetricRows(StringBuilder builder, ImageMetric[] metrics)
+    {
+        if (metrics == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < metrics.Length; i++)
+        {
+            AppendImageMetricRow(builder, metrics[i]);
+        }
+    }
+
+    private static void AppendImageMetricRow(StringBuilder builder, ImageMetric metric)
+    {
+        builder.AppendLine(
+            "| `" + metric.path + "` | " +
+            metric.averageLuminance.ToString("0.000", CultureInfo.InvariantCulture) + " | " +
+            metric.nearBlackPixelPercent.ToString("0.0", CultureInfo.InvariantCulture) + " | " +
+            metric.brightPixelPercent.ToString("0.0", CultureInfo.InvariantCulture) + " | " +
+            metric.warmHighlightPercent.ToString("0.0", CultureInfo.InvariantCulture) + " | " +
+            metric.saturatedAccentPercent.ToString("0.0", CultureInfo.InvariantCulture) + " | " +
+            metric.magentaPixelPercent.ToString("0.000", CultureInfo.InvariantCulture) + " | " +
+            (metric.passesNotEmptyCheck ? "pass" : "fail") + " | " +
+            (metric.passesNoMagentaCheck ? "pass" : "fail") + " |");
+    }
+
+    private static GameObject CreateBox(string name, Vector3 position, Vector3 scale, Quaternion rotation, Material material, Transform parent)
+    {
+        GameObject gameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        gameObject.name = name;
+        gameObject.transform.parent = parent;
+        gameObject.transform.position = position;
+        gameObject.transform.rotation = rotation;
+        gameObject.transform.localScale = scale;
+        AssignMaterial(gameObject, material);
+        return gameObject;
+    }
+
+    private static GameObject CreateSphere(string name, Vector3 position, float radius, Material material, Transform parent)
+    {
+        GameObject gameObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        gameObject.name = name;
+        gameObject.transform.parent = parent;
+        gameObject.transform.position = position;
+        gameObject.transform.localScale = Vector3.one * radius * 2f;
+        AssignMaterial(gameObject, material);
+        return gameObject;
+    }
+
+    private static GameObject CreateDisc(string name, Vector3 position, float radius, float depth, Vector3 axis, Material material, Transform parent)
+    {
+        GameObject gameObject = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        gameObject.name = name;
+        gameObject.transform.parent = parent;
+        gameObject.transform.position = position;
+        gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, axis.normalized);
+        gameObject.transform.localScale = new Vector3(radius * 2f, depth * 0.5f, radius * 2f);
+        AssignMaterial(gameObject, material);
+        return gameObject;
+    }
+
+    private static GameObject CreateCylinderBetween(string name, Vector3 start, Vector3 end, float radius, Material material, Transform parent)
+    {
+        Vector3 midpoint = (start + end) * 0.5f;
+        Vector3 direction = end - start;
+        float length = direction.magnitude;
+        GameObject gameObject = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        gameObject.name = name;
+        gameObject.transform.parent = parent;
+        gameObject.transform.position = midpoint;
+        gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction.normalized);
+        gameObject.transform.localScale = new Vector3(radius * 2f, length * 0.5f, radius * 2f);
+        AssignMaterial(gameObject, material);
+        return gameObject;
+    }
+
+    private static void AssignMaterial(GameObject gameObject, Material material)
+    {
+        Renderer renderer = gameObject.GetComponent<Renderer>();
+        if (renderer == null)
+        {
+            return;
+        }
+
+        renderer.sharedMaterial = material;
+        renderer.shadowCastingMode = ShadowCastingMode.On;
+        renderer.receiveShadows = true;
+    }
+
+    private static void SetMaterialTexture(Material material, string property, Texture texture)
+    {
+        if (texture != null && material.HasProperty(property))
+        {
+            material.SetTexture(property, texture);
+        }
+    }
+
+    private static void SetMaterialTextureScale(Material material, string property, Vector2 scale)
+    {
+        if (material.HasProperty(property))
+        {
+            material.SetTextureScale(property, scale);
+        }
+    }
+
+    private static void SetMaterialFloat(Material material, string property, float value)
+    {
+        if (material.HasProperty(property))
+        {
+            material.SetFloat(property, value);
+        }
+    }
+
+    private static void SetMaterialInt(Material material, string property, int value)
+    {
+        if (material.HasProperty(property))
+        {
+            material.SetInt(property, value);
+        }
+    }
+
+    private static void SetMaterialColor(Material material, Color color)
+    {
+        SetMaterialColor(material, "_Color", color);
+        SetMaterialColor(material, "_BaseColor", color);
+    }
+
+    private static void SetMaterialColor(Material material, string property, Color color)
+    {
+        if (material.HasProperty(property))
+        {
+            material.SetColor(property, color);
+        }
+    }
+
+    private static void TrackOwnedTexture(Texture texture)
+    {
+        if (texture != null && !OwnedTextures.Contains(texture))
+        {
+            OwnedTextures.Add(texture);
+        }
+    }
+
+    private static void DestroyOwnedTextures()
+    {
+        for (int i = 0; i < OwnedTextures.Count; i++)
+        {
+            if (OwnedTextures[i] != null)
+            {
+                UnityEngine.Object.DestroyImmediate(OwnedTextures[i]);
+            }
+        }
+
+        OwnedTextures.Clear();
+    }
+
+    private static void DestroyTexture(Texture2D texture)
+    {
+        if (texture != null)
+        {
+            UnityEngine.Object.DestroyImmediate(texture);
+        }
+    }
+
+    private static void FillRect(Texture2D texture, RectInt rect, Color color)
+    {
+        Color[] pixels = new Color[Mathf.Max(0, rect.width * rect.height)];
+        for (int i = 0; i < pixels.Length; i++)
+        {
+            pixels[i] = color;
+        }
+
+        texture.SetPixels(rect.x, rect.y, rect.width, rect.height, pixels);
+    }
+
+    private static void DrawBorder(Texture2D texture, RectInt rect, Color color, int thickness)
+    {
+        FillRect(texture, new RectInt(rect.x, rect.y, rect.width, thickness), color);
+        FillRect(texture, new RectInt(rect.x, rect.yMax - thickness, rect.width, thickness), color);
+        FillRect(texture, new RectInt(rect.x, rect.y, thickness, rect.height), color);
+        FillRect(texture, new RectInt(rect.xMax - thickness, rect.y, thickness, rect.height), color);
+        FillRect(texture, new RectInt(rect.x + thickness, rect.y + thickness, rect.width - thickness * 2, rect.height - thickness * 2), new Color(0.014f, 0.012f, 0.010f, 1f));
+    }
+
+    private static void DrawImageContain(Texture2D destination, Texture2D source, RectInt rect)
+    {
+        float scale = Mathf.Min(rect.width / (float)source.width, rect.height / (float)source.height);
+        int width = Mathf.RoundToInt(source.width * scale);
+        int height = Mathf.RoundToInt(source.height * scale);
+        int xOffset = rect.x + (rect.width - width) / 2;
+        int yOffset = rect.y + (rect.height - height) / 2;
+
+        for (int y = 0; y < height; y++)
+        {
+            int sy = Mathf.Clamp(Mathf.FloorToInt(y / scale), 0, source.height - 1);
+            for (int x = 0; x < width; x++)
+            {
+                int sx = Mathf.Clamp(Mathf.FloorToInt(x / scale), 0, source.width - 1);
+                destination.SetPixel(xOffset + x, yOffset + y, source.GetPixel(sx, sy));
+            }
+        }
+    }
+
+    private static float PseudoRange(int seed, float min, float max)
+    {
+        float value = Mathf.Abs(Mathf.Sin(seed * 12.9898f) * 43758.5453f);
+        value -= Mathf.Floor(value);
+        return Mathf.Lerp(min, max, value);
+    }
+
+    private static string GetProjectRoot()
+    {
+        return Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
+    }
+
+    private delegate void SceneBuilder(Transform root, Recovery03Materials materials, EnvironmentLookdevMetrics metrics);
+
+    private sealed class RenderResult
+    {
+        public string Key;
+        public string Title;
+        public string RelativePath;
+        public int Width;
+        public int Height;
+        public Texture2D Image;
+    }
+
+    [Serializable]
+    private sealed class EnvironmentLookdevMetrics
+    {
+        public string timestamp;
+        public string unityVersion;
+        public string batchmodeEntrypoint;
+        public string exactUnityCommandUsed;
+        public string logPath;
+        public string textureSourceFolder;
+        public string reportPath;
+        public string metricsPath;
+        public string contactSheetPath;
+        public int moduleRenderWidth;
+        public int moduleRenderHeight;
+        public int assembledRenderWidth;
+        public int assembledRenderHeight;
+        public int contactSheetWidth;
+        public int contactSheetHeight;
+        public int textureFilesExpected;
+        public int textureFilesLoaded;
+        public int textureFilesMissing;
+        public int renderedImageCount;
+        public int materialFamiliesUsed;
+        public int modularWallBays;
+        public int wallBayDetailPieces;
+        public int floorTilePieces;
+        public int ironRibs;
+        public int ceilingPipeCanopies;
+        public int pressureDoorModules;
+        public int catwalkRailModules;
+        public int gaslights;
+        public int gauges;
+        public int gaugeTickMarks;
+        public int valves;
+        public int pipeSegments;
+        public int rivets;
+        public int steamVentClusters;
+        public int steamPuffs;
+        public int oilScorchDecals;
+        public int floorWetHighlightPatches;
+        public bool warmKeyLight;
+        public bool coolFillLight;
+        public bool wetFloorRakeLight;
+        public string overallStatus;
+        public string[] materialSourcesUsed;
+        public List<string> missingTextureNotes = new List<string>();
+        public ImageMetric[] imageMetrics;
+        public ImageMetric contactSheetImageMetric;
+        public GateMetric[] gates;
+    }
+
+    [Serializable]
+    private sealed class ImageMetric
+    {
+        public string key;
+        public string path;
+        public int width;
+        public int height;
+        public float averageLuminance;
+        public float darkPixelPercent;
+        public float nearBlackPixelPercent;
+        public float brightPixelPercent;
+        public float warmHighlightPercent;
+        public float saturatedAccentPercent;
+        public float magentaPixelPercent;
+        public bool passesNotEmptyCheck;
+        public bool passesNoMagentaCheck;
+    }
+
+    [Serializable]
+    private sealed class GateMetric
+    {
+        public string gate;
+        public string status;
+        public string evidence;
+    }
+
+    private sealed class Recovery03Materials
+    {
+        public Material WetStone;
+        public Material SootBrick;
+        public Material BlackenedIron;
+        public Material AgedBrass;
+        public Material CopperPipe;
+        public Material AmberGlass;
+        public Material CreamGauge;
+        public Material HazardEnamel;
+        public Material LeatherBellows;
+        public Material Decal;
+        public Material WetHighlight;
+        public Material Steam;
+        public Material WarmGlow;
+        public Material LineDark;
+        public Material RedGlow;
+        public Material GreenGlow;
+        public Material ContactBack;
+
+        public void DestroyAll()
+        {
+            DestroyMaterial(WetStone);
+            DestroyMaterial(SootBrick);
+            DestroyMaterial(BlackenedIron);
+            DestroyMaterial(AgedBrass);
+            DestroyMaterial(CopperPipe);
+            DestroyMaterial(AmberGlass);
+            DestroyMaterial(CreamGauge);
+            DestroyMaterial(HazardEnamel);
+            DestroyMaterial(LeatherBellows);
+            DestroyMaterial(Decal);
+            DestroyMaterial(WetHighlight);
+            DestroyMaterial(Steam);
+            DestroyMaterial(WarmGlow);
+            DestroyMaterial(LineDark);
+            DestroyMaterial(RedGlow);
+            DestroyMaterial(GreenGlow);
+            DestroyMaterial(ContactBack);
+        }
+
+        private static void DestroyMaterial(Material material)
+        {
+            if (material != null)
+            {
+                UnityEngine.Object.DestroyImmediate(material);
+            }
+        }
+    }
+}

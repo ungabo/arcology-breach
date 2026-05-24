@@ -788,6 +788,25 @@ public static class V0LevelValidator
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " SteamworksAudio ambience is not configured.");
         }
+
+        if (!audio.preferAuthoredClips || audio.authoredAmbienceLoop == null || !audio.authoredAmbienceLoop.name.StartsWith("AUDV1_", StringComparison.Ordinal))
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " SteamworksAudio is not using staged AudioV1 ambience.");
+        }
+
+        int expectedCueCount = Enum.GetValues(typeof(SteamworksAudioCue)).Length;
+        if (audio.AuthoredCueCount < expectedCueCount)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " SteamworksAudio is missing staged AudioV1 cue bindings.");
+        }
+
+        foreach (SteamworksAudioCue cue in Enum.GetValues(typeof(SteamworksAudioCue)))
+        {
+            if (!audio.HasAuthoredClip(cue))
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " SteamworksAudio missing AudioV1 binding for " + cue + ".");
+            }
+        }
     }
 
     private static void ValidateStartMessage(string sceneName, GameStateController gameState)

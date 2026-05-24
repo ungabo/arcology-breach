@@ -30,25 +30,9 @@ public class RuntimeSmokeTest : MonoBehaviour
             Application.Quit(1);
         }
 
-        bool scattergunCueConfigured = audio.HasClip(SteamworksAudioCue.PressureFire)
-            && audio.HasClip(SteamworksAudioCue.SteamScattergunFire)
-            && audio.HasClip(SteamworksAudioCue.BellowsNodePulse)
-            && audio.HasClip(SteamworksAudioCue.WeaponPickup)
-            && audio.HasClip(SteamworksAudioCue.SteamScattergunSlug)
-            && audio.HasClip(SteamworksAudioCue.PressureBurst)
-            && audio.HasClip(SteamworksAudioCue.EnemyAttackTell)
-            && audio.HasClip(SteamworksAudioCue.LancerFireTell)
-            && audio.HasClip(SteamworksAudioCue.BulwarkAttackTell)
-            && audio.GetClipSampleCount(SteamworksAudioCue.WeaponPickup) > audio.GetClipSampleCount(SteamworksAudioCue.AmmoPickup)
-            && audio.GetClipSampleCount(SteamworksAudioCue.PressureBurst) > audio.GetClipSampleCount(SteamworksAudioCue.PressureFire)
-            && audio.GetClipSampleCount(SteamworksAudioCue.EnemyAttackTell) >= audio.GetClipSampleCount(SteamworksAudioCue.PressureFire)
-            && audio.GetClipSampleCount(SteamworksAudioCue.LancerFireTell) >= audio.GetClipSampleCount(SteamworksAudioCue.PressureFire)
-            && audio.GetClipSampleCount(SteamworksAudioCue.BulwarkAttackTell) > audio.GetClipSampleCount(SteamworksAudioCue.LancerFireTell)
-            && audio.GetClipSampleCount(SteamworksAudioCue.SteamScattergunSlug) > audio.GetClipSampleCount(SteamworksAudioCue.PressureFire)
-            && audio.GetClipSampleCount(SteamworksAudioCue.SteamScattergunFire) > audio.GetClipSampleCount(SteamworksAudioCue.PressureFire);
-        if (!scattergunCueConfigured)
+        if (!audio.UsingAuthoredAmbience || !AllAudioV1CuesActive(audio))
         {
-            Debug.LogError("Runtime smoke test failed: expected weapon/support audio cues are not configured.");
+            Debug.LogError("Runtime smoke test failed: expected AudioV1 ambience and cue bindings are not active.");
             Application.Quit(1);
         }
 
@@ -111,6 +95,19 @@ public class RuntimeSmokeTest : MonoBehaviour
         }
 
         return false;
+    }
+
+    private static bool AllAudioV1CuesActive(SteamworksAudio audio)
+    {
+        foreach (SteamworksAudioCue cue in Enum.GetValues(typeof(SteamworksAudioCue)))
+        {
+            if (!audio.HasClip(cue) || !audio.IsUsingAuthoredClip(cue) || audio.GetClipSampleCount(cue) <= 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private static T Require<T>(string label) where T : UnityEngine.Object

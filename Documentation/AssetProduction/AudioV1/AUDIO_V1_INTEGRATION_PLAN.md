@@ -1,6 +1,6 @@
 # Audio V1 Integration Plan
 
-This plan is for a future implementation pass. No gameplay scripts, scenes, or shared project docs were edited for this staging lane.
+Implementation status: `v0.0.99` completed the first gameplay integration pass using Option A below. `SteamworksAudio` now prefers staged AudioV1 WAV ambience and cue clips for every `SteamworksAudioCue`, while retaining procedural fallback. Remaining work is human listen/mix tuning, import/compression tuning, and later per-emitter ambience/hazard placement.
 
 ## Import
 
@@ -31,7 +31,7 @@ Option B: Add a separate audio library ScriptableObject that maps cue names to c
 
 Option C: Stage per-prefab AudioSources for hazards, ambience emitters, and boss cues, while keeping global one-shots in `SteamworksAudio`.
 
-Recommended future path: Option B for one-shots plus per-emitter AudioSources for ambience and hazards. That keeps serialized cue IDs stable and makes authored audio replaceable without regenerating procedural code.
+Current path: Option A is implemented for `v0.0.99` because it is low-risk and keeps the existing cue contract stable. Recommended later path remains Option B for richer one-shot libraries plus per-emitter AudioSources for ambience and hazards.
 
 ## Scene And Prefab Placement Notes
 

@@ -185,3 +185,37 @@
   - `RENDER_ENV_Recovery02_assembled_corridor_slice_unity_proof.jpg`
 - Rejection reason: the rendered output is mostly hot magenta shader-error material, so it is not useful art direction or a valid modular-kit proof.
 - The fix-pass editor script also introduced compiler errors and was quarantined under `Documentation/AssetProduction/EnvironmentLookdev/RejectedRecovery02CompileBlocker/` so the main Unity build could continue.
+
+## 2026-05-24 01:40:00 -04:00
+
+- Linnaeus produced the Unity-only Recovery08 pressure-pistol component realism proof.
+- Outputs:
+  - `CONTACTSHEET_HFLD_Recovery08_pressure_pistol_component_realism_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery08_coil_heat_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery08_gauge_glass_needle_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery08_soot_dark_muzzle_bore_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery08_leather_grip_glove_sculpt_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery08_pressure_pistol_material_swatches_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery08_reassembly_gate_reference_unity_proof.jpg`
+- Report and metrics:
+  - `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/HFLD_RECOVERY08_COMPONENT_REALISM_REPORT.md`
+  - `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/unity_pressure_pistol_component_recovery08_metrics.json`
+- PM assessment: component-first path is correct. Coil heat, gauge readability, soot-dark muzzle bore, and material swatches pass; glove/grip remains partial, so full-gun reassembly is limited to non-shipping lookdev and not approved for final gameplay asset promotion.
+
+## 2026-05-24 01:45:00 -04:00
+
+- Anscombe-Env produced ENV Recovery03 Unity environment lookdev outputs, but the pass was rejected.
+- Outputs retained for failure diagnosis:
+  - `CONTACTSHEET_ENV_Recovery03_unity_environment_lookdev_proof.jpg`
+  - `RENDER_ENV_Recovery03_modular_wall_bay_unity_proof.jpg`
+  - `RENDER_ENV_Recovery03_pipe_canopy_gauge_cluster_unity_proof.jpg`
+  - `RENDER_ENV_Recovery03_pressure_door_module_unity_proof.jpg`
+  - `RENDER_ENV_Recovery03_assembled_corridor_slice_unity_proof.jpg`
+- Report and metrics:
+  - `Documentation/AssetProduction/EnvironmentLookdev/ENV_RECOVERY03_UNITY_ENVIRONMENT_LOOKDEV_REPORT.md`
+  - `Documentation/AssetProduction/EnvironmentLookdev/env_recovery03_unity_environment_lookdev_metrics.json`
+- Rejection reason: hot magenta shader-error materials exceeded the no-magenta acceptance gate across the individual renders and contact sheet.
+- Quarantined renderer:
+  - `Documentation/AssetProduction/EnvironmentLookdev/RejectedRecovery03CompileBlocker/UnityEnvironmentRecovery03ProofRenderer.cs.disabled`
+  - `Documentation/AssetProduction/EnvironmentLookdev/RejectedRecovery03CompileBlocker/UnityEnvironmentRecovery03ProofRenderer.cs.meta.disabled`
+- Final side-agent check confirmed `Assets/_Project/Editor` no longer contains the failed renderer.

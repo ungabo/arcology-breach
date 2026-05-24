@@ -22,6 +22,7 @@ public static class V0SceneBuilder
     private const string FinalMaterialsTextureFolder = "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures";
     private const string SignageDecalsTextureFolder = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures";
     private const string UIHudTextureFolder = "Assets/_Project/ArtStaging/UIHudV1";
+    private const string AudioV1Folder = "Assets/_Project/ArtStaging/AudioV1";
     private const float SignageDecalsAtlasPixels = 2048f;
     private const string WindowsBuildFolder = "Builds/Windows";
 
@@ -1890,7 +1891,7 @@ public static class V0SceneBuilder
         state.pauseMenu = UnityEngine.Object.FindAnyObjectByType<PauseMenuController>();
         state.startMessage = startMessage;
         stateObject.AddComponent<LevelTransitionController>();
-        stateObject.AddComponent<SteamworksAudio>();
+        ConfigureSteamworksAudioV1(stateObject.AddComponent<SteamworksAudio>());
         RuntimePerformanceProfile performanceProfile = stateObject.AddComponent<RuntimePerformanceProfile>();
         performanceProfile.activeProfile = qualityProfile;
         stateObject.AddComponent<RuntimeSmokeTest>();
@@ -1907,6 +1908,55 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeSecretTest>();
         stateObject.AddComponent<RuntimePauseFlowTest>();
         stateObject.AddComponent<RuntimeWeaponSwitchTest>();
+    }
+
+    private static void ConfigureSteamworksAudioV1(SteamworksAudio audio)
+    {
+        audio.preferAuthoredClips = true;
+        audio.authoredAmbienceLoop = LoadAudioV1Clip("AUDV1_AMB_BrassworksMix_loop.wav");
+        audio.authoredCueClips = new[]
+        {
+            AudioBinding(SteamworksAudioCue.PressureFire, "AUDV1_WPN_PressurePistolFire.wav"),
+            AudioBinding(SteamworksAudioCue.EmptyClick, "AUDV1_WPN_EmptyClick.wav"),
+            AudioBinding(SteamworksAudioCue.HealthPickup, "AUDV1_PCK_HealthPickup.wav"),
+            AudioBinding(SteamworksAudioCue.AmmoPickup, "AUDV1_PCK_AmmoPickup.wav"),
+            AudioBinding(SteamworksAudioCue.GearKey, "AUDV1_PCK_GearKeyPickup.wav"),
+            AudioBinding(SteamworksAudioCue.GateOpen, "AUDV1_INT_GateOpen.wav"),
+            AudioBinding(SteamworksAudioCue.GateDenied, "AUDV1_INT_GateDenied.wav"),
+            AudioBinding(SteamworksAudioCue.EnemyHit, "AUDV1_IMP_MachineHit.wav"),
+            AudioBinding(SteamworksAudioCue.EnemyDeath, "AUDV1_IMP_MachineDeathShort.wav"),
+            AudioBinding(SteamworksAudioCue.PlayerHurt, "AUDV1_PLR_PlayerHurt.wav"),
+            AudioBinding(SteamworksAudioCue.Win, "AUDV1_INT_LiftActivate.wav"),
+            AudioBinding(SteamworksAudioCue.SteamScattergunFire, "AUDV1_WPN_ScattergunBlast.wav"),
+            AudioBinding(SteamworksAudioCue.BellowsNodePulse, "AUDV1_HAZ_BellowsNodePulse.wav"),
+            AudioBinding(SteamworksAudioCue.WeaponPickup, "AUDV1_PCK_WeaponPickup.wav"),
+            AudioBinding(SteamworksAudioCue.SteamScattergunSlug, "AUDV1_WPN_ScattergunSlug.wav"),
+            AudioBinding(SteamworksAudioCue.PressureBurst, "AUDV1_WPN_PressureBurst.wav"),
+            AudioBinding(SteamworksAudioCue.EnemyAttackTell, "AUDV1_ENY_ScrapperAttackTell.wav"),
+            AudioBinding(SteamworksAudioCue.LancerFireTell, "AUDV1_ENY_LancerFireTell.wav"),
+            AudioBinding(SteamworksAudioCue.BulwarkAttackTell, "AUDV1_ENY_BulwarkAttackTell.wav")
+        };
+    }
+
+    private static SteamworksAudioClipBinding AudioBinding(SteamworksAudioCue cue, string fileName)
+    {
+        return new SteamworksAudioClipBinding
+        {
+            cue = cue,
+            clip = LoadAudioV1Clip(fileName)
+        };
+    }
+
+    private static AudioClip LoadAudioV1Clip(string fileName)
+    {
+        string path = $"{AudioV1Folder}/{fileName}";
+        AudioClip clip = AssetDatabase.LoadAssetAtPath<AudioClip>(path);
+        if (clip == null)
+        {
+            throw new FileNotFoundException("Missing AudioV1 clip", path);
+        }
+
+        return clip;
     }
 
     private static void CreatePlayer(Material gunMaterial, Material gunTrimMaterial, Material muzzleFlashMaterial, Material gaugeFaceMaterial, Material ironMaterial, Material warningMaterial, WeaponDefinition weaponDefinition, WeaponDefinition steamScattergunDefinition)

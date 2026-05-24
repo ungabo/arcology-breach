@@ -744,7 +744,7 @@ Added:
 - `RuntimeInteractionTest` packaged smoke coverage.
 - `V0_INTERACTION_SMOKE_PASS` in the build matrix runner.
 
-Verification completed through the runner:
+Verification completed through the runner. The final verification pass was `v099b` at `2026-05-24 01:52 -04:00`, after Recovery08 output refresh and ENV Recovery03 quarantine:
 
 - `V0_LEVEL_VALIDATION_PASS`
 - `V0_SMOKE_TEST_PASS`
@@ -3268,5 +3268,52 @@ Verification completed through the runner:
 Build executable:
 
 `Builds/Windows/v0.0.98/BrassworksBreach_v0.0.98.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 01:40 -04:00
+
+Completed `v0.0.99` AudioV1 authored-audio integration.
+
+Added:
+
+- `SteamworksAudio` now prefers staged AudioV1 WAV clips for every `SteamworksAudioCue`, while keeping procedural fallback if authored clips are missing.
+- Generated gameplay scenes now serialize the AudioV1 brassworks ambience mix plus authored weapon, pickup, enemy, boss, interaction, hazard, Bellows, player, and lift/win cue bindings.
+- Level validation now checks that every generated scene has staged AudioV1 ambience and all authored cue bindings.
+- Runtime smoke now requires authored AudioV1 ambience and cue routing to be active.
+- Version string bumped to `v0.0.99`.
+
+Integrated side-agent lookdev artifacts for review:
+
+- Pressure Pistol Recovery08 component realism proof. Coil heat, gauge readability, soot-dark muzzle bore, and material swatches pass; leather glove/grip remains partial, so full-gun reassembly is limited to non-shipping lookdev and not approved for final asset promotion.
+
+Management note:
+
+- ENV Recovery03 generated focused wall-bay, pipe-canopy, pressure-door, and assembled-corridor JPGs, but it was rejected for hot magenta shader-error output. Its renderer was quarantined under `Documentation/AssetProduction/EnvironmentLookdev/RejectedRecovery03CompileBlocker/`, leaving `Assets/_Project/Editor` clean.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.99/BrassworksBreach_v0.0.99.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.

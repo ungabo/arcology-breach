@@ -25,6 +25,13 @@ public enum SteamworksAudioCue
     BulwarkAttackTell
 }
 
+[Serializable]
+public class SteamworksAudioClipBinding
+{
+    public SteamworksAudioCue cue;
+    public AudioClip clip;
+}
+
 [RequireComponent(typeof(AudioSource))]
 public class SteamworksAudio : MonoBehaviour
 {
@@ -33,15 +40,43 @@ public class SteamworksAudio : MonoBehaviour
     public float masterVolume = 0.55f;
     public bool ambienceEnabled = true;
     public float ambienceVolume = 0.16f;
+    public bool preferAuthoredClips = true;
+    public AudioClip authoredAmbienceLoop;
+    public SteamworksAudioClipBinding[] authoredCueClips = Array.Empty<SteamworksAudioClipBinding>();
 
     private const int SampleRate = 44100;
     private const float AmbienceDuration = 4f;
 
     private readonly Dictionary<SteamworksAudioCue, AudioClip> clips = new Dictionary<SteamworksAudioCue, AudioClip>();
+    private readonly HashSet<SteamworksAudioCue> authoredActiveCues = new HashSet<SteamworksAudioCue>();
     private AudioSource source;
 
     public bool AmbienceActive => source != null && source.loop && source.clip != null && source.isPlaying;
     public int AmbienceSampleCount => source != null && source.clip != null ? source.clip.samples : 0;
+    public bool UsingAuthoredAmbience => preferAuthoredClips && source != null && authoredAmbienceLoop != null && source.clip == authoredAmbienceLoop;
+    public int AuthoredCueCount
+    {
+        get
+        {
+            HashSet<SteamworksAudioCue> uniqueCues = new HashSet<SteamworksAudioCue>();
+            if (authoredCueClips == null)
+            {
+                return 0;
+            }
+
+            for (int i = 0; i < authoredCueClips.Length; i++)
+            {
+                SteamworksAudioClipBinding binding = authoredCueClips[i];
+                if (binding != null && binding.clip != null)
+                {
+                    uniqueCues.Add(binding.cue);
+                }
+            }
+
+            return uniqueCues.Count;
+        }
+    }
+
     public bool HasLastOneShotCue { get; private set; }
     public SteamworksAudioCue LastOneShotCue { get; private set; }
     public bool HasLastSpatialCue { get; private set; }
@@ -127,6 +162,7 @@ public class SteamworksAudio : MonoBehaviour
         clips[SteamworksAudioCue.EnemyDeath] = CreateClip("Enemy Death", 0.55f, (t, _) => Tone(Slide(580f, 90f, t), t) * Envelope(t, 0.004f, 0.25f, 0.55f) + Noise(t) * 0.12f * Envelope(t, 0.02f, 0.35f, 0.55f));
         clips[SteamworksAudioCue.PlayerHurt] = CreateClip("Player Hurt", 0.24f, (t, _) => Tone(85f, t) * 0.5f * Envelope(t, 0.001f, 0.11f, 0.24f) + Noise(t) * 0.07f * Envelope(t, 0.002f, 0.06f, 0.24f));
         clips[SteamworksAudioCue.Win] = CreateClip("Win", 0.85f, WinSample);
+        ApplyAuthoredCueClips();
     }
 
     private void StartAmbience()
@@ -136,7 +172,9 @@ public class SteamworksAudio : MonoBehaviour
             return;
         }
 
-        source.clip = CreateClip("Brassworks Ambience Loop", AmbienceDuration, AmbienceSample);
+        source.clip = preferAuthoredClips && authoredAmbienceLoop != null
+            ? authoredAmbienceLoop
+            : CreateClip("Brassworks Ambience Loop", AmbienceDuration, AmbienceSample);
         source.loop = true;
         source.volume = Mathf.Clamp01(GameSettings.MasterVolume * ambienceVolume);
         source.Play();
@@ -150,6 +188,63 @@ public class SteamworksAudio : MonoBehaviour
     public int GetClipSampleCount(SteamworksAudioCue cue)
     {
         return clips.TryGetValue(cue, out AudioClip clip) && clip != null ? clip.samples : 0;
+    }
+
+    public bool HasAuthoredClip(SteamworksAudioCue cue)
+    {
+        return TryGetAuthoredClip(cue, out _);
+    }
+
+    public bool IsUsingAuthoredClip(SteamworksAudioCue cue)
+    {
+        return authoredActiveCues.Contains(cue);
+    }
+
+    public string GetClipName(SteamworksAudioCue cue)
+    {
+        return clips.TryGetValue(cue, out AudioClip clip) && clip != null ? clip.name : string.Empty;
+    }
+
+    private void ApplyAuthoredCueClips()
+    {
+        authoredActiveCues.Clear();
+        if (!preferAuthoredClips || authoredCueClips == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < authoredCueClips.Length; i++)
+        {
+            SteamworksAudioClipBinding binding = authoredCueClips[i];
+            if (binding == null || binding.clip == null)
+            {
+                continue;
+            }
+
+            clips[binding.cue] = binding.clip;
+            authoredActiveCues.Add(binding.cue);
+        }
+    }
+
+    private bool TryGetAuthoredClip(SteamworksAudioCue cue, out AudioClip clip)
+    {
+        clip = null;
+        if (authoredCueClips == null)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < authoredCueClips.Length; i++)
+        {
+            SteamworksAudioClipBinding binding = authoredCueClips[i];
+            if (binding != null && binding.cue == cue && binding.clip != null)
+            {
+                clip = binding.clip;
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private static AudioClip CreateClip(string name, float duration, Func<float, int, float> generator)
