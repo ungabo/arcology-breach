@@ -1181,7 +1181,7 @@ public static class V0SceneBuilder
         CreatePressureGauge("Governor Core Gauge A", new Vector3(-6.95f, 1.65f, 12.4f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateValveWheel("Governor Core Valve A", new Vector3(6.95f, 1.35f, 20.4f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, warningMaterial, parent.transform);
         CreateSteamVent("Governor Core Steam Vent A", new Vector3(-4.8f, 0.05f, 20.8f), brassMaterial, steamMaterial, parent.transform);
-        CreatePipeCanopy("North Star Governor Pipe Canopy", new Vector3(0f, 2.86f, 16.2f), Quaternion.Euler(0f, 90f, 0f), 6.4f, brassMaterial, ironMaterial, parent.transform);
+        CreatePipeCanopy("North Star Governor Pipe Canopy", new Vector3(0f, 2.86f, 16.2f), Quaternion.Euler(0f, 90f, 0f), 6.4f, brassMaterial, ironMaterial, parent.transform, "governor_route_pipe_canopy");
         CreateCagedGaslight("North Star Governor Gaslight Left", new Vector3(-4.85f, 2.08f, 12.8f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "governor_route_gaslight");
         CreateCagedGaslight("North Star Governor Gaslight Right", new Vector3(4.85f, 2.08f, 20.2f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "governor_route_gaslight");
         CreateRegulatorCrown("North Star Governor Regulator Crown", new Vector3(0f, 2.72f, 16.2f), ironMaterial, brassMaterial, warningMaterial, parent.transform);
@@ -1217,7 +1217,7 @@ public static class V0SceneBuilder
         CreateCube("Foundry Overhead Main Pipe", new Vector3(0f, 2.55f, 18.2f), new Vector3(11.6f, 0.16f, 0.16f), brassMaterial, parent.transform);
         CreateCube("Foundry Red Pressure Pipe", new Vector3(5.95f, 2.1f, 18.8f), new Vector3(0.14f, 0.14f, 20f), warningMaterial, parent.transform);
         CreatePipeBundle("Foundry Triple Pipe Bundle", new Vector3(0f, 2.35f, 29.72f), Quaternion.Euler(0f, 90f, 0f), 4.4f, brassMaterial, ironMaterial, parent.transform);
-        CreatePipeCanopy("North Star Foundry Pipe Canopy", new Vector3(0f, 2.86f, 16.4f), Quaternion.Euler(0f, 90f, 0f), 7.4f, brassMaterial, ironMaterial, parent.transform);
+        CreatePipeCanopy("North Star Foundry Pipe Canopy", new Vector3(0f, 2.86f, 16.4f), Quaternion.Euler(0f, 90f, 0f), 7.4f, brassMaterial, ironMaterial, parent.transform, "foundry_route_pipe_canopy");
         CreateCatwalkRail("North Star Foundry Catwalk Rail", new Vector3(0f, 1.02f, 19.05f), 5.8f, ironMaterial, brassMaterial, parent.transform);
         CreateCagedGaslight("North Star Foundry Gaslight West", new Vector3(-5.88f, 2.06f, 13.4f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "foundry_route_gaslight");
         CreateCagedGaslight("North Star Foundry Gaslight East", new Vector3(5.88f, 2.06f, 21.2f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "foundry_route_gaslight");
@@ -1271,7 +1271,7 @@ public static class V0SceneBuilder
         CreateCube("Boilerheart Oil Patch", new Vector3(-1.8f, 0.02f, 11.6f), new Vector3(2f, 0.04f, 1.4f), floorPatchMaterial, parent.transform);
         CreateCube("Boilerheart Overhead Pipe", new Vector3(0f, 2.45f, 20.6f), new Vector3(9f, 0.16f, 0.16f), brassMaterial, parent.transform);
         CreatePipeBundle("Boilerheart Triple Pipe Bundle", new Vector3(0f, 2.35f, 25.72f), Quaternion.Euler(0f, 90f, 0f), 4.2f, brassMaterial, ironMaterial, parent.transform);
-        CreatePipeCanopy("North Star Boilerheart Pipe Canopy", new Vector3(0f, 2.82f, 15.6f), Quaternion.Euler(0f, 90f, 0f), 6.8f, brassMaterial, ironMaterial, parent.transform);
+        CreatePipeCanopy("North Star Boilerheart Pipe Canopy", new Vector3(0f, 2.82f, 15.6f), Quaternion.Euler(0f, 90f, 0f), 6.8f, brassMaterial, ironMaterial, parent.transform, "boilerheart_route_pipe_canopy");
         CreateCagedGaslight("North Star Boilerheart Lamp Cage", new Vector3(-5.52f, 2.02f, 15.1f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "boilerheart_route_gaslight");
         CreateRivetBand("North Star Boilerheart Core Rivet Band", new Vector3(0f, 2.66f, 14.38f), Quaternion.identity, 2.45f, ironMaterial, brassMaterial, parent.transform);
         CreateWallPipeGaugeClusterPrototype("Boilerheart Prototype Wall Pipe Gauge Cluster", new Vector3(-5.94f, 1.58f, 10.8f), Quaternion.Euler(0f, 90f, 0f), 0.94f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "boilerheart_route_wall", parent.transform);
@@ -1437,7 +1437,7 @@ public static class V0SceneBuilder
         CreateCube("Pipeworks Right Pipe Run", new Vector3(5.05f, 2f, 13f), new Vector3(0.14f, 0.14f, 16f), brassMaterial, parent.transform);
         CreateCube("Pipeworks Furnace Body", new Vector3(-4.55f, 0.75f, 16f), new Vector3(0.8f, 1.3f, 1.1f), ironMaterial, parent.transform);
         CreateCube("Pipeworks Furnace Glow", new Vector3(-4.1f, 0.75f, 16f), new Vector3(0.08f, 0.72f, 0.58f), glowMaterial, parent.transform);
-        CreatePipeCanopy("North Star Pipeworks Pipe Canopy", new Vector3(0f, 2.82f, 12f), Quaternion.identity, 7.6f, brassMaterial, ironMaterial, parent.transform);
+        CreatePipeCanopy("North Star Pipeworks Pipe Canopy", new Vector3(0f, 2.82f, 12f), Quaternion.identity, 7.6f, brassMaterial, ironMaterial, parent.transform, "pipeworks_route_pipe_canopy");
         CreateCagedGaslight("North Star Pipeworks Gaslight", new Vector3(4.86f, 2.02f, 9.2f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "pipeworks_route_gaslight");
         CreateRivetBand("North Star Pipeworks Wall Rivet Band", new Vector3(-5.02f, 2.52f, 12.5f), Quaternion.Euler(0f, 90f, 0f), 4.8f, ironMaterial, brassMaterial, parent.transform);
         CreateWallPipeGaugeClusterPrototype("Pipeworks Prototype Wall Pipe Gauge Cluster", new Vector3(4.94f, 1.58f, 5.7f), Quaternion.Euler(0f, -90f, 0f), 1f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "pipeworks_route_wall", parent.transform);
@@ -3159,7 +3159,7 @@ public static class V0SceneBuilder
         CreateFurnace("Coal Furnace - Final Room", new Vector3(4.95f, 0.95f, 29.7f), rivetedIronMaterial, brassMaterial, furnaceGlowMaterial, parent.transform);
         CreatePipeBundle("Pipe Bundle - Gate Manifold", new Vector3(-2.65f, 2.55f, 22.05f), Quaternion.Euler(0f, 90f, 0f), 2.25f, brassMaterial, rivetedIronMaterial, parent.transform);
         CreatePipeBundle("Pipe Bundle - Final Boiler Feed", new Vector3(5.96f, 2.25f, 31.2f), Quaternion.identity, 3.2f, brassMaterial, rivetedIronMaterial, parent.transform);
-        CreatePipeCanopy("North Star Intake Pipe Canopy", new Vector3(0f, 2.82f, 17.4f), Quaternion.identity, 8.2f, brassMaterial, rivetedIronMaterial, parent.transform);
+        CreatePipeCanopy("North Star Intake Pipe Canopy", new Vector3(0f, 2.82f, 17.4f), Quaternion.identity, 8.2f, brassMaterial, rivetedIronMaterial, parent.transform, "intake_route_pipe_canopy");
         CreateCagedGaslight("North Star Intake Gaslight Left", new Vector3(-5.52f, 2.02f, 17.1f), Quaternion.Euler(0f, 90f, 0f), rivetedIronMaterial, brassMaterial, furnaceGlowMaterial, parent.transform, "intake_route_gaslight");
         CreateCagedGaslight("North Star Intake Gaslight Right", new Vector3(5.52f, 2.02f, 19.6f), Quaternion.Euler(0f, -90f, 0f), rivetedIronMaterial, brassMaterial, furnaceGlowMaterial, parent.transform, "intake_route_gaslight");
         CreateRivetBand("North Star Gate Rivet Band", new Vector3(0f, 2.92f, 21.94f), Quaternion.identity, 3.8f, rivetedIronMaterial, brassMaterial, parent.transform);
@@ -3499,12 +3499,26 @@ public static class V0SceneBuilder
         return face;
     }
 
-    private static void CreatePipeCanopy(string name, Vector3 position, Quaternion rotation, float length, Material pipeMaterial, Material bracketMaterial, Transform parent)
+    private static PipeCanopyPrototype CreatePipeCanopy(string name, Vector3 position, Quaternion rotation, float length, Material pipeMaterial, Material bracketMaterial, Transform parent, string placementRole = "prototype")
     {
         GameObject root = new GameObject(name);
         root.transform.SetParent(parent);
         root.transform.position = position;
         root.transform.rotation = rotation;
+
+        PipeCanopyPrototype prototype = root.AddComponent<PipeCanopyPrototype>();
+        prototype.placementRole = placementRole;
+        prototype.pipeCount = 4;
+        prototype.collarCount = 5;
+        prototype.couplerCount = 4;
+        prototype.valveDetailCount = 1;
+        prototype.rivetCount = 10;
+
+        GameObject pipeRoot = CreateLocalEmpty(name + " Pipe Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject collarRoot = CreateLocalEmpty(name + " Collar Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject couplerRoot = CreateLocalEmpty(name + " Coupler Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject valveRoot = CreateLocalEmpty(name + " Valve Detail Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject rivetRoot = CreateLocalEmpty(name + " Rivet Root", root.transform, Vector3.zero, Quaternion.identity);
 
         Vector3[] offsets =
         {
@@ -3516,17 +3530,63 @@ public static class V0SceneBuilder
 
         for (int i = 0; i < offsets.Length; i++)
         {
-            GameObject pipe = CreateLocalPrimitive(name + " Pipe " + i, PrimitiveType.Cylinder, root.transform, offsets[i], new Vector3(0.07f, length * 0.5f, 0.07f), pipeMaterial);
+            GameObject pipe = CreateLocalPrimitive(name + " Aged Brass Pipe " + i.ToString("00"), PrimitiveType.Cylinder, pipeRoot.transform, offsets[i], new Vector3(0.07f, length * 0.5f, 0.07f), pipeMaterial);
             pipe.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+            if (i == 0)
+            {
+                prototype.pipeRenderer = pipe.GetComponent<Renderer>();
+            }
         }
 
         for (int i = 0; i < 5; i++)
         {
             float z = Mathf.Lerp(-length * 0.42f, length * 0.42f, i / 4f);
-            CreateLocalCube(name + " Iron Collar " + i, root.transform, new Vector3(0f, 0.02f, z), new Vector3(0.92f, 0.1f, 0.09f), bracketMaterial);
-            CreateLocalPrimitive(name + " Collar Rivet Left " + i, PrimitiveType.Sphere, root.transform, new Vector3(-0.44f, 0.02f, z - 0.055f), new Vector3(0.04f, 0.04f, 0.04f), pipeMaterial);
-            CreateLocalPrimitive(name + " Collar Rivet Right " + i, PrimitiveType.Sphere, root.transform, new Vector3(0.44f, 0.02f, z - 0.055f), new Vector3(0.04f, 0.04f, 0.04f), pipeMaterial);
+            GameObject collar = CreateLocalCube(name + " Blackened Iron Collar " + i.ToString("00"), collarRoot.transform, new Vector3(0f, 0.02f, z), new Vector3(0.92f, 0.1f, 0.09f), bracketMaterial);
+            if (i == 0)
+            {
+                prototype.collarRenderer = collar.GetComponent<Renderer>();
+            }
+
+            GameObject leftRivet = CreateLocalPrimitive(name + " Collar Rivet Left " + i.ToString("00"), PrimitiveType.Sphere, rivetRoot.transform, new Vector3(-0.44f, 0.02f, z - 0.055f), new Vector3(0.04f, 0.04f, 0.04f), pipeMaterial);
+            CreateLocalPrimitive(name + " Collar Rivet Right " + i.ToString("00"), PrimitiveType.Sphere, rivetRoot.transform, new Vector3(0.44f, 0.02f, z - 0.055f), new Vector3(0.04f, 0.04f, 0.04f), pipeMaterial);
+            if (i == 0)
+            {
+                prototype.rivetRenderer = leftRivet.GetComponent<Renderer>();
+            }
         }
+
+        float[] couplerZ = { -length * 0.46f, length * 0.46f };
+        int couplerIndex = 0;
+        for (int zIndex = 0; zIndex < couplerZ.Length; zIndex++)
+        {
+            for (int side = 0; side < 2; side++)
+            {
+                float x = side == 0 ? -0.33f : 0.33f;
+                GameObject coupler = CreateLocalPrimitive(name + " Aged Brass Coupler " + couplerIndex.ToString("00"), PrimitiveType.Cylinder, couplerRoot.transform, new Vector3(x, 0f, couplerZ[zIndex]), new Vector3(0.1f, 0.055f, 0.1f), pipeMaterial);
+                coupler.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+                if (couplerIndex == 0)
+                {
+                    prototype.couplerRenderer = coupler.GetComponent<Renderer>();
+                }
+
+                couplerIndex++;
+            }
+        }
+
+        GameObject valveWheel = CreateLocalPrimitive(name + " Aged Brass Valve Wheel", PrimitiveType.Cylinder, valveRoot.transform, new Vector3(0.52f, 0.12f, -length * 0.18f), new Vector3(0.16f, 0.024f, 0.16f), pipeMaterial);
+        valveWheel.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        CreateLocalCube(name + " Valve Spoke Horizontal", valveRoot.transform, new Vector3(0.54f, 0.12f, -length * 0.18f), new Vector3(0.028f, 0.28f, 0.025f), bracketMaterial);
+        CreateLocalCube(name + " Valve Spoke Vertical", valveRoot.transform, new Vector3(0.54f, 0.12f, -length * 0.18f), new Vector3(0.028f, 0.025f, 0.28f), bracketMaterial);
+        CreateLocalPrimitive(name + " Valve Hub", PrimitiveType.Sphere, valveRoot.transform, new Vector3(0.56f, 0.12f, -length * 0.18f), new Vector3(0.05f, 0.05f, 0.05f), pipeMaterial);
+
+        prototype.valveRenderer = valveWheel.GetComponent<Renderer>();
+        prototype.pipeRoot = pipeRoot.transform;
+        prototype.collarRoot = collarRoot.transform;
+        prototype.couplerRoot = couplerRoot.transform;
+        prototype.valveRoot = valveRoot.transform;
+        prototype.rivetRoot = rivetRoot.transform;
+
+        return prototype;
     }
 
     private static CagedGaslightPrototype CreateCagedGaslight(string name, Vector3 position, Quaternion rotation, Material ironMaterial, Material brassMaterial, Material glowMaterial, Transform parent, string placementRole = "prototype")

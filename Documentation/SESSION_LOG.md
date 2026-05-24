@@ -4597,3 +4597,77 @@ SHA-256:
 `E9D112131AFE2C50C66B92FDC809A28E79A79131A46E840C362F949CA0ABDB1F`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 08:05 -04:00
+
+Completed `v0.1.22` pipe canopy asset promotion.
+
+Added:
+
+- `PipeCanopyPrototype` runtime metadata component for promoted overhead route-dressing components.
+- Intake, Pipeworks Annex, Boilerheart Core, Furnace Foundry, and Governor Core pipe canopy placements in generated scenes.
+- Unity-owned component geometry: four aged brass pipes, blackened iron collar brackets, ten visible collar rivets, aged brass couplers, and a valve/pressure detail.
+- Editor validation for promotion version, placement roles, required named parts, material roles, detail counts, and no-collider route safety.
+- Side-agent-produced production brief/status files under `Documentation/AssetProduction/PipeCanopyPrototype/`, then marked verified after matrix pass.
+- Route-audit next-action list updated for the post-pipe-canopy sequence.
+- Version string bumped to `v0.1.22`.
+
+Verification completed:
+
+- `V0_ROUTE_AUDIT_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_MOVEMENT_FEEL_PASS`
+- `V0_BALANCE_ENVELOPE_PASS`
+- `V0_LEVEL01_FLOW_PASS`
+- `V0_MIDGAME_FLOW_PASS`
+- `V0_CLIMAX_FLOW_PASS`
+- `V0_AUDIO_MIX_PASS`
+- `V0_DISPLAY_SETTINGS_PASS`
+- `V0_READABILITY_SETTINGS_PASS`
+- `V0_WINDOWS_PACKAGE_PASS`
+- `V0_WINDOWS_QA_PACKET_PASS`
+- `V0_WINDOWS_ISSUE_TRIAGE_PASS`
+- `V0_WINDOWS_CANDIDATE_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.22/BrassworksBreach_v0.1.22.exe`
+
+Package:
+
+`Builds/WindowsPackages/v0.1.22/BrassworksBreach_v0.1.22_Windows.zip`
+
+QA packet:
+
+`Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.22.md`
+
+Issue triage packet:
+
+`Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.22.md`
+
+Candidate readiness:
+
+`Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.22.md`
+
+SHA-256:
+
+`812C3E8ADC205F0A54B44E772428BA49E667611400C394CD1C8FF790A6EE49D5`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

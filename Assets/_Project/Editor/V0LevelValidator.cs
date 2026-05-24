@@ -1307,6 +1307,50 @@ public static class V0LevelValidator
         RequireRendererMaterial(prototype.rivetRenderer, sceneName + " caged gaslight rivet", "Iron");
     }
 
+    private static void ValidatePipeCanopyPrototype(string sceneName, string objectName, string expectedPlacementRole)
+    {
+        GameObject root = RequireNamed(objectName, sceneName + " pipe canopy prototype root");
+        PipeCanopyPrototype prototype = root.GetComponent<PipeCanopyPrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pipe canopy prototype is missing its marker component (" + objectName + ").");
+        }
+
+        if (prototype.promotionVersion != "v0.1.22" || prototype.placementRole != expectedPlacementRole || !prototype.HasRequiredParts)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pipe canopy metadata or required parts are incomplete (" + objectName + ").");
+        }
+
+        if (prototype.pipeRoot.childCount < 4 || prototype.collarRoot.childCount < 5 || prototype.couplerRoot.childCount < 2 || prototype.valveRoot.childCount < 1 || prototype.rivetRoot.childCount < 10)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pipe canopy does not have the required pipe/collar/coupler/valve/rivet detail counts (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<Collider>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pipe canopy must remain non-blocking overhead route dressing with no colliders (" + objectName + ").");
+        }
+
+        RequireNamed(objectName + " Pipe Root", sceneName + " pipe canopy pipe root");
+        RequireNamed(objectName + " Collar Root", sceneName + " pipe canopy collar root");
+        RequireNamed(objectName + " Coupler Root", sceneName + " pipe canopy coupler root");
+        RequireNamed(objectName + " Valve Detail Root", sceneName + " pipe canopy valve root");
+        RequireNamed(objectName + " Rivet Root", sceneName + " pipe canopy rivet root");
+        RequireNamed(objectName + " Aged Brass Pipe 00", sceneName + " pipe canopy aged brass pipe");
+        RequireNamed(objectName + " Blackened Iron Collar 00", sceneName + " pipe canopy blackened iron collar");
+        RequireNamed(objectName + " Collar Rivet Left 00", sceneName + " pipe canopy collar rivet");
+        RequireNamed(objectName + " Aged Brass Coupler 00", sceneName + " pipe canopy coupler");
+        RequireNamed(objectName + " Aged Brass Valve Wheel", sceneName + " pipe canopy valve wheel");
+        RequireNamed(objectName + " Valve Spoke Horizontal", sceneName + " pipe canopy valve spoke");
+        RequireNamed(objectName + " Valve Hub", sceneName + " pipe canopy valve hub");
+
+        RequireRendererMaterial(prototype.pipeRenderer, sceneName + " pipe canopy pipe", "Brass");
+        RequireRendererMaterial(prototype.collarRenderer, sceneName + " pipe canopy collar", "Iron");
+        RequireRendererMaterial(prototype.couplerRenderer, sceneName + " pipe canopy coupler", "Brass");
+        RequireRendererMaterial(prototype.valveRenderer, sceneName + " pipe canopy valve", "Brass");
+        RequireRendererMaterial(prototype.rivetRenderer, sceneName + " pipe canopy rivet", "Brass");
+    }
+
     private static void RequireRendererMaterial(Renderer renderer, string label, string expectedNameFragment)
     {
         if (renderer == null || renderer.sharedMaterial == null || renderer.sharedMaterial.shader == null)
@@ -1329,6 +1373,7 @@ public static class V0LevelValidator
             RequireNamed("Work Order Board - Gate", sceneName + " gate work-order board visual");
             RequireNamed("Pipe Bundle - Gate Manifold", sceneName + " gate pipe-bundle visual");
             RequireNamed("North Star Intake Pipe Canopy", sceneName + " north-star intake pipe canopy");
+            ValidatePipeCanopyPrototype(sceneName, "North Star Intake Pipe Canopy", "intake_route_pipe_canopy");
             RequireNamed("North Star Intake Gaslight Left", sceneName + " north-star intake gaslight");
             RequireNamed("North Star Gate Rivet Band", sceneName + " north-star gate rivet band");
             RequireNamed("Secret - Intake Pressure Cache", sceneName + " secret pressure cache");
@@ -1352,6 +1397,7 @@ public static class V0LevelValidator
             RequireNamed("Pipeworks Routing Valve Vented Lamp", sceneName + " Pipeworks routing valve vented signal");
             RequireNamed("Pipeworks Triple Pipe Bundle", sceneName + " pipeworks pipe-bundle visual");
             RequireNamed("North Star Pipeworks Pipe Canopy", sceneName + " north-star pipeworks pipe canopy");
+            ValidatePipeCanopyPrototype(sceneName, "North Star Pipeworks Pipe Canopy", "pipeworks_route_pipe_canopy");
             RequireNamed("North Star Pipeworks Gaslight", sceneName + " north-star pipeworks gaslight");
             ValidateCagedGaslightPrototype(sceneName, "North Star Pipeworks Gaslight", "pipeworks_route_gaslight");
             RequireNamed("North Star Pipeworks Wall Rivet Band", sceneName + " north-star pipeworks rivet band");
@@ -1374,6 +1420,7 @@ public static class V0LevelValidator
             RequireNamed("Boilerheart Triple Pipe Bundle", sceneName + " boilerheart pipe-bundle visual");
             RequireNamed("Boilerheart Furnace Core", sceneName + " boilerheart furnace core visual");
             RequireNamed("North Star Boilerheart Pipe Canopy", sceneName + " north-star boilerheart pipe canopy");
+            ValidatePipeCanopyPrototype(sceneName, "North Star Boilerheart Pipe Canopy", "boilerheart_route_pipe_canopy");
             RequireNamed("North Star Boilerheart Lamp Cage", sceneName + " north-star boilerheart lamp cage");
             ValidateCagedGaslightPrototype(sceneName, "North Star Boilerheart Lamp Cage", "boilerheart_route_gaslight");
             RequireNamed("North Star Boilerheart Core Rivet Band", sceneName + " north-star boilerheart rivet band");
@@ -1420,6 +1467,7 @@ public static class V0LevelValidator
             RequireNamed("Lore Plaque - Foundry Archive", sceneName + " foundry lore plaque visual");
             RequireNamed("Foundry Triple Pipe Bundle", sceneName + " foundry pipe-bundle visual");
             RequireNamed("North Star Foundry Pipe Canopy", sceneName + " north-star foundry pipe canopy");
+            ValidatePipeCanopyPrototype(sceneName, "North Star Foundry Pipe Canopy", "foundry_route_pipe_canopy");
             RequireNamed("North Star Foundry Catwalk Rail", sceneName + " north-star foundry catwalk rail");
             RequireNamed("North Star Foundry Gaslight West", sceneName + " north-star foundry gaslight");
             ValidateCagedGaslightPrototype(sceneName, "North Star Foundry Gaslight West", "foundry_route_gaslight");
@@ -1449,6 +1497,7 @@ public static class V0LevelValidator
             RequireNamed("Lore Plaque - Governor Archive", sceneName + " governor lore plaque visual");
             RequireNamed("Governor Core Triple Pipe Bundle", sceneName + " governor core pipe-bundle visual");
             RequireNamed("North Star Governor Pipe Canopy", sceneName + " north-star governor pipe canopy");
+            ValidatePipeCanopyPrototype(sceneName, "North Star Governor Pipe Canopy", "governor_route_pipe_canopy");
             RequireNamed("North Star Governor Gaslight Left", sceneName + " north-star governor gaslight");
             ValidateCagedGaslightPrototype(sceneName, "North Star Governor Gaslight Left", "governor_route_gaslight");
             RequireNamed("North Star Governor Regulator Crown", sceneName + " north-star governor regulator crown");

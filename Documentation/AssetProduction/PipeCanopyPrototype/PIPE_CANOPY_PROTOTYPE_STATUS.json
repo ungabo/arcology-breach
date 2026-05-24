@@ -1,0 +1,140 @@
+{
+  "asset_name": "PipeCanopyPrototype",
+  "promotion_version": "v0.1.22",
+  "status": "verified",
+  "documentation_status": "integrated",
+  "implementation_status": "promoted",
+  "validation_status": "full_matrix_passed",
+  "production_track": "roadmap-fallback",
+  "asset_type": "reusable Unity-generated overhead environment component",
+  "route_role": "route-safe non-blocking overhead pipe canopy dressing",
+  "geometry_source": "Unity-owned geometry only",
+  "manual_route_triage_notes_present": false,
+  "expected_placements": [
+    "Intake",
+    "Pipeworks",
+    "Boilerheart",
+    "Foundry",
+    "Governor"
+  ],
+  "placement_roles": [
+    {
+      "area": "Intake",
+      "placement_role": "intake_route_pipe_canopy"
+    },
+    {
+      "area": "Pipeworks",
+      "placement_role": "pipeworks_route_pipe_canopy"
+    },
+    {
+      "area": "Boilerheart",
+      "placement_role": "boilerheart_route_pipe_canopy"
+    },
+    {
+      "area": "Foundry",
+      "placement_role": "foundry_route_pipe_canopy"
+    },
+    {
+      "area": "Governor",
+      "placement_role": "governor_route_pipe_canopy"
+    }
+  ],
+  "north_star": {
+    "primary_read": "aged brass overhead pipe bundle clamped by blackened iron collars",
+    "secondary_read": "visible collar rivets, pipe couplers, and pressure-service valve detail",
+    "required_visual_elements": [
+      "aged brass pipe bundle",
+      "blackened iron collars",
+      "blackened iron overhead brackets",
+      "visible collar rivets",
+      "pipe couplers or sleeve joints",
+      "valve or pressure detail"
+    ]
+  },
+  "acceptance_gates": {
+    "metadata_component": {
+      "expected_name": "PipeCanopyPrototype",
+      "required": true
+    },
+    "promotion_version": {
+      "expected_value": "v0.1.22",
+      "required": true
+    },
+    "minimum_counts": {
+      "pipes": 4,
+      "collars_or_brackets": 5,
+      "visible_collar_rivets": 10,
+      "pipe_couplers": 2,
+      "valves_or_pressure_details": 1
+    },
+    "material_role_validation": {
+      "required": true,
+      "roles": [
+        "aged_brass_pipe",
+        "blackened_iron",
+        "dark_rivet_metal",
+        "aged_brass_coupler",
+        "pressure_detail",
+        "soot_dark_shadow"
+      ]
+    },
+    "named_hierarchy": {
+      "required": true,
+      "suggested_nodes": [
+        "PipeCanopyPrototype_Root",
+        "PipeBundle_AgedBrass",
+        "Pipe_01_AgedBrass",
+        "Pipe_02_AgedBrass",
+        "Pipe_03_AgedBrass",
+        "Pipe_04_AgedBrass",
+        "Collars_BlackenedIron",
+        "Brackets_BlackenedIron",
+        "Couplers_AgedBrass",
+        "Rivets_CollarFasteners",
+        "ValveOrPressureDetail"
+      ]
+    },
+    "route_safe_dressing": {
+      "no_colliders": true,
+      "required_collider_count": 0,
+      "non_blocking": true,
+      "overhead_only": true,
+      "must_not_create_cover": true,
+      "must_not_narrow_navigation": true,
+      "must_not_block_doorways": true,
+      "supported_placement_families": [
+        "Intake",
+        "Pipeworks",
+        "Boilerheart",
+        "Foundry",
+        "Governor"
+      ]
+    }
+  },
+  "validation_fields_expected_after_implementation": {
+    "metadata_component_found": true,
+    "promotion_version_found": "v0.1.22",
+    "pipe_count": 4,
+    "collar_or_bracket_count": 5,
+    "visible_collar_rivet_count": 10,
+    "pipe_coupler_count": 4,
+    "valve_or_pressure_detail_count": 1,
+    "material_roles_validated": true,
+    "named_hierarchy_validated": true,
+    "collider_count": 0,
+    "route_safe_non_blocking_validated": true
+  },
+  "verification": {
+    "verified_at": "2026-05-24 08:05 -04:00",
+    "build_version": "v0.1.22",
+    "executable": "Builds/Windows/v0.1.22/BrassworksBreach_v0.1.22.exe",
+    "package": "Builds/WindowsPackages/v0.1.22/BrassworksBreach_v0.1.22_Windows.zip",
+    "package_sha256": "812C3E8ADC205F0A54B44E772428BA49E667611400C394CD1C8FF790A6EE49D5",
+    "route_audit": "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.22.md",
+    "qa_packet": "Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.22.md",
+    "issue_triage": "Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.22.md",
+    "candidate_readiness": "Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.22.md",
+    "matrix_marker": "V0_BUILD_MATRIX_PASS"
+  },
+  "notes": "Promoted into playable generated scenes and verified by route audit plus the full v032 V0 build matrix. Unity implementation, package, QA packet, issue triage, and candidate-readiness evidence are complete."
+}
