@@ -174,6 +174,60 @@ $supportInfoLines = @(
 )
 Set-Content -LiteralPath $supportInfoPath -Value $supportInfoLines -Encoding UTF8
 
+$releaseIndexPath = Join-Path $stagingFolder "RELEASE_INDEX_WINDOWS.txt"
+$releaseIndexLines = @(
+    "Brassworks Breach $version - Windows Release Index",
+    "",
+    "Start here when checking package contents.",
+    "",
+    "Launch files:",
+    "- LAUNCH_BRASSWORKS_BREACH.bat: recommended launcher",
+    "- ${exeName}: direct Unity player executable",
+    "",
+    "Required runtime files:",
+    "- ${executableStem}_${version}_Data: Unity data folder",
+    "- UnityPlayer.dll: Unity runtime library",
+    "- MonoBleedingEdge: managed runtime folder",
+    "",
+    "Player-facing documents:",
+    "- QUICKSTART_WINDOWS.txt: shortest launch/control notes",
+    "- README_WINDOWS.txt: full Windows build notes",
+    "- SUPPORT_INFO_WINDOWS.txt: issue-reporting details",
+    "- VERIFY_SHA256_WINDOWS.txt: package hash verification instructions",
+    "",
+    "QA and release evidence in the repository:",
+    "- Documentation/QA/WindowsRouteQA/QA_PACKET_$version.md",
+    "- Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_$version.md",
+    "- Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_$version.md",
+    "- Documentation/Releases/RELEASE_NOTES_$version.md",
+    "",
+    "Distribution rule:",
+    "- Share the ZIP package plus the generated .sha256.txt sidecar.",
+    "- Do not share a loose EXE without the Data folder and runtime files."
+)
+Set-Content -LiteralPath $releaseIndexPath -Value $releaseIndexLines -Encoding UTF8
+
+$checksumInstructionsPath = Join-Path $stagingFolder "VERIFY_SHA256_WINDOWS.txt"
+$checksumInstructionsLines = @(
+    "Brassworks Breach $version - SHA-256 Verification",
+    "",
+    "Use this when receiving or redistributing the Windows ZIP package.",
+    "",
+    "1. Keep the ZIP and its generated .sha256.txt sidecar in the same folder.",
+    "2. Open PowerShell in that folder.",
+    "3. Run:",
+    "   Get-FileHash -Algorithm SHA256 '.\${executableStem}_${version}_Windows.zip'",
+    "4. Compare the Hash value to the first value in:",
+    "   ${executableStem}_${version}_Windows.zip.sha256.txt",
+    "5. The same hash is also recorded in:",
+    "   Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_$version.md",
+    "",
+    "If the values differ, do not treat that ZIP as the verified candidate package.",
+    "",
+    "Note: this text file is packaged inside the ZIP as verification guidance. The actual ZIP hash is generated next to the ZIP after packaging."
+)
+Set-Content -LiteralPath $checksumInstructionsPath -Value $checksumInstructionsLines -Encoding UTF8
+
 $zipPath = Join-Path $packageFolder "${executableStem}_${version}_Windows.zip"
 if (-not $SkipZip) {
     if (Test-Path -LiteralPath $zipPath) {
@@ -184,9 +238,10 @@ if (-not $SkipZip) {
 }
 
 $hash = $null
+$sha256SidecarPath = if ($SkipZip) { $null } else { $zipPath + ".sha256.txt" }
 if (-not $SkipZip) {
     $hash = (Get-FileHash -LiteralPath $zipPath -Algorithm SHA256).Hash
-    Set-Content -LiteralPath ($zipPath + ".sha256.txt") -Value "$hash  $(Split-Path -Leaf $zipPath)" -Encoding ASCII
+    Set-Content -LiteralPath $sha256SidecarPath -Value "$hash  $(Split-Path -Leaf $zipPath)" -Encoding ASCII
 }
 
 $manifest = [ordered]@{
@@ -198,7 +253,10 @@ $manifest = [ordered]@{
     readme = $readmePath
     quickstart = $quickstartPath
     support_info = $supportInfoPath
+    release_index = $releaseIndexPath
+    checksum_instructions = $checksumInstructionsPath
     zip_path = if ($SkipZip) { $null } else { $zipPath }
+    sha256_sidecar = $sha256SidecarPath
     sha256 = $hash
     generated_utc = (Get-Date).ToUniversalTime().ToString("o")
     required_artifacts = $requiredPaths

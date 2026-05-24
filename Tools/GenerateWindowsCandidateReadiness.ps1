@@ -150,17 +150,25 @@ $packageLauncherPath = [string]$packageManifest.launcher
 $packageReadmePath = [string]$packageManifest.readme
 $packageQuickstartPath = [string]$packageManifest.quickstart
 $packageSupportInfoPath = [string]$packageManifest.support_info
+$packageReleaseIndexPath = [string]$packageManifest.release_index
+$packageChecksumInstructionsPath = [string]$packageManifest.checksum_instructions
+$packageSha256SidecarPath = [string]$packageManifest.sha256_sidecar
 Require-Path -Path $packageZip -Label "Windows package ZIP"
 Require-Path -Path $packageLauncherPath -Label "Windows package launcher"
 Require-Path -Path $packageReadmePath -Label "Windows package README"
 Require-Path -Path $packageQuickstartPath -Label "Windows package quickstart"
 Require-Path -Path $packageSupportInfoPath -Label "Windows package support info"
+Require-Path -Path $packageReleaseIndexPath -Label "Windows package release index"
+Require-Path -Path $packageChecksumInstructionsPath -Label "Windows package checksum instructions"
+Require-Path -Path $packageSha256SidecarPath -Label "Windows package SHA-256 sidecar"
 
 $zipEntryNames = Get-ZipEntryNames -ZipPath $packageZip
 Assert-ZipContainsLeaf -EntryNames $zipEntryNames -LeafName "LAUNCH_BRASSWORKS_BREACH.bat"
 Assert-ZipContainsLeaf -EntryNames $zipEntryNames -LeafName "README_WINDOWS.txt"
 Assert-ZipContainsLeaf -EntryNames $zipEntryNames -LeafName "QUICKSTART_WINDOWS.txt"
 Assert-ZipContainsLeaf -EntryNames $zipEntryNames -LeafName "SUPPORT_INFO_WINDOWS.txt"
+Assert-ZipContainsLeaf -EntryNames $zipEntryNames -LeafName "RELEASE_INDEX_WINDOWS.txt"
+Assert-ZipContainsLeaf -EntryNames $zipEntryNames -LeafName "VERIFY_SHA256_WINDOWS.txt"
 
 $logChecks = @(
     @{ Name = "Scene rebuild"; File = "$LogPrefix-scene.log"; Marker = "V0 scenes rebuilt" },
@@ -211,6 +219,9 @@ $launcherRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $Proje
 $packageReadmeRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $packageReadmePath)
 $quickstartRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $packageQuickstartPath)
 $supportInfoRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $packageSupportInfoPath)
+$releaseIndexRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $packageReleaseIndexPath)
+$checksumInstructionsRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $packageChecksumInstructionsPath)
+$sha256SidecarRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $packageSha256SidecarPath)
 $hashCode = Convert-ToInlineCode -Value $packageHash
 $releaseNotesRepo = Convert-ToInlineCode -Value (Convert-ToRepoPath -RootPath $ProjectPath -AbsolutePath $releaseNotesPath)
 $generatedCode = Convert-ToInlineCode -Value $generatedLocal
@@ -241,6 +252,9 @@ $readinessLines = @(
     "- Package README: $packageReadmeRepo",
     "- Package quickstart: $quickstartRepo",
     "- Package support info: $supportInfoRepo",
+    "- Package release index: $releaseIndexRepo",
+    "- Package checksum instructions: $checksumInstructionsRepo",
+    "- Package SHA-256 sidecar: $sha256SidecarRepo",
     "",
     "## Automated Verification Markers",
     "",
@@ -252,7 +266,8 @@ $readinessLines = @(
     "",
     "- Ship only the ZIP package, not a loose executable alone.",
     "- Keep the launcher, quickstart, README, support info, Data folder, UnityPlayer.dll, and MonoBleedingEdge folder together after extraction.",
-    "- Keep the SHA-256 hash with any shared package.",
+    "- Keep the SHA-256 hash with any shared package and use VERIFY_SHA256_WINDOWS.txt to compare it.",
+    "- Use RELEASE_INDEX_WINDOWS.txt as the package contents index before sharing a candidate.",
     "- Use the QA packet as the manual route-test starting point.",
     "- Treat this as a Windows candidate snapshot, not Android, WebGL, SteamVR, or Meta Quest readiness.",
     "- Any manual blocker or confusion note should become a tracked task before a v1.0 release label.",
@@ -276,6 +291,9 @@ $manifest = [ordered]@{
     package_readme = $packageReadmePath
     package_quickstart = $packageQuickstartPath
     package_support_info = $packageSupportInfoPath
+    package_release_index = $packageReleaseIndexPath
+    package_checksum_instructions = $packageChecksumInstructionsPath
+    package_sha256_sidecar = $packageSha256SidecarPath
     route_audit = $routeAuditPath
     qa_packet = $qaPacketPath
     issue_triage_packet = $issueTriagePath

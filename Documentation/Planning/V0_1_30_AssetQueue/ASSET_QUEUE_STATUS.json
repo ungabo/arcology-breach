@@ -1,0 +1,106 @@
+{
+  "packet": "v0.1.30_asset_queue",
+  "created_local": "2026-05-24T10:12:31-04:00",
+  "status": "planning_ready",
+  "owned_write_scope": "Documentation/Planning/V0_1_30_AssetQueue/",
+  "scope_compliance": "This packet only writes under Documentation/Planning/V0_1_30_AssetQueue/.",
+  "target_version_rule": "Use for v0.1.30 if v0.1.29 lands Windows distribution hardening; otherwise use for the first open asset-promotion slice after distribution hardening.",
+  "inputs_reviewed": [
+    "Documentation/VERSION_MICRO_ROADMAP.md",
+    "Documentation/WORK_LEDGER.md",
+    "Documentation/AAA_ASSET_CATALOG.md",
+    "Documentation/STEAMPUNK_NORTH_STAR.md",
+    "Documentation/PARALLEL_ASSET_ACCEPTANCE_CHECKLIST.md",
+    "Documentation/ArtDirection/UNITY_CONCEPT_MATCH_PRODUCTION_STANDARD.md",
+    "Documentation/ArtDirection/UNITY_ASSET_ACCEPTANCE_GATES.md",
+    "Documentation/Planning/V0_1_29_RouteTriage/ROUTE_TRIAGE_PLAN_v0.1.29.md",
+    "Documentation/AssetProduction/CatwalkRailPrototype/CATWALK_RAIL_PROTOTYPE_BRIEF_v0.1.26.md",
+    "Documentation/AssetProduction/FloorDrainGratePrototype/FLOOR_DRAIN_GRATE_PROTOTYPE_BRIEF_v0.1.27.md",
+    "Documentation/AssetProduction/PressureTankRackPrototype/PRESSURE_TANK_RACK_PROTOTYPE_BRIEF_v0.1.28.md"
+  ],
+  "candidates": [
+    {
+      "id": "ASQ-001",
+      "prototype": "ServiceLiftCallBoxPrototype",
+      "recommendation": "selected",
+      "route_risk": "low",
+      "best_use": "Wall-adjacent service-lift and hoist control dressing beside level transitions.",
+      "reason": "Adds repeated steampunk route clarity across all current level transitions without changing collision, triggers, combat, or objective flow.",
+      "placement_roles": [
+        "intake_service_lift_call_box",
+        "pipeworks_service_lift_call_box",
+        "boilerheart_service_lift_call_box",
+        "foundry_emergency_hoist_call_box",
+        "governor_master_hoist_call_box"
+      ],
+      "acceptance_gates": [
+        "Metadata exists and records the selected promotion version plus exact placement role.",
+        "Root and child hierarchy expose backplate, lever, gauge, lamps, pipes, label, rivets, and grime roles.",
+        "Minimum detail counts pass for backplate, lever, gauge, lamps, pipes, label, fasteners, grime, and zero colliders.",
+        "No colliders, trigger volumes, NavMeshObstacle components, or new gameplay interaction components are present.",
+        "Placement stays wall-adjacent or lift-frame-adjacent and does not narrow route width, door clearance, combat lanes, or final-exit readability.",
+        "Route audit, level validation, and full V0 matrix pass after implementation."
+      ],
+      "validation_checks": [
+        "ValidateServiceLiftCallBoxPrototype(sceneName, objectName, expectedRole)",
+        "Metadata component name, role, and promotion version",
+        "Required child roots or equivalent named parts",
+        "Renderer/material role keywords for iron, brass, enamel or gauge, lamp, pipe, rivet or bolt, grime or oil or scorch",
+        "Zero collider and zero trigger count",
+        "Zero NavMeshObstacle count",
+        "No new gameplay interaction components under the call-box hierarchy"
+      ]
+    },
+    {
+      "id": "ASQ-002",
+      "prototype": "GearKeyPlinthPrototype",
+      "recommendation": "follow_up",
+      "route_risk": "medium-low",
+      "best_use": "Objective-key presentation pedestal around existing gear-key pickups.",
+      "reason": "Improves objective readability, but sits closer to pickup trigger semantics than the selected lift call box.",
+      "placement_roles": [
+        "intake_gear_key_plinth",
+        "pipeworks_service_key_plinth",
+        "foundry_cache_key_plinth"
+      ],
+      "acceptance_gates": [
+        "Existing pickup remains visible and reachable.",
+        "No new pickup trigger ownership or route blocking.",
+        "Minimum parts include base, brass socket ring, label, fasteners, lamps, pipes, and zero colliders."
+      ]
+    },
+    {
+      "id": "ASQ-003",
+      "prototype": "BoilerInspectionPanelPrototype",
+      "recommendation": "fallback",
+      "route_risk": "low",
+      "best_use": "Wall-only gauge, sight-glass, label, and pipe-stub machinery dressing.",
+      "reason": "Safest wall-only visual-density fallback if transition-adjacent call-box placement is delayed.",
+      "placement_roles": [
+        "intake_boiler_inspection_panel",
+        "pipeworks_boiler_inspection_panel",
+        "boilerheart_boiler_inspection_panel",
+        "foundry_heat_inspection_panel"
+      ],
+      "acceptance_gates": [
+        "Wall-only noninteractive placement.",
+        "No colliders, triggers, route-state contradiction, or new gameplay components.",
+        "Must remain visually distinct from the existing wall-pipe gauge cluster."
+      ]
+    }
+  ],
+  "selected_candidate": {
+    "prototype": "ServiceLiftCallBoxPrototype",
+    "implementation_summary": "Promote Unity-owned, no-collider lift/hoist call-box dressing in Level01 through Level05 with metadata, named hierarchy, material-role coverage, detail-count validation, route audit, full V0 matrix, package, release notes, and status-doc updates.",
+    "fallback_if_blocked": "Use BoilerInspectionPanelPrototype on noncritical walls in Level01, Level02, and Level03."
+  },
+  "main_lane_verification": [
+    "git status -sb",
+    "Run scene rebuild for the selected version.",
+    "Run route audit with no blockers.",
+    "Run level validation with ServiceLiftCallBoxPrototype checks.",
+    "Run full V0 build matrix.",
+    "Refresh candidate readiness and release notes if the slice packages a build.",
+    "Get-Content Documentation/Planning/V0_1_30_AssetQueue/ASSET_QUEUE_STATUS.json | ConvertFrom-Json | Out-Null"
+  ]
+}

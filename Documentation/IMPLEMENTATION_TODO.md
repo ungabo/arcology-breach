@@ -1743,6 +1743,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.29 Windows Distribution Hardening
+
+- [x] Scan manual QA sheets and issue-triage packets for accepted P0/P1 route notes; no accepted route issue was present.
+- [x] Use the no-issue fallback from `Documentation/Planning/V0_1_29_RouteTriage/`.
+- [x] Add `RELEASE_INDEX_WINDOWS.txt` to the Windows package folder and ZIP.
+- [x] Add `VERIFY_SHA256_WINDOWS.txt` to the Windows package folder and ZIP.
+- [x] Add package-manifest fields for release index, checksum instructions, and SHA-256 sidecar path.
+- [x] Expand candidate-readiness automation to require the release index and checksum instructions on disk and inside the ZIP.
+- [x] Refresh `V0RouteAudit` output for `v0.1.29`.
+- [x] Build, package, generate route-QA evidence, generate issue-triage evidence, and generate candidate-readiness evidence for `v0.1.29` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

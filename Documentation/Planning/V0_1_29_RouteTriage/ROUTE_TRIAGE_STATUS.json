@@ -1,7 +1,26 @@
 {
   "packet": "v0.1.29_route_triage",
   "created_local": "2026-05-24T09:49:11-04:00",
-  "status": "planning_ready",
+  "status": "implemented_full_matrix_passed",
+  "result": {
+    "version": "v0.1.29",
+    "decision": "no_issue_distribution_fallback",
+    "manual_route_issue_scan": "No accepted manual P0/P1 route issue was found; matches were template/checklist language only.",
+    "implemented": [
+      "Windows package release index",
+      "Windows package SHA-256 verification instructions",
+      "Package manifest fields for release index, checksum instructions, and SHA-256 sidecar",
+      "Candidate-readiness ZIP-content verification for release index and checksum instructions"
+    ],
+    "verification": {
+      "routeAudit": "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.29.md",
+      "buildMatrix": "V0_BUILD_MATRIX_PASS",
+      "candidateReadiness": "Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.29.md",
+      "windowsExecutable": "Builds/Windows/v0.1.29/BrassworksBreach_v0.1.29.exe",
+      "windowsPackage": "Builds/WindowsPackages/v0.1.29/BrassworksBreach_v0.1.29_Windows.zip",
+      "packageSha256": "8F8C6DB781ACD5EFA9D477BCE93001DCE5DAAB313A3EB885526CCBA196778CFF"
+    }
+  },
   "owned_write_scope": "Documentation/Planning/V0_1_29_RouteTriage/",
   "inputs_reviewed": [
     "Documentation/VERSION_MICRO_ROADMAP.md",
