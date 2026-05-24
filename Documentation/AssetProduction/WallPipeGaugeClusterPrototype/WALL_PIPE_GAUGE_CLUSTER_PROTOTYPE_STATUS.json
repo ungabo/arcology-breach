@@ -1,0 +1,26 @@
+{
+  "version": "v0.1.17",
+  "component": "WallPipeGaugeClusterPrototype",
+  "status": "verified",
+  "placements": [
+    {
+      "scene": "Level02",
+      "object": "Pipeworks Prototype Wall Pipe Gauge Cluster",
+      "placement_role": "pipeworks_route_wall"
+    },
+    {
+      "scene": "Level03",
+      "object": "Boilerheart Prototype Wall Pipe Gauge Cluster",
+      "placement_role": "boilerheart_route_wall"
+    }
+  ],
+  "validation": {
+    "requires_metadata": true,
+    "minimum_pipe_count": 5,
+    "minimum_gauge_count": 2,
+    "minimum_valve_count": 1,
+    "minimum_rivet_count": 12,
+    "requires_material_role_validation": true
+  },
+  "notes": "Unity-generated reusable environment component promotion for the brassworks corridor kit. Verified by v0.1.17 route audit and full Windows matrix."
+}

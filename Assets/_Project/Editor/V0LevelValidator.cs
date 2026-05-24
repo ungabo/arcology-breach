@@ -1130,6 +1130,42 @@ public static class V0LevelValidator
         RequireRendererMaterial(prototype.heatCoreRenderer, sceneName + " pressure coil heat core", "PressureWarning");
     }
 
+    private static void ValidateWallPipeGaugeClusterPrototype(string sceneName, string objectName, string expectedPlacementRole)
+    {
+        GameObject root = RequireNamed(objectName, sceneName + " wall pipe gauge cluster prototype root");
+        WallPipeGaugeClusterPrototype prototype = root.GetComponent<WallPipeGaugeClusterPrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " wall pipe gauge cluster prototype is missing its marker component (" + objectName + ").");
+        }
+
+        if (prototype.promotionVersion != "v0.1.17" || prototype.placementRole != expectedPlacementRole || !prototype.HasRequiredParts)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " wall pipe gauge cluster metadata or required parts are incomplete (" + objectName + ").");
+        }
+
+        if (prototype.pipeRoot.childCount < 5 || prototype.gaugeRoot.childCount < 2 || prototype.valveRoot.childCount < 4 || prototype.rivetRoot.childCount < 14)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " wall pipe gauge cluster does not have the required pipe/gauge/valve/rivet detail counts (" + objectName + ").");
+        }
+
+        RequireNamed(objectName + " Blackened Iron Mounting Plate", sceneName + " wall pipe gauge cluster mounting plate");
+        RequireNamed(objectName + " Aged Brass Header Rail", sceneName + " wall pipe gauge cluster header rail");
+        RequireNamed(objectName + " Vertical Copper Feed Pipe 00", sceneName + " wall pipe gauge cluster copper feed pipe");
+        RequireNamed(objectName + " Vertical Blackened Return Pipe 01", sceneName + " wall pipe gauge cluster return pipe");
+        RequireNamed(objectName + " Upper Cross Pressure Pipe 03", sceneName + " wall pipe gauge cluster cross pipe");
+        RequireNamed(objectName + " Upper Pressure Gauge Cream Enamel Face", sceneName + " wall pipe gauge cluster upper gauge face");
+        RequireNamed(objectName + " Lower Pressure Gauge Cream Enamel Face", sceneName + " wall pipe gauge cluster lower gauge face");
+        RequireNamed(objectName + " Red Brass Valve Wheel", sceneName + " wall pipe gauge cluster valve wheel");
+        RequireNamed(objectName + " Top Slotted Rivet 00", sceneName + " wall pipe gauge cluster rivet");
+
+        RequireRendererMaterial(prototype.backplateRenderer, sceneName + " wall pipe gauge cluster backplate", "Iron");
+        RequireRendererMaterial(prototype.primaryPipeRenderer, sceneName + " wall pipe gauge cluster primary pipe", "Brass");
+        RequireRendererMaterial(prototype.secondaryPipeRenderer, sceneName + " wall pipe gauge cluster return pipe", "Iron");
+        RequireRendererMaterial(prototype.gaugeFaceRenderer, sceneName + " wall pipe gauge cluster gauge face", "CreamGaugeFace");
+        RequireRendererMaterial(prototype.valveWheelRenderer, sceneName + " wall pipe gauge cluster valve wheel", "PressureWarning");
+    }
+
     private static void RequireRendererMaterial(Renderer renderer, string label, string expectedNameFragment)
     {
         if (renderer == null || renderer.sharedMaterial == null || renderer.sharedMaterial.shader == null)
@@ -1177,6 +1213,7 @@ public static class V0LevelValidator
             RequireNamed("North Star Pipeworks Pipe Canopy", sceneName + " north-star pipeworks pipe canopy");
             RequireNamed("North Star Pipeworks Gaslight", sceneName + " north-star pipeworks gaslight");
             RequireNamed("North Star Pipeworks Wall Rivet Band", sceneName + " north-star pipeworks rivet band");
+            ValidateWallPipeGaugeClusterPrototype(sceneName, "Pipeworks Prototype Wall Pipe Gauge Cluster", "pipeworks_route_wall");
             RequireNamed("Secret - Pipeworks Cartridge Cache", sceneName + " pipeworks secret cache");
             RequireNamed("Secret Pipeworks Cache Brass Floor Plate", sceneName + " pipeworks secret cache floor plate");
             RequireNamed("Pickup - Pipeworks Secret Pressure Cartridge Pack", sceneName + " pipeworks secret ammo reward");
@@ -1195,6 +1232,7 @@ public static class V0LevelValidator
             RequireNamed("North Star Boilerheart Pipe Canopy", sceneName + " north-star boilerheart pipe canopy");
             RequireNamed("North Star Boilerheart Lamp Cage", sceneName + " north-star boilerheart lamp cage");
             RequireNamed("North Star Boilerheart Core Rivet Band", sceneName + " north-star boilerheart rivet band");
+            ValidateWallPipeGaugeClusterPrototype(sceneName, "Boilerheart Prototype Wall Pipe Gauge Cluster", "boilerheart_route_wall");
             RequireNamed("Boilerheart Pressure Valve Objective", sceneName + " boilerheart pressure valve objective");
             RequireNamed("Boilerheart Pressure Valve Wheel", sceneName + " boilerheart pressure valve wheel visual");
             RequireNamed("Boilerheart Valve Vented Lamp", sceneName + " boilerheart valve vented signal");

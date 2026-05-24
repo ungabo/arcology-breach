@@ -1585,6 +1585,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.17 Wall Pipe Gauge Cluster Asset Promotion
+
+- [x] Add `WallPipeGaugeClusterPrototype` runtime metadata for promoted wall-mounted environment components.
+- [x] Add a named Pipeworks Annex wall pipe/gauge/valve cluster placement.
+- [x] Add a named Boilerheart Core wall pipe/gauge/valve cluster placement.
+- [x] Build the component from Unity-owned geometry: iron backplate, aged brass rails, copper/iron pipe runs, two cream enamel gauges, a red valve wheel, and rivets.
+- [x] Add validator coverage for promotion version, placement roles, required named hierarchy, material roles, and pipe/gauge/valve/rivet counts.
+- [x] Add production brief and status files under `Documentation/AssetProduction/WallPipeGaugeClusterPrototype/`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.17`.
+- [x] Build, package, generate route-QA evidence, generate issue-triage evidence, and generate candidate-readiness evidence for `v0.1.17` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

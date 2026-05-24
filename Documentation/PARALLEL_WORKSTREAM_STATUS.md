@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 06:06 -04:00`
+Last updated: `2026-05-24 06:23 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -17,12 +17,12 @@ Current focus:
 
 Current verified local build:
 
-- `v0.1.16`
-- Build path: `Builds/Windows/v0.1.16/BrassworksBreach_v0.1.16.exe`
-- Package path: `Builds/WindowsPackages/v0.1.16/BrassworksBreach_v0.1.16_Windows.zip`
-- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.16.md`
-- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.16.md`
-- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.16.md`
+- `v0.1.17`
+- Build path: `Builds/Windows/v0.1.17/BrassworksBreach_v0.1.17.exe`
+- Package path: `Builds/WindowsPackages/v0.1.17/BrassworksBreach_v0.1.17_Windows.zip`
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.17.md`
+- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.17.md`
+- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.17.md`
 - Matrix result: `V0_BUILD_MATRIX_PASS` plus `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`
 
 ## Active Side Agents
@@ -51,7 +51,7 @@ Current verified local build:
 | Parfit | `019e5801-0ee0-71b3-bfba-3b8df1d41e70` | V1 audio production/staging lane | `Assets/_Project/ArtStaging/AudioV1/`, `Documentation/AssetProduction/AudioV1/` | `2026-05-23 23:26 -04:00` | completed |
 | Singer | `019e5805-3d47-70c2-b58b-e556a173f473` | Superseded external-render unblock lane | `Documentation/AssetProduction/HighFidelityLookdevRecovery/` | `2026-05-23 23:32 -04:00` | superseded by Unity-only direction |
 | Turing | `019e580e-5d21-76b3-81a4-80455fe93c12` | V1 signage/decal text and staging sheets | `Documentation/AssetProduction/SignageDecalsV1/`, `Assets/_Project/ArtStaging/SignageDecalsV1/` | `2026-05-23 23:54 -04:00` | completed |
-| Aquinas | `019e580e-5ece-7361-b0d2-1a820f927d13` | V1 manual playtest route sheets | `Documentation/QA/ManualPlaytestV1/` | `2026-05-23 23:54 -04:00` | status unavailable in current manager session |
+| Aquinas | `019e580e-5ece-7361-b0d2-1a820f927d13` | V1 manual playtest route sheets | `Documentation/QA/ManualPlaytestV1/` | `2026-05-23 23:54 -04:00` | not found on heartbeat status check; current generated README/packets are owned by main lane |
 | Galileo | `019e581e-6aaf-74e2-8389-1401c29ef000` | Unity-only pressure-pistol Recovery04/Recovery05 proof render | `Assets/_Project/Editor/UnityPressurePistolProofRenderer.cs`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/`, selected `Documentation/ConceptRenders/*Recovery04*`, selected `Documentation/ConceptRenders/*Recovery05*` | `2026-05-23 23:55 -04:00` | outputs integrated for review |
 | Dalton | `019e5826-5ad4-7fd2-99d2-d2c146deb564` | `v0.0.94` playable signage/decal integration | `Assets/_Project/Editor/V0SceneBuilder.cs`, `Assets/_Project/Editor/V0LevelValidator.cs`, generated scenes, focused docs/build output | `2026-05-23 23:55 -04:00` | completed and verified |
 | Hubble | `019e5826-8d5d-7723-ae93-104777386f06` | Unity concept-match production standard | `Documentation/ArtDirection/UNITY_CONCEPT_MATCH_PRODUCTION_STANDARD.md`, `Documentation/ArtDirection/UNITY_ASSET_ACCEPTANCE_GATES.md`, `Documentation/ProductionManagement/UNITY_ART_PRODUCTION_BREAKDOWN_V1.md` | `2026-05-23 23:55 -04:00` | completed |
