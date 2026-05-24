@@ -49,14 +49,15 @@ The roadmap is a living plan, not a promise that every version number is immutab
 | v0.1.11 | Pressure gauge asset promotion | Completed: kept lookdev renders reference-only, promoted one Unity-owned pressure-gauge component language into the Pressure Pistol viewmodel and Level01 pressure gate, and added `PressureGaugePrototype` metadata/validator coverage. | Route audit passed; full V0 matrix passed with pressure-gauge validation included. |
 | v0.1.12 | Windows distribution packaging | Completed: added a Windows package script, wired it into the full matrix, and generated a package folder/ZIP with README, manifest, and SHA-256 hash. | Route audit passed; full V0 matrix passed with `V0_WINDOWS_PACKAGE_PASS`. |
 | v0.1.13 | Route cohesion and manual-playtest automation prep | Completed: added a Windows route-QA packet generator, refreshed the manual playtest index with the exact current executable, and generated Markdown/JSON QA packet evidence for the five-level route. | Route audit passed; full V0 matrix passed with `V0_WINDOWS_PACKAGE_PASS` and `V0_WINDOWS_QA_PACKET_PASS`. |
+| v0.1.14 | Pressure Pistol coil-pack asset promotion | Completed: promoted a single copper/brass pressure-coil component into the Pressure Pistol viewmodel with metadata, named hierarchy, material-role validation, and detail-count gates. | Route audit passed; full V0 matrix passed with pressure-coil validation included. |
 
 ## Near-Term Proposed Sequence
 
 | Version | Planned Slice | Intent | Expected Verification |
 | --- | --- | --- | --- |
-| v0.1.14 | Next safe asset-promotion slice | Promote the next single component after review, likely a pressure-pistol coil pack or reusable wall/pipe gauge cluster, with the same metadata/validation discipline used in `v0.1.11`. | Full V0 matrix; validation covers named component hierarchy/material roles and no route readability regression. |
 | v0.1.15 | Windows candidate-release cleanup | Fold in manual route feedback, tighten release docs, and prepare the first candidate Windows distribution checklist. | Full V0 matrix plus package verification and updated release notes. |
 | v0.1.16 | Route QA evidence capture expansion | Convert manual route observations into structured issue/tuning inputs once a playtest note set exists. | Full V0 matrix plus updated QA packet/report references. |
+| v0.1.17 | Modular environment component promotion | Promote one reusable environment component, likely a wall/pipe gauge cluster or vault-door subassembly, using the same metadata/validation discipline as the gauge and coil slices. | Full V0 matrix; validation covers named hierarchy/material roles and no route readability regression. |
 
 ## Later Follow-Up Areas
 

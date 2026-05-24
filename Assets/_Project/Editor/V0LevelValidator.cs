@@ -1050,6 +1050,7 @@ public static class V0LevelValidator
         RequireNamed("Pressure Pistol Pressure Relief Nozzle", sceneName + " pressure pistol pressure relief nozzle visual");
         RequireNamed("Pressure Pistol Pressure Dump Lever", sceneName + " pressure pistol pressure dump lever visual");
         ValidatePressureGaugePrototype(sceneName, "Pressure Pistol Prototype Pressure Gauge", "viewmodel");
+        ValidatePressureCoilPrototype(sceneName, "Pressure Pistol Prototype Copper Coil Pack", "viewmodel");
         RequireNamed("Pressure Pistol Valve Wheel", sceneName + " pressure pistol valve wheel visual");
         RequireNamed("Pressure Pistol Front Sight", sceneName + " pressure pistol front sight visual");
         RequireNamed("Steam Scattergun Viewmodel", sceneName + " Steam Scattergun viewmodel");
@@ -1092,6 +1093,41 @@ public static class V0LevelValidator
         RequireRendererMaterial(prototype.faceRenderer, sceneName + " pressure gauge face", "CreamGaugeFace");
         RequireRendererMaterial(prototype.glassRenderer, sceneName + " pressure gauge glass", "Glass");
         RequireRendererMaterial(prototype.warningBandRenderer, sceneName + " pressure gauge warning band", "PressureWarning");
+    }
+
+    private static void ValidatePressureCoilPrototype(string sceneName, string objectName, string expectedPlacementRole)
+    {
+        GameObject root = RequireNamed(objectName, sceneName + " pressure coil prototype root");
+        PressureCoilPrototype prototype = root.GetComponent<PressureCoilPrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pressure coil prototype is missing its marker component (" + objectName + ").");
+        }
+
+        if (prototype.promotionVersion != "v0.1.14" || prototype.placementRole != expectedPlacementRole || !prototype.HasRequiredParts)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pressure coil prototype metadata or required parts are incomplete (" + objectName + ").");
+        }
+
+        if (prototype.coilTurnRoot.childCount < 18 || prototype.rivetRoot.childCount < 18 || prototype.pressureLeadRoot.childCount < 4)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " pressure coil prototype does not have the required coil/rivet/lead detail count (" + objectName + ").");
+        }
+
+        RequireNamed(objectName + " Blackened Iron Backing Plate", sceneName + " pressure coil backing plate");
+        RequireNamed(objectName + " Aged Brass Upper Rail", sceneName + " pressure coil upper rail");
+        RequireNamed(objectName + " Aged Brass Lower Rail", sceneName + " pressure coil lower rail");
+        RequireNamed(objectName + " Dull Red Ceramic Heat Core", sceneName + " pressure coil heat core");
+        RequireNamed(objectName + " Upper Copper Manifold", sceneName + " pressure coil upper manifold");
+        RequireNamed(objectName + " Lower Copper Manifold", sceneName + " pressure coil lower manifold");
+        RequireNamed(objectName + " Oxidized Copper Coil Turn 00", sceneName + " pressure coil visible turn");
+        RequireNamed(objectName + " Upper Slotted Rivet 00", sceneName + " pressure coil rivet");
+        RequireNamed(objectName + " Left Braided Pressure Lead", sceneName + " pressure coil pressure lead");
+
+        RequireRendererMaterial(prototype.backingPlateRenderer, sceneName + " pressure coil backing plate", "Iron");
+        RequireRendererMaterial(prototype.upperRailRenderer, sceneName + " pressure coil upper rail", "Brass");
+        RequireRendererMaterial(prototype.lowerRailRenderer, sceneName + " pressure coil lower rail", "Brass");
+        RequireRendererMaterial(prototype.heatCoreRenderer, sceneName + " pressure coil heat core", "PressureWarning");
     }
 
     private static void RequireRendererMaterial(Renderer renderer, string label, string expectedNameFragment)

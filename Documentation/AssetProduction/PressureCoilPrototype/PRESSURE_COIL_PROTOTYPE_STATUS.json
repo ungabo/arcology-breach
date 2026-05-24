@@ -1,0 +1,27 @@
+{
+  "component": "PressureCoilPrototype",
+  "promotion_version": "v0.1.14",
+  "status": "verified_gameplay_prototype",
+  "placement_role": "viewmodel",
+  "active_object": "Pressure Pistol Prototype Copper Coil Pack",
+  "build": "Builds/Windows/v0.1.14/BrassworksBreach_v0.1.14.exe",
+  "qa_packet": "Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.14.md",
+  "package_sha256": "5C5CE3E737CB660F8A239FCE72EE038E422BB3083ECA7302F00533CFA70AD834",
+  "validation": {
+    "route_audit": "V0_ROUTE_AUDIT_PASS",
+    "level_validation": "V0_LEVEL_VALIDATION_PASS",
+    "build_matrix": "V0_BUILD_MATRIX_PASS",
+    "package": "V0_WINDOWS_PACKAGE_PASS",
+    "qa_packet": "V0_WINDOWS_QA_PACKET_PASS"
+  },
+  "required_counts": {
+    "coil_turn_root_min_children": 18,
+    "rivet_root_min_children": 18,
+    "pressure_lead_root_min_children": 4
+  },
+  "notes": [
+    "Promoted as a narrow component-first gameplay prototype.",
+    "Not final AAA-authored weapon art.",
+    "Future work should preserve metadata and validation discipline for each promoted component."
+  ]
+}

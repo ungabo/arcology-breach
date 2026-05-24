@@ -2276,6 +2276,7 @@ public static class V0SceneBuilder
         CreateLocalCube("Pressure Pistol Front Sight", weaponRoot.transform, new Vector3(0f, 0.25f, 0.7f), new Vector3(0.06f, 0.12f, 0.045f), ironMaterial);
 
         PressureGaugePrototype gaugePrototype = CreatePressureGaugePrototype("Pressure Pistol Prototype Pressure Gauge", weaponRoot.transform, new Vector3(-0.18f, 0.18f, 0.01f), 0.46f, gunTrimMaterial, ironMaterial, gaugeFaceMaterial, gaugeGlassMaterial, warningMaterial, "viewmodel");
+        CreatePressureCoilPrototype("Pressure Pistol Prototype Copper Coil Pack", weaponRoot.transform, new Vector3(0.18f, 0.17f, 0.34f), 0.62f, gunTrimMaterial, ironMaterial, warningMaterial, "viewmodel");
         CreateLocalCube("Pressure Pistol Bolt Handle", weaponRoot.transform, new Vector3(0.31f, 0.02f, 0.05f), new Vector3(0.18f, 0.05f, 0.05f), ironMaterial);
         CreateLocalPrimitive("Pressure Pistol Bolt Knob", PrimitiveType.Sphere, weaponRoot.transform, new Vector3(0.42f, 0.02f, 0.05f), new Vector3(0.075f, 0.075f, 0.075f), gunTrimMaterial);
         GameObject pressureDumpLever = CreateLocalCube("Pressure Pistol Pressure Dump Lever", weaponRoot.transform, new Vector3(0.31f, 0.15f, 0.16f), new Vector3(0.06f, 0.2f, 0.035f), warningMaterial);
@@ -3435,6 +3436,66 @@ public static class V0SceneBuilder
         prototype.needle = needle.transform;
         prototype.tickRoot = tickRoot.transform;
         prototype.rivetRoot = rivetRoot.transform;
+        return prototype;
+    }
+
+    private static PressureCoilPrototype CreatePressureCoilPrototype(string name, Transform parent, Vector3 localPosition, float size, Material brassMaterial, Material ironMaterial, Material heatMaterial, string placementRole)
+    {
+        float width = size;
+        float height = size * 0.46f;
+        float depth = size * 0.12f;
+
+        GameObject root = CreateLocalEmpty(name, parent, localPosition, Quaternion.Euler(0f, 0f, -5f));
+        PressureCoilPrototype prototype = root.AddComponent<PressureCoilPrototype>();
+        prototype.placementRole = placementRole;
+        prototype.coilTurnCount = 9;
+        prototype.rivetCount = 18;
+
+        GameObject backingPlate = CreateLocalCube(name + " Blackened Iron Backing Plate", root.transform, Vector3.zero, new Vector3(width, height, depth), ironMaterial);
+        GameObject upperRail = CreateLocalCube(name + " Aged Brass Upper Rail", root.transform, new Vector3(0f, height * 0.6f, -depth * 0.15f), new Vector3(width * 0.95f, height * 0.13f, depth * 0.75f), brassMaterial);
+        GameObject lowerRail = CreateLocalCube(name + " Aged Brass Lower Rail", root.transform, new Vector3(0f, -height * 0.6f, -depth * 0.15f), new Vector3(width * 0.95f, height * 0.13f, depth * 0.75f), brassMaterial);
+        GameObject heatCore = CreateLocalCube(name + " Dull Red Ceramic Heat Core", root.transform, new Vector3(0f, 0f, -depth * 0.72f), new Vector3(width * 0.7f, height * 0.16f, depth * 0.62f), heatMaterial);
+        CreateLocalCube(name + " Sooted Recess Shadow", root.transform, new Vector3(0f, 0f, -depth * 0.32f), new Vector3(width * 0.76f, height * 0.62f, depth * 0.18f), ironMaterial);
+
+        GameObject upperManifold = CreateLocalPrimitive(name + " Upper Copper Manifold", PrimitiveType.Cylinder, root.transform, new Vector3(0f, height * 0.31f, -depth * 0.66f), new Vector3(height * 0.055f, width * 0.46f, height * 0.055f), brassMaterial);
+        upperManifold.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        GameObject lowerManifold = CreateLocalPrimitive(name + " Lower Copper Manifold", PrimitiveType.Cylinder, root.transform, new Vector3(0f, -height * 0.31f, -depth * 0.66f), new Vector3(height * 0.055f, width * 0.46f, height * 0.055f), brassMaterial);
+        lowerManifold.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+
+        GameObject coilTurnRoot = CreateLocalEmpty(name + " Coil Turn Root", root.transform, Vector3.zero, Quaternion.identity);
+        for (int i = 0; i < 9; i++)
+        {
+            float normalized = i / 8f;
+            float x = Mathf.Lerp(-width * 0.36f, width * 0.36f, normalized);
+            GameObject turn = CreateLocalPrimitive(name + " Oxidized Copper Coil Turn " + i.ToString("00"), PrimitiveType.Cylinder, coilTurnRoot.transform, new Vector3(x, 0f, -depth * 0.92f - (i % 2) * depth * 0.08f), new Vector3(height * 0.31f, width * 0.018f, height * 0.18f), brassMaterial);
+            turn.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+            CreateLocalCube(name + " Deep Coil Gap " + i.ToString("00"), coilTurnRoot.transform, new Vector3(x, 0f, -depth * 0.42f), new Vector3(width * 0.026f, height * 0.58f, depth * 0.12f), ironMaterial);
+        }
+
+        GameObject rivetRoot = CreateLocalEmpty(name + " Rivet Root", root.transform, Vector3.zero, Quaternion.identity);
+        for (int i = 0; i < 9; i++)
+        {
+            float normalized = i / 8f;
+            float x = Mathf.Lerp(-width * 0.42f, width * 0.42f, normalized);
+            CreateLocalPrimitive(name + " Upper Slotted Rivet " + i.ToString("00"), PrimitiveType.Sphere, rivetRoot.transform, new Vector3(x, height * 0.68f, -depth * 0.72f), new Vector3(width * 0.035f, width * 0.035f, depth * 0.32f), brassMaterial);
+            CreateLocalPrimitive(name + " Lower Slotted Rivet " + i.ToString("00"), PrimitiveType.Sphere, rivetRoot.transform, new Vector3(x, -height * 0.68f, -depth * 0.72f), new Vector3(width * 0.032f, width * 0.032f, depth * 0.3f), brassMaterial);
+        }
+
+        GameObject pressureLeadRoot = CreateLocalEmpty(name + " Pressure Lead Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject leadA = CreateLocalPrimitive(name + " Left Braided Pressure Lead", PrimitiveType.Cylinder, pressureLeadRoot.transform, new Vector3(-width * 0.55f, height * 0.38f, -depth * 0.62f), new Vector3(width * 0.025f, width * 0.18f, width * 0.025f), ironMaterial);
+        leadA.transform.localRotation = Quaternion.Euler(0f, 0f, -58f);
+        GameObject leadB = CreateLocalPrimitive(name + " Right Braided Pressure Lead", PrimitiveType.Cylinder, pressureLeadRoot.transform, new Vector3(width * 0.55f, -height * 0.38f, -depth * 0.62f), new Vector3(width * 0.025f, width * 0.18f, width * 0.025f), ironMaterial);
+        leadB.transform.localRotation = Quaternion.Euler(0f, 0f, -58f);
+        CreateLocalPrimitive(name + " Left Patina Bloom", PrimitiveType.Sphere, pressureLeadRoot.transform, new Vector3(-width * 0.41f, height * 0.48f, -depth * 0.88f), new Vector3(width * 0.055f, width * 0.025f, depth * 0.18f), brassMaterial);
+        CreateLocalPrimitive(name + " Right Patina Bloom", PrimitiveType.Sphere, pressureLeadRoot.transform, new Vector3(width * 0.41f, -height * 0.48f, -depth * 0.88f), new Vector3(width * 0.055f, width * 0.025f, depth * 0.18f), brassMaterial);
+
+        prototype.backingPlateRenderer = backingPlate.GetComponent<Renderer>();
+        prototype.upperRailRenderer = upperRail.GetComponent<Renderer>();
+        prototype.lowerRailRenderer = lowerRail.GetComponent<Renderer>();
+        prototype.heatCoreRenderer = heatCore.GetComponent<Renderer>();
+        prototype.coilTurnRoot = coilTurnRoot.transform;
+        prototype.rivetRoot = rivetRoot.transform;
+        prototype.pressureLeadRoot = pressureLeadRoot.transform;
         return prototype;
     }
 

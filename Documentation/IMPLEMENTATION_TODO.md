@@ -1544,6 +1544,18 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.14 Pressure Coil Asset Promotion
+
+- [x] Add `PressureCoilPrototype` runtime metadata for promoted coil-pack components.
+- [x] Add a named Pressure Pistol copper coil pack to the generated viewmodel.
+- [x] Include blackened iron backing, aged brass rails, copper manifolds, red heat core, oxidized coil turns, rivets, pressure leads, and patina marks.
+- [x] Add validator coverage for coil metadata, named parts, material roles, and coil/rivet/lead detail counts.
+- [x] Add pressure-coil prototype production docs.
+- [x] Refresh `V0RouteAudit` output for `v0.1.14`.
+- [x] Build, package, and generate route-QA evidence for `v0.1.14` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
