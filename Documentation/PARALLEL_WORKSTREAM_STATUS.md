@@ -1,8 +1,8 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-23 21:45 -04:00`
+Last updated: `2026-05-23 21:50 -04:00`
 
-Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation scopes first; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
+Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
 ## Main Integration Lane
 
@@ -31,7 +31,12 @@ Current verified local build:
 | Helmholtz | `019e579b-bc0a-7ba0-861f-a8bea9f75173` | Android/WebGL/SteamVR/Meta Quest readiness | `Documentation/PARALLEL_PLATFORM_PORTS_AND_VR_PLAN.md` | `2026-05-23 21:31 -04:00` | completed |
 | Chandrasekhar | `019e57a1-724c-7971-8722-d635910c6f85` | Local Unity/Asset Store pack inventory | `Documentation/PARALLEL_LOCAL_ASSET_PACK_INVENTORY.md` | `2026-05-23 21:37 -04:00` | completed |
 | Beauvoir | `019e57a1-a809-7f20-9ead-228500ae4ad9` | Concrete asset generation/import briefs | `Documentation/PARALLEL_ASSET_GENERATION_BRIEFS.md` | `2026-05-23 21:37 -04:00` | completed |
-| Nietzsche | `019e57a8-8d30-7543-af03-13e33acbdd3d` | Asset viewing guide and preview swatches | `Documentation/ASSET_VIEWING_GUIDE.md`, `Documentation/AssetPreviews/` | `2026-05-23 21:45 -04:00` | running |
+| Nietzsche | `019e57a8-8d30-7543-af03-13e33acbdd3d` | Asset viewing guide and preview swatches | `Documentation/ASSET_VIEWING_GUIDE.md`, `Documentation/AssetPreviews/` | `2026-05-23 21:45 -04:00` | completed |
+| Curie | `019e57ac-ba96-75f2-a362-cc3af0f1d0cd` | Staged PBR material and texture production | `Assets/_Project/ArtStaging/MaterialsPBR/`, `Documentation/AssetProduction/MaterialsPBR/` | `2026-05-23 21:49 -04:00` | running |
+| Poincare | `019e57ad-10a2-71d3-b094-4c469c95ca42` | Staged modular environment kit meshes | `Assets/_Project/ArtStaging/ModularKit/`, `Documentation/AssetProduction/ModularKit/` | `2026-05-23 21:49 -04:00` | running |
+| Rawls | `019e57ad-3c85-71f3-b860-9187f4e58b2e` | Staged weapon and gameplay prop meshes | `Assets/_Project/ArtStaging/WeaponsProps/`, `Documentation/AssetProduction/WeaponsProps/` | `2026-05-23 21:49 -04:00` | running |
+| Linnaeus | `019e57ad-64ad-73c3-94e0-eb3c6980117e` | Staged mechanical enemy blockout meshes | `Assets/_Project/ArtStaging/Enemies/`, `Documentation/AssetProduction/Enemies/` | `2026-05-23 21:49 -04:00` | running |
+| Hooke | `019e57ae-0c70-74e2-9627-20c741592f05` | View-only object and room concept renders | `Documentation/ConceptRenders/` | `2026-05-23 21:50 -04:00` | running |
 
 ## Completed Side-Agent Outputs
 
@@ -43,10 +48,13 @@ Current verified local build:
 | Helmholtz | `2026-05-23 21:35 -04:00` | `Documentation/PARALLEL_PLATFORM_PORTS_AND_VR_PLAN.md` | Move toward input/aim-provider abstractions, reusable HUD data, scalable VFX, and quality-tiered assets for mobile/WebGL/VR. |
 | Beauvoir | `2026-05-23 21:41 -04:00` | `Documentation/PARALLEL_ASSET_GENERATION_BRIEFS.md` | First asset production batch should start with aged brass, blackened iron, soot/wet stone, trim sheet, corridor kit, pipe/valve/gauge kit, decals, final weapons, and Scrapper. |
 | Chandrasekhar | `2026-05-23 21:44 -04:00` | `Documentation/PARALLEL_LOCAL_ASSET_PACK_INVENTORY.md` | Found 64 local Unity Asset Store `.unitypackage` files totaling about 18.83 GB; best sandbox candidates include Snaps Prototype Sci-Fi Industrial, Unity Particle Pack, Hovl fire packs, VR packages, and Japanese Alley. |
+| Nietzsche | `2026-05-23 21:48 -04:00` | `Documentation/ASSET_VIEWING_GUIDE.md`, `Documentation/AssetPreviews/` | Created an asset viewing guide plus 7 preview/contact-sheet images; confirmed `.meta` files are Unity sidecar metadata, not the assets themselves. |
 
 ## Integration Rules
 
 - Side agents do not edit Unity scenes, generated scene-builder code, existing roadmap/status docs, or shared gameplay scripts.
+- Art-production side agents may write only to their assigned `Assets/_Project/ArtStaging/` folders and matching `Documentation/AssetProduction/` folders.
+- View-only render side agents may write only to `Documentation/ConceptRenders/`; those JPGs are for review and are intentionally outside Unity build assets.
 - Main lane continues implementation while side agents work.
 - When side-agent output returns, review it before merging into the main docs.
 - Convert accepted side-agent output into concrete implementation slices, asset tasks, and validation requirements.
