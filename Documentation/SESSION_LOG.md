@@ -5941,3 +5941,20 @@ Completed the main-lane `v0.1.47` room and weapon mechanism visual-import batch.
 - Started new parallel lanes for Surface Texture Set 05, Objective Interactables Set 05, and Mechanical Enemy Elite Set 05.
 
 Next-step directive: commit/push the `v0.1.47` main-lane integration slice plus completed planning docs, keep incomplete sidecar package roots unstaged until their workers report final validation, then continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 17:51 -04:00
+
+Completed the main-lane `v0.1.49` route-shell collision promotion pilot.
+
+- Added `V0149RouteShellPromotionPrototype` metadata for build version, promotion id, source packages, visual authority, collision authority, gameplay authority, and expected object counts.
+- Added a Level02 Pipeworks pilot root with visual-only sidecar shells from corridor, room, valve, and level-dressing packages.
+- Added four scene-owned collision proxies under a dedicated collision root; sidecar visuals remain stripped of route/gameplay authority.
+- Extended level validation to require the pilot root, visual instances, collision proxies, readability objects, metadata values, non-trigger collision proxies, and absence of gameplay authority components on the pilot.
+- Ran scoped `git diff --check`, scene rebuild, level validation, sidecar import validation, editor smoke, Windows build, runtime smoke, auto-playthrough, combat, interaction, hazard, secret, pause, movement, balance, level-flow, audio, display, readability, gameplay-feedback, world-label readability, Windows package generation, route audit, QA packet, issue triage, release notes, and candidate readiness.
+- Created `Builds/Windows/v0.1.49/BrassworksBreach_v0.1.49.exe`.
+- Created `Builds/WindowsPackages/v0.1.49/BrassworksBreach_v0.1.49_Windows.zip`.
+- Package ZIP SHA-256: `8ED3E51AD5C43ED4D1D1CF22DB8F4413014EF8539CBF0A9D862E53F3AA504586`.
+- Franklin and Kepler completed Surface Texture Set 05 and Objective Interactables Set 05; both remain uncommitted sidecar package roots until reviewed for the next acceptance wave.
+- Started new side-agent lanes for Steam FX Set 06, Hazard Props Set 06, and Level Expansion Routes while Hume continued Mechanical Enemy Elite Set 05 validation.
+
+Next-step directive: commit/push the `v0.1.49` main-lane integration slice without staging unreviewed sidecar package roots, then continue immediately with the next package acceptance or playable expansion batch.

@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 17:19 -04:00`
+Last updated: `2026-05-24 17:51 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -19,21 +19,21 @@ Current focus:
 
 Current verified local build:
 
-- `v0.1.45`
-- Build path: `Builds/Windows/v0.1.45/BrassworksBreach_v0.1.45.exe`
-- Package path: `Builds/WindowsPackages/v0.1.45/BrassworksBreach_v0.1.45_Windows.zip`
-- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.45.md`
-- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.45.md`
-- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.45.md`
-- Matrix result: route audit, full smoke/build/package sequence, `SIDECAR_QUARANTINE_IMPORT_PASS packages=15 assets=123`, `V0_GAMEPLAY_FEEDBACK_PASS`, `V0_WORLD_LABEL_READABILITY_PASS`, `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`
+- `v0.1.49`
+- Build path: `Builds/Windows/v0.1.49/BrassworksBreach_v0.1.49.exe`
+- Package path: `Builds/WindowsPackages/v0.1.49/BrassworksBreach_v0.1.49_Windows.zip`
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.49.md`
+- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.49.md`
+- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.49.md`
+- Matrix result: route audit, full smoke/build/package sequence, `SIDECAR_QUARANTINE_IMPORT_PASS packages=17 assets=150`, route-shell promotion-pilot validation, `V0_GAMEPLAY_FEEDBACK_PASS`, `V0_WORLD_LABEL_READABILITY_PASS`, `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`
 
 Current sidecar-gate status:
 
-- Weapon, mechanical enemy, feedback FX/audio, Steamworks level-kit, Materials Set 01, Level Dressing Set 01, Mechanical Enemy Visual Set 01, Weapon Props Set 02, Corridor Kit Set 02, Encounter Enemy Set 02, Weapon Viewmodel Set 03, Objective Props Set 02, Steam VFX Set 02, Level Atmosphere Set 03, and Enemy Animation Proxy Set 01 sidecars are imported as local packages in `Packages/manifest.json`.
-- `SidecarQuarantineImportValidator` passed with `SIDECAR_QUARANTINE_IMPORT_PASS packages=15 assets=123`.
-- Fresh accepted sidecar lanes pending future import decision: Room Setpiece Kit 04 and Weapon Mechanisms Set 04.
-- Completed sidecar-readiness lanes pending main-lane use: v0.1.46 import-readiness planning for Room Setpiece Kit 04 and Weapon Mechanisms Set 04.
-- Active sidecar lanes: none at this timestamp; refill capacity with package-family or promotion-planning work after the v0.1.45/v0.1.46 commits are pushed.
+- Weapon, mechanical enemy, feedback FX/audio, Steamworks level-kit, Materials Set 01, Level Dressing Set 01, Mechanical Enemy Visual Set 01, Weapon Props Set 02, Corridor Kit Set 02, Encounter Enemy Set 02, Weapon Viewmodel Set 03, Objective Props Set 02, Steam VFX Set 02, Level Atmosphere Set 03, Enemy Animation Proxy Set 01, Room Setpiece Kit 04, and Weapon Mechanisms Set 04 sidecars are imported as local packages in `Packages/manifest.json`.
+- `SidecarQuarantineImportValidator` passed with `SIDECAR_QUARANTINE_IMPORT_PASS packages=17 assets=150`.
+- Level02 now contains a route-shell promotion pilot proving sidecar visual shells plus main-scene-owned collision proxies.
+- Completed sidecar lanes pending review for future package acceptance: Surface Texture Set 05 and Objective Interactables Set 05.
+- Active sidecar lanes: Mechanical Enemy Elite Set 05, Steam FX Set 06, Hazard Props Set 06, and Level Expansion Routes.
 
 Current speed adjustment:
 
@@ -195,6 +195,11 @@ Current speed adjustment:
 | Franklin | active | `AssetPacks/BrassworksBreach.SurfaceTextureSet05/`, `Documentation/AssetProduction/V0_1_47_SurfaceTextureSet05/`, `Documentation/ConceptRenders/V0_1_47_SurfaceTextureSet05/` | Do not stage until final validation is reported; review for package counts, previews, and import-readiness instructions first. |
 | Kepler | active | `AssetPacks/BrassworksBreach.ObjectiveInteractablesSet05/`, `Documentation/AssetProduction/V0_1_49_ObjectiveInteractablesSet05/`, `Documentation/ConceptRenders/V0_1_49_ObjectiveInteractablesSet05/`, readiness docs | Building a bundle-sized objective/interactable visual-only package for later acceptance. |
 | Hume | active | `AssetPacks/BrassworksBreach.MechanicalEnemyEliteSet05/`, `Documentation/AssetProduction/V0_1_49_MechanicalEnemyEliteSet05/`, `Documentation/ConceptRenders/V0_1_49_MechanicalEnemyEliteSet05/`, readiness docs | Building a bundle-sized elite mechanical enemy visual-only package for later acceptance. |
+| Franklin | completed and closed | `AssetPacks/BrassworksBreach.SurfaceTextureSet05/`, `Documentation/AssetProduction/V0_1_47_SurfaceTextureSet05/`, `Documentation/ConceptRenders/V0_1_47_SurfaceTextureSet05/` | Reported 14 materials, 42 texture PNGs, 18 previews, and package-local validation pass; review for v0.1.50 acceptance. |
+| Kepler | completed and closed | `AssetPacks/BrassworksBreach.ObjectiveInteractablesSet05/`, `Documentation/AssetProduction/V0_1_49_ObjectiveInteractablesSet05/`, `Documentation/ConceptRenders/V0_1_49_ObjectiveInteractablesSet05/`, readiness docs | Reported 30 prefabs, 18 materials, 12 meshes, 32 previews, and package-local validation pass; review for v0.1.50 acceptance. |
+| Pauli | active | `AssetPacks/BrassworksBreach.SteamFXSet06/`, `Documentation/AssetProduction/V0_1_50_SteamFXSet06/`, `Documentation/ConceptRenders/V0_1_50_SteamFXSet06/`, readiness docs | Building a bundle-sized visual-only steam/atmosphere FX sidecar package. |
+| Pasteur | active | `AssetPacks/BrassworksBreach.HazardPropsSet06/`, `Documentation/AssetProduction/V0_1_50_HazardPropsSet06/`, `Documentation/ConceptRenders/V0_1_50_HazardPropsSet06/`, readiness docs | Building a bundle-sized visual-only hazard/readability props sidecar package. |
+| James | active | `Documentation/Planning/V0_1_50_LevelExpansionRoutes/`, `Documentation/QA/V0_1_50_LevelExpansionRoutes/`, `Documentation/LevelDesign/V0_1_50_LevelExpansionRoutes/` | Preparing implementation-ready Level02-Level04 route-expansion specs for a larger playable leap. |
 
 Current PM rule: keep incomplete sidecar package roots unstaged until their agent reports final validation, then review package manifests, previews, validator output, and import-readiness docs before accepting them into a commit.
 

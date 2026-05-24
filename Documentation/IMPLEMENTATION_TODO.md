@@ -2021,6 +2021,7 @@ Windows is the primary development target. Android, browser/WebGL, and VR are de
 - 2026-05-23: Project art direction pivoted to heavy steampunk using the generated north-star concept sheets.
 - 2026-05-24: `v0.1.47` imported Room Setpiece Kit 04 and Weapon Mechanisms Set 04 into the main visual-only sidecar showcase, passed the full Windows matrix, and generated release/QA/candidate evidence.
 - 2026-05-24: `v0.1.48` gameplay-promotion planning packet completed as docs-only guidance for turning visual-only packages into controlled gameplay, collision, VFX/audio, enemy, and weapon/viewmodel batches.
+- 2026-05-24: `v0.1.49` added the Level02 route-shell collision promotion pilot, preserved sidecar visual-only authority, passed the full Windows matrix, and generated release/QA/candidate evidence.
 
 ## Current Near-Term Production Batches
 
@@ -2029,7 +2030,10 @@ Windows is the primary development target. Android, browser/WebGL, and VR are de
 - [x] `v0.1.47`: Rebuild all five generated gameplay scenes and create `BrassworksBreach_v0.1.47.exe`.
 - [x] `v0.1.47`: Generate route audit, QA packet, issue triage, release notes, candidate readiness, package ZIP, and hashes.
 - [x] `v0.1.48`: Complete docs-only gameplay promotion matrix and risk/authority matrix.
-- [ ] Next playable batch: promote one route-shell/collision pilot or one objective-language batch from visual-only sidecars with owned validation gates.
-- [ ] Continue parallel sidecar package lanes for surface textures, objective interactables, and elite mechanical enemy visuals.
+- [x] `v0.1.49`: Promote one Level02 route-shell/collision pilot from visual-only sidecars with owned main-scene collision proxies and validation gates.
+- [x] `v0.1.49`: Rebuild all generated gameplay scenes and create `BrassworksBreach_v0.1.49.exe`.
+- [x] `v0.1.49`: Generate route audit, QA packet, issue triage, release notes, candidate readiness, package ZIP, and hashes.
+- [ ] `v0.1.50`: Accept the next completed package wave for surface textures, objective interactables, and elite mechanical enemy visuals after review.
+- [ ] Continue parallel sidecar package lanes for Steam FX Set 06, Hazard Props Set 06, and level-expansion route modules.
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.

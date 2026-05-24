@@ -2204,6 +2204,7 @@ public static class V0LevelValidator
             ValidateBoilerControlConsolePrototype(sceneName, "Pipeworks Prototype Boiler Control Console", "pipeworks_route_console");
             ValidateRivetedPressureDoorFramePrototype(sceneName, "Pipeworks Prototype Riveted Pressure Door Frame", "pipeworks_route_pressure_frame");
             ValidateValveWheelConsolePrototype(sceneName, "ValveWheelConsolePrototype_pipeworks_pressure_console", "pipeworks_pressure_console");
+            ValidateV0149RouteShellPromotionPilot(sceneName);
             ValidateThresholdRouteDressingBatch(sceneName, "pipeworks");
             ValidateV0134BatchPolishCoverage(sceneName, 4, 2, new[] { "pressure_pistol", "steam_scattergun", "pressure_cartridge_pack", "scrapper", "lancer" });
             RequireNamed("Secret - Pipeworks Cartridge Cache", sceneName + " pipeworks secret cache");
@@ -2386,6 +2387,71 @@ public static class V0LevelValidator
         {
             RequireNamed("SidecarMaterialSwatch_" + sceneName + "_" + requiredSwatches[i], sceneName + " required sidecar material swatch " + requiredSwatches[i]);
         }
+    }
+
+    private static void ValidateV0149RouteShellPromotionPilot(string sceneName)
+    {
+        GameObject root = RequireNamed("V0149 Route Shell Promotion Pilot - Pipeworks", sceneName + " route shell promotion pilot root");
+        V0149RouteShellPromotionPrototype prototype = root.GetComponent<V0149RouteShellPromotionPrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " route shell pilot is missing V0149RouteShellPromotionPrototype metadata.");
+        }
+
+        if (prototype.buildVersion != "v0.1.49" || prototype.promotionId != "v0149_pipeworks_route_shell_pilot" || prototype.levelName != "Level02 Pipeworks Annex" || !prototype.visualOnlySidecarShells || prototype.collisionAuthority != "main_scene_owned_proxy_only" || prototype.gameplayAuthority != "none" || prototype.visualPrefabCount < 5 || prototype.ownedCollisionProxyCount != 4 || prototype.visualRoot == null || prototype.collisionProxyRoot == null || prototype.readabilityRoot == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " route shell pilot metadata is incomplete or has unsafe authority.");
+        }
+
+        if (root.GetComponentsInChildren<Rigidbody>(true).Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " route shell pilot must not add rigidbodies.");
+        }
+
+        if (root.GetComponentsInChildren<NavMeshObstacle>(true).Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " route shell pilot must not add NavMeshObstacle components.");
+        }
+
+        if (root.GetComponentsInChildren<AudioSource>(true).Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " route shell pilot must not add autonomous audio sources.");
+        }
+
+        if (root.GetComponentsInChildren<Pickup>(true).Length > 0 || root.GetComponentsInChildren<PlayerInteraction>(true).Length > 0 || root.GetComponentsInChildren<LevelTransitionTrigger>(true).Length > 0 || root.GetComponentsInChildren<ExitTrigger>(true).Length > 0 || root.GetComponentsInChildren<SteamValveObjective>(true).Length > 0 || root.GetComponentsInChildren<SteamHazard>(true).Length > 0 || root.GetComponentsInChildren<FurnaceHeatHazard>(true).Length > 0 || root.GetComponentsInChildren<GuardianDefeatObjective>(true).Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " route shell pilot must not own gameplay authority components.");
+        }
+
+        Collider[] colliders = root.GetComponentsInChildren<Collider>(true);
+        if (colliders.Length != prototype.ownedCollisionProxyCount)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " route shell pilot collision proxy count mismatch.");
+        }
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (!colliders[i].name.StartsWith("V0149 RouteShellCollisionProxy", StringComparison.Ordinal) || colliders[i].isTrigger)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " route shell pilot collision must be non-trigger main-scene proxy only.");
+            }
+        }
+
+        RequireNamed("V0149 Route Shell Visual Root", sceneName + " route shell visual root");
+        RequireNamed("V0149 Route Shell Collision Proxy Root", sceneName + " route shell collision proxy root");
+        RequireNamed("V0149 Route Shell Readability Root", sceneName + " route shell readability root");
+        RequireNamed("V0149RouteShellVisual_Pipeworks_SCK2NorthStarRouteModule", sceneName + " route shell SCK2 visual");
+        RequireNamed("V0149RouteShellVisual_Pipeworks_SCLVLCorridorReference", sceneName + " route shell SCLVL visual");
+        RequireNamed("V0149RouteShellVisual_Pipeworks_RSK04DoorAlcoveShell", sceneName + " route shell door alcove visual");
+        RequireNamed("V0149RouteShellVisual_Pipeworks_RSK04BoilerWallBayShell", sceneName + " route shell boiler wall visual");
+        RequireNamed("V0149RouteShellVisual_Pipeworks_SCLDValveClusterShell", sceneName + " route shell valve cluster visual");
+        RequireNamed("V0149 RouteShellCollisionProxy West Rail", sceneName + " route shell west rail collision proxy");
+        RequireNamed("V0149 RouteShellCollisionProxy West Boiler Alcove", sceneName + " route shell west boiler collision proxy");
+        RequireNamed("V0149 RouteShellCollisionProxy East Valve Bumper", sceneName + " route shell east valve collision proxy");
+        RequireNamed("V0149 RouteShellCollisionProxy East Door Jamb", sceneName + " route shell east door collision proxy");
+        RequireNamed("V0149 RouteShellPilot Brass Floor Sightline A", sceneName + " route shell floor sightline");
+        RequireNamed("V0149 RouteShellPilot Red Collision Authority Plate", sceneName + " route shell authority plate");
+        RequireNamed("Label - Route Shell Pilot", sceneName + " route shell world label");
     }
 
     private static int GetMinimumSidecarShowcaseRendererCount(string sceneName)

@@ -2,11 +2,11 @@
 
 ## Current Version
 
-`v0.1.45` versioned build for `Brassworks Breach`.
+`v0.1.49` versioned build for `Brassworks Breach`.
 
-`v0.1.45` is a verified four-package sidecar visual-import build. It imports Objective Props Set 02, Steam VFX Set 02, Level Atmosphere Set 03, and Enemy Animation Proxy Set 01 as local Unity packages, expands visual-only quarantine showcases and material swatches across all five generated gameplay levels, and raises sidecar import validation to `SIDECAR_QUARANTINE_IMPORT_PASS packages=15 assets=123`. Route audit, scene rebuild, level validation, editor smoke, Windows build, runtime smoke, auto playthrough, combat, interaction, hazard, secret, pause, movement, balance, level-flow, audio, display, readability, gameplay-feedback, world-label readability, package, QA packet, issue-triage packet, and candidate-readiness evidence passed on `2026-05-24 17:19 -04:00`, verifying `Builds/Windows/v0.1.45/BrassworksBreach_v0.1.45.exe`, `Builds/WindowsPackages/v0.1.45/BrassworksBreach_v0.1.45_Windows.zip`, `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.45.md`, `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.45.md`, and `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.45.md`. Package SHA-256: `6A2F26B835636784965BB791F70B0666DF8A35E54484B1FA107370FB319D859A`.
+`v0.1.49` is a verified route-shell collision promotion pilot. It keeps the imported sidecar packages visual-only, then proves a safer Level02 Pipeworks Annex promotion pattern where sidecar corridor/room/valve shells provide presentation and explicit main-scene proxy objects own route-adjacent collision. Route audit, scene rebuild, level validation, sidecar import validation, editor smoke, Windows build, runtime smoke, auto playthrough, combat, interaction, hazard, secret, pause, movement, balance, level-flow, audio, display, readability, gameplay-feedback, world-label readability, package, QA packet, issue-triage packet, release notes, and candidate-readiness evidence passed on `2026-05-24 17:51 -04:00`, verifying `Builds/Windows/v0.1.49/BrassworksBreach_v0.1.49.exe`, `Builds/WindowsPackages/v0.1.49/BrassworksBreach_v0.1.49_Windows.zip`, `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.49.md`, `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.49.md`, `Documentation/Releases/RELEASE_NOTES_v0.1.49.md`, and `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.49.md`. Package SHA-256: `8ED3E51AD5C43ED4D1D1CF22DB8F4413014EF8539CBF0A9D862E53F3AA504586`.
 
-Previous verified build: `v0.1.43`, a second sidecar visual-import build. It imported Corridor Kit Set 02, Encounter Enemy Set 02, and Weapon Viewmodel Set 03 as local Unity packages, expanded showcase placements and material swatches across all five levels, and raised import validation to `SIDECAR_QUARANTINE_IMPORT_PASS packages=11 assets=81`. Package SHA-256: `3640B5D98785CADC26C03A1CD979E9A0882BD2492C1AF6DCDED527AA1C7FFE02`.
+Previous verified build: `v0.1.47`, a room and weapon mechanism visual-import build. It imported Room Setpiece Kit 04 and Weapon Mechanisms Set 04 as local Unity packages, expanded visual-only showcase placements and material swatches across all five levels, and raised import validation to `SIDECAR_QUARANTINE_IMPORT_PASS packages=17 assets=150`. Package SHA-256: `547B8742B0122FF3C2065A1FC817695D543AB025E2538863134076947343A663`.
 
 `v0.0` core loop is complete. The current build now prefers staged AudioV1 WAV ambience and gameplay cues while keeping procedural fallback, gives interaction prompts context icons and key-denial lamp feedback, gives Bulwark deaths a heavy boiler/furnace shutdown burst, gives Bulwark hammer windups dedicated slam-warning VFX/audio before damage lands, gives pressure bolts dedicated impact VFX on player/world hits, gives Lancer pressure-bolt windups dedicated fire-tell VFX/audio, gives Scrapper deaths a richer dedicated shutdown burst, gives Scrapper melee windups dedicated warning VFX/audio before damage lands, and gives the Pressure Pistol right-mouse Pressure Burst its own pressure-dump audio cue, dedicated pressure/steam/brass burst VFX, and first-person pressure-dump viewmodel motion with a kicking gauge needle, spinning valve wheel, snapping dump lever, recoiling pressure chamber, and side vent flash. This sits on top of Level03 Steam Scattergun pickup readability cues, the richer pickup display stand, dedicated Steam Scattergun slug audio/VFX, dedicated weapon-pickup acquisition audio, real pickup-route acquisition, dedicated brass/steam weapon-pickup VFX, Bellows Node pulse audio, visible brass/steam pressure-boost VFX for over-pressurized Scrappers, Bellows Node support-machine boost behavior, first Bellows Node support-machine prototype in Level03, dedicated Steam Scattergun pressure-ring/steam/brass-spark blast VFX, Steam Scattergun first-person viewmodel, Steam Scattergun prototype, Pressure Burst alternate fire, the brassworks ambience loop, Level02 Pipeworks cartridge-cache secret, Pipeworks routing valve objective, interactable lore plaques, first-person player damage VFX, pressure-pistol impact decal VFX, visible pressure-bolt projectile VFX, reusable procedural machine motion, animated furnace heat-ripple readability, animated steam hazard puffs, health/ammo/key pickup VFX, service-lift activation VFX, pressure-gate opening VFX, non-lethal machine hit VFX, animated steampunk machinery, standard machine death VFX plus Scrapper/Bulwark-specific shutdown detail, persistent objective HUD guidance, Warden shutdown VFX, the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
@@ -152,13 +152,14 @@ Previous verified build: `v0.1.43`, a second sidecar visual-import build. It imp
 
 ## Verification Results
 
-Latest fully verified build: `v0.1.29`.
+Latest fully verified build: `v0.1.49`.
 
-Current `v0.1.29` verification:
+Current `v0.1.49` verification:
 
-- Route audit: passed (`V0_ROUTE_AUDIT_PASS`) through `Logs/v039-route-audit.log`.
-- Scene rebuild: passed (`V0 scenes rebuilt`) through `Logs/v039-scene.log`.
+- Route audit: passed (`V0_ROUTE_AUDIT_PASS`) through `Logs/v059-route-audit.log`.
+- Scene rebuild: passed (`V0 scenes rebuilt`) through `Logs/v059-scene.log`.
 - Level validation: passed (`V0_LEVEL_VALIDATION_PASS`).
+- Sidecar import validation: passed (`SIDECAR_QUARANTINE_IMPORT_PASS packages=17 assets=150`).
 - Editor smoke: passed (`V0_SMOKE_TEST_PASS`).
 - Windows build: passed (`V0_WINDOWS_BUILD_PASS`).
 - Packaged runtime tests: passed `V0_RUNTIME_SMOKE_PASS`, `V0_AUTO_PLAYTHROUGH_PASS`, `V0_COMBAT_SMOKE_PASS`, `V0_COMBAT_EDGE_PASS`, `V0_COMBAT_SCENARIO_PASS`, `V0_WEAPON_SWITCH_PASS`, `V0_BELLOWS_NODE_PASS`, `V0_RANGED_COMBAT_PASS`, `V0_BULWARK_COMBAT_PASS`, `V0_WARDEN_COMBAT_PASS`, `V0_INTERACTION_SMOKE_PASS`, `V0_HAZARD_PASS`, `V0_SECRET_PASS`, `V0_PAUSE_FLOW_PASS`, `V0_MOVEMENT_FEEL_PASS`, `V0_BALANCE_ENVELOPE_PASS`, `V0_LEVEL01_FLOW_PASS`, `V0_MIDGAME_FLOW_PASS`, `V0_CLIMAX_FLOW_PASS`, `V0_AUDIO_MIX_PASS`, `V0_DISPLAY_SETTINGS_PASS`, and `V0_READABILITY_SETTINGS_PASS`.
@@ -166,13 +167,14 @@ Current `v0.1.29` verification:
 - Windows QA packet: passed (`V0_WINDOWS_QA_PACKET_PASS`).
 - Windows issue triage packet: passed (`V0_WINDOWS_ISSUE_TRIAGE_PASS`).
 - Windows candidate readiness: passed (`V0_WINDOWS_CANDIDATE_PASS`).
-- Route audit report: `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.29.md`.
-- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.29.md`.
-- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.29.md`.
-- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.29.md`.
-- Build path: `Builds/Windows/v0.1.29/BrassworksBreach_v0.1.29.exe`.
-- Package path: `Builds/WindowsPackages/v0.1.29/BrassworksBreach_v0.1.29_Windows.zip`.
-- Package SHA-256: `8F8C6DB781ACD5EFA9D477BCE93001DCE5DAAB313A3EB885526CCBA196778CFF`.
+- Route audit report: `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.49.md`.
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.49.md`.
+- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.49.md`.
+- Release notes: `Documentation/Releases/RELEASE_NOTES_v0.1.49.md`.
+- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.49.md`.
+- Build path: `Builds/Windows/v0.1.49/BrassworksBreach_v0.1.49.exe`.
+- Package path: `Builds/WindowsPackages/v0.1.49/BrassworksBreach_v0.1.49_Windows.zip`.
+- Package SHA-256: `8ED3E51AD5C43ED4D1D1CF22DB8F4413014EF8539CBF0A9D862E53F3AA504586`.
 
 Current `v0.0.93` verification:
 
@@ -1510,8 +1512,9 @@ Current target:
 - `2026-05-24 12:46 -04:00`: `v0.1.33` route audit and full build matrix passed after promoting 10 threshold-and-route dressing families across all five levels with no-collider/no-gameplay-authority validation, Windows package, QA packet, issue-triage packet, and candidate-readiness evidence.
 
 - `2026-05-24 17:37 -04:00`: `v0.1.47` route audit and full build matrix passed after importing Room Setpiece Kit 04 and Weapon Mechanisms Set 04 as local visual-only sidecar packages. `SIDECAR_QUARANTINE_IMPORT_PASS packages=17 assets=150` passed, all generated scenes rebuilt, Windows executable and package ZIP were produced, and QA packet, issue triage, release notes, and candidate readiness evidence were generated. Executable: `Builds/Windows/v0.1.47/BrassworksBreach_v0.1.47.exe`. Package ZIP SHA-256: `547B8742B0122FF3C2065A1FC817695D543AB025E2538863134076947343A663`.
+- `2026-05-24 17:51 -04:00`: `v0.1.49` route audit and full build matrix passed after adding the Level02 route-shell collision promotion pilot. The build keeps sidecar route shells visual-only, adds four main-scene-owned collision proxies, validates no sidecar gameplay authority, preserves `SIDECAR_QUARANTINE_IMPORT_PASS packages=17 assets=150`, and generated QA packet, issue triage, release notes, and candidate readiness evidence. Executable: `Builds/Windows/v0.1.49/BrassworksBreach_v0.1.49.exe`. Package ZIP SHA-256: `8ED3E51AD5C43ED4D1D1CF22DB8F4413014EF8539CBF0A9D862E53F3AA504586`.
 
-Future builds should increment as `v0.1.48`, `v0.1.49`, etc. when ambitious milestone batches are ready for local playtesting.
+Future builds should increment as `v0.1.50`, `v0.1.51`, etc. when ambitious milestone batches are ready for local playtesting.
 
 ## Known Limitations
 

@@ -1058,6 +1058,7 @@ public static class V0SceneBuilder
         CreatePipeworksDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, exitMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreatePipeworksSecretCache(brassMaterial, ironMaterial, warningMaterial, healthMaterial, glassMaterial, fluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
         CreatePipeworksFlowPolish(brassMaterial, warningMaterial, exitMaterial, ironMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
+        CreatePipeworksRouteShellPromotionPilot(ironMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, oilStoneMaterial);
         CreateSidecarQuarantineShowcase("Level02");
         CreatePointLight("Pipeworks Exit Green Light", new Vector3(0f, 2.4f, 22.7f), new Color(0.1f, 1f, 0.3f), 2.8f, 7f);
         CreatePointLight("Pipeworks Furnace Light", new Vector3(-4.1f, 1.6f, 16f), new Color(1f, 0.36f, 0.08f), 2.2f, 5f);
@@ -3000,6 +3001,85 @@ public static class V0SceneBuilder
 
         CreateSidecarMaterialSwatches(root.transform, sceneName);
         CreateSidecarShowcaseLabel(root.transform, sceneName + " sidecar package visuals", placements[0].Position + new Vector3(0f, 1.25f, 0f));
+    }
+
+    private static void CreatePipeworksRouteShellPromotionPilot(Material ironMaterial, Material brassMaterial, Material warningMaterial, Material gaugeFaceMaterial, Material floorMaterial)
+    {
+        GameObject root = new GameObject("V0149 Route Shell Promotion Pilot - Pipeworks");
+        V0149RouteShellPromotionPrototype prototype = root.AddComponent<V0149RouteShellPromotionPrototype>();
+        prototype.buildVersion = "v0.1.49";
+        prototype.promotionId = "v0149_pipeworks_route_shell_pilot";
+        prototype.levelName = "Level02 Pipeworks Annex";
+        prototype.sourcePackages = "com.brassworks.sidecar.corridor-kit-set02;com.brassworks.sidecar.steamworks-level-kit;com.brassworks.sidecar.room-setpiece-kit04;com.brassworks.sidecar.level-dressing-set01";
+        prototype.collisionAuthority = "main_scene_owned_proxy_only";
+        prototype.gameplayAuthority = "none";
+        prototype.visualOnlySidecarShells = true;
+
+        GameObject visualRoot = new GameObject("V0149 Route Shell Visual Root");
+        visualRoot.transform.SetParent(root.transform);
+        GameObject collisionRoot = new GameObject("V0149 Route Shell Collision Proxy Root");
+        collisionRoot.transform.SetParent(root.transform);
+        GameObject readabilityRoot = new GameObject("V0149 Route Shell Readability Root");
+        readabilityRoot.transform.SetParent(root.transform);
+
+        prototype.visualRoot = visualRoot.transform;
+        prototype.collisionProxyRoot = collisionRoot.transform;
+        prototype.readabilityRoot = readabilityRoot.transform;
+
+        InstantiateRouteShellVisual("Pipeworks_SCK2NorthStarRouteModule", "Packages/com.brassworks.sidecar.corridor-kit-set02/Runtime/Prefabs/SCK2_CorridorStraight_4m_NorthStar.prefab", new Vector3(-4.92f, 0.04f, 6.7f), Quaternion.Euler(0f, 90f, 0f), 0.32f, visualRoot.transform);
+        InstantiateRouteShellVisual("Pipeworks_SCLVLCorridorReference", "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_CorridorStraight_4m.prefab", new Vector3(4.82f, 0.04f, 10.1f), Quaternion.Euler(0f, -90f, 0f), 0.34f, visualRoot.transform);
+        InstantiateRouteShellVisual("Pipeworks_RSK04DoorAlcoveShell", "Packages/com.brassworks.sidecar.room-setpiece-kit04/Runtime/Prefabs/RSK04_PressureVaultDoorAlcove_A.prefab", new Vector3(4.98f, 0.08f, 14.1f), Quaternion.Euler(0f, -90f, 0f), 0.42f, visualRoot.transform);
+        InstantiateRouteShellVisual("Pipeworks_RSK04BoilerWallBayShell", "Packages/com.brassworks.sidecar.room-setpiece-kit04/Runtime/Prefabs/RSK04_BoilerChamberWallBay_A.prefab", new Vector3(-4.98f, 0.08f, 9.35f), Quaternion.Euler(0f, 90f, 0f), 0.4f, visualRoot.transform);
+        InstantiateRouteShellVisual("Pipeworks_SCLDValveClusterShell", "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_ValveCluster_Wall_1m.prefab", new Vector3(-5.03f, 0.58f, 12.6f), Quaternion.Euler(0f, 90f, 0f), 0.52f, visualRoot.transform);
+
+        CreateRouteShellCollisionProxy("V0149 RouteShellCollisionProxy West Rail", new Vector3(-4.58f, 0.62f, 6.7f), new Vector3(0.42f, 1.24f, 2.3f), ironMaterial, collisionRoot.transform);
+        CreateRouteShellCollisionProxy("V0149 RouteShellCollisionProxy West Boiler Alcove", new Vector3(-4.58f, 0.72f, 9.35f), new Vector3(0.42f, 1.44f, 1.55f), ironMaterial, collisionRoot.transform);
+        CreateRouteShellCollisionProxy("V0149 RouteShellCollisionProxy East Valve Bumper", new Vector3(4.58f, 0.58f, 12.5f), new Vector3(0.42f, 1.16f, 1.65f), ironMaterial, collisionRoot.transform);
+        CreateRouteShellCollisionProxy("V0149 RouteShellCollisionProxy East Door Jamb", new Vector3(4.58f, 0.58f, 14.35f), new Vector3(0.42f, 1.16f, 1.2f), ironMaterial, collisionRoot.transform);
+
+        CreateDecoCube("V0149 RouteShellPilot Brass Floor Sightline A", new Vector3(-3.9f, 0.04f, 6.05f), new Vector3(0.18f, 0.05f, 1.6f), brassMaterial, readabilityRoot.transform);
+        CreateDecoCube("V0149 RouteShellPilot Brass Floor Sightline B", new Vector3(3.9f, 0.04f, 13.75f), new Vector3(0.18f, 0.05f, 1.45f), brassMaterial, readabilityRoot.transform);
+        CreateDecoCube("V0149 RouteShellPilot Red Collision Authority Plate", new Vector3(-4.12f, 1.35f, 9.35f), new Vector3(0.08f, 0.38f, 0.68f), warningMaterial, readabilityRoot.transform);
+        CreateDecoCube("V0149 RouteShellPilot Cream Inspection Tag", new Vector3(4.08f, 1.18f, 14.35f), new Vector3(0.08f, 0.32f, 0.48f), gaugeFaceMaterial, readabilityRoot.transform);
+        CreateDecoCube("V0149 RouteShellPilot Oil Wear Footprint", new Vector3(0f, 0.025f, 10.6f), new Vector3(1.6f, 0.035f, 0.52f), floorMaterial, readabilityRoot.transform);
+        CreateWorldLabel("Label - Route Shell Pilot", "ROUTE SHELL", new Vector3(0f, 2.02f, 10.6f), new Color(1f, 0.78f, 0.24f), 0.18f);
+
+        prototype.visualPrefabCount = 5;
+        prototype.ownedCollisionProxyCount = 4;
+    }
+
+    private static void InstantiateRouteShellVisual(string name, string assetPath, Vector3 position, Quaternion rotation, float scale, Transform parent)
+    {
+        GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
+        if (prefab == null)
+        {
+            throw new InvalidOperationException("Route shell pilot visual prefab missing: " + assetPath);
+        }
+
+        GameObject instance = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
+        if (instance == null)
+        {
+            throw new InvalidOperationException("Route shell pilot visual prefab could not be instantiated: " + assetPath);
+        }
+
+        instance.name = "V0149RouteShellVisual_" + name;
+        instance.transform.SetParent(parent);
+        instance.transform.position = position;
+        instance.transform.rotation = rotation;
+        instance.transform.localScale = Vector3.one * scale;
+        StripSidecarPresentationPhysics(instance);
+    }
+
+    private static void CreateRouteShellCollisionProxy(string name, Vector3 position, Vector3 scale, Material material, Transform parent)
+    {
+        GameObject proxy = CreateCube(name, position, scale, material, parent);
+        BoxCollider boxCollider = proxy.GetComponent<BoxCollider>();
+        if (boxCollider == null)
+        {
+            throw new InvalidOperationException("Route shell collision proxy missing BoxCollider: " + name);
+        }
+
+        boxCollider.isTrigger = false;
     }
 
     private static SidecarPrefabPlacement[] GetSidecarShowcasePlacements(string sceneName)
