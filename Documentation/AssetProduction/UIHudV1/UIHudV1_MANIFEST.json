@@ -1,0 +1,663 @@
+{
+  "generated": "2026-05-23T23:30:34-04:00",
+  "scope": {
+    "asset_root": "Assets/_Project/ArtStaging/UIHudV1",
+    "documentation_root": "Documentation/AssetProduction/UIHudV1",
+    "staging_only": true,
+    "no_scene_or_code_integration": true
+  },
+  "palette": {
+    "oil_black": "#0c0a08",
+    "oil_panel": "#17100b",
+    "iron_dark": "#211d19",
+    "iron_edge": "#3b332b",
+    "brass_dark": "#6e4318",
+    "brass": "#b87928",
+    "brass_bright": "#f0b95a",
+    "brass_hot": "#ffd17a",
+    "cream": "#f2dfad",
+    "cream_shadow": "#bfa06b",
+    "health_red": "#d03424",
+    "health_red_dark": "#6d1510",
+    "pressure_amber": "#f0a33a",
+    "pressure_amber_dark": "#835014",
+    "danger_orange": "#ff612e",
+    "success_green": "#4ddf72",
+    "success_green_dark": "#17662f",
+    "steam_cyan": "#a6e7e3",
+    "shadow": "#030201",
+    "transparent": "#00000000"
+  },
+  "accessibility_contrast": {
+    "cream_on_oil_panel": 14.29,
+    "brass_hot_on_oil_panel": 13.14,
+    "pressure_amber_on_oil_black": 9.42,
+    "danger_orange_on_oil_black": 6.59,
+    "health_red_on_oil_black": 3.95,
+    "success_green_on_oil_black": 11.4
+  },
+  "assets": [
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_HealthGauge_Frame_512x96.png",
+      "name": "HUD_HealthGauge_Frame_512x96",
+      "asset_type": "HUD gauge frame",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        512,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "Suggested border: L/R 34 px, T/B 22 px. Use Sliced Image for flexible width.",
+      "notes": "Drop-in health backplate/frame for lower-left HUD.",
+      "sha256": "0bec1eca8046a4954afbafd7cd1c07534d218cf83e9d876825aa98dd54bb0458"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_HealthGauge_Fill_Red_384x32.png",
+      "name": "HUD_HealthGauge_Fill_Red_384x32",
+      "asset_type": "HUD gauge fill",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        384,
+        32
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; Image Type Filled compatible; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear.",
+      "nine_slice": "Do not nine-slice; use Image.Type.Filled Horizontal, origin Left.",
+      "notes": "Segmented health/pressure-fluid fill source.",
+      "sha256": "01a5ce06a64fd3b851de9e9f5d56f147b98695ed9e80bde19c1283cf84ee8eac"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_PressureAmmoGauge_Frame_512x96.png",
+      "name": "HUD_PressureAmmoGauge_Frame_512x96",
+      "asset_type": "HUD gauge frame",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        512,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "Suggested border: L/R 34 px, T/B 22 px. Use Sliced Image for flexible width.",
+      "notes": "Horizontal ammo gauge compatible with current HUD fill behavior.",
+      "sha256": "de13dc6c4a3eb4cbb9efd7101c83ed1efd16faa57a997f3a02c2c5959753c7ec"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_PressureAmmoGauge_Fill_Amber_384x32.png",
+      "name": "HUD_PressureAmmoGauge_Fill_Amber_384x32",
+      "asset_type": "HUD gauge fill",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        384,
+        32
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; Image Type Filled compatible; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear.",
+      "nine_slice": "Do not nine-slice; use Image.Type.Filled Horizontal, origin Left.",
+      "notes": "Pressure-ammo fill source.",
+      "sha256": "24b3ab11d256d164559fa7b9b2c5d445c9bbaba85c782b0289c53c4f04dec897"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_PressureAmmoDial_Frame_256x256.png",
+      "name": "HUD_PressureAmmoDial_Frame_256x256",
+      "asset_type": "HUD dial gauge",
+      "status": "rough",
+      "ready_for_integration": false,
+      "size_px": [
+        256,
+        256
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Use as fixed-size dial face.",
+      "notes": "Radial ammo pressure dial concept. Requires UI script/layout work before integration.",
+      "sha256": "1f27437252505fd29655e5b9c0cfdb0913aaef71fc738010777524b5dac68b88"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_PressureAmmoDial_FillArc_256x256.png",
+      "name": "HUD_PressureAmmoDial_FillArc_256x256",
+      "asset_type": "HUD dial gauge fill",
+      "status": "rough",
+      "ready_for_integration": false,
+      "size_px": [
+        256,
+        256
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; Image Type Filled compatible; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear.",
+      "nine_slice": "No nine-slice. Use radial filled Image or mask.",
+      "notes": "Radial arc source for future pressure dial.",
+      "sha256": "f60a1aad3f167216b65c10f59d38c387c00a500bbf6bce525da45142ae405a8a"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_PressureAmmoDial_Needle_256x256.png",
+      "name": "HUD_PressureAmmoDial_Needle_256x256",
+      "asset_type": "HUD dial gauge needle",
+      "status": "rough",
+      "ready_for_integration": false,
+      "size_px": [
+        256,
+        256
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Rotate RectTransform around center.",
+      "notes": "Separate needle sprite for future pressure dial.",
+      "sha256": "c270efc6be4dfafc29a97d89b832d3eae26e330d9e27b3e96fb146e37b425360"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_BossPressureGauge_Frame_768x96.png",
+      "name": "HUD_BossPressureGauge_Frame_768x96",
+      "asset_type": "Boss HUD gauge frame",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        768,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "Suggested border: L/R 42 px, T/B 22 px. Use Sliced Image if boss names vary.",
+      "notes": "Top-center boss pressure gauge frame.",
+      "sha256": "3a441700bbc0bc3784669de75062f5088054a602d86c3aa43f1c89e081a71650"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_BossPressureGauge_Fill_Red_704x24.png",
+      "name": "HUD_BossPressureGauge_Fill_Red_704x24",
+      "asset_type": "Boss HUD gauge fill",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        704,
+        24
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; Image Type Filled compatible; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear.",
+      "nine_slice": "Do not nine-slice; use Image.Type.Filled Horizontal, origin Left.",
+      "notes": "Boss pressure fill compatible with current bossFillImage.",
+      "sha256": "753cc890c691558c2135782d201c2ac85b4fe4abae222368a666b9313299b35b"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Panels/HUD_ObjectiveBackplate_640x72.png",
+      "name": "HUD_ObjectiveBackplate_640x72",
+      "asset_type": "HUD objective panel",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        640,
+        72
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "Suggested border: L/R 32 px, T/B 20 px. Use Sliced Image.",
+      "notes": "Objective HUD backplate with lamp socket.",
+      "sha256": "7cbebc131c99369c6f391b52ef843ab0d05717e96052222d87c834400c14da0d"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Panels/HUD_PromptBackplate_640x80.png",
+      "name": "HUD_PromptBackplate_640x80",
+      "asset_type": "HUD prompt panel",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        640,
+        80
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "Suggested border: L/R 34 px, T/B 22 px. Use Sliced Image.",
+      "notes": "Interaction prompt panel with built-in E keycap slot.",
+      "sha256": "46a96138a7b8f3086235442939f3a1bfa40ff7fc3ff2b2be1d78099e17a67573"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_BrassPanel_768x384.png",
+      "name": "PANEL_Menu_BrassPanel_768x384",
+      "asset_type": "Menu panel",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        768,
+        384
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "Suggested border: 48 px on all sides.",
+      "notes": "Large main/pause/settings brass panel.",
+      "sha256": "933912e86ed3b4661df67d9d046e5b878245368eeef8d9f9b27d3556fcadeda2"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_Header_768x96.png",
+      "name": "PANEL_Menu_Header_768x96",
+      "asset_type": "Menu header panel",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        768,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "Suggested border: L/R 48 px, T/B 22 px.",
+      "notes": "Header or title strip for menu UI.",
+      "sha256": "a4828df189aac81b00d29f1dbbaf5d9c5caaa378baeed7e052d942b3c7fec76a"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_Button_Normal_320x64.png",
+      "name": "PANEL_Menu_Button_Normal_320x64",
+      "asset_type": "Menu button",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        320,
+        64
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "Suggested border: L/R 20 px, T/B 16 px.",
+      "notes": "Button state sprite: normal.",
+      "sha256": "f0c5937952d337b2187863e9eabda8bbe3983eea88f4382d8c55edba0794afb2"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_Button_Hover_320x64.png",
+      "name": "PANEL_Menu_Button_Hover_320x64",
+      "asset_type": "Menu button",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        320,
+        64
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "Suggested border: L/R 20 px, T/B 16 px.",
+      "notes": "Button state sprite: hover.",
+      "sha256": "8d3d946ebaf40523770e7bcb2cb73dba0559c767fffd883160ce4ef288e1dde8"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_Button_Pressed_320x64.png",
+      "name": "PANEL_Menu_Button_Pressed_320x64",
+      "asset_type": "Menu button",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        320,
+        64
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "Suggested border: L/R 20 px, T/B 16 px.",
+      "notes": "Button state sprite: pressed.",
+      "sha256": "5a9fa171eff8c5d607702e82e5bf5a7378819d94318b5bf3047cfe464cc18289"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_SliderTrack_360x40.png",
+      "name": "PANEL_Menu_SliderTrack_360x40",
+      "asset_type": "Menu slider",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        360,
+        40
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "Suggested border: L/R 18 px, T/B 10 px.",
+      "notes": "Slider track/backplate.",
+      "sha256": "1e3b90682fead589907c61e0c10adc781a3f1094a7c607183f6c61835fb77d62"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_SliderHandle_48x48.png",
+      "name": "PANEL_Menu_SliderHandle_48x48",
+      "asset_type": "Menu slider",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        48,
+        48
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice.",
+      "notes": "Valve-wheel slider handle.",
+      "sha256": "3cf8efc530f974cc8af98f1739ffe1323f05cf1a9d9737228ad8307ccb1a85c9"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_CornerCap_64x64.png",
+      "name": "PANEL_Menu_CornerCap_64x64",
+      "asset_type": "Menu panel piece",
+      "status": "rough",
+      "ready_for_integration": false,
+      "size_px": [
+        64,
+        64
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice; use as decorative overlay.",
+      "notes": "Standalone corner cap for custom assembled panels.",
+      "sha256": "24dd682ba02cde17615198fab721e332ecc7352c6d98e383cbf46953c85fdf04"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_EdgeHorizontal_256x32.png",
+      "name": "PANEL_Menu_EdgeHorizontal_256x32",
+      "asset_type": "Menu panel piece",
+      "status": "rough",
+      "ready_for_integration": false,
+      "size_px": [
+        256,
+        32
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "Tile or stretch horizontally; border optional L/R 16 px.",
+      "notes": "Optional horizontal panel rail.",
+      "sha256": "0716cd151ab8d1c4f96e21cd5bf6909e6dfd422dc232d6ff2792ffc6e1afa239"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_EdgeVertical_32x256.png",
+      "name": "PANEL_Menu_EdgeVertical_32x256",
+      "asset_type": "Menu panel piece",
+      "status": "rough",
+      "ready_for_integration": false,
+      "size_px": [
+        32,
+        256
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "Tile or stretch vertically; border optional T/B 16 px.",
+      "notes": "Optional vertical panel rail.",
+      "sha256": "d9afb432c18df7221d35c1d2c0588b559834e2af9fa52c2a7e8d62f1b1b157ac"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Icons/HUD_KeyLamp_Off_96x96.png",
+      "name": "HUD_KeyLamp_Off_96x96",
+      "asset_type": "HUD key/objective lamp",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        96,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Fixed-size icon.",
+      "notes": "Gear/objective lamp state: off.",
+      "sha256": "1c5eec44fb09c8b9f25bb3a418247c01b3482a99d9b201a3250a7e8d45b3b05f"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Icons/HUD_KeyLamp_On_96x96.png",
+      "name": "HUD_KeyLamp_On_96x96",
+      "asset_type": "HUD key/objective lamp",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        96,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Fixed-size icon.",
+      "notes": "Gear/objective lamp state: on.",
+      "sha256": "04555c50bb50a5d672dc66b752789edc62ccdfafe6c28a7e82515e2072fc3fc3"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Icons/HUD_KeyLamp_Denied_96x96.png",
+      "name": "HUD_KeyLamp_Denied_96x96",
+      "asset_type": "HUD key/objective lamp",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        96,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Fixed-size icon.",
+      "notes": "Gear/objective lamp state: denied.",
+      "sha256": "11f99b7d7e5b6b407608ab2936053a66888cce91d5825269b8ff57f6e4bb31a6"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Reticles/RETICLE_BrassCrosshair_64x64.png",
+      "name": "RETICLE_BrassCrosshair_64x64",
+      "asset_type": "Reticle",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        64,
+        64
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Fixed 64 px reticle.",
+      "notes": "Transparent reticle variant: brass_crosshair.",
+      "sha256": "897f57597c698b8b82e7c8312fcac0e3c1452553efe04ea420068f707ddd2db1"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Reticles/RETICLE_PressurePinpoint_64x64.png",
+      "name": "RETICLE_PressurePinpoint_64x64",
+      "asset_type": "Reticle",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        64,
+        64
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Fixed 64 px reticle.",
+      "notes": "Transparent reticle variant: pressure_pinpoint.",
+      "sha256": "bb7b2d3ac09bad9c91319f7c0ea2f93ae5210d2287b0c32ee331588297c16d8f"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_InteractE_96x96.png",
+      "name": "ICON_Prompt_InteractE_96x96",
+      "asset_type": "Prompt icon",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        96,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Fixed 96 px icon.",
+      "notes": "Prompt icon for interact e.",
+      "sha256": "1b278eca97be2234ca29b5130dae7be66ceef1aa010fa74368e4a74c4b41e00d"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_GearKey_96x96.png",
+      "name": "ICON_Prompt_GearKey_96x96",
+      "asset_type": "Prompt icon",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        96,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Fixed 96 px icon.",
+      "notes": "Prompt icon for gear key.",
+      "sha256": "e7697cb124c40f38ef95a0aa121c0ead2700144ec49562b43a135ae7cf1e8d53"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_Valve_96x96.png",
+      "name": "ICON_Prompt_Valve_96x96",
+      "asset_type": "Prompt icon",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        96,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Fixed 96 px icon.",
+      "notes": "Prompt icon for valve.",
+      "sha256": "5b4dd4efa578c47b1adf55fb2897374e14096980ad206360d1dab3b2020c0a38"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_Lift_96x96.png",
+      "name": "ICON_Prompt_Lift_96x96",
+      "asset_type": "Prompt icon",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        96,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Fixed 96 px icon.",
+      "notes": "Prompt icon for lift.",
+      "sha256": "1db233082867d9ac68ea10867cf0f93e5f760a452a12a1acf14c9d06bdddb4d5"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_Ammo_96x96.png",
+      "name": "ICON_Prompt_Ammo_96x96",
+      "asset_type": "Prompt icon",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        96,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Fixed 96 px icon.",
+      "notes": "Prompt icon for ammo.",
+      "sha256": "5c4ceb15efe36c8ba283e88b98cf9fb31dd20340bce50006e22cc037412d2c3d"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_Health_96x96.png",
+      "name": "ICON_Prompt_Health_96x96",
+      "asset_type": "Prompt icon",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        96,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Fixed 96 px icon.",
+      "notes": "Prompt icon for health.",
+      "sha256": "bde22d0255f75e7f0ed16a064b0c31d9bc6c11b0784d11c49497692cf0858f2e"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_Warning_96x96.png",
+      "name": "ICON_Prompt_Warning_96x96",
+      "asset_type": "Prompt icon",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        96,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Fixed 96 px icon.",
+      "notes": "Prompt icon for warning.",
+      "sha256": "59902037b7c1f904be5fe5372589013f79274345a9e4aa11020ccf4720c8f1ff"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_Secret_96x96.png",
+      "name": "ICON_Prompt_Secret_96x96",
+      "asset_type": "Prompt icon",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        96,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Fixed 96 px icon.",
+      "notes": "Prompt icon for secret.",
+      "sha256": "a7906163c4c3b4bee535797ee942df3fbfd690b776ed107b75e4fcb7a571ffa3"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_Pause_96x96.png",
+      "name": "ICON_Prompt_Pause_96x96",
+      "asset_type": "Prompt icon",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        96,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Fixed 96 px icon.",
+      "notes": "Prompt icon for pause.",
+      "sha256": "6d89af3a64f9202d895fe26cfe1d7b203420456d66925d03d9f898ddc9800361"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_MouseRight_96x96.png",
+      "name": "ICON_Prompt_MouseRight_96x96",
+      "asset_type": "Prompt icon",
+      "status": "ready",
+      "ready_for_integration": true,
+      "size_px": [
+        96,
+        96
+      ],
+      "import_settings": "Texture Type: Sprite (2D and UI); Sprite Mode: Single; sRGB on; Alpha Is Transparency on; Mesh Type Tight or Full Rect; Mip Maps off; Filter Bilinear; Compression None for source.",
+      "nine_slice": "No nine-slice. Fixed 96 px icon.",
+      "notes": "Prompt icon for mouse right.",
+      "sha256": "e14ec7b72039aff1e9e3f7394e6592add1fabace73453003542e625112b93b09"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Previews/PREVIEW_UIHudV1_ContactSheet.png",
+      "name": "PREVIEW_UIHudV1_ContactSheet",
+      "asset_type": "Preview sheet",
+      "status": "review",
+      "ready_for_integration": false,
+      "size_px": [
+        1120,
+        1880
+      ],
+      "import_settings": "Review-only preview. Do not import into runtime UI.",
+      "nine_slice": "None.",
+      "notes": "Contact sheet for art review.",
+      "sha256": "889e2a620ab1a4c8cea62d6a17a6f0b21fb87eb2f3a77ac6f284f40dff775840"
+    },
+    {
+      "file": "Assets/_Project/ArtStaging/UIHudV1/Previews/PREVIEW_UIHudV1_HUDMockup_1920x1080.png",
+      "name": "PREVIEW_UIHudV1_HUDMockup_1920x1080",
+      "asset_type": "Preview mockup",
+      "status": "review",
+      "ready_for_integration": false,
+      "size_px": [
+        1920,
+        1080
+      ],
+      "import_settings": "Review-only preview. Do not import into runtime UI.",
+      "nine_slice": "None.",
+      "notes": "Composited HUD scale mockup.",
+      "sha256": "94882d5461f2d1770c7f82faeaa57b98ce032699e7b4000cf6d5d5b596c86530"
+    }
+  ],
+  "ready_for_integration": [
+    "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_HealthGauge_Frame_512x96.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_HealthGauge_Fill_Red_384x32.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_PressureAmmoGauge_Frame_512x96.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_PressureAmmoGauge_Fill_Amber_384x32.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_BossPressureGauge_Frame_768x96.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_BossPressureGauge_Fill_Red_704x24.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Panels/HUD_ObjectiveBackplate_640x72.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Panels/HUD_PromptBackplate_640x80.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_BrassPanel_768x384.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_Header_768x96.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_Button_Normal_320x64.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_Button_Hover_320x64.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_Button_Pressed_320x64.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_SliderTrack_360x40.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_SliderHandle_48x48.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Icons/HUD_KeyLamp_Off_96x96.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Icons/HUD_KeyLamp_On_96x96.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Icons/HUD_KeyLamp_Denied_96x96.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Reticles/RETICLE_BrassCrosshair_64x64.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Reticles/RETICLE_PressurePinpoint_64x64.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_InteractE_96x96.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_GearKey_96x96.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_Valve_96x96.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_Lift_96x96.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_Ammo_96x96.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_Health_96x96.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_Warning_96x96.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_Secret_96x96.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_Pause_96x96.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Icons/ICON_Prompt_MouseRight_96x96.png"
+  ],
+  "rough_or_requires_layout_work": [
+    "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_PressureAmmoDial_Frame_256x256.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_PressureAmmoDial_FillArc_256x256.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Gauges/HUD_PressureAmmoDial_Needle_256x256.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_CornerCap_64x64.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_EdgeHorizontal_256x32.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Panels/PANEL_Menu_EdgeVertical_32x256.png"
+  ],
+  "previews": [
+    "Assets/_Project/ArtStaging/UIHudV1/Previews/PREVIEW_UIHudV1_ContactSheet.png",
+    "Assets/_Project/ArtStaging/UIHudV1/Previews/PREVIEW_UIHudV1_HUDMockup_1920x1080.png"
+  ],
+  "later_integration_tasks": [
+    "Import runtime sprites as Sprite (2D and UI), disable mip maps, preserve alpha, and keep source compression lossless until readability is checked in-game.",
+    "Replace current solid-color HUD Image backplates/fills with these sprites in a dedicated integration branch; do not alter gameplay logic.",
+    "Set horizontal fills to Image.Type Filled/Horizontal with Left origin; use frames as Sliced where manifest borders are supplied.",
+    "If adopting the circular ammo dial, add layout and needle/arc driving separately because current HUDController drives horizontal fillAmount.",
+    "Tune CanvasScaler reference resolution and anchored offsets against 16:9, 16:10, and ultrawide before committing final placements.",
+    "Verify red/orange pressure warnings with color-blind filters; supplement danger states with icon shape and text, not color alone."
+  ]
+}

@@ -180,6 +180,7 @@ Every major asset should eventually have three quality targets:
 | AUD-017 | Pressure Burst dump | P1 | prototype | Dedicated procedural valve dump, brass snap, pressure wash, and pipe ring cue for Pressure Pistol alternate fire; verified by runtime and combat-scenario smoke. |
 | AUD-018 | Scrapper attack tell | P1 | prototype | Dedicated procedural ratchet/pressure-rise/cutter-scrape cue for Scrapper melee windup; verified by runtime and combat-edge smoke. |
 | AUD-019 | Bulwark attack tell | P1 | prototype | Dedicated procedural hammer-ratchet, boiler-rise, chain-drag, and pre-impact knock cue for Bulwark slam windup; verified by runtime and Bulwark combat smoke. |
+| AUD-020 | V1 staged audio pack | P1 | review | Side-agent package under `Assets/_Project/ArtStaging/AudioV1/` and `Documentation/AssetProduction/AudioV1/` includes 33 generated 48 kHz 16-bit PCM WAV placeholders with manifest, asset plan, QA listen checklist, integration plan, and generator. Coverage includes ambience layers, weapons, enemy tells, Warden cues, pickups, gate/lift/valve interactions, hazards, Bellows pulse, and player hurt. |
 
 ## 9. UI and HUD
 
@@ -194,6 +195,7 @@ Every major asset should eventually have three quality targets:
 | UI-007 | Settings and accessibility | P2 | prototype | Mouse sensitivity and master volume sliders exist on main and pause menus; resolution, flash intensity, and color readability remain planned. |
 | UI-008 | Boss health gauge | P1 | prototype | Top-center brass backplate, red pressure fill, and boss label for the Governor Warden; validated in scene/runtime smoke and damage-checked by Warden combat smoke. |
 | UI-009 | Persistent objective HUD | P1 | prototype | Brass objective backplate and route text that updates for key, gate, valve, Warden defeat, death, and win states; validated by runtime smoke and auto-playthrough. |
+| UI-010 | V1 staged HUD/UI kit | P1 | review | Side-agent package under `Assets/_Project/ArtStaging/UIHudV1/` and `Documentation/AssetProduction/UIHudV1/` includes 36 runtime PNG sprites, contact sheet, HUD mockup, manifest, generator, palette, contrast notes, import settings, nine-slice guidance, and 30 ready-for-integration HUD/menu/prompt assets. Six dial/panel-edge assets remain rough or layout-dependent. |
 
 ## 10. Level Assets
 

@@ -116,6 +116,9 @@ The active step sequence is driven by this ledger plus `VERSION_MICRO_ROADMAP.md
 | ARTSTAGE-005 | Add batch 02 staged room/object renders | art/process | P1 | review | v0.0.90 | `Documentation/ConceptRenders/` now includes staged modular corridor, pressure-gate alcove, enemy lineup, weapon/prop lineup, and batch contact sheet JPGs outside Unity build assets. |
 | ARTSTAGE-006 | High-fidelity north-star lookdev lane | art/asset/process | P1 | review | v0.0.91 | Curie produced first high-fidelity lookdev standards, OBJ blockouts, material swatches, manifest, and non-shipping review renders for corridor/door, pressure pistol, and Scrapper-like monster assets. |
 | ARTSTAGE-007 | High-fidelity lookdev recovery lane | art/process | P1 | active | v0.0.92 | Batch01 was rejected visually; Dalton created recovery rubrics, failure diagnosis, and a pressure-pistol-only proof plan with planning/reference JPGs. |
+| ARTSTAGE-008 | Stage V1 HUD/UI art kit | ui/art/asset | P1 | review | v0.0.93 | Side-agent package includes 36 runtime PNG sprites, contact sheet, HUD mockup, manifest, generator, nine-slice/import notes, and 30 ready-for-integration HUD/menu/prompt assets under `Assets/_Project/ArtStaging/UIHudV1/` and `Documentation/AssetProduction/UIHudV1/`. |
+| ARTSTAGE-009 | Stage V1 audio placeholder pack | audio/asset | P1 | review | v0.0.93 | Side-agent package includes 33 generated 48 kHz 16-bit PCM WAV placeholders, 7 loops, manifest, asset plan, QA listen checklist, integration plan, and generator under `Assets/_Project/ArtStaging/AudioV1/` and `Documentation/AssetProduction/AudioV1/`. |
+| ARTSTAGE-010 | Prepare Blender Recovery04 render unblock | art/process/tool | P1 | blocked | v0.0.93 | Blender is not locally available; Singer documented exact install/run commands and created a Blender-ready pressure-pistol proof script for the next true 3D/PBR render attempt. |
 
 ## Ready Next
 

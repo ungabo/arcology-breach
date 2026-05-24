@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-23 23:41 -04:00`
+Last updated: `2026-05-23 23:48 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -43,9 +43,9 @@ Current verified local build:
 | Anscombe | `019e57fa-6760-7a41-8050-8154d0e5f2eb` | `v0.0.93` Bulwark attack readability pass | Bulwark scripts/VFX/audio/tests/generated scenes and focused v0.0.93 docs | `2026-05-23 23:14 -04:00` | completed; ready for integration |
 | Archimedes | `019e5801-0c16-7502-be08-1dcdaadac09d` | V1 level polish production audit/backlog | `Documentation/ProductionManagement/LEVEL_POLISH_AUDIT_V1.md`, `Documentation/ProductionManagement/LEVEL_POLISH_TASK_BACKLOG_V1.md` | `2026-05-23 23:26 -04:00` | completed |
 | Locke | `019e5801-0e0c-7ab3-adca-12510a43e115` | V1 final material staging package | `Assets/_Project/ArtStaging/FinalMaterialsV1/`, `Documentation/AssetProduction/FinalMaterialsV1/` | `2026-05-23 23:26 -04:00` | running |
-| Lagrange | `019e5801-0e76-7f92-bff6-5aa46c5fb8b2` | V1 HUD/UI art staging package | `Assets/_Project/ArtStaging/UIHudV1/`, `Documentation/AssetProduction/UIHudV1/` | `2026-05-23 23:26 -04:00` | running |
-| Parfit | `019e5801-0ee0-71b3-bfba-3b8df1d41e70` | V1 audio production/staging lane | `Assets/_Project/ArtStaging/AudioV1/`, `Documentation/AssetProduction/AudioV1/` | `2026-05-23 23:26 -04:00` | running |
-| Singer | `019e5805-3d47-70c2-b58b-e556a173f473` | Render/toolchain unblock for Blender pressure-pistol Recovery04 proof | `Documentation/AssetProduction/HighFidelityLookdevRecovery/RENDER_TOOLCHAIN_UNBLOCK_PLAN.md`, `BLENDER_PRESSURE_PISTOL_RECOVERY04_BRIEF.md`, `PressurePistolProof/blender_pressure_pistol_recovery04_scene.py` | `2026-05-23 23:32 -04:00` | running |
+| Lagrange | `019e5801-0e76-7f92-bff6-5aa46c5fb8b2` | V1 HUD/UI art staging package | `Assets/_Project/ArtStaging/UIHudV1/`, `Documentation/AssetProduction/UIHudV1/` | `2026-05-23 23:26 -04:00` | completed |
+| Parfit | `019e5801-0ee0-71b3-bfba-3b8df1d41e70` | V1 audio production/staging lane | `Assets/_Project/ArtStaging/AudioV1/`, `Documentation/AssetProduction/AudioV1/` | `2026-05-23 23:26 -04:00` | completed |
+| Singer | `019e5805-3d47-70c2-b58b-e556a173f473` | Render/toolchain unblock for Blender pressure-pistol Recovery04 proof | `Documentation/AssetProduction/HighFidelityLookdevRecovery/RENDER_TOOLCHAIN_UNBLOCK_PLAN.md`, `BLENDER_PRESSURE_PISTOL_RECOVERY04_BRIEF.md`, `PressurePistolProof/blender_pressure_pistol_recovery04_scene.py` | `2026-05-23 23:32 -04:00` | completed; blocked on Blender install |
 
 ## Completed Side-Agent Outputs
 
@@ -77,10 +77,10 @@ Current verified local build:
 | Darwin | `2026-05-23 23:23 -04:00` | `Documentation/AssetProduction/HighFidelityLookdevRecovery/PressurePistolProof/`, `Documentation/ConceptRenders/RENDER_HFLD_Recovery03_pressure_pistol_proof_python_fallback.jpg`, `Documentation/ConceptRenders/CONTACTSHEET_HFLD_Recovery03_pressure_pistol_proof_python_fallback.jpg` | Completed a pressure-pistol-only fallback proof. It passed counts/dimensions but failed high-fidelity gates because Blender/PBR rendering was unavailable and the result remained too flat/graphic. |
 | Anscombe | `2026-05-23 23:28 -04:00` | Bulwark gameplay readability files and `Builds/Windows/v0.0.93/BrassworksBreach_v0.0.93.exe` | Completed Bulwark hammer windup VFX/audio and full V0 matrix; main lane integration is in progress. |
 | Archimedes | `2026-05-23 23:27 -04:00` | `Documentation/ProductionManagement/LEVEL_POLISH_AUDIT_V1.md`, `Documentation/ProductionManagement/LEVEL_POLISH_TASK_BACKLOG_V1.md` | Completed V1 level polish audit and implementation backlog, with parallel-ready tasks separated from main integration slices. |
+| Lagrange | `2026-05-23 23:31 -04:00` | `Assets/_Project/ArtStaging/UIHudV1/`, `Documentation/AssetProduction/UIHudV1/` | Completed staged V1 HUD/UI kit: 36 runtime PNGs, contact sheet, HUD mockup, manifest, generator, and import/nine-slice notes. Thirty sprites are ready for later integration; six are marked rough/layout-dependent. |
 | Locke | `2026-05-23 23:26 -04:00` | `Assets/_Project/ArtStaging/FinalMaterialsV1/`, `Documentation/AssetProduction/FinalMaterialsV1/` | Running final-direction material staging for later review/import. |
-| Lagrange | `2026-05-23 23:26 -04:00` | `Assets/_Project/ArtStaging/UIHudV1/`, `Documentation/AssetProduction/UIHudV1/` | Running V1 HUD/UI asset kit staging. |
-| Parfit | `2026-05-23 23:26 -04:00` | `Assets/_Project/ArtStaging/AudioV1/`, `Documentation/AssetProduction/AudioV1/` | Running V1 audio staging/specification. |
-| Singer | `2026-05-23 23:32 -04:00` | `Documentation/AssetProduction/HighFidelityLookdevRecovery/` | Running render-toolchain unblock work and a Blender-ready Recovery04 pressure-pistol proof script. |
+| Parfit | `2026-05-23 23:31 -04:00` | `Assets/_Project/ArtStaging/AudioV1/`, `Documentation/AssetProduction/AudioV1/` | Completed V1 audio staging: 33 generated 48 kHz 16-bit PCM WAV placeholders, including 7 loops, with manifest, asset plan, QA listen checklist, integration plan, and generator. |
+| Singer | `2026-05-23 23:43 -04:00` | `Documentation/AssetProduction/HighFidelityLookdevRecovery/RENDER_TOOLCHAIN_UNBLOCK_PLAN.md`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/BLENDER_PRESSURE_PISTOL_RECOVERY04_BRIEF.md`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/PressurePistolProof/blender_pressure_pistol_recovery04_scene.py` | Confirmed Blender/equivalent renderer is not locally available, documented exact unblock commands, and prepared a Blender Recovery04 pressure-pistol proof script ready to run after install. |
 
 ## Integration Rules
 
