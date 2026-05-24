@@ -1,0 +1,92 @@
+{
+  "version": "0.1.46",
+  "generated_date": "2026-05-24",
+  "scope": {
+    "planning_root": "Documentation/Planning/V0_1_46_WeaponMechanismsImportReadiness",
+    "qa_root": "Documentation/QA/V0_1_46_WeaponMechanismsImportReadiness",
+    "documents_only": true,
+    "main_manifest_edited": false,
+    "package_lock_edited": false,
+    "generated_scenes_edited": false,
+    "assets_project_edited": false,
+    "shared_status_docs_edited": false,
+    "package_roots_edited": false,
+    "git_history_edited": false
+  },
+  "baseline": {
+    "current_main_manifest_contains_v0_1_45_wave": true,
+    "current_manifest_sidecar_packages_observed": 15,
+    "target_package_present_in_main_manifest": false,
+    "current_validator_target_packages": 15,
+    "current_validator_target_representative_assets": 123
+  },
+  "static_validator_rerun": {
+    "date": "2026-05-24",
+    "command": ".\\Tools\\SidecarValidation\\Test-SidecarAssetPacks.ps1 -ProjectPath 'D:\\__MY APPS\\Unity Doom' -PackageNamePattern 'BrassworksBreach.WeaponMechanismsSet04' -Json",
+    "result": {
+      "package_pattern": "BrassworksBreach.WeaponMechanismsSet04",
+      "status": "pass",
+      "package_count": 1,
+      "errors": 0,
+      "warnings": 0,
+      "packages": [
+        "BrassworksBreach.WeaponMechanismsSet04"
+      ],
+      "findings": []
+    }
+  },
+  "target_package": {
+    "folder": "AssetPacks/BrassworksBreach.WeaponMechanismsSet04",
+    "upm_name": "com.brassworks.sidecar.weapon-mechanisms-set04",
+    "package_json_version": "0.1.45-p001",
+    "manifest_version": "0.1.45",
+    "manifest_build_id": "p001",
+    "manifest": "AssetPacks/BrassworksBreach.WeaponMechanismsSet04/Documentation~/Manifest/WMS04_WeaponMechanismsSet04_Manifest_v0.1.45-p001.json",
+    "runtime_catalog": "AssetPacks/BrassworksBreach.WeaponMechanismsSet04/Runtime/Metadata/WMS04_RuntimeCatalog_v0.1.45.json",
+    "static_validation": "pass_0_errors_0_warnings",
+    "main_manifest_status": "absent",
+    "asset_counts": {
+      "generated_prefabs": 29,
+      "generated_materials": 20,
+      "generated_meshes": 11,
+      "textures": 0,
+      "audio": 0,
+      "vfx": 0,
+      "animation_clips": 0,
+      "preview_renders": 11,
+      "renderer_components": 357,
+      "runtime_scripts": 0,
+      "colliders": 0,
+      "rigidbodies": 0,
+      "autonomous_audio": 0
+    },
+    "representative_asset_checks": 15,
+    "authority": "visual_only_no_gameplay_scripts_no_colliders_no_rigidbodies_no_autonomous_audio"
+  },
+  "expected_main_lane_changes": [
+    "Add one local UPM package reference to Packages/manifest.json.",
+    "Add one PackageCheck entry to Assets/_Project/Editor/SidecarQuarantineImportValidator.cs.",
+    "Add quarantine showcase placements to Assets/_Project/Editor/V0SceneBuilder.cs after import validation passes.",
+    "Add per-level WMS04 required showcase names to Assets/_Project/Editor/V0LevelValidator.cs.",
+    "Rebuild generated scenes through Unity only after the import gate is green."
+  ],
+  "expected_validator_total_if_inventory_used": {
+    "current_packages": 15,
+    "current_representative_assets": 123,
+    "v0_1_46_new_packages": 1,
+    "v0_1_46_new_representative_assets": 15,
+    "post_v0_1_46_total_packages": 16,
+    "post_v0_1_46_total_representative_assets": 138
+  },
+  "top_actionable_recommendations": [
+    "Import WeaponMechanismsSet04 as a visual-only quarantine package, not as gameplay weapons.",
+    "Use representative validator coverage across coils, gauges, grips, receiver plates, muzzle crowns, pressure tanks, valves, ammo cylinders, scattergun chambers, rails, gloved-hand silhouettes, materials, and meshes.",
+    "Block scene work until the package resolves and Unity compiles cleanly.",
+    "Add prefab safety checks for no colliders, no rigidbodies, no audio authority, no gameplay scripts, no weapon configs, no projectile spawners, no damage scripts, and no viewmodel animation controllers.",
+    "Treat muzzle crowns, ammo cylinders, rails, coils, and gloved hands as future promotion risks requiring a separate viewmodel and gameplay authority pass.",
+    "Require at least two WMS04 quarantine showcase objects per level only after visual placement is finalized.",
+    "Preserve rollback as package-reference removal plus validator/showcase cleanup, not package-root deletion.",
+    "Run Unity lookdev only; do not use Blender for this intake."
+  ],
+  "decision": "ready_for_main_lane_quarantine_import_after_review_acceptance"
+}

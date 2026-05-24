@@ -108,11 +108,22 @@ This checklist tracks implementation work. Detailed production tracking lives in
 
 ## v0.1.45 Import Readiness And Next Package Wave
 
-- [ ] Complete import-readiness planning for Level Atmosphere Set 03 and Enemy Animation Proxy Set 01.
-- [ ] Review Room Setpiece Kit 04 when the side-agent lane completes.
-- [ ] Review Weapon Mechanisms Set 04 when the side-agent lane completes.
-- [ ] Decide whether the next main-lane import should include Objective Props Set 02, Steam VFX Set 02, Level Atmosphere Set 03, Enemy Animation Proxy Set 01, or a smaller high-impact subset.
-- [ ] Prefer a visible player-facing import leap over another small serial package compile.
+- [x] Complete import-readiness planning for Level Atmosphere Set 03 and Enemy Animation Proxy Set 01.
+- [x] Import Objective Props Set 02, Steam VFX Set 02, Level Atmosphere Set 03, and Enemy Animation Proxy Set 01 in one larger main-lane batch.
+- [x] Expand `SidecarQuarantineImportValidator` to fifteen packages and one hundred twenty-three representative asset checks.
+- [x] Add visual-only showcase placements and material swatches for all four imported packages across all five generated gameplay levels.
+- [x] Rebuild scenes, run route audit, run the Windows matrix through package, and generate QA, issue-triage, candidate-readiness, and release-note evidence.
+- [x] Review Room Setpiece Kit 04 when the side-agent lane completes.
+- [x] Review Weapon Mechanisms Set 04 when the side-agent lane completes.
+- [x] Prefer a visible player-facing import leap over another small serial package compile.
+
+## v0.1.46 Sidecar Package Acceptance And Readiness Wave
+
+- [x] Accept Room Setpiece Kit 04 as an isolated Unity package root with previews and validation evidence.
+- [x] Accept Weapon Mechanisms Set 04 as an isolated Unity package root with previews and validation evidence.
+- [x] Complete import-readiness planning for Room Setpiece Kit 04.
+- [x] Complete import-readiness planning for Weapon Mechanisms Set 04.
+- [x] Keep both packages out of the main Unity manifest until the next playable import batch owns placement and validation.
 
 ## Parallel Priority: v0.1.40 Sidecar Asset Bundles
 

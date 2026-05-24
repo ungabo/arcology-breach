@@ -165,6 +165,76 @@ public static class SidecarQuarantineImportValidator
                 "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_ServicePanel_Floor_1x2m.prefab",
                 "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Materials/SCLD_MAT_AgedBrass.mat",
                 "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Meshes/SCLD_MESH_BoxUnit.asset"
+            }),
+        new PackageCheck(
+            "Objective Props Set 02",
+            "com.brassworks.sidecar.objective-props-set02",
+            "Documentation~/Manifest/OPS02_ObjectivePropsSet02_Manifest_v0.1.42-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.objective-props-set02/Runtime/Prefabs/BB_OPS02_KeyedLock_TriGearVault.prefab",
+                "Packages/com.brassworks.sidecar.objective-props-set02/Runtime/Prefabs/BB_OPS02_KeyedLock_RuneCogDoorSocket.prefab",
+                "Packages/com.brassworks.sidecar.objective-props-set02/Runtime/Prefabs/BB_OPS02_ValvePanel_TwinPressurePuzzle.prefab",
+                "Packages/com.brassworks.sidecar.objective-props-set02/Runtime/Prefabs/BB_OPS02_LiftCallStation_BrassCageUpDown.prefab",
+                "Packages/com.brassworks.sidecar.objective-props-set02/Runtime/Prefabs/BB_OPS02_PressureRegulator_RedlineGovernor.prefab",
+                "Packages/com.brassworks.sidecar.objective-props-set02/Runtime/Prefabs/BB_OPS02_SecretCache_FloorGearSafe.prefab",
+                "Packages/com.brassworks.sidecar.objective-props-set02/Runtime/Prefabs/BB_OPS02_Actuator_BridgeThrowLever.prefab",
+                "Packages/com.brassworks.sidecar.objective-props-set02/Runtime/Prefabs/BB_OPS02_GovernorOverride_BossKillSwitch.prefab",
+                "Packages/com.brassworks.sidecar.objective-props-set02/Runtime/Materials/OPS02_MAT_RedOverrideEnamel.mat",
+                "Packages/com.brassworks.sidecar.objective-props-set02/Runtime/Meshes/OPS02_Mesh_Gear18ToothUnit.asset",
+                "Packages/com.brassworks.sidecar.objective-props-set02/Runtime/ObjectivePropsSet02Identity.cs"
+            }),
+        new PackageCheck(
+            "Steam VFX Set 02",
+            "com.brassworks.sidecar.steam-vfx-set02",
+            "Documentation~/Manifest/BBSVFX02_SteamVFXSet02_Manifest_v0.1.42-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_SteamVent_FloorBurst.prefab",
+                "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_SteamVent_WallJet.prefab",
+                "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_PressureLeak_RuptureCone.prefab",
+                "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_MuzzleFlash_PistolBoiler.prefab",
+                "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_SparkRicochet_WallHit.prefab",
+                "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_FurnaceBlast_DoorBelch.prefab",
+                "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Prefabs/BBSVFX02_BossPhase_GovernorOvercrank.prefab",
+                "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Materials/BBSVFX02_MAT_SteamDense.mat",
+                "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Meshes/BBSVFX02_MESH_RadialBurst_16.asset",
+                "Packages/com.brassworks.sidecar.steam-vfx-set02/Runtime/Scripts/SteamVfxSet02Identity.cs"
+            }),
+        new PackageCheck(
+            "Level Atmosphere Set 03",
+            "com.brassworks.sidecar.level-atmosphere-set03",
+            "Documentation~/Manifest/SCLA_LevelAtmosphereSet03_Manifest_v0.1.44-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.level-atmosphere-set03/Runtime/Prefabs/SCLA_SteamPipeCluster_WallLeaker_A.prefab",
+                "Packages/com.brassworks.sidecar.level-atmosphere-set03/Runtime/Prefabs/SCLA_SteamPipeCluster_CornerBleed.prefab",
+                "Packages/com.brassworks.sidecar.level-atmosphere-set03/Runtime/Prefabs/SCLA_PressureLamp_WallCaged_A.prefab",
+                "Packages/com.brassworks.sidecar.level-atmosphere-set03/Runtime/Prefabs/SCLA_WallGrimePanel_OilStreaks.prefab",
+                "Packages/com.brassworks.sidecar.level-atmosphere-set03/Runtime/Prefabs/SCLA_HangingChains_TripleSlack.prefab",
+                "Packages/com.brassworks.sidecar.level-atmosphere-set03/Runtime/Prefabs/SCLA_FloorDrainCover_LongGutter.prefab",
+                "Packages/com.brassworks.sidecar.level-atmosphere-set03/Runtime/Prefabs/SCLA_WarningGauge_TripleRack.prefab",
+                "Packages/com.brassworks.sidecar.level-atmosphere-set03/Runtime/Prefabs/SCLA_OverheadPipeCanopy_ValveRun.prefab",
+                "Packages/com.brassworks.sidecar.level-atmosphere-set03/Runtime/Prefabs/SCLA_DenseAmbienceCombo_CorridorBite.prefab",
+                "Packages/com.brassworks.sidecar.level-atmosphere-set03/Runtime/Materials/SCLA_MAT_AmberLampGlass.mat",
+                "Packages/com.brassworks.sidecar.level-atmosphere-set03/Runtime/Meshes/SCLA_MESH_SteamWispUnit.asset"
+            }),
+        new PackageCheck(
+            "Enemy Animation Proxy Set 01",
+            "com.brassworks.sidecar.enemy-animation-proxy-set01",
+            "Documentation~/Manifest/EAP01_EnemyAnimationProxySet01_Manifest_v0.1.44-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_ScrapperAshcan_01_IdleBrace.prefab",
+                "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_ScrapperAshcan_03_SawLunge.prefab",
+                "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_LancerPressureSpindle_01_AimLine.prefab",
+                "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_LancerPressureSpindle_03_ThrustPeak.prefab",
+                "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_BulwarkGatehammer_02_HammerRaise.prefab",
+                "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Prefabs/EAP01_WardenGovernor_02_SignalRaise.prefab",
+                "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Materials/EAP01_MAT_FurnaceOrangeGlow.mat",
+                "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Meshes/EAP01_MESH_CommandGearHalo.asset",
+                "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/AnimationClips/EAP01_CLIP_ScrapperAshcan_PoseProxyOnly.anim",
+                "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/AnimationClips/EAP01_CLIP_WardenGovernor_PoseProxyOnly.anim"
             })
     };
 

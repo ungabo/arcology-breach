@@ -1,0 +1,96 @@
+{
+  "version": "0.1.46",
+  "generated_date": "2026-05-24",
+  "scope": {
+    "planning_root": "Documentation/Planning/V0_1_46_RoomSetpieceImportReadiness",
+    "qa_root": "Documentation/QA/V0_1_46_RoomSetpieceImportReadiness",
+    "documents_only": true,
+    "main_manifest_edited": false,
+    "package_lock_edited": false,
+    "generated_scenes_edited": false,
+    "assets_project_edited": false,
+    "shared_status_docs_edited": false,
+    "package_roots_edited": false,
+    "git_history_edited": false
+  },
+  "baseline": {
+    "assumed_previous_readiness_wave": "v0.1.45",
+    "expected_packages_before_wave": 15,
+    "expected_representative_assets_before_wave": 123,
+    "target_package_present_in_main_manifest_at_review_time": false
+  },
+  "static_validator_evidence": {
+    "source_file": "Documentation/AssetProduction/V0_1_45_RoomSetpieceKit04/RSK04_RoomSetpieceKit04_SidecarValidation_v0.1.45.json",
+    "status": "pass",
+    "package_pattern": "BrassworksBreach.RoomSetpieceKit04",
+    "package_count": 1,
+    "errors": 0,
+    "warnings": 0,
+    "packages": [
+      "BrassworksBreach.RoomSetpieceKit04"
+    ],
+    "findings": []
+  },
+  "unity_validation_evidence": {
+    "source_file": "Documentation/AssetProduction/V0_1_45_RoomSetpieceKit04/RSK04_RoomSetpieceKit04_UnityValidationReport_v0.1.45.json",
+    "status": "pass",
+    "prefabs": 30,
+    "materials": 18,
+    "meshes": 10,
+    "preview_pngs": 12,
+    "forbidden_token_findings": []
+  },
+  "target_package": {
+    "folder": "AssetPacks/BrassworksBreach.RoomSetpieceKit04",
+    "upm_name": "com.brassworks.sidecar.room-setpiece-kit04",
+    "package_json_version": "0.1.45-p001",
+    "manifest_version": "0.1.45",
+    "manifest_build_id": "p001",
+    "manifest": "AssetPacks/BrassworksBreach.RoomSetpieceKit04/Documentation~/Manifest/RSK04_RoomSetpieceKit04_Manifest_v0.1.45-p001.json",
+    "runtime_catalog": "AssetPacks/BrassworksBreach.RoomSetpieceKit04/Runtime/Metadata/RSK04_RuntimeCatalog_v0.1.45.json",
+    "main_manifest_status": "absent",
+    "asset_counts": {
+      "generated_prefabs": 30,
+      "generated_materials": 18,
+      "generated_meshes": 10,
+      "runtime_catalogs": 1,
+      "package_local_manifests": 1,
+      "preview_renders": 12,
+      "textures": 0,
+      "audio": 0,
+      "vfx": 0,
+      "animation_clips": 0,
+      "runtime_scripts": 0,
+      "colliders": 0,
+      "rigidbodies": 0,
+      "audio_sources": 0
+    },
+    "representative_asset_checks": 12,
+    "authority": "visual_only_no_gameplay_scripts_no_colliders_no_rigidbodies_no_audio"
+  },
+  "expected_main_lane_changes": [
+    "Add one local UPM package reference to Packages/manifest.json.",
+    "Add one PackageCheck entry to Assets/_Project/Editor/SidecarQuarantineImportValidator.cs.",
+    "Add quarantine showcase placements to Assets/_Project/Editor/V0SceneBuilder.cs after import validation passes.",
+    "Add per-level required showcase names to Assets/_Project/Editor/V0LevelValidator.cs.",
+    "Rebuild generated scenes through Unity only after validator import gate is green."
+  ],
+  "expected_validator_total_if_inventory_used": {
+    "pre_wave_packages": 15,
+    "pre_wave_representative_assets": 123,
+    "v0_1_46_new_packages": 1,
+    "v0_1_46_new_representative_assets": 12,
+    "post_v0_1_46_total_packages": 16,
+    "post_v0_1_46_total_representative_assets": 135
+  },
+  "top_actionable_recommendations": [
+    "Import only after current main-lane manifest and validator work is stable, or batch intentionally in one coordinated compile slice.",
+    "Use one representative prefab per setpiece family plus one material and one mesh to keep validation fast while covering the full package shape.",
+    "Block scene placement until Unity resolves the package and SidecarQuarantineImportValidator passes.",
+    "Keep every RoomSetpieceKit04 instance visual-only with no collision, navigation, gameplay, route, hazard, objective, audio, VFX, or AI authority.",
+    "Place showcases in all five levels under named quarantine roots, away from doors, pickups, exits, combat telegraphs, signs, secrets, and route chokepoints.",
+    "Add manifest-count, runtime-catalog, prefab-safety, route-clearance, and renderer-count assertions after basic loadability passes.",
+    "Preserve rollback as package-reference removal plus validator/showcase cleanup, not package-root deletion."
+  ],
+  "decision": "ready_for_main_lane_quarantine_import_after_static_validation_rerun_and_preview_review"
+}

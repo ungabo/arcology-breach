@@ -5898,3 +5898,29 @@ Accepted the `v0.1.44` sidecar package wave after main-lane review.
 - Started new parallel lanes: Volta for v0.1.45 import-readiness, Socrates for Room Setpiece Kit 04, and Kierkegaard for Weapon Mechanisms Set 04.
 
 Next-step directive: commit/push the accepted package wave, then continue immediately with the next highest-impact import or package-production batch.
+
+## 2026-05-24 17:19 -04:00
+
+Completed the main-lane `v0.1.45` four-package sidecar visual-import batch.
+
+- Added local package references for Objective Props Set 02, Steam VFX Set 02, Level Atmosphere Set 03, and Enemy Animation Proxy Set 01.
+- Expanded `SidecarQuarantineImportValidator` to `SIDECAR_QUARANTINE_IMPORT_PASS packages=15 assets=123`.
+- Added objective-prop, steam/VFX, atmosphere, enemy-pose-proxy, and material-swatch showcase placements across all five generated gameplay levels.
+- Extended level validation thresholds, required showcase names, and required material swatches while preserving no-collider/no-rigidbody/no-autonomous-audio safety.
+- Ran `v055` scene rebuild, level validation, sidecar import validation, editor smoke, Windows build, runtime smoke, auto playthrough, combat, interaction, hazard, secret, pause, movement, balance, level-flow, audio, display, readability, gameplay-feedback, world-label readability, package generation, route audit, QA packet generation, issue-triage generation, release notes, and candidate-readiness generation.
+- Package SHA-256: `6A2F26B835636784965BB791F70B0666DF8A35E54484B1FA107370FB319D859A`.
+
+Next-step directive: commit/push the `v0.1.45` main-lane integration slice, then immediately accept the next completed sidecar package/readiness wave.
+
+## 2026-05-24 17:20 -04:00
+
+Accepted the `v0.1.46` sidecar package/readiness wave after main-lane review.
+
+- `RoomSetpieceKit04`: 30 visual-only prefabs, 18 materials, 10 reusable meshes, 12 Unity-rendered previews, package-local manifest/catalog evidence, and package validator pass.
+- `WeaponMechanismsSet04`: 29 visual-only prefabs, 20 materials, 11 reusable meshes, 357 renderer components, 11 Unity-rendered previews, package-local manifest/catalog evidence, and package validator pass.
+- Hegel completed the Room Setpiece Kit 04 import-readiness packet with a proposed future `packages=16 assets=135` isolated import gate.
+- Helmholtz completed the Weapon Mechanisms Set 04 import-readiness packet with a proposed future `packages=16 assets=138` isolated import gate.
+- Validation commands used `Tools/SidecarValidation/Test-SidecarAssetPacks.ps1` against both package patterns; each passed with 0 errors and 0 warnings.
+- No main-project manifest import was performed for this acceptance slice.
+
+Next-step directive: commit/push the accepted package/readiness wave, then continue immediately with the next highest-impact visible import or gameplay-promotion batch.

@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 17:00 -04:00`
+Last updated: `2026-05-24 17:19 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -19,21 +19,21 @@ Current focus:
 
 Current verified local build:
 
-- `v0.1.43`
-- Build path: `Builds/Windows/v0.1.43/BrassworksBreach_v0.1.43.exe`
-- Package path: `Builds/WindowsPackages/v0.1.43/BrassworksBreach_v0.1.43_Windows.zip`
-- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.43.md`
-- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.43.md`
-- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.43.md`
-- Matrix result: route audit, full smoke/build/package sequence, `SIDECAR_QUARANTINE_IMPORT_PASS packages=11 assets=81`, `V0_GAMEPLAY_FEEDBACK_PASS`, `V0_WORLD_LABEL_READABILITY_PASS`, `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`
+- `v0.1.45`
+- Build path: `Builds/Windows/v0.1.45/BrassworksBreach_v0.1.45.exe`
+- Package path: `Builds/WindowsPackages/v0.1.45/BrassworksBreach_v0.1.45_Windows.zip`
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.45.md`
+- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.45.md`
+- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.45.md`
+- Matrix result: route audit, full smoke/build/package sequence, `SIDECAR_QUARANTINE_IMPORT_PASS packages=15 assets=123`, `V0_GAMEPLAY_FEEDBACK_PASS`, `V0_WORLD_LABEL_READABILITY_PASS`, `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`
 
 Current sidecar-gate status:
 
-- Weapon, mechanical enemy, feedback FX/audio, Steamworks level-kit, Materials Set 01, Level Dressing Set 01, Mechanical Enemy Visual Set 01, Weapon Props Set 02, Corridor Kit Set 02, Encounter Enemy Set 02, and Weapon Viewmodel Set 03 sidecars are imported as local packages in `Packages/manifest.json`.
-- `SidecarQuarantineImportValidator` passed with `SIDECAR_QUARANTINE_IMPORT_PASS packages=11 assets=81`.
-- Fresh accepted sidecar lanes pending future import decision: Steam VFX Set 02, Objective Props Set 02, Level Atmosphere Set 03, and Enemy Animation Proxy Set 01.
-- Completed sidecar-readiness lane pending main-lane use: v0.1.44 import-readiness planning for Steam VFX Set 02 and Objective Props Set 02.
-- Active sidecar lanes: v0.1.45 import-readiness planning, Room Setpiece Kit 04, and Weapon Mechanisms Set 04.
+- Weapon, mechanical enemy, feedback FX/audio, Steamworks level-kit, Materials Set 01, Level Dressing Set 01, Mechanical Enemy Visual Set 01, Weapon Props Set 02, Corridor Kit Set 02, Encounter Enemy Set 02, Weapon Viewmodel Set 03, Objective Props Set 02, Steam VFX Set 02, Level Atmosphere Set 03, and Enemy Animation Proxy Set 01 sidecars are imported as local packages in `Packages/manifest.json`.
+- `SidecarQuarantineImportValidator` passed with `SIDECAR_QUARANTINE_IMPORT_PASS packages=15 assets=123`.
+- Fresh accepted sidecar lanes pending future import decision: Room Setpiece Kit 04 and Weapon Mechanisms Set 04.
+- Completed sidecar-readiness lanes pending main-lane use: v0.1.46 import-readiness planning for Room Setpiece Kit 04 and Weapon Mechanisms Set 04.
+- Active sidecar lanes: none at this timestamp; refill capacity with package-family or promotion-planning work after the v0.1.45/v0.1.46 commits are pushed.
 
 Current speed adjustment:
 
@@ -46,9 +46,11 @@ Current speed adjustment:
 
 | Agent | ID | Scope | Allowed Write Files | Started | Status |
 | --- | --- | --- | --- | --- | --- |
-| Volta | `019e5bc8-ed91-7b62-82c0-90b39c48bd99` | v0.1.45 import-readiness packet for Level Atmosphere Set 03 and Enemy Animation Proxy Set 01 | `Documentation/Planning/V0_1_45_SidecarImportReadiness/`, `Documentation/QA/V0_1_45_SidecarImportReadiness/` | `2026-05-24 17:00 -04:00` | active |
-| Socrates | `019e5bc9-304b-7472-8fc6-023c0ac7c5ee` | Room Setpiece Kit 04 sidecar package | `AssetPacks/BrassworksBreach.RoomSetpieceKit04/`, `Documentation/AssetProduction/V0_1_45_RoomSetpieceKit04/`, `Documentation/ConceptRenders/V0_1_45_RoomSetpieceKit04/` | `2026-05-24 17:00 -04:00` | active |
-| Kierkegaard | `019e5bc9-6558-7bd1-a52e-676e984f8f32` | Weapon Mechanisms Set 04 sidecar package | `AssetPacks/BrassworksBreach.WeaponMechanismsSet04/`, `Documentation/AssetProduction/V0_1_45_WeaponMechanismsSet04/`, `Documentation/ConceptRenders/V0_1_45_WeaponMechanismsSet04/` | `2026-05-24 17:00 -04:00` | active |
+| Helmholtz | `019e5bd3-7c73-7451-a29f-7d7403e8693f` | v0.1.46 import-readiness packet for Weapon Mechanisms Set 04 | `Documentation/Planning/V0_1_46_WeaponMechanismsImportReadiness/`, `Documentation/QA/V0_1_46_WeaponMechanismsImportReadiness/` | `2026-05-24 17:17 -04:00` | completed; proposes future post-import gate `packages=16 assets=138` |
+| Hegel | `019e5bd3-225f-7970-b113-df4b6f87b8cc` | v0.1.46 import-readiness packet for Room Setpiece Kit 04 | `Documentation/Planning/V0_1_46_RoomSetpieceImportReadiness/`, `Documentation/QA/V0_1_46_RoomSetpieceImportReadiness/` | `2026-05-24 17:16 -04:00` | completed; proposes future post-import gate `packages=16 assets=135` |
+| Volta | `019e5bc8-ed91-7b62-82c0-90b39c48bd99` | v0.1.45 import-readiness packet for Level Atmosphere Set 03 and Enemy Animation Proxy Set 01 | `Documentation/Planning/V0_1_45_SidecarImportReadiness/`, `Documentation/QA/V0_1_45_SidecarImportReadiness/` | `2026-05-24 17:00 -04:00` | completed; used by v0.1.45 import |
+| Socrates | `019e5bc9-304b-7472-8fc6-023c0ac7c5ee` | Room Setpiece Kit 04 sidecar package | `AssetPacks/BrassworksBreach.RoomSetpieceKit04/`, `Documentation/AssetProduction/V0_1_45_RoomSetpieceKit04/`, `Documentation/ConceptRenders/V0_1_45_RoomSetpieceKit04/` | `2026-05-24 17:00 -04:00` | completed and accepted into v0.1.46 package slice |
+| Kierkegaard | `019e5bc9-6558-7bd1-a52e-676e984f8f32` | Weapon Mechanisms Set 04 sidecar package | `AssetPacks/BrassworksBreach.WeaponMechanismsSet04/`, `Documentation/AssetProduction/V0_1_45_WeaponMechanismsSet04/`, `Documentation/ConceptRenders/V0_1_45_WeaponMechanismsSet04/` | `2026-05-24 17:00 -04:00` | completed and accepted into v0.1.46 package slice |
 | McClintock | `019e5bc1-1faa-7241-95c6-68d30124aa3d` | v0.1.44 import-readiness packet for Steam VFX Set 02 and Objective Props Set 02 | `Documentation/Planning/V0_1_44_SidecarImportReadiness/`, `Documentation/QA/V0_1_44_SidecarImportReadiness/` | `2026-05-24 16:51 -04:00` | completed; recommends post-import gate `packages=13 assets=102` |
 | Kuhn | `019e5bc1-50e4-7122-b3b2-3ce791649586` | Level Atmosphere Set 03 sidecar package | `AssetPacks/BrassworksBreach.LevelAtmosphereSet03/`, `Documentation/AssetProduction/V0_1_44_LevelAtmosphereSet03/`, `Documentation/ConceptRenders/V0_1_44_LevelAtmosphereSet03/` | `2026-05-24 16:51 -04:00` | completed and accepted into v0.1.44 package slice |
 | Godel | `019e5bc1-8f0b-7843-b0f6-e336892d069e` | Enemy Animation Proxy Set 01 sidecar package | `AssetPacks/BrassworksBreach.EnemyAnimationProxySet01/`, `Documentation/AssetProduction/V0_1_44_EnemyAnimationProxySet01/`, `Documentation/ConceptRenders/V0_1_44_EnemyAnimationProxySet01/` | `2026-05-24 16:51 -04:00` | completed and accepted into v0.1.44 package slice |

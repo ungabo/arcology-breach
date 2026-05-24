@@ -1,0 +1,144 @@
+{
+  "version": "0.1.45",
+  "generated_date": "2026-05-24",
+  "scope": {
+    "planning_root": "Documentation/Planning/V0_1_45_SidecarImportReadiness",
+    "qa_root": "Documentation/QA/V0_1_45_SidecarImportReadiness",
+    "documents_only": true,
+    "main_manifest_edited": false,
+    "package_lock_edited": false,
+    "generated_scenes_edited": false,
+    "assets_project_edited": false,
+    "shared_status_docs_edited": false,
+    "package_roots_edited": false,
+    "git_history_edited": false
+  },
+  "baseline": {
+    "current_main_lane_version": "v0.1.43",
+    "current_manifest_sidecar_packages": 11,
+    "current_validator_packages": 11,
+    "current_validator_representative_assets": 81,
+    "v0_1_44_readiness_wave": {
+      "packages": [
+        "BrassworksBreach.ObjectivePropsSet02",
+        "BrassworksBreach.SteamVFXSet02"
+      ],
+      "new_packages": 2,
+      "new_representative_assets": 21,
+      "expected_total_packages_after_wave": 13,
+      "expected_total_representative_assets_after_wave": 102
+    },
+    "target_packages_present_in_main_manifest": false
+  },
+  "static_validator_rerun": {
+    "date": "2026-05-24",
+    "commands": [
+      ".\\Tools\\SidecarValidation\\Test-SidecarAssetPacks.ps1 -ProjectPath 'D:\\__MY APPS\\Unity Doom' -PackageNamePattern 'BrassworksBreach.LevelAtmosphereSet03' -Json",
+      ".\\Tools\\SidecarValidation\\Test-SidecarAssetPacks.ps1 -ProjectPath 'D:\\__MY APPS\\Unity Doom' -PackageNamePattern 'BrassworksBreach.EnemyAnimationProxySet01' -Json"
+    ],
+    "results": [
+      {
+        "package_pattern": "BrassworksBreach.LevelAtmosphereSet03",
+        "status": "pass",
+        "package_count": 1,
+        "errors": 0,
+        "warnings": 0,
+        "packages": [
+          "BrassworksBreach.LevelAtmosphereSet03"
+        ],
+        "findings": []
+      },
+      {
+        "package_pattern": "BrassworksBreach.EnemyAnimationProxySet01",
+        "status": "pass",
+        "package_count": 1,
+        "errors": 0,
+        "warnings": 0,
+        "packages": [
+          "BrassworksBreach.EnemyAnimationProxySet01"
+        ],
+        "findings": []
+      }
+    ]
+  },
+  "target_packages": [
+    {
+      "folder": "AssetPacks/BrassworksBreach.LevelAtmosphereSet03",
+      "upm_name": "com.brassworks.sidecar.level-atmosphere-set03",
+      "package_json_version": "0.1.44-p001",
+      "manifest_version": "0.1.44",
+      "manifest_build_id": "p001",
+      "manifest": "AssetPacks/BrassworksBreach.LevelAtmosphereSet03/Documentation~/Manifest/SCLA_LevelAtmosphereSet03_Manifest_v0.1.44-p001.json",
+      "static_validation": "pass_0_errors_0_warnings",
+      "main_manifest_status": "absent",
+      "asset_counts": {
+        "generated_prefabs": 28,
+        "generated_materials": 16,
+        "generated_meshes": 8,
+        "textures": 0,
+        "runtime_scripts": 0,
+        "editor_scripts": 1,
+        "preview_renders": 10,
+        "audio": 0,
+        "vfx": 0,
+        "animation_clips": 0
+      },
+      "representative_asset_checks": 11
+    },
+    {
+      "folder": "AssetPacks/BrassworksBreach.EnemyAnimationProxySet01",
+      "upm_name": "com.brassworks.sidecar.enemy-animation-proxy-set01",
+      "package_json_version": "0.1.44-p001",
+      "manifest_version": "0.1.44",
+      "manifest_build_id": "p001",
+      "manifest": "AssetPacks/BrassworksBreach.EnemyAnimationProxySet01/Documentation~/Manifest/EAP01_EnemyAnimationProxySet01_Manifest_v0.1.44-p001.json",
+      "static_validation": "pass_0_errors_0_warnings",
+      "main_manifest_status": "absent",
+      "asset_counts": {
+        "generated_prefabs": 16,
+        "generated_materials": 15,
+        "generated_meshes": 8,
+        "placeholder_animation_clips": 4,
+        "runtime_scripts": 0,
+        "editor_scripts": 1,
+        "runtime_catalogs": 1,
+        "preview_renders": 16,
+        "colliders": 0,
+        "rigidbodies": 0,
+        "nav_agents": 0,
+        "audio_sources": 0
+      },
+      "representative_asset_checks": 10
+    }
+  ],
+  "expected_main_lane_changes": [
+    "Add two local UPM package references to Packages/manifest.json.",
+    "Add two PackageCheck entries to Assets/_Project/Editor/SidecarQuarantineImportValidator.cs.",
+    "Add quarantine showcase placements to Assets/_Project/Editor/V0SceneBuilder.cs after import validation passes.",
+    "Add per-level required showcase names to Assets/_Project/Editor/V0LevelValidator.cs.",
+    "Rebuild generated scenes through Unity only after validator import gate is green."
+  ],
+  "expected_validator_total_if_inventory_used": {
+    "v0_1_43_current_packages": 11,
+    "v0_1_43_current_representative_assets": 81,
+    "v0_1_44_new_packages": 2,
+    "v0_1_44_new_representative_assets": 21,
+    "v0_1_44_expected_total_packages": 13,
+    "v0_1_44_expected_total_representative_assets": 102,
+    "v0_1_45_new_packages": 2,
+    "v0_1_45_new_representative_assets": 21,
+    "post_v0_1_45_total_packages": 15,
+    "post_v0_1_45_total_representative_assets": 123
+  },
+  "top_actionable_recommendations": [
+    "Import after v0.1.44 lands or batch both waves intentionally into one main-lane compile slice.",
+    "Use the representative inventory rather than every generated asset to keep validation fast while covering prefabs, materials, meshes, manifests, and placeholder animation clips.",
+    "Block scene work until both packages resolve and Unity compiles cleanly.",
+    "Keep SCLA atmosphere props presentation-only until lighting, collision, route-blocking, and audio authority are owned by the primary lane.",
+    "Keep EAP01 enemy proxies presentation-only until rigging, AI, damage, hitboxes, nav, animation timing, and encounter design are owned by the primary gameplay lane.",
+    "Add manifest-count, prefab-safety, route-clearance, and placeholder-clip validator helpers after basic loadability passes.",
+    "Require at least one SCLA and one EAP01 showcase object per level in V0LevelValidator.",
+    "Preserve rollback as package-reference removal plus validator/showcase cleanup, not package-root deletion.",
+    "Run Unity lookdev only; do not use Blender for this intake."
+  ]
+}
