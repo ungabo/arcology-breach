@@ -91,3 +91,14 @@
 - Added planning/reference JPG:
   - `CONTACTSHEET_HFLD_Recovery02_pressure_pistol_target_breakdown_planning.jpg`
 - Open proof work remains: credible pistol model/material render, measured silhouette comparison, 60+ fastener proof, 6+ coil turns, material-slot proof, PBR validation, and lighting validation.
+
+## 2026-05-23 23:23:13 -04:00
+
+- Started Recovery03 pressure-pistol-only proof attempt.
+- Confirmed Blender was not available through `where.exe blender`, `Get-Command blender`, or `C:\Program Files\Blender Foundation`; ImageMagick, POV-Ray, and common Python 3D render packages were also unavailable.
+- Used a Python/Pillow/NumPy procedural raster fallback inside `Documentation/AssetProduction/HighFidelityLookdevRecovery/PressurePistolProof/`.
+- Generated failed proof JPGs:
+  - `RENDER_HFLD_Recovery03_pressure_pistol_proof_python_fallback.jpg`
+  - `CONTACTSHEET_HFLD_Recovery03_pressure_pistol_proof_python_fallback.jpg`
+- Measured output: 1920x1080 hero render, 2200x1500 contact sheet, 8 visible coil turns, 151 generated fasteners, 36 plate/bracket/strap pieces, 3 pressure ports, 3 top valves/caps, 71.7% width and 64.1% height body occupancy.
+- Verdict: failed acceptance. Component counts and dimensions pass, but the result remains too flat/graphic and cannot prove real 3D geometry, bevels, or PBR materials without Blender or equivalent renderer.
