@@ -1,0 +1,469 @@
+{
+  "packet": {
+    "id": "v0.1.54-governor-core-material-and-pacing-packet",
+    "created_at_local": "2026-05-24 19:10:23 -04:00",
+    "target_version": "v0.1.54",
+    "depends_on": [
+      "v0.1.53-material-binding-map",
+      "v0.1.53-route-polish-implementation-packet"
+    ],
+    "write_scope": [
+      "Documentation/Planning/V0_1_54_GovernorCoreMaterialAndPacingPacket/",
+      "Documentation/QA/V0_1_54_GovernorCoreMaterialAndPacingPacket/"
+    ],
+    "implementation_strategy": "One ambitious playable finale batch for Level05. Bind accepted Set08 materials into Governor Core-specific project materials, improve arena readability, add Warden pressure tell hooks, complete final exit/restart flow, extend validators and runtime smoke, regenerate Level05, and package only after all gates pass.",
+    "primary_scene": "Level05",
+    "recommended_roots": {
+      "generated_route_root": "ROUTE_L05_GovernorCore_v0_1_54",
+      "visual_root": "VISUALONLY_L05_GovernorCore_v0_1_54",
+      "authority_root": "AUTH_L05_GovernorCore_v0_1_54",
+      "spawn_root": "SPAWN_L05_GovernorCore_v0_1_54",
+      "trigger_root": "TRG_L05_GovernorCore_v0_1_54"
+    }
+  },
+  "source_evidence_to_read": [
+    "Documentation/Planning/V0_1_53_MaterialBindingMap/material_binding_candidates_v0.1.53.json",
+    "Documentation/Planning/V0_1_53_RoutePolishImplementationPacket/route_polish_implementation_packet.json",
+    "Documentation/LEVEL_DESIGN_AND_MAPS.md",
+    "Documentation/GAME_DESIGN_SPEC.md",
+    "Documentation/STORY_BIBLE.md",
+    "Assets/_Project/Editor/V0SceneBuilder.cs",
+    "Assets/_Project/Editor/V0LevelValidator.cs",
+    "Assets/_Project/Scripts/Utility/RuntimeClimaxFlowTest.cs",
+    "Assets/_Project/Scripts/Utility/RuntimeAutoPlaythroughTest.cs",
+    "Tools/RunV0BuildMatrix.ps1"
+  ],
+  "validation_gates": [
+    "V0_LEVEL_VALIDATION_PASS",
+    "V0_SET08_MATERIAL_BINDING_PASS",
+    "V0_L05_GOVERNOR_CORE_PASS",
+    "V0_WARDEN_PRESSURE_TELL_PASS",
+    "V0_FINAL_EXIT_FLOW_PASS",
+    "V0_CLIMAX_FLOW_PASS",
+    "V0_AUTO_PLAYTHROUGH_PASS",
+    "V0_HAZARD_PASS",
+    "V0_BOSS_COMBAT_PASS",
+    "V0_WORLD_LABEL_READABILITY_PASS",
+    "V0_BUILD_MATRIX_PASS"
+  ],
+  "work_groups": [
+    {
+      "id": "GCP-054-GA",
+      "priority": "P0",
+      "name": "Governor Core material identity",
+      "expected_gate": "V0_SET08_MATERIAL_BINDING_PASS"
+    },
+    {
+      "id": "GCP-054-GB",
+      "priority": "P0",
+      "name": "Arena readability and safe pockets",
+      "expected_gate": "V0_L05_GOVERNOR_CORE_PASS"
+    },
+    {
+      "id": "GCP-054-GC",
+      "priority": "P0",
+      "name": "Warden pressure tells",
+      "expected_gate": "V0_WARDEN_PRESSURE_TELL_PASS"
+    },
+    {
+      "id": "GCP-054-GD",
+      "priority": "P0",
+      "name": "Final exit and restart flow",
+      "expected_gate": "V0_FINAL_EXIT_FLOW_PASS"
+    },
+    {
+      "id": "GCP-054-GE",
+      "priority": "P0",
+      "name": "Validator and runtime smoke gates",
+      "expected_gate": "V0_BUILD_MATRIX_PASS"
+    },
+    {
+      "id": "GCP-054-GF",
+      "priority": "P1",
+      "name": "Human review render hooks",
+      "expected_gate": "Manual finale-readability review"
+    }
+  ],
+  "set08_material_bindings": [
+    {
+      "id": "GCP-054-MAT-01",
+      "priority": "P0",
+      "project_material": "M_L05_Set08_WetBlackStoneSlab",
+      "set08_source": "SMD08_MAT_WetBlackStoneSlab",
+      "target_surfaces": [
+        "L05 Governor Core arena floor",
+        "L05 Governor Core Wet Stone Safe Pocket North",
+        "L05 Governor Core Wet Stone Safe Pocket South"
+      ],
+      "validation": "Project material exists and albedo/normal texture paths point to Set08 package textures.",
+      "risk": "Wet floor shine can hide hazard plates if value contrast is too low."
+    },
+    {
+      "id": "GCP-054-MAT-02",
+      "priority": "P0",
+      "project_material": "M_L05_Set08_ChippedBlackIronWallPanel",
+      "set08_source": "SMD08_MAT_ChippedBlackIronWallPanel",
+      "target_surfaces": [
+        "L05 Governor Core wall panels",
+        "L05 Governor Core pressure shutter frames",
+        "L05 Final Exit locked frame"
+      ],
+      "validation": "Material is Level05-specific and does not replace shared riveted iron materials.",
+      "risk": "Dark panels need amber or brass accents to remain readable at player height."
+    },
+    {
+      "id": "GCP-054-MAT-03",
+      "priority": "P0",
+      "project_material": "M_L05_Set08_WornBrassPipe",
+      "set08_source": "SMD08_MAT_WornBrassPipe",
+      "target_surfaces": [
+        "L05 Governor Core Brass Sightline Ring",
+        "L05 rail trim",
+        "L05 pressure conduit frames"
+      ],
+      "validation": "Required on sightline ring and at least two route-trim anchors.",
+      "risk": "Too much brass can wash out the amber objective language."
+    },
+    {
+      "id": "GCP-054-MAT-04",
+      "priority": "P0",
+      "project_material": "M_L05_Set08_OxidizedCopperCoil",
+      "set08_source": "SMD08_MAT_OxidizedCopperCoil",
+      "target_surfaces": [
+        "L05 Governor Core exchanger loops",
+        "L05 Warden Core Pulse Amber Glass support coils",
+        "L05 overhead pipe coils"
+      ],
+      "validation": "Copper coil material appears on core-facing objects, not ordinary floor trim.",
+      "risk": "Copper color can compete with red hazard plates if saturation is too high."
+    },
+    {
+      "id": "GCP-054-MAT-05",
+      "priority": "P0",
+      "project_material": "M_L05_Set08_RedPressureEnamel",
+      "set08_source": "SMD08_MAT_RedPressureEnamel",
+      "target_surfaces": [
+        "L05 Governor Core Red Pressure Hazard Ring",
+        "L05 Warden Ring Sweep Red Enamel Plates",
+        "lockdown plates around AUTH_L05_FinalExitDoor"
+      ],
+      "validation": "Red enamel is used only for active danger or locked pressure state.",
+      "risk": "Decorative red use weakens hazard readability."
+    },
+    {
+      "id": "GCP-054-MAT-06",
+      "priority": "P0",
+      "project_material": "M_L05_Set08_GaugeFaceEnamel",
+      "set08_source": "SMD08_MAT_GaugeFaceEnamel",
+      "target_surfaces": [
+        "L05 Governor Core Gauge Wall A",
+        "L05 Governor Core Gauge Wall B",
+        "L05 Warden Exit Unlock Gauge"
+      ],
+      "validation": "Gauge material appears on named pressure-state fixtures.",
+      "risk": "Gauge props can become visual noise unless clustered around state changes."
+    },
+    {
+      "id": "GCP-054-MAT-07",
+      "priority": "P0",
+      "project_material": "M_L05_Set08_AmberGaslightGlass",
+      "set08_source": "SMD08_MAT_AmberGaslightGlass",
+      "target_surfaces": [
+        "L05 Warden Core Pulse Amber Glass",
+        "L05 Governor Core Amber Exit Confirmation Arch",
+        "L05 Final Exit Amber Confirmation"
+      ],
+      "validation": "Amber glass is present on objective and exit-state cues.",
+      "risk": "If transparency is unstable, use opaque amber fallback until shader support is ready."
+    },
+    {
+      "id": "GCP-054-MAT-08",
+      "priority": "P1",
+      "project_material": "M_L05_Set08_ScorchedFurnaceMetal",
+      "set08_source": "SMD08_MAT_ScorchedFurnaceMetal",
+      "target_surfaces": [
+        "L05 Warden impact plates",
+        "L05 core breach scorch frames",
+        "L05 pressure relief shields"
+      ],
+      "validation": "Scorched metal supports impact/breach language without replacing hazard red.",
+      "risk": "Scorch detail should not hide damage-zone edges."
+    }
+  ],
+  "changes": [
+    {
+      "id": "GCP-054-L05-01",
+      "priority": "P0",
+      "target_level": "Level05",
+      "change_type": "material",
+      "container": "VISUALONLY_L05_GovernorCore_v0_1_54",
+      "objects": [
+        {
+          "name": "L05 Governor Core Brass Sightline Ring",
+          "material": "M_L05_Set08_WornBrassPipe",
+          "purpose": "Shows arena center and movement ring from entry."
+        },
+        {
+          "name": "L05 Governor Core Red Pressure Hazard Ring",
+          "material": "M_L05_Set08_RedPressureEnamel",
+          "purpose": "Marks ring sweep danger language."
+        },
+        {
+          "name": "L05 Governor Core Wet Stone Safe Pocket North",
+          "material": "M_L05_Set08_WetBlackStoneSlab",
+          "purpose": "Readable safe pocket during north/south pressure phase."
+        },
+        {
+          "name": "L05 Governor Core Wet Stone Safe Pocket South",
+          "material": "M_L05_Set08_WetBlackStoneSlab",
+          "purpose": "Readable safe pocket during north/south pressure phase."
+        }
+      ],
+      "expected_validation_gate": "V0_SET08_MATERIAL_BINDING_PASS and V0_L05_GOVERNOR_CORE_PASS",
+      "risk": "Arena material detail can reduce movement readability if safe pocket contrast is too subtle."
+    },
+    {
+      "id": "GCP-054-L05-02",
+      "priority": "P0",
+      "target_level": "Level05",
+      "change_type": "label",
+      "container": "VISUALONLY_L05_GovernorCore_v0_1_54",
+      "objects": [
+        {
+          "name": "Label - L05 Governor Core Entry",
+          "placement": "immediately after Level05 entry threshold, readable before Warden pressure starts"
+        },
+        {
+          "name": "Label - L05 Pressure Ring",
+          "placement": "at the first arena view, before ring sweep pressure"
+        },
+        {
+          "name": "Label - L05 Safe Pocket North",
+          "placement": "at north safe pocket, visible from ring entry"
+        },
+        {
+          "name": "Label - L05 Safe Pocket South",
+          "placement": "at south safe pocket, visible from ring entry"
+        },
+        {
+          "name": "Label - L05 Manual Relief Valve",
+          "placement": "beside the relief valve or equivalent pressure-state objective"
+        },
+        {
+          "name": "Label - L05 Core Breach",
+          "placement": "at the core breach interaction or completion fixture"
+        },
+        {
+          "name": "Label - L05 Final Exit",
+          "placement": "at the exit sightline, readable before and after unlock"
+        }
+      ],
+      "expected_validation_gate": "V0_WORLD_LABEL_READABILITY_PASS and V0_L05_GOVERNOR_CORE_PASS",
+      "risk": "Too many labels in combat view can compete with Warden tells, so use short label text and clear spacing."
+    },
+    {
+      "id": "GCP-054-L05-03",
+      "priority": "P0",
+      "target_level": "Level05",
+      "change_type": "boss_tell",
+      "container": "AUTH_L05_GovernorCore_v0_1_54",
+      "objects": [
+        {
+          "name": "AUTH_L05_WardenPressureTell_NorthSteam",
+          "fixture": "L05 Warden North Steam Warning Gauge",
+          "phase": "teach"
+        },
+        {
+          "name": "AUTH_L05_WardenPressureTell_SouthSteam",
+          "fixture": "L05 Warden South Steam Warning Gauge",
+          "phase": "execute"
+        },
+        {
+          "name": "AUTH_L05_WardenPressureTell_CorePulse",
+          "fixture": "L05 Warden Core Pulse Amber Glass",
+          "phase": "execute"
+        },
+        {
+          "name": "AUTH_L05_WardenPressureTell_RingSweep",
+          "fixture": "L05 Warden Ring Sweep Red Enamel Plates",
+          "phase": "combine"
+        },
+        {
+          "name": "AUTH_L05_WardenPressureTell_ExitUnlock",
+          "fixture": "L05 Warden Exit Unlock Gauge",
+          "phase": "relief"
+        }
+      ],
+      "expected_validation_gate": "V0_WARDEN_PRESSURE_TELL_PASS and V0_HAZARD_PASS",
+      "risk": "Pressure tells cannot be merely decorative; runtime smoke should confirm they precede damaging or state-changing actions."
+    },
+    {
+      "id": "GCP-054-L05-04",
+      "priority": "P0",
+      "target_level": "Level05",
+      "change_type": "pacing",
+      "container": "SPAWN_L05_GovernorCore_v0_1_54",
+      "objects": [
+        {
+          "name": "Enemy - L05 Warden",
+          "adjustment": "delay full pressure until entry, pressure ring, and safe pockets are visible"
+        },
+        {
+          "name": "Enemy - L05 Warden Pressure Add North",
+          "adjustment": "optional support pressure only after north safe pocket has been taught"
+        },
+        {
+          "name": "Enemy - L05 Warden Pressure Add South",
+          "adjustment": "optional support pressure only after south safe pocket has been taught"
+        }
+      ],
+      "expected_validation_gate": "V0_BOSS_COMBAT_PASS and V0_CLIMAX_FLOW_PASS",
+      "risk": "Support enemies can turn the finale into visual noise if they spawn before pressure tells are readable."
+    },
+    {
+      "id": "GCP-054-L05-05",
+      "priority": "P0",
+      "target_level": "Level05",
+      "change_type": "final_flow",
+      "container": "TRG_L05_GovernorCore_v0_1_54",
+      "objects": [
+        {
+          "name": "TRG_L05_CoreBreachComplete",
+          "purpose": "Unlocks final exit flow after the core breach state is reached."
+        },
+        {
+          "name": "AUTH_L05_FinalExitDoor",
+          "purpose": "Locked until core breach complete."
+        },
+        {
+          "name": "AUTH_L05_FinalExitInteract",
+          "purpose": "Player-facing final exit interaction."
+        },
+        {
+          "name": "L05 Final Exit Amber Confirmation",
+          "purpose": "Visual confirmation that the finale has shifted from combat to completion."
+        },
+        {
+          "name": "TRG_L05_CampaignComplete",
+          "purpose": "Triggers completion panel and ending state."
+        },
+        {
+          "name": "UI_L05_CampaignCompletePanel",
+          "purpose": "Displays completion result after final exit."
+        },
+        {
+          "name": "UI_L05_RestartRunButton",
+          "purpose": "Restarts from campaign start with state reset."
+        },
+        {
+          "name": "UI_L05_QuitToDesktopButton",
+          "purpose": "Uses existing quit path."
+        }
+      ],
+      "expected_validation_gate": "V0_FINAL_EXIT_FLOW_PASS and V0_AUTO_PLAYTHROUGH_PASS",
+      "risk": "Restart and quit should reuse existing UI/menu systems to avoid a one-off finale implementation."
+    },
+    {
+      "id": "GCP-054-L05-06",
+      "priority": "P0",
+      "target_level": "Level05",
+      "change_type": "validation",
+      "container": "Assets/_Project/Editor/V0LevelValidator.cs",
+      "objects": [
+        {
+          "name": "ValidateV0154GovernorCoreMaterialAndPacing",
+          "purpose": "Dedicated Level05 helper for material anchors, labels, pressure tells, safe pockets, and final exit flow."
+        },
+        {
+          "name": "ValidateSet08Level05MaterialBindings",
+          "purpose": "Confirms Level05 material assets bind to accepted Set08 texture paths."
+        },
+        {
+          "name": "RuntimeFinalExitFlowTest",
+          "purpose": "Confirms core breach, exit unlock, completion panel, restart, and quit path hooks."
+        }
+      ],
+      "expected_validation_gate": "V0_LEVEL_VALIDATION_PASS, V0_SET08_MATERIAL_BINDING_PASS, V0_FINAL_EXIT_FLOW_PASS, and V0_BUILD_MATRIX_PASS",
+      "risk": "Validator should not require optional P1 render hooks, only implementation-critical P0 objects."
+    },
+    {
+      "id": "GCP-054-L05-07",
+      "priority": "P1",
+      "target_level": "Level05",
+      "change_type": "review_render",
+      "container": "Documentation/ConceptRenders/V0_1_54_GovernorCoreMaterialAndPacing/",
+      "objects": [
+        {
+          "name": "L05_entry_to_locked_core_review.png",
+          "purpose": "Human review of initial finale read."
+        },
+        {
+          "name": "L05_pressure_ring_safe_pockets_review.png",
+          "purpose": "Human review of arena movement readability."
+        },
+        {
+          "name": "L05_core_pulse_amber_glass_review.png",
+          "purpose": "Human review of objective/tell material language."
+        },
+        {
+          "name": "L05_final_exit_unlocked_review.png",
+          "purpose": "Human review of completion-state clarity."
+        }
+      ],
+      "expected_validation_gate": "Manual finale-readability review",
+      "risk": "Review renders must stay in documentation-only folders and should not be imported into runtime builds."
+    }
+  ],
+  "runtime_smoke_requirements": [
+    {
+      "id": "GCP-054-SMOKE-01",
+      "marker": "V0_L05_GOVERNOR_CORE_PASS",
+      "must_confirm": [
+        "Level05 loads",
+        "Governor Core entry label exists",
+        "pressure ring exists",
+        "north and south safe pockets exist",
+        "final exit label exists"
+      ]
+    },
+    {
+      "id": "GCP-054-SMOKE-02",
+      "marker": "V0_WARDEN_PRESSURE_TELL_PASS",
+      "must_confirm": [
+        "north steam tell exists before north pressure hazard",
+        "south steam tell exists before south pressure hazard",
+        "core pulse tell exists before core breach state",
+        "ring sweep tell exists before ring sweep damage",
+        "exit unlock tell exists after core breach complete"
+      ]
+    },
+    {
+      "id": "GCP-054-SMOKE-03",
+      "marker": "V0_FINAL_EXIT_FLOW_PASS",
+      "must_confirm": [
+        "final exit door starts locked",
+        "core breach unlocks final exit",
+        "campaign complete trigger displays completion panel",
+        "restart button is wired to reset run state",
+        "quit button is wired to existing quit flow"
+      ]
+    }
+  ],
+  "human_review_captures": [
+    "Level05 entry looking toward locked Governor Core",
+    "Full arena from player height showing pressure ring and both safe pockets",
+    "North safe pocket during a pressure tell",
+    "Core pulse tell using amber glass and gauges",
+    "Ring sweep tell using red enamel hazard language",
+    "Final exit arch before unlock",
+    "Final exit arch after unlock",
+    "Campaign complete panel with restart and quit options"
+  ],
+  "deferred_or_risk_notes": [
+    "If Warden AI is not complete, implement named pressure-arena hooks now and track full boss intelligence separately.",
+    "If Set08 glass transparency is unstable, ship an opaque amber fallback for v0.1.54.",
+    "If final restart flow needs deeper menu refactor work, keep the Level05 hooks deterministic and list polish separately.",
+    "If performance drops, reduce decorative pipe density before removing core tells, safe pockets, or route labels.",
+    "Do not change secret counts or add unrelated finale mechanics in this batch unless required by existing design docs."
+  ]
+}

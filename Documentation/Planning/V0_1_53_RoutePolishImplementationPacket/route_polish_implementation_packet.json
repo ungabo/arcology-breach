@@ -1,0 +1,420 @@
+{
+  "packet": {
+    "id": "v0.1.53-route-polish-implementation-packet",
+    "created_at_local": "2026-05-24 19:06:19 -04:00",
+    "target_version": "v0.1.53",
+    "source_packet": "Documentation/Planning/V0_1_52_RouteExpansionTuning/route_expansion_tuning_packet.json",
+    "write_scope": [
+      "Documentation/Planning/V0_1_53_RoutePolishImplementationPacket/",
+      "Documentation/QA/V0_1_53_RoutePolishImplementationPacket/"
+    ],
+    "implementation_strategy": "One ambitious playable batch across Level02, Level03, and Level04. Update generation, validation, targeted smoke tests, regenerated scenes, route audit, and full build matrix together.",
+    "route_roots": {
+      "Level02": "ROUTE_L02_PressureBypass_v0_1_50",
+      "Level03": "ROUTE_L03_FoundryGantry_v0_1_50",
+      "Level04": "ROUTE_L04_ObservatoryPumpworks_v0_1_50"
+    }
+  },
+  "validation_gates": [
+    "V0_LEVEL_VALIDATION_PASS",
+    "V0_ROUTE_AUDIT_PASS",
+    "V0_MIDGAME_FLOW_PASS",
+    "V0_CLIMAX_FLOW_PASS",
+    "V0_HAZARD_PASS",
+    "V0_SECRET_PASS",
+    "V0_AUTO_PLAYTHROUGH_PASS",
+    "V0_RANGED_COMBAT_PASS",
+    "V0_BULWARK_COMBAT_PASS",
+    "V0_WORLD_LABEL_READABILITY_PASS",
+    "V0_BUILD_MATRIX_PASS"
+  ],
+  "work_groups": [
+    {
+      "id": "RPI-053-GA",
+      "priority": "P0",
+      "name": "Route labels and rejoin readability",
+      "expected_gate": "V0_LEVEL_VALIDATION_PASS"
+    },
+    {
+      "id": "RPI-053-GB",
+      "priority": "P0",
+      "name": "Hazard readability and safe pockets",
+      "expected_gate": "V0_HAZARD_PASS"
+    },
+    {
+      "id": "RPI-053-GC",
+      "priority": "P0",
+      "name": "Encounter and pacing tuning",
+      "expected_gate": "V0_MIDGAME_FLOW_PASS / V0_CLIMAX_FLOW_PASS"
+    },
+    {
+      "id": "RPI-053-GD",
+      "priority": "P1",
+      "name": "Secrets as route mastery",
+      "expected_gate": "V0_SECRET_PASS"
+    },
+    {
+      "id": "RPI-053-GE",
+      "priority": "P1",
+      "name": "Screenshot and human review hooks",
+      "expected_gate": "Manual route-readability review"
+    }
+  ],
+  "changes": [
+    {
+      "id": "RPI-053-L02-01",
+      "priority": "P0",
+      "target_level": "Level02",
+      "change_type": "label",
+      "affected_generated_route_root": "ROUTE_L02_PressureBypass_v0_1_50",
+      "container": "VISUALONLY_L02_PressureBypass",
+      "objects": [
+        {
+          "name": "Label - L02 Manual Bleed",
+          "placement": "near GEO_L02_PressureBypass_ValveRoomA, readable before AUTH_L02_Valve_BypassA"
+        },
+        {
+          "name": "Label - L02 Mainline Rejoin",
+          "placement": "near GEO_L02_PressureBypass_ExitSpine, readable from GEO_L02_PressureBypass_PumpRoom"
+        },
+        {
+          "name": "L02 Pressure Bypass Rejoin Green Gauge",
+          "placement": "beside AUTH_L02_Door_PumpRoomExit as final route-open/rejoin signal"
+        }
+      ],
+      "expected_validation_gate": "V0_LEVEL_VALIDATION_PASS and V0_MIDGAME_FLOW_PASS",
+      "risk": "Extra labels can compete with the existing objective HUD if placed in the same view as pickups or combat targets."
+    },
+    {
+      "id": "RPI-053-L02-02",
+      "priority": "P0",
+      "target_level": "Level02",
+      "change_type": "hazard",
+      "affected_generated_route_root": "ROUTE_L02_PressureBypass_v0_1_50",
+      "container": "AUTH",
+      "objects": [
+        {
+          "name": "AUTH_L02_Hazard_SteamJet_C1_A",
+          "adjustment": "treat as teach vent; add warning gauge, visible idle/safe state, and safe approach pocket"
+        },
+        {
+          "name": "AUTH_L02_Hazard_PumpVent_R3_A",
+          "adjustment": "treat as execute vent; rotate/offset tell so damage cannot happen blind around the pump-room corner"
+        },
+        {
+          "name": "AUTH_L02_Hazard_ReturnVent_R4_A",
+          "adjustment": "optional combined vent only if a visible safe pocket exists before it"
+        }
+      ],
+      "expected_validation_gate": "V0_HAZARD_PASS and V0_MIDGAME_FLOW_PASS",
+      "risk": "Adding a third vent may turn a readability polish pass into a damage-density increase; defer if route timing feels crowded."
+    },
+    {
+      "id": "RPI-053-L02-03",
+      "priority": "P0",
+      "target_level": "Level02",
+      "change_type": "encounter",
+      "affected_generated_route_root": "ROUTE_L02_PressureBypass_v0_1_50",
+      "container": "SPAWN",
+      "objects": [
+        {
+          "name": "Enemy - L02 Pressure Bypass Scout A",
+          "adjustment": "keep before first vent as low-pressure movement read"
+        },
+        {
+          "name": "Enemy - L02 Pressure Bypass Ranged A",
+          "adjustment": "angle or offset to engage after first hazard tell and after cover becomes visible"
+        },
+        {
+          "name": "Enemy - L02 Pressure Bypass Exit Guard",
+          "adjustment": "keep near rejoin, after the rejoin marker is visible"
+        }
+      ],
+      "expected_validation_gate": "V0_RANGED_COMBAT_PASS and V0_MIDGAME_FLOW_PASS",
+      "risk": "A ranged enemy plus vent timing can create forced damage if cover is not placed before the first Lancer shot."
+    },
+    {
+      "id": "RPI-053-L02-04",
+      "priority": "P1",
+      "target_level": "Level02",
+      "change_type": "secret",
+      "affected_generated_route_root": "ROUTE_L02_PressureBypass_v0_1_50",
+      "container": "TRG",
+      "objects": [
+        {
+          "name": "TRG_L02_Secret_BoilerNiche",
+          "adjustment": "retain existing secret trigger and make it readable after two pressure tells"
+        },
+        {
+          "name": "L02 Pressure Bypass Secret Bleed Wheel Clue",
+          "placement": "near safe pocket after AUTH_L02_Hazard_PumpVent_R3_A, pointing toward secret service duct"
+        },
+        {
+          "name": "Pickup - L02 Secret Ammo Cache",
+          "adjustment": "keep optional and never required for route completion"
+        },
+        {
+          "name": "Pickup - L02 Secret Boiler Health",
+          "adjustment": "keep optional and near short return path"
+        }
+      ],
+      "expected_validation_gate": "V0_SECRET_PASS",
+      "risk": "Secret clue can be mistaken for critical route guidance if it uses the same color/shape language as rejoin markers."
+    },
+    {
+      "id": "RPI-053-L03-01",
+      "priority": "P0",
+      "target_level": "Level03",
+      "change_type": "label",
+      "affected_generated_route_root": "ROUTE_L03_FoundryGantry_v0_1_50",
+      "container": "VISUALONLY_L03_FoundryGantry",
+      "objects": [
+        {
+          "name": "Label - L03 Foundry Floor",
+          "placement": "before GEO_L03_FoundryGantry_FurnacePit"
+        },
+        {
+          "name": "Label - L03 Upper Gantry",
+          "placement": "before GEO_L03_FoundryGantry_EastServiceRamp"
+        },
+        {
+          "name": "Label - L03 Control Walkway",
+          "placement": "before GEO_L03_FoundryGantry_ControlMezzanine"
+        },
+        {
+          "name": "Label - L03 Crane Return",
+          "placement": "near GEO_L03_FoundryGantry_RejoinStair"
+        },
+        {
+          "name": "Label - L03 High Rejoin",
+          "placement": "near GEO_L03_FoundryGantry_HighRejoinBalcony"
+        }
+      ],
+      "expected_validation_gate": "V0_LEVEL_VALIDATION_PASS and V0_MIDGAME_FLOW_PASS",
+      "risk": "Too many labels in the furnace view can flatten progression into signage clutter."
+    },
+    {
+      "id": "RPI-053-L03-02",
+      "priority": "P0",
+      "target_level": "Level03",
+      "change_type": "hazard",
+      "affected_generated_route_root": "ROUTE_L03_FoundryGantry_v0_1_50",
+      "container": "AUTH",
+      "objects": [
+        {
+          "name": "AUTH_L03_Hazard_FurnaceStrip_West",
+          "adjustment": "add preview strip before damage exposure"
+        },
+        {
+          "name": "AUTH_L03_Hazard_FurnaceStrip_East",
+          "adjustment": "preserve safe lane and keep hot color distinct from route marker color"
+        },
+        {
+          "name": "AUTH_L03_Hazard_SlagVent_R3_A",
+          "adjustment": "add visible safe preview angle before combat pressure"
+        },
+        {
+          "name": "L03 Gantry Breath Pocket Green Gauge",
+          "placement": "after Bellows Node platform and before rejoin stair"
+        }
+      ],
+      "expected_validation_gate": "V0_HAZARD_PASS and V0_MIDGAME_FLOW_PASS",
+      "risk": "Warm furnace materials can hide danger tells if route markers also rely on amber/orange."
+    },
+    {
+      "id": "RPI-053-L03-03",
+      "priority": "P0",
+      "target_level": "Level03",
+      "change_type": "encounter",
+      "affected_generated_route_root": "ROUTE_L03_FoundryGantry_v0_1_50",
+      "container": "SPAWN",
+      "objects": [
+        {
+          "name": "Enemy - L03 Gantry Ranged Teacher",
+          "adjustment": "resolve naming/behavior mismatch; either rename as Scrapper pressure or promote to Lancer deliberately"
+        },
+        {
+          "name": "Enemy - L03 Gantry Detour Scrapper",
+          "adjustment": "keep off narrow catwalk and on wider detour platform"
+        },
+        {
+          "name": "Enemy - L03 Gantry Bellows Node",
+          "adjustment": "keep on control mezzanine/wide platform with cover and breath pocket before next precision movement"
+        }
+      ],
+      "expected_validation_gate": "V0_MIDGAME_FLOW_PASS and V0_BELLOWS_NODE_PASS",
+      "risk": "Promoting the teacher to a Lancer changes combat balance and must be tested beyond route readability."
+    },
+    {
+      "id": "RPI-053-L03-04",
+      "priority": "P1",
+      "target_level": "Level03",
+      "change_type": "secret",
+      "affected_generated_route_root": "ROUTE_L03_FoundryGantry_v0_1_50",
+      "container": "TRG",
+      "objects": [
+        {
+          "name": "TRG_L03_Secret_CrucibleShelf",
+          "adjustment": "retain existing trigger and make it readable from upper gantry after height language is taught"
+        },
+        {
+          "name": "L03 Crucible Shelf Coolant Leak Clue",
+          "placement": "visible from GEO_L03_FoundryGantry_UpperCatwalk but away from mandatory rejoin label"
+        },
+        {
+          "name": "Pickup - L03 Secret Crucible Cache",
+          "adjustment": "keep optional and out of required rejoin path"
+        }
+      ],
+      "expected_validation_gate": "V0_SECRET_PASS",
+      "risk": "A high secret can appear to be mandatory progression if the rejoin stair label is weak."
+    },
+    {
+      "id": "RPI-053-L04-01",
+      "priority": "P0",
+      "target_level": "Level04",
+      "change_type": "label",
+      "affected_generated_route_root": "ROUTE_L04_ObservatoryPumpworks_v0_1_50",
+      "container": "VISUALONLY_L04_ObservatoryPumpworks",
+      "objects": [
+        {
+          "name": "Label - L04 Intake Control",
+          "placement": "near GEO_L04_Pumpworks_EntryConduit"
+        },
+        {
+          "name": "Label - L04 Pump Primer",
+          "placement": "near AUTH_L04_Item_PressureKey and AUTH_L04_Door_KeyedMaintenance_A"
+        },
+        {
+          "name": "Label - L04 Pressure Return",
+          "placement": "near AUTH_L04_PumpReroute_A"
+        },
+        {
+          "name": "Label - L04 Observatory Feed",
+          "placement": "near GEO_L04_Pumpworks_ObservatoryOverlook"
+        },
+        {
+          "name": "Label - L04 Pumpworks Rejoin",
+          "placement": "near GEO_L04_Pumpworks_RejoinLockroom"
+        }
+      ],
+      "expected_validation_gate": "V0_LEVEL_VALIDATION_PASS and V0_CLIMAX_FLOW_PASS",
+      "risk": "Observatory flavor labels can be mistaken for pump objectives unless objective labels use consistent wording."
+    },
+    {
+      "id": "RPI-053-L04-02",
+      "priority": "P0",
+      "target_level": "Level04",
+      "change_type": "hazard",
+      "affected_generated_route_root": "ROUTE_L04_ObservatoryPumpworks_v0_1_50",
+      "container": "AUTH",
+      "objects": [
+        {
+          "name": "AUTH_L04_Hazard_Overpressure_R3",
+          "adjustment": "add pump-state reveal marker and safe preview before damage exposure"
+        },
+        {
+          "name": "AUTH_L04_Hazard_PressureJet_R4_North",
+          "adjustment": "keep readable from arena entry and avoid immediate damage after pump-state cue"
+        },
+        {
+          "name": "AUTH_L04_Hazard_PressureJet_R4_South",
+          "adjustment": "pair with visible safe pocket opposite north jet"
+        },
+        {
+          "name": "AUTH_L04_Hazard_GearSweep_R4_Deck",
+          "adjustment": "telegraph with floor strip and warning gauge before Bulwark pressure starts"
+        }
+      ],
+      "expected_validation_gate": "V0_HAZARD_PASS and V0_CLIMAX_FLOW_PASS",
+      "risk": "Pressure jets, gear sweep, and Bulwark can overwhelm the arena if activated before route-open comprehension."
+    },
+    {
+      "id": "RPI-053-L04-03",
+      "priority": "P0",
+      "target_level": "Level04",
+      "change_type": "encounter",
+      "affected_generated_route_root": "ROUTE_L04_ObservatoryPumpworks_v0_1_50",
+      "container": "SPAWN",
+      "objects": [
+        {
+          "name": "Enemy - L04 Pumpworks Scout",
+          "adjustment": "keep early as a low-pressure orientation check"
+        },
+        {
+          "name": "Enemy - L04 Pumpworks Lancer",
+          "adjustment": "ensure engagement starts after Pump Primer read and visible cover"
+        },
+        {
+          "name": "Enemy - L04 Pumpworks Arena Bulwark",
+          "adjustment": "keep in vertical pump arena after Observatory Feed label and arena warning are visible"
+        }
+      ],
+      "expected_validation_gate": "V0_CLIMAX_FLOW_PASS and V0_BULWARK_COMBAT_PASS",
+      "risk": "Bulwark combat smoke verifies combat behavior, but not whether the player understood pump-state routing before the fight."
+    },
+    {
+      "id": "RPI-053-L04-04",
+      "priority": "P1",
+      "target_level": "Level04",
+      "change_type": "secret",
+      "affected_generated_route_root": "ROUTE_L04_ObservatoryPumpworks_v0_1_50",
+      "container": "TRG",
+      "objects": [
+        {
+          "name": "TRG_L04_Secret_ReturnDuct",
+          "adjustment": "retain existing trigger and signal it only after Pressure Return or Observatory Feed"
+        },
+        {
+          "name": "L04 Observatory Return Duct Gauge Clue",
+          "placement": "visible from observatory overlook, not from initial entry"
+        },
+        {
+          "name": "Pickup - L04 Secret Return Ammo",
+          "adjustment": "keep optional and return before next mandatory encounter/rejoin"
+        }
+      ],
+      "expected_validation_gate": "V0_SECRET_PASS",
+      "risk": "If the clue is visible before pump-state language is established, the secret will feel arbitrary rather than mechanical."
+    }
+  ],
+  "recommended_main_lane_code_touchpoints": [
+    {
+      "file": "Assets/_Project/Editor/V0SceneBuilder.cs",
+      "intent": "Add route-polish helper calls inside existing Level02-Level04 route expansion builders; keep new objects under existing route roots."
+    },
+    {
+      "file": "Assets/_Project/Editor/V0LevelValidator.cs",
+      "intent": "Add ValidateV0153RoutePolish(sceneName) with required names and simple spatial checks."
+    },
+    {
+      "file": "Assets/_Project/Scripts/Utility/RuntimeMidgameFlowTest.cs",
+      "intent": "Extend Level02 and Level03 route-order checks for labels, safe pockets, and breath pockets."
+    },
+    {
+      "file": "Assets/_Project/Scripts/Utility/RuntimeClimaxFlowTest.cs",
+      "intent": "Extend Level04 pump-chain route-order checks."
+    },
+    {
+      "file": "Assets/_Project/Editor/V0RouteAudit.cs",
+      "intent": "Optionally count route-polish labels/secret signals in Level02-Level04 as deterministic route audit notes."
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "UNC-053-01",
+      "topic": "Level04 pump state",
+      "note": "The current route has pump-themed authority objects, but this packet does not confirm a real interactable pump objective chain. Treat L04 as readability/pacing polish unless main lane promotes those objects to gameplay."
+    },
+    {
+      "id": "UNC-053-02",
+      "topic": "Level03 ranged teacher behavior",
+      "note": "Enemy - L03 Gantry Ranged Teacher is currently created through CreateEnemy, not CreateLancerEnemy. Main lane must resolve naming/behavior deliberately."
+    },
+    {
+      "id": "UNC-053-03",
+      "topic": "New secret totals",
+      "note": "This packet polishes route-expansion secrets already present in the v0.1.51 root modules. It does not require increasing campaign secret totals."
+    }
+  ]
+}

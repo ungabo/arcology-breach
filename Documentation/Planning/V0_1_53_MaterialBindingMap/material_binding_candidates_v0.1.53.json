@@ -1,0 +1,279 @@
+{
+  "schema": "brassworks.material_binding_candidates.v1",
+  "version": "0.1.53",
+  "source_package": "AssetPacks/BrassworksBreach.SurfaceMaterialDetailSet08",
+  "created_for": "main lane v0.1.53 implementation",
+  "notes": [
+    "Docs-only packet. No images generated and no Unity package import performed.",
+    "P0 entries target existing material assets or current generator roles in V0SceneBuilder.",
+    "P1 entries may need generated material splits or a transparent/decal shader path before promotion."
+  ],
+  "mappings": [
+    {
+      "surface_role": "primary_corridor_floor_slabs",
+      "target_current_material_or_generator_role": "M_Greybox_OilStoneFloor / floorMaterial / CreateGreyboxLevel and Level02-Level05 blockout floors",
+      "set08_material_id": "SMD08_MAT_WetBlackStoneSlab",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_WetBlackStoneSlab_ALB",
+        "normal": "SMD08_MAT_WetBlackStoneSlab_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_WetBlackStoneSlab_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_WetBlackStoneSlab_GRM"
+      },
+      "priority": "P0",
+      "rationale": "Broad floors are one of the largest visible surfaces; wet black stone gives immediate steampunk dungeon readability without introducing gameplay changes.",
+      "validation_gate": "Material exists, base/normal/RMA textures are Set08 WetBlackStoneSlab, floors remain navigable and not uniformly black in Level01-Level05."
+    },
+    {
+      "surface_role": "oil_dark_floor_patches_and_route_grime",
+      "target_current_material_or_generator_role": "M_Steam_OilDarkStone / oilStoneMaterial / floorPatchMaterial and route dressing grimeMaterial",
+      "set08_material_id": "SMD08_MAT_BlackOilWetFloor",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_BlackOilWetFloor_ALB",
+        "normal": "SMD08_MAT_BlackOilWetFloor_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_BlackOilWetFloor_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_BlackOilWetFloor_GRM"
+      },
+      "priority": "P0",
+      "rationale": "Existing oil patch roles can become convincing wet industrial grime while staying patch-scoped.",
+      "validation_gate": "Patches are visibly oily but do not obscure route direction, pickups, hazards, or secret cues."
+    },
+    {
+      "surface_role": "primary_corridor_wall_panels",
+      "target_current_material_or_generator_role": "M_Greybox_SootBrickWall / wallMaterial / generated wall cubes",
+      "set08_material_id": "SMD08_MAT_ChippedBlackIronWallPanel",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_ChippedBlackIronWallPanel_ALB",
+        "normal": "SMD08_MAT_ChippedBlackIronWallPanel_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_ChippedBlackIronWallPanel_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_ChippedBlackIronWallPanel_GRM"
+      },
+      "priority": "P0",
+      "rationale": "This is the strongest Set08 anchor for black riveted industrial corridor walls and directly improves the greybox wall read.",
+      "validation_gate": "Walls are not flat grey, no magenta shader failure, and corridor silhouettes remain readable at player speed."
+    },
+    {
+      "surface_role": "iron_ribs_frames_grates_backplates",
+      "target_current_material_or_generator_role": "M_Steam_RivetedIron / rivetedIronMaterial and ironMaterial / pressure frames, lift grates, route dressing, weapon iron",
+      "set08_material_id": "SMD08_MAT_RivetedBlackIronTrim",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_RivetedBlackIronTrim_ALB",
+        "normal": "SMD08_MAT_RivetedBlackIronTrim_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_RivetedBlackIronTrim_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_RivetedBlackIronTrim_GRM"
+      },
+      "priority": "P0",
+      "rationale": "Shared iron trim appears throughout doors, lifts, route props, and weapon fixtures; this gives a broad, coherent industrial edge.",
+      "validation_gate": "All existing iron surfaces retain shaders/textures and no gameplay-only object gains new authority."
+    },
+    {
+      "surface_role": "pressure_gate_and_service_door_slabs",
+      "target_current_material_or_generator_role": "M_Greybox_PressureGate / doorMaterial / CreateLockedDoor and lift shell material",
+      "set08_material_id": "SMD08_MAT_ChippedBlackIronServicePlate",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_ChippedBlackIronServicePlate_ALB",
+        "normal": "SMD08_MAT_ChippedBlackIronServicePlate_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_ChippedBlackIronServicePlate_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_ChippedBlackIronServicePlate_GRM"
+      },
+      "priority": "P0",
+      "rationale": "Service plate detail makes the pressure gate and lift doors read as heavy engineered machinery.",
+      "validation_gate": "Pressure gate remains interactable/openable, service lifts remain triggers, and door material shows Set08 service plate maps."
+    },
+    {
+      "surface_role": "brass_trim_door_frames_weapon_bands",
+      "target_current_material_or_generator_role": "M_Greybox_BrassTrim / gunTrimMaterial / pressure pistol receiver bands, gate gear, brass rails",
+      "set08_material_id": "SMD08_MAT_RivetedBrassTrim",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_RivetedBrassTrim_ALB",
+        "normal": "SMD08_MAT_RivetedBrassTrim_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_RivetedBrassTrim_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_RivetedBrassTrim_GRM"
+      },
+      "priority": "P0",
+      "rationale": "This is the most visible pressure-pistol and door-frame brass role and should replace clean yellow brass with worn riveted trim.",
+      "validation_gate": "Pressure pistol viewmodel keeps readable silhouette and gate trim/gear stays warm brass rather than green or black."
+    },
+    {
+      "surface_role": "pipes_guide_rails_route_strips",
+      "target_current_material_or_generator_role": "M_Greybox_BrassGuide / brassGuideMaterial / guide strips, pipe bundles, route rails",
+      "set08_material_id": "SMD08_MAT_WornBrassPipe",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_WornBrassPipe_ALB",
+        "normal": "SMD08_MAT_WornBrassPipe_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_WornBrassPipe_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_WornBrassPipe_GRM"
+      },
+      "priority": "P0",
+      "rationale": "Pipe and guide materials are everywhere; tarnished brass pipe detail should move the environment closer to the north-star corridor.",
+      "validation_gate": "Route guidance remains visible and pipes do not become visually indistinguishable from wall panels."
+    },
+    {
+      "surface_role": "brass_valve_bodies_hazard_fittings",
+      "target_current_material_or_generator_role": "M_Steam_BrassHazard / brassHazardMaterial / valves, hazard fittings, call-box brass",
+      "set08_material_id": "SMD08_MAT_WornBrassValveBody",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_WornBrassValveBody_ALB",
+        "normal": "SMD08_MAT_WornBrassValveBody_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_WornBrassValveBody_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_WornBrassValveBody_GRM"
+      },
+      "priority": "P0",
+      "rationale": "Cast brass with patina suits valves and pressure fittings better than clean guide brass.",
+      "validation_gate": "Valve wheels, call boxes, and hazard fittings are readable at normal gameplay camera distance."
+    },
+    {
+      "surface_role": "red_pressure_warning_language",
+      "target_current_material_or_generator_role": "M_Greybox_PressureWarning / pressureWarningMaterial / hazard strips, red pipes, warning needles",
+      "set08_material_id": "SMD08_MAT_RedPressureEnamel",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_RedPressureEnamel_ALB",
+        "normal": "SMD08_MAT_RedPressureEnamel_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_RedPressureEnamel_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_RedPressureEnamel_GRM"
+      },
+      "priority": "P0",
+      "rationale": "Red enamel preserves the pressure/hazard affordance language while making it worn and physical.",
+      "validation_gate": "Hazard strips and red pressure lines remain the highest contrast danger accents and are not applied to broad wall/floor surfaces."
+    },
+    {
+      "surface_role": "pressure_gauge_faces",
+      "target_current_material_or_generator_role": "M_Steam_CreamGaugeFace / gaugeFaceMaterial / pistol, gate, valve, lift, route gauges",
+      "set08_material_id": "SMD08_MAT_GaugeFaceEnamel",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_GaugeFaceEnamel_ALB",
+        "normal": "SMD08_MAT_GaugeFaceEnamel_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_GaugeFaceEnamel_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_GaugeFaceEnamel_GRM"
+      },
+      "priority": "P0",
+      "rationale": "Gauge faces are recurring focal points and must look readable, enamelled, and pressure-themed.",
+      "validation_gate": "Pistol and world gauges keep readable cream faces, visible red needles, and no texture loss."
+    },
+    {
+      "surface_role": "amber_glass_status_windows_and_gauge_glass",
+      "target_current_material_or_generator_role": "M_Steam_FrostedGlassVial / glassVialMaterial / health vials, pistol gauge glass, pressure gate gauge glass",
+      "set08_material_id": "SMD08_MAT_AmberGaslightGlass",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_AmberGaslightGlass_ALB",
+        "normal": "SMD08_MAT_AmberGaslightGlass_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_AmberGaslightGlass_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_AmberGaslightGlass_GRM"
+      },
+      "priority": "P0",
+      "rationale": "Amber glass is a strong atmosphere cue and already matches existing warm lamp/status language.",
+      "validation_gate": "Glass material does not render magenta or disappear; if transparency is unstable, fallback to opaque amber with the Set08 base map."
+    },
+    {
+      "surface_role": "pressure_pistol_copper_coil_detail",
+      "target_current_material_or_generator_role": "CreatePressureCoilPrototype coil surfaces currently sharing M_Greybox_BrassTrim / proposed split M_Steam_OxidizedCopperCoil",
+      "set08_material_id": "SMD08_MAT_OxidizedCopperCoil",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_OxidizedCopperCoil_ALB",
+        "normal": "SMD08_MAT_OxidizedCopperCoil_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_OxidizedCopperCoil_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_OxidizedCopperCoil_GRM"
+      },
+      "priority": "P1",
+      "rationale": "A separate oxidized copper coil is the most direct way to improve weapon readability without changing weapon stats.",
+      "validation_gate": "Only promote when coil surfaces can be split or the shared brass change is acceptable across all M_Greybox_BrassTrim users."
+    },
+    {
+      "surface_role": "old_copper_runoff_and_leaky_pipe_backs",
+      "target_current_material_or_generator_role": "future split from M_Greybox_BrassGuide or route dressing brass",
+      "set08_material_id": "SMD08_MAT_OxidizedCopperRunoff",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_OxidizedCopperRunoff_ALB",
+        "normal": "SMD08_MAT_OxidizedCopperRunoff_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_OxidizedCopperRunoff_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_OxidizedCopperRunoff_GRM"
+      },
+      "priority": "P1",
+      "rationale": "Verdigris runoff is useful for old pipes but can become visually loud if applied to all guide brass.",
+      "validation_gate": "Use only on specific leaky pipe backs or drainage-adjacent surfaces, not primary route strips."
+    },
+    {
+      "surface_role": "furnace_doors_hot_boiler_plates_muzzle_shields",
+      "target_current_material_or_generator_role": "future furnace-specific split from M_Steam_RivetedIron / foundry and muzzle hot-metal surfaces",
+      "set08_material_id": "SMD08_MAT_ScorchedFurnaceMetal",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_ScorchedFurnaceMetal_ALB",
+        "normal": "SMD08_MAT_ScorchedFurnaceMetal_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_ScorchedFurnaceMetal_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_ScorchedFurnaceMetal_GRM"
+      },
+      "priority": "P1",
+      "rationale": "Scorched metal can strongly identify Level04 and weapon muzzle hardware, but it should not replace all iron.",
+      "validation_gate": "Requires a furnace/muzzle-specific role; broad M_Steam_RivetedIron replacement with scorched metal fails QA."
+    },
+    {
+      "surface_role": "heat_tinted_boiler_brackets",
+      "target_current_material_or_generator_role": "future hot-bracket split from M_Steam_RivetedIron",
+      "set08_material_id": "SMD08_MAT_HeatTintedBoilerIron",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_HeatTintedBoilerIron_ALB",
+        "normal": "SMD08_MAT_HeatTintedBoilerIron_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_HeatTintedBoilerIron_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_HeatTintedBoilerIron_GRM"
+      },
+      "priority": "P1",
+      "rationale": "A quieter heat metal helps bridge normal iron and furnace metal without over-coloring all supports.",
+      "validation_gate": "Promote only on hot pipe brackets, boiler shells, or weapon sleeves with a dedicated role."
+    },
+    {
+      "surface_role": "smoked_gauge_cover_glass",
+      "target_current_material_or_generator_role": "future split from M_Steam_FrostedGlassVial for gauge covers only",
+      "set08_material_id": "SMD08_MAT_SmokedAmberGaugeGlass",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_SmokedAmberGaugeGlass_ALB",
+        "normal": "SMD08_MAT_SmokedAmberGaugeGlass_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_SmokedAmberGaugeGlass_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_SmokedAmberGaugeGlass_GRM"
+      },
+      "priority": "P1",
+      "rationale": "Smoked glass can improve gauge depth, but transparency has to be stable first.",
+      "validation_gate": "Transparent or opaque gauge-cover choice is tested on pistol, gate, valve, and lift gauges."
+    },
+    {
+      "surface_role": "soot_deposit_overlays_near_vents_and_furnace_mouths",
+      "target_current_material_or_generator_role": "future decal or transparent overlay role; do not bind to existing broad opaque material",
+      "set08_material_id": "SMD08_MAT_SootDepositOverlay",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_SootDepositOverlay_ALB",
+        "normal": "SMD08_MAT_SootDepositOverlay_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_SootDepositOverlay_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_SootDepositOverlay_GRM"
+      },
+      "priority": "P1",
+      "rationale": "Soot deposits should become localized grime, not a replacement wall material.",
+      "validation_gate": "Requires alpha/decal workflow; opaque broad binding fails QA."
+    },
+    {
+      "surface_role": "vertical_grime_streaks_under_pipes_and_corners",
+      "target_current_material_or_generator_role": "future decal or transparent overlay role; do not bind to existing broad opaque material",
+      "set08_material_id": "SMD08_MAT_VerticalGrimeStreakOverlay",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_VerticalGrimeStreakOverlay_ALB",
+        "normal": "SMD08_MAT_VerticalGrimeStreakOverlay_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_VerticalGrimeStreakOverlay_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_VerticalGrimeStreakOverlay_GRM"
+      },
+      "priority": "P1",
+      "rationale": "Vertical grime is valuable for corridor realism but must be localized and transparent/decal-driven.",
+      "validation_gate": "Requires alpha/decal workflow; no broad opaque replacement."
+    },
+    {
+      "surface_role": "rubber_gaskets_pressure_seals",
+      "target_current_material_or_generator_role": "future gasket split from valve, lift, or route dressing seal surfaces",
+      "set08_material_id": "SMD08_MAT_CrackedBlackRubberGasket",
+      "texture_ids": {
+        "albedo": "SMD08_MAT_CrackedBlackRubberGasket_ALB",
+        "normal": "SMD08_MAT_CrackedBlackRubberGasket_NRM",
+        "roughness_metallic_intent": "SMD08_MAT_CrackedBlackRubberGasket_RMA",
+        "grime_edgewear_mask": "SMD08_MAT_CrackedBlackRubberGasket_GRM"
+      },
+      "priority": "P1",
+      "rationale": "This is placeholder quality, but still useful for dark gasket/seal surfaces if kept out of focal areas.",
+      "validation_gate": "Use only on small gasket/seal surfaces and do not let it become a hero material."
+    }
+  ]
+}
