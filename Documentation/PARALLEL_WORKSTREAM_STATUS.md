@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-23 23:14 -04:00`
+Last updated: `2026-05-23 23:26 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -41,6 +41,10 @@ Current verified local build:
 | Lorentz | `019e57e8-101a-77a2-8342-bf29fdfd7dff` | Main build continuation for pressure-bolt impact feedback | gameplay scripts, generated scenes, build output | `2026-05-23 22:57 -04:00` | completed and ready for main integration |
 | Darwin | `019e57fa-644a-7f81-8f5e-2a92b08756f6` | Pressure-pistol-only proof render/model-material attempt | `Documentation/AssetProduction/HighFidelityLookdevRecovery/PressurePistolProof/`, selected `Documentation/ConceptRenders/*Recovery03_pressure_pistol_proof*.jpg`, render index/log | `2026-05-23 23:14 -04:00` | running |
 | Anscombe | `019e57fa-6760-7a41-8050-8154d0e5f2eb` | `v0.0.93` Bulwark attack readability pass | Bulwark scripts/VFX/audio/tests/generated scenes and focused v0.0.93 docs | `2026-05-23 23:14 -04:00` | running |
+| Archimedes | `019e5801-0c16-7502-be08-1dcdaadac09d` | V1 level polish production audit/backlog | `Documentation/ProductionManagement/LEVEL_POLISH_AUDIT_V1.md`, `Documentation/ProductionManagement/LEVEL_POLISH_TASK_BACKLOG_V1.md` | `2026-05-23 23:26 -04:00` | running |
+| Locke | `019e5801-0e0c-7ab3-adca-12510a43e115` | V1 final material staging package | `Assets/_Project/ArtStaging/FinalMaterialsV1/`, `Documentation/AssetProduction/FinalMaterialsV1/` | `2026-05-23 23:26 -04:00` | running |
+| Lagrange | `019e5801-0e76-7f92-bff6-5aa46c5fb8b2` | V1 HUD/UI art staging package | `Assets/_Project/ArtStaging/UIHudV1/`, `Documentation/AssetProduction/UIHudV1/` | `2026-05-23 23:26 -04:00` | running |
+| Parfit | `019e5801-0ee0-71b3-bfba-3b8df1d41e70` | V1 audio production/staging lane | `Assets/_Project/ArtStaging/AudioV1/`, `Documentation/AssetProduction/AudioV1/` | `2026-05-23 23:26 -04:00` | running |
 
 ## Completed Side-Agent Outputs
 
@@ -71,6 +75,10 @@ Current verified local build:
 | Dalton | `2026-05-23 23:04 -04:00` | `Documentation/AssetProduction/HighFidelityLookdevRecovery/`, `Documentation/ConceptRenders/` | Completed the current recovery-planning pass. Next useful side-agent task is a real pressure-pistol proof render/model-material pass, still view-only and outside the Unity build. |
 | Darwin | `2026-05-23 23:14 -04:00` | `Documentation/AssetProduction/HighFidelityLookdevRecovery/PressurePistolProof/`, selected `Documentation/ConceptRenders/*Recovery03_pressure_pistol_proof*.jpg` | Running the real pressure-pistol-only proof attempt against Dalton's acceptance gates. |
 | Anscombe | `2026-05-23 23:14 -04:00` | Bulwark gameplay readability files and `v0.0.93` build output | Running the Bulwark pre-attack tell implementation and full V0 matrix. |
+| Archimedes | `2026-05-23 23:26 -04:00` | `Documentation/ProductionManagement/` | Running level-by-level V1 polish audit and task backlog generation. |
+| Locke | `2026-05-23 23:26 -04:00` | `Assets/_Project/ArtStaging/FinalMaterialsV1/`, `Documentation/AssetProduction/FinalMaterialsV1/` | Running final-direction material staging for later review/import. |
+| Lagrange | `2026-05-23 23:26 -04:00` | `Assets/_Project/ArtStaging/UIHudV1/`, `Documentation/AssetProduction/UIHudV1/` | Running V1 HUD/UI asset kit staging. |
+| Parfit | `2026-05-23 23:26 -04:00` | `Assets/_Project/ArtStaging/AudioV1/`, `Documentation/AssetProduction/AudioV1/` | Running V1 audio staging/specification. |
 
 ## Integration Rules
 
