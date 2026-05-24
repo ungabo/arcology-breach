@@ -1351,6 +1351,49 @@ public static class V0LevelValidator
         RequireRendererMaterial(prototype.rivetRenderer, sceneName + " pipe canopy rivet", "Brass");
     }
 
+    private static void ValidateRivetBandPrototype(string sceneName, string objectName, string expectedPlacementRole)
+    {
+        GameObject root = RequireNamed(objectName, sceneName + " rivet band prototype root");
+        RivetBandPrototype prototype = root.GetComponent<RivetBandPrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " rivet band prototype is missing its marker component (" + objectName + ").");
+        }
+
+        if (prototype.promotionVersion != "v0.1.23" || prototype.placementRole != expectedPlacementRole || !prototype.HasRequiredParts)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " rivet band metadata or required parts are incomplete (" + objectName + ").");
+        }
+
+        if (prototype.railRoot.childCount < 2 || prototype.endCapRoot.childCount < 2 || prototype.rivetRoot.childCount < 8 || prototype.pressurePlateRoot.childCount < 2)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " rivet band does not have the required rail/cap/rivet/plate detail counts (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<Collider>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " rivet band must remain non-blocking route dressing with no colliders (" + objectName + ").");
+        }
+
+        RequireNamed(objectName + " Rail Root", sceneName + " rivet band rail root");
+        RequireNamed(objectName + " End Cap Root", sceneName + " rivet band end cap root");
+        RequireNamed(objectName + " Rivet Root", sceneName + " rivet band rivet root");
+        RequireNamed(objectName + " Pressure Plate Root", sceneName + " rivet band pressure plate root");
+        RequireNamed(objectName + " Blackened Iron Backing Rail", sceneName + " rivet band backing rail");
+        RequireNamed(objectName + " Aged Brass Face Rib", sceneName + " rivet band brass face rib");
+        RequireNamed(objectName + " Aged Brass End Cap Left", sceneName + " rivet band left end cap");
+        RequireNamed(objectName + " Aged Brass End Cap Right", sceneName + " rivet band right end cap");
+        RequireNamed(objectName + " Brass Rivet 00", sceneName + " rivet band visible rivet");
+        RequireNamed(objectName + " Small Pressure Tag Plate", sceneName + " rivet band pressure tag");
+        RequireNamed(objectName + " Pressure Tag Scribe Mark", sceneName + " rivet band pressure tag scribe mark");
+
+        RequireRendererMaterial(prototype.backingRailRenderer, sceneName + " rivet band backing rail", "Iron");
+        RequireRendererMaterial(prototype.faceRailRenderer, sceneName + " rivet band face rib", "Brass");
+        RequireRendererMaterial(prototype.endCapRenderer, sceneName + " rivet band end cap", "Brass");
+        RequireRendererMaterial(prototype.rivetRenderer, sceneName + " rivet band rivet", "Brass");
+        RequireRendererMaterial(prototype.pressurePlateRenderer, sceneName + " rivet band pressure tag", "Brass");
+    }
+
     private static void RequireRendererMaterial(Renderer renderer, string label, string expectedNameFragment)
     {
         if (renderer == null || renderer.sharedMaterial == null || renderer.sharedMaterial.shader == null)
@@ -1376,6 +1419,7 @@ public static class V0LevelValidator
             ValidatePipeCanopyPrototype(sceneName, "North Star Intake Pipe Canopy", "intake_route_pipe_canopy");
             RequireNamed("North Star Intake Gaslight Left", sceneName + " north-star intake gaslight");
             RequireNamed("North Star Gate Rivet Band", sceneName + " north-star gate rivet band");
+            ValidateRivetBandPrototype(sceneName, "North Star Gate Rivet Band", "intake_gate_rivet_band");
             RequireNamed("Secret - Intake Pressure Cache", sceneName + " secret pressure cache");
             RequireNamed("Secret Pressure Cache Brass Floor Plate", sceneName + " secret pressure cache floor plate");
             RequireNamed("Level01 Flow Polish V015", sceneName + " flow polish prop root");
@@ -1401,6 +1445,7 @@ public static class V0LevelValidator
             RequireNamed("North Star Pipeworks Gaslight", sceneName + " north-star pipeworks gaslight");
             ValidateCagedGaslightPrototype(sceneName, "North Star Pipeworks Gaslight", "pipeworks_route_gaslight");
             RequireNamed("North Star Pipeworks Wall Rivet Band", sceneName + " north-star pipeworks rivet band");
+            ValidateRivetBandPrototype(sceneName, "North Star Pipeworks Wall Rivet Band", "pipeworks_wall_rivet_band");
             ValidateWallPipeGaugeClusterPrototype(sceneName, "Pipeworks Prototype Wall Pipe Gauge Cluster", "pipeworks_route_wall");
             ValidateBoilerControlConsolePrototype(sceneName, "Pipeworks Prototype Boiler Control Console", "pipeworks_route_console");
             ValidateRivetedPressureDoorFramePrototype(sceneName, "Pipeworks Prototype Riveted Pressure Door Frame", "pipeworks_route_pressure_frame");
@@ -1424,6 +1469,7 @@ public static class V0LevelValidator
             RequireNamed("North Star Boilerheart Lamp Cage", sceneName + " north-star boilerheart lamp cage");
             ValidateCagedGaslightPrototype(sceneName, "North Star Boilerheart Lamp Cage", "boilerheart_route_gaslight");
             RequireNamed("North Star Boilerheart Core Rivet Band", sceneName + " north-star boilerheart rivet band");
+            ValidateRivetBandPrototype(sceneName, "North Star Boilerheart Core Rivet Band", "boilerheart_core_rivet_band");
             ValidateWallPipeGaugeClusterPrototype(sceneName, "Boilerheart Prototype Wall Pipe Gauge Cluster", "boilerheart_route_wall");
             ValidateBoilerControlConsolePrototype(sceneName, "Boilerheart Prototype Boiler Control Console", "boilerheart_route_console");
             ValidateRivetedPressureDoorFramePrototype(sceneName, "Boilerheart Prototype Riveted Pressure Door Frame", "boilerheart_route_pressure_frame");
