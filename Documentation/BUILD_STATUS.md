@@ -1509,7 +1509,9 @@ Current target:
 - `2026-05-24 11:52 -04:00`: `v0.1.32` route audit and full build matrix passed after promoting the reusable valve wheel console component into Pipeworks Annex and Boilerheart Core with no-collider/no-gameplay-authority validation, Windows package, QA packet, issue-triage packet, and candidate-readiness evidence.
 - `2026-05-24 12:46 -04:00`: `v0.1.33` route audit and full build matrix passed after promoting 10 threshold-and-route dressing families across all five levels with no-collider/no-gameplay-authority validation, Windows package, QA packet, issue-triage packet, and candidate-readiness evidence.
 
-Future builds should increment as `v0.1.34`, `v0.1.35`, etc. when ambitious milestone batches are ready for local playtesting.
+- `2026-05-24 17:37 -04:00`: `v0.1.47` route audit and full build matrix passed after importing Room Setpiece Kit 04 and Weapon Mechanisms Set 04 as local visual-only sidecar packages. `SIDECAR_QUARANTINE_IMPORT_PASS packages=17 assets=150` passed, all generated scenes rebuilt, Windows executable and package ZIP were produced, and QA packet, issue triage, release notes, and candidate readiness evidence were generated. Executable: `Builds/Windows/v0.1.47/BrassworksBreach_v0.1.47.exe`. Package ZIP SHA-256: `547B8742B0122FF3C2065A1FC817695D543AB025E2538863134076947343A663`.
+
+Future builds should increment as `v0.1.48`, `v0.1.49`, etc. when ambitious milestone batches are ready for local playtesting.
 
 ## Known Limitations
 

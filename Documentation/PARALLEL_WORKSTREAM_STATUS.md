@@ -187,6 +187,17 @@ Current speed adjustment:
 | Anscombe-Env | `2026-05-24 01:45 -04:00` | `Documentation/AssetProduction/EnvironmentLookdev/*Recovery03*`, `Documentation/ConceptRenders/*ENV_Recovery03*`, `Documentation/AssetProduction/EnvironmentLookdev/RejectedRecovery03CompileBlocker/` | Rejected and closed. Renderer compiled and rendered, but JPGs failed the no-magenta shader gate; renderer was quarantined outside `Assets/`, and a final compile-clean Unity check succeeded. |
 | Banach | `2026-05-24 03:44 -04:00` | `Assets/_Project/Editor/PressurePistolLookDevRenderer.cs`, `Documentation/AssetProduction/PressurePistolLookDev/`, `Documentation/ConceptRenders/PressurePistolComponents/` | Completed a Unity-only component-first pressure-pistol lookdev pass for the copper/brass coil pack and pressure gauge/dial. The renderer produced two `1600x1000` PNGs, a `2200x1200` contact sheet, metrics JSON, and a batch log with nonblank/no-magenta/material-separation checks passing. PM review: useful component breakdown and proof infrastructure; still not final north-star realism, so next pass should reduce over-bright emissive flattening, improve gauge typography/camera, and add boiler chamber/barrel/grip component proofs before any full-gun reassembly. |
 
+## 2026-05-24 17:37 -04:00 Parallel Lane Update
+
+| Agent | Status | Output Scope | PM Action |
+| --- | --- | --- | --- |
+| Hooke | completed and closed | `Documentation/Planning/V0_1_48_GameplayPromotionPlan/`, `Documentation/QA/V0_1_48_GameplayPromotionPlan/` | Accepted as docs-only guidance for promotion order, risk/authority boundaries, milestone batching, and QA gates. |
+| Franklin | active | `AssetPacks/BrassworksBreach.SurfaceTextureSet05/`, `Documentation/AssetProduction/V0_1_47_SurfaceTextureSet05/`, `Documentation/ConceptRenders/V0_1_47_SurfaceTextureSet05/` | Do not stage until final validation is reported; review for package counts, previews, and import-readiness instructions first. |
+| Kepler | active | `AssetPacks/BrassworksBreach.ObjectiveInteractablesSet05/`, `Documentation/AssetProduction/V0_1_49_ObjectiveInteractablesSet05/`, `Documentation/ConceptRenders/V0_1_49_ObjectiveInteractablesSet05/`, readiness docs | Building a bundle-sized objective/interactable visual-only package for later acceptance. |
+| Hume | active | `AssetPacks/BrassworksBreach.MechanicalEnemyEliteSet05/`, `Documentation/AssetProduction/V0_1_49_MechanicalEnemyEliteSet05/`, `Documentation/ConceptRenders/V0_1_49_MechanicalEnemyEliteSet05/`, readiness docs | Building a bundle-sized elite mechanical enemy visual-only package for later acceptance. |
+
+Current PM rule: keep incomplete sidecar package roots unstaged until their agent reports final validation, then review package manifests, previews, validator output, and import-readiness docs before accepting them into a commit.
+
 ## Integration Rules
 
 - Side agents do not edit Unity scenes, generated scene-builder code, existing roadmap/status docs, or shared gameplay scripts.

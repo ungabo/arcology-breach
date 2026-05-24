@@ -2393,12 +2393,12 @@ public static class V0LevelValidator
         switch (sceneName)
         {
             case "Level01":
-                return 42;
+                return 52;
             case "Level02":
             case "Level03":
             case "Level04":
             case "Level05":
-                return 32;
+                return 42;
             default:
                 return 1;
         }
@@ -2409,15 +2409,15 @@ public static class V0LevelValidator
         switch (sceneName)
         {
             case "Level01":
-                return new[] { "PressurePistolCore", "SCK2NorthStarCorridor", "EE02PressureSpindleHarpoon", "WVM03PressurePistolFull", "WPS02PressurePistolFrame", "SCLDGaugePanelTriple", "OPS02KeyedLockTriGearVault", "BBSVFX02SteamVentSoftColumn", "SCLAPressureLampWallCagedA", "EAP01ScrapperAshcanIdleBrace" };
+                return new[] { "PressurePistolCore", "SCK2NorthStarCorridor", "EE02PressureSpindleHarpoon", "WVM03PressurePistolFull", "WPS02PressurePistolFrame", "SCLDGaugePanelTriple", "OPS02KeyedLockTriGearVault", "BBSVFX02SteamVentSoftColumn", "SCLAPressureLampWallCagedA", "EAP01ScrapperAshcanIdleBrace", "RSK04BoilerChamberWallBayA", "WMS04PressurePistolCoilTripleAmberA", "WMS04GaugeClusterTripleIvoryA" };
             case "Level02":
-                return new[] { "CorridorStraight", "SCK2PressureGaugeColumn", "EE02AshcanSawScout", "WVM03BoltThrowerFull", "SCLDPipeJunctionX", "MEV01RivetLancerRail", "WPS02PressureCell", "OPS02ValvePanelTwinPressurePuzzle", "BBSVFX02PressureLeakRuptureCone", "SCLASteamPipeWallLeakerA", "EAP01LancerPressureAimLine" };
+                return new[] { "CorridorStraight", "SCK2PressureGaugeColumn", "EE02AshcanSawScout", "WVM03BoltThrowerFull", "SCLDPipeJunctionX", "MEV01RivetLancerRail", "WPS02PressureCell", "OPS02ValvePanelTwinPressurePuzzle", "BBSVFX02PressureLeakRuptureCone", "SCLASteamPipeWallLeakerA", "EAP01LancerPressureAimLine", "RSK04PressureVaultDoorAlcoveA", "WMS04GripAssemblyWalnutLeatherA", "WMS04ReceiverPlateBrassLatticeA" };
             case "Level03":
-                return new[] { "TJunction", "SCK2RoomGaugeNest", "EE02AshcanOvercrank", "WVM03ScattergunFull", "MEV01SawScrapperBoiler", "WPS02ScattergunTwin", "SCLDDrainChannel", "OPS02LiftCallStationBrassCage", "BBSVFX02FurnaceBlastDoorBelch", "SCLAHangingChainsTripleSlack", "EAP01BulwarkHammerRaise" };
+                return new[] { "TJunction", "SCK2RoomGaugeNest", "EE02AshcanOvercrank", "WVM03ScattergunFull", "MEV01SawScrapperBoiler", "WPS02ScattergunTwin", "SCLDDrainChannel", "OPS02LiftCallStationBrassCage", "BBSVFX02FurnaceBlastDoorBelch", "SCLAHangingChainsTripleSlack", "EAP01BulwarkHammerRaise", "RSK04CatwalkBalconyModuleA", "WMS04AmmoCylinderEightCellB", "WMS04ScattergunPressureChamberQuadB" };
             case "Level04":
-                return new[] { "ArchedDoor", "SCK2BulkheadDoor", "EE02GatehammerShielded", "WVM03AmmoShellStrip", "MEV01BulwarkShieldBoiler", "SCLDPressureTankFloor", "WPS02AmmoCabinetOpen", "OPS02ActuatorBridgeThrowLever", "BBSVFX02SparkRicochetWallHit", "SCLAOverheadPipeValveRun", "EAP01WardenGovernorSignalRaise" };
+                return new[] { "ArchedDoor", "SCK2BulkheadDoor", "EE02GatehammerShielded", "WVM03AmmoShellStrip", "MEV01BulwarkShieldBoiler", "SCLDPressureTankFloor", "WPS02AmmoCabinetOpen", "OPS02ActuatorBridgeThrowLever", "BBSVFX02SparkRicochetWallHit", "SCLAOverheadPipeValveRun", "EAP01WardenGovernorSignalRaise", "RSK04PipeGalleryCeilingClusterA", "WMS04BoltThrowerRailChargedSlideB", "WMS04MuzzleCrownCogBrakeB" };
             case "Level05":
-                return new[] { "VaultDoor", "SCK2PressureLockDoor", "EE02GovernorWardenTall", "WVM03GaugeClusterTriple", "MEV01WardenTall", "SCLDGearHousingOpen", "WPS02WallWeaponRack", "OPS02GovernorOverrideBossKillSwitch", "BBSVFX02BossPhaseGovernorOvercrank", "SCLADenseAmbienceCorridorBite", "EAP01ScrapperSawLunge" };
+                return new[] { "VaultDoor", "SCK2PressureLockDoor", "EE02GovernorWardenTall", "WVM03GaugeClusterTriple", "MEV01WardenTall", "SCLDGearHousingOpen", "WPS02WallWeaponRack", "OPS02GovernorOverrideBossKillSwitch", "BBSVFX02BossPhaseGovernorOvercrank", "SCLADenseAmbienceCorridorBite", "EAP01ScrapperSawLunge", "RSK04RegulatorCoreMachineryA", "WMS04PressureTankTwinUnderbarrelB", "WMS04GlovedHandRightGripA" };
             default:
                 return Array.Empty<string>();
         }
@@ -2428,15 +2428,15 @@ public static class V0LevelValidator
         switch (sceneName)
         {
             case "Level01":
-                return new[] { "AgedBrass", "SCK2OilWetFloor", "EE02FurnaceEye", "WVM03AgedBrass", "OPS02RedOverrideEnamel", "BBSVFX02SteamDense", "SCLAAmberLampGlass", "EAP01AgedBrass" };
+                return new[] { "AgedBrass", "SCK2OilWetFloor", "EE02FurnaceEye", "WVM03AgedBrass", "OPS02RedOverrideEnamel", "BBSVFX02SteamDense", "SCLAAmberLampGlass", "EAP01AgedBrass", "RSK04AgedBrass", "WMS04AgedBrassBrushed", "WMS04TealPressureGlow" };
             case "Level02":
-                return new[] { "WetStone", "SCK2PressureGreenGlass", "EE02ChippedHazardYellow", "WVM03BluedSpringSteel", "OPS02AgedBrass", "BBSVFX02PressureAmber", "SCLADullCopperPipe", "EAP01CyanPressurePilot" };
+                return new[] { "WetStone", "SCK2PressureGreenGlass", "EE02ChippedHazardYellow", "WVM03BluedSpringSteel", "OPS02AgedBrass", "BBSVFX02PressureAmber", "SCLADullCopperPipe", "EAP01CyanPressurePilot", "RSK04WetStoneGloss", "WMS04WalnutVarnish", "WMS04AmberPressureGlass" };
             case "Level03":
-                return new[] { "HazardPaint", "SCK2DarkRivetedIron", "EE02SootBlackGrime", "WVM03VarnishedWalnut", "OPS02GreenSignalGlass", "BBSVFX02FurnaceOrange", "SCLAChainGunmetal", "EAP01FurnaceOrangeGlow" };
+                return new[] { "HazardPaint", "SCK2DarkRivetedIron", "EE02SootBlackGrime", "WVM03VarnishedWalnut", "OPS02GreenSignalGlass", "BBSVFX02FurnaceOrange", "SCLAChainGunmetal", "EAP01FurnaceOrangeGlow", "RSK04FurnaceOrangeGlow", "WMS04RedSafetyEnamel", "WMS04GaugeIvoryFace" };
             case "Level04":
-                return new[] { "OxidizedCopper", "SCK2BurnishedCopper", "EE02RedOverheatTell", "WVM03OxidizedCopper", "OPS02BurnishedCopper", "BBSVFX02HotSpark", "SCLAWarningRedNeedle", "EAP01BurnishedCopper" };
+                return new[] { "OxidizedCopper", "SCK2BurnishedCopper", "EE02RedOverheatTell", "WVM03OxidizedCopper", "OPS02BurnishedCopper", "BBSVFX02HotSpark", "SCLAWarningRedNeedle", "EAP01BurnishedCopper", "RSK04WarningRedNeedle", "WMS04BluedSpringSteel", "WMS04PolishedEdgeBrass" };
             case "Level05":
-                return new[] { "PressureGaugeGlass", "SCK2GaugeIvory", "EE02CyanPressureTell", "WVM03GreenGaugeGlass", "OPS02PressureGlowCyan", "BBSVFX02BossBluePressure", "SCLAAgedBrassGlow", "EAP01RedHotIronSlit" };
+                return new[] { "PressureGaugeGlass", "SCK2GaugeIvory", "EE02CyanPressureTell", "WVM03GreenGaugeGlass", "OPS02PressureGlowCyan", "BBSVFX02BossBluePressure", "SCLAAgedBrassGlow", "EAP01RedHotIronSlit", "RSK04VerdigrisOxide", "WMS04DarkGloveLeather", "WMS04SmokedBrass" };
             default:
                 return Array.Empty<string>();
         }

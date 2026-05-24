@@ -2019,3 +2019,17 @@ Windows is the primary development target. Android, browser/WebGL, and VR are de
 - 2026-05-22: Android, browser/WebGL, SteamVR/OpenXR, and Meta Quest planning added as deferred port tracks.
 - 2026-05-22: Level map planning and locally cached Asset Store pack review added.
 - 2026-05-23: Project art direction pivoted to heavy steampunk using the generated north-star concept sheets.
+- 2026-05-24: `v0.1.47` imported Room Setpiece Kit 04 and Weapon Mechanisms Set 04 into the main visual-only sidecar showcase, passed the full Windows matrix, and generated release/QA/candidate evidence.
+- 2026-05-24: `v0.1.48` gameplay-promotion planning packet completed as docs-only guidance for turning visual-only packages into controlled gameplay, collision, VFX/audio, enemy, and weapon/viewmodel batches.
+
+## Current Near-Term Production Batches
+
+- [x] `v0.1.47`: Import Room Setpiece Kit 04 and Weapon Mechanisms Set 04 as visual-only sidecar showcase packages.
+- [x] `v0.1.47`: Raise sidecar import validation to `packages=17 assets=150`.
+- [x] `v0.1.47`: Rebuild all five generated gameplay scenes and create `BrassworksBreach_v0.1.47.exe`.
+- [x] `v0.1.47`: Generate route audit, QA packet, issue triage, release notes, candidate readiness, package ZIP, and hashes.
+- [x] `v0.1.48`: Complete docs-only gameplay promotion matrix and risk/authority matrix.
+- [ ] Next playable batch: promote one route-shell/collision pilot or one objective-language batch from visual-only sidecars with owned validation gates.
+- [ ] Continue parallel sidecar package lanes for surface textures, objective interactables, and elite mechanical enemy visuals.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

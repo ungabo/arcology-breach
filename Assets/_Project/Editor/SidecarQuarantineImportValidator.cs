@@ -235,6 +235,47 @@ public static class SidecarQuarantineImportValidator
                 "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/Meshes/EAP01_MESH_CommandGearHalo.asset",
                 "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/AnimationClips/EAP01_CLIP_ScrapperAshcan_PoseProxyOnly.anim",
                 "Packages/com.brassworks.sidecar.enemy-animation-proxy-set01/Runtime/AnimationClips/EAP01_CLIP_WardenGovernor_PoseProxyOnly.anim"
+            }),
+        new PackageCheck(
+            "Room Setpiece Kit 04",
+            "com.brassworks.sidecar.room-setpiece-kit04",
+            "Documentation~/Manifest/RSK04_RoomSetpieceKit04_Manifest_v0.1.45-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.room-setpiece-kit04/Runtime/Prefabs/RSK04_BoilerChamberWallBay_A.prefab",
+                "Packages/com.brassworks.sidecar.room-setpiece-kit04/Runtime/Prefabs/RSK04_PressureVaultDoorAlcove_A.prefab",
+                "Packages/com.brassworks.sidecar.room-setpiece-kit04/Runtime/Prefabs/RSK04_CatwalkBalconyModule_A.prefab",
+                "Packages/com.brassworks.sidecar.room-setpiece-kit04/Runtime/Prefabs/RSK04_RegulatorCoreMachinery_A.prefab",
+                "Packages/com.brassworks.sidecar.room-setpiece-kit04/Runtime/Prefabs/RSK04_PipeGalleryCeilingCluster_A.prefab",
+                "Packages/com.brassworks.sidecar.room-setpiece-kit04/Runtime/Prefabs/RSK04_ServiceStairSilhouette_A.prefab",
+                "Packages/com.brassworks.sidecar.room-setpiece-kit04/Runtime/Prefabs/RSK04_FurnaceControlWall_A.prefab",
+                "Packages/com.brassworks.sidecar.room-setpiece-kit04/Runtime/Prefabs/RSK04_BrassFloorTrimThreshold_A.prefab",
+                "Packages/com.brassworks.sidecar.room-setpiece-kit04/Runtime/Prefabs/RSK04_LargeWarningGaugeWall_A.prefab",
+                "Packages/com.brassworks.sidecar.room-setpiece-kit04/Runtime/Prefabs/RSK04_RoomCornerClutterCluster_A.prefab",
+                "Packages/com.brassworks.sidecar.room-setpiece-kit04/Runtime/Materials/RSK04_MAT_AgedBrass.mat",
+                "Packages/com.brassworks.sidecar.room-setpiece-kit04/Runtime/Meshes/RSK04_MESH_Gear24Unit.asset"
+            }),
+        new PackageCheck(
+            "Weapon Mechanisms Set 04",
+            "com.brassworks.sidecar.weapon-mechanisms-set04",
+            "Documentation~/Manifest/WMS04_WeaponMechanismsSet04_Manifest_v0.1.45-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.weapon-mechanisms-set04/Runtime/Prefabs/WMS04_PressurePistolCoil_TripleAmber_A.prefab",
+                "Packages/com.brassworks.sidecar.weapon-mechanisms-set04/Runtime/Prefabs/WMS04_GaugeCluster_TripleIvory_A.prefab",
+                "Packages/com.brassworks.sidecar.weapon-mechanisms-set04/Runtime/Prefabs/WMS04_GripAssembly_WalnutLeather_A.prefab",
+                "Packages/com.brassworks.sidecar.weapon-mechanisms-set04/Runtime/Prefabs/WMS04_ReceiverPlate_BrassLattice_A.prefab",
+                "Packages/com.brassworks.sidecar.weapon-mechanisms-set04/Runtime/Prefabs/WMS04_MuzzleCrown_CogBrake_B.prefab",
+                "Packages/com.brassworks.sidecar.weapon-mechanisms-set04/Runtime/Prefabs/WMS04_PressureTank_TwinUnderbarrel_B.prefab",
+                "Packages/com.brassworks.sidecar.weapon-mechanisms-set04/Runtime/Prefabs/WMS04_ValveLever_RedSafety_A.prefab",
+                "Packages/com.brassworks.sidecar.weapon-mechanisms-set04/Runtime/Prefabs/WMS04_AmmoCylinder_EightCell_B.prefab",
+                "Packages/com.brassworks.sidecar.weapon-mechanisms-set04/Runtime/Prefabs/WMS04_ScattergunPressureChamber_Quad_B.prefab",
+                "Packages/com.brassworks.sidecar.weapon-mechanisms-set04/Runtime/Prefabs/WMS04_BoltThrowerRail_ChargedSlide_B.prefab",
+                "Packages/com.brassworks.sidecar.weapon-mechanisms-set04/Runtime/Prefabs/WMS04_GlovedHandSilhouette_RightGrip_A.prefab",
+                "Packages/com.brassworks.sidecar.weapon-mechanisms-set04/Runtime/Prefabs/WMS04_MaterialSwatch_MetalsAndGlass_A.prefab",
+                "Packages/com.brassworks.sidecar.weapon-mechanisms-set04/Runtime/Materials/WMS04_MAT_AgedBrassBrushed.mat",
+                "Packages/com.brassworks.sidecar.weapon-mechanisms-set04/Runtime/Materials/WMS04_MAT_TealPressureGlow.mat",
+                "Packages/com.brassworks.sidecar.weapon-mechanisms-set04/Runtime/Meshes/WMS04_MESH_Gear24Ring.asset"
             })
     };
 

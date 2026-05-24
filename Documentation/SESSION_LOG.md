@@ -5924,3 +5924,20 @@ Accepted the `v0.1.46` sidecar package/readiness wave after main-lane review.
 - No main-project manifest import was performed for this acceptance slice.
 
 Next-step directive: commit/push the accepted package/readiness wave, then continue immediately with the next highest-impact visible import or gameplay-promotion batch.
+
+## 2026-05-24 17:37 -04:00
+
+Completed the main-lane `v0.1.47` room and weapon mechanism visual-import batch.
+
+- Added local package references for Room Setpiece Kit 04 and Weapon Mechanisms Set 04.
+- Expanded `SidecarQuarantineImportValidator` to `SIDECAR_QUARANTINE_IMPORT_PASS packages=17 assets=150`.
+- Added boiler-room, pressure-vault, catwalk, pipe-gallery, regulator-core, pressure-pistol-coil, gauge-cluster, grip, receiver-plate, ammo-cylinder, scattergun-chamber, bolt-rail, muzzle-crown, pressure-tank, and gloved-hand showcase placements across all five generated gameplay levels.
+- Added Room Setpiece Kit 04 and Weapon Mechanisms Set 04 material swatches across all five levels.
+- Ran JSON parse checks, scoped `git diff --check`, Unity sidecar import validation, scene rebuild, level validation, editor smoke, Windows build, runtime smoke, auto-playthrough, combat, interaction, hazard, secret, pause, movement, balance, level-flow, audio, display, readability, gameplay-feedback, world-label readability, Windows package generation, route audit, QA packet, issue triage, release notes, and candidate readiness.
+- Created `Builds/Windows/v0.1.47/BrassworksBreach_v0.1.47.exe`.
+- Created `Builds/WindowsPackages/v0.1.47/BrassworksBreach_v0.1.47_Windows.zip`.
+- Package ZIP SHA-256: `547B8742B0122FF3C2065A1FC817695D543AB025E2538863134076947343A663`.
+- Closed Hooke after it completed the docs-only `v0.1.48` gameplay-promotion plan.
+- Started new parallel lanes for Surface Texture Set 05, Objective Interactables Set 05, and Mechanical Enemy Elite Set 05.
+
+Next-step directive: commit/push the `v0.1.47` main-lane integration slice plus completed planning docs, keep incomplete sidecar package roots unstaged until their workers report final validation, then continue immediately with the next highest-impact unfinished task.

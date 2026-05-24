@@ -1,0 +1,127 @@
+{
+  "version": "v0.1.48",
+  "generated_date": "2026-05-24",
+  "packet_type": "gameplay_promotion_planning",
+  "scope": {
+    "docs_only": true,
+    "allowed_write_roots": [
+      "Documentation/Planning/V0_1_48_GameplayPromotionPlan/",
+      "Documentation/QA/V0_1_48_GameplayPromotionPlan/"
+    ],
+    "forbidden_edits": [
+      "code",
+      "packages",
+      "scenes",
+      "shared_status_docs",
+      "git_history"
+    ]
+  },
+  "source_evidence": [
+    "Packages/manifest.json",
+    "Assets/_Project/Editor/SidecarQuarantineImportValidator.cs",
+    "Assets/_Project/Editor/V0SceneBuilder.cs",
+    "Documentation/Releases/RELEASE_NOTES_v0.1.45.md",
+    "Documentation/Planning/V0_1_46_RoomSetpieceImportReadiness/",
+    "Documentation/Planning/V0_1_46_WeaponMechanismsImportReadiness/"
+  ],
+  "imported_sidecar_baseline": {
+    "package_count": 15,
+    "validator_representative_asset_count": 123,
+    "filesystem_counts": {
+      "prefabs": 266,
+      "materials": 220,
+      "meshes": 83,
+      "audio_clips": 15,
+      "animation_clips": 4
+    }
+  },
+  "promotion_paths": [
+    {
+      "path": "environment_collision_setpieces",
+      "packages": [
+        "com.brassworks.sidecar.corridor-kit-set02",
+        "com.brassworks.sidecar.steamworks-level-kit",
+        "com.brassworks.sidecar.level-dressing-set01",
+        "com.brassworks.sidecar.level-atmosphere-set03"
+      ],
+      "first_safe_graduation": "single controlled route-shell collision pilot with reviewed proxy colliders"
+    },
+    {
+      "path": "objective_props",
+      "packages": [
+        "com.brassworks.sidecar.objective-props-set02",
+        "com.brassworks.sidecar.weapon-props-set02",
+        "com.brassworks.sidecar.steampunk-weapons"
+      ],
+      "first_safe_graduation": "visual shells for existing key, gate, lift, secret, and boss override logic"
+    },
+    {
+      "path": "vfx_sockets",
+      "packages": [
+        "com.brassworks.sidecar.steam-vfx-set02",
+        "com.brassworks.sidecar.level-atmosphere-set03",
+        "com.brassworks.sidecar.feedback-fx-audio"
+      ],
+      "first_safe_graduation": "event socket map for weapon, enemy, objective, route-blocked, hazard, and boss events"
+    },
+    {
+      "path": "enemy_visuals_animation",
+      "packages": [
+        "com.brassworks.sidecar.mechanical-enemies",
+        "com.brassworks.sidecar.mechanical-enemy-visual-set01",
+        "com.brassworks.sidecar.encounter-enemy-set02",
+        "com.brassworks.sidecar.enemy-animation-proxy-set01"
+      ],
+      "first_safe_graduation": "archetype batch swaps for Scrapper, Lancer, Bulwark, Bellows support, and Warden visuals"
+    },
+    {
+      "path": "weapon_viewmodel_pieces",
+      "packages": [
+        "com.brassworks.sidecar.weapon-viewmodel-set03",
+        "com.brassworks.sidecar.weapon-props-set02",
+        "com.brassworks.sidecar.steampunk-weapons"
+      ],
+      "first_safe_graduation": "pressure pistol and scattergun visual replacement with muzzle, ammo, and feedback sockets"
+    },
+    {
+      "path": "materials",
+      "packages": [
+        "com.brassworks.sidecar.materials-set01"
+      ],
+      "first_safe_graduation": "small approved shared material palette for promoted sidecar families"
+    },
+    {
+      "path": "audio_feedback",
+      "packages": [
+        "com.brassworks.sidecar.feedback-fx-audio",
+        "com.brassworks.sidecar.steam-vfx-set02"
+      ],
+      "first_safe_graduation": "event-routed weapon, enemy, pickup, objective, route-blocked, and boss feedback"
+    }
+  ],
+  "authority_summary": {
+    "must_remain_visual_only": true,
+    "until_owned_by_future_slice": [
+      "collision",
+      "objective_interaction",
+      "pickup_inventory",
+      "vfx_socket_routing",
+      "lighting",
+      "enemy_hitboxes_and_ai",
+      "weapon_viewmodel_runtime",
+      "audio_mixer_feedback"
+    ],
+    "hard_stop": "Imported sidecars must not own damage, health, enemy AI, objective state, inventory, transitions, route gating, autonomous audio, or production collision by default."
+  },
+  "recommended_batches_after_v0_1_47": [
+    "v0.1.48 route shell and collision pilot",
+    "v0.1.49 objective language pass",
+    "v0.1.50 feedback and VFX socket map",
+    "v0.1.51 enemy visual archetype swap",
+    "v0.1.52 weapon/viewmodel cohesion pass"
+  ],
+  "validation": {
+    "json_parse": "pass",
+    "trailing_whitespace_scan": "pass"
+  }
+}
