@@ -3397,3 +3397,47 @@ Build executable:
 `Builds/Windows/v0.1.1/BrassworksBreach_v0.1.1.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 02:21 -04:00
+
+Completed `v0.1.2` route audit / playtest capture slice.
+
+Added:
+
+- `V0RouteAudit` editor tool opens Level01-Level05 and records route-critical objects, enemy/pickup/hazard/secret counts, transitions/exits, and route-distance notes.
+- `Tools/RunV0RouteAudit.ps1` runs the audit headlessly through Unity and asserts `V0_ROUTE_AUDIT_PASS`.
+- `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.2.md` captures the current five-level Windows route matrix.
+- Version string bumped to `v0.1.2`.
+
+Audit result:
+
+- No route-blocking scene composition issues were found by deterministic inspection.
+- Human feel review is still needed for movement comfort, encounter pacing, audio mix, and final art readability.
+
+Verification completed:
+
+- `V0_ROUTE_AUDIT_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.2/BrassworksBreach_v0.1.2.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

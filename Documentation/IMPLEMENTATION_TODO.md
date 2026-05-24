@@ -1378,6 +1378,16 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.2 Route Audit / Playtest Capture Slice
+
+- [x] Add editor-side `V0RouteAudit` scene inspection.
+- [x] Add `Tools/RunV0RouteAudit.ps1` helper.
+- [x] Generate `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.2.md`.
+- [x] Confirm no route-blocking composition issues were found by the deterministic audit.
+- [x] Build `v0.1.2` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
