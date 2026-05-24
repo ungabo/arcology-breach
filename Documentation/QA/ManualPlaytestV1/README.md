@@ -1,10 +1,14 @@
-# Manual Playtest V1 Route Sheets
+﻿# Manual Playtest V1 Route Sheets
 
-Scope: `v0.0.93` Windows build, current V1 manual-playtest path.
+Scope: `v0.1.13` Windows build, current V1 manual-playtest path.
 
 Build to launch:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.93\BrassworksBreach_v0.0.93.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.1.13\BrassworksBreach_v0.1.13.exe`
+
+Current generated QA packet:
+
+`Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.13.md`
 
 Primary goal: give a human tester enough route, control, pass/fail, timing, and note structure to evaluate the current five-level run without asking for automation or Codex help.
 
@@ -61,11 +65,11 @@ Current registered secrets:
 ## Expected Current Limitations
 
 - Automated smoke confirms the objective chain and regressions, but not human route readability or combat feel.
-- Visuals are still mostly procedural primitive art, so judge readability and layout before final-art quality.
+- Visuals are still mostly procedural prototype art unless an asset document marks a component as promoted or final.
 - Enemy navigation uses simple side-steering, not a full NavMesh solution.
 - Balance values have automated coverage but still need human feel tuning.
-- Audio is procedural placeholder content and needs a manual listen pass.
-- Settings currently include sensitivity, master volume, and flash intensity; resolution and color-readability options are deferred.
+- AudioV1 is wired and mix-smoke-tested but still needs a human listen pass.
+- Settings include sensitivity, master volume, flash intensity, resolution, fullscreen, and high-contrast readability.
 - Windows is the only current playable target. Android, WebGL, PC VR, and Meta Quest are planned but deferred.
 - Health and ammo persist across level transitions, but future weapon inventory and campaign flags still need expansion.
 - There is no save system; boss and late-route retests require replaying the route unless a developer provides a special build later.

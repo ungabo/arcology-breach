@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.1.12` versioned build for `Brassworks Breach`.
+`v0.1.13` versioned build for `Brassworks Breach`.
 
-`v0.1.12` is a verified Windows distribution-polish slice. It adds `Tools/PackageWindowsBuild.ps1`, wires the package step into `Tools/RunV0BuildMatrix.ps1`, creates a distributable Windows folder/ZIP with `README_WINDOWS.txt`, package manifest, and SHA-256 hash, and refreshes the route audit report at `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.12.md`. The route audit passed, and the full `v022` matrix passed on `2026-05-24 04:57 -04:00`, verifying `Builds/Windows/v0.1.12/BrassworksBreach_v0.1.12.exe` and `Builds/WindowsPackages/v0.1.12/BrassworksBreach_v0.1.12_Windows.zip`.
+`v0.1.13` is a verified Windows route-QA automation slice. It adds `Tools/GenerateWindowsQAPacket.ps1`, wires the QA packet step into `Tools/RunV0BuildMatrix.ps1`, refreshes `Documentation/QA/ManualPlaytestV1/README.md` with the exact current Windows build, and generates `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.13.md` plus JSON manifest. The route audit passed, and the full `v023` matrix passed on `2026-05-24 05:10 -04:00`, verifying `Builds/Windows/v0.1.13/BrassworksBreach_v0.1.13.exe`, `Builds/WindowsPackages/v0.1.13/BrassworksBreach_v0.1.13_Windows.zip`, and `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.13.md`.
 
 `v0.0` core loop is complete. The current build now prefers staged AudioV1 WAV ambience and gameplay cues while keeping procedural fallback, gives interaction prompts context icons and key-denial lamp feedback, gives Bulwark deaths a heavy boiler/furnace shutdown burst, gives Bulwark hammer windups dedicated slam-warning VFX/audio before damage lands, gives pressure bolts dedicated impact VFX on player/world hits, gives Lancer pressure-bolt windups dedicated fire-tell VFX/audio, gives Scrapper deaths a richer dedicated shutdown burst, gives Scrapper melee windups dedicated warning VFX/audio before damage lands, and gives the Pressure Pistol right-mouse Pressure Burst its own pressure-dump audio cue, dedicated pressure/steam/brass burst VFX, and first-person pressure-dump viewmodel motion with a kicking gauge needle, spinning valve wheel, snapping dump lever, recoiling pressure chamber, and side vent flash. This sits on top of Level03 Steam Scattergun pickup readability cues, the richer pickup display stand, dedicated Steam Scattergun slug audio/VFX, dedicated weapon-pickup acquisition audio, real pickup-route acquisition, dedicated brass/steam weapon-pickup VFX, Bellows Node pulse audio, visible brass/steam pressure-boost VFX for over-pressurized Scrappers, Bellows Node support-machine boost behavior, first Bellows Node support-machine prototype in Level03, dedicated Steam Scattergun pressure-ring/steam/brass-spark blast VFX, Steam Scattergun first-person viewmodel, Steam Scattergun prototype, Pressure Burst alternate fire, the brassworks ambience loop, Level02 Pipeworks cartridge-cache secret, Pipeworks routing valve objective, interactable lore plaques, first-person player damage VFX, pressure-pistol impact decal VFX, visible pressure-bolt projectile VFX, reusable procedural machine motion, animated furnace heat-ripple readability, animated steam hazard puffs, health/ammo/key pickup VFX, service-lift activation VFX, pressure-gate opening VFX, non-lethal machine hit VFX, animated steampunk machinery, standard machine death VFX plus Scrapper/Bulwark-specific shutdown detail, persistent objective HUD guidance, Warden shutdown VFX, the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
@@ -53,6 +53,7 @@
 - One-command V0 build matrix runner at `Tools/RunV0BuildMatrix.ps1`, covering scene rebuild, level validation, editor smoke, Windows build, and packaged runtime tests.
 - Repeatable route audit runner at `Tools/RunV0RouteAudit.ps1`, generating `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.2.md`.
 - Windows package runner at `Tools/PackageWindowsBuild.ps1`, integrated into the full build matrix and producing a ZIP, README, package manifest, and SHA-256 hash under `Builds/WindowsPackages/<version>/`.
+- Windows route-QA packet runner at `Tools/GenerateWindowsQAPacket.ps1`, integrated into the full build matrix and producing Markdown/JSON QA packets under `Documentation/QA/WindowsRouteQA/`.
 - `IInteractable`, `PlayerInteraction`, HUD interaction prompts, interactable pressure gate/service lift/final lift hooks, and packaged interaction smoke coverage.
 - Data-driven `HealthVialDefinition.asset`, `PressureCartridgeDefinition.asset`, `GearKeyDefinition.asset`, and `PickupDefinition` script, with pickup validation coverage.
 - Scene-local `LevelTransitionController` for service-lift scene loads and restart routing, with validation/runtime smoke coverage.
@@ -130,21 +131,23 @@
 
 ## Verification Results
 
-Latest fully verified build: `v0.1.12`.
+Latest fully verified build: `v0.1.13`.
 
-Current `v0.1.12` verification:
+Current `v0.1.13` verification:
 
-- Route audit: passed (`V0_ROUTE_AUDIT_PASS`) through `Logs/v022-route-audit.log`.
-- Scene rebuild: passed (`V0 scenes rebuilt`) through `Logs/v022-scene.log`.
+- Route audit: passed (`V0_ROUTE_AUDIT_PASS`) through `Logs/v023-route-audit.log`.
+- Scene rebuild: passed (`V0 scenes rebuilt`) through `Logs/v023-scene.log`.
 - Level validation: passed (`V0_LEVEL_VALIDATION_PASS`).
 - Editor smoke: passed (`V0_SMOKE_TEST_PASS`).
 - Windows build: passed (`V0_WINDOWS_BUILD_PASS`).
 - Packaged runtime tests: passed `V0_RUNTIME_SMOKE_PASS`, `V0_AUTO_PLAYTHROUGH_PASS`, `V0_COMBAT_SMOKE_PASS`, `V0_COMBAT_EDGE_PASS`, `V0_COMBAT_SCENARIO_PASS`, `V0_WEAPON_SWITCH_PASS`, `V0_BELLOWS_NODE_PASS`, `V0_RANGED_COMBAT_PASS`, `V0_BULWARK_COMBAT_PASS`, `V0_WARDEN_COMBAT_PASS`, `V0_INTERACTION_SMOKE_PASS`, `V0_HAZARD_PASS`, `V0_SECRET_PASS`, `V0_PAUSE_FLOW_PASS`, `V0_MOVEMENT_FEEL_PASS`, `V0_BALANCE_ENVELOPE_PASS`, `V0_LEVEL01_FLOW_PASS`, `V0_MIDGAME_FLOW_PASS`, `V0_CLIMAX_FLOW_PASS`, `V0_AUDIO_MIX_PASS`, `V0_DISPLAY_SETTINGS_PASS`, and `V0_READABILITY_SETTINGS_PASS`.
 - Windows package: passed (`V0_WINDOWS_PACKAGE_PASS`).
-- Route audit report: `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.12.md`.
-- Build path: `Builds/Windows/v0.1.12/BrassworksBreach_v0.1.12.exe`.
-- Package path: `Builds/WindowsPackages/v0.1.12/BrassworksBreach_v0.1.12_Windows.zip`.
-- Package SHA-256: `869ABA999F99FD7226792AAF2550A64E77181BE20A1C16EB1F3BCD52BE2D90B6`.
+- Windows QA packet: passed (`V0_WINDOWS_QA_PACKET_PASS`).
+- Route audit report: `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.13.md`.
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.13.md`.
+- Build path: `Builds/Windows/v0.1.13/BrassworksBreach_v0.1.13.exe`.
+- Package path: `Builds/WindowsPackages/v0.1.13/BrassworksBreach_v0.1.13_Windows.zip`.
+- Package SHA-256: `D9D5FD892A38E858753114C8CA8A9A2F72A59ED39AA4913C3D363F3111ED704B`.
 
 Current `v0.0.93` verification:
 
@@ -193,6 +196,8 @@ Pass markers:
 - `V0_AUDIO_MIX_PASS`
 - `V0_DISPLAY_SETTINGS_PASS`
 - `V0_READABILITY_SETTINGS_PASS`
+- `V0_WINDOWS_PACKAGE_PASS`
+- `V0_WINDOWS_QA_PACKET_PASS`
 - `V0_LEVEL_VALIDATION_PASS`
 - `V0_BUILD_MATRIX_PASS`
 
@@ -200,7 +205,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.1.12\BrassworksBreach_v0.1.12.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.1.13\BrassworksBreach_v0.1.13.exe`
 
 ## Latest Build Verification
 
@@ -1457,8 +1462,9 @@ Current target:
 - `2026-05-24 04:23 -04:00`: `v0.1.10` route audit and full build matrix passed after adding persisted high-contrast controls, runtime HUD readability styling, and packaged readability-settings smoke coverage.
 - `2026-05-24 04:44 -04:00`: `v0.1.11` route audit and full build matrix passed after promoting the first `PressureGaugePrototype` component into the Pressure Pistol and Level01 pressure gate with validator coverage.
 - `2026-05-24 04:57 -04:00`: `v0.1.12` route audit and full build matrix passed after adding Windows package generation with README, manifest, ZIP, SHA-256 hash, and `V0_WINDOWS_PACKAGE_PASS`.
+- `2026-05-24 05:10 -04:00`: `v0.1.13` route audit and full build matrix passed after adding generated Windows route-QA packets, refreshing the manual playtest README with the exact current build path, and adding `V0_WINDOWS_QA_PACKET_PASS`.
 
-Future builds should increment as `v0.1.13`, `v0.1.14`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.1.14`, `v0.1.15`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 

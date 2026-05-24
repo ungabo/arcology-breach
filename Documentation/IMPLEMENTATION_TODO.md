@@ -1531,6 +1531,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.13 Windows Route QA Packet Automation
+
+- [x] Add `Tools/GenerateWindowsQAPacket.ps1`.
+- [x] Generate a route-QA Markdown packet and JSON manifest from the current build, route audit, package manifest, and manual route sheets.
+- [x] Refresh `Documentation/QA/ManualPlaytestV1/README.md` with the exact current Windows executable and generated QA packet path.
+- [x] Wire the QA packet step into `Tools/RunV0BuildMatrix.ps1`.
+- [x] Generate `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.13.md`.
+- [x] Generate `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.13.json`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.13`.
+- [x] Build, package, and generate route-QA evidence for `v0.1.13` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

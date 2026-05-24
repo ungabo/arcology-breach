@@ -3,7 +3,8 @@ param(
     [string]$UnityPath = "C:\Program Files\Unity\Hub\Editor\6000.4.6f1\Editor\Unity.exe",
     [string]$LogPrefix = "",
     [switch]$SkipSceneRebuild,
-    [switch]$SkipPackage
+    [switch]$SkipPackage,
+    [switch]$SkipQAPacket
 )
 
 Set-StrictMode -Version Latest
@@ -209,6 +210,16 @@ if (-not $SkipPackage) {
 
     Write-Host "Running Windows package step"
     & $packageScript -ProjectPath $ProjectPath
+}
+
+if (-not $SkipQAPacket) {
+    $qaPacketScript = Join-Path $ProjectPath "Tools\GenerateWindowsQAPacket.ps1"
+    if (-not (Test-Path -LiteralPath $qaPacketScript)) {
+        throw "Windows QA packet script was not found: $qaPacketScript"
+    }
+
+    Write-Host "Running Windows QA packet step"
+    & $qaPacketScript -ProjectPath $ProjectPath
 }
 
 Write-Host "V0_BUILD_MATRIX_PASS $version $windowsBuildPath"
