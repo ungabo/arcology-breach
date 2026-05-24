@@ -19,15 +19,28 @@ public class HUDController : MonoBehaviour
     public Image keyLampImage;
     public Image objectiveBackplateImage;
     public Image interactionBackplateImage;
+    public Image interactionIconImage;
     public Image bossBackplateImage;
     public Image bossFillImage;
     public Sprite keyLampOffSprite;
     public Sprite keyLampOnSprite;
     public Sprite keyLampDeniedSprite;
+    public Sprite promptInteractSprite;
+    public Sprite promptGearKeySprite;
+    public Sprite promptValveSprite;
+    public Sprite promptLiftSprite;
+    public Sprite promptAmmoSprite;
+    public Sprite promptHealthSprite;
+    public Sprite promptWarningSprite;
+    public Sprite promptSecretSprite;
+    public Sprite promptPauseSprite;
+    public Sprite promptMouseRightSprite;
 
     private float messageTimer;
     private bool messageIsPersistent;
     private float damageFlashAlpha;
+    private float keyDeniedTimer;
+    private bool hasGearKey;
     private int highestAmmoSeen = 1;
 
     private void Awake()
@@ -43,6 +56,8 @@ public class HUDController : MonoBehaviour
 
     private void Update()
     {
+        UpdateKeyDeniedFlash();
+
         if (messageIsPersistent || messageTimer <= 0f)
         {
             FadeDamageFlash();
@@ -113,16 +128,50 @@ public class HUDController : MonoBehaviour
 
     public void SetKey(bool hasKey)
     {
+        hasGearKey = hasKey;
         if (keyText != null)
         {
             keyText.text = hasKey ? "GEAR KEY YES" : "GEAR KEY NO";
         }
 
-        if (keyLampImage != null)
+        RefreshKeyLamp();
+    }
+
+    public void FlashKeyDenied(float seconds = 0.75f)
+    {
+        if (hasGearKey || keyLampImage == null || keyLampDeniedSprite == null)
         {
-            keyLampImage.sprite = hasKey && keyLampOnSprite != null ? keyLampOnSprite : keyLampOffSprite;
-            keyLampImage.color = Color.white;
+            return;
         }
+
+        keyDeniedTimer = Mathf.Max(keyDeniedTimer, seconds);
+        keyLampImage.sprite = keyLampDeniedSprite;
+        keyLampImage.color = Color.white;
+    }
+
+    private void UpdateKeyDeniedFlash()
+    {
+        if (keyDeniedTimer <= 0f)
+        {
+            return;
+        }
+
+        keyDeniedTimer = Mathf.Max(0f, keyDeniedTimer - Time.unscaledDeltaTime);
+        if (keyDeniedTimer <= 0f)
+        {
+            RefreshKeyLamp();
+        }
+    }
+
+    private void RefreshKeyLamp()
+    {
+        if (keyLampImage == null)
+        {
+            return;
+        }
+
+        keyLampImage.sprite = hasGearKey && keyLampOnSprite != null ? keyLampOnSprite : keyLampOffSprite;
+        keyLampImage.color = Color.white;
     }
 
     public void ShowBossHealth(string bossName, int current, int max)
@@ -252,6 +301,12 @@ public class HUDController : MonoBehaviour
         {
             interactionBackplateImage.enabled = true;
         }
+
+        if (interactionIconImage != null)
+        {
+            interactionIconImage.sprite = ChooseInteractionIcon(prompt);
+            interactionIconImage.enabled = interactionIconImage.sprite != null;
+        }
     }
 
     public void ClearInteractionPrompt()
@@ -266,5 +321,66 @@ public class HUDController : MonoBehaviour
         {
             interactionBackplateImage.enabled = false;
         }
+
+        if (interactionIconImage != null)
+        {
+            interactionIconImage.enabled = false;
+        }
+    }
+
+    private Sprite ChooseInteractionIcon(string prompt)
+    {
+        if (string.IsNullOrWhiteSpace(prompt))
+        {
+            return promptInteractSprite;
+        }
+
+        string normalized = prompt.ToLowerInvariant();
+        if (normalized.Contains("locked") || normalized.Contains("required") || normalized.Contains("warden"))
+        {
+            return promptWarningSprite != null ? promptWarningSprite : promptInteractSprite;
+        }
+
+        if (normalized.Contains("key"))
+        {
+            return promptGearKeySprite != null ? promptGearKeySprite : promptInteractSprite;
+        }
+
+        if (normalized.Contains("valve") || normalized.Contains("vent"))
+        {
+            return promptValveSprite != null ? promptValveSprite : promptInteractSprite;
+        }
+
+        if (normalized.Contains("lift") || normalized.Contains("hoist"))
+        {
+            return promptLiftSprite != null ? promptLiftSprite : promptInteractSprite;
+        }
+
+        if (normalized.Contains("ammo") || normalized.Contains("cartridge"))
+        {
+            return promptAmmoSprite != null ? promptAmmoSprite : promptInteractSprite;
+        }
+
+        if (normalized.Contains("health"))
+        {
+            return promptHealthSprite != null ? promptHealthSprite : promptInteractSprite;
+        }
+
+        if (normalized.Contains("secret") || normalized.Contains("cache"))
+        {
+            return promptSecretSprite != null ? promptSecretSprite : promptInteractSprite;
+        }
+
+        if (normalized.Contains("pause"))
+        {
+            return promptPauseSprite != null ? promptPauseSprite : promptInteractSprite;
+        }
+
+        if (normalized.Contains("right") || normalized.Contains("burst"))
+        {
+            return promptMouseRightSprite != null ? promptMouseRightSprite : promptInteractSprite;
+        }
+
+        return promptInteractSprite;
     }
 }

@@ -3228,3 +3228,45 @@ Build executable:
 `Builds/Windows/v0.0.97/BrassworksBreach_v0.0.97.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 01:24 -04:00
+
+Completed `v0.0.98` UI prompt-icon and denied key-lamp feedback.
+
+Added:
+
+- Interaction prompts now drive UIHudV1 context icons for valve, warning/locked, key, lift, ammo, health, secret, pause, mouse-right, and default interact cases.
+- The pressure gate now flashes the UIHudV1 denied key-lamp sprite when the player lacks the gear key.
+- Runtime interaction smoke now asserts prompt artwork show/hide, valve/warning prompt icon selection, and denied key-lamp feedback.
+- Version string bumped to `v0.0.98`.
+
+Management note:
+
+- ENV Recovery02 modular corridor proof was rejected for integration because its contact sheet rendered mostly hot magenta shader-error output. Its compile-blocking editor script was quarantined under `Documentation/AssetProduction/EnvironmentLookdev/RejectedRecovery02CompileBlocker/` so the main Unity build can continue.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.98/BrassworksBreach_v0.0.98.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

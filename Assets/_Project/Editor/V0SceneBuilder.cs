@@ -1634,6 +1634,16 @@ public static class V0SceneBuilder
         hud.keyLampOffSprite = LoadUiSprite("Icons/HUD_KeyLamp_Off_96x96.png");
         hud.keyLampOnSprite = LoadUiSprite("Icons/HUD_KeyLamp_On_96x96.png");
         hud.keyLampDeniedSprite = LoadUiSprite("Icons/HUD_KeyLamp_Denied_96x96.png");
+        hud.promptInteractSprite = LoadUiSprite("Icons/ICON_Prompt_InteractE_96x96.png");
+        hud.promptGearKeySprite = LoadUiSprite("Icons/ICON_Prompt_GearKey_96x96.png");
+        hud.promptValveSprite = LoadUiSprite("Icons/ICON_Prompt_Valve_96x96.png");
+        hud.promptLiftSprite = LoadUiSprite("Icons/ICON_Prompt_Lift_96x96.png");
+        hud.promptAmmoSprite = LoadUiSprite("Icons/ICON_Prompt_Ammo_96x96.png");
+        hud.promptHealthSprite = LoadUiSprite("Icons/ICON_Prompt_Health_96x96.png");
+        hud.promptWarningSprite = LoadUiSprite("Icons/ICON_Prompt_Warning_96x96.png");
+        hud.promptSecretSprite = LoadUiSprite("Icons/ICON_Prompt_Secret_96x96.png");
+        hud.promptPauseSprite = LoadUiSprite("Icons/ICON_Prompt_Pause_96x96.png");
+        hud.promptMouseRightSprite = LoadUiSprite("Icons/ICON_Prompt_MouseRight_96x96.png");
         hud.keyLampImage = CreateAnchoredSpriteImage("Gear Key Lamp UIHudV1", canvasObject.transform, "Icons/HUD_KeyLamp_Off_96x96.png", new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(-128f, 22f), new Vector2(44f, 44f));
         hud.objectiveBackplateImage = CreateAnchoredSpriteImage("Objective Backplate UIHudV1", canvasObject.transform, "Panels/HUD_ObjectiveBackplate_640x72.png", new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(18f, -82f), new Vector2(640f, 72f), Image.Type.Sliced, new Vector4(32f, 20f, 32f, 20f));
         hud.bossBackplateImage = CreateAnchoredSpriteImage("Boss Gauge Frame UIHudV1", canvasObject.transform, "Gauges/HUD_BossPressureGauge_Frame_768x96.png", new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0f, -18f), new Vector2(640f, 78f), Image.Type.Sliced, new Vector4(42f, 22f, 42f, 22f));
@@ -1648,7 +1658,8 @@ public static class V0SceneBuilder
         hud.bossNameText = CreateText("Boss Name Text", canvasObject.transform, font, string.Empty, 20, TextAnchor.UpperCenter, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0f, -20f), new Vector2(560f, 34f));
         CreateAnchoredSpriteImage("Brass Reticle UIHudV1", canvasObject.transform, "Reticles/RETICLE_BrassCrosshair_64x64.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(46f, 46f));
         hud.interactionBackplateImage = CreateAnchoredSpriteImage("Interaction Prompt Backplate UIHudV1", canvasObject.transform, "Panels/HUD_PromptBackplate_640x80.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -102f), new Vector2(640f, 80f), Image.Type.Sliced, new Vector4(34f, 22f, 34f, 22f));
-        hud.interactionText = CreateText("Interaction Prompt Text", canvasObject.transform, font, string.Empty, 23, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -101f), new Vector2(600f, 54f));
+        hud.interactionIconImage = CreateAnchoredSpriteImage("Interaction Prompt Icon UIHudV1", canvasObject.transform, "Icons/ICON_Prompt_InteractE_96x96.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(-274f, -101f), new Vector2(48f, 48f));
+        hud.interactionText = CreateText("Interaction Prompt Text", canvasObject.transform, font, string.Empty, 23, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(30f, -101f), new Vector2(540f, 54f));
         hud.messageText = CreateText("Message Text", canvasObject.transform, font, string.Empty, 34, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 80f), new Vector2(760f, 220f));
         hud.ClearObjective();
         hud.HideBossHealth();

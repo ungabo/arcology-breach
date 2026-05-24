@@ -102,6 +102,16 @@ public static class V0LevelValidator
         RequireUiSpriteImport("Icons/HUD_KeyLamp_On_96x96.png");
         RequireUiSpriteImport("Icons/HUD_KeyLamp_Denied_96x96.png");
         RequireUiSpriteImport("Reticles/RETICLE_BrassCrosshair_64x64.png");
+        RequireUiSpriteImport("Icons/ICON_Prompt_InteractE_96x96.png");
+        RequireUiSpriteImport("Icons/ICON_Prompt_GearKey_96x96.png");
+        RequireUiSpriteImport("Icons/ICON_Prompt_Valve_96x96.png");
+        RequireUiSpriteImport("Icons/ICON_Prompt_Lift_96x96.png");
+        RequireUiSpriteImport("Icons/ICON_Prompt_Ammo_96x96.png");
+        RequireUiSpriteImport("Icons/ICON_Prompt_Health_96x96.png");
+        RequireUiSpriteImport("Icons/ICON_Prompt_Warning_96x96.png");
+        RequireUiSpriteImport("Icons/ICON_Prompt_Secret_96x96.png");
+        RequireUiSpriteImport("Icons/ICON_Prompt_Pause_96x96.png");
+        RequireUiSpriteImport("Icons/ICON_Prompt_MouseRight_96x96.png");
     }
 
     private static void RequireUiSpriteImport(string relativePath)
@@ -139,9 +149,14 @@ public static class V0LevelValidator
 
     private static void ValidateGameplayUIHudV1(string sceneName, HUDController hud)
     {
-        if (hud.interactionBackplateImage == null || hud.keyLampOffSprite == null || hud.keyLampOnSprite == null || hud.keyLampDeniedSprite == null)
+        if (hud.interactionBackplateImage == null || hud.interactionIconImage == null || hud.keyLampOffSprite == null || hud.keyLampOnSprite == null || hud.keyLampDeniedSprite == null)
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " HUDController is missing UIHudV1 sprite wiring.");
+        }
+
+        if (hud.promptInteractSprite == null || hud.promptGearKeySprite == null || hud.promptValveSprite == null || hud.promptLiftSprite == null || hud.promptWarningSprite == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " HUDController is missing UIHudV1 prompt icon sprites.");
         }
 
         RequireImageSprite(sceneName, "Health Gauge Frame UIHudV1", "Gauges/HUD_HealthGauge_Frame_512x96.png");
@@ -151,6 +166,7 @@ public static class V0LevelValidator
         RequireImageSprite(sceneName, "Gear Key Lamp UIHudV1", "Icons/HUD_KeyLamp_Off_96x96.png");
         RequireImageSprite(sceneName, "Objective Backplate UIHudV1", "Panels/HUD_ObjectiveBackplate_640x72.png");
         RequireImageSprite(sceneName, "Interaction Prompt Backplate UIHudV1", "Panels/HUD_PromptBackplate_640x80.png");
+        RequireImageSprite(sceneName, "Interaction Prompt Icon UIHudV1", "Icons/ICON_Prompt_InteractE_96x96.png");
         RequireImageSprite(sceneName, "Boss Gauge Frame UIHudV1", "Gauges/HUD_BossPressureGauge_Frame_768x96.png");
         RequireImageSprite(sceneName, "Boss Gauge Fill UIHudV1", "Gauges/HUD_BossPressureGauge_Fill_Red_704x24.png");
         RequireImageSprite(sceneName, "Brass Reticle UIHudV1", "Reticles/RETICLE_BrassCrosshair_64x64.png");

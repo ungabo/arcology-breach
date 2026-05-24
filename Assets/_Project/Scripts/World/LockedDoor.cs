@@ -102,6 +102,7 @@ public class LockedDoor : MonoBehaviour, IInteractable
         nextLockedMessageTime = Time.time + 1f;
         SteamworksAudio.Play(SteamworksAudioCue.GateDenied);
         HUDController.Instance?.ShowTemporaryMessage(lockedPrompt, 0.8f);
+        HUDController.Instance?.FlashKeyDenied(0.75f);
     }
 
     private void Open()

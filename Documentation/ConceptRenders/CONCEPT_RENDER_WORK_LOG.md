@@ -172,3 +172,16 @@
   - `RENDER_HFLD_Recovery07_assembled_silhouette_reference_unity_proof.jpg`
 - Added Recovery07 report and metrics under `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/`.
 - PM visual review: muzzle/bore depth is meaningfully better and the grip/hand silhouette is clearer, but the hand still reads as primitive proof geometry. Continue component-first work before any full-gun promotion.
+
+## 2026-05-24 01:24:00 -04:00
+
+- ENV Recovery02 modular corridor kit proof was rejected.
+- Output files were retained for failure diagnosis:
+  - `CONTACTSHEET_ENV_Recovery02_modular_corridor_kit_unity_proof.jpg`
+  - `RENDER_ENV_Recovery02_modular_wall_bay_unity_proof.jpg`
+  - `RENDER_ENV_Recovery02_pressure_door_module_unity_proof.jpg`
+  - `RENDER_ENV_Recovery02_pipe_canopy_unity_proof.jpg`
+  - `RENDER_ENV_Recovery02_floor_wetness_unity_proof.jpg`
+  - `RENDER_ENV_Recovery02_assembled_corridor_slice_unity_proof.jpg`
+- Rejection reason: the rendered output is mostly hot magenta shader-error material, so it is not useful art direction or a valid modular-kit proof.
+- The fix-pass editor script also introduced compiler errors and was quarantined under `Documentation/AssetProduction/EnvironmentLookdev/RejectedRecovery02CompileBlocker/` so the main Unity build could continue.

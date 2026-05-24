@@ -32,10 +32,41 @@ public class RuntimeInteractionTest : MonoBehaviour
             Fail("HUDController is missing interaction prompt text.");
         }
 
+        if (hud.interactionBackplateImage == null || hud.interactionIconImage == null)
+        {
+            Fail("HUDController is missing UIHudV1 interaction prompt artwork.");
+        }
+
+        hud.SetInteractionPrompt("E - vent boiler pressure");
+        if (!hud.interactionBackplateImage.enabled || !hud.interactionIconImage.enabled || hud.interactionIconImage.sprite != hud.promptValveSprite)
+        {
+            Fail("HUDController did not show the valve prompt icon.");
+        }
+
+        hud.SetInteractionPrompt("Gear key required");
+        if (hud.interactionIconImage.sprite != hud.promptWarningSprite)
+        {
+            Fail("HUDController did not show the warning prompt icon.");
+        }
+
+        hud.ClearInteractionPrompt();
+        if (hud.interactionBackplateImage.enabled || hud.interactionIconImage.enabled)
+        {
+            Fail("HUDController did not hide prompt artwork.");
+        }
+
         RequireInteractable(door, player.gameObject, "LockedDoor");
         RequireInteractable(transition, player.gameObject, "LevelTransitionTrigger");
         RequireInteractable(plaque, player.gameObject, "LorePlaque");
 
+        hud.SetKey(false);
+        door.Interact(player.gameObject);
+        if (hud.keyLampImage == null || hud.keyLampDeniedSprite == null || hud.keyLampImage.sprite != hud.keyLampDeniedSprite)
+        {
+            Fail("LockedDoor denial did not flash the denied key-lamp sprite.");
+        }
+
+        yield return null;
         plaque.Interact(player.gameObject);
         yield return null;
 
