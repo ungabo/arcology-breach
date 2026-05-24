@@ -432,6 +432,33 @@ Build executable:
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## 2026-05-24 14:31 -04:00
+
+Promoted the completed quarantine-import prep lane into the main production process.
+
+Added:
+
+- `Tools/SidecarValidation/New-QuarantineReadinessReport.ps1` for static, non-destructive sidecar import readiness reporting.
+- `Documentation/Planning/V0_1_38_QuarantineImportPrep/` runbook and batch-speed guidance.
+- `Documentation/AssetProduction/V0_1_38_QuarantineImportPrep/` production notes.
+- `Documentation/QA/V0_1_38_QuarantineImportPrep/` templates plus generated Markdown/JSON readiness report.
+- Updated active production status so 15-minute reviews explicitly favor bigger, safe, parallel Unity sidecar batches.
+
+Verification completed:
+
+- PowerShell parser validation passed for `New-QuarantineReadinessReport.ps1`.
+- Existing generated report found 4 sidecar packages, 0 errors, and 21 warnings.
+- Weapons and mechanical enemies are ready for primary quarantine by static report.
+- Feedback FX/audio and Steamworks level kit remain active/remediation lanes.
+
+Parallel lanes started or redirected:
+
+- Feedback FX/audio sidecar remains active as a large v0.1.38 package.
+- Materials Set 01 sidecar started as a broad steampunk material/texture family batch.
+- Steamworks level-kit completion sidecar started to replace placeholder manifest references with generated Unity package output.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## 2026-05-24 14:20 -04:00
 
 Completed `v0.1.35` gameplay feedback systems batch and widened sidecar asset-pack production.

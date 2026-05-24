@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 14:20 -04:00`
+Last updated: `2026-05-24 14:31 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -34,7 +34,15 @@ Current sidecar-gate status:
 - Steamworks level kit sidecar package: generated and pushed; needs import-smoke metadata before zero-error validator pass.
 - Integration gate tooling: validator/dashboard/checklists generated; validator script was patched for strict-mode dependency handling.
 - Completed package-gate cleanup: weapon, mechanical enemy, and Steamworks level-kit sidecars now pass `Test-SidecarAssetPacks.ps1` individually with 0 errors and 0 warnings.
-- Active sidecar lanes: Feedback FX/audio sidecar package and quarantine import prep are running in isolated roots.
+- Quarantine import prep: completed and parser-validated in `Tools/SidecarValidation/New-QuarantineReadinessReport.ps1`; the report currently marks weapons and mechanical enemies ready for primary quarantine, feedback FX/audio pending package-local manifest completion, and Steamworks level kit pending generator output.
+- Active sidecar lanes: Feedback FX/audio sidecar package, Materials Set 01, and Steamworks level-kit completion are running in isolated roots.
+
+Current speed adjustment:
+
+- The 15-minute PM heartbeat now explicitly asks whether the current flow is the fastest safe pace achievable.
+- Side agents are being assigned asset families, render sets, level kits, or validation tooling, not single-object serial work.
+- Completed clean sidecars should be batched into one quarantine import/compile pass when that creates a visible player-facing leap.
+- Main-lane full builds should wait for coherent milestone batches unless a script, shader, asmdef, or package import risk requires an immediate compile.
 
 ## Active Side Agents
 
