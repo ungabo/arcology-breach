@@ -56,7 +56,16 @@ public class RuntimeBellowsNodeTest : MonoBehaviour
             yield break;
         }
 
+        PressureBoostVfx boostVfx = boostTarget.GetComponent<PressureBoostVfx>();
+        if (boostVfx == null || !boostVfx.IsActive || boostVfx.VisiblePieceCount < 8)
+        {
+            Fail("Bellows Node smoke failed: pressure boost VFX did not appear on the nearby Scrapper.");
+            yield break;
+        }
+
         boostTarget.gameObject.SetActive(false);
+        yield return null;
+
         target.enabled = false;
         PlaceCombatActors(player, target, closeRange: 3.2f);
 

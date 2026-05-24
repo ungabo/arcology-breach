@@ -1173,6 +1173,17 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Run full packaged smoke matrix through the runner.
 - [x] Commit and push `v0.0.79`.
 
+## v0.0.80 Bellows Node Boost Readability Pass
+
+- [x] Add `PressureBoostVfx` procedural brass/steam overdrive effect.
+- [x] Trigger `PressureBoostVfx` from Scrapper pressure boost state.
+- [x] Disable boost VFX primitive colliders immediately so procedural art cannot block weapon tests.
+- [x] Expand packaged `RuntimeBellowsNodeTest` to verify boost VFX visibility.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.80`.
+
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
 ## v0.2 Combat Feel Slice

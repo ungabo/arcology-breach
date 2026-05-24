@@ -2478,3 +2478,42 @@ Build executable:
 `Builds/Windows/v0.0.79/BrassworksBreach_v0.0.79.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 20:34 -04:00
+
+Completed `v0.0.80` pressure-boost VFX readability pass.
+
+Added:
+
+- `PressureBoostVfx` procedural brass/steam overdrive ring and vent spokes.
+- Scrapper pressure boosts now trigger the visible boost-state VFX for the duration of the Bellows Node over-pressure effect.
+- Boost VFX primitive colliders are disabled immediately so runtime procedural visuals cannot block weapon raycasts.
+- `RuntimeBellowsNodeTest` now verifies pulse damage, pulse VFX, nearby Scrapper boost, boost-state VFX, durability, and destruction VFX.
+- Versioned Windows build `v0.0.80`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.80/BrassworksBreach_v0.0.80.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

@@ -151,8 +151,14 @@ public class EnemyController : MonoBehaviour, IDamageable
             return;
         }
 
+        if (!IsPressureBoosted)
+        {
+            pressureBoostMultiplier = speedMultiplier;
+        }
+
         pressureBoostUntil = Mathf.Max(pressureBoostUntil, Time.time + duration);
         pressureBoostMultiplier = Mathf.Max(pressureBoostMultiplier, speedMultiplier);
+        PressureBoostVfx.StartBoost(gameObject, duration);
     }
 
     private IEnumerator FlashHit()
