@@ -5853,3 +5853,20 @@ Completed the main-lane `v0.1.41` expanded sidecar visual-import batch.
 - Parallel updates: Maxwell completed the v0.1.41 import-readiness packet; Raman completed Corridor Kit Set 02; Faraday completed Encounter Enemy Set 02; Carson's Weapon Viewmodel Set 03 lane remains separate until reviewed.
 
 Next-step directive: finish candidate-readiness evidence, commit/push the v0.1.41 main-lane integration slice without staging fresh unreviewed sidecar roots, then review the next sidecar package wave.
+
+## 2026-05-24 16:35 -04:00
+
+Accepted the `v0.1.42` sidecar package wave after main-lane review.
+
+- `CorridorKitSet02`: 32 prefabs, 18 materials, 6 meshes, 5 previews, package-local manifest/catalog evidence, and package validator pass.
+- `EncounterEnemySet02`: 16 visual-only enemy prefabs, 16 materials, 12 meshes, 21 previews, package-local manifest/catalog evidence, Unity validation evidence, and package validator pass.
+- `WeaponViewmodelSet03`: 20 visual-only weapon/viewmodel prefabs, 14 materials, 7 meshes, 21 previews, package-local manifest/catalog evidence, Unity validation evidence, and package validator pass.
+- Cleaned generated Unity validation cache folders from `WeaponViewmodelSet03/ValidationProject~` before staging; package evidence and project settings remain.
+- Validation commands:
+  - `Tools/SidecarValidation/Test-SidecarAssetPacks.ps1 -PackageNamePattern 'BrassworksBreach.CorridorKitSet02'`
+  - `Tools/SidecarValidation/Test-SidecarAssetPacks.ps1 -PackageNamePattern 'BrassworksBreach.EncounterEnemySet02'`
+  - `Tools/SidecarValidation/Test-SidecarAssetPacks.ps1 -PackageNamePattern 'BrassworksBreach.WeaponViewmodelSet03'`
+- All three validation runs passed with 0 errors and 0 warnings.
+- Started new parallel lanes for Steam VFX Set 02, Objective Props Set 02, and v0.1.42 import-readiness planning.
+
+Next-step directive: commit/push the accepted package wave, then continue immediately with the next highest-impact import or playable-integration batch.

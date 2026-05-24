@@ -77,6 +77,15 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Add sidecar import validation to the standard Windows matrix and candidate-readiness evidence chain.
 - [x] Rebuild scenes, run route audit, run full Windows matrix through package, generate QA, issue-triage, and candidate-readiness evidence.
 
+## v0.1.42 Sidecar Package Acceptance Wave
+
+- [x] Locally validate Corridor Kit Set 02 package.
+- [x] Locally validate Encounter Enemy Set 02 package.
+- [x] Remove generated Unity validation cache from Weapon Viewmodel Set 03 before staging.
+- [x] Locally validate Weapon Viewmodel Set 03 package.
+- [x] Accept package roots and preview/evidence docs without importing them into the main Unity manifest yet.
+- [x] Start the next parallel package lanes for Steam VFX Set 02, Objective Props Set 02, and v0.1.42 import-readiness planning.
+
 ## Parallel Priority: v0.1.40 Sidecar Asset Bundles
 
 - [x] Complete broad steampunk material family sidecar package.

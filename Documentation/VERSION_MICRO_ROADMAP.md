@@ -75,12 +75,13 @@ The roadmap is a living plan, not a promise that every version number is immutab
 | v0.1.36 | Sidecar package quarantine visual import | Completed: imported weapon, mechanical enemy, feedback FX/audio, and Steamworks level-kit sidecars as local packages and placed visual-only showcase prefabs across all five generated levels. | Route audit passed; `SIDECAR_QUARANTINE_IMPORT_PASS` passed; full V0 matrix passed with package, QA packet, issue-triage packet, and candidate-readiness evidence. |
 | v0.1.37 | World label readability and navigation polish | Completed: added billboarded world labels, dark backplates, high-contrast label styling, editor label gates, and packaged world-label readability smoke coverage. | Route audit passed; full V0 matrix passed with new `V0_WORLD_LABEL_READABILITY_PASS`, package, QA packet, issue-triage packet, and candidate-readiness evidence. |
 | v0.1.41 | Expanded sidecar visual import | Completed: imported Materials Set 01, Level Dressing Set 01, Mechanical Enemy Visual Set 01, and Weapon Props Set 02 as local packages, expanded showcase placements and material swatches across all five levels, and raised sidecar import coverage to eight packages and fifty-one assets. | Route audit passed; `SIDECAR_QUARANTINE_IMPORT_PASS packages=8 assets=51` passed; full matrix passed through package plus QA and issue-triage evidence. |
+| v0.1.42 | Second sidecar package acceptance wave | Completed: accepted Corridor Kit Set 02, Encounter Enemy Set 02, and Weapon Viewmodel Set 03 as isolated Unity package roots with previews and validation evidence, but did not import them into the main manifest yet. | Package-specific sidecar validators passed with 0 errors and 0 warnings; import-readiness planning is running in parallel. |
 
 ## Near-Term Proposed Sequence
 
 | Version | Planned Slice | Intent | Expected Verification |
 | --- | --- | --- | --- |
-| v0.1.42 | Second sidecar package acceptance wave | Review and accept Corridor Kit Set 02, Encounter Enemy Set 02, and Weapon Viewmodel Set 03 when complete, then decide whether to import them immediately or hold them for the next large visual milestone. | Package-specific sidecar validators, import-readiness review, then a single main-lane import/showcase matrix if accepted. |
+| v0.1.43 | Second sidecar visual import or gameplay promotion | Use the v0.1.42 import-readiness packet to decide whether Corridor Kit Set 02, Encounter Enemy Set 02, and Weapon Viewmodel Set 03 should enter a quarantine showcase, gameplay promotion, or both. | Representative package import checks, targeted scene validation, route audit, and a full matrix only after the visible gameplay/visual leap is integrated. |
 
 ## Later Follow-Up Areas
 

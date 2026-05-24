@@ -31,7 +31,8 @@ Current sidecar-gate status:
 
 - Weapon, mechanical enemy, feedback FX/audio, Steamworks level-kit, Materials Set 01, Level Dressing Set 01, Mechanical Enemy Visual Set 01, and Weapon Props Set 02 sidecars are imported as local packages in `Packages/manifest.json`.
 - `SidecarQuarantineImportValidator` passed with `SIDECAR_QUARANTINE_IMPORT_PASS packages=8 assets=51`.
-- Fresh completed sidecar lanes now pending main-lane review for the next batch: Corridor Kit Set 02 and Encounter Enemy Set 02.
+- Fresh accepted sidecar lanes pending future import decision: Corridor Kit Set 02, Encounter Enemy Set 02, and Weapon Viewmodel Set 03.
+- Active sidecar lanes: Steam VFX Set 02, Objective Props Set 02, and v0.1.42 import-readiness planning.
 
 Current speed adjustment:
 
@@ -44,10 +45,13 @@ Current speed adjustment:
 
 | Agent | ID | Scope | Allowed Write Files | Started | Status |
 | --- | --- | --- | --- | --- | --- |
-| Mill | `019e5b74-2302-7183-8729-8ae9c37ed713` | Materials Set 01 sidecar package | `AssetPacks/BrassworksBreach.MaterialsSet01/`, `Documentation/AssetProduction/V0_1_39_MaterialsSet01/`, `Documentation/ConceptRenders/V0_1_39_MaterialsSet01/` | `2026-05-24 15:36 -04:00` | completed; 16 materials, 48 texture maps, 18 previews, sidecar validator pass, isolated Unity import pass; pending main-lane review |
-| Gibbs | `019e5b82-4a09-70f3-887b-bfe5d803f8da` | Level Dressing Set 01 sidecar package | `AssetPacks/BrassworksBreach.LevelDressingSet01/`, `Documentation/AssetProduction/V0_1_40_LevelDressingSet01/`, `Documentation/ConceptRenders/V0_1_40_LevelDressingSet01/` | `2026-05-24 15:44 -04:00` | completed; 30 prefabs, 16 materials, 5 reusable meshes, 4 previews, sidecar validator pass; pending main-lane review |
-| Bernoulli | `019e5b82-81e1-7442-918a-7d414dd40535` | Mechanical Enemy Visual Set 01 sidecar package | `AssetPacks/BrassworksBreach.MechanicalEnemyVisualSet01/`, `Documentation/AssetProduction/V0_1_40_MechanicalEnemyVisualSet01/`, `Documentation/ConceptRenders/V0_1_40_MechanicalEnemyVisualSet01/` | `2026-05-24 15:44 -04:00` | completed; 13 prefabs, 15 materials, 8 meshes, 19 previews, sidecar validator pass, Unity validation pass; pending main-lane review |
-| Nash | `019e5b82-ccf2-7d52-a5b7-74070ef467b9` | Weapon Props Set 02 sidecar package | `AssetPacks/BrassworksBreach.WeaponPropsSet02/`, `Documentation/AssetProduction/V0_1_40_WeaponPropsSet02/`, `Documentation/ConceptRenders/V0_1_40_WeaponPropsSet02/` | `2026-05-24 15:44 -04:00` | completed; 16 prefabs, 12 materials, 4 meshes, 17 previews, sidecar validator pass, isolated Unity generate/render pass; pending main-lane review |
+| Mencius | `019e5bb0-9f46-7872-97f1-757dc8b4d394` | Steam VFX Set 02 sidecar package | `AssetPacks/BrassworksBreach.SteamVFXSet02/`, `Documentation/AssetProduction/V0_1_42_SteamVFXSet02/`, `Documentation/ConceptRenders/V0_1_42_SteamVFXSet02/` | `2026-05-24 16:35 -04:00` | active |
+| Ramanujan | `019e5bb0-ce8e-7452-a587-6d1fab3e5568` | Objective Props Set 02 sidecar package | `AssetPacks/BrassworksBreach.ObjectivePropsSet02/`, `Documentation/AssetProduction/V0_1_42_ObjectivePropsSet02/`, `Documentation/ConceptRenders/V0_1_42_ObjectivePropsSet02/` | `2026-05-24 16:35 -04:00` | active |
+| Fermat | `019e5bb1-9bb1-7780-a7a8-326a8bf384d0` | v0.1.42 sidecar import-readiness packet | `Documentation/Planning/V0_1_42_SidecarImportReadiness/`, `Documentation/QA/V0_1_42_SidecarImportReadiness/` | `2026-05-24 16:35 -04:00` | active |
+| Mill | `019e5b74-2302-7183-8729-8ae9c37ed713` | Materials Set 01 sidecar package | `AssetPacks/BrassworksBreach.MaterialsSet01/`, `Documentation/AssetProduction/V0_1_39_MaterialsSet01/`, `Documentation/ConceptRenders/V0_1_39_MaterialsSet01/` | `2026-05-24 15:36 -04:00` | accepted into v0.1.40 package slice and v0.1.41 import |
+| Gibbs | `019e5b82-4a09-70f3-887b-bfe5d803f8da` | Level Dressing Set 01 sidecar package | `AssetPacks/BrassworksBreach.LevelDressingSet01/`, `Documentation/AssetProduction/V0_1_40_LevelDressingSet01/`, `Documentation/ConceptRenders/V0_1_40_LevelDressingSet01/` | `2026-05-24 15:44 -04:00` | accepted into v0.1.40 package slice and v0.1.41 import |
+| Bernoulli | `019e5b82-81e1-7442-918a-7d414dd40535` | Mechanical Enemy Visual Set 01 sidecar package | `AssetPacks/BrassworksBreach.MechanicalEnemyVisualSet01/`, `Documentation/AssetProduction/V0_1_40_MechanicalEnemyVisualSet01/`, `Documentation/ConceptRenders/V0_1_40_MechanicalEnemyVisualSet01/` | `2026-05-24 15:44 -04:00` | accepted into v0.1.40 package slice and v0.1.41 import |
+| Nash | `019e5b82-ccf2-7d52-a5b7-74070ef467b9` | Weapon Props Set 02 sidecar package | `AssetPacks/BrassworksBreach.WeaponPropsSet02/`, `Documentation/AssetProduction/V0_1_40_WeaponPropsSet02/`, `Documentation/ConceptRenders/V0_1_40_WeaponPropsSet02/` | `2026-05-24 15:44 -04:00` | accepted into v0.1.40 package slice and v0.1.41 import |
 | Hilbert | `019e579b-41ba-7843-8c5f-17bc62683ca7` | AAA steampunk asset-pack production plan | `Documentation/PARALLEL_ASSET_PACK_PRODUCTION_PLAN.md`, `Documentation/PARALLEL_ASSET_ACCEPTANCE_CHECKLIST.md` | `2026-05-23 21:31 -04:00` | completed |
 | Copernicus | `019e579b-7160-7b51-87ab-5bd7da355535` | Production map plans for current/future levels | `Documentation/PARALLEL_LEVEL_PRODUCTION_MAPS.md` | `2026-05-23 21:31 -04:00` | completed |
 | Noether | `019e579b-965a-71c2-8141-51a85513a3bb` | Combat roster and weapon-family design spec | `Documentation/PARALLEL_COMBAT_ROSTER_AND_WEAPONS.md` | `2026-05-23 21:31 -04:00` | completed |
