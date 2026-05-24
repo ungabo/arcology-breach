@@ -18,8 +18,12 @@ public class HUDController : MonoBehaviour
     public Image ammoFillImage;
     public Image keyLampImage;
     public Image objectiveBackplateImage;
+    public Image interactionBackplateImage;
     public Image bossBackplateImage;
     public Image bossFillImage;
+    public Sprite keyLampOffSprite;
+    public Sprite keyLampOnSprite;
+    public Sprite keyLampDeniedSprite;
 
     private float messageTimer;
     private bool messageIsPersistent;
@@ -116,7 +120,8 @@ public class HUDController : MonoBehaviour
 
         if (keyLampImage != null)
         {
-            keyLampImage.color = hasKey ? new Color(0.25f, 0.95f, 0.35f, 0.95f) : new Color(0.95f, 0.55f, 0.08f, 0.95f);
+            keyLampImage.sprite = hasKey && keyLampOnSprite != null ? keyLampOnSprite : keyLampOffSprite;
+            keyLampImage.color = Color.white;
         }
     }
 
@@ -242,6 +247,11 @@ public class HUDController : MonoBehaviour
 
         interactionText.text = prompt;
         interactionText.enabled = true;
+
+        if (interactionBackplateImage != null)
+        {
+            interactionBackplateImage.enabled = true;
+        }
     }
 
     public void ClearInteractionPrompt()
@@ -250,6 +260,11 @@ public class HUDController : MonoBehaviour
         {
             interactionText.text = string.Empty;
             interactionText.enabled = false;
+        }
+
+        if (interactionBackplateImage != null)
+        {
+            interactionBackplateImage.enabled = false;
         }
     }
 }

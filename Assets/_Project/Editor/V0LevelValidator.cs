@@ -2,6 +2,7 @@ using System;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public static class V0LevelValidator
 {
@@ -18,6 +19,7 @@ public static class V0LevelValidator
     private const string SignageRouteTexturePath = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png";
     private const string SignageStencilTexturePath = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png";
     private const string SignageSecretTexturePath = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png";
+    private const string UIHudRoot = "Assets/_Project/ArtStaging/UIHudV1";
 
     [MenuItem("Project Tools/Validate v0 Levels")]
     public static void RunValidation()
@@ -30,12 +32,14 @@ public static class V0LevelValidator
     {
         ValidateBuildSceneOrder();
         ValidateFinalMaterialsV1();
+        ValidateUIHudV1SpriteImports();
 
         EditorSceneManager.OpenScene(MainMenuScenePath);
         Require<MainMenuController>("MainMenuController");
         RuntimePerformanceProfile mainMenuPerformanceProfile = Require<RuntimePerformanceProfile>("MainMenu RuntimePerformanceProfile");
         ValidatePlatformQualityProfile("MainMenu", mainMenuPerformanceProfile);
         Require<SteamworksSpinner>("MainMenu SteamworksSpinner");
+        ValidateMainMenuUIHudV1();
 
         EditorSceneManager.OpenScene(Level01ScenePath);
         ValidateGameplayScene("Level01", requirePressureGate: true, requireTransition: true, requireFinalExit: false, requireRangedEnemy: false);
@@ -75,6 +79,83 @@ public static class V0LevelValidator
         RequireFinalMaterialBinding("M_Steam_OilDarkStone", "WetOilDarkStone");
         RequireFinalMaterialBinding("M_Steam_CreamGaugeFace", "CreamEnamelGauge");
         RequireFinalMaterialBinding("M_Greybox_WalnutGrip", "GreasyWalnut");
+    }
+
+    private static void ValidateUIHudV1SpriteImports()
+    {
+        RequireUiSpriteImport("Gauges/HUD_HealthGauge_Frame_512x96.png");
+        RequireUiSpriteImport("Gauges/HUD_HealthGauge_Fill_Red_384x32.png");
+        RequireUiSpriteImport("Gauges/HUD_PressureAmmoGauge_Frame_512x96.png");
+        RequireUiSpriteImport("Gauges/HUD_PressureAmmoGauge_Fill_Amber_384x32.png");
+        RequireUiSpriteImport("Gauges/HUD_BossPressureGauge_Frame_768x96.png");
+        RequireUiSpriteImport("Gauges/HUD_BossPressureGauge_Fill_Red_704x24.png");
+        RequireUiSpriteImport("Panels/HUD_ObjectiveBackplate_640x72.png");
+        RequireUiSpriteImport("Panels/HUD_PromptBackplate_640x80.png");
+        RequireUiSpriteImport("Panels/PANEL_Menu_BrassPanel_768x384.png");
+        RequireUiSpriteImport("Panels/PANEL_Menu_Header_768x96.png");
+        RequireUiSpriteImport("Panels/PANEL_Menu_Button_Normal_320x64.png");
+        RequireUiSpriteImport("Panels/PANEL_Menu_Button_Hover_320x64.png");
+        RequireUiSpriteImport("Panels/PANEL_Menu_Button_Pressed_320x64.png");
+        RequireUiSpriteImport("Panels/PANEL_Menu_SliderTrack_360x40.png");
+        RequireUiSpriteImport("Panels/PANEL_Menu_SliderHandle_48x48.png");
+        RequireUiSpriteImport("Icons/HUD_KeyLamp_Off_96x96.png");
+        RequireUiSpriteImport("Icons/HUD_KeyLamp_On_96x96.png");
+        RequireUiSpriteImport("Icons/HUD_KeyLamp_Denied_96x96.png");
+        RequireUiSpriteImport("Reticles/RETICLE_BrassCrosshair_64x64.png");
+    }
+
+    private static void RequireUiSpriteImport(string relativePath)
+    {
+        string path = UIHudRoot + "/" + relativePath;
+        TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
+        if (importer == null)
+        {
+            throw new InvalidOperationException("Level validation failed: missing UIHudV1 texture " + path + ".");
+        }
+
+        if (importer.textureType != TextureImporterType.Sprite || importer.spriteImportMode != SpriteImportMode.Single || importer.mipmapEnabled || !importer.alphaIsTransparency)
+        {
+            throw new InvalidOperationException("Level validation failed: UIHudV1 texture is not imported for runtime UI: " + path + ".");
+        }
+
+        Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+        if (sprite == null)
+        {
+            throw new InvalidOperationException("Level validation failed: UIHudV1 texture did not load as a sprite: " + path + ".");
+        }
+    }
+
+    private static void ValidateMainMenuUIHudV1()
+    {
+        RequireImageSprite("MainMenu", "Menu Brass Panel UIHudV1", "Panels/PANEL_Menu_BrassPanel_768x384.png");
+        RequireImageSprite("MainMenu", "Menu Header Panel UIHudV1", "Panels/PANEL_Menu_Header_768x96.png");
+        RequireImageSprite("MainMenu", "Start Button", "Panels/PANEL_Menu_Button_Normal_320x64.png");
+        RequireImageSprite("MainMenu", "Quit Button", "Panels/PANEL_Menu_Button_Normal_320x64.png");
+        RequireImageSprite("MainMenu", "Menu Sensitivity Slider Track", "Panels/PANEL_Menu_SliderTrack_360x40.png");
+        RequireImageSprite("MainMenu", "Menu Sensitivity Slider Valve Handle", "Panels/PANEL_Menu_SliderHandle_48x48.png");
+        RequireImageSprite("MainMenu", "Menu Volume Slider Track", "Panels/PANEL_Menu_SliderTrack_360x40.png");
+        RequireImageSprite("MainMenu", "Menu Volume Slider Valve Handle", "Panels/PANEL_Menu_SliderHandle_48x48.png");
+    }
+
+    private static void ValidateGameplayUIHudV1(string sceneName, HUDController hud)
+    {
+        if (hud.interactionBackplateImage == null || hud.keyLampOffSprite == null || hud.keyLampOnSprite == null || hud.keyLampDeniedSprite == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " HUDController is missing UIHudV1 sprite wiring.");
+        }
+
+        RequireImageSprite(sceneName, "Health Gauge Frame UIHudV1", "Gauges/HUD_HealthGauge_Frame_512x96.png");
+        RequireImageSprite(sceneName, "Health Gauge Fill UIHudV1", "Gauges/HUD_HealthGauge_Fill_Red_384x32.png");
+        RequireImageSprite(sceneName, "Ammo Gauge Frame UIHudV1", "Gauges/HUD_PressureAmmoGauge_Frame_512x96.png");
+        RequireImageSprite(sceneName, "Ammo Gauge Fill UIHudV1", "Gauges/HUD_PressureAmmoGauge_Fill_Amber_384x32.png");
+        RequireImageSprite(sceneName, "Gear Key Lamp UIHudV1", "Icons/HUD_KeyLamp_Off_96x96.png");
+        RequireImageSprite(sceneName, "Objective Backplate UIHudV1", "Panels/HUD_ObjectiveBackplate_640x72.png");
+        RequireImageSprite(sceneName, "Interaction Prompt Backplate UIHudV1", "Panels/HUD_PromptBackplate_640x80.png");
+        RequireImageSprite(sceneName, "Boss Gauge Frame UIHudV1", "Gauges/HUD_BossPressureGauge_Frame_768x96.png");
+        RequireImageSprite(sceneName, "Boss Gauge Fill UIHudV1", "Gauges/HUD_BossPressureGauge_Fill_Red_704x24.png");
+        RequireImageSprite(sceneName, "Brass Reticle UIHudV1", "Reticles/RETICLE_BrassCrosshair_64x64.png");
+        RequireImageSprite(sceneName, "Pause Brass Panel UIHudV1", "Panels/PANEL_Menu_BrassPanel_768x384.png");
+        RequireImageSprite(sceneName, "Pause Header Panel UIHudV1", "Panels/PANEL_Menu_Header_768x96.png");
     }
 
     private static void RequireFinalMaterialBinding(string materialName, string familyName)
@@ -153,6 +234,8 @@ public static class V0LevelValidator
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " HUDController is missing boss health UI wiring.");
         }
+
+        ValidateGameplayUIHudV1(sceneName, hud);
 
         Require<PauseMenuController>(sceneName + " PauseMenuController");
         Require<RuntimeInteractionTest>(sceneName + " RuntimeInteractionTest");
@@ -998,6 +1081,28 @@ public static class V0LevelValidator
         if (texturePath != expectedTexturePath)
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " signage decal " + id + " expected texture " + expectedTexturePath + " but found " + texturePath + ".");
+        }
+    }
+
+    private static void RequireImageSprite(string sceneName, string objectName, string expectedRelativePath)
+    {
+        GameObject gameObject = RequireNamed(objectName, sceneName + " UIHudV1 object " + objectName);
+        Image image = gameObject.GetComponent<Image>();
+        if (image == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " UIHudV1 object " + objectName + " has no Image component.");
+        }
+
+        if (image.sprite == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " UIHudV1 object " + objectName + " has no sprite.");
+        }
+
+        string expectedPath = UIHudRoot + "/" + expectedRelativePath;
+        string actualPath = AssetDatabase.GetAssetPath(image.sprite).Replace("\\", "/");
+        if (actualPath != expectedPath)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " UIHudV1 object " + objectName + " expected " + expectedPath + " but found " + actualPath + ".");
         }
     }
 

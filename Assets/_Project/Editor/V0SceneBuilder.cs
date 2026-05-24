@@ -21,6 +21,7 @@ public static class V0SceneBuilder
     private const string DataFolder = "Assets/_Project/Data";
     private const string FinalMaterialsTextureFolder = "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures";
     private const string SignageDecalsTextureFolder = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures";
+    private const string UIHudTextureFolder = "Assets/_Project/ArtStaging/UIHudV1";
     private const float SignageDecalsAtlasPixels = 2048f;
     private const string WindowsBuildFolder = "Builds/Windows";
 
@@ -1460,6 +1461,60 @@ public static class V0SceneBuilder
         return cube;
     }
 
+    private static Sprite LoadUiSprite(string relativePath, Vector4 spriteBorder = default(Vector4))
+    {
+        string path = UIHudTextureFolder + "/" + relativePath;
+        TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
+        if (importer == null)
+        {
+            throw new FileNotFoundException("Missing UIHudV1 texture", path);
+        }
+
+        bool changed = importer.textureType != TextureImporterType.Sprite
+            || importer.spriteImportMode != SpriteImportMode.Single
+            || importer.mipmapEnabled
+            || !importer.alphaIsTransparency
+            || importer.textureCompression != TextureImporterCompression.Uncompressed
+            || importer.filterMode != FilterMode.Bilinear
+            || importer.spriteBorder != spriteBorder;
+
+        if (changed)
+        {
+            importer.textureType = TextureImporterType.Sprite;
+            importer.spriteImportMode = SpriteImportMode.Single;
+            importer.mipmapEnabled = false;
+            importer.alphaIsTransparency = true;
+            importer.textureCompression = TextureImporterCompression.Uncompressed;
+            importer.filterMode = FilterMode.Bilinear;
+            importer.spritePixelsPerUnit = 100f;
+            importer.spriteBorder = spriteBorder;
+            importer.SaveAndReimport();
+        }
+
+        Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+        if (sprite == null)
+        {
+            throw new InvalidOperationException("UIHudV1 texture did not import as a sprite: " + path);
+        }
+
+        return sprite;
+    }
+
+    private static void ApplyUiSprite(Image image, string relativePath, Image.Type imageType, Vector4 spriteBorder = default(Vector4))
+    {
+        image.sprite = LoadUiSprite(relativePath, spriteBorder);
+        image.type = imageType;
+        image.color = Color.white;
+        image.raycastTarget = false;
+    }
+
+    private static Image CreateAnchoredSpriteImage(string name, Transform parent, string relativePath, Vector2 anchorMin, Vector2 anchorMax, Vector2 pivot, Vector2 anchoredPosition, Vector2 rectSize, Image.Type imageType = Image.Type.Simple, Vector4 spriteBorder = default(Vector4))
+    {
+        Image image = CreateAnchoredImage(name, parent, Color.white, anchorMin, anchorMax, pivot, anchoredPosition, rectSize, false);
+        ApplyUiSprite(image, relativePath, imageType, spriteBorder);
+        return image;
+    }
+
     private static void CreateMainMenuScene(Material brassMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material glowMaterial, Material floorMaterial, PlatformQualityProfile qualityProfile)
     {
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
@@ -1508,7 +1563,11 @@ public static class V0SceneBuilder
         performanceProfile.activeProfile = qualityProfile;
         Canvas canvas = canvasObject.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvasObject.AddComponent<CanvasScaler>();
+        CanvasScaler scaler = canvasObject.AddComponent<CanvasScaler>();
+        scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        scaler.referenceResolution = new Vector2(1920f, 1080f);
+        scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
+        scaler.matchWidthOrHeight = 0.5f;
         canvasObject.AddComponent<GraphicRaycaster>();
 
         Font font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
@@ -1518,6 +1577,8 @@ public static class V0SceneBuilder
         }
 
         CreateAnchoredImage("Menu Soot Vignette", canvasObject.transform, new Color(0.01f, 0.008f, 0.006f, 0.36f), Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero, false);
+        CreateAnchoredSpriteImage("Menu Brass Panel UIHudV1", canvasObject.transform, "Panels/PANEL_Menu_BrassPanel_768x384.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -48f), new Vector2(720f, 456f), Image.Type.Sliced, new Vector4(48f, 48f, 48f, 48f));
+        CreateAnchoredSpriteImage("Menu Header Panel UIHudV1", canvasObject.transform, "Panels/PANEL_Menu_Header_768x96.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 152f), new Vector2(780f, 92f), Image.Type.Sliced, new Vector4(48f, 22f, 48f, 22f));
         CreateText("Menu Title", canvasObject.transform, font, GameBranding.WorkingTitle.ToUpperInvariant(), 58, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 150f), new Vector2(860f, 92f));
         Text subtitle = CreateText("Menu Subtitle", canvasObject.transform, font, "PRESSURE BELOW. BRASS ABOVE.", 24, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 94f), new Vector2(620f, 46f));
         subtitle.color = new Color(1f, 0.78f, 0.42f);
@@ -1543,7 +1604,11 @@ public static class V0SceneBuilder
         GameObject canvasObject = new GameObject("HUD Canvas");
         Canvas canvas = canvasObject.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvasObject.AddComponent<CanvasScaler>();
+        CanvasScaler scaler = canvasObject.AddComponent<CanvasScaler>();
+        scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        scaler.referenceResolution = new Vector2(1920f, 1080f);
+        scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
+        scaler.matchWidthOrHeight = 0.5f;
         canvasObject.AddComponent<GraphicRaycaster>();
 
         HUDController hud = canvasObject.AddComponent<HUDController>();
@@ -1555,22 +1620,35 @@ public static class V0SceneBuilder
         }
 
         hud.damageFlashImage = CreateScreenImage("Damage Flash", canvasObject.transform, new Color(1f, 0f, 0f, 0f));
-        CreateAnchoredImage("Health Gauge Backplate", canvasObject.transform, new Color(0.16f, 0.085f, 0.035f, 0.86f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(14f, 14f), new Vector2(370f, 58f), false);
-        hud.healthFillImage = CreateAnchoredImage("Health Gauge Fill", canvasObject.transform, new Color(0.78f, 0.08f, 0.04f, 0.88f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(24f, 20f), new Vector2(210f, 12f), true);
-        CreateAnchoredImage("Ammo Gauge Backplate", canvasObject.transform, new Color(0.16f, 0.085f, 0.035f, 0.86f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-14f, 14f), new Vector2(370f, 58f), false);
-        hud.ammoFillImage = CreateAnchoredImage("Ammo Gauge Fill", canvasObject.transform, new Color(0.85f, 0.55f, 0.16f, 0.88f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-24f, 20f), new Vector2(210f, 12f), true);
+        CreateAnchoredSpriteImage("Health Gauge Frame UIHudV1", canvasObject.transform, "Gauges/HUD_HealthGauge_Frame_512x96.png", new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(14f, 14f), new Vector2(384f, 72f), Image.Type.Sliced, new Vector4(34f, 22f, 34f, 22f));
+        hud.healthFillImage = CreateAnchoredSpriteImage("Health Gauge Fill UIHudV1", canvasObject.transform, "Gauges/HUD_HealthGauge_Fill_Red_384x32.png", new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(32f, 24f), new Vector2(238f, 20f), Image.Type.Filled);
+        hud.healthFillImage.fillMethod = Image.FillMethod.Horizontal;
+        hud.healthFillImage.fillOrigin = (int)Image.OriginHorizontal.Left;
+        hud.healthFillImage.fillAmount = 1f;
+        CreateAnchoredSpriteImage("Ammo Gauge Frame UIHudV1", canvasObject.transform, "Gauges/HUD_PressureAmmoGauge_Frame_512x96.png", new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-14f, 14f), new Vector2(384f, 72f), Image.Type.Sliced, new Vector4(34f, 22f, 34f, 22f));
+        hud.ammoFillImage = CreateAnchoredSpriteImage("Ammo Gauge Fill UIHudV1", canvasObject.transform, "Gauges/HUD_PressureAmmoGauge_Fill_Amber_384x32.png", new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-32f, 24f), new Vector2(238f, 20f), Image.Type.Filled);
+        hud.ammoFillImage.fillMethod = Image.FillMethod.Horizontal;
+        hud.ammoFillImage.fillOrigin = (int)Image.OriginHorizontal.Left;
+        hud.ammoFillImage.fillAmount = 1f;
         CreateAnchoredImage("Gear Key Backplate", canvasObject.transform, new Color(0.16f, 0.085f, 0.035f, 0.86f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0f, 14f), new Vector2(320f, 56f), false);
-        hud.keyLampImage = CreateAnchoredImage("Gear Key Lamp", canvasObject.transform, new Color(0.95f, 0.55f, 0.08f, 0.95f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(-128f, 30f), new Vector2(24f, 24f), false);
-        hud.objectiveBackplateImage = CreateAnchoredImage("Objective Backplate", canvasObject.transform, new Color(0.12f, 0.055f, 0.03f, 0.86f), new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(18f, -82f), new Vector2(520f, 52f), false);
-        hud.bossBackplateImage = CreateAnchoredImage("Boss Gauge Backplate", canvasObject.transform, new Color(0.12f, 0.055f, 0.03f, 0.9f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0f, -18f), new Vector2(560f, 54f), false);
-        hud.bossFillImage = CreateAnchoredImage("Boss Gauge Fill", canvasObject.transform, new Color(0.92f, 0.22f, 0.06f, 0.9f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0f, -49f), new Vector2(500f, 12f), true);
-        hud.healthText = CreateText("Health Text", canvasObject.transform, font, "HEALTH 100/100", 24, TextAnchor.LowerLeft, new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(18f, 16f), new Vector2(360f, 50f));
-        hud.ammoText = CreateText("Ammo Text", canvasObject.transform, font, "AMMO 30", 24, TextAnchor.LowerRight, new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-18f, 16f), new Vector2(360f, 50f));
+        hud.keyLampOffSprite = LoadUiSprite("Icons/HUD_KeyLamp_Off_96x96.png");
+        hud.keyLampOnSprite = LoadUiSprite("Icons/HUD_KeyLamp_On_96x96.png");
+        hud.keyLampDeniedSprite = LoadUiSprite("Icons/HUD_KeyLamp_Denied_96x96.png");
+        hud.keyLampImage = CreateAnchoredSpriteImage("Gear Key Lamp UIHudV1", canvasObject.transform, "Icons/HUD_KeyLamp_Off_96x96.png", new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(-128f, 22f), new Vector2(44f, 44f));
+        hud.objectiveBackplateImage = CreateAnchoredSpriteImage("Objective Backplate UIHudV1", canvasObject.transform, "Panels/HUD_ObjectiveBackplate_640x72.png", new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(18f, -82f), new Vector2(640f, 72f), Image.Type.Sliced, new Vector4(32f, 20f, 32f, 20f));
+        hud.bossBackplateImage = CreateAnchoredSpriteImage("Boss Gauge Frame UIHudV1", canvasObject.transform, "Gauges/HUD_BossPressureGauge_Frame_768x96.png", new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0f, -18f), new Vector2(640f, 78f), Image.Type.Sliced, new Vector4(42f, 22f, 42f, 22f));
+        hud.bossFillImage = CreateAnchoredSpriteImage("Boss Gauge Fill UIHudV1", canvasObject.transform, "Gauges/HUD_BossPressureGauge_Fill_Red_704x24.png", new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0f, -58f), new Vector2(540f, 18f), Image.Type.Filled);
+        hud.bossFillImage.fillMethod = Image.FillMethod.Horizontal;
+        hud.bossFillImage.fillOrigin = (int)Image.OriginHorizontal.Left;
+        hud.bossFillImage.fillAmount = 1f;
+        hud.healthText = CreateText("Health Text", canvasObject.transform, font, "HEALTH 100/100", 22, TextAnchor.LowerLeft, new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(28f, 18f), new Vector2(360f, 52f));
+        hud.ammoText = CreateText("Ammo Text", canvasObject.transform, font, "AMMO 30", 22, TextAnchor.LowerRight, new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-28f, 18f), new Vector2(360f, 52f));
         hud.keyText = CreateText("Gear Key Text", canvasObject.transform, font, "GEAR KEY NO", 22, TextAnchor.LowerCenter, new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0f, 18f), new Vector2(300f, 45f));
-        hud.objectiveText = CreateText("Objective Text", canvasObject.transform, font, string.Empty, 19, TextAnchor.UpperLeft, new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(30f, -88f), new Vector2(496f, 38f));
-        hud.bossNameText = CreateText("Boss Name Text", canvasObject.transform, font, string.Empty, 20, TextAnchor.UpperCenter, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0f, -18f), new Vector2(540f, 34f));
-        CreateText("Crosshair", canvasObject.transform, font, "+", 34, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(80f, 80f));
-        hud.interactionText = CreateText("Interaction Prompt Text", canvasObject.transform, font, string.Empty, 24, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -92f), new Vector2(620f, 54f));
+        hud.objectiveText = CreateText("Objective Text", canvasObject.transform, font, string.Empty, 19, TextAnchor.UpperLeft, new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(54f, -94f), new Vector2(560f, 44f));
+        hud.bossNameText = CreateText("Boss Name Text", canvasObject.transform, font, string.Empty, 20, TextAnchor.UpperCenter, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0f, -20f), new Vector2(560f, 34f));
+        CreateAnchoredSpriteImage("Brass Reticle UIHudV1", canvasObject.transform, "Reticles/RETICLE_BrassCrosshair_64x64.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(46f, 46f));
+        hud.interactionBackplateImage = CreateAnchoredSpriteImage("Interaction Prompt Backplate UIHudV1", canvasObject.transform, "Panels/HUD_PromptBackplate_640x80.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -102f), new Vector2(640f, 80f), Image.Type.Sliced, new Vector4(34f, 22f, 34f, 22f));
+        hud.interactionText = CreateText("Interaction Prompt Text", canvasObject.transform, font, string.Empty, 23, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -101f), new Vector2(600f, 54f));
         hud.messageText = CreateText("Message Text", canvasObject.transform, font, string.Empty, 34, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 80f), new Vector2(760f, 220f));
         hud.ClearObjective();
         hud.HideBossHealth();
@@ -1602,6 +1680,8 @@ public static class V0SceneBuilder
         Image overlay = root.AddComponent<Image>();
         overlay.color = new Color(0.01f, 0.012f, 0.018f, 0.82f);
 
+        CreateAnchoredSpriteImage("Pause Brass Panel UIHudV1", root.transform, "Panels/PANEL_Menu_BrassPanel_768x384.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -58f), new Vector2(680f, 486f), Image.Type.Sliced, new Vector4(48f, 48f, 48f, 48f));
+        CreateAnchoredSpriteImage("Pause Header Panel UIHudV1", root.transform, "Panels/PANEL_Menu_Header_768x96.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 150f), new Vector2(680f, 88f), Image.Type.Sliced, new Vector4(48f, 22f, 48f, 22f));
         CreateText("Pause Title", root.transform, font, GameBranding.WorkingTitle.ToUpperInvariant(), 42, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 150f), new Vector2(620f, 72f));
         CreateText("Pause Subtitle", root.transform, font, "PRESSURE PAUSED", 24, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 100f), new Vector2(420f, 48f));
 
@@ -1627,18 +1707,20 @@ public static class V0SceneBuilder
         rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
         rectTransform.pivot = new Vector2(0.5f, 0.5f);
         rectTransform.anchoredPosition = anchoredPosition;
-        rectTransform.sizeDelta = new Vector2(260f, 48f);
+        rectTransform.sizeDelta = new Vector2(320f, 64f);
 
         Image image = buttonObject.AddComponent<Image>();
-        image.color = new Color(0.22f, 0.12f, 0.045f, 0.94f);
+        ApplyUiSprite(image, "Panels/PANEL_Menu_Button_Normal_320x64.png", Image.Type.Sliced, new Vector4(20f, 16f, 20f, 16f));
 
         Button button = buttonObject.AddComponent<Button>();
-        ColorBlock colors = button.colors;
-        colors.normalColor = new Color(0.22f, 0.12f, 0.045f, 0.94f);
-        colors.highlightedColor = new Color(0.58f, 0.34f, 0.12f, 1f);
-        colors.pressedColor = new Color(0.95f, 0.63f, 0.2f, 1f);
-        colors.selectedColor = colors.highlightedColor;
-        button.colors = colors;
+        button.transition = Selectable.Transition.SpriteSwap;
+        button.targetGraphic = image;
+        button.spriteState = new SpriteState
+        {
+            highlightedSprite = LoadUiSprite("Panels/PANEL_Menu_Button_Hover_320x64.png", new Vector4(20f, 16f, 20f, 16f)),
+            pressedSprite = LoadUiSprite("Panels/PANEL_Menu_Button_Pressed_320x64.png", new Vector4(20f, 16f, 20f, 16f)),
+            selectedSprite = LoadUiSprite("Panels/PANEL_Menu_Button_Hover_320x64.png", new Vector4(20f, 16f, 20f, 16f))
+        };
 
         Text buttonText = CreateText(name + " Text", buttonObject.transform, font, label, 24, TextAnchor.MiddleCenter, new Vector2(0f, 0f), new Vector2(1f, 1f), new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
         buttonText.color = new Color(1f, 0.84f, 0.48f);
@@ -1660,7 +1742,7 @@ public static class V0SceneBuilder
         sliderRect.anchorMax = new Vector2(0.5f, 0.5f);
         sliderRect.pivot = new Vector2(0.5f, 0.5f);
         sliderRect.anchoredPosition = anchoredPosition;
-        sliderRect.sizeDelta = new Vector2(300f, 24f);
+        sliderRect.sizeDelta = new Vector2(360f, 40f);
 
         Slider slider = sliderObject.AddComponent<Slider>();
         slider.minValue = minValue;
@@ -1670,12 +1752,12 @@ public static class V0SceneBuilder
         GameObject backgroundObject = new GameObject(name + " Track");
         backgroundObject.transform.SetParent(sliderObject.transform, false);
         RectTransform backgroundRect = backgroundObject.AddComponent<RectTransform>();
-        backgroundRect.anchorMin = new Vector2(0f, 0.35f);
-        backgroundRect.anchorMax = new Vector2(1f, 0.65f);
+        backgroundRect.anchorMin = Vector2.zero;
+        backgroundRect.anchorMax = Vector2.one;
         backgroundRect.offsetMin = Vector2.zero;
         backgroundRect.offsetMax = Vector2.zero;
         Image backgroundImage = backgroundObject.AddComponent<Image>();
-        backgroundImage.color = new Color(0.12f, 0.07f, 0.035f, 0.96f);
+        ApplyUiSprite(backgroundImage, "Panels/PANEL_Menu_SliderTrack_360x40.png", Image.Type.Sliced, new Vector4(18f, 10f, 18f, 10f));
 
         GameObject fillAreaObject = new GameObject(name + " Fill Area");
         fillAreaObject.transform.SetParent(sliderObject.transform, false);
@@ -1698,9 +1780,9 @@ public static class V0SceneBuilder
         GameObject handleObject = new GameObject(name + " Valve Handle");
         handleObject.transform.SetParent(sliderObject.transform, false);
         RectTransform handleRect = handleObject.AddComponent<RectTransform>();
-        handleRect.sizeDelta = new Vector2(22f, 22f);
+        handleRect.sizeDelta = new Vector2(48f, 48f);
         Image handleImage = handleObject.AddComponent<Image>();
-        handleImage.color = new Color(0.96f, 0.72f, 0.28f, 1f);
+        ApplyUiSprite(handleImage, "Panels/PANEL_Menu_SliderHandle_48x48.png", Image.Type.Simple);
 
         slider.fillRect = fillRect;
         slider.handleRect = handleRect;

@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 00:49 -04:00`
+Last updated: `2026-05-24 01:05 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -17,8 +17,8 @@ Current focus:
 
 Current verified local build:
 
-- `v0.0.96`
-- Build path: `Builds/Windows/v0.0.96/BrassworksBreach_v0.0.96.exe`
+- `v0.0.97`
+- Build path: `Builds/Windows/v0.0.97/BrassworksBreach_v0.0.97.exe`
 - Matrix result: `V0_BUILD_MATRIX_PASS`
 
 ## Active Side Agents
@@ -54,6 +54,8 @@ Current verified local build:
 | Poincare-Component | `019e582d-14bb-7b00-9bc6-e03b5190b865` | Pressure-pistol component build plan/gates | `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/PRESSURE_PISTOL_COMPONENT_BUILD_PLAN.md`, `PRESSURE_PISTOL_COMPONENT_ACCEPTANCE_GATES.md` | `2026-05-24 00:00 -04:00` | completed |
 | Einstein | `019e583d-ae08-7800-8d2f-1388dd2d75c2` | Pressure-pistol Recovery06 component-first Unity proof | `Assets/_Project/Editor/UnityPressurePistolProofRenderer.cs`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/*Recovery06*`, `Documentation/ConceptRenders/*Recovery06*` | `2026-05-24 00:30 -04:00` | completed; integrated for review |
 | Archimedes-Env | `019e583d-dc9b-7e52-8b5f-9f0cad07c1f9` | Unity corridor/material proof render | `Assets/_Project/Editor/UnityCorridorMaterialProofRenderer.cs`, `Documentation/AssetProduction/EnvironmentLookdev/`, `Documentation/ConceptRenders/*ENV_Recovery01*` | `2026-05-24 00:30 -04:00` | completed; integrated for review |
+| Einstein | `019e583d-ae08-7800-8d2f-1388dd2d75c2` | Pressure-pistol Recovery07 component decomposition | `Assets/_Project/Editor/UnityPressurePistolProofRenderer.cs`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/*Recovery07*`, `Documentation/ConceptRenders/*Recovery07*` | `2026-05-24 01:00 -04:00` | completed; integrated for review |
+| Archimedes-Env | `019e583d-dc9b-7e52-8b5f-9f0cad07c1f9` | Modular corridor kit Recovery02 Unity proof | `Assets/_Project/Editor/UnityModularCorridorKitProofRenderer.cs`, `Documentation/AssetProduction/EnvironmentLookdev/*Recovery02*`, `Documentation/ConceptRenders/*ENV_Recovery02*` | `2026-05-24 01:00 -04:00` | running |
 
 ## Completed Side-Agent Outputs
 
@@ -99,6 +101,8 @@ Current verified local build:
 | Archimedes-Env | `2026-05-24 00:43 -04:00` | `Assets/_Project/Editor/UnityCorridorMaterialProofRenderer.cs`, `Documentation/AssetProduction/EnvironmentLookdev/`, `Documentation/ConceptRenders/*ENV_Recovery01*` | Completed Unity corridor/material proof. PM review: useful lookdev pass, production fail until authored modular meshes and playable integration replace primitive proof geometry. |
 | Einstein | `2026-05-24 00:44 -04:00` | `Assets/_Project/Editor/UnityPressurePistolProofRenderer.cs`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/*Recovery06*`, `Documentation/ConceptRenders/*Recovery06*` | Completed and integrated for review. Next useful side-agent task is a sculpted-grip/hand focused Unity proof or a full-gun reassembly attempt only after grip/hand improves. |
 | Archimedes-Env | `2026-05-24 00:43 -04:00` | `Assets/_Project/Editor/UnityCorridorMaterialProofRenderer.cs`, `Documentation/AssetProduction/EnvironmentLookdev/`, `Documentation/ConceptRenders/*ENV_Recovery01*` | Completed and integrated for review. Next useful side-agent task is converting the corridor proof into modular authored Unity meshes/material prefab candidates. |
+| Einstein | `2026-05-24 01:02 -04:00` | `Assets/_Project/Editor/UnityPressurePistolProofRenderer.cs`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/*Recovery07*`, `Documentation/ConceptRenders/*Recovery07*` | Completed Recovery07 component decomposition. PM review: muzzle/bore improved and hand silhouette is clearer, but grip/hand still blocks final full-gun promotion. |
+| Archimedes-Env | `2026-05-24 01:00 -04:00` | `Assets/_Project/Editor/UnityModularCorridorKitProofRenderer.cs`, `Documentation/AssetProduction/EnvironmentLookdev/*Recovery02*`, `Documentation/ConceptRenders/*ENV_Recovery02*` | Running modular corridor kit proof while the main lane continues playable integration. |
 
 ## Integration Rules
 

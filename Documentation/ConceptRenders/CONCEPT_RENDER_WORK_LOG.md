@@ -158,3 +158,17 @@
   - `RENDER_HFLD_Recovery06_grip_hand_unity_proof.jpg`
 - Added Recovery06 report and metrics under `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/`.
 - PM visual review: component direction improved over Recovery05, especially coil/gauge/barrel, but this still fails final-art/full-gun promotion because the hand/grip and composition need significant work.
+
+## 2026-05-24 01:02:00 -04:00
+
+- Einstein completed Recovery07 pressure-pistol component decomposition Unity proofing.
+- Added:
+  - `CONTACTSHEET_HFLD_Recovery07_pressure_pistol_component_decomposition_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery07_coil_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery07_gauge_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery07_barrel_tank_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery07_muzzle_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery07_grip_hand_unity_proof.jpg`
+  - `RENDER_HFLD_Recovery07_assembled_silhouette_reference_unity_proof.jpg`
+- Added Recovery07 report and metrics under `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/`.
+- PM visual review: muzzle/bore depth is meaningfully better and the grip/hand silhouette is clearer, but the hand still reads as primitive proof geometry. Continue component-first work before any full-gun promotion.
