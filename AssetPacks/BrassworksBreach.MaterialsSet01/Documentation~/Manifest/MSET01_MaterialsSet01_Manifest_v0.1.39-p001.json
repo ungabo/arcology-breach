@@ -1,0 +1,777 @@
+{
+    "pack_id":  "MSET01",
+    "display_name":  "Materials Set 01 Sidecar",
+    "version":  "0.1.39",
+    "build_id":  "p001",
+    "unity_version":  "6000.4.6f1",
+    "sidecar_project":  "UD-SC-MAT-MaterialsSet01",
+    "owner_lane":  "sidecar-materials-set01",
+    "primary_intake_owner":  "main-lane-art-integration",
+    "canonical_root":  "AssetPacks/BrassworksBreach.MaterialsSet01",
+    "package_root":  "AssetPacks/BrassworksBreach.MaterialsSet01",
+    "package_name":  "com.brassworks.sidecar.materials-set01",
+    "package_version":  "0.1.39-p001",
+    "north_star_reference":  "Documentation/ConceptArt/north-star-steampunk-brassworks-pressure-pistol.png",
+    "asset_counts":  {
+                         "generated_materials":  16,
+                         "generated_textures":  48,
+                         "preview_swatches":  18,
+                         "runtime_metadata":  1,
+                         "runtime_scripts":  1,
+                         "editor_validation_scripts":  1
+                     },
+    "materials":  [
+                      {
+                          "id":  "MSET01_MAT_AgedBrass",
+                          "display_name":  "Aged Brass",
+                          "path":  "Runtime/Materials/MSET01_MAT_AgedBrass.mat",
+                          "guid":  "6f19ee2629fd4b57b845231a174f11fb",
+                          "metallic":  0.86,
+                          "smoothness":  0.38,
+                          "pattern":  "brass",
+                          "acceptance_status":  "accepted_sidecar",
+                          "description":  "Yellowed brass with soot-set grain, tarnish freckles, and brighter rub points for weapon receivers, trim, and valve housings."
+                      },
+                      {
+                          "id":  "MSET01_MAT_DarkBrass",
+                          "display_name":  "Dark Brass",
+                          "path":  "Runtime/Materials/MSET01_MAT_DarkBrass.mat",
+                          "guid":  "e2b00f3babf14f6987507d2b6b223eeb",
+                          "metallic":  0.84,
+                          "smoothness":  0.31,
+                          "pattern":  "brass",
+                          "acceptance_status":  "accepted_sidecar",
+                          "description":  "Low-key aged brass for deep corridor fittings where highlights catch only on beveled edges."
+                      },
+                      {
+                          "id":  "MSET01_MAT_OilyBlackenedIron",
+                          "display_name":  "Oily Blackened Iron",
+                          "path":  "Runtime/Materials/MSET01_MAT_OilyBlackenedIron.mat",
+                          "guid":  "70fa2868a008465aa412c9a8b7cbffcc",
+                          "metallic":  0.92,
+                          "smoothness":  0.47,
+                          "pattern":  "iron",
+                          "acceptance_status":  "accepted_sidecar",
+                          "description":  "Black iron under oil film for barrels, boiler frames, rails, enemy limbs, and heavy door mechanics."
+                      },
+                      {
+                          "id":  "MSET01_MAT_WetStone",
+                          "display_name":  "Wet Stone",
+                          "path":  "Runtime/Materials/MSET01_MAT_WetStone.mat",
+                          "guid":  "b4d64a560003475da3853579d43c90a5",
+                          "metallic":  0.02,
+                          "smoothness":  0.63,
+                          "pattern":  "stone",
+                          "acceptance_status":  "accepted_sidecar",
+                          "description":  "Dark block stone with puddled amber reflections and irregular mortar for damp foundry floors and walls."
+                      },
+                      {
+                          "id":  "MSET01_MAT_RivetedWallPlate",
+                          "display_name":  "Riveted Wall Plate",
+                          "path":  "Runtime/Materials/MSET01_MAT_RivetedWallPlate.mat",
+                          "guid":  "50b0fcb019a4488d998752402d8a4f4f",
+                          "metallic":  0.78,
+                          "smoothness":  0.35,
+                          "pattern":  "plate",
+                          "acceptance_status":  "accepted_sidecar",
+                          "description":  "Segmented metal wall plating with rivets, oxidized seams, and modular grid lines for corridor dressing."
+                      },
+                      {
+                          "id":  "MSET01_MAT_SootGrime",
+                          "display_name":  "Soot Grime",
+                          "path":  "Runtime/Materials/MSET01_MAT_SootGrime.mat",
+                          "guid":  "441a6e3b45554332b6a03b2f1c67e8f0",
+                          "metallic":  0.06,
+                          "smoothness":  0.18,
+                          "pattern":  "steam",
+                          "acceptance_status":  "accepted_sidecar",
+                          "description":  "Matte soot deposit and oily residue overlay candidate for boiler corners, enemy exhausts, and floor decals."
+                      },
+                      {
+                          "id":  "MSET01_MAT_OxidizedCopper",
+                          "display_name":  "Oxidized Copper",
+                          "path":  "Runtime/Materials/MSET01_MAT_OxidizedCopper.mat",
+                          "guid":  "686e91371e0a4d50ac1457769ce93ae3",
+                          "metallic":  0.82,
+                          "smoothness":  0.29,
+                          "pattern":  "copper",
+                          "acceptance_status":  "accepted_sidecar",
+                          "description":  "Aged copper with green oxidation and exposed warm scratches for pipes, coil housings, and pressure tanks."
+                      },
+                      {
+                          "id":  "MSET01_MAT_PressureGaugeGlass",
+                          "display_name":  "Pressure Gauge Glass",
+                          "path":  "Runtime/Materials/MSET01_MAT_PressureGaugeGlass.mat",
+                          "guid":  "8f6742e74c2d453b82131b11d37a7c42",
+                          "metallic":  0,
+                          "smoothness":  0.88,
+                          "pattern":  "glass",
+                          "acceptance_status":  "accepted_sidecar",
+                          "description":  "Smoky convex gauge glass with amber streak highlights for dials, instrument covers, and small windows."
+                      },
+                      {
+                          "id":  "MSET01_MAT_WarmLanternGlass",
+                          "display_name":  "Warm Lantern Glass",
+                          "path":  "Runtime/Materials/MSET01_MAT_WarmLanternGlass.mat",
+                          "guid":  "22e0f9ef8e2f40a793273c78c5826ff2",
+                          "metallic":  0,
+                          "smoothness":  0.8,
+                          "pattern":  "glass",
+                          "acceptance_status":  "accepted_sidecar",
+                          "description":  "Warm amber lantern glass for practical light fixtures, player guidance points, and glowing silhouettes."
+                      },
+                      {
+                          "id":  "MSET01_MAT_VarnishedDarkWood",
+                          "display_name":  "Varnished Dark Wood",
+                          "path":  "Runtime/Materials/MSET01_MAT_VarnishedDarkWood.mat",
+                          "guid":  "ca8a92bb89b34a23aeced0c210004cec",
+                          "metallic":  0,
+                          "smoothness":  0.52,
+                          "pattern":  "wood",
+                          "acceptance_status":  "accepted_sidecar",
+                          "description":  "Dark varnished walnut with scratches and oil glow for grips, cabinets, crates, and decorative insets."
+                      },
+                      {
+                          "id":  "MSET01_MAT_WornLeather",
+                          "display_name":  "Worn Leather",
+                          "path":  "Runtime/Materials/MSET01_MAT_WornLeather.mat",
+                          "guid":  "2fd61dcc7e164746a9806f8551189267",
+                          "metallic":  0,
+                          "smoothness":  0.41,
+                          "pattern":  "leather",
+                          "acceptance_status":  "accepted_sidecar",
+                          "description":  "Creased brown leather with rubbed high spots for gloves, straps, holsters, grips, and enemy bellows."
+                      },
+                      {
+                          "id":  "MSET01_MAT_HazardPaint",
+                          "display_name":  "Hazard Paint",
+                          "path":  "Runtime/Materials/MSET01_MAT_HazardPaint.mat",
+                          "guid":  "5c056acbc30146f59ca13fadbb29cdb7",
+                          "metallic":  0.15,
+                          "smoothness":  0.34,
+                          "pattern":  "hazard",
+                          "acceptance_status":  "accepted_sidecar",
+                          "description":  "Chipped brass-yellow hazard paint over dark substrate for objective valves, lift edges, and warning barricades."
+                      },
+                      {
+                          "id":  "MSET01_MAT_SteamPipePatina",
+                          "display_name":  "Steam Pipe Patina",
+                          "path":  "Runtime/Materials/MSET01_MAT_SteamPipePatina.mat",
+                          "guid":  "89bf4d0db5dc404fa24e024a08a1661f",
+                          "metallic":  0.74,
+                          "smoothness":  0.44,
+                          "pattern":  "pipe",
+                          "acceptance_status":  "accepted_sidecar",
+                          "description":  "Heat-stained pipe metal with amber streaks, grime bands, and tarnished bends for exposed steam infrastructure."
+                      },
+                      {
+                          "id":  "MSET01_MAT_BoilerCeramic",
+                          "display_name":  "Boiler Ceramic",
+                          "path":  "Runtime/Materials/MSET01_MAT_BoilerCeramic.mat",
+                          "guid":  "86edd5fcb6c54281a3d50ded37dbe7c2",
+                          "metallic":  0,
+                          "smoothness":  0.24,
+                          "pattern":  "ceramic",
+                          "acceptance_status":  "accepted_sidecar",
+                          "description":  "Charred off-white ceramic and refractory tile for furnaces, insulated boilers, and hot machinery collars."
+                      },
+                      {
+                          "id":  "MSET01_MAT_RubberGasket",
+                          "display_name":  "Rubber Gasket",
+                          "path":  "Runtime/Materials/MSET01_MAT_RubberGasket.mat",
+                          "guid":  "a2997f82b56f41b3bbf1058ff5f7ee3b",
+                          "metallic":  0,
+                          "smoothness":  0.32,
+                          "pattern":  "steam",
+                          "acceptance_status":  "accepted_sidecar",
+                          "description":  "Aged black rubber with oil sheen and compression wrinkles for seals, hoses, valves, and mechanical joints."
+                      },
+                      {
+                          "id":  "MSET01_MAT_PolishedEdgeWearMetal",
+                          "display_name":  "Polished Edge-Wear Metal",
+                          "path":  "Runtime/Materials/MSET01_MAT_PolishedEdgeWearMetal.mat",
+                          "guid":  "bc4f51e4c39d436993fb5c079b966370",
+                          "metallic":  0.88,
+                          "smoothness":  0.58,
+                          "pattern":  "edge",
+                          "acceptance_status":  "accepted_sidecar",
+                          "description":  "Dark metal with polished worn bevel streaks for enemy silhouettes and high-touch weapon edges."
+                      }
+                  ],
+    "textures":  [
+                     {
+                         "material_id":  "MSET01_MAT_AgedBrass",
+                         "role":  "albedo",
+                         "path":  "Runtime/Textures/Albedo/MSET01_MAT_AgedBrass_ALB.png",
+                         "guid":  "50c41e20f8f44785a2785ed8f6f9f0b7",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_AgedBrass",
+                         "role":  "normal",
+                         "path":  "Runtime/Textures/Normal/MSET01_MAT_AgedBrass_NRM.png",
+                         "guid":  "afa18080676243d8ba9b921760f4bf16",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_AgedBrass",
+                         "role":  "mask",
+                         "path":  "Runtime/Textures/Mask/MSET01_MAT_AgedBrass_MSK.png",
+                         "guid":  "ba4bfe82f3504ab08ca666244eaa6f04",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_DarkBrass",
+                         "role":  "albedo",
+                         "path":  "Runtime/Textures/Albedo/MSET01_MAT_DarkBrass_ALB.png",
+                         "guid":  "22cb88394c53408db2e4c0dfef035f24",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_DarkBrass",
+                         "role":  "normal",
+                         "path":  "Runtime/Textures/Normal/MSET01_MAT_DarkBrass_NRM.png",
+                         "guid":  "542c1cd13896422eb9191f36c70ad182",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_DarkBrass",
+                         "role":  "mask",
+                         "path":  "Runtime/Textures/Mask/MSET01_MAT_DarkBrass_MSK.png",
+                         "guid":  "2a619b3361c24419a1165c159ae5143e",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_OilyBlackenedIron",
+                         "role":  "albedo",
+                         "path":  "Runtime/Textures/Albedo/MSET01_MAT_OilyBlackenedIron_ALB.png",
+                         "guid":  "1d2abd0efc584ae5b9a71626c904b2fe",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_OilyBlackenedIron",
+                         "role":  "normal",
+                         "path":  "Runtime/Textures/Normal/MSET01_MAT_OilyBlackenedIron_NRM.png",
+                         "guid":  "a4b074e54a404edc8efdabce9732a19e",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_OilyBlackenedIron",
+                         "role":  "mask",
+                         "path":  "Runtime/Textures/Mask/MSET01_MAT_OilyBlackenedIron_MSK.png",
+                         "guid":  "dd7bb3011fbf411ba32c1b5f4c21ecf5",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_WetStone",
+                         "role":  "albedo",
+                         "path":  "Runtime/Textures/Albedo/MSET01_MAT_WetStone_ALB.png",
+                         "guid":  "5648192996024c5abf322fe6df8513e4",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_WetStone",
+                         "role":  "normal",
+                         "path":  "Runtime/Textures/Normal/MSET01_MAT_WetStone_NRM.png",
+                         "guid":  "738f106f293f478d993900b47d0f0b2e",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_WetStone",
+                         "role":  "mask",
+                         "path":  "Runtime/Textures/Mask/MSET01_MAT_WetStone_MSK.png",
+                         "guid":  "b0823202a43a43cb834175017bf0c23a",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_RivetedWallPlate",
+                         "role":  "albedo",
+                         "path":  "Runtime/Textures/Albedo/MSET01_MAT_RivetedWallPlate_ALB.png",
+                         "guid":  "cf3cfa3637984cf885118ccd2376fac1",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_RivetedWallPlate",
+                         "role":  "normal",
+                         "path":  "Runtime/Textures/Normal/MSET01_MAT_RivetedWallPlate_NRM.png",
+                         "guid":  "8e1870eedd814553a6a20d126c17d5e7",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_RivetedWallPlate",
+                         "role":  "mask",
+                         "path":  "Runtime/Textures/Mask/MSET01_MAT_RivetedWallPlate_MSK.png",
+                         "guid":  "23b5804e6016405880e3346dc394bb6a",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_SootGrime",
+                         "role":  "albedo",
+                         "path":  "Runtime/Textures/Albedo/MSET01_MAT_SootGrime_ALB.png",
+                         "guid":  "628a5d7bb0b347079cf38474d72902db",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_SootGrime",
+                         "role":  "normal",
+                         "path":  "Runtime/Textures/Normal/MSET01_MAT_SootGrime_NRM.png",
+                         "guid":  "902f9d7b11ad485e9eb42bb2d03e1b25",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_SootGrime",
+                         "role":  "mask",
+                         "path":  "Runtime/Textures/Mask/MSET01_MAT_SootGrime_MSK.png",
+                         "guid":  "790341adb8244658bd87351db4b49920",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_OxidizedCopper",
+                         "role":  "albedo",
+                         "path":  "Runtime/Textures/Albedo/MSET01_MAT_OxidizedCopper_ALB.png",
+                         "guid":  "e831be58d31d450c80f581c99cd01680",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_OxidizedCopper",
+                         "role":  "normal",
+                         "path":  "Runtime/Textures/Normal/MSET01_MAT_OxidizedCopper_NRM.png",
+                         "guid":  "34dabf4ce7b04a51baec3b5f83d92972",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_OxidizedCopper",
+                         "role":  "mask",
+                         "path":  "Runtime/Textures/Mask/MSET01_MAT_OxidizedCopper_MSK.png",
+                         "guid":  "c6be78abc03d4a768af4b2b6fadf3214",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_PressureGaugeGlass",
+                         "role":  "albedo",
+                         "path":  "Runtime/Textures/Albedo/MSET01_MAT_PressureGaugeGlass_ALB.png",
+                         "guid":  "22e2f959112a4f9cb050f8830b960acc",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_PressureGaugeGlass",
+                         "role":  "normal",
+                         "path":  "Runtime/Textures/Normal/MSET01_MAT_PressureGaugeGlass_NRM.png",
+                         "guid":  "ecdf2778e67a495fb2bf3c9c65a70543",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_PressureGaugeGlass",
+                         "role":  "mask",
+                         "path":  "Runtime/Textures/Mask/MSET01_MAT_PressureGaugeGlass_MSK.png",
+                         "guid":  "9f9b14eeaa884b4c8c72426aa30865b2",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_WarmLanternGlass",
+                         "role":  "albedo",
+                         "path":  "Runtime/Textures/Albedo/MSET01_MAT_WarmLanternGlass_ALB.png",
+                         "guid":  "f915b24e2af148958f9d95c75aa72baa",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_WarmLanternGlass",
+                         "role":  "normal",
+                         "path":  "Runtime/Textures/Normal/MSET01_MAT_WarmLanternGlass_NRM.png",
+                         "guid":  "614bd8a9cf4e4a18b9a7d84fc1d15f32",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_WarmLanternGlass",
+                         "role":  "mask",
+                         "path":  "Runtime/Textures/Mask/MSET01_MAT_WarmLanternGlass_MSK.png",
+                         "guid":  "ae0da30f085d4c15bd270d930c078cce",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_VarnishedDarkWood",
+                         "role":  "albedo",
+                         "path":  "Runtime/Textures/Albedo/MSET01_MAT_VarnishedDarkWood_ALB.png",
+                         "guid":  "b18f232db6db4dcaa2d170e5b7c47880",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_VarnishedDarkWood",
+                         "role":  "normal",
+                         "path":  "Runtime/Textures/Normal/MSET01_MAT_VarnishedDarkWood_NRM.png",
+                         "guid":  "a7d9ff3501824e90bddaa39cd374aecb",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_VarnishedDarkWood",
+                         "role":  "mask",
+                         "path":  "Runtime/Textures/Mask/MSET01_MAT_VarnishedDarkWood_MSK.png",
+                         "guid":  "1825b20836cf47b88072b4b1e36d822f",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_WornLeather",
+                         "role":  "albedo",
+                         "path":  "Runtime/Textures/Albedo/MSET01_MAT_WornLeather_ALB.png",
+                         "guid":  "05113298325145339e5992dcc78aeeb0",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_WornLeather",
+                         "role":  "normal",
+                         "path":  "Runtime/Textures/Normal/MSET01_MAT_WornLeather_NRM.png",
+                         "guid":  "d7b26c1acfeb4dc58ca913745f542c82",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_WornLeather",
+                         "role":  "mask",
+                         "path":  "Runtime/Textures/Mask/MSET01_MAT_WornLeather_MSK.png",
+                         "guid":  "be7c47845dfd49ca8579130cb67e5661",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_HazardPaint",
+                         "role":  "albedo",
+                         "path":  "Runtime/Textures/Albedo/MSET01_MAT_HazardPaint_ALB.png",
+                         "guid":  "e1bc42750c324d6fae4b10a86ae77103",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_HazardPaint",
+                         "role":  "normal",
+                         "path":  "Runtime/Textures/Normal/MSET01_MAT_HazardPaint_NRM.png",
+                         "guid":  "d6970b3c7f71481a8deab451db990eee",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_HazardPaint",
+                         "role":  "mask",
+                         "path":  "Runtime/Textures/Mask/MSET01_MAT_HazardPaint_MSK.png",
+                         "guid":  "6a6ee832388f4918aee4ec75d7259dca",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_SteamPipePatina",
+                         "role":  "albedo",
+                         "path":  "Runtime/Textures/Albedo/MSET01_MAT_SteamPipePatina_ALB.png",
+                         "guid":  "f873667d6f1f431b839345502970c9c0",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_SteamPipePatina",
+                         "role":  "normal",
+                         "path":  "Runtime/Textures/Normal/MSET01_MAT_SteamPipePatina_NRM.png",
+                         "guid":  "50429f3b441046ee92c123d9a0ef380f",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_SteamPipePatina",
+                         "role":  "mask",
+                         "path":  "Runtime/Textures/Mask/MSET01_MAT_SteamPipePatina_MSK.png",
+                         "guid":  "64903136693b47858e8c73f822005d39",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_BoilerCeramic",
+                         "role":  "albedo",
+                         "path":  "Runtime/Textures/Albedo/MSET01_MAT_BoilerCeramic_ALB.png",
+                         "guid":  "17d7b772c05d422183955a4b591a4570",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_BoilerCeramic",
+                         "role":  "normal",
+                         "path":  "Runtime/Textures/Normal/MSET01_MAT_BoilerCeramic_NRM.png",
+                         "guid":  "ee13e9372f2445fe9d3964820269eaab",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_BoilerCeramic",
+                         "role":  "mask",
+                         "path":  "Runtime/Textures/Mask/MSET01_MAT_BoilerCeramic_MSK.png",
+                         "guid":  "cd9ebc486a4e4b21b2a22b94ed3aea52",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_RubberGasket",
+                         "role":  "albedo",
+                         "path":  "Runtime/Textures/Albedo/MSET01_MAT_RubberGasket_ALB.png",
+                         "guid":  "893a9f8d87164e3094c8ece410f5bec6",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_RubberGasket",
+                         "role":  "normal",
+                         "path":  "Runtime/Textures/Normal/MSET01_MAT_RubberGasket_NRM.png",
+                         "guid":  "3af8afcc1eef4b0c9968dc4569bf0a7b",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_RubberGasket",
+                         "role":  "mask",
+                         "path":  "Runtime/Textures/Mask/MSET01_MAT_RubberGasket_MSK.png",
+                         "guid":  "a4b685b7184146e3bd1681cbd4fae68b",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_PolishedEdgeWearMetal",
+                         "role":  "albedo",
+                         "path":  "Runtime/Textures/Albedo/MSET01_MAT_PolishedEdgeWearMetal_ALB.png",
+                         "guid":  "93635d40f32c4d9c8e7ddc790c4ae605",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_PolishedEdgeWearMetal",
+                         "role":  "normal",
+                         "path":  "Runtime/Textures/Normal/MSET01_MAT_PolishedEdgeWearMetal_NRM.png",
+                         "guid":  "8a3e57a4ada64cc5b2fe32dc38042619",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_PolishedEdgeWearMetal",
+                         "role":  "mask",
+                         "path":  "Runtime/Textures/Mask/MSET01_MAT_PolishedEdgeWearMetal_MSK.png",
+                         "guid":  "495278dd181f434ba6a55955bcc7c45f",
+                         "size":  "256x256",
+                         "format":  "png",
+                         "acceptance_status":  "accepted_sidecar"
+                     }
+                 ],
+    "swatches":  [
+                     {
+                         "material_id":  "MSET01_MAT_AgedBrass",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_MAT_AgedBrass_swatch.png",
+                         "size":  "512x360",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_DarkBrass",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_MAT_DarkBrass_swatch.png",
+                         "size":  "512x360",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_OilyBlackenedIron",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_MAT_OilyBlackenedIron_swatch.png",
+                         "size":  "512x360",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_WetStone",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_MAT_WetStone_swatch.png",
+                         "size":  "512x360",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_RivetedWallPlate",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_MAT_RivetedWallPlate_swatch.png",
+                         "size":  "512x360",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_SootGrime",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_MAT_SootGrime_swatch.png",
+                         "size":  "512x360",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_OxidizedCopper",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_MAT_OxidizedCopper_swatch.png",
+                         "size":  "512x360",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_PressureGaugeGlass",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_MAT_PressureGaugeGlass_swatch.png",
+                         "size":  "512x360",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_WarmLanternGlass",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_MAT_WarmLanternGlass_swatch.png",
+                         "size":  "512x360",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_VarnishedDarkWood",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_MAT_VarnishedDarkWood_swatch.png",
+                         "size":  "512x360",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_WornLeather",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_MAT_WornLeather_swatch.png",
+                         "size":  "512x360",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_HazardPaint",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_MAT_HazardPaint_swatch.png",
+                         "size":  "512x360",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_SteamPipePatina",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_MAT_SteamPipePatina_swatch.png",
+                         "size":  "512x360",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_BoilerCeramic",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_MAT_BoilerCeramic_swatch.png",
+                         "size":  "512x360",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_RubberGasket",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_MAT_RubberGasket_swatch.png",
+                         "size":  "512x360",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "MSET01_MAT_PolishedEdgeWearMetal",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_MAT_PolishedEdgeWearMetal_swatch.png",
+                         "size":  "512x360",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "all",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_v0.1.39_material_family_contact_sheet.png",
+                         "size":  "1600x1320",
+                         "guid":  "48786b38661d4d9f816ad4b431b614e3",
+                         "acceptance_status":  "accepted_sidecar"
+                     },
+                     {
+                         "material_id":  "all",
+                         "path":  "Documentation/ConceptRenders/V0_1_39_MaterialsSet01/MSET01_v0.1.39_realism_readability_matrix.png",
+                         "size":  "1400x920",
+                         "guid":  "5aedaa92271b4f63984529f0dafda91f",
+                         "acceptance_status":  "accepted_sidecar"
+                     }
+                 ],
+    "dependencies":  [
+                         "Unity built-in Standard shader",
+                         "Unity texture import pipeline",
+                         "Unity Package Manager local package reference"
+                     ],
+    "required_primary_changes":  [
+
+                                 ],
+    "path_collisions_checked":  true,
+    "guid_collisions_checked":  true,
+    "import_smoke_status":  "passed_isolated_unity_import_2026-05-24_materials_16_textures_48_manifest_1",
+    "validation":  {
+                       "sidecar_validator":  "passed_0_errors_0_warnings",
+                       "unity_isolated_import":  "passed_materials_16_textures_48_manifest_1",
+                       "unity_log":  "Documentation/AssetProduction/V0_1_39_MaterialsSet01/unity_validation_v0.1.39.log",
+                       "unity_report":  "Documentation/AssetProduction/V0_1_39_MaterialsSet01/unity_validation_report_v0.1.39.json"
+                   },
+    "acceptance_checks":  {
+                              "roughness":  "accepted: smoothness values separate wet/glass/polished surfaces from soot/ceramic/aged metal",
+                              "metal":  "accepted: metallic values distinguish brass/iron/copper from stone/glass/wood/leather/rubber",
+                              "edge_wear":  "accepted: procedural bright streaks/rivets/stripes support readability in dim corridors",
+                              "readability":  "accepted: contact sheet confirms each family has distinct hue/value/pattern",
+                              "performance":  "accepted: 256x256 textures with mipmaps suit mid-to-low Windows target and future mobile downscale"
+                          },
+    "known_risks":  [
+                        "Procedural PNGs are strong first-pass lookdev maps, not final scanned production materials.",
+                        "Unity Standard shader assignments may need conversion if the primary project switches render pipeline.",
+                        "Texture packing can be optimized further after material usage is locked on actual prefabs and levels."
+                    ],
+    "rollback_path":  "delete isolated imported package root or remove local package reference com.brassworks.sidecar.materials-set01"
+}

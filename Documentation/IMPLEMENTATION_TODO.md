@@ -68,12 +68,14 @@ This checklist tracks implementation work. Detailed production tracking lives in
 
 ## Parallel Priority: v0.1.40 Sidecar Asset Bundles
 
-- [ ] Complete broad steampunk material family sidecar package.
-- [ ] Generate package-local manifest and preview swatches/renders.
-- [ ] Run package-specific sidecar validator.
+- [x] Complete broad steampunk material family sidecar package.
+- [x] Generate package-local manifest and preview swatches/renders.
+- [x] Run package-specific sidecar validator.
 - [ ] Review import risk and decide whether to import package or bind selected materials into gameplay surfaces.
 - [ ] Complete level-dressing, mechanical-enemy-visual, and weapon-props sidecar packages in parallel.
-- [ ] Validate completed sidecars package-by-package before any main-project import.
+- [x] Complete mechanical-enemy-visual sidecar package with previews and zero-warning package validation.
+- [x] Complete weapon-props sidecar package with previews and zero-warning package validation.
+- [x] Validate completed sidecars package-by-package before any main-project import.
 
 ## v0.0.7 Steampunk Retheme and Pause Flow
 

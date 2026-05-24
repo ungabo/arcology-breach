@@ -1,0 +1,63 @@
+{
+  "pack_id": "MEV01",
+  "display_name": "Mechanical Enemy Visual Set 01",
+  "version": "0.1.40",
+  "build_id": "p001",
+  "unity_version": "6000.4.6f1",
+  "sidecar_project": "UD-SC-MEV01-MechanicalEnemyVisualSet01",
+  "owner_lane": "sidecar-mechanical-enemy-visual-set01",
+  "primary_intake_owner": "main-lane-art-integration",
+  "canonical_root": "AssetPacks/BrassworksBreach.MechanicalEnemyVisualSet01",
+  "package_root": "AssetPacks/BrassworksBreach.MechanicalEnemyVisualSet01",
+  "package_name": "com.brassworks.sidecar.mechanical-enemy-visual-set01",
+  "package_version": "0.1.40-p001",
+  "asset_counts": {
+    "generated_prefabs": 13,
+    "generated_materials": 15,
+    "generated_meshes": 8,
+    "preview_renders": 19,
+    "runtime_scripts": 0,
+    "editor_scripts": 1,
+    "colliders": 0
+  },
+  "generated_prefabs": [
+    "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_SawScrapper_A_BoilerSaw.prefab",
+    "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_SawScrapper_B_RipperCrawler.prefab",
+    "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_SawScrapper_C_Chainjaw.prefab",
+    "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_RivetLancer_A_PressurePike.prefab",
+    "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_RivetLancer_B_RailLance.prefab",
+    "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_RivetLancer_C_TwinDrill.prefab",
+    "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_BulwarkFurnace_A_ShieldBoiler.prefab",
+    "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_BulwarkFurnace_B_IroncladGate.prefab",
+    "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_BulwarkFurnace_C_CinderAnchor.prefab",
+    "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_BellowsSupport_A_SootMedic.prefab",
+    "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_BellowsSupport_B_PressureNode.prefab",
+    "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_WardenOverseer_A_TallWarden.prefab",
+    "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_WardenOverseer_B_OverseerBell.prefab"
+  ],
+  "dependencies": [
+    "UnityEngine built-in primitives",
+    "UnityEditor prefab and render texture APIs",
+    "Built-in, URP, or HDRP lit shader fallback"
+  ],
+  "required_primary_changes": [],
+  "path_collisions_checked": true,
+  "guid_collisions_checked": true,
+  "import_smoke_status": "clean_package_local_unity_generation_preview_and_validation_passed_2026-05-24T15:52:52-04:00",
+  "validation": {
+    "unity_generation": "passed",
+    "unity_validation_report": "Documentation/AssetProduction/V0_1_40_MechanicalEnemyVisualSet01/unity_validation_report_v0.1.40.json",
+    "generated_prefabs": 13,
+    "generated_materials": 15,
+    "generated_meshes": 8,
+    "preview_pngs": 19,
+    "colliders_in_prefabs": 0,
+    "sidecar_validation": "passed_0_errors_0_warnings"
+  },
+  "known_risks": [
+    "Visual candidates are high-readability blockout/lookdev assets, not final rigged enemies.",
+    "Materials use generated shader assignments and may need render-pipeline conversion during quarantine promotion.",
+    "Preview renders are Unity lookdev proofs, not approved gameplay scale or combat tuning."
+  ],
+  "rollback_path": "delete isolated imported package root or remove local package reference com.brassworks.sidecar.mechanical-enemy-visual-set01"
+}

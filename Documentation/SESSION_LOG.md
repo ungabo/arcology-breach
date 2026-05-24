@@ -5788,3 +5788,31 @@ Parallel sidecar status:
 - These sidecars remain unstaged for separate review/promotion commits.
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 16:01 -04:00
+
+Accepted the first `v0.1.40` sidecar package slice after main-lane review.
+
+Accepted packages:
+
+- `MaterialsSet01`: 16 materials, 48 texture maps, 18 previews, package-local manifest, production docs, package validator pass, isolated Unity import pass.
+- `MechanicalEnemyVisualSet01`: 13 prefabs, 15 materials, 8 meshes, 19 previews, package-local manifest, production docs, package validator pass, Unity validation pass.
+- `WeaponPropsSet02`: 16 prefabs, 12 materials, 4 meshes, 17 previews, package-local manifest, production docs, package validator pass, isolated Unity generate/render pass.
+
+Verification completed:
+
+- `Tools/SidecarValidation/Test-SidecarAssetPacks.ps1 -PackageNamePattern 'BrassworksBreach.MaterialsSet01'` passed with 0 errors and 0 warnings.
+- `Tools/SidecarValidation/Test-SidecarAssetPacks.ps1 -PackageNamePattern 'BrassworksBreach.MechanicalEnemyVisualSet01'` passed with 0 errors and 0 warnings.
+- `Tools/SidecarValidation/Test-SidecarAssetPacks.ps1 -PackageNamePattern 'BrassworksBreach.WeaponPropsSet02'` passed with 0 errors and 0 warnings.
+
+Preview locations:
+
+- `Documentation/ConceptRenders/V0_1_39_MaterialsSet01/`
+- `Documentation/ConceptRenders/V0_1_40_MechanicalEnemyVisualSet01/`
+- `Documentation/ConceptRenders/V0_1_40_WeaponPropsSet02/`
+
+Active parallel lane:
+
+- `LevelDressingSet01` remains active and excluded from commits until Gibbs completes its package, previews, and validation.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
