@@ -1,0 +1,49 @@
+{
+  "pack_id": "BBSFX06",
+  "package": "com.brassworks.sidecar.steam-fx-set06",
+  "package_name": "com.brassworks.sidecar.steam-fx-set06",
+  "display_name": "Brassworks Breach Steam FX Set 06",
+  "version": "0.1.50",
+  "build_id": "p001",
+  "unity_version": "6000.4.6f1",
+  "generated_at_utc": "2026-05-24T21:58:00Z",
+  "sidecar_project": "UD-SC-FX-SteamFXSet06",
+  "owner_lane": "sidecar-steam-fx-set06",
+  "primary_intake_owner": "main-lane-art-integration",
+  "canonical_root": "AssetPacks/BrassworksBreach.SteamFXSet06",
+  "package_root": "AssetPacks/BrassworksBreach.SteamFXSet06",
+  "unity_only": true,
+  "blender_used": false,
+  "asset_counts": {
+    "generated_prefabs": 20,
+    "generated_materials": 15,
+    "generated_meshes": 0,
+    "textures": 20,
+    "audio": 0,
+    "vfx": 20,
+    "animation_clips": 0,
+    "preview_renders": 21
+  },
+  "prefab_count": 20,
+  "material_count": 15,
+  "preview_png_count": 20,
+  "dependencies": [
+    "Unity built-in render pipeline compatible particles/materials",
+    "Unity Package Manager local package reference",
+    "Presentation-only ParticleSystem components"
+  ],
+  "required_primary_changes": [],
+  "path_collisions_checked": true,
+  "guid_collisions_checked": true,
+  "import_smoke_status": "unity_batch_validation_pass_bbsfx06_validation_pass_2026-05-24",
+  "known_risks": [
+    "ParticleSystem prefabs are presentation-only and need gameplay-safe main-lane authority wrappers before use in hazards or objectives.",
+    "Transparent steam and vapor effects require final in-game overdraw profiling on mid/low Windows hardware.",
+    "Preview renders are proof images and are not shipping gameplay content."
+  ],
+  "rollback_path": "delete isolated package root or remove local package reference com.brassworks.sidecar.steam-fx-set06",
+  "forbidden_runtime_components": ["MonoBehaviour", "Collider", "Rigidbody", "Camera", "AudioSource"],
+  "placement_root": "VisualOnly_SteamFXSet06",
+  "particle_system_note": "ParticleSystem components are presentation-only and have no gameplay authority.",
+  "decision": "ready_for_primary_quarantine_after_static_validation_and_preview_review"
+}

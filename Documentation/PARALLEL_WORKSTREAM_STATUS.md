@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 17:51 -04:00`
+Last updated: `2026-05-24 17:59 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -32,8 +32,9 @@ Current sidecar-gate status:
 - Weapon, mechanical enemy, feedback FX/audio, Steamworks level-kit, Materials Set 01, Level Dressing Set 01, Mechanical Enemy Visual Set 01, Weapon Props Set 02, Corridor Kit Set 02, Encounter Enemy Set 02, Weapon Viewmodel Set 03, Objective Props Set 02, Steam VFX Set 02, Level Atmosphere Set 03, Enemy Animation Proxy Set 01, Room Setpiece Kit 04, and Weapon Mechanisms Set 04 sidecars are imported as local packages in `Packages/manifest.json`.
 - `SidecarQuarantineImportValidator` passed with `SIDECAR_QUARANTINE_IMPORT_PASS packages=17 assets=150`.
 - Level02 now contains a route-shell promotion pilot proving sidecar visual shells plus main-scene-owned collision proxies.
-- Completed sidecar lanes pending review for future package acceptance: Surface Texture Set 05 and Objective Interactables Set 05.
-- Active sidecar lanes: Mechanical Enemy Elite Set 05, Steam FX Set 06, Hazard Props Set 06, and Level Expansion Routes.
+- Completed and accepted sidecar lanes pending future import/promotion: Surface Texture Set 05, Objective Interactables Set 05, Mechanical Enemy Elite Set 05, Steam FX Set 06, and Hazard Props Set 06.
+- Completed and accepted route-planning lane pending implementation: Level Expansion Routes for Level02-Level04.
+- Active sidecar lanes: none at this timestamp; refill capacity with disjoint weapon-component, corridor/room shell, combat encounter prop, or QA automation bundles after the v0.1.50 commit.
 
 Current speed adjustment:
 
@@ -200,6 +201,17 @@ Current speed adjustment:
 | Pauli | active | `AssetPacks/BrassworksBreach.SteamFXSet06/`, `Documentation/AssetProduction/V0_1_50_SteamFXSet06/`, `Documentation/ConceptRenders/V0_1_50_SteamFXSet06/`, readiness docs | Building a bundle-sized visual-only steam/atmosphere FX sidecar package. |
 | Pasteur | active | `AssetPacks/BrassworksBreach.HazardPropsSet06/`, `Documentation/AssetProduction/V0_1_50_HazardPropsSet06/`, `Documentation/ConceptRenders/V0_1_50_HazardPropsSet06/`, readiness docs | Building a bundle-sized visual-only hazard/readability props sidecar package. |
 | James | active | `Documentation/Planning/V0_1_50_LevelExpansionRoutes/`, `Documentation/QA/V0_1_50_LevelExpansionRoutes/`, `Documentation/LevelDesign/V0_1_50_LevelExpansionRoutes/` | Preparing implementation-ready Level02-Level04 route-expansion specs for a larger playable leap. |
+
+## 2026-05-24 17:59 -04:00 Parallel Lane Update
+
+| Agent | Status | Output Scope | PM Action |
+| --- | --- | --- | --- |
+| Franklin | completed, validated, and accepted | `AssetPacks/BrassworksBreach.SurfaceTextureSet05/`, `Documentation/AssetProduction/V0_1_47_SurfaceTextureSet05/`, `Documentation/ConceptRenders/V0_1_47_SurfaceTextureSet05/` | Accepted into v0.1.50 package wave after package-specific validator passed with 0 errors and 0 warnings. |
+| Kepler | completed, validated, and accepted | `AssetPacks/BrassworksBreach.ObjectiveInteractablesSet05/`, `Documentation/AssetProduction/V0_1_49_ObjectiveInteractablesSet05/`, `Documentation/ConceptRenders/V0_1_49_ObjectiveInteractablesSet05/`, readiness docs | Accepted into v0.1.50 package wave after cache cleanup and package-specific validator passed with 0 errors and 0 warnings. |
+| Hume | completed, normalized, validated, and accepted | `AssetPacks/BrassworksBreach.MechanicalEnemyEliteSet05/`, `Documentation/AssetProduction/V0_1_49_MechanicalEnemyEliteSet05/`, `Documentation/ConceptRenders/V0_1_49_MechanicalEnemyEliteSet05/`, readiness docs | Manifest normalized to the shared schema, then accepted after package-specific validator passed with 0 errors and 0 warnings. |
+| Pauli | completed, normalized, validated, and accepted | `AssetPacks/BrassworksBreach.SteamFXSet06/`, `Documentation/AssetProduction/V0_1_50_SteamFXSet06/`, `Documentation/ConceptRenders/V0_1_50_SteamFXSet06/`, readiness docs | Manifest normalized to the shared schema, then accepted after package-specific validator passed with 0 errors and 0 warnings. |
+| Pasteur | completed, normalized, validated, and accepted | `AssetPacks/BrassworksBreach.HazardPropsSet06/`, `Documentation/AssetProduction/V0_1_50_HazardPropsSet06/`, `Documentation/ConceptRenders/V0_1_50_HazardPropsSet06/`, readiness docs | Manifest normalized to the shared schema, then accepted after package-specific validator passed with 0 errors and 0 warnings. |
+| James | completed and accepted | `Documentation/Planning/V0_1_50_LevelExpansionRoutes/`, `Documentation/QA/V0_1_50_LevelExpansionRoutes/`, `Documentation/LevelDesign/V0_1_50_LevelExpansionRoutes/` | Accepted as implementation-ready route planning for the next larger playable batch. |
 
 Current PM rule: keep incomplete sidecar package roots unstaged until their agent reports final validation, then review package manifests, previews, validator output, and import-readiness docs before accepting them into a commit.
 

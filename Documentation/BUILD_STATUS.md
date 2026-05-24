@@ -1513,8 +1513,9 @@ Current target:
 
 - `2026-05-24 17:37 -04:00`: `v0.1.47` route audit and full build matrix passed after importing Room Setpiece Kit 04 and Weapon Mechanisms Set 04 as local visual-only sidecar packages. `SIDECAR_QUARANTINE_IMPORT_PASS packages=17 assets=150` passed, all generated scenes rebuilt, Windows executable and package ZIP were produced, and QA packet, issue triage, release notes, and candidate readiness evidence were generated. Executable: `Builds/Windows/v0.1.47/BrassworksBreach_v0.1.47.exe`. Package ZIP SHA-256: `547B8742B0122FF3C2065A1FC817695D543AB025E2538863134076947343A663`.
 - `2026-05-24 17:51 -04:00`: `v0.1.49` route audit and full build matrix passed after adding the Level02 route-shell collision promotion pilot. The build keeps sidecar route shells visual-only, adds four main-scene-owned collision proxies, validates no sidecar gameplay authority, preserves `SIDECAR_QUARANTINE_IMPORT_PASS packages=17 assets=150`, and generated QA packet, issue triage, release notes, and candidate readiness evidence. Executable: `Builds/Windows/v0.1.49/BrassworksBreach_v0.1.49.exe`. Package ZIP SHA-256: `8ED3E51AD5C43ED4D1D1CF22DB8F4413014EF8539CBF0A9D862E53F3AA504586`.
+- `2026-05-24 17:59 -04:00`: `v0.1.50` accepted five isolated sidecar packages and one route-expansion packet for future integration. Surface Texture Set 05, Objective Interactables Set 05, Mechanical Enemy Elite Set 05, Steam FX Set 06, and Hazard Props Set 06 all passed package-specific sidecar validation with zero errors and zero warnings after manifest normalization. This acceptance slice did not create a new executable; latest playable build remains `v0.1.49`.
 
-Future builds should increment as `v0.1.50`, `v0.1.51`, etc. when ambitious milestone batches are ready for local playtesting.
+Future playable builds should increment as `v0.1.51`, `v0.1.52`, etc. when ambitious milestone batches are ready for local playtesting.
 
 ## Known Limitations
 

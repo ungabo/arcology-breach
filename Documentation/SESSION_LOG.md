@@ -5958,3 +5958,18 @@ Completed the main-lane `v0.1.49` route-shell collision promotion pilot.
 - Started new side-agent lanes for Steam FX Set 06, Hazard Props Set 06, and Level Expansion Routes while Hume continued Mechanical Enemy Elite Set 05 validation.
 
 Next-step directive: commit/push the `v0.1.49` main-lane integration slice without staging unreviewed sidecar package roots, then continue immediately with the next package acceptance or playable expansion batch.
+
+## 2026-05-24 17:59 -04:00
+
+Accepted the `v0.1.50` package/readiness wave after main-lane review.
+
+- Surface Texture Set 05 accepted: 14 materials, 42 texture PNGs, 18 previews, and package-specific sidecar validation pass.
+- Objective Interactables Set 05 accepted: 30 visual-only prefabs, 18 materials, 12 meshes, 32 previews, and package-specific sidecar validation pass.
+- Mechanical Enemy Elite Set 05 accepted: 25 visual-only enemy pose prefabs, 18 materials, 12 meshes, 50 previews, and package-specific sidecar validation pass after manifest normalization.
+- Steam FX Set 06 accepted: 20 visual-only effect prefabs, 15 materials, 20 package previews, 21 concept renders, and package-specific sidecar validation pass after manifest normalization.
+- Hazard Props Set 06 accepted: 28 visual-only prefabs, 16 materials, 12 OBJ meshes, 24 previews, and package-specific sidecar validation pass after manifest normalization.
+- Level Expansion Routes accepted as a docs-only implementation packet covering Level02 pressure bypass, Level03 foundry gantry, and Level04 observatory pumpworks modules.
+- Removed generated Unity validation cache folders from Objective Interactables Set 05 before staging; cache scans for accepted packages are clean.
+- No main Unity package manifest import, scene import, or gameplay authority change was performed in this slice.
+
+Next-step directive: commit/push the `v0.1.50` acceptance wave, then immediately begin `v0.1.51` as a larger playable route/content expansion batch.
