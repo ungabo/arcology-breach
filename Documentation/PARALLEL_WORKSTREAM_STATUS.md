@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 03:44 -04:00`
+Last updated: `2026-05-24 04:07 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -17,8 +17,8 @@ Current focus:
 
 Current verified local build:
 
-- `v0.1.8`
-- Build path: `Builds/Windows/v0.1.8/BrassworksBreach_v0.1.8.exe`
+- `v0.1.9`
+- Build path: `Builds/Windows/v0.1.9/BrassworksBreach_v0.1.9.exe`
 - Matrix result: `V0_BUILD_MATRIX_PASS`
 
 ## Active Side Agents
@@ -58,7 +58,8 @@ Current verified local build:
 | Archimedes-Env | `019e583d-dc9b-7e52-8b5f-9f0cad07c1f9` | Modular corridor kit Recovery02 Unity proof | `Documentation/AssetProduction/EnvironmentLookdev/*Recovery02*`, `Documentation/ConceptRenders/*ENV_Recovery02*`, quarantined renderer under `RejectedRecovery02CompileBlocker/` | `2026-05-24 01:00 -04:00` | rejected and closed; magenta output plus compiler errors blocked integration |
 | Linnaeus-Recovery | `019e5875-fb2c-7b20-af1b-b068fe1d3bab` | Pressure-pistol Recovery08 component realism proof | `Assets/_Project/Editor/UnityPressurePistolProofRenderer.cs`, `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/*Recovery08*`, `Documentation/ConceptRenders/*Recovery08*` | `2026-05-24 01:28 -04:00` | completed; Unity rerun succeeded and outputs refreshed |
 | Anscombe-Env | `019e5876-81db-7820-99c2-e9c065f6a881` | Environment Recovery03 Unity corridor proof replacement | `Documentation/AssetProduction/EnvironmentLookdev/*Recovery03*`, `Documentation/ConceptRenders/*ENV_Recovery03*`, quarantined renderer under `RejectedRecovery03CompileBlocker/` | `2026-05-24 01:29 -04:00` | rejected; magenta shader-error output, renderer quarantined outside `Assets` |
-| Banach | `019e58e3-0b82-7e30-a4c6-90f429119bbb` | Unity-only pressure-pistol component lookdev render lane | `Assets/_Project/Editor/PressurePistolLookDevRenderer.cs`, `Documentation/AssetProduction/PressurePistolLookDev/`, `Documentation/ConceptRenders/PressurePistolComponents/` | `2026-05-24 03:34 -04:00` | completed initial component pass; outputs generated |
+| Banach | `019e58e3-0b82-7e30-a4c6-90f429119bbb` | Unity-only pressure-pistol component lookdev render lane | `Assets/_Project/Editor/PressurePistolLookDevRenderer.cs`, `Documentation/AssetProduction/PressurePistolLookDev/`, `Documentation/ConceptRenders/PressurePistolComponents/` | `2026-05-24 03:34 -04:00` | running component refinement pass after initial output review |
+| Turing-Corridor | `019e58f7-c4bb-71e0-b51f-607bc1bb10b6` | Unity-only brassworks corridor/vault-door lookdev render lane | `Assets/_Project/LookDev/BrassworksCorridor/`, `Assets/_Project/Editor/BrassworksCorridorLookDevRenderer.cs`, `Documentation/AssetProduction/BrassworksCorridorLookDev/`, `Documentation/ConceptRenders/BrassworksCorridor/` | `2026-05-24 03:52 -04:00` | active; code staging observed, final renders/report not yet integrated |
 
 ## Completed Side-Agent Outputs
 

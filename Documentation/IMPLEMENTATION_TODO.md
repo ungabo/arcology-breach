@@ -1474,6 +1474,22 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.9 Settings, Readability, And Windows Options Polish
+
+- [x] Add persisted resolution preset settings to `GameSettings`.
+- [x] Add persisted fullscreen setting to `GameSettings`.
+- [x] Wire resolution cycling and fullscreen toggle controls into the main menu.
+- [x] Wire resolution cycling and fullscreen toggle controls into the pause menu.
+- [x] Add HUD objective, interaction prompt, boss label, and message best-fit readability constraints.
+- [x] Add editor validation for settings control wiring and HUD text readability settings.
+- [x] Add `RuntimeDisplaySettingsTest` and `-v0DisplaySettingsSmoke` packaged launch coverage.
+- [x] Expand runtime smoke and the full build matrix for `V0_DISPLAY_SETTINGS_PASS`.
+- [x] Harden local Unity runners against stale Library lock files between batchmode invocations.
+- [x] Refresh `V0RouteAudit` output for `v0.1.9`.
+- [x] Build `v0.1.9` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

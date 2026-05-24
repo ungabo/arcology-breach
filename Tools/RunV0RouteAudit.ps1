@@ -50,8 +50,29 @@ function ConvertTo-ArgumentLine {
     }) -join " "
 }
 
+function Clear-StaleUnityLocks {
+    $unityProcesses = Get-Process -Name Unity -ErrorAction SilentlyContinue
+    if ($unityProcesses) {
+        return
+    }
+
+    $lockPaths = @(
+        (Join-Path $ProjectPath "Library\ArtifactDB-lock"),
+        (Join-Path $ProjectPath "Library\SourceAssetDB-lock")
+    )
+
+    foreach ($lockPath in $lockPaths) {
+        if (Test-Path -LiteralPath $lockPath) {
+            Remove-Item -LiteralPath $lockPath -Force -ErrorAction SilentlyContinue
+        }
+    }
+}
+
 Write-Host "Running Unity route audit"
+Clear-StaleUnityLocks
 $process = Start-Process -FilePath $UnityPath -ArgumentList (ConvertTo-ArgumentLine $arguments) -Wait -PassThru -NoNewWindow
+Start-Sleep -Milliseconds 750
+Clear-StaleUnityLocks
 if ($process.ExitCode -ne 0) {
     throw "Unity route audit failed with exit code $($process.ExitCode)."
 }

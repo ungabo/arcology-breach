@@ -74,6 +74,24 @@ function Assert-LogMarker {
     }
 }
 
+function Clear-StaleUnityLocks {
+    $unityProcesses = Get-Process -Name Unity -ErrorAction SilentlyContinue
+    if ($unityProcesses) {
+        return
+    }
+
+    $lockPaths = @(
+        (Join-Path $ProjectPath "Library\ArtifactDB-lock"),
+        (Join-Path $ProjectPath "Library\SourceAssetDB-lock")
+    )
+
+    foreach ($lockPath in $lockPaths) {
+        if (Test-Path -LiteralPath $lockPath) {
+            Remove-Item -LiteralPath $lockPath -Force -ErrorAction SilentlyContinue
+        }
+    }
+}
+
 function Invoke-UnityEditorStep {
     param(
         [string]$Method,
@@ -90,7 +108,10 @@ function Invoke-UnityEditorStep {
     )
 
     Write-Host "Running Unity editor step: $Method"
+    Clear-StaleUnityLocks
     $process = Start-Process -FilePath $UnityPath -ArgumentList (ConvertTo-ArgumentLine $arguments) -Wait -PassThru -NoNewWindow
+    Start-Sleep -Milliseconds 750
+    Clear-StaleUnityLocks
     if ($process.ExitCode -ne 0) {
         throw "Unity editor step failed with exit code $($process.ExitCode): $Method"
     }
@@ -176,5 +197,6 @@ Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0Level01FlowSmo
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0MidgameFlowSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-midgame-flow-smoke.log") -Marker "V0_MIDGAME_FLOW_PASS"
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0ClimaxFlowSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-climax-flow-smoke.log") -Marker "V0_CLIMAX_FLOW_PASS"
 Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0AudioMixSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-audio-mix-smoke.log") -Marker "V0_AUDIO_MIX_PASS"
+Invoke-PlayerStep -ExecutablePath $windowsBuildPath -Argument "-v0DisplaySettingsSmoke" -LogPath (Join-Path $logsPath "$LogPrefix-display-settings-smoke.log") -Marker "V0_DISPLAY_SETTINGS_PASS"
 
 Write-Host "V0_BUILD_MATRIX_PASS $version $windowsBuildPath"

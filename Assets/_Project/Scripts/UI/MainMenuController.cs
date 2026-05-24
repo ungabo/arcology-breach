@@ -11,9 +11,13 @@ public class MainMenuController : MonoBehaviour
     public Slider sensitivitySlider;
     public Slider volumeSlider;
     public Slider flashSlider;
+    public Button resolutionButton;
+    public Toggle fullscreenToggle;
     public Text sensitivityValueText;
     public Text volumeValueText;
     public Text flashValueText;
+    public Text resolutionValueText;
+    public Text fullscreenValueText;
 
     private static readonly string[] AutomationArguments =
     {
@@ -36,7 +40,8 @@ public class MainMenuController : MonoBehaviour
         "-v0Level01FlowSmoke",
         "-v0MidgameFlowSmoke",
         "-v0ClimaxFlowSmoke",
-        "-v0AudioMixSmoke"
+        "-v0AudioMixSmoke",
+        "-v0DisplaySettingsSmoke"
     };
 
     private void Awake()
@@ -66,6 +71,16 @@ public class MainMenuController : MonoBehaviour
         if (flashSlider != null)
         {
             flashSlider.onValueChanged.AddListener(SetFlashIntensity);
+        }
+
+        if (resolutionButton != null)
+        {
+            resolutionButton.onClick.AddListener(CycleResolution);
+        }
+
+        if (fullscreenToggle != null)
+        {
+            fullscreenToggle.onValueChanged.AddListener(SetFullscreen);
         }
 
         SyncSettingControls();
@@ -162,6 +177,18 @@ public class MainMenuController : MonoBehaviour
         UpdateSettingLabels();
     }
 
+    public void CycleResolution()
+    {
+        GameSettings.CycleResolution();
+        UpdateSettingLabels();
+    }
+
+    public void SetFullscreen(bool value)
+    {
+        GameSettings.SetFullscreen(value);
+        UpdateSettingLabels();
+    }
+
     private void SyncSettingControls()
     {
         if (sensitivitySlider != null)
@@ -177,6 +204,11 @@ public class MainMenuController : MonoBehaviour
         if (flashSlider != null)
         {
             flashSlider.SetValueWithoutNotify(GameSettings.FlashIntensity);
+        }
+
+        if (fullscreenToggle != null)
+        {
+            fullscreenToggle.SetIsOnWithoutNotify(GameSettings.Fullscreen);
         }
 
         UpdateSettingLabels();
@@ -197,6 +229,16 @@ public class MainMenuController : MonoBehaviour
         if (flashValueText != null)
         {
             flashValueText.text = Mathf.RoundToInt(GameSettings.FlashIntensity * 100f) + "%";
+        }
+
+        if (resolutionValueText != null)
+        {
+            resolutionValueText.text = GameSettings.ResolutionLabel;
+        }
+
+        if (fullscreenValueText != null)
+        {
+            fullscreenValueText.text = GameSettings.Fullscreen ? "ON" : "OFF";
         }
     }
 

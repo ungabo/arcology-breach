@@ -196,6 +196,7 @@ public static class V0LevelValidator
         RequireImageSprite("MainMenu", "Menu Header Panel UIHudV1", "Panels/PANEL_Menu_Header_768x96.png");
         RequireImageSprite("MainMenu", "Start Button", "Panels/PANEL_Menu_Button_Normal_320x64.png");
         RequireImageSprite("MainMenu", "Quit Button", "Panels/PANEL_Menu_Button_Normal_320x64.png");
+        RequireImageSprite("MainMenu", "Menu Resolution Button", "Panels/PANEL_Menu_Button_Normal_320x64.png");
         RequireImageSprite("MainMenu", "Menu Sensitivity Slider Track", "Panels/PANEL_Menu_SliderTrack_360x40.png");
         RequireImageSprite("MainMenu", "Menu Sensitivity Slider Valve Handle", "Panels/PANEL_Menu_SliderHandle_48x48.png");
         RequireImageSprite("MainMenu", "Menu Volume Slider Track", "Panels/PANEL_Menu_SliderTrack_360x40.png");
@@ -206,22 +207,37 @@ public static class V0LevelValidator
 
     private static void ValidateMainMenuSettings(MainMenuController mainMenu)
     {
-        if (mainMenu.sensitivitySlider == null || mainMenu.volumeSlider == null || mainMenu.flashSlider == null || mainMenu.sensitivityValueText == null || mainMenu.volumeValueText == null || mainMenu.flashValueText == null)
+        if (mainMenu.sensitivitySlider == null || mainMenu.volumeSlider == null || mainMenu.flashSlider == null || mainMenu.resolutionButton == null || mainMenu.fullscreenToggle == null || mainMenu.sensitivityValueText == null || mainMenu.volumeValueText == null || mainMenu.flashValueText == null || mainMenu.resolutionValueText == null || mainMenu.fullscreenValueText == null)
         {
             throw new InvalidOperationException("Level validation failed: MainMenu is missing settings slider wiring.");
         }
 
+        ValidateCoreSettingsControls("MainMenu", mainMenu.sensitivitySlider, mainMenu.volumeSlider, mainMenu.fullscreenToggle);
         ValidateFlashSlider("MainMenu", mainMenu.flashSlider);
     }
 
     private static void ValidatePauseMenuSettings(string sceneName, PauseMenuController pauseMenu)
     {
-        if (pauseMenu.sensitivitySlider == null || pauseMenu.volumeSlider == null || pauseMenu.flashSlider == null || pauseMenu.sensitivityValueText == null || pauseMenu.volumeValueText == null || pauseMenu.flashValueText == null)
+        if (pauseMenu.sensitivitySlider == null || pauseMenu.volumeSlider == null || pauseMenu.flashSlider == null || pauseMenu.resolutionButton == null || pauseMenu.fullscreenToggle == null || pauseMenu.sensitivityValueText == null || pauseMenu.volumeValueText == null || pauseMenu.flashValueText == null || pauseMenu.resolutionValueText == null || pauseMenu.fullscreenValueText == null)
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " PauseMenu is missing settings slider wiring.");
         }
 
+        ValidateCoreSettingsControls(sceneName + " PauseMenu", pauseMenu.sensitivitySlider, pauseMenu.volumeSlider, pauseMenu.fullscreenToggle);
         ValidateFlashSlider(sceneName + " PauseMenu", pauseMenu.flashSlider);
+    }
+
+    private static void ValidateCoreSettingsControls(string label, Slider sensitivitySlider, Slider volumeSlider, Toggle fullscreenToggle)
+    {
+        RequireApprox(sensitivitySlider.minValue, 0.6f, label + " sensitivity slider minimum");
+        RequireApprox(sensitivitySlider.maxValue, 5f, label + " sensitivity slider maximum");
+        RequireApprox(volumeSlider.minValue, 0f, label + " volume slider minimum");
+        RequireApprox(volumeSlider.maxValue, 1f, label + " volume slider maximum");
+
+        if (fullscreenToggle.targetGraphic == null || fullscreenToggle.graphic == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + label + " fullscreen toggle is missing graphics.");
+        }
     }
 
     private static void ValidateFlashSlider(string label, Slider slider)
@@ -255,8 +271,24 @@ public static class V0LevelValidator
         RequireImageSprite(sceneName, "Brass Reticle UIHudV1", "Reticles/RETICLE_BrassCrosshair_64x64.png");
         RequireImageSprite(sceneName, "Pause Brass Panel UIHudV1", "Panels/PANEL_Menu_BrassPanel_768x384.png");
         RequireImageSprite(sceneName, "Pause Header Panel UIHudV1", "Panels/PANEL_Menu_Header_768x96.png");
+        RequireImageSprite(sceneName, "Pause Resolution Button", "Panels/PANEL_Menu_Button_Normal_320x64.png");
         RequireImageSprite(sceneName, "Pause Flash Slider Track", "Panels/PANEL_Menu_SliderTrack_360x40.png");
         RequireImageSprite(sceneName, "Pause Flash Slider Valve Handle", "Panels/PANEL_Menu_SliderHandle_48x48.png");
+    }
+
+    private static void ValidateHudReadability(string sceneName, HUDController hud)
+    {
+        ValidateReadableText(sceneName, "objective", hud.objectiveText, HorizontalWrapMode.Wrap, 16, 20);
+        ValidateReadableText(sceneName, "interaction", hud.interactionText, HorizontalWrapMode.Wrap, 18, 24);
+        ValidateReadableText(sceneName, "message", hud.messageText, HorizontalWrapMode.Wrap, 24, 34);
+    }
+
+    private static void ValidateReadableText(string sceneName, string label, Text text, HorizontalWrapMode expectedWrap, int minSize, int maxSize)
+    {
+        if (text == null || !text.resizeTextForBestFit || text.horizontalOverflow != expectedWrap || text.verticalOverflow != VerticalWrapMode.Truncate || text.resizeTextMinSize != minSize || text.resizeTextMaxSize != maxSize)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " " + label + " text is missing v0.1.9 readability sizing.");
+        }
     }
 
     private static void RequireFinalMaterialBinding(string materialName, string familyName)
@@ -337,6 +369,7 @@ public static class V0LevelValidator
         }
 
         ValidateGameplayUIHudV1(sceneName, hud);
+        ValidateHudReadability(sceneName, hud);
 
         PauseMenuController pauseMenu = Require<PauseMenuController>(sceneName + " PauseMenuController");
         ValidatePauseMenuSettings(sceneName, pauseMenu);
@@ -354,6 +387,7 @@ public static class V0LevelValidator
         Require<RuntimeMidgameFlowTest>(sceneName + " RuntimeMidgameFlowTest");
         Require<RuntimeClimaxFlowTest>(sceneName + " RuntimeClimaxFlowTest");
         Require<RuntimeAudioMixTest>(sceneName + " RuntimeAudioMixTest");
+        Require<RuntimeDisplaySettingsTest>(sceneName + " RuntimeDisplaySettingsTest");
         Require<EnemyController>(sceneName + " EnemyController");
         Require<Pickup>(sceneName + " Pickup");
 

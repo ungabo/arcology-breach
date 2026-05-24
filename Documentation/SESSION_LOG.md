@@ -3733,3 +3733,51 @@ PM review:
 - The current render style is useful directionally but still not final north-star realism; next pressure-pistol lookdev pass should reduce over-bright emissive flattening, improve gauge camera/typography, and add boiler chamber, barrel/muzzle, grip, and valve component proofs before another full-gun reassembly attempt.
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 04:07 -04:00
+
+Completed `v0.1.9` settings, readability, and Windows options polish.
+
+Added:
+
+- `GameSettings` now persists resolution preset index and fullscreen state.
+- Main menu and pause menu now expose resolution cycling and fullscreen toggle controls.
+- HUD objective, interaction prompt, boss label, and message text now use best-fit readability constraints.
+- `RuntimeDisplaySettingsTest` verifies display setting clamps, labels, pause-menu wiring, and toggle behavior in the packaged build.
+- `Tools/RunV0BuildMatrix.ps1` and `Tools/RunV0RouteAudit.ps1` now clear stale Unity Library lock files only when no Unity process is running.
+- Version string bumped to `v0.1.9`.
+
+Verification completed:
+
+- `V0_ROUTE_AUDIT_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_MOVEMENT_FEEL_PASS`
+- `V0_BALANCE_ENVELOPE_PASS`
+- `V0_LEVEL01_FLOW_PASS`
+- `V0_MIDGAME_FLOW_PASS`
+- `V0_CLIMAX_FLOW_PASS`
+- `V0_AUDIO_MIX_PASS`
+- `V0_DISPLAY_SETTINGS_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.9/BrassworksBreach_v0.1.9.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

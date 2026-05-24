@@ -64,8 +64,7 @@ public static class V0RouteAudit
         report.AppendLine();
         report.AppendLine("## Next Actionable Slices");
         report.AppendLine();
-        report.AppendLine("- `v0.1.8`: audio listen, mix, and import tuning.");
-        report.AppendLine("- `v0.1.9`: settings, readability, and Windows options polish.");
+        report.AppendLine("- `v0.1.9`: settings, readability, and Windows options polish verification.");
         report.AppendLine("- `v0.1.10`: final-direction asset promotion pass.");
         report.AppendLine("- `v0.1.11`: Windows distribution polish pass.");
         report.AppendLine("- `v0.1.12`: route cohesion and manual-playtest automation prep.");

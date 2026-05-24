@@ -28,7 +28,7 @@ public class RuntimePauseFlowTest : MonoBehaviour
         RequireState(gameState.State == GameRunState.Paused, "pause state");
         RequireState(Mathf.Approximately(Time.timeScale, 0f), "paused time scale");
         RequireState(pauseMenu.IsVisible, "pause menu visible");
-        RequireState(pauseMenu.flashSlider != null && pauseMenu.flashValueText != null, "flash intensity controls wired");
+        RequireState(pauseMenu.flashSlider != null && pauseMenu.flashValueText != null && pauseMenu.resolutionButton != null && pauseMenu.fullscreenToggle != null, "settings controls wired");
 
         pauseMenu.flashSlider.SetValueWithoutNotify(0.85f);
         pauseMenu.flashSlider.value = 0.42f;

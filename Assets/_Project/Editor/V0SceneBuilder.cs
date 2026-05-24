@@ -1587,20 +1587,25 @@ public static class V0SceneBuilder
         }
 
         CreateAnchoredImage("Menu Soot Vignette", canvasObject.transform, new Color(0.01f, 0.008f, 0.006f, 0.36f), Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero, false);
-        CreateAnchoredSpriteImage("Menu Brass Panel UIHudV1", canvasObject.transform, "Panels/PANEL_Menu_BrassPanel_768x384.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -48f), new Vector2(720f, 456f), Image.Type.Sliced, new Vector4(48f, 48f, 48f, 48f));
-        CreateAnchoredSpriteImage("Menu Header Panel UIHudV1", canvasObject.transform, "Panels/PANEL_Menu_Header_768x96.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 152f), new Vector2(780f, 92f), Image.Type.Sliced, new Vector4(48f, 22f, 48f, 22f));
-        CreateText("Menu Title", canvasObject.transform, font, GameBranding.WorkingTitle.ToUpperInvariant(), 58, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 150f), new Vector2(860f, 92f));
-        Text subtitle = CreateText("Menu Subtitle", canvasObject.transform, font, "PRESSURE BELOW. BRASS ABOVE.", 24, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 94f), new Vector2(620f, 46f));
+        CreateAnchoredSpriteImage("Menu Brass Panel UIHudV1", canvasObject.transform, "Panels/PANEL_Menu_BrassPanel_768x384.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -58f), new Vector2(760f, 610f), Image.Type.Sliced, new Vector4(48f, 48f, 48f, 48f));
+        CreateAnchoredSpriteImage("Menu Header Panel UIHudV1", canvasObject.transform, "Panels/PANEL_Menu_Header_768x96.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 196f), new Vector2(780f, 92f), Image.Type.Sliced, new Vector4(48f, 22f, 48f, 22f));
+        Text menuTitle = CreateText("Menu Title", canvasObject.transform, font, GameBranding.WorkingTitle.ToUpperInvariant(), 58, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 194f), new Vector2(860f, 92f));
+        ConfigureBestFit(menuTitle, 40, 58);
+        Text subtitle = CreateText("Menu Subtitle", canvasObject.transform, font, "PRESSURE BELOW. BRASS ABOVE.", 24, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 136f), new Vector2(620f, 46f));
         subtitle.color = new Color(1f, 0.78f, 0.42f);
 
         MainMenuController mainMenu = canvasObject.AddComponent<MainMenuController>();
-        mainMenu.startButton = CreatePauseButton("Start Button", "START GAME", canvasObject.transform, font, new Vector2(0f, 10f));
-        mainMenu.quitButton = CreatePauseButton("Quit Button", "QUIT", canvasObject.transform, font, new Vector2(0f, -58f));
-        mainMenu.sensitivitySlider = CreateSettingsSlider("Menu Sensitivity Slider", "MOUSE", canvasObject.transform, font, new Vector2(0f, -136f), 0.6f, 5f, GameSettings.DefaultMouseSensitivity, out Text menuSensitivityValue);
+        mainMenu.startButton = CreatePauseButton("Start Button", "START GAME", canvasObject.transform, font, new Vector2(0f, 58f));
+        mainMenu.quitButton = CreatePauseButton("Quit Button", "QUIT", canvasObject.transform, font, new Vector2(0f, -8f));
+        mainMenu.resolutionButton = CreateSettingsButton("Menu Resolution Button", "RESOLUTION", canvasObject.transform, font, new Vector2(0f, -82f), out Text menuResolutionValue);
+        mainMenu.resolutionValueText = menuResolutionValue;
+        mainMenu.fullscreenToggle = CreateSettingsToggle("Menu Fullscreen Toggle", "FULLSCREEN", canvasObject.transform, font, new Vector2(0f, -134f), out Text menuFullscreenValue);
+        mainMenu.fullscreenValueText = menuFullscreenValue;
+        mainMenu.sensitivitySlider = CreateSettingsSlider("Menu Sensitivity Slider", "MOUSE", canvasObject.transform, font, new Vector2(0f, -190f), 0.6f, 5f, GameSettings.DefaultMouseSensitivity, out Text menuSensitivityValue);
         mainMenu.sensitivityValueText = menuSensitivityValue;
-        mainMenu.volumeSlider = CreateSettingsSlider("Menu Volume Slider", "VOLUME", canvasObject.transform, font, new Vector2(0f, -190f), 0f, 1f, GameSettings.DefaultMasterVolume, out Text menuVolumeValue);
+        mainMenu.volumeSlider = CreateSettingsSlider("Menu Volume Slider", "VOLUME", canvasObject.transform, font, new Vector2(0f, -244f), 0f, 1f, GameSettings.DefaultMasterVolume, out Text menuVolumeValue);
         mainMenu.volumeValueText = menuVolumeValue;
-        mainMenu.flashSlider = CreateSettingsSlider("Menu Flash Slider", "FLASH", canvasObject.transform, font, new Vector2(0f, -244f), GameSettings.MinFlashIntensity, GameSettings.MaxFlashIntensity, GameSettings.DefaultFlashIntensity, out Text menuFlashValue);
+        mainMenu.flashSlider = CreateSettingsSlider("Menu Flash Slider", "FLASH", canvasObject.transform, font, new Vector2(0f, -298f), GameSettings.MinFlashIntensity, GameSettings.MaxFlashIntensity, GameSettings.DefaultFlashIntensity, out Text menuFlashValue);
         mainMenu.flashValueText = menuFlashValue;
         CreateText("Menu Version", canvasObject.transform, font, GameBranding.BuildVersion, 18, TextAnchor.LowerRight, new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-18f, 12f), new Vector2(220f, 32f));
 
@@ -1666,13 +1671,17 @@ public static class V0SceneBuilder
         hud.healthText = CreateText("Health Text", canvasObject.transform, font, "HEALTH 100/100", 22, TextAnchor.LowerLeft, new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(28f, 18f), new Vector2(360f, 52f));
         hud.ammoText = CreateText("Ammo Text", canvasObject.transform, font, "AMMO 30", 22, TextAnchor.LowerRight, new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(-28f, 18f), new Vector2(360f, 52f));
         hud.keyText = CreateText("Gear Key Text", canvasObject.transform, font, "GEAR KEY NO", 22, TextAnchor.LowerCenter, new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0f, 18f), new Vector2(300f, 45f));
-        hud.objectiveText = CreateText("Objective Text", canvasObject.transform, font, string.Empty, 19, TextAnchor.UpperLeft, new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(54f, -94f), new Vector2(560f, 44f));
+        hud.objectiveText = CreateText("Objective Text", canvasObject.transform, font, string.Empty, 20, TextAnchor.UpperLeft, new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(54f, -94f), new Vector2(560f, 44f));
+        ConfigureReadableHudText(hud.objectiveText, 16, 20);
         hud.bossNameText = CreateText("Boss Name Text", canvasObject.transform, font, string.Empty, 20, TextAnchor.UpperCenter, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0f, -20f), new Vector2(560f, 34f));
+        ConfigureBestFit(hud.bossNameText, 16, 20);
         CreateAnchoredSpriteImage("Brass Reticle UIHudV1", canvasObject.transform, "Reticles/RETICLE_BrassCrosshair_64x64.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(46f, 46f));
         hud.interactionBackplateImage = CreateAnchoredSpriteImage("Interaction Prompt Backplate UIHudV1", canvasObject.transform, "Panels/HUD_PromptBackplate_640x80.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -102f), new Vector2(640f, 80f), Image.Type.Sliced, new Vector4(34f, 22f, 34f, 22f));
         hud.interactionIconImage = CreateAnchoredSpriteImage("Interaction Prompt Icon UIHudV1", canvasObject.transform, "Icons/ICON_Prompt_InteractE_96x96.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(-274f, -101f), new Vector2(48f, 48f));
-        hud.interactionText = CreateText("Interaction Prompt Text", canvasObject.transform, font, string.Empty, 23, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(30f, -101f), new Vector2(540f, 54f));
+        hud.interactionText = CreateText("Interaction Prompt Text", canvasObject.transform, font, string.Empty, 24, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(30f, -101f), new Vector2(540f, 54f));
+        ConfigureReadableHudText(hud.interactionText, 18, 24);
         hud.messageText = CreateText("Message Text", canvasObject.transform, font, string.Empty, 34, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 80f), new Vector2(760f, 220f));
+        ConfigureReadableHudText(hud.messageText, 24, 34);
         hud.ClearObjective();
         hud.HideBossHealth();
         CreatePauseMenu(canvasObject.transform, font);
@@ -1703,20 +1712,25 @@ public static class V0SceneBuilder
         Image overlay = root.AddComponent<Image>();
         overlay.color = new Color(0.01f, 0.012f, 0.018f, 0.82f);
 
-        CreateAnchoredSpriteImage("Pause Brass Panel UIHudV1", root.transform, "Panels/PANEL_Menu_BrassPanel_768x384.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -58f), new Vector2(680f, 486f), Image.Type.Sliced, new Vector4(48f, 48f, 48f, 48f));
-        CreateAnchoredSpriteImage("Pause Header Panel UIHudV1", root.transform, "Panels/PANEL_Menu_Header_768x96.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 150f), new Vector2(680f, 88f), Image.Type.Sliced, new Vector4(48f, 22f, 48f, 22f));
-        CreateText("Pause Title", root.transform, font, GameBranding.WorkingTitle.ToUpperInvariant(), 42, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 150f), new Vector2(620f, 72f));
-        CreateText("Pause Subtitle", root.transform, font, "PRESSURE PAUSED", 24, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 100f), new Vector2(420f, 48f));
+        CreateAnchoredSpriteImage("Pause Brass Panel UIHudV1", root.transform, "Panels/PANEL_Menu_BrassPanel_768x384.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -74f), new Vector2(720f, 640f), Image.Type.Sliced, new Vector4(48f, 48f, 48f, 48f));
+        CreateAnchoredSpriteImage("Pause Header Panel UIHudV1", root.transform, "Panels/PANEL_Menu_Header_768x96.png", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 192f), new Vector2(700f, 88f), Image.Type.Sliced, new Vector4(48f, 22f, 48f, 22f));
+        Text pauseTitle = CreateText("Pause Title", root.transform, font, GameBranding.WorkingTitle.ToUpperInvariant(), 42, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 192f), new Vector2(620f, 72f));
+        ConfigureBestFit(pauseTitle, 32, 42);
+        CreateText("Pause Subtitle", root.transform, font, "PRESSURE PAUSED", 24, TextAnchor.MiddleCenter, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, 142f), new Vector2(420f, 48f));
 
         pauseMenu.root = root;
-        pauseMenu.resumeButton = CreatePauseButton("Resume Button", "RESUME", root.transform, font, new Vector2(0f, 32f));
-        pauseMenu.restartButton = CreatePauseButton("Restart Button", "RESTART", root.transform, font, new Vector2(0f, -34f));
-        pauseMenu.quitButton = CreatePauseButton("Quit Button", "QUIT", root.transform, font, new Vector2(0f, -100f));
-        pauseMenu.sensitivitySlider = CreateSettingsSlider("Pause Sensitivity Slider", "MOUSE", root.transform, font, new Vector2(0f, -174f), 0.6f, 5f, GameSettings.DefaultMouseSensitivity, out Text pauseSensitivityValue);
+        pauseMenu.resumeButton = CreatePauseButton("Resume Button", "RESUME", root.transform, font, new Vector2(0f, 70f));
+        pauseMenu.restartButton = CreatePauseButton("Restart Button", "RESTART", root.transform, font, new Vector2(0f, 6f));
+        pauseMenu.quitButton = CreatePauseButton("Quit Button", "QUIT", root.transform, font, new Vector2(0f, -58f));
+        pauseMenu.resolutionButton = CreateSettingsButton("Pause Resolution Button", "RESOLUTION", root.transform, font, new Vector2(0f, -132f), out Text pauseResolutionValue);
+        pauseMenu.resolutionValueText = pauseResolutionValue;
+        pauseMenu.fullscreenToggle = CreateSettingsToggle("Pause Fullscreen Toggle", "FULLSCREEN", root.transform, font, new Vector2(0f, -184f), out Text pauseFullscreenValue);
+        pauseMenu.fullscreenValueText = pauseFullscreenValue;
+        pauseMenu.sensitivitySlider = CreateSettingsSlider("Pause Sensitivity Slider", "MOUSE", root.transform, font, new Vector2(0f, -236f), 0.6f, 5f, GameSettings.DefaultMouseSensitivity, out Text pauseSensitivityValue);
         pauseMenu.sensitivityValueText = pauseSensitivityValue;
-        pauseMenu.volumeSlider = CreateSettingsSlider("Pause Volume Slider", "VOLUME", root.transform, font, new Vector2(0f, -226f), 0f, 1f, GameSettings.DefaultMasterVolume, out Text pauseVolumeValue);
+        pauseMenu.volumeSlider = CreateSettingsSlider("Pause Volume Slider", "VOLUME", root.transform, font, new Vector2(0f, -288f), 0f, 1f, GameSettings.DefaultMasterVolume, out Text pauseVolumeValue);
         pauseMenu.volumeValueText = pauseVolumeValue;
-        pauseMenu.flashSlider = CreateSettingsSlider("Pause Flash Slider", "FLASH", root.transform, font, new Vector2(0f, -278f), GameSettings.MinFlashIntensity, GameSettings.MaxFlashIntensity, GameSettings.DefaultFlashIntensity, out Text pauseFlashValue);
+        pauseMenu.flashSlider = CreateSettingsSlider("Pause Flash Slider", "FLASH", root.transform, font, new Vector2(0f, -340f), GameSettings.MinFlashIntensity, GameSettings.MaxFlashIntensity, GameSettings.DefaultFlashIntensity, out Text pauseFlashValue);
         pauseMenu.flashValueText = pauseFlashValue;
 
         return pauseMenu;
@@ -1751,6 +1765,78 @@ public static class V0SceneBuilder
         buttonText.color = new Color(1f, 0.84f, 0.48f);
 
         return button;
+    }
+
+    private static Button CreateSettingsButton(string name, string label, Transform parent, Font font, Vector2 anchoredPosition, out Text valueText)
+    {
+        CreateText(name + " Label", parent, font, label, 18, TextAnchor.MiddleLeft, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), anchoredPosition + new Vector2(-190f, 0f), new Vector2(150f, 34f)).color = new Color(1f, 0.84f, 0.48f);
+
+        GameObject buttonObject = new GameObject(name);
+        buttonObject.transform.SetParent(parent, false);
+
+        RectTransform rectTransform = buttonObject.AddComponent<RectTransform>();
+        rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+        rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+        rectTransform.pivot = new Vector2(0.5f, 0.5f);
+        rectTransform.anchoredPosition = anchoredPosition;
+        rectTransform.sizeDelta = new Vector2(260f, 44f);
+
+        Image image = buttonObject.AddComponent<Image>();
+        ApplyUiSprite(image, "Panels/PANEL_Menu_Button_Normal_320x64.png", Image.Type.Sliced, new Vector4(20f, 16f, 20f, 16f));
+
+        Button button = buttonObject.AddComponent<Button>();
+        button.transition = Selectable.Transition.SpriteSwap;
+        button.targetGraphic = image;
+        button.spriteState = new SpriteState
+        {
+            highlightedSprite = LoadUiSprite("Panels/PANEL_Menu_Button_Hover_320x64.png", new Vector4(20f, 16f, 20f, 16f)),
+            pressedSprite = LoadUiSprite("Panels/PANEL_Menu_Button_Pressed_320x64.png", new Vector4(20f, 16f, 20f, 16f)),
+            selectedSprite = LoadUiSprite("Panels/PANEL_Menu_Button_Hover_320x64.png", new Vector4(20f, 16f, 20f, 16f))
+        };
+
+        valueText = CreateText(name + " Value", buttonObject.transform, font, string.Empty, 18, TextAnchor.MiddleCenter, new Vector2(0f, 0f), new Vector2(1f, 1f), new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
+        valueText.color = new Color(1f, 0.84f, 0.48f);
+
+        return button;
+    }
+
+    private static Toggle CreateSettingsToggle(string name, string label, Transform parent, Font font, Vector2 anchoredPosition, out Text valueText)
+    {
+        CreateText(name + " Label", parent, font, label, 18, TextAnchor.MiddleLeft, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), anchoredPosition + new Vector2(-190f, 0f), new Vector2(150f, 34f)).color = new Color(1f, 0.84f, 0.48f);
+
+        GameObject toggleObject = new GameObject(name);
+        toggleObject.transform.SetParent(parent, false);
+
+        RectTransform toggleRect = toggleObject.AddComponent<RectTransform>();
+        toggleRect.anchorMin = new Vector2(0.5f, 0.5f);
+        toggleRect.anchorMax = new Vector2(0.5f, 0.5f);
+        toggleRect.pivot = new Vector2(0.5f, 0.5f);
+        toggleRect.anchoredPosition = anchoredPosition + new Vector2(-112f, 0f);
+        toggleRect.sizeDelta = new Vector2(44f, 44f);
+
+        Image backgroundImage = toggleObject.AddComponent<Image>();
+        backgroundImage.color = new Color(0.08f, 0.052f, 0.03f, 0.96f);
+
+        Toggle toggle = toggleObject.AddComponent<Toggle>();
+        toggle.targetGraphic = backgroundImage;
+
+        GameObject checkObject = new GameObject(name + " Brass Check");
+        checkObject.transform.SetParent(toggleObject.transform, false);
+        RectTransform checkRect = checkObject.AddComponent<RectTransform>();
+        checkRect.anchorMin = new Vector2(0.5f, 0.5f);
+        checkRect.anchorMax = new Vector2(0.5f, 0.5f);
+        checkRect.pivot = new Vector2(0.5f, 0.5f);
+        checkRect.anchoredPosition = Vector2.zero;
+        checkRect.sizeDelta = new Vector2(28f, 28f);
+        Image checkImage = checkObject.AddComponent<Image>();
+        checkImage.color = new Color(0.95f, 0.58f, 0.16f, 1f);
+        toggle.graphic = checkImage;
+        toggle.isOn = GameSettings.DefaultFullscreen;
+
+        valueText = CreateText(name + " Value", parent, font, string.Empty, 18, TextAnchor.MiddleRight, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), anchoredPosition + new Vector2(190f, 0f), new Vector2(120f, 34f));
+        valueText.color = new Color(1f, 0.84f, 0.48f);
+
+        return toggle;
     }
 
     private static Slider CreateSettingsSlider(string name, string label, Transform parent, Font font, Vector2 anchoredPosition, float minValue, float maxValue, float defaultValue, out Text valueText)
@@ -1896,6 +1982,30 @@ public static class V0SceneBuilder
         return text;
     }
 
+    private static void ConfigureBestFit(Text text, int minSize, int maxSize)
+    {
+        if (text == null)
+        {
+            return;
+        }
+
+        text.resizeTextForBestFit = true;
+        text.resizeTextMinSize = minSize;
+        text.resizeTextMaxSize = maxSize;
+    }
+
+    private static void ConfigureReadableHudText(Text text, int minSize, int maxSize)
+    {
+        if (text == null)
+        {
+            return;
+        }
+
+        ConfigureBestFit(text, minSize, maxSize);
+        text.horizontalOverflow = HorizontalWrapMode.Wrap;
+        text.verticalOverflow = VerticalWrapMode.Truncate;
+    }
+
     private static void CreateGameState(HUDController hud, PlatformQualityProfile qualityProfile, string startMessage)
     {
         GameObject stateObject = new GameObject("Game State");
@@ -1927,6 +2037,7 @@ public static class V0SceneBuilder
         stateObject.AddComponent<RuntimeMidgameFlowTest>();
         stateObject.AddComponent<RuntimeClimaxFlowTest>();
         stateObject.AddComponent<RuntimeAudioMixTest>();
+        stateObject.AddComponent<RuntimeDisplaySettingsTest>();
     }
 
     private static void ConfigureSteamworksAudioV1(SteamworksAudio audio)

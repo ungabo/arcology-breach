@@ -23,9 +23,9 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<GameStateController>("GameStateController");
         Require<LevelTransitionController>("LevelTransitionController");
         PauseMenuController pauseMenu = Require<PauseMenuController>("PauseMenuController");
-        if (pauseMenu.flashSlider == null || pauseMenu.flashValueText == null)
+        if (pauseMenu.flashSlider == null || pauseMenu.flashValueText == null || pauseMenu.resolutionButton == null || pauseMenu.fullscreenToggle == null || pauseMenu.resolutionValueText == null || pauseMenu.fullscreenValueText == null)
         {
-            Debug.LogError("Runtime smoke test failed: flash intensity controls are not wired.");
+            Debug.LogError("Runtime smoke test failed: settings controls are not wired.");
             Application.Quit(1);
         }
 
@@ -67,6 +67,7 @@ public class RuntimeSmokeTest : MonoBehaviour
         Require<RuntimeMidgameFlowTest>("RuntimeMidgameFlowTest");
         Require<RuntimeClimaxFlowTest>("RuntimeClimaxFlowTest");
         Require<RuntimeAudioMixTest>("RuntimeAudioMixTest");
+        Require<RuntimeDisplaySettingsTest>("RuntimeDisplaySettingsTest");
         Require<SteamworksSpinner>("SteamworksSpinner");
         MachineMotionVfx machineMotion = Require<MachineMotionVfx>("MachineMotionVfx");
         if (!machineMotion.IsConfigured)
