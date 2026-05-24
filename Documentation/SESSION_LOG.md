@@ -3830,3 +3830,23 @@ Build executable:
 `Builds/Windows/v0.1.10/BrassworksBreach_v0.1.10.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 04:30 -04:00
+
+Integrated completed Unity-only lookdev side-lane outputs as reference-only assets.
+
+Added:
+
+- Banach pressure-pistol six-component contact sheet and per-component renders for coil, gauge, boiler chamber, barrel/muzzle, valve/manifold, and leather grip/trigger guard.
+- Turing-Corridor corridor, vault-door, wall-kit, and contact-sheet renders under `Documentation/ConceptRenders/BrassworksCorridor/`.
+- `BrassworksCorridorLookDevRenderer` editor-only renderer and report/metrics/log package.
+- PM review notes in the pressure-pistol and corridor lookdev reports.
+- Concept render index entries for both new Unity-only lookdev packages.
+
+PM review:
+
+- Both side lanes technically pass Unity rendering, nonblank, no-magenta, material-separation, and framing gates.
+- Pressure-pistol components remain primitive/dark and are not approved for gameplay promotion.
+- Corridor/vault lookdev is useful for mood and visual vocabulary, but the wall-kit sheet has overlapping text and the geometry remains proof-grade.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
