@@ -1678,6 +1678,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.24 Wall Valve Wheel Asset Promotion
+
+- [x] Confirm no real manual route-triage notes exist yet; use the roadmap fallback and proceed to the next modular asset promotion.
+- [x] Add `WallValveWheelPrototype` runtime metadata for promoted route-safe wall valve wheel dressing.
+- [x] Add named Brassworks Intake, Pipeworks Annex, and Boilerheart Core wall valve wheel placements.
+- [x] Build the component from Unity-owned geometry: blackened iron wall backplate, aged brass lower rail, aged brass valve wheel, blackened iron spokes, aged brass spindle hub, eight brass mount rivets, cream pressure label, and amber pointer mark.
+- [x] Add validator coverage for promotion version, placement roles, required named hierarchy, material roles, detail counts, and no-collider route safety.
+- [x] Add production brief and status files under `Documentation/AssetProduction/WallValveWheelPrototype/`.
+- [x] Refresh `V0RouteAudit` output for `v0.1.24`.
+- [x] Build, package, generate route-QA evidence, generate issue-triage evidence, and generate candidate-readiness evidence for `v0.1.24` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

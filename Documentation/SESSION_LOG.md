@@ -4745,3 +4745,77 @@ SHA-256:
 `3F3C14A830D012D33188529E726D373180B98260427257E0143CA86582ACAD62`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 08:37 -04:00
+
+Completed `v0.1.24` wall valve wheel asset promotion.
+
+Added:
+
+- `WallValveWheelPrototype` runtime metadata component for promoted route-safe wall valve wheel dressing.
+- Brassworks Intake, Pipeworks Annex, and Boilerheart Core wall valve wheel placements in generated scenes.
+- Unity-owned component geometry: blackened iron wall backplate, aged brass lower mount rail, aged brass valve wheel, blackened iron spokes, aged brass spindle hub, eight brass mount rivets, cream pressure label plate, and amber pointer mark.
+- Editor validation for promotion version, placement roles, required named parts, material roles, detail counts, and no-collider route safety.
+- Side-agent-produced production brief/status files under `Documentation/AssetProduction/WallValveWheelPrototype/`, then marked verified after matrix pass.
+- Route-audit next-action list updated for the post-wall-valve-wheel sequence.
+- Version string bumped to `v0.1.24`.
+
+Verification completed:
+
+- `V0_ROUTE_AUDIT_PASS`
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_MOVEMENT_FEEL_PASS`
+- `V0_BALANCE_ENVELOPE_PASS`
+- `V0_LEVEL01_FLOW_PASS`
+- `V0_MIDGAME_FLOW_PASS`
+- `V0_CLIMAX_FLOW_PASS`
+- `V0_AUDIO_MIX_PASS`
+- `V0_DISPLAY_SETTINGS_PASS`
+- `V0_READABILITY_SETTINGS_PASS`
+- `V0_WINDOWS_PACKAGE_PASS`
+- `V0_WINDOWS_QA_PACKET_PASS`
+- `V0_WINDOWS_ISSUE_TRIAGE_PASS`
+- `V0_WINDOWS_CANDIDATE_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.1.24/BrassworksBreach_v0.1.24.exe`
+
+Package:
+
+`Builds/WindowsPackages/v0.1.24/BrassworksBreach_v0.1.24_Windows.zip`
+
+QA packet:
+
+`Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.24.md`
+
+Issue triage packet:
+
+`Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.24.md`
+
+Candidate readiness:
+
+`Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.24.md`
+
+SHA-256:
+
+`89CE6638EDA2B74D8698F2CD3164E502B7B4143E3CF9071385D4BA8C07F32573`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

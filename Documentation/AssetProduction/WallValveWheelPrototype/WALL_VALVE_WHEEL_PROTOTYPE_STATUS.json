@@ -1,0 +1,129 @@
+{
+  "component": "WallValveWheelPrototype",
+  "promotion_version": "v0.1.24",
+  "owner": "Unity",
+  "geometry_source": "Unity-owned geometry only",
+  "status": {
+    "documentation": "integrated",
+    "implementation": "promoted",
+    "validation": "full_matrix_passed"
+  },
+  "production_track": "modular-asset-promotion",
+  "asset_type": "reusable Unity-generated wall-mounted route dressing component",
+  "route_role": "route-safe non-blocking wall valve wheel dressing",
+  "manual_route_triage_notes_present": false,
+  "expected_placement_roles": [
+    "intake_wall_valve_wheel",
+    "pipeworks_route_valve_wheel",
+    "boilerheart_core_valve_wheel"
+  ],
+  "north_star_style": {
+    "theme": "Brassworks Breach steampunk wall dressing",
+    "required_visual_elements": [
+      "blackened iron backplate",
+      "aged brass valve wheel",
+      "central spindle/hub",
+      "visible rivets/bolts",
+      "pressure label/tag",
+      "small pointer/index mark"
+    ]
+  },
+  "route_safety": {
+    "colliders_allowed": false,
+    "blocking_allowed": false,
+    "may_narrow_navigation": false,
+    "interaction_implied": false,
+    "interaction_note": "Must not imply interactability unless a separate gameplay script owns that behavior later."
+  },
+  "required_hierarchy": {
+    "root": "WallValveWheelPrototype",
+    "children": [
+      "Backplate Root",
+      "Wheel Root",
+      "Rivet Root",
+      "Label Root",
+      "Blackened Iron Wall Backplate",
+      "Aged Brass Lower Mount Rail",
+      "Aged Brass Valve Wheel",
+      "Blackened Iron Wheel Spoke Horizontal",
+      "Blackened Iron Wheel Spoke Vertical",
+      "Aged Brass Central Spindle Hub",
+      "Brass Mount Rivet 00",
+      "Cream Pressure Label Plate",
+      "Amber Pressure Pointer Mark"
+    ]
+  },
+  "material_roles": [
+    "blackened_iron_backplate",
+    "aged_brass_valve_wheel",
+    "blackened_iron_spokes",
+    "aged_brass_spindle_hub",
+    "brass_rivet_bolt_metal",
+    "cream_pressure_label_tag",
+    "amber_pointer_index_mark"
+  ],
+  "minimum_counts": {
+    "backplate": 1,
+    "valve_wheel": 1,
+    "spokes": 4,
+    "central_spindle_hub": 1,
+    "visible_rivets_or_bolts": 8,
+    "pressure_label_or_tag": 1,
+    "pointer_or_index_mark": 1,
+    "colliders": 0
+  },
+  "acceptance_gates": [
+    {
+      "id": "metadata_component_present",
+      "description": "Metadata component is present on the promoted root.",
+      "expected": true,
+      "status": "passed"
+    },
+    {
+      "id": "version_exact",
+      "description": "Promotion version is exactly v0.1.24.",
+      "expected": "v0.1.24",
+      "status": "passed"
+    },
+    {
+      "id": "named_hierarchy_present",
+      "description": "Required root and child hierarchy names are present.",
+      "expected": true,
+      "status": "passed"
+    },
+    {
+      "id": "material_roles_assigned",
+      "description": "Required material roles are assigned and recognizable.",
+      "expected": true,
+      "status": "passed"
+    },
+    {
+      "id": "minimum_counts_met",
+      "description": "Minimum visible detail counts are met.",
+      "expected": true,
+      "status": "passed"
+    },
+    {
+      "id": "no_collider_route_safety",
+      "description": "No collider components are present and placement remains non-blocking.",
+      "expected": true,
+      "status": "passed"
+    }
+  ],
+  "verification": {
+    "verified_at": "2026-05-24 08:37 -04:00",
+    "build_version": "v0.1.24",
+    "executable": "Builds/Windows/v0.1.24/BrassworksBreach_v0.1.24.exe",
+    "package": "Builds/WindowsPackages/v0.1.24/BrassworksBreach_v0.1.24_Windows.zip",
+    "package_sha256": "89CE6638EDA2B74D8698F2CD3164E502B7B4143E3CF9071385D4BA8C07F32573",
+    "route_audit": "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.24.md",
+    "qa_packet": "Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.24.md",
+    "issue_triage": "Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.24.md",
+    "candidate_readiness": "Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.24.md",
+    "matrix_marker": "V0_BUILD_MATRIX_PASS"
+  },
+  "notes": [
+    "Documentation is integrated into the promoted v0.1.24 slice.",
+    "Implementation and validation passed route audit plus the full v034 V0 build matrix."
+  ]
+}
