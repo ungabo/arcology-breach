@@ -5837,3 +5837,19 @@ Preview locations:
 - `Documentation/ConceptRenders/V0_1_40_LevelDressingSet01/SCLD_PREVIEW_wall_density_composition_v0.1.40.png`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-24 16:26 -04:00
+
+Completed the main-lane `v0.1.41` expanded sidecar visual-import batch.
+
+- Added local package references for Materials Set 01, Level Dressing Set 01, Mechanical Enemy Visual Set 01, and Weapon Props Set 02.
+- Expanded `SidecarQuarantineImportValidator` to `SIDECAR_QUARANTINE_IMPORT_PASS packages=8 assets=51`.
+- Added material swatches and visual-only showcase placements across all five generated gameplay levels.
+- Extended level validation to require the new package families and material swatches while preserving no-collider/no-rigidbody/no-autonomous-audio safety.
+- Ran `Tools/RunV0BuildMatrix.ps1`; the full smoke/build/package sequence passed, then QA packet generation initially failed because route audit had not been run for the new version.
+- Corrected the order with `Tools/RunV0RouteAudit.ps1 -LogPrefix v051`, then generated `QA_PACKET_v0.1.41.md` and `ISSUE_TRIAGE_v0.1.41.md`.
+- Generated `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.41.md` with `V0_WINDOWS_CANDIDATE_PASS`.
+- Package SHA-256: `0130AAB1AAB43ED3EC9BEEBB5365034BE9F0FAF035993BFB5C2185E3ED0BE6FE`.
+- Parallel updates: Maxwell completed the v0.1.41 import-readiness packet; Raman completed Corridor Kit Set 02; Faraday completed Encounter Enemy Set 02; Carson's Weapon Viewmodel Set 03 lane remains separate until reviewed.
+
+Next-step directive: finish candidate-readiness evidence, commit/push the v0.1.41 main-lane integration slice without staging fresh unreviewed sidecar roots, then review the next sidecar package wave.

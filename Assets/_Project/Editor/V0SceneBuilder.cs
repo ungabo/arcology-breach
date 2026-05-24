@@ -2998,6 +2998,7 @@ public static class V0SceneBuilder
             StripSidecarPresentationPhysics(instance);
         }
 
+        CreateSidecarMaterialSwatches(root.transform, sceneName);
         CreateSidecarShowcaseLabel(root.transform, sceneName + " sidecar package visuals", placements[0].Position + new Vector3(0f, 1.25f, 0f));
     }
 
@@ -3011,7 +3012,12 @@ public static class V0SceneBuilder
                 new SidecarPrefabPlacement("CopperCoil", "Packages/com.brassworks.sidecar.steampunk-weapons/Runtime/Prefabs/BB_V0137_CopperCoilAssembly.prefab", new Vector3(-5.15f, 1.45f, 12.35f), Quaternion.Euler(0f, 78f, 0f), 0.8f),
                 new SidecarPrefabPlacement("GaugeAssembly", "Packages/com.brassworks.sidecar.steampunk-weapons/Runtime/Prefabs/BB_V0137_BrassDialGaugeAssembly.prefab", new Vector3(-5.2f, 1.42f, 13.35f), Quaternion.Euler(0f, 88f, 0f), 0.82f),
                 new SidecarPrefabPlacement("WeaponFireFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_WeaponFired.prefab", new Vector3(-4.85f, 1.25f, 14.2f), Quaternion.Euler(0f, 38f, 0f), 0.65f),
-                new SidecarPrefabPlacement("ObjectiveFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_ObjectiveCompleted.prefab", new Vector3(-4.85f, 1.25f, 15.05f), Quaternion.Euler(0f, 38f, 0f), 0.65f)
+                new SidecarPrefabPlacement("ObjectiveFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_ObjectiveCompleted.prefab", new Vector3(-4.85f, 1.25f, 15.05f), Quaternion.Euler(0f, 38f, 0f), 0.65f),
+                new SidecarPrefabPlacement("WPS02PressurePistolFrame", "Packages/com.brassworks.sidecar.weapon-props-set02/Runtime/Prefabs/BB_WPS02_PressurePistol_Frame_A.prefab", new Vector3(4.85f, 1.0f, 11.05f), Quaternion.Euler(0f, -35f, 0f), 0.5f),
+                new SidecarPrefabPlacement("WPS02PistolOvercoil", "Packages/com.brassworks.sidecar.weapon-props-set02/Runtime/Prefabs/BB_WPS02_PressurePistol_Overcoil_B.prefab", new Vector3(5.05f, 1.18f, 12.25f), Quaternion.Euler(0f, -52f, 0f), 0.46f),
+                new SidecarPrefabPlacement("WPS02PistolBarrel", "Packages/com.brassworks.sidecar.weapon-props-set02/Runtime/Prefabs/BB_WPS02_PressurePistol_BarrelAssembly.prefab", new Vector3(5.0f, 1.2f, 13.35f), Quaternion.Euler(0f, -62f, 0f), 0.48f),
+                new SidecarPrefabPlacement("SCLDCagedLampWall", "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_CagedLamp_Wall.prefab", new Vector3(5.22f, 1.45f, 14.25f), Quaternion.Euler(0f, -90f, 0f), 0.62f),
+                new SidecarPrefabPlacement("SCLDGaugePanelTriple", "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_GaugePanel_Triple.prefab", new Vector3(5.22f, 1.15f, 15.2f), Quaternion.Euler(0f, -90f, 0f), 0.54f)
             };
         }
 
@@ -3022,7 +3028,12 @@ public static class V0SceneBuilder
                 new SidecarPrefabPlacement("CorridorStraight", "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_CorridorStraight_4m.prefab", new Vector3(-5.35f, 0.05f, 7.0f), Quaternion.Euler(0f, 90f, 0f), 0.32f),
                 new SidecarPrefabPlacement("ValveConsole", "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_ValveConsole.prefab", new Vector3(5.35f, 0.05f, 11.2f), Quaternion.Euler(0f, -90f, 0f), 0.78f),
                 new SidecarPrefabPlacement("RivetLancer", "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Prefabs/SCENM_RivetLancer.prefab", new Vector3(5.25f, 0.08f, 15.15f), Quaternion.Euler(0f, -65f, 0f), 0.58f),
-                new SidecarPrefabPlacement("RouteBlockedFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_RouteBlocked.prefab", new Vector3(-5.25f, 1.28f, 18.1f), Quaternion.Euler(0f, 80f, 0f), 0.7f)
+                new SidecarPrefabPlacement("RouteBlockedFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_RouteBlocked.prefab", new Vector3(-5.25f, 1.28f, 18.1f), Quaternion.Euler(0f, 80f, 0f), 0.7f),
+                new SidecarPrefabPlacement("SCLDPipeJunctionX", "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_PipeJunction_X_2m.prefab", new Vector3(-5.2f, 0.15f, 9.25f), Quaternion.Euler(0f, 90f, 0f), 0.5f),
+                new SidecarPrefabPlacement("SCLDValveClusterWall", "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_ValveCluster_Wall_1m.prefab", new Vector3(5.18f, 0.1f, 13.4f), Quaternion.Euler(0f, -90f, 0f), 0.52f),
+                new SidecarPrefabPlacement("SCLDPressureTankWall", "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_PressureTank_WallSmall.prefab", new Vector3(-5.25f, 0.25f, 15.9f), Quaternion.Euler(0f, 90f, 0f), 0.62f),
+                new SidecarPrefabPlacement("MEV01RivetLancerRail", "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_RivetLancer_B_RailLance.prefab", new Vector3(5.05f, 0.05f, 17.45f), Quaternion.Euler(0f, -58f, 0f), 0.42f),
+                new SidecarPrefabPlacement("WPS02PressureCell", "Packages/com.brassworks.sidecar.weapon-props-set02/Runtime/Prefabs/BB_WPS02_PressureCell_Canister.prefab", new Vector3(-5.1f, 0.42f, 19.05f), Quaternion.Euler(0f, 72f, 0f), 0.55f)
             };
         }
 
@@ -3033,7 +3044,12 @@ public static class V0SceneBuilder
                 new SidecarPrefabPlacement("TJunction", "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_TJunction_4m.prefab", new Vector3(-4.95f, 0.05f, 6.9f), Quaternion.Euler(0f, 90f, 0f), 0.28f),
                 new SidecarPrefabPlacement("GaugeWall", "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_GaugeWall_4m.prefab", new Vector3(5.18f, 0.1f, 12.25f), Quaternion.Euler(0f, -90f, 0f), 0.55f),
                 new SidecarPrefabPlacement("SawScrapper", "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Prefabs/SCENM_SawScrapper.prefab", new Vector3(-4.85f, 0.08f, 18.4f), Quaternion.Euler(0f, 55f, 0f), 0.62f),
-                new SidecarPrefabPlacement("PickupFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_PickupCollected.prefab", new Vector3(4.88f, 1.24f, 19.35f), Quaternion.Euler(0f, -55f, 0f), 0.72f)
+                new SidecarPrefabPlacement("PickupFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_PickupCollected.prefab", new Vector3(4.88f, 1.24f, 19.35f), Quaternion.Euler(0f, -55f, 0f), 0.72f),
+                new SidecarPrefabPlacement("MEV01SawScrapperBoiler", "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_SawScrapper_A_BoilerSaw.prefab", new Vector3(-4.9f, 0.06f, 9.0f), Quaternion.Euler(0f, 58f, 0f), 0.48f),
+                new SidecarPrefabPlacement("MEV01SawScrapperChainjaw", "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_SawScrapper_C_Chainjaw.prefab", new Vector3(-4.95f, 0.06f, 14.85f), Quaternion.Euler(0f, 45f, 0f), 0.46f),
+                new SidecarPrefabPlacement("WPS02ScattergunTwin", "Packages/com.brassworks.sidecar.weapon-props-set02/Runtime/Prefabs/BB_WPS02_Scattergun_Body_TwinBoiler.prefab", new Vector3(5.02f, 1.0f, 15.25f), Quaternion.Euler(0f, -58f, 0f), 0.44f),
+                new SidecarPrefabPlacement("SCLDServicePanelFloor", "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_ServicePanel_Floor_1x2m.prefab", new Vector3(4.95f, 0.08f, 17.1f), Quaternion.Euler(0f, -12f, 0f), 0.64f),
+                new SidecarPrefabPlacement("SCLDDrainChannel", "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_DrainChannel_2m.prefab", new Vector3(-5.02f, 0.08f, 20.2f), Quaternion.Euler(0f, 90f, 0f), 0.68f)
             };
         }
 
@@ -3044,7 +3060,12 @@ public static class V0SceneBuilder
                 new SidecarPrefabPlacement("ArchedDoor", "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_ArchedPressureDoor_4m.prefab", new Vector3(-5.25f, 0.05f, 10.7f), Quaternion.Euler(0f, 90f, 0f), 0.46f),
                 new SidecarPrefabPlacement("BoilerColumn", "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_BoilerColumn_3m.prefab", new Vector3(5.25f, 0.05f, 16.6f), Quaternion.Euler(0f, -90f, 0f), 0.72f),
                 new SidecarPrefabPlacement("BulwarkFurnace", "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Prefabs/SCENM_BulwarkFurnace.prefab", new Vector3(-5.0f, 0.08f, 21.8f), Quaternion.Euler(0f, 54f, 0f), 0.56f),
-                new SidecarPrefabPlacement("EnemyDeathFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_EnemyDeath.prefab", new Vector3(4.95f, 1.3f, 23.15f), Quaternion.Euler(0f, -55f, 0f), 0.78f)
+                new SidecarPrefabPlacement("EnemyDeathFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_EnemyDeath.prefab", new Vector3(4.95f, 1.3f, 23.15f), Quaternion.Euler(0f, -55f, 0f), 0.78f),
+                new SidecarPrefabPlacement("MEV01BulwarkShieldBoiler", "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_BulwarkFurnace_A_ShieldBoiler.prefab", new Vector3(-5.08f, 0.06f, 13.4f), Quaternion.Euler(0f, 52f, 0f), 0.44f),
+                new SidecarPrefabPlacement("MEV01BulwarkCinderAnchor", "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_BulwarkFurnace_C_CinderAnchor.prefab", new Vector3(-5.0f, 0.06f, 18.65f), Quaternion.Euler(0f, 48f, 0f), 0.43f),
+                new SidecarPrefabPlacement("SCLDPressureTankFloor", "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_PressureTank_FloorLarge.prefab", new Vector3(5.12f, 0.08f, 12.2f), Quaternion.Euler(0f, -65f, 0f), 0.58f),
+                new SidecarPrefabPlacement("SCLDValveClusterFloor", "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_ValveCluster_Floor_2m.prefab", new Vector3(5.08f, 0.08f, 19.75f), Quaternion.Euler(0f, -74f, 0f), 0.46f),
+                new SidecarPrefabPlacement("WPS02AmmoCabinetOpen", "Packages/com.brassworks.sidecar.weapon-props-set02/Runtime/Prefabs/BB_WPS02_AmmoCabinet_Shell_Open.prefab", new Vector3(4.95f, 0.18f, 21.75f), Quaternion.Euler(0f, -58f, 0f), 0.54f)
             };
         }
 
@@ -3055,11 +3076,88 @@ public static class V0SceneBuilder
                 new SidecarPrefabPlacement("VaultDoor", "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_RivetedVaultDoor_4m.prefab", new Vector3(-5.4f, 0.05f, 10.1f), Quaternion.Euler(0f, 90f, 0f), 0.46f),
                 new SidecarPrefabPlacement("WardenSentinel", "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Prefabs/SCENM_WardenSentinel.prefab", new Vector3(5.05f, 0.08f, 18.25f), Quaternion.Euler(0f, -55f, 0f), 0.55f),
                 new SidecarPrefabPlacement("OverseerBust", "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Prefabs/SCENM_FoundryOverseerBust.prefab", new Vector3(-5.25f, 0.08f, 21.25f), Quaternion.Euler(0f, 62f, 0f), 0.68f),
-                new SidecarPrefabPlacement("BossPhaseFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_BossPhaseChanged.prefab", new Vector3(4.9f, 1.32f, 24.15f), Quaternion.Euler(0f, -55f, 0f), 0.8f)
+                new SidecarPrefabPlacement("BossPhaseFeedback", "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Prefabs/SCFX_EVT_BossPhaseChanged.prefab", new Vector3(4.9f, 1.32f, 24.15f), Quaternion.Euler(0f, -55f, 0f), 0.8f),
+                new SidecarPrefabPlacement("MEV01WardenTall", "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_WardenOverseer_A_TallWarden.prefab", new Vector3(5.05f, 0.06f, 12.65f), Quaternion.Euler(0f, -55f, 0f), 0.36f),
+                new SidecarPrefabPlacement("MEV01WardenBell", "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_WardenOverseer_B_OverseerBell.prefab", new Vector3(5.0f, 0.06f, 21.05f), Quaternion.Euler(0f, -58f, 0f), 0.38f),
+                new SidecarPrefabPlacement("SCLDGearHousingOpen", "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_GearHousing_Open.prefab", new Vector3(-5.12f, 0.25f, 14.5f), Quaternion.Euler(0f, 90f, 0f), 0.62f),
+                new SidecarPrefabPlacement("WPS02WallWeaponRack", "Packages/com.brassworks.sidecar.weapon-props-set02/Runtime/Prefabs/BB_WPS02_WallWeaponRack_ThreeSlot.prefab", new Vector3(-5.22f, 0.18f, 17.6f), Quaternion.Euler(0f, 90f, 0f), 0.54f),
+                new SidecarPrefabPlacement("SCLDBoilerGaugePedestal", "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_BoilerGaugePedestal.prefab", new Vector3(4.9f, 0.08f, 23.05f), Quaternion.Euler(0f, -62f, 0f), 0.48f)
             };
         }
 
         return Array.Empty<SidecarPrefabPlacement>();
+    }
+
+    private static void CreateSidecarMaterialSwatches(Transform parent, string sceneName)
+    {
+        SidecarMaterialSwatch[] swatches = GetSidecarMaterialSwatches(sceneName);
+        for (int i = 0; i < swatches.Length; i++)
+        {
+            SidecarMaterialSwatch swatch = swatches[i];
+            Material material = AssetDatabase.LoadAssetAtPath<Material>(swatch.AssetPath);
+            if (material == null)
+            {
+                throw new InvalidOperationException("Sidecar showcase material missing: " + swatch.AssetPath);
+            }
+
+            GameObject cube = CreateLocalCube("SidecarMaterialSwatch_" + sceneName + "_" + swatch.Name, parent, swatch.Position, swatch.Scale, material);
+            cube.transform.localRotation = swatch.Rotation;
+        }
+    }
+
+    private static SidecarMaterialSwatch[] GetSidecarMaterialSwatches(string sceneName)
+    {
+        if (sceneName == "Level01")
+        {
+            return new[]
+            {
+                new SidecarMaterialSwatch("AgedBrass", "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_AgedBrass.mat", new Vector3(3.15f, 1.28f, 10.75f), Quaternion.Euler(0f, -25f, 0f), new Vector3(0.42f, 0.42f, 0.08f)),
+                new SidecarMaterialSwatch("WornLeather", "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_WornLeather.mat", new Vector3(3.15f, 1.28f, 11.35f), Quaternion.Euler(0f, -25f, 0f), new Vector3(0.42f, 0.42f, 0.08f)),
+                new SidecarMaterialSwatch("VarnishedDarkWood", "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_VarnishedDarkWood.mat", new Vector3(3.15f, 1.28f, 11.95f), Quaternion.Euler(0f, -25f, 0f), new Vector3(0.42f, 0.42f, 0.08f))
+            };
+        }
+
+        if (sceneName == "Level02")
+        {
+            return new[]
+            {
+                new SidecarMaterialSwatch("WetStone", "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_WetStone.mat", new Vector3(-3.2f, 1.18f, 8.25f), Quaternion.Euler(0f, 25f, 0f), new Vector3(0.42f, 0.42f, 0.08f)),
+                new SidecarMaterialSwatch("OilyBlackenedIron", "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_OilyBlackenedIron.mat", new Vector3(-3.2f, 1.18f, 8.85f), Quaternion.Euler(0f, 25f, 0f), new Vector3(0.42f, 0.42f, 0.08f)),
+                new SidecarMaterialSwatch("SteamPipePatina", "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_SteamPipePatina.mat", new Vector3(-3.2f, 1.18f, 9.45f), Quaternion.Euler(0f, 25f, 0f), new Vector3(0.42f, 0.42f, 0.08f))
+            };
+        }
+
+        if (sceneName == "Level03")
+        {
+            return new[]
+            {
+                new SidecarMaterialSwatch("RivetedWallPlate", "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_RivetedWallPlate.mat", new Vector3(3.2f, 1.24f, 9.35f), Quaternion.Euler(0f, -25f, 0f), new Vector3(0.42f, 0.42f, 0.08f)),
+                new SidecarMaterialSwatch("HazardPaint", "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_HazardPaint.mat", new Vector3(3.2f, 1.24f, 9.95f), Quaternion.Euler(0f, -25f, 0f), new Vector3(0.42f, 0.42f, 0.08f)),
+                new SidecarMaterialSwatch("SootGrime", "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_SootGrime.mat", new Vector3(3.2f, 1.24f, 10.55f), Quaternion.Euler(0f, -25f, 0f), new Vector3(0.42f, 0.42f, 0.08f))
+            };
+        }
+
+        if (sceneName == "Level04")
+        {
+            return new[]
+            {
+                new SidecarMaterialSwatch("PolishedEdgeWearMetal", "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_PolishedEdgeWearMetal.mat", new Vector3(-3.2f, 1.24f, 11.75f), Quaternion.Euler(0f, 25f, 0f), new Vector3(0.42f, 0.42f, 0.08f)),
+                new SidecarMaterialSwatch("OxidizedCopper", "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_OxidizedCopper.mat", new Vector3(-3.2f, 1.24f, 12.35f), Quaternion.Euler(0f, 25f, 0f), new Vector3(0.42f, 0.42f, 0.08f)),
+                new SidecarMaterialSwatch("WarmLanternGlass", "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_WarmLanternGlass.mat", new Vector3(-3.2f, 1.24f, 12.95f), Quaternion.Euler(0f, 25f, 0f), new Vector3(0.42f, 0.42f, 0.08f))
+            };
+        }
+
+        if (sceneName == "Level05")
+        {
+            return new[]
+            {
+                new SidecarMaterialSwatch("DarkBrass", "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_DarkBrass.mat", new Vector3(3.18f, 1.28f, 11.1f), Quaternion.Euler(0f, -25f, 0f), new Vector3(0.42f, 0.42f, 0.08f)),
+                new SidecarMaterialSwatch("PressureGaugeGlass", "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_PressureGaugeGlass.mat", new Vector3(3.18f, 1.28f, 11.7f), Quaternion.Euler(0f, -25f, 0f), new Vector3(0.42f, 0.42f, 0.08f)),
+                new SidecarMaterialSwatch("BoilerCeramic", "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_BoilerCeramic.mat", new Vector3(3.18f, 1.28f, 12.3f), Quaternion.Euler(0f, -25f, 0f), new Vector3(0.42f, 0.42f, 0.08f))
+            };
+        }
+
+        return Array.Empty<SidecarMaterialSwatch>();
     }
 
     private static void StripSidecarPresentationPhysics(GameObject instance)
@@ -3114,6 +3212,24 @@ public static class V0SceneBuilder
         public Vector3 Position { get; }
         public Quaternion Rotation { get; }
         public float Scale { get; }
+    }
+
+    private readonly struct SidecarMaterialSwatch
+    {
+        public SidecarMaterialSwatch(string name, string assetPath, Vector3 position, Quaternion rotation, Vector3 scale)
+        {
+            Name = name;
+            AssetPath = assetPath;
+            Position = position;
+            Rotation = rotation;
+            Scale = scale;
+        }
+
+        public string Name { get; }
+        public string AssetPath { get; }
+        public Vector3 Position { get; }
+        public Quaternion Rotation { get; }
+        public Vector3 Scale { get; }
     }
 
     private static void CreateWorldLabel(string name, string text, Vector3 position, Color color, float characterSize)

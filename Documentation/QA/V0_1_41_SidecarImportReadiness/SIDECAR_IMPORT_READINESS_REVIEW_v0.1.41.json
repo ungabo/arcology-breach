@@ -1,0 +1,77 @@
+{
+  "version": "0.1.41",
+  "generated_date": "2026-05-24",
+  "scope": {
+    "planning_root": "Documentation/Planning/V0_1_41_SidecarImportReadiness",
+    "qa_root": "Documentation/QA/V0_1_41_SidecarImportReadiness",
+    "documents_only": true,
+    "main_manifest_edited": false,
+    "generated_scenes_edited": false,
+    "validator_code_edited": false
+  },
+  "target_packages": [
+    {
+      "folder": "AssetPacks/BrassworksBreach.MaterialsSet01",
+      "upm_name": "com.brassworks.sidecar.materials-set01",
+      "version": "0.1.39-p001",
+      "manifest": "AssetPacks/BrassworksBreach.MaterialsSet01/Documentation~/Manifest/MSET01_MaterialsSet01_Manifest_v0.1.39-p001.json",
+      "static_validation": "pass_0_errors_0_warnings",
+      "main_manifest_status": "absent",
+      "representative_asset_checks": 7
+    },
+    {
+      "folder": "AssetPacks/BrassworksBreach.LevelDressingSet01",
+      "upm_name": "com.brassworks.sidecar.level-dressing-set01",
+      "version": "0.1.40-p001",
+      "manifest": "AssetPacks/BrassworksBreach.LevelDressingSet01/Documentation~/Manifest/SCLD_LevelDressingSet01_Manifest_v0.1.40-p001.json",
+      "static_validation": "pass_0_errors_0_warnings",
+      "main_manifest_status": "absent",
+      "representative_asset_checks": 9
+    },
+    {
+      "folder": "AssetPacks/BrassworksBreach.MechanicalEnemyVisualSet01",
+      "upm_name": "com.brassworks.sidecar.mechanical-enemy-visual-set01",
+      "version": "0.1.40-p001",
+      "manifest": "AssetPacks/BrassworksBreach.MechanicalEnemyVisualSet01/Documentation~/Manifest/MEV01_MechanicalEnemyVisualSet01_Manifest_v0.1.40-p001.json",
+      "static_validation": "pass_0_errors_0_warnings",
+      "main_manifest_status": "absent",
+      "representative_asset_checks": 7
+    },
+    {
+      "folder": "AssetPacks/BrassworksBreach.WeaponPropsSet02",
+      "upm_name": "com.brassworks.sidecar.weapon-props-set02",
+      "version": "0.1.40",
+      "manifest": "AssetPacks/BrassworksBreach.WeaponPropsSet02/Documentation~/Manifest/WPS02_WeaponPropsSet02_Manifest_v0.1.40-p001.json",
+      "static_validation": "pass_0_errors_0_warnings",
+      "main_manifest_status": "absent",
+      "representative_asset_checks": 8
+    }
+  ],
+  "expected_main_lane_changes": [
+    "Add four local UPM package references to Packages/manifest.json.",
+    "Add four PackageCheck entries to Assets/_Project/Editor/SidecarQuarantineImportValidator.cs.",
+    "Add showcase placements to Assets/_Project/Editor/V0SceneBuilder.cs after import validation passes.",
+    "Add per-level showcase assertions to Assets/_Project/Editor/V0LevelValidator.cs.",
+    "Rebuild generated scenes through Unity only after the validator import gate is green."
+  ],
+  "expected_validator_total_if_inventory_used": {
+    "current_packages": 4,
+    "current_representative_assets": 20,
+    "new_packages": 4,
+    "new_representative_assets": 31,
+    "total_packages": 8,
+    "total_representative_assets": 51
+  },
+  "top_actionable_recommendations": [
+    "Import in two compile batches: manifest plus import validator first, showcase and scene rebuild second.",
+    "Use the representative inventory rather than every generated asset to keep compile loops fast.",
+    "Add importer checks for MaterialsSet01 normal maps if the validator is extended beyond loadability.",
+    "Keep enemy visuals presentation-only until rigging, combat scale, and animation sockets are separately approved.",
+    "Keep weapon visuals presentation-only until hand scale, muzzle alignment, recoil clearance, and sockets pass.",
+    "Use LevelDressingSet01 props first as edge dressing, not nav-blocking collision or cover.",
+    "Create material swatch objects for MaterialsSet01 because the package has no prefabs.",
+    "Require at least one new showcase object from each relevant package family in V0LevelValidator.",
+    "Preserve delete-only rollback by avoiding direct references from live gameplay prefabs before promotion.",
+    "Run Project Tools/Validate v0 Levels after scene rebuild and before any manual lookdev signoff."
+  ]
+}

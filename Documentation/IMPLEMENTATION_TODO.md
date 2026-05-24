@@ -66,6 +66,17 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Rebuild scenes, run route audit, run full Windows matrix, package, QA packet, issue-triage packet, and candidate-readiness generation.
 - [x] Commit and push the v0.1.37 world-label readability milestone.
 
+## v0.1.41 Expanded Sidecar Visual Import Batch
+
+- [x] Review and accept import-readiness guidance for Materials Set 01, Level Dressing Set 01, Mechanical Enemy Visual Set 01, and Weapon Props Set 02.
+- [x] Import the four accepted packages as local Unity packages.
+- [x] Expand `SidecarQuarantineImportValidator` to eight packages and fifty-one representative asset checks.
+- [x] Add in-game material swatches for Materials Set 01.
+- [x] Expand visual-only sidecar showcase placements across all five levels.
+- [x] Extend level validation for new showcase families and material swatches.
+- [x] Add sidecar import validation to the standard Windows matrix and candidate-readiness evidence chain.
+- [x] Rebuild scenes, run route audit, run full Windows matrix through package, generate QA, issue-triage, and candidate-readiness evidence.
+
 ## Parallel Priority: v0.1.40 Sidecar Asset Bundles
 
 - [x] Complete broad steampunk material family sidecar package.
@@ -77,6 +88,7 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Complete mechanical-enemy-visual sidecar package with previews and zero-warning package validation.
 - [x] Complete weapon-props sidecar package with previews and zero-warning package validation.
 - [x] Validate completed sidecars package-by-package before any main-project import.
+- [x] Import validated sidecars into a visible v0.1.41 review showcase.
 
 ## v0.0.7 Steampunk Retheme and Pause Flow
 

@@ -74,12 +74,13 @@ The roadmap is a living plan, not a promise that every version number is immutab
 | v0.1.35 | Gameplay feedback and parallel asset-bundle leap | Completed: added shared feedback hooks and pulse VFX across weapons, pickups, enemy hit/death, objectives, blocked routes, secrets, pause/resume, settings, and Warden phase/death beats while sidecar asset packs advanced in parallel. | Route audit passed; full V0 matrix passed with new `V0_GAMEPLAY_FEEDBACK_PASS`, package, QA packet, issue-triage packet, and candidate-readiness evidence. |
 | v0.1.36 | Sidecar package quarantine visual import | Completed: imported weapon, mechanical enemy, feedback FX/audio, and Steamworks level-kit sidecars as local packages and placed visual-only showcase prefabs across all five generated levels. | Route audit passed; `SIDECAR_QUARANTINE_IMPORT_PASS` passed; full V0 matrix passed with package, QA packet, issue-triage packet, and candidate-readiness evidence. |
 | v0.1.37 | World label readability and navigation polish | Completed: added billboarded world labels, dark backplates, high-contrast label styling, editor label gates, and packaged world-label readability smoke coverage. | Route audit passed; full V0 matrix passed with new `V0_WORLD_LABEL_READABILITY_PASS`, package, QA packet, issue-triage packet, and candidate-readiness evidence. |
+| v0.1.41 | Expanded sidecar visual import | Completed: imported Materials Set 01, Level Dressing Set 01, Mechanical Enemy Visual Set 01, and Weapon Props Set 02 as local packages, expanded showcase placements and material swatches across all five levels, and raised sidecar import coverage to eight packages and fifty-one assets. | Route audit passed; `SIDECAR_QUARANTINE_IMPORT_PASS packages=8 assets=51` passed; full matrix passed through package plus QA and issue-triage evidence. |
 
 ## Near-Term Proposed Sequence
 
 | Version | Planned Slice | Intent | Expected Verification |
 | --- | --- | --- | --- |
-| v0.1.40 | Materials Set 01 and broad sidecar asset packages | Complete the broad steampunk material family sidecar plus level-dressing, mechanical-enemy-visual, and weapon-prop sidecar packages, then promote only validated package outputs into gameplay or review galleries. | Package-specific sidecar validators, Unity import smoke, targeted scene validation, then full matrix only after a visible material/asset leap is integrated. |
+| v0.1.42 | Second sidecar package acceptance wave | Review and accept Corridor Kit Set 02, Encounter Enemy Set 02, and Weapon Viewmodel Set 03 when complete, then decide whether to import them immediately or hold them for the next large visual milestone. | Package-specific sidecar validators, import-readiness review, then a single main-lane import/showcase matrix if accepted. |
 
 ## Later Follow-Up Areas
 

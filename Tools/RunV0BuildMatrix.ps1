@@ -174,6 +174,7 @@ if (-not $SkipSceneRebuild) {
 }
 
 Invoke-UnityEditorStep -Method "V0LevelValidator.RunValidation" -LogPath (Join-Path $logsPath "$LogPrefix-level-validation.log") -Marker "V0_LEVEL_VALIDATION_PASS"
+Invoke-UnityEditorStep -Method "SidecarQuarantineImportValidator.RunValidation" -LogPath (Join-Path $logsPath "$LogPrefix-sidecar-quarantine-import.log") -Marker "SIDECAR_QUARANTINE_IMPORT_PASS"
 Invoke-UnityEditorStep -Method "V0SceneBuilder.RunSmokeTest" -LogPath (Join-Path $logsPath "$LogPrefix-smoke-test.log") -Marker "V0_SMOKE_TEST_PASS"
 Invoke-UnityEditorStep -Method "V0SceneBuilder.BuildWindowsV0" -LogPath (Join-Path $logsPath "$LogPrefix-windows-build.log") -Marker "V0_WINDOWS_BUILD_PASS"
 

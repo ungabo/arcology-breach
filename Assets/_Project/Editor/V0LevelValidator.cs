@@ -2375,7 +2375,17 @@ public static class V0LevelValidator
             throw new InvalidOperationException("Level validation failed: " + sceneName + " sidecar showcase must not add autonomous audio sources.");
         }
 
-        RequireNamed("SidecarVisual_" + sceneName + "_" + GetRequiredSidecarShowcaseName(sceneName), sceneName + " required sidecar showcase asset");
+        string[] requiredNames = GetRequiredSidecarShowcaseNames(sceneName);
+        for (int i = 0; i < requiredNames.Length; i++)
+        {
+            RequireNamed("SidecarVisual_" + sceneName + "_" + requiredNames[i], sceneName + " required sidecar showcase asset " + requiredNames[i]);
+        }
+
+        string[] requiredSwatches = GetRequiredSidecarMaterialSwatches(sceneName);
+        for (int i = 0; i < requiredSwatches.Length; i++)
+        {
+            RequireNamed("SidecarMaterialSwatch_" + sceneName + "_" + requiredSwatches[i], sceneName + " required sidecar material swatch " + requiredSwatches[i]);
+        }
     }
 
     private static int GetMinimumSidecarShowcaseRendererCount(string sceneName)
@@ -2383,33 +2393,52 @@ public static class V0LevelValidator
         switch (sceneName)
         {
             case "Level01":
-                return 20;
+                return 28;
             case "Level02":
             case "Level03":
             case "Level04":
             case "Level05":
-                return 12;
+                return 18;
             default:
                 return 1;
         }
     }
 
-    private static string GetRequiredSidecarShowcaseName(string sceneName)
+    private static string[] GetRequiredSidecarShowcaseNames(string sceneName)
     {
         switch (sceneName)
         {
             case "Level01":
-                return "PressurePistolCore";
+                return new[] { "PressurePistolCore", "WPS02PressurePistolFrame", "SCLDGaugePanelTriple" };
             case "Level02":
-                return "CorridorStraight";
+                return new[] { "CorridorStraight", "SCLDPipeJunctionX", "MEV01RivetLancerRail", "WPS02PressureCell" };
             case "Level03":
-                return "TJunction";
+                return new[] { "TJunction", "MEV01SawScrapperBoiler", "WPS02ScattergunTwin", "SCLDDrainChannel" };
             case "Level04":
-                return "ArchedDoor";
+                return new[] { "ArchedDoor", "MEV01BulwarkShieldBoiler", "SCLDPressureTankFloor", "WPS02AmmoCabinetOpen" };
             case "Level05":
-                return "VaultDoor";
+                return new[] { "VaultDoor", "MEV01WardenTall", "SCLDGearHousingOpen", "WPS02WallWeaponRack" };
             default:
-                return "";
+                return Array.Empty<string>();
+        }
+    }
+
+    private static string[] GetRequiredSidecarMaterialSwatches(string sceneName)
+    {
+        switch (sceneName)
+        {
+            case "Level01":
+                return new[] { "AgedBrass" };
+            case "Level02":
+                return new[] { "WetStone" };
+            case "Level03":
+                return new[] { "HazardPaint" };
+            case "Level04":
+                return new[] { "OxidizedCopper" };
+            case "Level05":
+                return new[] { "PressureGaugeGlass" };
+            default:
+                return Array.Empty<string>();
         }
     }
 

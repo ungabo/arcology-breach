@@ -21,6 +21,20 @@ public static class SidecarQuarantineImportValidator
                 "Packages/com.brassworks.sidecar.feedback-fx-audio/Runtime/Audio/SCFX_AUD_WeaponFired.wav"
             }),
         new PackageCheck(
+            "Materials Set 01",
+            "com.brassworks.sidecar.materials-set01",
+            "Documentation~/Manifest/MSET01_MaterialsSet01_Manifest_v0.1.39-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_AgedBrass.mat",
+                "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_OilyBlackenedIron.mat",
+                "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_RivetedWallPlate.mat",
+                "Packages/com.brassworks.sidecar.materials-set01/Runtime/Materials/MSET01_MAT_PressureGaugeGlass.mat",
+                "Packages/com.brassworks.sidecar.materials-set01/Runtime/Textures/Albedo/MSET01_MAT_AgedBrass_ALB.png",
+                "Packages/com.brassworks.sidecar.materials-set01/Runtime/Textures/Normal/MSET01_MAT_AgedBrass_NRM.png",
+                "Packages/com.brassworks.sidecar.materials-set01/Runtime/Textures/Mask/MSET01_MAT_AgedBrass_MSK.png"
+            }),
+        new PackageCheck(
             "Steampunk Weapons",
             "com.brassworks.sidecar.steampunk-weapons",
             "Documentation~/Manifest/SCWPN_SteampunkWeapons_Manifest_v0.1.37-p001.json",
@@ -31,6 +45,21 @@ public static class SidecarQuarantineImportValidator
                 "Packages/com.brassworks.sidecar.steampunk-weapons/Runtime/Prefabs/BB_V0137_BrassDialGaugeAssembly.prefab",
                 "Packages/com.brassworks.sidecar.steampunk-weapons/Runtime/Materials/BB_AgedBrass.mat",
                 "Packages/com.brassworks.sidecar.steampunk-weapons/Runtime/Materials/BB_BlackenedIron.mat"
+            }),
+        new PackageCheck(
+            "Weapon Props Set 02",
+            "com.brassworks.sidecar.weapon-props-set02",
+            "Documentation~/Manifest/WPS02_WeaponPropsSet02_Manifest_v0.1.40-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.weapon-props-set02/Runtime/Prefabs/BB_WPS02_PressurePistol_Frame_A.prefab",
+                "Packages/com.brassworks.sidecar.weapon-props-set02/Runtime/Prefabs/BB_WPS02_PressurePistol_BarrelAssembly.prefab",
+                "Packages/com.brassworks.sidecar.weapon-props-set02/Runtime/Prefabs/BB_WPS02_Scattergun_Body_TwinBoiler.prefab",
+                "Packages/com.brassworks.sidecar.weapon-props-set02/Runtime/Prefabs/BB_WPS02_AmmoCartridge_Cluster.prefab",
+                "Packages/com.brassworks.sidecar.weapon-props-set02/Runtime/Prefabs/BB_WPS02_WallWeaponRack_ThreeSlot.prefab",
+                "Packages/com.brassworks.sidecar.weapon-props-set02/Runtime/Prefabs/BB_WPS02_GearKey_Housing.prefab",
+                "Packages/com.brassworks.sidecar.weapon-props-set02/Runtime/Materials/WPS02_MAT_AgedBrass.mat",
+                "Packages/com.brassworks.sidecar.weapon-props-set02/Runtime/Meshes/WPS02_Mesh_BeveledBox.asset"
             }),
         new PackageCheck(
             "Mechanical Enemies",
@@ -45,6 +74,20 @@ public static class SidecarQuarantineImportValidator
                 "Packages/com.brassworks.sidecar.mechanical-enemies/Runtime/Meshes/SCENM_MESH_24ToothSawBlade.asset"
             }),
         new PackageCheck(
+            "Mechanical Enemy Visual Set 01",
+            "com.brassworks.sidecar.mechanical-enemy-visual-set01",
+            "Documentation~/Manifest/MEV01_MechanicalEnemyVisualSet01_Manifest_v0.1.40-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_SawScrapper_A_BoilerSaw.prefab",
+                "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_RivetLancer_B_RailLance.prefab",
+                "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_BulwarkFurnace_A_ShieldBoiler.prefab",
+                "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_BellowsSupport_B_PressureNode.prefab",
+                "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Prefabs/MEV01_WardenOverseer_A_TallWarden.prefab",
+                "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Materials/MEV01_MAT_FurnaceOrangeGlow.mat",
+                "Packages/com.brassworks.sidecar.mechanical-enemy-visual-set01/Runtime/Meshes/MEV01_MESH_28ToothSawBlade.asset"
+            }),
+        new PackageCheck(
             "Steamworks Level Kit",
             "com.brassworks.sidecar.steamworks-level-kit",
             "Documentation~/Manifest/SCLVL_SteamworksLevelKit_Manifest_v0.1.39-p001.json",
@@ -55,6 +98,22 @@ public static class SidecarQuarantineImportValidator
                 "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_ValveConsole.prefab",
                 "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Materials/SCLVL_AgedBrass.mat",
                 "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Meshes/SCLVL_BoxUnit.asset"
+            }),
+        new PackageCheck(
+            "Level Dressing Set 01",
+            "com.brassworks.sidecar.level-dressing-set01",
+            "Documentation~/Manifest/SCLD_LevelDressingSet01_Manifest_v0.1.40-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_RivetedTrimPlate_2m.prefab",
+                "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_PipeJunction_T_2m.prefab",
+                "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_PressureTank_FloorLarge.prefab",
+                "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_ValveCluster_Floor_2m.prefab",
+                "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_CagedLamp_Wall.prefab",
+                "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_SootGrimeDecal_Wide.prefab",
+                "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Prefabs/SCLD_ServicePanel_Floor_1x2m.prefab",
+                "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Materials/SCLD_MAT_AgedBrass.mat",
+                "Packages/com.brassworks.sidecar.level-dressing-set01/Runtime/Meshes/SCLD_MESH_BoxUnit.asset"
             })
     };
 

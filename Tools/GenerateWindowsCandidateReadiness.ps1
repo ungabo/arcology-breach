@@ -173,6 +173,7 @@ Assert-ZipContainsLeaf -EntryNames $zipEntryNames -LeafName "VERIFY_SHA256_WINDO
 $logChecks = @(
     @{ Name = "Scene rebuild"; File = "$LogPrefix-scene.log"; Marker = "V0 scenes rebuilt" },
     @{ Name = "Level validation"; File = "$LogPrefix-level-validation.log"; Marker = "V0_LEVEL_VALIDATION_PASS" },
+    @{ Name = "Sidecar quarantine import"; File = "$LogPrefix-sidecar-quarantine-import.log"; Marker = "SIDECAR_QUARANTINE_IMPORT_PASS" },
     @{ Name = "Editor smoke"; File = "$LogPrefix-smoke-test.log"; Marker = "V0_SMOKE_TEST_PASS" },
     @{ Name = "Windows build"; File = "$LogPrefix-windows-build.log"; Marker = "V0_WINDOWS_BUILD_PASS" },
     @{ Name = "Runtime smoke"; File = "$LogPrefix-runtime-smoke.log"; Marker = "V0_RUNTIME_SMOKE_PASS" },
