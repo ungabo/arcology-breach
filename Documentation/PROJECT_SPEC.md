@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.85`.
+Current state: `v0.0.86`.
 
 Implemented:
 
@@ -81,7 +81,7 @@ Implemented:
 - Pipeworks cartridge-cache secret, bringing the current registered secret total to three.
 - Procedural brassworks ambience loop through `SteamworksAudio`, with level validation and runtime smoke coverage.
 - Pressure Pistol right-mouse `Pressure Burst` alternate fire, with ammo-cost/cooldown/spread values, level validation, and combat-scenario smoke coverage.
-- Steam Scattergun prototype with data-driven definition, Boilerheart pickup, persisted unlock state, `1`/`2` weapon switching, pellet fire, slug alternate fire, polished Level03 world-pickup silhouette, real pickup-route smoke coverage, dedicated weapon-pickup VFX/audio, dedicated primary blast VFX/audio, and dedicated slug VFX/audio.
+- Steam Scattergun prototype with data-driven definition, Boilerheart pickup, persisted unlock state, `1`/`2` weapon switching, pellet fire, slug alternate fire, polished Level03 world-pickup silhouette, pickup route/signage/lamp readability cues, real pickup-route smoke coverage, dedicated weapon-pickup VFX/audio, dedicated primary blast VFX/audio, and dedicated slug VFX/audio.
 - Distinct first-person Steam Scattergun viewmodel with runtime weapon-view swapping and smoke coverage.
 - Dedicated Steam Scattergun blast VFX with pressure ring, steam core, brass sparks, and smoke coverage.
 - Dedicated Steam Scattergun procedural fire audio cue with runtime and weapon-switch smoke coverage.
@@ -170,6 +170,7 @@ Current:
 - Dedicated Steam Scattergun world-pickup acquisition VFX and smoke coverage through the real Level03 pickup route.
 - Dedicated Steam Scattergun pickup audio cue distinct from generic ammo pickup audio.
 - Polished Steam Scattergun Level03 world-pickup silhouette with display stand, iron yoke, enamel nameplate, brass/walnut weapon details, pressure coil, rear valve wheel, and shell rack.
+- Level03 pickup readability cues with brass route strips, floor chevrons, pressure piping, lamps, and a `BREACH TOOL` label.
 
 Future:
 

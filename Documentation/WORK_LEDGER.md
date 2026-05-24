@@ -99,6 +99,8 @@ The active step sequence is driven by this ledger plus `VERSION_MICRO_ROADMAP.md
 | AUD-015 | Add weapon pickup audio | audio/code/test | P1 | verified | v0.0.83 | Steam Scattergun world pickup uses a dedicated acquisition cue verified by runtime and weapon-switch smoke. |
 | WPN-003B | Add Steam Scattergun slug identity | weapon/vfx/audio/test | P1 | verified | v0.0.84 | Steam Scattergun alternate fire uses dedicated slug audio/VFX and weapon-switch smoke verifies slug behavior before primary kill. |
 | ART-012 | Polish Steam Scattergun world pickup | art/level/test | P1 | verified | v0.0.85 | Level03 Steam Scattergun pickup has a richer display stand, iron yoke, enamel nameplate, brass/walnut weapon details, shell rack, and level validation coverage. |
+| LVL-012 | Add Steam Scattergun pickup readability cues | level/art/test | P1 | verified | v0.0.86 | Level03 Steam Scattergun pickup has route strips, chevrons, sign backplate, lamps, pressure pipes, world label, and level validation coverage. |
+| DOC-009 | Track parallel side-agent workstreams | docs/process | P1 | verified | v0.0.86 | `PARALLEL_WORKSTREAM_STATUS.md` records active side-agent IDs, scopes, allowed write files, and integration rules. |
 
 ## Ready Next
 
@@ -237,3 +239,4 @@ The active step sequence is driven by this ledger plus `VERSION_MICRO_ROADMAP.md
 - `2026-05-23`: `v0.0.83` weapon-pickup audio build created at `Builds/Windows/v0.0.83/BrassworksBreach_v0.0.83.exe` and passed the complete V0 matrix, including dedicated Steam Scattergun pickup audio coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.84` Steam Scattergun slug-identity build created at `Builds/Windows/v0.0.84/BrassworksBreach_v0.0.84.exe` and passed the complete V0 matrix, including dedicated slug audio/VFX coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.85` Steam Scattergun world-pickup art build created at `Builds/Windows/v0.0.85/BrassworksBreach_v0.0.85.exe` and passed the complete V0 matrix, including Level03 named pickup art validation coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.86` Steam Scattergun pickup-readability build created at `Builds/Windows/v0.0.86/BrassworksBreach_v0.0.86.exe` and passed the complete V0 matrix, including Level03 route/sign/lamp pickup cue validation coverage. Parallel side-agent tracking started in `Documentation/PARALLEL_WORKSTREAM_STATUS.md`. Next-step directive: continue immediately with the next highest-impact unfinished task.

@@ -938,6 +938,7 @@ public static class V0SceneBuilder
         CreateHealthVialPickup("Pickup - Boilerheart Health Vial", new Vector3(-3.6f, 0.65f, 9.4f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
         CreatePressureCartridgePickup("Pickup - Boilerheart Pressure Cartridge Pack", new Vector3(3.4f, 0.55f, 9.8f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
         CreateSteamScattergunPickup("Pickup - Steam Scattergun", new Vector3(0f, 0.72f, 13.9f), gunMaterial, brassMaterial, ironMaterial, warningMaterial, steamScattergunPickupDefinition);
+        CreateSteamScattergunPickupReadabilityCues(brassMaterial, warningMaterial, ironMaterial, gaugeFaceMaterial);
         SteamHazard[] boilerheartHazards = CreateBoilerheartDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         LevelTransitionTrigger foundryLift = CreateLevelTransitionLiftAt("Boilerheart Service Lift To Foundry", new Vector3(0f, 1.1f, 24.3f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial, "Level04", "Service lift climbing toward the Furnace Foundry").GetComponent<LevelTransitionTrigger>();
         SteamValveObjective pressureValve = CreateBoilerheartPressureValve(ironMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial);
@@ -2648,6 +2649,31 @@ public static class V0SceneBuilder
 
         CreateLocalCube(name + " Red Pressure Line", visualRoot.transform, new Vector3(0.36f, -0.02f, 0.16f), new Vector3(0.045f, 0.06f, 0.72f), warningMaterial);
         CreateLocalPrimitive(name + " Brass Gauge", PrimitiveType.Cylinder, visualRoot.transform, new Vector3(0.32f, 0.23f, -0.1f), new Vector3(0.13f, 0.035f, 0.13f), brassMaterial).transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+    }
+
+    private static void CreateSteamScattergunPickupReadabilityCues(Material brassMaterial, Material warningMaterial, Material ironMaterial, Material gaugeFaceMaterial)
+    {
+        GameObject cueRoot = new GameObject("Steam Scattergun Pickup Readability Cues");
+
+        CreateCube("Steam Scattergun Route Brass Floor Strip A", new Vector3(0f, 0.018f, 11.65f), new Vector3(0.36f, 0.035f, 1.45f), brassMaterial, cueRoot.transform);
+        CreateCube("Steam Scattergun Route Brass Floor Strip B", new Vector3(0f, 0.019f, 12.85f), new Vector3(0.5f, 0.035f, 0.74f), brassMaterial, cueRoot.transform);
+        CreateCube("Steam Scattergun Pickup Arrow Plate", new Vector3(0f, 0.022f, 13.35f), new Vector3(1.35f, 0.04f, 0.18f), warningMaterial, cueRoot.transform);
+        CreateCube("Steam Scattergun Pickup Chevron Left", new Vector3(-0.48f, 0.026f, 13.72f), new Vector3(0.56f, 0.04f, 0.14f), warningMaterial, cueRoot.transform).transform.rotation = Quaternion.Euler(0f, 34f, 0f);
+        CreateCube("Steam Scattergun Pickup Chevron Right", new Vector3(0.48f, 0.026f, 13.72f), new Vector3(0.56f, 0.04f, 0.14f), warningMaterial, cueRoot.transform).transform.rotation = Quaternion.Euler(0f, -34f, 0f);
+
+        CreateCube("Steam Scattergun Pickup Sign Backplate", new Vector3(0f, 2.05f, 12.88f), new Vector3(2.2f, 0.56f, 0.08f), ironMaterial, cueRoot.transform);
+        CreateCube("Steam Scattergun Pickup Sign Brass Header", new Vector3(0f, 2.31f, 12.82f), new Vector3(2.05f, 0.08f, 0.08f), brassMaterial, cueRoot.transform);
+        CreateCube("Steam Scattergun Pickup Sign Warning Underline", new Vector3(0f, 1.8f, 12.82f), new Vector3(1.75f, 0.06f, 0.08f), warningMaterial, cueRoot.transform);
+        CreateCube("Steam Scattergun Pickup Sign Left Bracket", new Vector3(-1.16f, 2.05f, 12.86f), new Vector3(0.08f, 0.66f, 0.08f), brassMaterial, cueRoot.transform);
+        CreateCube("Steam Scattergun Pickup Sign Right Bracket", new Vector3(1.16f, 2.05f, 12.86f), new Vector3(0.08f, 0.66f, 0.08f), brassMaterial, cueRoot.transform);
+
+        CreateCube("Steam Scattergun Pickup Pressure Feed Pipe", new Vector3(-1.72f, 1.85f, 13.9f), new Vector3(0.12f, 0.12f, 2.25f), brassMaterial, cueRoot.transform);
+        CreateCube("Steam Scattergun Pickup Red Safety Pipe", new Vector3(1.72f, 1.55f, 13.9f), new Vector3(0.1f, 0.1f, 2.05f), warningMaterial, cueRoot.transform);
+        CreateLocalPrimitive("Steam Scattergun Pickup Lamp Left", PrimitiveType.Sphere, cueRoot.transform, new Vector3(-0.9f, 1.68f, 13.1f), new Vector3(0.18f, 0.18f, 0.18f), gaugeFaceMaterial);
+        CreateLocalPrimitive("Steam Scattergun Pickup Lamp Right", PrimitiveType.Sphere, cueRoot.transform, new Vector3(0.9f, 1.68f, 13.1f), new Vector3(0.18f, 0.18f, 0.18f), gaugeFaceMaterial);
+
+        CreateWorldLabel("Label - Steam Scattergun Pickup", "BREACH TOOL", new Vector3(0f, 2.07f, 12.72f), new Color(1f, 0.78f, 0.24f), 0.19f);
+        CreatePointLight("Steam Scattergun Pickup Amber Lamp", new Vector3(0f, 2.35f, 13.2f), new Color(1f, 0.58f, 0.16f), 2.4f, 5.2f);
     }
 
     private static void ConfigurePickup(Pickup pickup, PickupDefinition definition, PickupKind fallbackKind, int fallbackAmount)

@@ -1253,6 +1253,19 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.86 Steam Scattergun Pickup Readability Pass
+
+- [x] Add brass route strips and floor chevrons leading into the Level03 Steam Scattergun pickup.
+- [x] Add an overhead sign, `BREACH TOOL` world label, lamps, and pressure piping around the pickup.
+- [x] Expand Level03 validation to require named pickup readability cues.
+- [x] Create `Documentation/PARALLEL_WORKSTREAM_STATUS.md` for side-agent coordination.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.86`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

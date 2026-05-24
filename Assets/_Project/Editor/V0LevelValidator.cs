@@ -703,6 +703,13 @@ public static class V0LevelValidator
             RequireNamed("Pickup - Steam Scattergun Rear Valve Wheel", sceneName + " Steam Scattergun valve wheel visual");
             RequireNamed("Pickup - Steam Scattergun Brass Shell Rack Round 0", sceneName + " Steam Scattergun shell rack visual");
             RequireNamed("Pickup - Steam Scattergun Enamel Name Plate", sceneName + " Steam Scattergun display name plate visual");
+            RequireNamed("Steam Scattergun Pickup Readability Cues", sceneName + " Steam Scattergun readability cue root");
+            RequireNamed("Steam Scattergun Route Brass Floor Strip A", sceneName + " Steam Scattergun route strip");
+            RequireNamed("Steam Scattergun Pickup Arrow Plate", sceneName + " Steam Scattergun pickup arrow plate");
+            RequireNamed("Steam Scattergun Pickup Sign Backplate", sceneName + " Steam Scattergun sign backplate");
+            RequireNamed("Steam Scattergun Pickup Pressure Feed Pipe", sceneName + " Steam Scattergun pickup pressure pipe");
+            RequireNamed("Steam Scattergun Pickup Amber Lamp", sceneName + " Steam Scattergun pickup amber light");
+            RequireNamed("Label - Steam Scattergun Pickup", sceneName + " Steam Scattergun pickup label");
             RequireNamed("Enemy - Boilerheart Bellows Node", sceneName + " Bellows Node enemy");
             RequireNamed("Bellows Node Brass Bellows Body", sceneName + " Bellows Node body visual");
             RequireNamed("Bellows Node Furnace Lens", sceneName + " Bellows Node lens visual");

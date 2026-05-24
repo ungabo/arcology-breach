@@ -31,7 +31,7 @@ The roadmap is a living plan, not a promise that every version number is immutab
 | --- | --- | --- | --- |
 | v0.0.84 | Steam Scattergun slug identity | Completed: right-mouse scattergun slug now has its own audio/VFX and smoke coverage. | Full V0 matrix passed; weapon-switch smoke verifies slug cue/VFX. |
 | v0.0.85 | Scattergun world pickup art polish | Completed: Level03 world pickup now has a display stand, yoke, nameplate, brass/walnut weapon details, pressure coil, rear valve wheel, and shell rack. | Full V0 matrix passed; level validation checks named pickup visual pieces. |
-| v0.0.86 | Scattergun pickup placement/readability | Add local signage/light/route cues around the Level03 pickup so players understand it is optional power before the foundry. | Full V0 matrix; level validation and weapon-switch smoke. |
+| v0.0.86 | Scattergun pickup placement/readability | Completed: added brass route strips, floor chevrons, pressure pipes, lamps, and `BREACH TOOL` label around the Level03 pickup. | Full V0 matrix passed; level validation and weapon-switch smoke passed. |
 | v0.0.87 | Pressure Pistol secondary feedback | Give Pressure Burst distinct audio/VFX instead of relying on generic pistol feedback. | Full V0 matrix; combat-scenario smoke verifies secondary feedback. |
 | v0.0.88 | Pressure Pistol viewmodel polish | Add clearer pressure dump/recoil motion cues to the pistol viewmodel. | Full V0 matrix; combat and combat-scenario smoke. |
 | v0.0.89 | Scrapper attack readability pass | Improve melee windup visuals/audio so the first enemy reads better in motion. | Full V0 matrix; combat-edge smoke verifies player damage path still works. |
