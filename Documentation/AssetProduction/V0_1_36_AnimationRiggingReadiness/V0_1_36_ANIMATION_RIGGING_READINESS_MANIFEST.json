@@ -1,0 +1,72 @@
+{
+  "version": "v0.1.36",
+  "packId": "V0_1_36_AnimationRiggingReadiness",
+  "packageState": "planning-staging",
+  "gameplayAuthority": "NoGameplayWiring",
+  "ownedScopes": [
+    "Documentation/Planning/V0_1_36_AnimationRiggingReadiness/",
+    "Documentation/AssetProduction/V0_1_36_AnimationRiggingReadiness/"
+  ],
+  "enemyFamilies": [
+    {
+      "id": "Scrapper",
+      "role": "low fast saw-claw",
+      "requiredSocketGroups": ["root", "torso", "mask", "saw", "claw", "weakPoint", "furnaceEyes", "shutdownFragments"]
+    },
+    {
+      "id": "Lancer",
+      "role": "thin forward lance ranged unit",
+      "requiredSocketGroups": ["root", "torso", "lanceMuzzle", "lanceBase", "coilBackpack", "coilRings", "weakPoint", "shutdownFragments"]
+    },
+    {
+      "id": "Bulwark",
+      "role": "shield wall heavy defender",
+      "requiredSocketGroups": ["root", "torso", "shieldFace", "shieldHinges", "hammer", "flankWeakPoints", "steamVents", "shutdownFragments"]
+    },
+    {
+      "id": "Warden",
+      "role": "command tower with twin coils",
+      "requiredSocketGroups": ["root", "torso", "commandLamp", "crownCoils", "gavel", "pincer", "weakPoint", "auraFloorCenter", "shutdownFragments"]
+    },
+    {
+      "id": "FoundryOverseer",
+      "role": "elite tri-tool furnace miniboss",
+      "requiredSocketGroups": ["root", "torso", "saw", "hammer", "backLance", "crownCoils", "primaryWeakPoint", "secondaryWeakPoint", "phaseVents", "shutdownBursts"]
+    }
+  ],
+  "weaponFamilies": [
+    {
+      "id": "PressurePistol",
+      "requiredSocketGroups": ["mainGrip", "supportGrip", "trigger", "muzzle", "recoilPivot", "gaugeNeedle", "coils", "reloadCell", "pickupDisplay", "vrHands"]
+    },
+    {
+      "id": "SteamScattergun",
+      "requiredSocketGroups": ["mainGrip", "pumpGrip", "stockShoulder", "barrelMuzzles", "centerMuzzle", "recoilPivot", "gaugeNeedle", "reloadBreech", "tank", "pickupDisplay", "vrHands"]
+    },
+    {
+      "id": "FutureWeaponSilhouettes",
+      "requiredSocketGroups": ["mainGrip", "supportGrip", "trigger", "muzzle", "recoilPivot", "reloadPrimary", "ammoOrPressureCell", "statusGauge", "pickupDisplay", "wallMounts", "vrHands"]
+    }
+  ],
+  "clipBacklogGroups": [
+    "enemyIdle",
+    "enemyMove",
+    "enemyAttackTell",
+    "enemyAttackOrFire",
+    "enemyHitReaction",
+    "enemyShutdownDeath",
+    "weaponPickupDisplayIdle",
+    "weaponViewmodelFire",
+    "weaponViewmodelReload",
+    "weaponViewmodelAltFire",
+    "proceduralAdditiveMotion"
+  ],
+  "validationThemes": [
+    "combatReadability",
+    "routeAuthorityPreserved",
+    "gameplayAuthorityPreserved",
+    "lowMidWindowsPcPerformance",
+    "futureVrHandAlignment"
+  ],
+  "touchedRuntimeAssets": false
+}

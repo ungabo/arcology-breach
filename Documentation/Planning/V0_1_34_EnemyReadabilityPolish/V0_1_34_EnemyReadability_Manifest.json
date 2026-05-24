@@ -1,0 +1,159 @@
+{
+    "package":  "V0_1_34_EnemyReadabilityPolish",
+    "version":  "0.1.34",
+    "date":  "2026-05-24",
+    "purpose":  "Enemy readability staging package for Scrapper, Lancer, Bulwark, and Warden tell language, silhouettes, and material remap planning.",
+    "sourceReviewed":  [
+                           "Assets/_Project/ArtStaging/EnemyReadabilityBatch",
+                           "Documentation/AssetProduction/EnemyReadabilityBatch"
+                       ],
+    "unityContract":  {
+                          "units":  "1 Unity unit = 1 meter",
+                          "axis":  "+Y up, +Z forward",
+                          "importPath":  "Assets/_Project/ArtStaging/V0_1_34_EnemyReadabilityPolish",
+                          "generatedGeometry":  "OBJ/MTL overlay proxies, Unity Standard material proxies, PNG swatch sheet",
+                          "excluded":  [
+                                           "gameplay code",
+                                           "scene builder",
+                                           "colliders",
+                                           "rigging",
+                                           "Blender dependency",
+                                           "generated scenes",
+                                           "shared integration docs"
+                                       ]
+                      },
+    "files":  {
+                  "integrationBrief":  "Documentation/Planning/V0_1_34_EnemyReadabilityPolish/V0_1_34_EnemyReadability_IntegrationBrief.md",
+                  "acceptanceGates":  "Documentation/Planning/V0_1_34_EnemyReadabilityPolish/V0_1_34_EnemyReadability_AcceptanceGates.md",
+                  "docManifest":  "Documentation/Planning/V0_1_34_EnemyReadabilityPolish/V0_1_34_EnemyReadability_Manifest.json",
+                  "assetManifest":  "Assets/_Project/ArtStaging/V0_1_34_EnemyReadabilityPolish/Metadata/V0_1_34_EnemyReadability_Manifest.json",
+                  "materialSet":  "Assets/_Project/ArtStaging/V0_1_34_EnemyReadabilityPolish/Materials/ENEMY_V0134_ReadabilityPolishMaterials.mtl",
+                  "preview":  "Assets/_Project/ArtStaging/V0_1_34_EnemyReadabilityPolish/Previews/PREVIEW_V0134_EnemyReadabilityPolish_SwatchSheet.png"
+              },
+    "enemies":  [
+                    {
+                        "id":  "Scrapper",
+                        "overlayMesh":  "Meshes/ENEMY_V0134_Scrapper_ReadabilityOverlay.obj",
+                        "intent":  "compact melee worker-machine",
+                        "criticalReads":  [
+                                              "hunched low mass",
+                                              "cutter arc right side",
+                                              "hammer block left side",
+                                              "separate chest weak lamp",
+                                              "paired amber furnace eyes"
+                                          ],
+                        "stats":  {
+                                      "vertices":  296,
+                                      "faces":  178
+                                  }
+                    },
+                    {
+                        "id":  "Lancer",
+                        "overlayMesh":  "Meshes/ENEMY_V0134_Lancer_ReadabilityOverlay.obj",
+                        "intent":  "tall ranged automaton",
+                        "criticalReads":  [
+                                              "thin upright core",
+                                              "uninterrupted +Z lance line",
+                                              "cyan bolt rings",
+                                              "sternum weak lamp below weapon",
+                                              "muzzle tell distinct from weak point"
+                                          ],
+                        "stats":  {
+                                      "vertices":  364,
+                                      "faces":  214
+                                  }
+                    },
+                    {
+                        "id":  "Bulwark",
+                        "overlayMesh":  "Meshes/ENEMY_V0134_Bulwark_ReadabilityOverlay.obj",
+                        "intent":  "broad shield defender",
+                        "criticalReads":  [
+                                              "shield-door first read",
+                                              "side weak lamps around shield",
+                                              "hammer visible past shield",
+                                              "brow eyes above shield",
+                                              "shoulder pressure tanks"
+                                          ],
+                        "stats":  {
+                                      "vertices":  328,
+                                      "faces":  202
+                                  }
+                    },
+                    {
+                        "id":  "Warden",
+                        "overlayMesh":  "Meshes/ENEMY_V0134_Warden_ReadabilityOverlay.obj",
+                        "intent":  "tall command/cage unit",
+                        "criticalReads":  [
+                                              "cage tower silhouette",
+                                              "crown pressure tanks",
+                                              "overhead cyan command coils",
+                                              "central tower weak lamp",
+                                              "command face above body"
+                                          ],
+                        "stats":  {
+                                      "vertices":  540,
+                                      "faces":  316
+                                  }
+                    }
+                ],
+    "shutdownCueFragments":  {
+                                 "mesh":  "Meshes/FRAG_V0134_EnemyShutdownCueFragments.obj",
+                                 "intent":  "shared small breakaway tell kit for shutdown/death readability planning",
+                                 "stats":  {
+                                               "vertices":  80,
+                                               "faces":  52
+                                           }
+                             },
+    "materials":  [
+                      {
+                          "name":  "MAT_V0134_SilhouetteInk",
+                          "role":  "dark silhouette mass and armor read"
+                      },
+                      {
+                          "name":  "MAT_V0134_AgedBrassEdge",
+                          "role":  "brass edge trims, bands, cage ribs, and retainers"
+                      },
+                      {
+                          "name":  "MAT_V0134_CopperPressure",
+                          "role":  "copper pressure pipes, rods, and barrels"
+                      },
+                      {
+                          "name":  "MAT_V0134_CreamFacePlate",
+                          "role":  "cream enamel identity face plates"
+                      },
+                      {
+                          "name":  "MAT_V0134_FurnaceEyeAmber",
+                          "role":  "hot amber identity eyes"
+                      },
+                      {
+                          "name":  "MAT_V0134_WeakPointLampGold",
+                          "role":  "larger gold weak-point lamp glass"
+                      },
+                      {
+                          "name":  "MAT_V0134_PressureTankRed",
+                          "role":  "red pressure vessel read, not a pickup material"
+                      },
+                      {
+                          "name":  "MAT_V0134_BoltTellCyan",
+                          "role":  "cyan bolt charge, ranged tell, and command coil language"
+                      },
+                      {
+                          "name":  "MAT_V0134_HazardStrikeYellow",
+                          "role":  "yellow active danger on cutter teeth, hammer faces, and shield warnings"
+                      },
+                      {
+                          "name":  "MAT_V0134_ShutdownDimMetal",
+                          "role":  "dim broken shutdown fragments"
+                      },
+                      {
+                          "name":  "MAT_V0134_SootCavity",
+                          "role":  "soot-black visor and depth cavities"
+                      }
+                  ],
+    "acceptanceSummary":  [
+                              "Enemy identity must pass silhouette-only review before material review.",
+                              "Furnace eyes, weak lamps, pressure tanks, and attack tells must remain visually separate.",
+                              "Blue/cyan is reserved for Lancer and Warden bolt/command charge language.",
+                              "No gameplay behavior, hitboxes, rigging, colliders, or scene edits are implied by this package."
+                          ]
+}

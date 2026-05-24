@@ -1,0 +1,137 @@
+{
+    "package":  "V0_1_35_FeedbackPolish",
+    "intent":  "Coordinated player-feedback language for brassworks UI plates, enamel lamps, gauge motion, and readable combat/system confirmation.",
+    "sprite_import_notes":  [
+                                "Import icons as Sprite (2D and UI), alpha is transparency, 256 px source size.",
+                                "Point-filter is acceptable for icon proof, final UI should use bilinear and atlas compression matched to the HUD.",
+                                "Use cream icon shapes plus amber/green/red signal fills so color is supportive, not sole meaning."
+                            ],
+    "hud_language":  [
+                         "Brass plates anchor event class; blackened iron backers carry contrast; cream labels carry text.",
+                         "Amber is attention/pending/impact, green is success/route/acquired, red is denied/danger/empty.",
+                         "Gauge needle motion should overshoot 6-10 degrees then settle within 0.12-0.22 seconds."
+                     ],
+    "cues":  [
+                 {
+                     "id":  "weapon_impact",
+                     "display":  "Weapon Impact",
+                     "priority":  80,
+                     "color":  "amber",
+                     "ui":  "micro crosshair bloom, brass tick ring, 0.07s flash",
+                     "vfx":  "2-3 pressure sparks, tiny steam puff, decal glint; world-space only",
+                     "audio":  "short brass ping plus softened metal tick; -13 LUFS short cue target",
+                     "mix":  "high-mid transient, below weapon fire, sidechain ducked by gunshot bus",
+                     "accessibility":  "shape + timing must carry confirmation without relying on amber alone"
+                 },
+                 {
+                     "id":  "enemy_hit",
+                     "display":  "Enemy Hit Confirmation",
+                     "priority":  90,
+                     "color":  "amber",
+                     "ui":  "thin gauge needle nudge at reticle edge, 0.10s",
+                     "vfx":  "small amber enamel chip, weak-point lamp flicker if valid target",
+                     "audio":  "soft ratchet click with body-material layer hook",
+                     "mix":  "stackable, random pitch +/-4%, max 4 voices",
+                     "accessibility":  "do not strobe; hit state also uses enemy flinch/sparks"
+                 },
+                 {
+                     "id":  "enemy_death",
+                     "display":  "Enemy Death Confirmation",
+                     "priority":  96,
+                     "color":  "green",
+                     "ui":  "reticle settles to route-green check notch, 0.18s",
+                     "vfx":  "shutdown steam sigh, amber lamp collapse to dark, brass fragments sparkle once",
+                     "audio":  "valve drop, low metal clonk, steam release tail",
+                     "mix":  "one-shot emphasis, protected from crowd hit spam for 0.25s",
+                     "accessibility":  "clear silhouette drop plus non-red success color"
+                 },
+                 {
+                     "id":  "pickup_acquired",
+                     "display":  "Pickup Acquisition",
+                     "priority":  75,
+                     "color":  "green",
+                     "ui":  "brass inventory plate slides in/out, icon lamp fill",
+                     "vfx":  "small intake swirl toward player, green enamel glint at pickup origin",
+                     "audio":  "positive valve tick, soft gauge rise, tiny steam inhale",
+                     "mix":  "front UI bus, duck ambience by 1 dB for 0.12s",
+                     "accessibility":  "icon and text token support for colorblind readability"
+                 },
+                 {
+                     "id":  "secret_discovery",
+                     "display":  "Secret Discovery",
+                     "priority":  100,
+                     "color":  "green_amber",
+                     "ui":  "large brass nameplate with hidden cog iris, 1.2s minimum read",
+                     "vfx":  "green route lamps chase once, dust/steam reveal puff",
+                     "audio":  "warm three-note chime through brass resonator, no jump scare",
+                     "mix":  "music-compatible, never masks enemy threat callouts",
+                     "accessibility":  "caption-safe label, longer hold, no required rapid flashing"
+                 },
+                 {
+                     "id":  "objective_update",
+                     "display":  "Objective Update",
+                     "priority":  86,
+                     "color":  "amber",
+                     "ui":  "objective brass ledger tab stamps in with needle sweep",
+                     "vfx":  "none by default; optional world marker pressure lamp pulse",
+                     "audio":  "paper/plate stamp plus quiet gauge tick",
+                     "mix":  "UI bus with narrow transient; avoid competing with pickup confirm",
+                     "accessibility":  "text contrast 7:1 target on dark iron backing"
+                 },
+                 {
+                     "id":  "denied_interaction",
+                     "display":  "Denied Interaction",
+                     "priority":  88,
+                     "color":  "red",
+                     "ui":  "red enamel lock tab shakes once, no repeated screen shake",
+                     "vfx":  "small red pressure spark at interact point, valve refuses half-turn",
+                     "audio":  "dry clack + blocked steam chirp; short, non-punishing",
+                     "mix":  "low volume but sharp attack; throttle repeat to 0.35s",
+                     "accessibility":  "must include lock icon silhouette, not red-only language"
+                 },
+                 {
+                     "id":  "route_confirmation",
+                     "display":  "Route Confirmation",
+                     "priority":  82,
+                     "color":  "green",
+                     "ui":  "green enamel arrow lamp sweeps along route plate",
+                     "vfx":  "world route lamps chase away from player once",
+                     "audio":  "valve opens, soft pressure rise, two light ticks",
+                     "mix":  "spatialized if world-sourced, UI layer if compass-sourced",
+                     "accessibility":  "animated direction and arrow shape carry meaning without color"
+                 },
+                 {
+                     "id":  "pause_settings_readability",
+                     "display":  "Pause / Settings Readability",
+                     "priority":  70,
+                     "color":  "neutral",
+                     "ui":  "dark iron panel, brass section headers, cream text, focus lamp rail",
+                     "vfx":  "none; keep menus calm and legible",
+                     "audio":  "soft mechanical focus ticks, no looping hiss under settings",
+                     "mix":  "UI ticks -18 LUFS, respect menu SFX slider",
+                     "accessibility":  "minimum 18px body equivalent, high contrast, reduced motion path"
+                 },
+                 {
+                     "id":  "low_health",
+                     "display":  "Low Health Language",
+                     "priority":  98,
+                     "color":  "red",
+                     "ui":  "red pressure gasket edge vignette, heart gauge needle tremble",
+                     "vfx":  "rare steam cough from player rig, never opaque center screen",
+                     "audio":  "muffled pressure thump at restrained cadence",
+                     "mix":  "heartbeat-style cue capped and disabled in pause/settings",
+                     "accessibility":  "reduced-motion swaps pulse for static cracked gauge + audio toggle"
+                 },
+                 {
+                     "id":  "low_ammo",
+                     "display":  "Low Ammo Language",
+                     "priority":  92,
+                     "color":  "amber_red",
+                     "ui":  "ammo cartridge icon drains to amber, final shots show red rim",
+                     "vfx":  "weapon gauge needle dips, tiny chamber sputter on dry threshold",
+                     "audio":  "hollow cartridge rattle, last-round click accent",
+                     "mix":  "weapon-adjacent, less urgent than health, no constant loop",
+                     "accessibility":  "numeric ammo remains primary; color only reinforces state"
+                 }
+             ]
+}

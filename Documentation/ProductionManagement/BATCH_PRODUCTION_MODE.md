@@ -1,6 +1,6 @@
 # Brassworks Breach - Batch Production Mode
 
-Last updated: `2026-05-24 12:46 -04:00`
+Last updated: `2026-05-24 13:31 -04:00`
 
 ## Why This Exists
 
@@ -31,6 +31,53 @@ Do not run asset production as `build asset A, then asset B, then asset C`. Run 
 
 The main lane integrates these outputs into Unity and owns shared code, generated scenes, validation scripts, builds, releases, commits, and pushes.
 
+## Parallel Bundle Enforcement
+
+Every new side-agent wave should start as a bundle spread, not a single work queue. A normal production wave should keep several of these lanes active at once when thread capacity allows:
+
+- Weapon/prop arsenal bundle.
+- Mechanical enemy bundle.
+- Level module and setpiece bundle.
+- Gameplay-systems and validation bundle.
+- UI/audio/VFX bundle when the current milestone needs player feedback polish.
+
+Side agents should own whole families with manifests, preview sheets, scale notes, material recipes, acceptance gates, and integration recommendations. A single isolated asset is acceptable only when it is a risky blocker, a failed proof recovery target, or a dependency that cannot be split cleanly.
+
+If the subagent thread limit is reached, close completed or obsolete agents first, then immediately fill the open slots with the next independent bundle. Do not wait for every side bundle to finish before the main lane continues implementation.
+
+## 15-Minute Speed Review
+
+The PM loop now reviews production speed every 15 minutes. Each review should ask:
+
+- Is this the fastest safe development pace achievable with the current machine, Unity install, repo state, and available subagent slots?
+- Is the main lane blocked on side work, or can it keep integrating and testing a different slice?
+- Are any agents doing serial single-asset work that should become a larger bundle?
+- Are completed agents being closed quickly enough to refill capacity?
+- Would a separate Unity sidecar project or importable asset-pack sandbox speed this batch without risking the primary project?
+
+The answer should create action: redirect agents, spawn a new bundle, start/stop a sidecar lane, defer a risky import, or continue the main Unity integration.
+
+## Unity Sidecar Asset-Pack Lanes
+
+Separate Unity projects may be useful for asset-pack production when they can generate prefabs, materials, preview renders, manifests, and importable package outputs without touching primary game scenes, validators, build settings, or shared scripts.
+
+Use sidecar Unity lanes for:
+
+- Weapon/prop lookdev and prefab candidates.
+- Mechanical enemy visual shells and socket/rigging proof.
+- Level module and setpiece prefab kits.
+- UI/audio/VFX feedback packages.
+- Render-only concept and material proof sheets.
+
+Avoid sidecar Unity lanes for:
+
+- Core gameplay scripts that need current route/state authority.
+- Generated scene integration.
+- Build settings, packaging, QA candidate generation, or release docs.
+- Work that depends on primary-scene object IDs or serialized references.
+
+All sidecar output must come back through manifests, previews, import notes, and a primary-project import validation step before promotion.
+
 ## Batch Size Guidance
 
 - Minimum acceptable batch: 4 to 6 related visible changes across at least two levels or one system plus supporting art/readability.
@@ -41,13 +88,13 @@ One-prop releases are reserved for focused blockers, regressions, or risky isola
 
 ## Suggested Next Batch
 
-`v0.1.34` should keep the batch size aggressive by combining multiple parallel crew outputs into one playable polish leap:
+`v0.1.35` should keep the batch size aggressive by combining main-lane gameplay feedback improvements with the next parallel side-agent bundles:
 
-- Weapon/prop staging: improve pressure-pistol, scattergun display, pickup, ammo, and console/readability silhouettes where safe.
-- Enemy/readability staging: promote Scrapper, Lancer, Bulwark, and Warden tell/readability improvements that do not require final rigging.
-- Level-density placement: add route-safe density where the v0.1.33 dressing pass proved clearances are stable.
-- QA/validation: add batch-level acceptance gates for enemy/weapon readability and object authority preservation.
-- Keep independent crews running in parallel; the main lane should integrate several families at once.
+- Gameplay systems: improve hit feedback, pickup clarity, secret/objective feedback, route affordance, pause/settings polish, and audio/VFX hooks in one coherent playable leap.
+- Weapon/prop arsenal: prepare pressure-pistol, scattergun, ammo, weapon-display, cabinet/vending, and future-weapon silhouettes as one staging package.
+- Mechanical enemies: prepare Scrapper, Lancer, Bulwark, Warden, shutdown fragments, and one elite/miniboss silhouette as one staging package.
+- Level modules and setpieces: prepare corridor, pressure/vault door, pipe gallery, furnace alcove, catwalk, trim, lighting, and five-level placement plans as one staging package.
+- QA/validation: require batch-level gates that prove the new polish adds no unauthorized route authority, colliders, triggers, nav obstacles, or gameplay-state owners.
 
 Expected verification: scene rebuild, level validation, targeted route smoke during development, then route audit and full V0 matrix when the batch is coherent.
 
@@ -59,14 +106,16 @@ When assigning side agents:
 - Ask for batch-ready implementation guidance, not isolated one-off release plans.
 - Ask for acceptance gates that can validate multiple related assets at once.
 - Ask for suggested targeted tests before the full matrix.
+- Prefer assigning complete asset/system families to several agents at once over serializing individual assets.
 - Keep code, generated scenes, build scripts, shared status docs, release docs, and Git operations out of side-agent write scope unless the parent lane explicitly owns integration.
 
-## 30-Minute Review Loop
+## 15-Minute Review Loop
 
-The `brassworks-breach-pm-continuation` heartbeat runs every 30 minutes and should perform a PM review before continuing:
+The `brassworks-breach-pm-continuation` heartbeat runs every 15 minutes and should perform a PM review before continuing:
 
 - Check whether active work is batched enough to justify a versioned candidate.
 - Stop one-prop drift unless a focused regression or blocker makes it necessary.
 - Redirect side agents toward batch-ready plans, acceptance gates, material recipes, and placement maps.
+- Decide whether separate Unity sidecar projects would speed asset-pack production for the current bundle.
 - Use targeted tests while the batch is in progress.
 - Run the full route/package/QA/candidate matrix only when the batch is coherent.

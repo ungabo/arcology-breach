@@ -1,0 +1,100 @@
+{
+    "package":  "V0_1_35_WeaponArsenal",
+    "created_for":  "v0.1.35 weapon + gameplay prop arsenal staging",
+    "owned_scopes":  [
+                         "Assets/_Project/ArtStaging/V0_1_35_WeaponArsenal/",
+                         "Documentation/AssetProduction/V0_1_35_WeaponArsenal/",
+                         "Documentation/ConceptRenders/V0_1_35_WeaponArsenal/"
+                     ],
+    "assets":  [
+                   {
+                       "id":  "V0135WA_001",
+                       "mesh":  "Meshes/V0135WA_001_PressurePistol_FinalComponentPack.obj",
+                       "name":  "Pressure Pistol Final Component Pack",
+                       "lod":  "LOD0 component mesh, LOD1 merge rivets/coils, LOD2 silhouette receiver+barrel",
+                       "scale_m":  "1.55 length",
+                       "gates":  [
+                                     "Readable pistol silhouette at 8m pickup scale",
+                                     "Gauge/lamp remain visible in first-person crop",
+                                     "No collider generated from decorative coils"
+                                 ],
+                       "collision":  "3 capsule/box primitives: barrel, receiver, grip",
+                       "role":  "first-person weapon/viewmodel and pickup basis"
+                   },
+                   {
+                       "id":  "V0135WA_002",
+                       "mesh":  "Meshes/V0135WA_002_SteamScattergun_FinalComponentPack.obj",
+                       "name":  "Steam Scattergun Final Component Pack",
+                       "lod":  "LOD0 full, LOD1 remove rivets/gauge needles, LOD2 single barrel block",
+                       "scale_m":  "2.15 length",
+                       "gates":  [
+                                     "Triple barrel reads from front",
+                                     "Pump/stock grip volumes fit hand sockets",
+                                     "Soot pass does not hide muzzle direction"
+                                 ],
+                       "collision":  "5 primitives: stock, receiver, barrel cluster, tank, pump",
+                       "role":  "heavy shotgun/scattergun viewmodel and wall display"
+                   },
+                   {
+                       "id":  "V0135WA_003",
+                       "mesh":  "Meshes/V0135WA_003_PressureCartridgeFamily.obj",
+                       "name":  "Pressure Cartridge Family",
+                       "lod":  "LOD0 individual cartridges, LOD1 single rack strip",
+                       "scale_m":  "0.34 cartridge height",
+                       "gates":  [
+                                     "Red high-pressure cartridge distinct from standard",
+                                     "Empty/ruptured cartridge readable as spent",
+                                     "Pickup trigger larger than visual mesh"
+                                 ],
+                       "collision":  "capsule per cartridge or one pickup trigger box",
+                       "role":  "ammo pickups, cabinet contents, UI icon source"
+                   },
+                   {
+                       "id":  "V0135WA_004",
+                       "mesh":  "Meshes/V0135WA_004_WallWeaponDisplayFrame.obj",
+                       "name":  "Wall Weapon Display Frame",
+                       "lod":  "LOD0 full frame, LOD1 remove labels/lamps",
+                       "scale_m":  "2.55 x 1.36",
+                       "gates":  [
+                                     "Hooks align with pistol/scattergun mounts",
+                                     "Green/red gameplay labels can be swapped by state",
+                                     "Backplate stays behind level wall collision"
+                                 ],
+                       "collision":  "single thin box for backplate plus optional hooks",
+                       "role":  "armory wall prop and weapon pickup framing"
+                   },
+                   {
+                       "id":  "V0135WA_005",
+                       "mesh":  "Meshes/V0135WA_005_AmmoCabinetVendingProp.obj",
+                       "name":  "Ammo Cabinet / Vending Prop",
+                       "lod":  "LOD0 windows/pipes/gauge, LOD1 no side pipes, LOD2 cabinet shell",
+                       "scale_m":  "1.20 x 1.80 x 0.55",
+                       "gates":  [
+                                     "Front affordance visible from 15m",
+                                     "Dispense slot aligns to pickup spawn socket",
+                                     "State colors map green=stocked amber=low red=empty"
+                                 ],
+                       "collision":  "single cabinet box plus trigger volume at front",
+                       "role":  "interactive ammo vendor prop"
+                   },
+                   {
+                       "id":  "V0135WA_006",
+                       "mesh":  "Meshes/V0135WA_006_FutureAltLightningLance_Silhouette.obj",
+                       "name":  "Future Alt Lightning Lance Silhouette",
+                       "lod":  "silhouette validation only",
+                       "scale_m":  "2.05 length",
+                       "gates":  [
+                                     "Different enough from pistol/scattergun",
+                                     "Preserves brassworks language",
+                                     "Can be shelved without blocking current integration"
+                                 ],
+                       "collision":  "prototype only: box along spine",
+                       "role":  "future weapon exploration, not final v0.1.35 integration"
+                   }
+               ],
+    "preview_outputs":  [
+                            "Documentation/ConceptRenders/V0_1_35_WeaponArsenal/V0135WA_contact_sheet.png",
+                            "Documentation/ConceptRenders/V0_1_35_WeaponArsenal/V0135WA_component_breakdown.png",
+                            "Documentation/ConceptRenders/V0_1_35_WeaponArsenal/V0135WA_material_recipe_sheet.png"
+                        ]
+}

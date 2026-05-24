@@ -1,0 +1,88 @@
+{
+    "package":  "V0_1_35_FeedbackPolish",
+    "intent":  "Procedural placeholder WAVs express cue length, envelope, pitch register, and mix hierarchy. Replace with final authored brass/steam layers after integration.",
+    "import_notes":  [
+                         "Import as mono, decompress on load for short UI/gameplay cues under 1s unless final audio policy differs.",
+                         "Looping disabled for all cues in this staging pack.",
+                         "Route, pickup, objective, and menu cues belong on UI/SFX bus; impact/death can be world or hybrid bus depending on source."
+                     ],
+    "cues":  [
+                 {
+                     "id":  "weapon_impact",
+                     "file":  "Audio/Cues/V0135FP_weapon_impact.wav",
+                     "intent":  "short brass ping plus softened metal tick; -13 LUFS short cue target",
+                     "mix":  "high-mid transient, below weapon fire, sidechain ducked by gunshot bus",
+                     "priority":  80
+                 },
+                 {
+                     "id":  "enemy_hit",
+                     "file":  "Audio/Cues/V0135FP_enemy_hit.wav",
+                     "intent":  "soft ratchet click with body-material layer hook",
+                     "mix":  "stackable, random pitch +/-4%, max 4 voices",
+                     "priority":  90
+                 },
+                 {
+                     "id":  "enemy_death",
+                     "file":  "Audio/Cues/V0135FP_enemy_death.wav",
+                     "intent":  "valve drop, low metal clonk, steam release tail",
+                     "mix":  "one-shot emphasis, protected from crowd hit spam for 0.25s",
+                     "priority":  96
+                 },
+                 {
+                     "id":  "pickup_acquired",
+                     "file":  "Audio/Cues/V0135FP_pickup_acquired.wav",
+                     "intent":  "positive valve tick, soft gauge rise, tiny steam inhale",
+                     "mix":  "front UI bus, duck ambience by 1 dB for 0.12s",
+                     "priority":  75
+                 },
+                 {
+                     "id":  "secret_discovery",
+                     "file":  "Audio/Cues/V0135FP_secret_discovery.wav",
+                     "intent":  "warm three-note chime through brass resonator, no jump scare",
+                     "mix":  "music-compatible, never masks enemy threat callouts",
+                     "priority":  100
+                 },
+                 {
+                     "id":  "objective_update",
+                     "file":  "Audio/Cues/V0135FP_objective_update.wav",
+                     "intent":  "paper/plate stamp plus quiet gauge tick",
+                     "mix":  "UI bus with narrow transient; avoid competing with pickup confirm",
+                     "priority":  86
+                 },
+                 {
+                     "id":  "denied_interaction",
+                     "file":  "Audio/Cues/V0135FP_denied_interaction.wav",
+                     "intent":  "dry clack + blocked steam chirp; short, non-punishing",
+                     "mix":  "low volume but sharp attack; throttle repeat to 0.35s",
+                     "priority":  88
+                 },
+                 {
+                     "id":  "route_confirmation",
+                     "file":  "Audio/Cues/V0135FP_route_confirmation.wav",
+                     "intent":  "valve opens, soft pressure rise, two light ticks",
+                     "mix":  "spatialized if world-sourced, UI layer if compass-sourced",
+                     "priority":  82
+                 },
+                 {
+                     "id":  "pause_settings_readability",
+                     "file":  "Audio/Cues/V0135FP_pause_settings_readability.wav",
+                     "intent":  "soft mechanical focus ticks, no looping hiss under settings",
+                     "mix":  "UI ticks -18 LUFS, respect menu SFX slider",
+                     "priority":  70
+                 },
+                 {
+                     "id":  "low_health",
+                     "file":  "Audio/Cues/V0135FP_low_health.wav",
+                     "intent":  "muffled pressure thump at restrained cadence",
+                     "mix":  "heartbeat-style cue capped and disabled in pause/settings",
+                     "priority":  98
+                 },
+                 {
+                     "id":  "low_ammo",
+                     "file":  "Audio/Cues/V0135FP_low_ammo.wav",
+                     "intent":  "hollow cartridge rattle, last-round click accent",
+                     "mix":  "weapon-adjacent, less urgent than health, no constant loop",
+                     "priority":  92
+                 }
+             ]
+}

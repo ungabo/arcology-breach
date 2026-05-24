@@ -1,0 +1,20 @@
+{
+  "version": "v0.1.35",
+  "packId": "V0_1_35_MechanicalEnemyPack",
+  "unityOnlyProof": true,
+  "gameplayAuthority": "VisualOnlyNoGameplay",
+  "families": [
+    { "id": "Scrapper", "scaleMeters": 1.55, "silhouette": "low fast saw-claw", "primaryTools": ["saw", "claw"], "weakPoints": ["furnace eye", "break glass"] },
+    { "id": "Lancer", "scaleMeters": 1.90, "silhouette": "tall forward lance", "primaryTools": ["lance", "cyan charge coil"], "weakPoints": ["head lamp", "coil backpack"] },
+    { "id": "Bulwark", "scaleMeters": 2.15, "silhouette": "wide shield wall", "primaryTools": ["shield", "steam hammer"], "weakPoints": ["guard-break lamp", "shield lamp"] },
+    { "id": "Warden", "scaleMeters": 2.35, "silhouette": "command tower with twin coils", "primaryTools": ["gavel", "pincer", "twin bolt coils"], "weakPoints": ["command lamp", "center lamp"] },
+    { "id": "FoundryOverseerElite", "scaleMeters": 2.75, "silhouette": "elite tri-tool furnace miniboss", "primaryTools": ["saw", "hammer", "back lance", "crown coils"], "weakPoints": ["boss furnace lamp", "center apron lamp"] }
+  ],
+  "materials": ["aged brass", "blackened iron", "oily leather", "grimy glass", "amber furnace lamps", "cyan/blue bolt tells", "soot/wear", "hazard trims"],
+  "acceptanceGates": [
+    "Each prefab remains visual-only and includes socket placeholders.",
+    "All readable attack tells use cyan/blue emission and weak-point lamps use amber/red emission.",
+    "Collider guidance supports capsule body plus simple box/sphere tool triggers.",
+    "LOD0/LOD1/LOD2 reduction targets are documented before gameplay promotion."
+  ]
+}

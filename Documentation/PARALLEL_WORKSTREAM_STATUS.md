@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 12:46 -04:00`
+Last updated: `2026-05-24 13:31 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -19,12 +19,12 @@ Current focus:
 
 Current verified local build:
 
-- `v0.1.33`
-- Build path: `Builds/Windows/v0.1.33/BrassworksBreach_v0.1.33.exe`
-- Package path: `Builds/WindowsPackages/v0.1.33/BrassworksBreach_v0.1.33_Windows.zip`
-- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.33.md`
-- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.33.md`
-- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.33.md`
+- `v0.1.34`
+- Build path: `Builds/Windows/v0.1.34/BrassworksBreach_v0.1.34.exe`
+- Package path: `Builds/WindowsPackages/v0.1.34/BrassworksBreach_v0.1.34_Windows.zip`
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.34.md`
+- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.34.md`
+- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.34.md`
 - Matrix result: `V0_BUILD_MATRIX_PASS` plus `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`
 
 ## Active Side Agents
@@ -89,6 +89,23 @@ Current verified local build:
 | Arendt-LevelDensity | `019e5ab4-c5ea-7fa0-ad12-ca88334e9a7a` | Multi-level placement/density plan for the next compile | `Documentation/Planning/V0_1_33_LevelDensityBatch/` | `2026-05-24 12:02 -04:00` | completed; packet maps 10 families across Level01-Level05 and 31 zones for one visible compile leap |
 | Locke-WeaponPropBatch | `019e5ab4-c657-7ce1-808a-ad48d1f6f2d8` | Parallel pressure-pistol and gameplay-prop staging package | `Documentation/AssetProduction/WeaponPropBatch/`, `Assets/_Project/ArtStaging/WeaponPropBatch/` | `2026-05-24 12:02 -04:00` | completed; staged 7 OBJ meshes, 14 material proxies, 4 draft textures, and 3 preview sheets |
 | Tesla-EnemyReadability | `019e5ab4-c6c8-79d0-aa8f-e076699d5541` | Parallel mechanical-enemy readability/art staging package | `Documentation/AssetProduction/EnemyReadabilityBatch/`, `Assets/_Project/ArtStaging/EnemyReadabilityBatch/` | `2026-05-24 12:02 -04:00` | completed; staged Scrapper/Lancer/Bulwark/Warden readability OBJs, shutdown fragments, material proxies, and preview boards |
+| Goodall | `019e5ae9-2ced-74d1-b66f-38127ad12bdb` | v0.1.34 weapon/prop polish staging | `Documentation/Planning/V0_1_34_WeaponPropPolish/`, `Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/` | `2026-05-24 12:49 -04:00` | closed after file review; staged pressure-pistol, scattergun, ammo, route-console prop plans and previews |
+| Cicero | `019e5ae9-2e68-7710-a562-f8489721378d` | v0.1.34 enemy readability polish staging | `Documentation/Planning/V0_1_34_EnemyReadabilityPolish/`, `Assets/_Project/ArtStaging/V0_1_34_EnemyReadabilityPolish/` | `2026-05-24 12:49 -04:00` | completed; staged Scrapper/Lancer/Bulwark/Warden readability overlays and shutdown fragments |
+| Sagan | `019e5ae9-2ed8-7673-9d55-915956717ed1` | v0.1.34 level-density placement packet | `Documentation/Planning/V0_1_34_LevelDensityPolish/` | `2026-05-24 12:49 -04:00` | completed; 18 route-safe placement recommendations across all five levels |
+| Zeno | `019e5ae9-2f50-72f3-be95-784f4227c1df` | v0.1.34 batch validation packet | `Documentation/Planning/V0_1_34_BatchValidation/` | `2026-05-24 12:49 -04:00` | completed; batch breadth, route authority, readability, route audit, and smoke-matrix gates |
+| Epicurus | `019e5af6-f4b7-7d91-9753-fdcea87c3068` | v0.1.35 weapon + gameplay prop arsenal bundle | `Assets/_Project/ArtStaging/V0_1_35_WeaponArsenal/`, `Documentation/AssetProduction/V0_1_35_WeaponArsenal/`, `Documentation/ConceptRenders/V0_1_35_WeaponArsenal/` | `2026-05-24 13:11 -04:00` | completed; six staged OBJ packs, manifests, material recipes, and preview sheets |
+| Hilbert | `019e5af6-f51c-79a2-b349-5b1a7f557a00` | v0.1.35 mechanical enemy pack bundle | `Assets/_Project/ArtStaging/V0_1_35_MechanicalEnemyPack/`, `Documentation/AssetProduction/V0_1_35_MechanicalEnemyPack/`, `Documentation/ConceptRenders/V0_1_35_MechanicalEnemyPack/` | `2026-05-24 13:11 -04:00` | completed; five enemy assemblies, Unity proof renders, sockets, fragments, materials, and acceptance gates |
+| Darwin | `019e5af7-7b12-7610-8a84-3aec910c5fe4` | v0.1.35 level module + setpiece bundle | `Assets/_Project/ArtStaging/V0_1_35_LevelModuleSetpieces/`, `Documentation/AssetProduction/V0_1_35_LevelModuleSetpieces/`, `Documentation/ConceptRenders/V0_1_35_LevelModuleSetpieces/`, `Documentation/Planning/V0_1_35_LevelSetpiecePlacements/` | `2026-05-24 13:11 -04:00` | completed; nine staged prefabs, 12 materials, Unity proof renders, manifest, and five-level placement plan |
+| Boyle | `019e5af7-7b7a-7ca0-aeb2-6e9b9c29f884` | v0.1.35 gameplay systems + validation design packet | `Documentation/Planning/V0_1_35_GameplaySystemsBatch/`, `Documentation/Planning/V0_1_35_BatchValidation/` | `2026-05-24 13:11 -04:00` | completed; feedback systems plan, dependency map, validation gates, and targeted smoke commands |
+| Nietzsche | `019e5afb-9d54-7312-aea4-8723b7c7a1d0` | v0.1.35 UI/audio/VFX feedback staging bundle | `Assets/_Project/ArtStaging/V0_1_35_FeedbackPolish/`, `Documentation/AssetProduction/V0_1_35_FeedbackPolish/`, `Documentation/ConceptRenders/V0_1_35_FeedbackPolish/` | `2026-05-24 13:15 -04:00` | completed; 11 icons, 11 WAV cues, seven materials, cue JSON, recipes, and preview sheets |
+| Avicenna | `019e5afc-ea99-7771-ba8f-d36e5842987d` | v0.1.35 performance/import/LOD readiness bundle | `Documentation/Planning/V0_1_35_PerformanceImportBundle/`, `Documentation/AssetProduction/V0_1_35_PerformanceImportBundle/` | `2026-05-24 13:16 -04:00` | completed; import rules, budgets, validation gates, and integration checklist |
+| Feynman | `019e5afd-dc5f-78a2-a6da-e25988aed132` | v0.1.36 narrative + encounter scripting bundle | `Documentation/Planning/V0_1_36_NarrativeEncounterBundle/`, `Documentation/AssetProduction/V0_1_36_NarrativeEncounterBundle/` | `2026-05-24 13:17 -04:00` | completed; five-level beat sheet, reusable narrative asset families, and validation notes |
+| Schrodinger | `019e5aff-57e3-7ad0-a903-ac3c92422515` | v0.1.36 animation + rigging readiness bundle | `Documentation/Planning/V0_1_36_AnimationRiggingReadiness/`, `Documentation/AssetProduction/V0_1_36_AnimationRiggingReadiness/` | `2026-05-24 13:21 -04:00` | completed; rig/socket standards, animation backlog, Unity notes, and handoff checklist |
+| Erdos | `019e5b00-f35e-71e2-a812-0f77754f06a7` | v0.1.36 final art promotion candidate review | `Documentation/Planning/V0_1_36_ArtPromotionReview/`, `Documentation/AssetProduction/V0_1_36_ArtPromotionReview/` | `2026-05-24 13:22 -04:00` | completed; scorecard recommends first promoting feedback cues, pressure cartridges, wall weapon display, and ammo cabinet shell |
+| Chandrasekhar | `019e5b00-f3c4-7d10-b001-b1ea250ec08e` | v0.1.36 distribution/store readiness bundle | `Documentation/Planning/V0_1_36_DistributionReadiness/`, `Documentation/Releases/V0_1_36_DistributionReadiness/` | `2026-05-24 13:22 -04:00` | completed; Windows v1 distribution checklist, deferred store notes, license tracking, and RC guidance |
+| Bohr | `019e5b02-fa4e-7771-a1b9-105afca15ddc` | v0.1.36 QA automation expansion bundle | `Documentation/Planning/V0_1_36_QAAutomationExpansion/`, `Documentation/QA/V0_1_36_QAAutomationExpansion/` | `2026-05-24 13:23 -04:00` | completed; smoke expansion plan, test data contracts, prioritization matrix, automation packet, and manual verification sheets |
+| Leibniz | `019e5b03-d249-7711-b73c-786525d216e0` | v0.1.36 accessibility + options polish bundle | `Documentation/Planning/V0_1_36_AccessibilityOptionsBundle/`, `Documentation/QA/V0_1_36_AccessibilityOptionsBundle/` | `2026-05-24 13:23 -04:00` | completed; accessibility/options plan, input compatibility, prioritization roadmap, validation gates, and smoke-test ideas |
+| Planck | `019e5b0d-31f4-7a91-9741-cfd7ff83eb96` | v0.1.36 Unity sidecar asset-pack pipeline | `Documentation/Planning/V0_1_36_UnitySidecarAssetPipeline/`, `Documentation/AssetProduction/V0_1_36_UnitySidecarAssetPipeline/` | `2026-05-24 13:31 -04:00` | active |
 
 ## Completed Side-Agent Outputs
 

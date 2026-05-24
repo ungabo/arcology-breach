@@ -1,0 +1,66 @@
+{
+    "package":  "V0_1_35_FeedbackPolish",
+    "created_for":  "v0.1.35 UI + Audio + VFX polish staging bundle",
+    "north_star":  "steampunk/brassworks player-feedback system: brass plates, enamel lamps, pressure gauges, steam puffs, sparks, and restrained mechanical audio",
+    "owned_scopes":  [
+                         "Assets/_Project/ArtStaging/V0_1_35_FeedbackPolish/",
+                         "Documentation/AssetProduction/V0_1_35_FeedbackPolish/",
+                         "Documentation/ConceptRenders/V0_1_35_FeedbackPolish/"
+                     ],
+    "asset_groups":  [
+                         {
+                             "count":  7,
+                             "path":  "Materials/",
+                             "type":  "materials",
+                             "notes":  "proxy Standard .mat files for brass, iron, cream, amber, green, red, steam"
+                         },
+                         {
+                             "count":  11,
+                             "path":  "UI/Sprites/",
+                             "type":  "ui_sprites",
+                             "notes":  "256px transparent PNG icons for all requested cue classes"
+                         },
+                         {
+                             "count":  1,
+                             "path":  "UI/Recipes/V0135FP_UI_CuePackage.json",
+                             "type":  "ui_recipe",
+                             "notes":  "cue matrix, HUD language, import notes"
+                         },
+                         {
+                             "count":  1,
+                             "path":  "VFX/Recipes/V0135FP_VFX_CuePackage.json",
+                             "type":  "vfx_recipe",
+                             "notes":  "Unity ParticleSystem/VFX Graph recipe staging"
+                         },
+                         {
+                             "count":  11,
+                             "path":  "Audio/Cues/",
+                             "type":  "audio_cues",
+                             "notes":  "mono WAV placeholder cues encoding timing/mix intent"
+                         },
+                         {
+                             "count":  1,
+                             "path":  "Audio/V0135FP_AUDIO_CUE_INDEX.json",
+                             "type":  "audio_index",
+                             "notes":  "audio import and mix notes"
+                         }
+                     ],
+    "cue_coverage":  [
+                         "weapon_impact",
+                         "enemy_hit",
+                         "enemy_death",
+                         "pickup_acquired",
+                         "secret_discovery",
+                         "objective_update",
+                         "denied_interaction",
+                         "route_confirmation",
+                         "pause_settings_readability",
+                         "low_health",
+                         "low_ammo"
+                     ],
+    "preview_outputs":  [
+                            "Documentation/ConceptRenders/V0_1_35_FeedbackPolish/V0135FP_feedback_system_contact_sheet.png",
+                            "Documentation/ConceptRenders/V0_1_35_FeedbackPolish/V0135FP_ui_audio_vfx_matrix.png",
+                            "Documentation/ConceptRenders/V0_1_35_FeedbackPolish/V0135FP_accessibility_readability_sheet.png"
+                        ]
+}

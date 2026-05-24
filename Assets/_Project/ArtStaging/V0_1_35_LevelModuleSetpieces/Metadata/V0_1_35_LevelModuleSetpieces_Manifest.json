@@ -1,0 +1,114 @@
+{
+  "package": "V0_1_35_LevelModuleSetpieces",
+  "project": "Brassworks Breach",
+  "version": "v0.1.35",
+  "generated_at_unity_local": "2026-05-24T13:15:17",
+  "unity_only": true,
+  "external_dcc_used": false,
+  "owned_scope": {
+    "asset_staging": "Assets/_Project/ArtStaging/V0_1_35_LevelModuleSetpieces/",
+    "asset_production_docs": "Documentation/AssetProduction/V0_1_35_LevelModuleSetpieces/",
+    "concept_renders": "Documentation/ConceptRenders/V0_1_35_LevelModuleSetpieces/",
+    "placement_docs": "Documentation/Planning/V0_1_35_LevelSetpiecePlacements/"
+  },
+  "materials": [
+    "M_V0135_BlackenedRivetedIron",
+    "M_V0135_AgedBrass",
+    "M_V0135_CopperPipe",
+    "M_V0135_OilDarkStone",
+    "M_V0135_SootBrick",
+    "M_V0135_WarmAmberGlass",
+    "M_V0135_FurnaceGlow",
+    "M_V0135_RouteGreenGlass",
+    "M_V0135_WarningRedEnamel",
+    "M_V0135_RubberGasket",
+    "M_V0135_CreamGaugeFace",
+    "M_V0135_HeatBlueSteel"
+  ],
+  "assets": [
+    {
+      "path": "Assets/_Project/ArtStaging/V0_1_35_LevelModuleSetpieces/Prefabs/SM_V0135_CorridorBay_4x6m.prefab",
+      "family": "corridor_kit",
+      "name": "4m wide x 6m long modular bay",
+      "bounds_m": { "x": 4, "y": 3.1, "z": 6 },
+      "visual_part_count": 138,
+      "collider_guidance": "Visual shell collider only; child trims non-colliding."
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/V0_1_35_LevelModuleSetpieces/Prefabs/SM_V0135_PressureDoor_Frame_4m.prefab",
+      "family": "door_vault_kit",
+      "name": "gear-locked pressure door frame",
+      "bounds_m": { "x": 4.2, "y": 3.2, "z": 0.55 },
+      "visual_part_count": 96,
+      "collider_guidance": "Box collider on outer jamb frame only; central aperture stays clear."
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/V0_1_35_LevelModuleSetpieces/Prefabs/SM_V0135_VaultDoor_Round_5m.prefab",
+      "family": "door_vault_kit",
+      "name": "round vault door and spoke lock setpiece",
+      "bounds_m": { "x": 5, "y": 4.2, "z": 0.9 },
+      "visual_part_count": 122,
+      "collider_guidance": "Use one convex blocker only if placed as closed scenic door."
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/V0_1_35_LevelModuleSetpieces/Prefabs/SM_V0135_PipeGallery_WallRun_6m.prefab",
+      "family": "pipe_valve_kit",
+      "name": "stacked copper and iron wall pipe gallery",
+      "bounds_m": { "x": 6, "y": 2.5, "z": 0.55 },
+      "visual_part_count": 176,
+      "collider_guidance": "No collision by default; wall-mounted dressing."
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/V0_1_35_LevelModuleSetpieces/Prefabs/SM_V0135_FurnaceBoiler_Alcove_5m.prefab",
+      "family": "furnace_boiler_alcove",
+      "name": "furnace alcove with boiler face and coal lip",
+      "bounds_m": { "x": 5, "y": 3.8, "z": 1.35 },
+      "visual_part_count": 154,
+      "collider_guidance": "Rear wall and side piers may block; front heat volume must be gameplay-owned elsewhere."
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/V0_1_35_LevelModuleSetpieces/Prefabs/SM_V0135_CatwalkRail_4m.prefab",
+      "family": "railing_catwalk_kit",
+      "name": "catwalk rail with kick plate and amber caps",
+      "bounds_m": { "x": 4, "y": 1.2, "z": 0.22 },
+      "visual_part_count": 86,
+      "collider_guidance": "Simple box or capsule collision on posts/rail only after route review."
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/V0_1_35_LevelModuleSetpieces/Prefabs/SM_V0135_TrimPack_FloorWallCeiling_4m.prefab",
+      "family": "trim_kit",
+      "name": "floor, wall, and ceiling trim pack",
+      "bounds_m": { "x": 4, "y": 2.8, "z": 0.45 },
+      "visual_part_count": 104,
+      "collider_guidance": "Non-colliding trim except flush floor strips."
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/V0_1_35_LevelModuleSetpieces/Prefabs/SM_V0135_CagedGaslight_WallFixture.prefab",
+      "family": "lighting_fixtures",
+      "name": "caged amber gaslight wall fixture",
+      "bounds_m": { "x": 0.55, "y": 0.85, "z": 0.42 },
+      "visual_part_count": 62,
+      "collider_guidance": "No collision by default; optional small trigger-free blocker if reachable."
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/V0_1_35_LevelModuleSetpieces/Prefabs/SM_V0135_SetpieceDressing_Group_AllLevels.prefab",
+      "family": "setpiece_dressing",
+      "name": "five-level grouped dressing sampler",
+      "bounds_m": { "x": 8.5, "y": 3.6, "z": 4.5 },
+      "visual_part_count": 310,
+      "collider_guidance": "Preview/sampler root only; integrate child families selectively."
+    }
+  ],
+  "performance_budget": {
+    "target": "low/mid Windows PC",
+    "recommended_static_batching": true,
+    "recommended_gpu_instancing": "rivet, bolt, gauge, pipe clamp repeats",
+    "lod_policy": "LOD0 for close hero pieces, LOD1 at 18m with 45-60 percent child detail, LOD2 at 35m as merged silhouette blocks",
+    "collider_policy": "visual-only by default; add simple primitive colliders only to gameplay-relevant blockers after route validation"
+  },
+  "preview_outputs": [
+    "Documentation/ConceptRenders/V0_1_35_LevelModuleSetpieces/CONTACTSHEET_V0135_LevelModuleSetpieces_UnityProof.png",
+    "Documentation/ConceptRenders/V0_1_35_LevelModuleSetpieces/RENDER_V0135_CorridorDoorPipeGallery_UnityProof.png",
+    "Documentation/ConceptRenders/V0_1_35_LevelModuleSetpieces/RENDER_V0135_FurnaceCatwalkTrim_UnityProof.png"
+  ]
+}

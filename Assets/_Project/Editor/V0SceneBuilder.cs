@@ -2327,6 +2327,13 @@ public static class V0SceneBuilder
             CreateLocalPrimitive("Pressure Pistol Receiver Rivet " + i, PrimitiveType.Sphere, weaponRoot.transform, new Vector3(x, y, -0.18f), new Vector3(0.035f, 0.035f, 0.035f), gunTrimMaterial);
         }
 
+        V0134BatchPolishPrototype pistolPolish = CreateV0134BatchPolishPrototype("V0134WeaponPropPolish_pressure_pistol_viewmodel", "weapon_prop", "pressure_pistol", "pressure_pistol_viewmodel", weaponRoot.transform, new Vector3(0f, 0.02f, 0.1f), Quaternion.identity, 0.42f, gunTrimMaterial, warningMaterial, ironMaterial);
+        CreateLocalPrimitive("Pressure Pistol V0134 Copper Coil Readability Loop A", PrimitiveType.Cylinder, pistolPolish.structureRoot, new Vector3(0.22f, 0.24f, 0.42f), new Vector3(0.035f, 0.18f, 0.035f), gunTrimMaterial).transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalPrimitive("Pressure Pistol V0134 Copper Coil Readability Loop B", PrimitiveType.Cylinder, pistolPolish.structureRoot, new Vector3(0.22f, 0.18f, 0.5f), new Vector3(0.035f, 0.18f, 0.035f), gunTrimMaterial).transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateLocalCube("Pressure Pistol V0134 Red Overpressure Tick", pistolPolish.signalRoot, new Vector3(-0.2f, 0.18f, 0.02f), new Vector3(0.12f, 0.012f, 0.012f), warningMaterial).transform.localRotation = Quaternion.Euler(0f, 0f, 32f);
+        CreateLocalCube("Pressure Pistol V0134 Walnut Grip Stitch A", pistolPolish.wearRoot, new Vector3(-0.1f, -0.34f, -0.21f), new Vector3(0.13f, 0.012f, 0.012f), ironMaterial).transform.localRotation = Quaternion.Euler(0f, 0f, -18f);
+        RefreshV0134BatchPolishCounts(pistolPolish);
+
         GameObject pressureDumpFlash = CreateLocalPrimitive("Pressure Pistol Pressure Dump Flash", PrimitiveType.Sphere, weaponRoot.transform, new Vector3(0.4f, 0.28f, 0.2f), new Vector3(0.24f, 0.14f, 0.14f), muzzleFlashMaterial);
         pressureDumpFlash.SetActive(false);
         GameObject flash = CreateLocalCube("Muzzle Flash", weaponRoot.transform, new Vector3(0f, 0.09f, 0.91f), new Vector3(0.45f, 0.45f, 0.08f), muzzleFlashMaterial);
@@ -2387,6 +2394,15 @@ public static class V0SceneBuilder
             float z = -0.04f + (i / 2) * 0.16f;
             CreateLocalPrimitive("Steam Scattergun Receiver Rivet " + i, PrimitiveType.Sphere, weaponRoot.transform, new Vector3(x, 0.1f, z), new Vector3(0.035f, 0.035f, 0.035f), brassMaterial);
         }
+
+        V0134BatchPolishPrototype scattergunPolish = CreateV0134BatchPolishPrototype("V0134WeaponPropPolish_steam_scattergun_viewmodel", "weapon_prop", "steam_scattergun", "steam_scattergun_viewmodel", weaponRoot.transform, new Vector3(0f, 0f, 0.18f), Quaternion.identity, 0.5f, brassMaterial, warningMaterial, ironMaterial);
+        CreateLocalCube("Steam Scattergun V0134 Shell Row Readability Plate", scattergunPolish.structureRoot, new Vector3(0.5f, -0.14f, 0.18f), new Vector3(0.08f, 0.2f, 0.5f), brassMaterial);
+        for (int i = 0; i < 4; i++)
+        {
+            CreateLocalPrimitive("Steam Scattergun V0134 Side Shell " + i.ToString("00"), PrimitiveType.Cylinder, scattergunPolish.signalRoot, new Vector3(0.55f, -0.14f, -0.02f + i * 0.12f), new Vector3(0.035f, 0.09f, 0.035f), warningMaterial).transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        }
+        CreateLocalCube("Steam Scattergun V0134 Sooted Barrel Underside", scattergunPolish.wearRoot, new Vector3(0f, -0.02f, 0.82f), new Vector3(0.48f, 0.025f, 0.16f), ironMaterial);
+        RefreshV0134BatchPolishCounts(scattergunPolish);
 
         GameObject flash = CreateLocalCube("Steam Scattergun Muzzle Flash", weaponRoot.transform, new Vector3(0f, 0.06f, 1.12f), new Vector3(0.72f, 0.54f, 0.1f), muzzleFlashMaterial);
         flash.SetActive(false);
@@ -2648,6 +2664,7 @@ public static class V0SceneBuilder
         CreateLocalCube("Bulwark Right Piston Leg", parent, new Vector3(0.36f, -0.78f, 0f), new Vector3(0.26f, 0.7f, 0.26f), ironMaterial);
         CreateLocalCube("Bulwark Left Heavy Foot", parent, new Vector3(-0.36f, -1.2f, 0.18f), new Vector3(0.5f, 0.16f, 0.48f), brassMaterial);
         CreateLocalCube("Bulwark Right Heavy Foot", parent, new Vector3(0.36f, -1.2f, 0.18f), new Vector3(0.5f, 0.16f, 0.48f), brassMaterial);
+        CreateV0134EnemyReadabilityPolish("bulwark", "shield_hammer_readability", parent, 1.15f, ironMaterial, warningMaterial, brassMaterial);
     }
 
     private static Transform CreateGovernorWardenVisual(Transform parent, Material bodyMaterial, Material eyeMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial)
@@ -2667,6 +2684,7 @@ public static class V0SceneBuilder
         CreateLocalCube("Governor Warden Spine Pressure Pipe", parent, new Vector3(0f, 0.82f, -0.82f), new Vector3(0.22f, 1.1f, 0.16f), brassMaterial);
         GameObject muzzle = CreateLocalPrimitive("Governor Warden Pressure Cannon Muzzle", PrimitiveType.Cylinder, parent, new Vector3(0f, 0.42f, 0.86f), new Vector3(0.16f, 0.42f, 0.16f), warningMaterial);
         muzzle.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        CreateV0134EnemyReadabilityPolish("warden", "crown_command_readability", parent, 1.35f, ironMaterial, warningMaterial, brassMaterial);
         return muzzle.transform;
     }
 
@@ -2683,6 +2701,7 @@ public static class V0SceneBuilder
         GameObject barrel = CreateLocalPrimitive("Lancer Valve Rifle Barrel", PrimitiveType.Cylinder, parent, new Vector3(0.36f, 0.14f, 0.58f), new Vector3(0.08f, 0.5f, 0.08f), ironMaterial);
         barrel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
         CreateLocalCube("Lancer Hot Pressure Coil", parent, new Vector3(0.36f, 0.03f, 0.48f), new Vector3(0.2f, 0.08f, 0.28f), warningMaterial);
+        CreateV0134EnemyReadabilityPolish("lancer", "blue_bolt_line_readability", parent, 0.85f, ironMaterial, warningMaterial, brassMaterial);
 
         GameObject muzzleObject = new GameObject("Lancer Muzzle");
         muzzleObject.transform.SetParent(parent, false);
@@ -2713,6 +2732,86 @@ public static class V0SceneBuilder
         CreateLocalCube("Scrapper Right Leg", parent, new Vector3(0.24f, -0.56f, 0f), new Vector3(0.18f, 0.48f, 0.18f), ironMaterial);
         CreateLocalCube("Scrapper Left Foot", parent, new Vector3(-0.24f, -0.84f, 0.16f), new Vector3(0.34f, 0.12f, 0.38f), brassMaterial);
         CreateLocalCube("Scrapper Right Foot", parent, new Vector3(0.24f, -0.84f, 0.16f), new Vector3(0.34f, 0.12f, 0.38f), brassMaterial);
+        CreateV0134EnemyReadabilityPolish("scrapper", "cutter_hammer_readability", parent, 0.82f, ironMaterial, bladeMaterial, brassMaterial);
+    }
+
+    private static V0134BatchPolishPrototype CreateV0134BatchPolishPrototype(string name, string category, string targetId, string placementRole, Transform parent, Vector3 localPosition, Quaternion localRotation, float scale, Material primaryMaterial, Material signalMaterial, Material wearMaterial)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent, false);
+        root.transform.localPosition = localPosition;
+        root.transform.localRotation = localRotation;
+
+        V0134BatchPolishPrototype prototype = root.AddComponent<V0134BatchPolishPrototype>();
+        prototype.category = category;
+        prototype.targetId = targetId;
+        prototype.placementRole = placementRole;
+
+        GameObject structureRoot = CreateLocalEmpty(name + " Structure Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject signalRoot = CreateLocalEmpty(name + " Signal Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject wearRoot = CreateLocalEmpty(name + " Wear Root", root.transform, Vector3.zero, Quaternion.identity);
+
+        GameObject frame = CreateLocalCube(name + " Brass Readability Frame", structureRoot.transform, Vector3.zero, new Vector3(0.42f * scale, 0.08f * scale, 0.05f * scale), primaryMaterial);
+        CreateLocalCube(name + " Iron Shadow Plate", structureRoot.transform, new Vector3(0f, -0.055f * scale, 0.018f * scale), new Vector3(0.5f * scale, 0.035f * scale, 0.035f * scale), wearMaterial);
+        GameObject signal = CreateLocalCube(name + " Signal Accent", signalRoot.transform, new Vector3(0.2f * scale, 0.065f * scale, -0.02f * scale), new Vector3(0.12f * scale, 0.035f * scale, 0.03f * scale), signalMaterial);
+        GameObject wear = CreateLocalCube(name + " Soot Wear", wearRoot.transform, new Vector3(-0.18f * scale, -0.075f * scale, -0.025f * scale), new Vector3(0.12f * scale, 0.05f * scale, 0.018f * scale), wearMaterial);
+
+        prototype.structureRoot = structureRoot.transform;
+        prototype.signalRoot = signalRoot.transform;
+        prototype.wearRoot = wearRoot.transform;
+        prototype.primaryRenderer = frame.GetComponent<Renderer>();
+        prototype.signalRenderer = signal.GetComponent<Renderer>();
+        prototype.wearRenderer = wear.GetComponent<Renderer>();
+        RefreshV0134BatchPolishCounts(prototype);
+        return prototype;
+    }
+
+    private static void RefreshV0134BatchPolishCounts(V0134BatchPolishPrototype prototype)
+    {
+        prototype.structureCount = prototype.structureRoot == null ? 0 : prototype.structureRoot.childCount;
+        prototype.signalCount = prototype.signalRoot == null ? 0 : prototype.signalRoot.childCount;
+        prototype.wearCount = prototype.wearRoot == null ? 0 : prototype.wearRoot.childCount;
+    }
+
+    private static void CreateV0134EnemyReadabilityPolish(string enemyKind, string placementRole, Transform parent, float scale, Material structureMaterial, Material signalMaterial, Material trimMaterial)
+    {
+        string name = "V0134EnemyReadabilityPolish_" + enemyKind + "_" + placementRole;
+        V0134BatchPolishPrototype polish = CreateV0134BatchPolishPrototype(name, "enemy_readability", enemyKind, placementRole, parent, Vector3.zero, Quaternion.identity, scale, trimMaterial, signalMaterial, structureMaterial);
+
+        if (enemyKind == "scrapper")
+        {
+            CreateLocalPrimitive(name + " Weak Lamp Chest Lens", PrimitiveType.Sphere, polish.signalRoot, new Vector3(0f, 0.08f * scale, 0.46f * scale), new Vector3(0.09f * scale, 0.09f * scale, 0.04f * scale), signalMaterial);
+            CreateLocalCube(name + " Cutter Side Asymmetry Tag", polish.structureRoot, new Vector3(-0.66f * scale, -0.36f * scale, 0.52f * scale), new Vector3(0.08f * scale, 0.3f * scale, 0.035f * scale), trimMaterial);
+            CreateLocalCube(name + " Hammer Side Asymmetry Tag", polish.structureRoot, new Vector3(0.66f * scale, -0.36f * scale, 0.52f * scale), new Vector3(0.2f * scale, 0.08f * scale, 0.035f * scale), trimMaterial);
+        }
+        else if (enemyKind == "lancer")
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                CreateLocalPrimitive(name + " Bolt Charge Ring " + i.ToString("00"), PrimitiveType.Cylinder, polish.signalRoot, new Vector3(0.36f * scale, 0.14f * scale, (0.28f + i * 0.18f) * scale), new Vector3(0.09f * scale, 0.018f * scale, 0.09f * scale), signalMaterial).transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+            }
+            CreateLocalCube(name + " Long Range Direction Spine", polish.structureRoot, new Vector3(0.36f * scale, 0.14f * scale, 0.58f * scale), new Vector3(0.05f * scale, 0.05f * scale, 0.72f * scale), trimMaterial);
+        }
+        else if (enemyKind == "bulwark")
+        {
+            CreateLocalCube(name + " Shield Face Readability Slab", polish.structureRoot, new Vector3(0f, 0.08f * scale, 0.53f * scale), new Vector3(0.9f * scale, 0.42f * scale, 0.04f * scale), structureMaterial);
+            CreateLocalPrimitive(name + " Left Weak Lamp", PrimitiveType.Sphere, polish.signalRoot, new Vector3(-0.38f * scale, 0.08f * scale, 0.58f * scale), new Vector3(0.1f * scale, 0.1f * scale, 0.04f * scale), signalMaterial);
+            CreateLocalPrimitive(name + " Right Weak Lamp", PrimitiveType.Sphere, polish.signalRoot, new Vector3(0.38f * scale, 0.08f * scale, 0.58f * scale), new Vector3(0.1f * scale, 0.1f * scale, 0.04f * scale), signalMaterial);
+            CreateLocalCube(name + " Hammer Danger Stripe", polish.signalRoot, new Vector3(1.05f * scale, -0.82f * scale, 0.56f * scale), new Vector3(0.34f * scale, 0.045f * scale, 0.035f * scale), signalMaterial);
+        }
+        else if (enemyKind == "warden")
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                float x = (-0.42f + i * 0.21f) * scale;
+                CreateLocalCube(name + " Command Cage Rib " + i.ToString("00"), polish.structureRoot, new Vector3(x, 0.18f * scale, 0.64f * scale), new Vector3(0.035f * scale, 1.18f * scale, 0.035f * scale), trimMaterial);
+            }
+            CreateLocalPrimitive(name + " Crown Charge Coil", PrimitiveType.Cylinder, polish.signalRoot, new Vector3(0f, 1.32f * scale, 0.04f * scale), new Vector3(0.46f * scale, 0.035f * scale, 0.46f * scale), signalMaterial);
+            CreateLocalPrimitive(name + " Central Weak Lamp", PrimitiveType.Sphere, polish.signalRoot, new Vector3(0f, 0.12f * scale, 0.66f * scale), new Vector3(0.14f * scale, 0.14f * scale, 0.05f * scale), signalMaterial);
+        }
+
+        CreateLocalCube(name + " Sooted Inactive Fragment Preview", polish.wearRoot, new Vector3(-0.32f * scale, -0.46f * scale, -0.2f * scale), new Vector3(0.22f * scale, 0.08f * scale, 0.05f * scale), structureMaterial);
+        RefreshV0134BatchPolishCounts(polish);
     }
 
     private static void CreateObjectiveGuides(Material brassMaterial, Material warningMaterial, Material keyMaterial, Material exitMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material grimeMaterial)
@@ -5219,6 +5318,12 @@ public static class V0SceneBuilder
 
         CreateLocalPrimitive(name + " Pressure Gauge", PrimitiveType.Cylinder, pickup.transform, new Vector3(0f, 0.28f, 0.02f), new Vector3(0.18f, 0.035f, 0.18f), brassMaterial);
         CreateLocalCube(name + " Gauge Needle", pickup.transform, new Vector3(0.04f, 0.3f, 0.02f), new Vector3(0.14f, 0.025f, 0.025f), ironMaterial);
+
+        V0134BatchPolishPrototype polish = CreateV0134BatchPolishPrototype("V0134 WeaponPropPolish - " + name, "weapon_prop", "pressure_cartridge_pack", name, pickup.transform, Vector3.zero, Quaternion.identity, 0.72f, brassMaterial, cartridgeMaterial, ironMaterial);
+        CreateLocalCube(name + " V0134 Red Seal Strip", polish.signalRoot, new Vector3(0f, 0.1f, 0.55f), new Vector3(0.82f, 0.035f, 0.035f), cartridgeMaterial);
+        CreateLocalCube(name + " V0134 Cartridge Count Plate", polish.structureRoot, new Vector3(0f, -0.03f, -0.43f), new Vector3(0.66f, 0.08f, 0.035f), brassMaterial);
+        CreateLocalCube(name + " V0134 Oil Fingerprint Wear", polish.wearRoot, new Vector3(-0.34f, -0.04f, 0.28f), new Vector3(0.14f, 0.07f, 0.018f), ironMaterial);
+        RefreshV0134BatchPolishCounts(polish);
     }
 
     private static void CreateSteamScattergunPickup(string name, Vector3 position, Material gripMaterial, Material brassMaterial, Material ironMaterial, Material warningMaterial, PickupDefinition definition)
@@ -5278,6 +5383,15 @@ public static class V0SceneBuilder
 
         CreateLocalCube(name + " Red Pressure Line", visualRoot.transform, new Vector3(0.36f, -0.02f, 0.16f), new Vector3(0.045f, 0.06f, 0.72f), warningMaterial);
         CreateLocalPrimitive(name + " Brass Gauge", PrimitiveType.Cylinder, visualRoot.transform, new Vector3(0.32f, 0.23f, -0.1f), new Vector3(0.13f, 0.035f, 0.13f), brassMaterial).transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+
+        V0134BatchPolishPrototype polish = CreateV0134BatchPolishPrototype("V0134 WeaponPropPolish - " + name, "weapon_prop", "steam_scattergun_pickup", name, visualRoot.transform, Vector3.zero, Quaternion.identity, 0.82f, brassMaterial, warningMaterial, ironMaterial);
+        CreateLocalCube(name + " V0134 Slug Canister Read Plate", polish.structureRoot, new Vector3(-0.52f, -0.04f, 0.28f), new Vector3(0.12f, 0.22f, 0.26f), brassMaterial);
+        for (int i = 0; i < 5; i++)
+        {
+            CreateLocalPrimitive(name + " V0134 Display Shell " + i.ToString("00"), PrimitiveType.Cylinder, polish.signalRoot, new Vector3(0.54f, -0.16f, -0.3f + i * 0.15f), new Vector3(0.045f, 0.1f, 0.045f), warningMaterial).transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        }
+        CreateLocalCube(name + " V0134 Sooted Stock Wear", polish.wearRoot, new Vector3(0f, -0.18f, -0.58f), new Vector3(0.22f, 0.035f, 0.16f), ironMaterial);
+        RefreshV0134BatchPolishCounts(polish);
     }
 
     private static void CreateSteamScattergunPickupReadabilityCues(Material brassMaterial, Material warningMaterial, Material ironMaterial, Material gaugeFaceMaterial)

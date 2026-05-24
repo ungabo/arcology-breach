@@ -1,0 +1,47 @@
+{
+    "package":  "V0_1_35_FeedbackPolish",
+    "unity_only_policy":  "VFX are recipe-staged for Unity ParticleSystem/VFX Graph implementation only. No external DCC render or simulation dependency.",
+    "shared_limits":  {
+                          "overdraw":  "avoid full-screen steam; keep puffs behind reticle and away from menu text",
+                          "steam_lifetime":  "0.25-0.8s depending on event importance",
+                          "sparks_per_impact":  "2-6 visible particles, capped per weapon fire event",
+                          "emission_textures":  "use soft circular sprite or project-standard smoke; do not add large atlas dependency in this staging batch"
+                      },
+    "recipes":  [
+                    {
+                        "color":  "steam white with warm amber edge",
+                        "use":  "impact, pickup, secret reveal, enemy death",
+                        "id":  "steam_puff_soft",
+                        "shape":  "billboard puffs, upward drag",
+                        "notes":  "short-lived, no center-screen opacity above 20%"
+                    },
+                    {
+                        "color":  "amber to brass",
+                        "use":  "weapon impact, enemy hit",
+                        "id":  "pressure_sparks_amber",
+                        "shape":  "thin streak particles with gravity",
+                        "notes":  "high contrast against blackened iron; cap bursts under rapid fire"
+                    },
+                    {
+                        "color":  "red enamel spark",
+                        "use":  "denied interaction",
+                        "id":  "pressure_sparks_red_denied",
+                        "shape":  "single blocked-interaction fleck",
+                        "notes":  "throttle repeat and pair with lock icon"
+                    },
+                    {
+                        "color":  "route green",
+                        "use":  "route confirmation, secret discovery",
+                        "id":  "route_lamp_chase_green",
+                        "shape":  "sequential lamp pulses",
+                        "notes":  "directional animation must be readable in grayscale by position/time"
+                    },
+                    {
+                        "color":  "amber lamp fades to soot",
+                        "use":  "enemy death",
+                        "id":  "shutdown_sigh",
+                        "shape":  "steam exhale plus small brass glitter",
+                        "notes":  "protect this cue from hit spam; one death confirmation per enemy"
+                    }
+                ]
+}

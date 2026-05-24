@@ -1817,6 +1817,33 @@ Completed in `v0.1.33`: 10 route-dressing families, 50 placements, all five leve
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.34 Playable Polish Leap After Route Dressing
+
+- [x] Integrate the `v0.1.34` weapon/prop polish staging packet into generated weapon and pickup visuals where safe.
+- [x] Integrate the `v0.1.34` enemy readability staging packet into generated Scrapper, Lancer, Bulwark, and Warden visuals where safe.
+- [x] Add `V0134BatchPolishPrototype` runtime metadata for batch-level visual-only polish.
+- [x] Add validator coverage for version, batch ID, category, target ID, placement role, required visual parts, zero colliders, zero `NavMeshObstacle` components, and no gameplay-authority components.
+- [x] Use targeted scene rebuild, level validation, editor smoke, Windows build, and packaged runtime smoke during development.
+- [x] Run route audit, package, QA packet, issue triage, and candidate readiness after the whole milestone is coherent.
+- [x] Keep the next side-agent wave assigned as parallel bundles rather than sequential single assets.
+
+Completed in `v0.1.34`: visual-only polish for the Pressure Pistol, Steam Scattergun, pressure cartridges, scattergun pickup display, and four enemy readability silhouettes; side-agent packets for weapon/prop polish, enemy readability, level-density planning, and batch validation; route audit, package, QA packet, issue triage, and candidate readiness.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## v0.1.35 Gameplay Feedback And Asset Bundle Prep
+
+- [x] Stage a weapon/gameplay prop arsenal bundle with pressure pistol, scattergun, ammo, display, cabinet, and future weapon silhouettes.
+- [x] Stage a mechanical enemy pack bundle with Scrapper, Lancer, Bulwark, Warden, and Foundry Overseer visual candidates.
+- [x] Stage a level module/setpiece bundle with corridor, door/vault, pipe gallery, furnace/catwalk, trim, lighting, and all-level placement plans.
+- [x] Stage a UI/audio/VFX feedback bundle with cue IDs, icons, placeholder audio, material recipes, and preview sheets.
+- [x] Add performance/import/LOD readiness rules for staged bundle promotion.
+- [x] Add gameplay systems and batch-validation planning for the next main-lane implementation leap.
+- [ ] Implement the main-lane gameplay feedback systems batch.
+- [ ] Run targeted `v045` development smokes, then route audit and full V0 matrix at milestone completion.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

@@ -1,0 +1,205 @@
+{
+  "package": "Brassworks Breach v0.1.34 WeaponPropPolish",
+  "project": "Brassworks Breach",
+  "version": "v0.1.34",
+  "createdAt": "2026-05-24",
+  "status": "staged_for_main_lane_integration",
+  "scope": {
+    "documentationPath": "Documentation/Planning/V0_1_34_WeaponPropPolish/",
+    "assetStagingPath": "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/",
+    "unityOnly": true,
+    "scenePlacement": "none",
+    "gameplayAuthority": false,
+    "externalDccRequired": false
+  },
+  "sourcePackagesReviewed": [
+    "Assets/_Project/ArtStaging/WeaponPropBatch/",
+    "Documentation/AssetProduction/WeaponPropBatch/",
+    "Assets/_Project/ArtStaging/WeaponsProps/",
+    "Documentation/AssetProduction/BoilerControlConsolePrototype/",
+    "Documentation/AssetProduction/ValveWheelConsolePrototype/",
+    "Documentation/AAA_ASSET_CATALOG.md",
+    "Documentation/IMPLEMENTATION_TODO.md"
+  ],
+  "documentation": [
+    {
+      "path": "Documentation/Planning/V0_1_34_WeaponPropPolish/V0_1_34_WEAPON_PROP_POLISH_INTEGRATION_BRIEF.md",
+      "type": "integration_brief"
+    },
+    {
+      "path": "Documentation/Planning/V0_1_34_WeaponPropPolish/V0_1_34_WEAPON_PROP_POLISH_ACCEPTANCE_GATES.md",
+      "type": "acceptance_gates"
+    },
+    {
+      "path": "Documentation/Planning/V0_1_34_WeaponPropPolish/V0_1_34_WEAPON_PROP_POLISH_MANIFEST.json",
+      "type": "manifest"
+    }
+  ],
+  "meshKits": [
+    {
+      "id": "V134WPP-001",
+      "target": "pressure_pistol",
+      "file": "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Meshes/V134WPP_001_PressurePistolSightlinePolish_Staged.obj",
+      "type": "loose_obj_material_silhouette_board",
+      "subObjects": [
+        "pistol_blackened_receiver_block",
+        "pistol_pressure_chamber_capsule_card",
+        "pistol_muzzle_crown_polished_read",
+        "pistol_copper_coil_side_read",
+        "pistol_gauge_face_pressure_read",
+        "pistol_red_needle_and_danger_mark",
+        "pistol_relief_lever_secondary_fire_cue",
+        "pistol_walnut_grip_contrast_card",
+        "pistol_oil_soot_underbarrel_shadow"
+      ],
+      "integrationTargets": [
+        "first-person viewmodel silhouette",
+        "secondary pressure-burst cue readability",
+        "gauge and coil material separation",
+        "receiver/grip material contrast"
+      ],
+      "notReadyFor": [
+        "final topology",
+        "colliders",
+        "animation rigging",
+        "prefab hookup",
+        "gameplay behavior"
+      ]
+    },
+    {
+      "id": "V134WPP-002",
+      "target": "steam_scattergun_display",
+      "file": "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Meshes/V134WPP_002_SteamScattergunDisplayPolish_Staged.obj",
+      "type": "loose_obj_material_silhouette_board",
+      "subObjects": [
+        "scattergun_blackened_display_yoke",
+        "scattergun_broad_barrel_mass_read",
+        "scattergun_brass_top_rib",
+        "scattergun_walnut_pump_grip_read",
+        "scattergun_slug_canister_side_read",
+        "scattergun_shell_rack_pickup_language",
+        "scattergun_amber_nameplate_display",
+        "scattergun_soot_heat_wear_patches"
+      ],
+      "integrationTargets": [
+        "Level03 world pickup display",
+        "weapon pickup silhouette",
+        "heavy weapon material hierarchy",
+        "shell and slug affordance language"
+      ],
+      "notReadyFor": [
+        "unlock logic changes",
+        "final topology",
+        "colliders",
+        "animation rigging",
+        "prefab authority"
+      ]
+    },
+    {
+      "id": "V134WPP-003",
+      "target": "ammo_pickups",
+      "file": "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Meshes/V134WPP_003_AmmoPickupReadabilityPolish_Staged.obj",
+      "type": "loose_obj_material_silhouette_board",
+      "subObjects": [
+        "ammo_cradle_blackened_iron",
+        "ammo_pressure_cell_cluster_a",
+        "ammo_pressure_cell_cluster_b",
+        "ammo_red_pressure_seal_bands",
+        "ammo_copper_nozzle_caps",
+        "ammo_slug_canister_variant",
+        "ammo_route_green_pickup_tick",
+        "ammo_polished_wear_edges"
+      ],
+      "integrationTargets": [
+        "pressure cartridge pickup readability",
+        "scattergun ammo variant planning",
+        "pickup-family material rules",
+        "pickup VFX clearance"
+      ],
+      "notReadyFor": [
+        "pickup definition changes",
+        "colliders",
+        "final topology",
+        "inventory behavior",
+        "spawn logic"
+      ]
+    },
+    {
+      "id": "V134WPP-004",
+      "target": "route_console_props",
+      "file": "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Meshes/V134WPP_004_RouteConsolePropPolish_Staged.obj",
+      "type": "loose_obj_material_silhouette_board",
+      "subObjects": [
+        "console_blackened_wall_backplate",
+        "console_aged_brass_panel_trim",
+        "console_valve_wheel_affordance_read",
+        "console_gauge_cluster_two_faces",
+        "console_amber_pilot_lamps",
+        "console_copper_pipe_couplers",
+        "console_route_green_status_tick",
+        "console_oil_soot_grime_under_axle",
+        "console_polished_contact_wear"
+      ],
+      "integrationTargets": [
+        "boiler-control console visual upgrade",
+        "valve-wheel console visual upgrade",
+        "route dressing language",
+        "noninteractive future-affordance clarity"
+      ],
+      "notReadyFor": [
+        "interaction prompts",
+        "puzzle state",
+        "trigger volumes",
+        "objective logic",
+        "route-state authority"
+      ]
+    }
+  ],
+  "sharedPalette": {
+    "file": "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Meshes/V134WPP_Brassworks_PolishPalette.mtl",
+    "materialSlots": [
+      "MAT_V134WPP_AgedBrass",
+      "MAT_V134WPP_BlackenedIron",
+      "MAT_V134WPP_CopperPressureLine",
+      "MAT_V134WPP_CreamGaugeFace",
+      "MAT_V134WPP_AmberGlass",
+      "MAT_V134WPP_WalnutLeather",
+      "MAT_V134WPP_WarningRed",
+      "MAT_V134WPP_OilSoot",
+      "MAT_V134WPP_PolishedWear",
+      "MAT_V134WPP_RouteGreen",
+      "MAT_V134WPP_HeatStainedSteel"
+    ]
+  },
+  "materialProxies": [
+    "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Materials/M_V134WPP_AgedBrass.mat",
+    "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Materials/M_V134WPP_BlackenedIron.mat",
+    "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Materials/M_V134WPP_CopperPressureLine.mat",
+    "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Materials/M_V134WPP_CreamGaugeFace.mat",
+    "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Materials/M_V134WPP_AmberGlass.mat",
+    "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Materials/M_V134WPP_WalnutLeather.mat",
+    "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Materials/M_V134WPP_WarningRed.mat",
+    "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Materials/M_V134WPP_OilSoot.mat",
+    "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Materials/M_V134WPP_PolishedWear.mat",
+    "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Materials/M_V134WPP_RouteGreen.mat",
+    "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Materials/M_V134WPP_HeatStainedSteel.mat"
+  ],
+  "previews": [
+    "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Previews/V134WPP_material_swatch_preview.svg",
+    "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Previews/V134WPP_mesh_inventory_preview.svg",
+    "Assets/_Project/ArtStaging/V0_1_34_WeaponPropPolish/Previews/V134WPP_integration_contact_sheet_preview.svg"
+  ],
+  "topIntegrationRecommendations": [
+    "Promote the package as one batch: pistol, scattergun display, ammo pickups, and route-console props should move together so material language stays coherent.",
+    "Start with pressure pistol viewmodel substitutions because gauge, coil, lever, chamber, and grip separation are the most immediate first-person readability win.",
+    "Keep Steam Scattergun display polish visual-only and preserve the existing pickup/unlock authority.",
+    "Treat ammo as a family with pressure-cell and slug/shell variants, using red pressure seals and brass cartridge bodies as the shared pickup language.",
+    "Integrate route-console polish last and validate that lamps, valve wheels, and gauges do not imply new interaction state."
+  ],
+  "readiness": [
+    "Ready for Unity import smoke as loose staged assets.",
+    "Ready for material-role comparison against existing WeaponPropBatch materials.",
+    "Ready for main-lane batch planning and gameplay-distance review.",
+    "Requires main-lane authored integration before any prefab, scene, validation, or gameplay changes."
+  ]
+}

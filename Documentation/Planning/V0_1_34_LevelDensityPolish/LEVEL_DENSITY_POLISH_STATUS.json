@@ -1,0 +1,77 @@
+{
+  "packet": "v0.1.34_level_density_polish",
+  "created_local": "2026-05-24T12:56:28-04:00",
+  "status": "planning_ready_docs_only",
+  "owned_write_scope": "Documentation/Planning/V0_1_34_LevelDensityPolish/",
+  "scope_compliance": "This side packet only writes under D:\\__MY APPS\\Unity Doom\\Documentation\\Planning\\V0_1_34_LevelDensityPolish\\.",
+  "target_version": "v0.1.34",
+  "batch_goal": "Guide a single visible polish leap that integrates weapon/prop staging, enemy readability upgrades, and level-density refinements across Level01-Level05 without blocking routes.",
+  "route_baseline": {
+    "source": "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.33.md",
+    "finding": "No route-blocking scene composition issues were found by the deterministic audit.",
+    "human_review_required": [
+      "movement comfort",
+      "encounter pacing",
+      "audio mix",
+      "final art readability"
+    ]
+  },
+  "inputs_reviewed": [
+    "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.33.md",
+    "Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.33.md",
+    "Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.33.md",
+    "Documentation/Planning/V0_1_33_LevelDensityBatch/LEVEL_DENSITY_BATCH_PLAN_v0.1.33.md",
+    "Documentation/Planning/V0_1_33_LevelDensityBatch/LEVEL_DENSITY_BATCH_STATUS.json",
+    "Documentation/LEVEL_DESIGN_AND_MAPS.md",
+    "Documentation/PARALLEL_LEVEL_PRODUCTION_MAPS.md",
+    "Documentation/ProductionManagement/BATCH_PRODUCTION_MODE.md",
+    "Documentation/VERSION_MICRO_ROADMAP.md",
+    "Documentation/AssetProduction/WeaponPropBatch/README_WEAPON_PROP_BATCH.md",
+    "Documentation/AssetProduction/WeaponPropBatch/WEAPON_PROP_BATCH_INTEGRATION_CHECKLIST.md",
+    "Documentation/AssetProduction/WeaponPropBatch/weapon_prop_batch_manifest.json",
+    "Documentation/AssetProduction/EnemyReadabilityBatch/ENEMY_READABILITY_BATCH_MANIFEST.md",
+    "Documentation/AssetProduction/EnemyReadabilityBatch/ENEMY_READABILITY_BATCH_INTEGRATION_CHECKLIST.md",
+    "Documentation/AssetProduction/EnemyReadabilityBatch/ENEMY_READABILITY_BATCH_ART_NOTES.md",
+    "Documentation/AssetProduction/ThresholdRouteDressingBatch/THRESHOLD_ROUTE_DRESSING_BATCH_BRIEF_v0.1.33.md"
+  ],
+  "recommended_visible_placements": {
+    "total": 18,
+    "core": 14,
+    "stretch": 4,
+    "levels": {
+      "Level01": 3,
+      "Level02": 3,
+      "Level03": 4,
+      "Level04": 4,
+      "Level05": 4
+    }
+  },
+  "top_5_highest_impact": [
+    "LDP-07 Level03 Scattergun Display replacement detail pass",
+    "LDP-11 Level04 Bulwark Hammer Bay silhouette stage",
+    "LDP-15 Level05 Warden crown/blue-bolt arena contrast",
+    "LDP-04 Level02 Lancer Bridge blue-tell silhouette lane",
+    "LDP-01 Level01 Pressure Gate gauge-and-fastener crown"
+  ],
+  "main_lane_owns": [
+    "Unity code",
+    "scene builder edits",
+    "generated scenes",
+    "validators",
+    "shared status docs",
+    "release docs",
+    "QA evidence",
+    "builds and packages",
+    "git commits and pushes"
+  ],
+  "files": [
+    "Documentation/Planning/V0_1_34_LevelDensityPolish/LEVEL_DENSITY_POLISH_PLAN_v0.1.34.md",
+    "Documentation/Planning/V0_1_34_LevelDensityPolish/LEVEL_DENSITY_POLISH_PLACEMENTS_v0.1.34.csv",
+    "Documentation/Planning/V0_1_34_LevelDensityPolish/LEVEL_DENSITY_POLISH_STATUS.json"
+  ],
+  "verification_commands": [
+    "Get-Content 'D:\\__MY APPS\\Unity Doom\\Documentation\\Planning\\V0_1_34_LevelDensityPolish\\LEVEL_DENSITY_POLISH_STATUS.json' -Raw | ConvertFrom-Json | Out-Null",
+    "Import-Csv 'D:\\__MY APPS\\Unity Doom\\Documentation\\Planning\\V0_1_34_LevelDensityPolish\\LEVEL_DENSITY_POLISH_PLACEMENTS_v0.1.34.csv' | Measure-Object",
+    "git -C 'D:\\__MY APPS\\Unity Doom' status --short -- Documentation/Planning/V0_1_34_LevelDensityPolish"
+  ]
+}

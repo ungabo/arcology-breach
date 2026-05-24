@@ -1,0 +1,90 @@
+{
+    "package":  "V0_1_35_WeaponArsenal",
+    "visual_direction":  "Heavy steampunk brassworks: layered aged brass, blackened iron, copper pressure plumbing, cream gauges, amber glass, readable red/green gameplay affordances, and localized soot/wear passes.",
+    "unity_only_policy":  "All proof assets are authored as Unity-importable OBJ/MTL/material proxies. Preview sheets are procedural documentation images; no Blender or external DCC render dependency.",
+    "materials":  [
+                      {
+                          "ns":  72,
+                          "key":  "aged_brass",
+                          "note":  "Dominant brass frame, softened with grime in cavities.",
+                          "kd":  "0.78 0.55 0.22",
+                          "ks":  "0.72 0.60 0.36"
+                      },
+                      {
+                          "ns":  38,
+                          "key":  "blackened_iron",
+                          "note":  "Iron plates, barrels, brackets, and collision-readable silhouettes.",
+                          "kd":  "0.06 0.065 0.06",
+                          "ks":  "0.22 0.22 0.20"
+                      },
+                      {
+                          "ns":  85,
+                          "key":  "heat_stained_steel",
+                          "note":  "Hot muzzle sleeves, breech collars, and pressure chamber edges.",
+                          "kd":  "0.38 0.33 0.30",
+                          "ks":  "0.62 0.52 0.44"
+                      },
+                      {
+                          "ns":  64,
+                          "key":  "copper_pressure_line",
+                          "note":  "Copper pipes, valves, bypass coils, and cartridges.",
+                          "kd":  "0.80 0.34 0.16",
+                          "ks":  "0.55 0.31 0.18"
+                      },
+                      {
+                          "ns":  24,
+                          "key":  "walnut_leather",
+                          "note":  "Grip panels, shoulder stock, straps, and cabinet pulls.",
+                          "kd":  "0.24 0.12 0.055",
+                          "ks":  "0.17 0.10 0.06"
+                      },
+                      {
+                          "ns":  18,
+                          "key":  "cream_gauge_face",
+                          "note":  "Readable gauge discs with black needle overlays.",
+                          "kd":  "0.86 0.78 0.57",
+                          "ks":  "0.18 0.16 0.12"
+                      },
+                      {
+                          "ns":  92,
+                          "key":  "amber_glass",
+                          "note":  "Lamps, vial windows, hot pressure indicators.",
+                          "kd":  "1.00 0.55 0.11",
+                          "ks":  "0.95 0.74 0.35"
+                      },
+                      {
+                          "ns":  36,
+                          "key":  "route_green",
+                          "note":  "Gameplay affordance green for stocked/usable panels.",
+                          "kd":  "0.07 0.42 0.27",
+                          "ks":  "0.16 0.35 0.25"
+                      },
+                      {
+                          "ns":  30,
+                          "key":  "warning_red",
+                          "note":  "Danger tabs, high pressure bands, empty slot callouts.",
+                          "kd":  "0.73 0.08 0.045",
+                          "ks":  "0.32 0.11 0.08"
+                      },
+                      {
+                          "ns":  6,
+                          "key":  "oil_soot",
+                          "note":  "Soot cards and grime masks near vents, barrels, lower cabinets.",
+                          "kd":  "0.015 0.013 0.010",
+                          "ks":  "0.04 0.035 0.025"
+                      },
+                      {
+                          "ns":  110,
+                          "key":  "polished_wear",
+                          "note":  "Edge wear decals and screw heads for close first-person read.",
+                          "kd":  "0.96 0.83 0.46",
+                          "ks":  "0.92 0.86 0.56"
+                      }
+                  ],
+    "shared_import_notes":  [
+                                "OBJ units are authored as meters. Keep scale factor at 1.0 on import.",
+                                "Generate colliders from simple boxes/capsules in Unity; do not use render mesh as collision.",
+                                "Replace proxy Standard materials with final project shader variants after import.",
+                                "Preserve object names: they encode integration components for sockets, VFX anchors, and wear passes."
+                            ]
+}

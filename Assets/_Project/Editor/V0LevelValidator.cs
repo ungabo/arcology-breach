@@ -1671,6 +1671,85 @@ public static class V0LevelValidator
         }
     }
 
+    private static void ValidateV0134BatchPolishCoverage(string sceneName, int minWeaponPropCount, int minEnemyReadabilityCount, string[] requiredTargets)
+    {
+        V0134BatchPolishPrototype[] prototypes = UnityEngine.Object.FindObjectsByType<V0134BatchPolishPrototype>(FindObjectsSortMode.None);
+        int weaponPropCount = 0;
+        int enemyReadabilityCount = 0;
+
+        for (int i = 0; i < prototypes.Length; i++)
+        {
+            V0134BatchPolishPrototype prototype = prototypes[i];
+            GameObject root = prototype.gameObject;
+            if (prototype.promotionVersion != "v0.1.34"
+                || prototype.batchId != "v0.1.34_playable_polish_leap"
+                || prototype.gameplayAuthority != "VisualOnlyNoGameplay"
+                || !prototype.HasRequiredParts)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " v0.1.34 polish metadata or required parts are incomplete (" + root.name + ").");
+            }
+
+            if (prototype.structureRoot.childCount < 2 || prototype.signalRoot.childCount < 1 || prototype.wearRoot.childCount < 1)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " v0.1.34 polish lacks required structure/signal/wear counts (" + root.name + ").");
+            }
+
+            if (root.GetComponentsInChildren<Collider>().Length > 0 || root.GetComponentsInChildren<NavMeshObstacle>().Length > 0)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " v0.1.34 polish must remain visual-only and non-blocking (" + root.name + ").");
+            }
+
+            if (root.GetComponentsInChildren<Pickup>().Length > 0 || root.GetComponentsInChildren<PlayerInteraction>().Length > 0 || root.GetComponentsInChildren<LevelTransitionTrigger>().Length > 0 || root.GetComponentsInChildren<ExitTrigger>().Length > 0 || root.GetComponentsInChildren<SteamValveObjective>().Length > 0 || root.GetComponentsInChildren<SteamHazard>().Length > 0 || root.GetComponentsInChildren<FurnaceHeatHazard>().Length > 0 || root.GetComponentsInChildren<GuardianDefeatObjective>().Length > 0)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " v0.1.34 polish must not own gameplay-authority components (" + root.name + ").");
+            }
+
+            RequireNamed(root.name + " Structure Root", sceneName + " v0.1.34 polish structure root");
+            RequireNamed(root.name + " Signal Root", sceneName + " v0.1.34 polish signal root");
+            RequireNamed(root.name + " Wear Root", sceneName + " v0.1.34 polish wear root");
+            RequireNamed(root.name + " Brass Readability Frame", sceneName + " v0.1.34 polish frame");
+            RequireNamed(root.name + " Iron Shadow Plate", sceneName + " v0.1.34 polish shadow plate");
+            RequireNamed(root.name + " Signal Accent", sceneName + " v0.1.34 polish signal accent");
+            RequireNamed(root.name + " Soot Wear", sceneName + " v0.1.34 polish wear accent");
+
+            if (prototype.category == "weapon_prop")
+            {
+                weaponPropCount++;
+            }
+            else if (prototype.category == "enemy_readability")
+            {
+                enemyReadabilityCount++;
+            }
+            else
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " v0.1.34 polish category is unknown (" + root.name + ").");
+            }
+        }
+
+        if (weaponPropCount < minWeaponPropCount || enemyReadabilityCount < minEnemyReadabilityCount)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " v0.1.34 polish coverage is too small. Weapon props: " + weaponPropCount + ", enemy readability: " + enemyReadabilityCount + ".");
+        }
+
+        for (int i = 0; i < requiredTargets.Length; i++)
+        {
+            bool found = false;
+            for (int j = 0; j < prototypes.Length; j++)
+            {
+                if (prototypes[j].targetId == requiredTargets[i])
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " v0.1.34 polish target missing: " + requiredTargets[i] + ".");
+            }
+        }
+    }
+
     private static void ValidatePressureReliefVentPrototype(string sceneName, string objectName, string expectedPlacementRole)
     {
         GameObject root = RequireNamed(objectName, sceneName + " pressure relief vent prototype root");
@@ -2029,6 +2108,7 @@ public static class V0LevelValidator
             ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_intake_service_lift_call_box", "intake_service_lift_call_box");
             ValidateGearKeyPlinthPrototype(sceneName, "GearKeyPlinthPrototype_intake_gear_key_plinth", "intake_gear_key_plinth");
             ValidateThresholdRouteDressingBatch(sceneName, "intake");
+            ValidateV0134BatchPolishCoverage(sceneName, 3, 4, new[] { "pressure_pistol", "steam_scattergun", "pressure_cartridge_pack", "scrapper" });
             RequireNamed("Secret - Intake Pressure Cache", sceneName + " secret pressure cache");
             RequireNamed("Secret Pressure Cache Brass Floor Plate", sceneName + " secret pressure cache floor plate");
             RequireNamed("Level01 Flow Polish V015", sceneName + " flow polish prop root");
@@ -2066,6 +2146,7 @@ public static class V0LevelValidator
             ValidateRivetedPressureDoorFramePrototype(sceneName, "Pipeworks Prototype Riveted Pressure Door Frame", "pipeworks_route_pressure_frame");
             ValidateValveWheelConsolePrototype(sceneName, "ValveWheelConsolePrototype_pipeworks_pressure_console", "pipeworks_pressure_console");
             ValidateThresholdRouteDressingBatch(sceneName, "pipeworks");
+            ValidateV0134BatchPolishCoverage(sceneName, 4, 2, new[] { "pressure_pistol", "steam_scattergun", "pressure_cartridge_pack", "scrapper", "lancer" });
             RequireNamed("Secret - Pipeworks Cartridge Cache", sceneName + " pipeworks secret cache");
             RequireNamed("Secret Pipeworks Cache Brass Floor Plate", sceneName + " pipeworks secret cache floor plate");
             RequireNamed("Pickup - Pipeworks Secret Pressure Cartridge Pack", sceneName + " pipeworks secret ammo reward");
@@ -2095,6 +2176,7 @@ public static class V0LevelValidator
             ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_boilerheart_service_lift_call_box", "boilerheart_service_lift_call_box");
             ValidateValveWheelConsolePrototype(sceneName, "ValveWheelConsolePrototype_boilerheart_pressure_console", "boilerheart_pressure_console");
             ValidateThresholdRouteDressingBatch(sceneName, "boilerheart");
+            ValidateV0134BatchPolishCoverage(sceneName, 4, 2, new[] { "pressure_pistol", "steam_scattergun", "pressure_cartridge_pack", "steam_scattergun_pickup", "scrapper" });
             RequireNamed("Boilerheart Pressure Valve Objective", sceneName + " boilerheart pressure valve objective");
             RequireNamed("Boilerheart Pressure Valve Wheel", sceneName + " boilerheart pressure valve wheel visual");
             RequireNamed("Boilerheart Valve Vented Lamp", sceneName + " boilerheart valve vented signal");
@@ -2144,6 +2226,7 @@ public static class V0LevelValidator
             ValidateFloorDrainGratePrototype(sceneName, "North Star Foundry Floor Drain Grate", "foundry_floor_drain_grate");
             ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_foundry_emergency_hoist_call_box", "foundry_emergency_hoist_call_box");
             ValidateThresholdRouteDressingBatch(sceneName, "foundry");
+            ValidateV0134BatchPolishCoverage(sceneName, 4, 4, new[] { "pressure_pistol", "steam_scattergun", "pressure_cartridge_pack", "scrapper", "lancer", "bulwark" });
             RequireNamed("Foundry Furnace Row", sceneName + " foundry furnace row visual");
             RequireNamed("Foundry Steam Hazard - Casting Leak", sceneName + " foundry steam hazard");
             RequireNamed("Foundry Steam Hazard - Crucible Bleed", sceneName + " foundry steam hazard");
@@ -2176,6 +2259,7 @@ public static class V0LevelValidator
             ValidatePressureTankRackPrototype(sceneName, "North Star Governor Pressure Tank Rack", "governor_pressure_tank_rack");
             ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_governor_master_hoist_call_box", "governor_master_hoist_call_box");
             ValidateThresholdRouteDressingBatch(sceneName, "governor");
+            ValidateV0134BatchPolishCoverage(sceneName, 3, 4, new[] { "pressure_pistol", "steam_scattergun", "pressure_cartridge_pack", "scrapper", "lancer", "bulwark", "warden" });
             RequireNamed("North Star Governor Regulator Crown", sceneName + " north-star governor regulator crown");
             RequireNamed("Governor Core Regulator Pillar", sceneName + " governor core regulator visual");
             RequireNamed("Governor Core Steam Hazard - Regulator Leak", sceneName + " governor core steam hazard");

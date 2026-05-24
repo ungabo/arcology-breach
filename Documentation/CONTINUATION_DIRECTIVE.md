@@ -12,15 +12,19 @@ The detailed batching rules live in `Documentation/ProductionManagement/BATCH_PR
 
 Asset, level, weapon, enemy, and QA work should run as parallel crews whenever write scopes can be separated. Do not plan production as `build asset A, then asset B, then asset C`; assign independent families to side agents and let the main lane integrate them into a single coherent milestone.
 
-## 30-Minute PM Review Automation
+Parallel side-agent work should be assigned as whole bundles whenever possible: weapon/prop arsenal, mechanical enemy pack, level module/setpiece pack, gameplay-systems validation, UI/audio/VFX polish, or platform-readiness packets. If the available subagent slots are full, close completed or obsolete agents, then refill those slots with the next independent bundle. The main lane should continue implementation while agents work; it should not idle for side-agent completion unless a result is the immediate blocker.
 
-The active continuation heartbeat runs every 30 minutes. Treat each heartbeat as a project-manager review before continuing implementation:
+## 15-Minute PM Review Automation
+
+The active continuation heartbeat runs every 15 minutes. Treat each heartbeat as a project-manager review before continuing implementation:
 
 1. Check active and completed subagents.
 2. Review whether the current work is following batch production mode.
-3. Identify slowdowns or over-testing loops.
-4. Redirect side agents, assign new disjoint prep work, or adjust the next batch when useful.
-5. Continue the main Unity lane immediately after the review.
+3. Ask whether this is the fastest safe development pace achievable with the available machine, Unity install, repo state, and subagent slots.
+4. Identify slowdowns, over-testing loops, idle agent capacity, or serial asset work.
+5. Decide whether separate Unity sidecar projects or importable asset-pack sandboxes would speed the current production wave without risking the primary game project.
+6. Redirect side agents, assign new disjoint bundle work, adjust the next batch, or start a sidecar pipeline task when useful.
+7. Continue the main Unity lane immediately after the review.
 
 At the end of each completed step:
 

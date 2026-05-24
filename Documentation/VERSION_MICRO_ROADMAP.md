@@ -70,12 +70,13 @@ The roadmap is a living plan, not a promise that every version number is immutab
 | v0.1.31 | Gear key plinth asset promotion | Completed: promoted `GearKeyPlinthPrototype` around the existing Level01 gear-key pickup, with blackened iron pedestal, aged brass gear cradle, brass gear teeth, cream enamel gauge/label, amber ready lamp, rivets, trim, grime, metadata, and validator gates proving the existing pickup remains the gameplay authority and stays reachable. | Route audit passed; full V0 matrix passed with level validation, package, QA packet, issue-triage packet, and candidate-readiness evidence. |
 | v0.1.32 | Valve wheel console asset promotion | Completed: promoted `ValveWheelConsolePrototype` into Pipeworks Annex and Boilerheart Core, with blackened iron wall backplates, aged brass valve wheel assemblies, cream pressure gauges, amber pilot lamps, pipework, rivets, soot/oil grime, worn highlights, metadata, and no-collider/no-gameplay-authority validator gates. | Route audit passed; full V0 matrix passed with level validation, package, QA packet, issue-triage packet, and candidate-readiness evidence. |
 | v0.1.33 | Visible threshold and route dressing milestone | Completed: promoted `ThresholdRouteDressingPrototype` plus 10 route-dressing families across all five levels: piston braces, pipe clamps/couplers, grime panels, amber indicator plates, brass kick plates, riveted repair plates, gasket rings, return-flow markers, vent residue collars, and hoist anchor plates. | Route audit passed; full V0 matrix passed with level validation, package, QA packet, issue-triage packet, and candidate-readiness evidence. |
+| v0.1.34 | Playable polish leap after route dressing | Completed: promoted `V0134BatchPolishPrototype` plus visual-only polish for the Pressure Pistol, Steam Scattergun, pressure cartridges, scattergun pickup display, and Scrapper/Lancer/Bulwark/Warden readability silhouettes. | Route audit passed; full V0 matrix passed with level validation, package, QA packet, issue-triage packet, and candidate-readiness evidence. |
 
 ## Near-Term Proposed Sequence
 
 | Version | Planned Slice | Intent | Expected Verification |
 | --- | --- | --- | --- |
-| v0.1.34 | Playable polish leap after route dressing | Integrate the next parallel-crew outputs into a broader visible gameplay/art pass: weapon/prop staging, enemy readability upgrades, level-density placement refinements, and focused route/combat readability tests. | Targeted tests per changed surface, then route audit plus full V0 matrix at milestone completion. |
+| v0.1.35 | Gameplay feedback and parallel asset-bundle leap | Implement a grouped player-feedback systems pass while side agents prepare larger weapon arsenal, mechanical enemy, level-module/setpiece, and UI/audio/VFX bundles. | Targeted `v045` feedback/route/combat smokes during development, then route audit plus full V0 matrix at milestone completion. |
 
 ## Later Follow-Up Areas
 
