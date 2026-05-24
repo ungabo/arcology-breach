@@ -36,6 +36,7 @@ Every major asset should eventually have three quality targets:
 | MAT-011 | Gauge glass and cream enamel | P2 | planned | HUD, gauges, and readable labels. |
 | MAT-012 | Oil/scorch decal set | P2 | planned | Combat and machinery wear. |
 | MAT-013 | Staged PBR material batch 01 | P1 | review | Side-agent package under `Assets/_Project/ArtStaging/MaterialsPBR/` includes 1024px BaseColor, Normal, and ORM maps for aged brass, riveted blackened iron, soot-stained brick, wet oil-dark stone, oxidized copper, grimy amber glass, leather bellows, and hazard enamel, with manifests and preview sheets in `Documentation/AssetProduction/MaterialsPBR/`. |
+| MAT-014 | V1 final material texture pack | P1 | review | Side-agent package under `Assets/_Project/ArtStaging/FinalMaterialsV1/` includes 11 material families, 34 texture maps at 2048x2048, 4 preview sheets, manifest, acceptance report, and generator. Materials cover aged brass, blackened riveted iron, wet oil-dark stone, soot brick, copper pipe, greasy walnut, cream enamel gauge, amber glass, leather bellows, hazard enamel, and scorch/oil decal atlas. |
 
 ## 2. Modular Geometry
 

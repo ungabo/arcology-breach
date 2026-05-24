@@ -119,6 +119,7 @@ The active step sequence is driven by this ledger plus `VERSION_MICRO_ROADMAP.md
 | ARTSTAGE-008 | Stage V1 HUD/UI art kit | ui/art/asset | P1 | review | v0.0.93 | Side-agent package includes 36 runtime PNG sprites, contact sheet, HUD mockup, manifest, generator, nine-slice/import notes, and 30 ready-for-integration HUD/menu/prompt assets under `Assets/_Project/ArtStaging/UIHudV1/` and `Documentation/AssetProduction/UIHudV1/`. |
 | ARTSTAGE-009 | Stage V1 audio placeholder pack | audio/asset | P1 | review | v0.0.93 | Side-agent package includes 33 generated 48 kHz 16-bit PCM WAV placeholders, 7 loops, manifest, asset plan, QA listen checklist, integration plan, and generator under `Assets/_Project/ArtStaging/AudioV1/` and `Documentation/AssetProduction/AudioV1/`. |
 | ARTSTAGE-010 | Prepare Blender Recovery04 render unblock | art/process/tool | P1 | blocked | v0.0.93 | Blender is not locally available; Singer documented exact install/run commands and created a Blender-ready pressure-pistol proof script for the next true 3D/PBR render attempt. |
+| ARTSTAGE-011 | Stage V1 final material texture pack | art/asset | P1 | review | v0.0.93 | Side-agent package includes 11 material families, 34 texture maps at 2048x2048, 4 preview sheets, manifest, acceptance report, and generator under `Assets/_Project/ArtStaging/FinalMaterialsV1/` and `Documentation/AssetProduction/FinalMaterialsV1/`. |
 
 ## Ready Next
 

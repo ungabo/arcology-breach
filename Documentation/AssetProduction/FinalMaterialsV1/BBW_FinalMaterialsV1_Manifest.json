@@ -1,0 +1,659 @@
+{
+  "batchId": "BBW_FinalMaterialsV1",
+  "project": "Brassworks Breach",
+  "createdLocal": "2026-05-23T23:41:54-04:00",
+  "status": "final-material-v1 staging package; not integrated into Unity materials/scenes",
+  "allowedWriteScope": [
+    "Assets/_Project/ArtStaging/FinalMaterialsV1",
+    "Documentation/AssetProduction/FinalMaterialsV1"
+  ],
+  "sourceReferencesRead": [
+    "Documentation/ConceptArt/north-star-steampunk-level-hud-enemies-props.png",
+    "Documentation/ConceptArt/north-star-steampunk-brassworks-pressure-pistol.png",
+    "Documentation/AAA_ASSET_CATALOG.md",
+    "Documentation/PARALLEL_ASSET_GENERATION_BRIEFS.md",
+    "Assets/_Project/ArtStaging/MaterialsPBR/ (read-only reference)"
+  ],
+  "textureResolution": [
+    2048,
+    2048
+  ],
+  "mapPacking": {
+    "BaseColor": "sRGB PNG. AmberGlass and ScorchOilDecalAtlas include alpha in BaseColor.",
+    "Normal": "Tangent-space PNG generated from procedural height; import as Unity Normal Map.",
+    "ORM": "Existing MaterialsPBR-compatible ORM: R=ambient occlusion, G=roughness, B=metallic. Import linear/non-sRGB.",
+    "Alpha": "Separate opacity helper exported only for ScorchOilDecalAtlas."
+  },
+  "materials": [
+    {
+      "id": "MAT_BBW_AgedBrass_V1",
+      "displayName": "Aged Brass",
+      "role": "Shared brass trim, gauges, valves, pickup shells, weapon accents",
+      "tileable": true,
+      "quality": "pass",
+      "qualityNotes": "Reads as brass in contact sheets; suitable for trim, gauges, valves, and pressure hardware staging.",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_AgedBrass_BaseColor_2048.png",
+        "normal": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_AgedBrass_Normal_2048.png",
+        "orm": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_AgedBrass_ORM_2048.png"
+      },
+      "notes": [
+        "Warm aged brass with oxidized green pockets, pitting, shallow rivets, and polished hairline scratches.",
+        "Metallic channel is reduced in patina and pit regions; normals are height-derived."
+      ]
+    },
+    {
+      "id": "MAT_BBW_BlackenedRivetedIron_V1",
+      "displayName": "Blackened Riveted Iron",
+      "role": "Wall plates, gates, armor, furnace machinery, heavy braces",
+      "tileable": true,
+      "quality": "pass",
+      "qualityNotes": "Strong silhouette-safe rivet/seam read; needs final UV alignment before hero gate use.",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_BlackenedRivetedIron_BaseColor_2048.png",
+        "normal": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_BlackenedRivetedIron_Normal_2048.png",
+        "orm": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_BlackenedRivetedIron_ORM_2048.png"
+      },
+      "notes": [
+        "Dark riveted iron panel field with raised rivets, recessed seams, soot, rust halos, and scrape wear.",
+        "Panel/rivet layout is tileable for modular wall and armor material tests."
+      ]
+    },
+    {
+      "id": "MAT_BBW_WetOilDarkStone_V1",
+      "displayName": "Wet Oil-Dark Stone",
+      "role": "Service floors, damp maintenance slabs, oil-dark dungeon floor stone",
+      "tileable": true,
+      "quality": "pass",
+      "qualityNotes": "Oil/stone separation is clear in BaseColor and ORM; final engine lighting should tune wetness.",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_WetOilDarkStone_BaseColor_2048.png",
+        "normal": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_WetOilDarkStone_Normal_2048.png",
+        "orm": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_WetOilDarkStone_ORM_2048.png"
+      },
+      "notes": [
+        "Damp dark floor slabs with oily pooling, traffic grime, chipped seams, and hairline cracks.",
+        "Low roughness in oil regions is intentionally exaggerated for wet floor lookdev."
+      ]
+    },
+    {
+      "id": "MAT_BBW_SootBrick_V1",
+      "displayName": "Soot Brick",
+      "role": "Corridor walls, furnace masonry, chimney recesses",
+      "tileable": true,
+      "quality": "pass",
+      "qualityNotes": "Brick courses and soot read cleanly at preview scale; repeat should be broken with decals in long halls.",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_SootBrick_BaseColor_2048.png",
+        "normal": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_SootBrick_Normal_2048.png",
+        "orm": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_SootBrick_ORM_2048.png"
+      },
+      "notes": [
+        "Offset Victorian utility brick with dark mortar, soot bloom, chips, and worn brick variation.",
+        "Designed as a tileable wall foundation, not a unique hero wall panel."
+      ]
+    },
+    {
+      "id": "MAT_BBW_CopperPipe_V1",
+      "displayName": "Copper Pipe",
+      "role": "Copper pipe bundles, pressure tanks, antique service machinery",
+      "tileable": true,
+      "quality": "pass",
+      "qualityNotes": "Copper/verdigris split is readable; pass as pipe material staging, not as a universal tileable metal.",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_CopperPipe_BaseColor_2048.png",
+        "normal": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_CopperPipe_Normal_2048.png",
+        "orm": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_CopperPipe_ORM_2048.png"
+      },
+      "notes": [
+        "Oxidized copper pipe surface with axial polish, pipe bands, seam grime, verdigris pockets, and scratches.",
+        "Directional banding is intended for pipe UVs and may be too directional for broad flat walls."
+      ]
+    },
+    {
+      "id": "MAT_BBW_GreasyWalnut_V1",
+      "displayName": "Greasy Walnut",
+      "role": "Weapon grips, tool handles, dark wood trim, oily worker-maintained props",
+      "tileable": true,
+      "quality": "pass",
+      "qualityNotes": "Walnut color and grain read distinctly from leather; pass with UV-direction caveat.",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_GreasyWalnut_BaseColor_2048.png",
+        "normal": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_GreasyWalnut_Normal_2048.png",
+        "orm": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_GreasyWalnut_ORM_2048.png"
+      },
+      "notes": [
+        "Dark greasy walnut with lengthwise grain, polished hand wear, scratches, and oil-dark pores.",
+        "Directional grain is meant for weapon grips, tool handles, and trim strips."
+      ]
+    },
+    {
+      "id": "MAT_BBW_CreamEnamelGauge_V1",
+      "displayName": "Cream Enamel Gauge",
+      "role": "Gauge faces, chipped cream enamel plates, pressure readouts",
+      "tileable": false,
+      "quality": "pass",
+      "qualityNotes": "Pass as a gauge/enamel staging target; fail as a tileable material by design.",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_CreamEnamelGauge_BaseColor_2048.png",
+        "normal": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_CreamEnamelGauge_Normal_2048.png",
+        "orm": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_CreamEnamelGauge_ORM_2048.png"
+      },
+      "notes": [
+        "Non-tileable cream enamel gauge-face material swatch with decorative ticks, danger arc, brass-dark rim, chips, and grime.",
+        "Includes no readable text; intended as material/lookdev reference for future gauge atlas work."
+      ]
+    },
+    {
+      "id": "MAT_BBW_AmberGlass_V1",
+      "displayName": "Amber Glass",
+      "role": "Gauge lenses, lamps, furnace-adjacent glass, amber warning glass",
+      "tileable": true,
+      "quality": "pass",
+      "qualityNotes": "Pass as transparent/glass lookdev source; shader sorting and reflection behavior remain untested.",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_AmberGlass_BaseColor_2048.png",
+        "normal": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_AmberGlass_Normal_2048.png",
+        "orm": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_AmberGlass_ORM_2048.png"
+      },
+      "notes": [
+        "Amber warped glass with alpha in BaseColor, grime blooms, hairline scratches, and wavering normal detail.",
+        "Requires future Unity transparent shader validation; no material asset is authored here."
+      ]
+    },
+    {
+      "id": "MAT_BBW_LeatherBellows_V1",
+      "displayName": "Leather Bellows",
+      "role": "Pump bellows, pressure organs, accordion machinery joints",
+      "tileable": true,
+      "quality": "pass",
+      "qualityNotes": "Distinct from walnut and readable as bellows material; final mesh-specific fold spacing needed.",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_LeatherBellows_BaseColor_2048.png",
+        "normal": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_LeatherBellows_Normal_2048.png",
+        "orm": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_LeatherBellows_ORM_2048.png"
+      },
+      "notes": [
+        "Ribbed leather bellows with accordion fold normals, side seams, stitch marks, grease, and worn creases.",
+        "Fold frequency is procedural and should be remapped per final bellows mesh UVs."
+      ]
+    },
+    {
+      "id": "MAT_BBW_HazardEnamel_V1",
+      "displayName": "Hazard Enamel",
+      "role": "Pressure-warning panels, machinery guards, danger striping",
+      "tileable": true,
+      "quality": "pass",
+      "qualityNotes": "Hazard read is immediate and matches pressure-warning language; UV-specific variants still needed.",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_HazardEnamel_BaseColor_2048.png",
+        "normal": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_HazardEnamel_Normal_2048.png",
+        "orm": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_HazardEnamel_ORM_2048.png"
+      },
+      "notes": [
+        "Chipped yellow/black hazard enamel with exposed dark metal, rivets, scratches, grime, and worn stripe edges.",
+        "Stripe scale is preview-ready; final signage should author UV-aware stripe placement."
+      ]
+    },
+    {
+      "id": "MAT_BBW_ScorchOilDecalAtlas_V1",
+      "displayName": "Scorch/Oil Decal Atlas",
+      "role": "Oil pools, leaks, scorch marks, scratches, grime stamps, warning decals",
+      "tileable": false,
+      "quality": "pass",
+      "qualityNotes": "Pass as a review/import atlas; decal shader setup and per-decal UV metadata still need integration work.",
+      "maps": {
+        "baseColor": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_ScorchOilDecalAtlas_BaseColor_2048.png",
+        "normal": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_ScorchOilDecalAtlas_Normal_2048.png",
+        "orm": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_ScorchOilDecalAtlas_ORM_2048.png",
+        "alpha": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_ScorchOilDecalAtlas_Alpha_2048.png"
+      },
+      "notes": [
+        "RGBA decal atlas with 24 oil, soot, scorch, scratch, drip, and stamped warning/service marks.",
+        "BaseColor alpha stores decal opacity; companion Alpha map is exported for tools that prefer a separate opacity mask."
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_AgedBrass_BaseColor_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "883a3eb423acd74636ff994baeae1696b357b4fad87610f32a7df29c82b74063",
+      "materialId": "MAT_BBW_AgedBrass_V1",
+      "mapType": "baseColor"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_AgedBrass_Normal_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "c4dd2dd92179b01355ecd96736e57f371d97081cfbf3f141260e6cf1322846d1",
+      "materialId": "MAT_BBW_AgedBrass_V1",
+      "mapType": "normal"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_AgedBrass_ORM_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "a627cc0a87e59b39ed3899ad039f8c90307917eaa555712e4772b1ccc456c759",
+      "materialId": "MAT_BBW_AgedBrass_V1",
+      "mapType": "orm"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_BlackenedRivetedIron_BaseColor_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "758f5efd6c37792fc98dadbf34114961cd6cc69e5e8f79297f0d2be195160231",
+      "materialId": "MAT_BBW_BlackenedRivetedIron_V1",
+      "mapType": "baseColor"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_BlackenedRivetedIron_Normal_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "a7cbb9933a2d323959f558e30630505c6a872b4434ad452556b37009a7646ba1",
+      "materialId": "MAT_BBW_BlackenedRivetedIron_V1",
+      "mapType": "normal"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_BlackenedRivetedIron_ORM_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "7c10d349043be20cfb449715c1ef449e5df2cad3a8da423e6e58045f9e8f803b",
+      "materialId": "MAT_BBW_BlackenedRivetedIron_V1",
+      "mapType": "orm"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_WetOilDarkStone_BaseColor_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "ac50bfdb2362353875f6f619b9493abc7fc55c37c93e5d2831fc6dc48ae8beb9",
+      "materialId": "MAT_BBW_WetOilDarkStone_V1",
+      "mapType": "baseColor"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_WetOilDarkStone_Normal_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "e6851220ca9b283d8a278cff61d87a7a30fb0d32f3c521d3b8159c12c60ec08f",
+      "materialId": "MAT_BBW_WetOilDarkStone_V1",
+      "mapType": "normal"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_WetOilDarkStone_ORM_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "cdba715849d1e007f6d6c91ba00a20a27a1895c9f7cd8f82109db93c68a46e82",
+      "materialId": "MAT_BBW_WetOilDarkStone_V1",
+      "mapType": "orm"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_SootBrick_BaseColor_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "13e59b3a5eaa229a2e7611a4938b6f4925287c3291a34b3731e4a15ea0fbfd8e",
+      "materialId": "MAT_BBW_SootBrick_V1",
+      "mapType": "baseColor"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_SootBrick_Normal_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "577770537213cb0d26e64ab2335ab79c9cce3316743348d9b974debe0faaf79d",
+      "materialId": "MAT_BBW_SootBrick_V1",
+      "mapType": "normal"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_SootBrick_ORM_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "4935ab486838efdc29ecd98847fc0005eb93392e3ea85560e1f0f64f532f5674",
+      "materialId": "MAT_BBW_SootBrick_V1",
+      "mapType": "orm"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_CopperPipe_BaseColor_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "7de7af7e972a7b6b0eec0936a201e17bd63e759637f3c6bed2f25adb446bdb7f",
+      "materialId": "MAT_BBW_CopperPipe_V1",
+      "mapType": "baseColor"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_CopperPipe_Normal_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "0ea8b4614f8dbc666509527da7f6911eac7c4229c636d7eefd4b6f36977efaab",
+      "materialId": "MAT_BBW_CopperPipe_V1",
+      "mapType": "normal"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_CopperPipe_ORM_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "ff6b1190b04756949182af5593a10de48b83fd1e508fffdb394ff4aa36bfc7d0",
+      "materialId": "MAT_BBW_CopperPipe_V1",
+      "mapType": "orm"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_GreasyWalnut_BaseColor_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "36dd41e89409ee8da1ced0f203659b00be4979aae1fe620252158cf03813c367",
+      "materialId": "MAT_BBW_GreasyWalnut_V1",
+      "mapType": "baseColor"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_GreasyWalnut_Normal_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "628896fd9bac24a3cce888555490306dd560087f4ee976f241e86595b47bdd72",
+      "materialId": "MAT_BBW_GreasyWalnut_V1",
+      "mapType": "normal"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_GreasyWalnut_ORM_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "911767cf4de820aec1271a28d2774af3ced4f2196bbf4fee40c249fb6d7538ef",
+      "materialId": "MAT_BBW_GreasyWalnut_V1",
+      "mapType": "orm"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_CreamEnamelGauge_BaseColor_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "1c89a19615dfbc149b29cde3569c7bca9e9584b561e939ec57fac52af8314570",
+      "materialId": "MAT_BBW_CreamEnamelGauge_V1",
+      "mapType": "baseColor"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_CreamEnamelGauge_Normal_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "10cb80ec4b25aec0e5bd6e3650bc2a7ceca00cffe841afb0147ab3cb6db41506",
+      "materialId": "MAT_BBW_CreamEnamelGauge_V1",
+      "mapType": "normal"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_CreamEnamelGauge_ORM_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "47f7b2b968416f5e09dad9885c72631fb412a60894e169f020ccd0868420e843",
+      "materialId": "MAT_BBW_CreamEnamelGauge_V1",
+      "mapType": "orm"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_AmberGlass_BaseColor_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGBA",
+      "sha256": "66905cdee17c49a88def6e5f1fc2a6e3a9016ce23536d973f676f34343b0ffae",
+      "materialId": "MAT_BBW_AmberGlass_V1",
+      "mapType": "baseColor"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_AmberGlass_Normal_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "d41e7eecedde022c7c849101fc4cd8522b549161c3eb3844d98ec1e27337a547",
+      "materialId": "MAT_BBW_AmberGlass_V1",
+      "mapType": "normal"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_AmberGlass_ORM_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "8bc5d754e804fea94f2092655c5bcbf7bd56c068e4b24dd889dd181b5a373c0c",
+      "materialId": "MAT_BBW_AmberGlass_V1",
+      "mapType": "orm"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_LeatherBellows_BaseColor_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "2431b6b925bf656efe1e2fd70bdbb7691f491a81ba21832703c088fe578187cd",
+      "materialId": "MAT_BBW_LeatherBellows_V1",
+      "mapType": "baseColor"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_LeatherBellows_Normal_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "aacc05ccb1aa8bb80ce33c395aa0b94afbcdd201b7acd9fe32ff2616ffcfe4df",
+      "materialId": "MAT_BBW_LeatherBellows_V1",
+      "mapType": "normal"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_LeatherBellows_ORM_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "d2b377f76092686f9f9065b36d06876eceabf96d61c7bfedb4b013114c5276a5",
+      "materialId": "MAT_BBW_LeatherBellows_V1",
+      "mapType": "orm"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_HazardEnamel_BaseColor_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "fd5b04d5fa086bbb7f815bec0eaaf4f09b56a2f5761425553242871ee48e243c",
+      "materialId": "MAT_BBW_HazardEnamel_V1",
+      "mapType": "baseColor"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_HazardEnamel_Normal_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "59340ebd48ebe74200178431af3b90d1cc027dfa572c3088221db6520e8f11ba",
+      "materialId": "MAT_BBW_HazardEnamel_V1",
+      "mapType": "normal"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_HazardEnamel_ORM_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "b247024c8eb5aba966522db29e205b4f1063b82f7794c14054cd652878cc208f",
+      "materialId": "MAT_BBW_HazardEnamel_V1",
+      "mapType": "orm"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_ScorchOilDecalAtlas_BaseColor_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGBA",
+      "sha256": "bf43dc6e3198e1dd2120c8bfa9c283031d9622c9229b292aad4cac05014a652b",
+      "materialId": "MAT_BBW_ScorchOilDecalAtlas_V1",
+      "mapType": "baseColor"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_ScorchOilDecalAtlas_Normal_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "a70b19e29b1b4ca7fed3d055020ae802435442924422da6611df10a14c8f7e83",
+      "materialId": "MAT_BBW_ScorchOilDecalAtlas_V1",
+      "mapType": "normal"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_ScorchOilDecalAtlas_ORM_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "sha256": "cb8ec65b5cbf20d44419c5087bf3c0f01a61d63ada03cdd029c14b8d31de0ff3",
+      "materialId": "MAT_BBW_ScorchOilDecalAtlas_V1",
+      "mapType": "orm"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures/T_BBW_ScorchOilDecalAtlas_Alpha_2048.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "L",
+      "sha256": "1da8b16bad4613eb5dcb408a32ca9fddc05ede8e2fa7976474097250bd3b66d9",
+      "materialId": "MAT_BBW_ScorchOilDecalAtlas_V1",
+      "mapType": "alpha"
+    }
+  ],
+  "previews": [
+    {
+      "path": "Documentation/AssetProduction/FinalMaterialsV1/Previews/PREVIEW_BBW_FinalMaterialsV1_BaseColorContactSheet.png",
+      "size": [
+        1440,
+        1306
+      ],
+      "mode": "RGB",
+      "sha256": "45d20a7a34f9290eafd67f55672cf26f4a86d10efab3ffaf0dc6d8660123c49e",
+      "kind": "preview"
+    },
+    {
+      "path": "Documentation/AssetProduction/FinalMaterialsV1/Previews/PREVIEW_BBW_FinalMaterialsV1_MapTripletsContactSheet.png",
+      "size": [
+        1120,
+        3414
+      ],
+      "mode": "RGB",
+      "sha256": "61cb2df16523adb9e5c672dea1a98894fa98dd401a897b1df78ba0993d5ef864",
+      "kind": "preview"
+    },
+    {
+      "path": "Documentation/AssetProduction/FinalMaterialsV1/Previews/PREVIEW_BBW_FinalMaterialsV1_TilingContactSheet.png",
+      "size": [
+        1020,
+        1224
+      ],
+      "mode": "RGB",
+      "sha256": "66f297af6ba05e9e006fc520149aa8b002984308d4b9916f00b72cd91dc2d7fc",
+      "kind": "preview"
+    },
+    {
+      "path": "Documentation/AssetProduction/FinalMaterialsV1/Previews/PREVIEW_BBW_FinalMaterialsV1_DecalAtlasAlpha.png",
+      "size": [
+        1300,
+        720
+      ],
+      "mode": "RGB",
+      "sha256": "3be28e933827a304b73384c950a0f2d5882d00ba9de88a760f044cecffd42ffe",
+      "kind": "preview"
+    }
+  ],
+  "counts": {
+    "materials": 11,
+    "baseColor": 11,
+    "normal": 11,
+    "orm": 11,
+    "alphaHelpers": 1,
+    "previewSheets": 4
+  },
+  "documentationFiles": [
+    {
+      "path": "Documentation/AssetProduction/FinalMaterialsV1/BBW_FinalMaterialsV1_Manifest.json",
+      "note": "Self hash omitted because embedding it would change the manifest contents."
+    },
+    {
+      "path": "Documentation/AssetProduction/FinalMaterialsV1/BBW_FinalMaterialsV1_Manifest.md",
+      "sizeBytes": 6023,
+      "sha256": "ebc8799fc79ef07a3024193f793c6d4779da379fffa540e7f62dd2a7309b40aa"
+    },
+    {
+      "path": "Documentation/AssetProduction/FinalMaterialsV1/BBW_FinalMaterialsV1_AcceptanceReport.md",
+      "sizeBytes": 3189,
+      "sha256": "eacc782f85ec44594b05a3c122990438b86c2dbf93f1c0674e86c0bc10aba3c0"
+    }
+  ]
+}
