@@ -61,7 +61,7 @@ FONT_BIG = load_font(42, bold=True)
 
 metrics: dict[str, object] = {
     "tool": "Python 3.13 + Pillow 12.2 + NumPy procedural raster fallback",
-    "blender_available": False,
+    "unity_render_required": True,
     "random_seed": RANDOM_SEED,
     "hero_render": str(RENDER_OUT.relative_to(ROOT)).replace("\\", "/"),
     "contact_sheet": str(SHEET_OUT.relative_to(ROOT)).replace("\\", "/"),
@@ -713,7 +713,7 @@ def make_contact_sheet(hero: Image.Image) -> Image.Image:
     # Header
     d.rectangle((0, 0, sheet.width, s(116)), fill=(32, 22, 17, 255))
     draw_label(d, (44, 30), "HFLD Recovery 03 - Pressure Pistol Fallback Proof", FONT_BIG)
-    draw_label(d, (46, 82), "Non-shipping lookdev proof attempt. Python/Pillow fallback because Blender was not available locally.", FONT_MED, fill=(218, 188, 143))
+    draw_label(d, (46, 82), "Non-shipping lookdev proof attempt. Python/Pillow fallback superseded by Unity render direction.", FONT_MED, fill=(218, 188, 143))
 
     hero_box = (52, 150, 1450, 938)
     hero_fit = fit_image(hero, (hero_box[2] - hero_box[0], hero_box[3] - hero_box[1]))
@@ -765,7 +765,7 @@ def make_contact_sheet(hero: Image.Image) -> Image.Image:
         "component counts, readable gauge/coil,",
         "dark smoky background, warm key/cool fill.",
         "",
-        "Partial/fail: not Blender/true 3D, no real PBR maps,",
+        "Partial/fail: not Unity/true 3D, no real material response,",
         "silhouette still less chunky/layered than source.",
         "",
         "Label: proof attempt, non-shipping, not accepted final art.",

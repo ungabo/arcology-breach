@@ -103,7 +103,7 @@ def main():
     panel(draw, (1220, 660, 700, 610), "Fastest Credible Next Step")
     y = 720
     path_items = [
-        "Use Blender offline proof first: bevelled cylinders, brass plates, coil turns, rivets, leather/glove mass, steam ports, smoky lighting.",
+        "Use Unity editor proof first: bevel-like cylinders, brass plates, coil turns, rivets, leather/glove mass, steam ports, smoky lighting.",
         "Do not use the current Batch01 pistol as proof; it is useful only as a component reminder.",
         "Only move to Unity after the offline proof passes silhouette, component count, material, lighting, and human review gates.",
         "Unity validation later uses only an isolated HFLD_Recovery_PressurePistol scene under HighFidelityLookdevRecovery; never gameplay scenes.",

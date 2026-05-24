@@ -16,12 +16,11 @@ Label: non-shipping fallback proof, not accepted final art
 
 ## Tool Path
 
-Blender was preferred but was not available in the local environment:
+Recovery03 used a fallback raster path and is now superseded by the Unity-only render direction.
 
-- `where.exe blender` returned no executable.
-- `Get-Command blender` returned no executable.
-- `C:\Program Files\Blender Foundation` did not contain `blender.exe`.
-- A limited recursive search on `D:\` timed out without finding a usable Blender executable.
+- The fallback did not run through the Unity renderer.
+- The fallback did not create real Unity geometry, materials, camera, or lighting.
+- The fallback did not validate the asset pipeline that the game will ship with.
 - ImageMagick and POV-Ray were not available.
 - Local Python had Pillow 12.2 and NumPy available; common 3D render packages such as `trimesh`, `pyrender`, `moderngl`, `scipy`, `skimage`, and `cv2` were not installed.
 
@@ -73,12 +72,12 @@ Overall verdict: fail. This artifact is useful as a pressure-pistol-only density
 
 ## Blocker And Next Exact Tool
 
-The next credible proof needs Blender or an equivalent local 3D renderer. The fallback raster path cannot prove geometry, bevels, PBR channels, or real material response.
+The next credible proof needs Unity editor rendering. The fallback raster path cannot prove Unity geometry, bevels, material channels, or real in-engine material response.
 
 Exact unblock command:
 
 ```powershell
-winget install --id BlenderFoundation.Blender -e --source winget
+Unity Recovery04 should run through `UnityPressurePistolProofRenderer.RenderProof`.
 ```
 
-After Blender is available on `PATH`, the next pass should be a Blender offline scene with bevelled cylinders, extruded brass plates, 60+ mesh rivets, a real coil mesh, glass/gauge geometry, procedural PBR materials, and a camera/light setup matching the north-star crop. The hero output should replace this fallback with a true `RENDER_HFLD_Recovery03_pressure_pistol_proof*.jpg` or a new Recovery04 proof if this file is kept as the failed fallback record.
+The next pass should be a Unity editor proof with bevel-like cylinders, layered brass plates, 60+ rivets, a real coil assembly, glass/gauge geometry, roughness/metalness material setup, smoke, warm practical lighting, and a camera setup matching the north-star crop. The hero output should be a new `RENDER_HFLD_Recovery04_pressure_pistol_unity_proof*.jpg` file while this report remains the failed Recovery03 record.

@@ -49,7 +49,6 @@ Verdict: Batch01 failed as a high-fidelity north-star match. It should remain us
 5. Stop using side-on diagram camera angles for hero proof renders.
 6. Render the pistol from first-person 3/4 view with glove/hand scale, visible gauge, coil, muzzle, lower reservoir, and layered fasteners.
 7. Render the enemy in a 3/4 pose with gear, saw, claw, stacks, eyes, torso, and feet visible.
-8. Use Blender or an isolated Unity lookdev scene for the next proof; do not generate another flat 2D placeholder and call it high fidelity.
+8. Use an isolated Unity lookdev proof for the next render; do not generate another flat 2D placeholder and call it high fidelity.
 9. Require one side-by-side annotated review image before accepting a render as closer to the source.
 10. Keep all work isolated from gameplay scenes, scripts, generated scenes, and previous HighFidelityLookdev files.
-

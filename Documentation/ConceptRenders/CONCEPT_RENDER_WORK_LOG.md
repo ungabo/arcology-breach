@@ -95,10 +95,20 @@
 ## 2026-05-23 23:23:13 -04:00
 
 - Started Recovery03 pressure-pistol-only proof attempt.
-- Confirmed Blender was not available through `where.exe blender`, `Get-Command blender`, or `C:\Program Files\Blender Foundation`; ImageMagick, POV-Ray, and common Python 3D render packages were also unavailable.
+- Confirmed the previous external-render path was not part of the Unity production direction; ImageMagick, POV-Ray, and common Python 3D render packages were also unavailable.
 - Used a Python/Pillow/NumPy procedural raster fallback inside `Documentation/AssetProduction/HighFidelityLookdevRecovery/PressurePistolProof/`.
 - Generated failed proof JPGs:
   - `RENDER_HFLD_Recovery03_pressure_pistol_proof_python_fallback.jpg`
   - `CONTACTSHEET_HFLD_Recovery03_pressure_pistol_proof_python_fallback.jpg`
 - Measured output: 1920x1080 hero render, 2200x1500 contact sheet, 8 visible coil turns, 151 generated fasteners, 36 plate/bracket/strap pieces, 3 pressure ports, 3 top valves/caps, 71.7% width and 64.1% height body occupancy.
-- Verdict: failed acceptance. Component counts and dimensions pass, but the result remains too flat/graphic and cannot prove real 3D geometry, bevels, or PBR materials without Blender or equivalent renderer.
+- Verdict: failed acceptance. Component counts and dimensions pass, but the result remains too flat/graphic and cannot prove real Unity geometry, bevels, or material response.
+
+## 2026-05-23 23:55:00 -04:00
+
+- Direction corrected to Unity-only lookdev/test rendering.
+- Superseded the previous external-render unblock lane and assigned Recovery04 to an isolated Unity editor proof.
+- Active output targets:
+  - `RENDER_HFLD_Recovery04_pressure_pistol_unity_proof.jpg`
+  - `CONTACTSHEET_HFLD_Recovery04_pressure_pistol_unity_proof.jpg`
+  - `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/`
+- The Unity proof must remain outside gameplay scenes and Build Settings until it passes acceptance gates.

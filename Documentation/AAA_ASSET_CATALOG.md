@@ -124,7 +124,8 @@ Every major asset should eventually have three quality targets:
 | --- | --- | --- | --- | --- |
 | RENDER-001 | Concept render lane | P1 | review | `Documentation/ConceptRenders/` contains mockup and staged-asset JPG contact sheets for objects, room mood, staged PBR materials, enemy blockouts, modular corridor/pressure-gate alcove composites, and weapon/prop blockouts. These are user-review files outside Unity build assets. |
 | RENDER-002 | High-fidelity north-star lookdev renders | P1 | review | `Documentation/ConceptRenders/CONTACTSHEET_LOOKDEV_HFLD_Batch01_nonshipping.jpg` and companion JPGs show Curie's first static lookdev pass for corridor/pressure door, pressure pistol, and Scrapper-like monster assets. |
-| RENDER-003 | High-fidelity lookdev recovery | P1 | active | Batch01 was rejected visually. Current accepted work is planning/reference only: Dalton's recovery checklist, acceptance rubric, failure diagnosis, and pressure-pistol-only target breakdown sheets under `Documentation/AssetProduction/HighFidelityLookdevRecovery/` and `Documentation/ConceptRenders/`. Real proof renders remain required. |
+| RENDER-003 | High-fidelity lookdev recovery | P1 | active | Batch01 and Recovery03 were rejected visually. Current active work is Unity-only pressure-pistol proof rendering with temporary editor-created lookdev scenes and RenderTexture JPG/PNG output under `Documentation/ConceptRenders/`. External renderer lanes are superseded unless explicitly reopened later. |
+| RENDER-004 | Unity pressure-pistol proof render | P1 | active | Side-agent Galileo owns the isolated Unity Recovery04 proof lane. Target output is a first-person brass/iron/walnut pressure-pistol review render with gauge, coil, fasteners, steam, amber lighting, and acceptance-gate report under `Documentation/AssetProduction/HighFidelityLookdevRecovery/UnityPressurePistolProof/`. |
 
 ## 7. VFX
 
@@ -209,6 +210,7 @@ Every major asset should eventually have three quality targets:
 | LVL-005 | Gauge Hall concept | P2 | planned | Valve/gauge lock sequence level concept. |
 | LVL-006 | Furnace Foundry prototype | P2 | prototype | Generated fourth level with foundry blockout, mixed Scrapper/Lancer/Bulwark pressure, steam hazards, pulsing furnace heat lanes, secret coal cache, furnace-row dressing, and emergency-hoist transition to Level05. |
 | LVL-007 | Governor Core prototype | P2 | prototype | Generated fifth level with core-ring blockout, mixed Scrapper/Lancer/Bulwark/Warden pressure, steam hazard, furnace-heat surge, regulator dressing, Warden-locked master override hoist, and win state. |
+| LVL-008 | V1 signage/decal kit | P1 | review | Side-agent package under `Assets/_Project/ArtStaging/SignageDecalsV1/` and `Documentation/AssetProduction/SignageDecalsV1/` includes 85 signage/decal entries, 79 ready and 6 rough, with objective plates, warning/hazard strips, route arrows/chevrons, machinery/lore/work-order labels, secret service marks, copy deck, manifest, source rectangles, import settings, and contact sheet. |
 
 ## 11. Platform Variants
 

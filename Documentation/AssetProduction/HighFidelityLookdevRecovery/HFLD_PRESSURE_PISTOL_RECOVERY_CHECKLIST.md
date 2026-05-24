@@ -94,15 +94,15 @@ The next acceptable artifact is either:
 
 ## 3. Next Best Production Route
 
-Fastest credible route: Blender offline proof first.
+Fastest credible route: Unity editor proof first.
 
 Why:
 
 - The current Batch01 pistol asset is too flat and diagrammatic for a credible high-fidelity proof.
-- Blender can quickly build or kitbash bevelled cylinders, plates, rivets, coil turns, ports, steam, leather/glove forms, and dramatic lighting without touching Unity gameplay content.
-- A Blender proof can validate silhouette, material language, and lighting before Unity integration.
+- Unity can build temporary bevel-like primitive assemblies, plates, rivets, coil turns, ports, steam planes, leather/glove forms, and dramatic lighting without touching gameplay scenes.
+- A Unity proof validates silhouette, material language, lighting, and renderer constraints in the actual game engine.
 
-Use Unity only after the Blender proof is accepted:
+Use Unity-only proof content until the pressure pistol passes:
 
 - Scene path if needed later: `Assets/_Project/ArtStaging/HighFidelityLookdevRecovery/Scenes/HFLD_Recovery_PressurePistol.unity`
 - Do not add it to Build Settings.
@@ -123,7 +123,6 @@ Use 2D paintover/composite only for target clarification:
 - [ ] Measured silhouette overlay created.
 - [ ] Density greybox model/proof created.
 - [ ] Material swatch test created.
-- [ ] First credible Blender proof render created.
+- [ ] First credible Unity proof render created.
 - [ ] Human review confirms it is closer to the source concept than Batch01.
 - [ ] Unity isolated validation scene created only after offline proof acceptance.
-

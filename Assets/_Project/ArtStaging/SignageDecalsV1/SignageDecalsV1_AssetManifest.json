@@ -1,0 +1,2475 @@
+{
+  "package": "SignageDecalsV1",
+  "generated_at": "2026-05-23T23:45:59-04:00",
+  "scope": {
+    "documentation": "Documentation/AssetProduction/SignageDecalsV1/",
+    "asset_staging": "Assets/_Project/ArtStaging/SignageDecalsV1/",
+    "scene_placement": "none"
+  },
+  "visual_references": [
+    "Documentation/ConceptArt/north-star-steampunk-level-hud-enemies-props.png",
+    "Documentation/ConceptArt/north-star-steampunk-brassworks-pressure-pistol.png",
+    "Documentation/STEAMPUNK_NORTH_STAR.md"
+  ],
+  "import_settings": {
+    "texture_type": "Default for world decal materials; Sprite (2D and UI) with Multiple slicing is also acceptable for atlas cropping.",
+    "srgb": true,
+    "alpha_is_transparency": true,
+    "mip_maps": true,
+    "filter_mode": "Bilinear",
+    "wrap_mode": "Clamp",
+    "compression": "None for V1 source review; high-quality compression can be tested after in-game readability checks.",
+    "max_size": 2048,
+    "notes": "Use source_rect_px from each entry if slicing individual decals from a sheet."
+  },
+  "sheets": [
+    {
+      "path": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png",
+      "dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "sha256": "ec253050a17e79427dc5e1d88e1bc7dc549f092238846f6fddfd4428d7b63d33"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png",
+      "dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "sha256": "69db1c6f30f1e399720503c074e5755df2fa1f686ddb4aa6b845fdc2c47b45de"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png",
+      "dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "sha256": "7d67a3e95f27734bfc99b843eae43f667ba788f2d6831db7a42318aaa68b3c3b"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "sha256": "b7700aad1f166684155bf118515bfe0a196673164027f2a21fa668140da9e7e7"
+    },
+    {
+      "path": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png",
+      "dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "sha256": "20ee106f531a061659dcac559ce46e445282a9cfd94d5a91a273682c0e5ef04e"
+    }
+  ],
+  "preview": {
+    "path": "Assets/_Project/ArtStaging/SignageDecalsV1/Previews/PREVIEW_SignageDecalsV1_ContactSheet.png",
+    "sha256": "e62e79472519f0b66d92c6e3f0ba2a9d201f7fe1cd6057f4388b825aa5c13662"
+  },
+  "counts": {
+    "total": 85,
+    "ready": 79,
+    "rough": 6,
+    "by_category": {
+      "hazard label": 11,
+      "lore decal": 5,
+      "machinery label": 15,
+      "objective sign": 15,
+      "route arrow": 15,
+      "secret hint": 15,
+      "warning label": 4,
+      "work-order decal": 5
+    },
+    "by_level": {
+      "Level01 Brassworks Intake": 17,
+      "Level02 Pipeworks Annex": 17,
+      "Level03 Boilerheart Core": 17,
+      "Level04 Furnace Foundry": 17,
+      "Level05 Governor Core": 17
+    }
+  },
+  "entries": [
+    {
+      "id": "OBJ-L01-01",
+      "sheet": "objective_plates",
+      "level": "Level01 Brassworks Intake",
+      "room": "Clockwork repair bay approach",
+      "category": "objective sign",
+      "text": "GEAR KEY AHEAD",
+      "placement_intent": "Amber route plate before the gear-key plinth.",
+      "dimensions_m": {
+        "width": 1.2,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 86,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "OBJ-L01-02",
+      "sheet": "objective_plates",
+      "level": "Level01 Brassworks Intake",
+      "room": "Pressure gate face",
+      "category": "objective sign",
+      "text": "PRESSURE GATE",
+      "placement_intent": "Gate identifier centered on the locked pressure gate.",
+      "dimensions_m": {
+        "width": 1.35,
+        "height": 0.32
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 86,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "OBJ-L01-03",
+      "sheet": "objective_plates",
+      "level": "Level01 Brassworks Intake",
+      "room": "Service lift alcove",
+      "category": "objective sign",
+      "text": "SERVICE LIFT",
+      "placement_intent": "Green-side destination plate above the exit lift.",
+      "dimensions_m": {
+        "width": 1.25,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "green",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 86,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "OBJ-L02-01",
+      "sheet": "objective_plates",
+      "level": "Level02 Pipeworks Annex",
+      "room": "Pipeworks entry",
+      "category": "objective sign",
+      "text": "ROUTE PIPE PRESSURE",
+      "placement_intent": "Amber plate visible from the Level02 spawn lane.",
+      "dimensions_m": {
+        "width": 1.45,
+        "height": 0.32
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 484,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "OBJ-L02-02",
+      "sheet": "objective_plates",
+      "level": "Level02 Pipeworks Annex",
+      "room": "North valve run",
+      "category": "objective sign",
+      "text": "ROUTING VALVE",
+      "placement_intent": "Label above the required pressure-routing valve.",
+      "dimensions_m": {
+        "width": 1.2,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 484,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "OBJ-L02-03",
+      "sheet": "objective_plates",
+      "level": "Level02 Pipeworks Annex",
+      "room": "Boilerheart service lift",
+      "category": "objective sign",
+      "text": "BOILERHEART LIFT",
+      "placement_intent": "Green destination plate for the lift once pressure is routed.",
+      "dimensions_m": {
+        "width": 1.35,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "green",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 484,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "OBJ-L03-01",
+      "sheet": "objective_plates",
+      "level": "Level03 Boilerheart Core",
+      "room": "Arrival floor",
+      "category": "objective sign",
+      "text": "VENT CORE PRESSURE",
+      "placement_intent": "Initial amber objective plate pointing toward the core valve.",
+      "dimensions_m": {
+        "width": 1.45,
+        "height": 0.32
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 882,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "OBJ-L03-02",
+      "sheet": "objective_plates",
+      "level": "Level03 Boilerheart Core",
+      "room": "Furnace-core chamber",
+      "category": "objective sign",
+      "text": "PRESSURE VALVE",
+      "placement_intent": "Readable label at the required Boilerheart valve.",
+      "dimensions_m": {
+        "width": 1.25,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 882,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "OBJ-L03-03",
+      "sheet": "objective_plates",
+      "level": "Level03 Boilerheart Core",
+      "room": "Foundry service lift",
+      "category": "objective sign",
+      "text": "FOUNDRY LIFT",
+      "placement_intent": "Green lift identifier after pressure is vented.",
+      "dimensions_m": {
+        "width": 1.2,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "green",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 882,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "OBJ-L04-01",
+      "sheet": "objective_plates",
+      "level": "Level04 Furnace Foundry",
+      "room": "Furnace baffle lane",
+      "category": "objective sign",
+      "text": "FURNACE LANE",
+      "placement_intent": "Amber plate at the main foundry lane entrance.",
+      "dimensions_m": {
+        "width": 1.2,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 1280,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "OBJ-L04-02",
+      "sheet": "objective_plates",
+      "level": "Level04 Furnace Foundry",
+      "room": "Quench side bay",
+      "category": "objective sign",
+      "text": "QUENCH BAY",
+      "placement_intent": "Readable side-route label near coolant/quench props.",
+      "dimensions_m": {
+        "width": 1.1,
+        "height": 0.28
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 1280,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "OBJ-L04-03",
+      "sheet": "objective_plates",
+      "level": "Level04 Furnace Foundry",
+      "room": "Emergency hoist end",
+      "category": "objective sign",
+      "text": "EMERGENCY HOIST",
+      "placement_intent": "Green destination plate above the transition hoist.",
+      "dimensions_m": {
+        "width": 1.35,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "green",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 1280,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "OBJ-L05-01",
+      "sheet": "objective_plates",
+      "level": "Level05 Governor Core",
+      "room": "Regulator ring entry",
+      "category": "objective sign",
+      "text": "REGULATOR RING",
+      "placement_intent": "Amber plate naming the central final encounter ring.",
+      "dimensions_m": {
+        "width": 1.25,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 1678,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "OBJ-L05-02",
+      "sheet": "objective_plates",
+      "level": "Level05 Governor Core",
+      "room": "Warden lock signal",
+      "category": "objective sign",
+      "text": "WARDEN LOCK",
+      "placement_intent": "Red-orange lock plate beside the denied master hoist state.",
+      "dimensions_m": {
+        "width": 1.15,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 1678,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "OBJ-L05-03",
+      "sheet": "objective_plates",
+      "level": "Level05 Governor Core",
+      "room": "Master override hoist",
+      "category": "objective sign",
+      "text": "MASTER OVERRIDE",
+      "placement_intent": "Green final objective plate after Warden defeat.",
+      "dimensions_m": {
+        "width": 1.4,
+        "height": 0.32
+      },
+      "status": "ready",
+      "color_role": "green",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 1678,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "HAZ-L01-01",
+      "sheet": "warning_strips",
+      "level": "Level01 Brassworks Intake",
+      "room": "Pressure lock",
+      "category": "warning label",
+      "text": "PRESSURE LOCKED",
+      "placement_intent": "Red-orange denial strip beside the first locked gate.",
+      "dimensions_m": {
+        "width": 1.2,
+        "height": 0.22
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 86,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "HAZ-L01-02",
+      "sheet": "warning_strips",
+      "level": "Level01 Brassworks Intake",
+      "room": "Steam vent room",
+      "category": "hazard label",
+      "text": "STEAM VENT",
+      "placement_intent": "Small warning strip near animated vent puffs.",
+      "dimensions_m": {
+        "width": 1.0,
+        "height": 0.22
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 86,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "HAZ-L01-03",
+      "sheet": "warning_strips",
+      "level": "Level01 Brassworks Intake",
+      "room": "Pressure gate threshold",
+      "category": "hazard label",
+      "text": "GATE CRUSH",
+      "placement_intent": "Floor/door-edge warning decal at the gate travel path.",
+      "dimensions_m": {
+        "width": 1.0,
+        "height": 0.2
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 86,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "HAZ-L02-01",
+      "sheet": "warning_strips",
+      "level": "Level02 Pipeworks Annex",
+      "room": "Pipeworks main",
+      "category": "hazard label",
+      "text": "HIGH PRESSURE MAIN",
+      "placement_intent": "Horizontal strip on the main pipe bundle.",
+      "dimensions_m": {
+        "width": 1.35,
+        "height": 0.22
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 484,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "HAZ-L02-02",
+      "sheet": "warning_strips",
+      "level": "Level02 Pipeworks Annex",
+      "room": "Baffle corridor",
+      "category": "hazard label",
+      "text": "PIPE BURST RISK",
+      "placement_intent": "Warning strip along the baffle corridor wall.",
+      "dimensions_m": {
+        "width": 1.2,
+        "height": 0.22
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 484,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "HAZ-L02-03",
+      "sheet": "warning_strips",
+      "level": "Level02 Pipeworks Annex",
+      "room": "North valve run",
+      "category": "warning label",
+      "text": "VALVE RUN LIVE",
+      "placement_intent": "Active-system warning beside the required valve.",
+      "dimensions_m": {
+        "width": 1.15,
+        "height": 0.22
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 484,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "HAZ-L03-01",
+      "sheet": "warning_strips",
+      "level": "Level03 Boilerheart Core",
+      "room": "Boilerheart furnace leak",
+      "category": "hazard label",
+      "text": "FURNACE LEAK",
+      "placement_intent": "Red-orange strip next to Boilerheart steam hazard.",
+      "dimensions_m": {
+        "width": 1.1,
+        "height": 0.22
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 882,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "HAZ-L03-02",
+      "sheet": "warning_strips",
+      "level": "Level03 Boilerheart Core",
+      "room": "Boilerheart core bleed",
+      "category": "hazard label",
+      "text": "CORE BLEED",
+      "placement_intent": "Hazard label beside the second linked steam hazard.",
+      "dimensions_m": {
+        "width": 1.0,
+        "height": 0.22
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 882,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "HAZ-L03-03",
+      "sheet": "warning_strips",
+      "level": "Level03 Boilerheart Core",
+      "room": "Bellows Node floor",
+      "category": "warning label",
+      "text": "PRESSURE PULSE",
+      "placement_intent": "Warning strip close to Bellows Node pulse range.",
+      "dimensions_m": {
+        "width": 1.2,
+        "height": 0.22
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 882,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "HAZ-L04-01",
+      "sheet": "warning_strips",
+      "level": "Level04 Furnace Foundry",
+      "room": "Furnace heat lane",
+      "category": "hazard label",
+      "text": "HEAT SURGE",
+      "placement_intent": "Warning strip at heat-surge lane entry.",
+      "dimensions_m": {
+        "width": 1.0,
+        "height": 0.22
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 1280,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "HAZ-L04-02",
+      "sheet": "warning_strips",
+      "level": "Level04 Furnace Foundry",
+      "room": "Pour lane",
+      "category": "hazard label",
+      "text": "POUR LANE HOT",
+      "placement_intent": "Floor or low wall strip along the active pour lane.",
+      "dimensions_m": {
+        "width": 1.15,
+        "height": 0.22
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 1280,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "HAZ-L04-03",
+      "sheet": "warning_strips",
+      "level": "Level04 Furnace Foundry",
+      "room": "Crucible steam bleed",
+      "category": "hazard label",
+      "text": "CRUCIBLE BLEED",
+      "placement_intent": "Warning strip near foundry steam leak.",
+      "dimensions_m": {
+        "width": 1.2,
+        "height": 0.22
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 1280,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "HAZ-L05-01",
+      "sheet": "warning_strips",
+      "level": "Level05 Governor Core",
+      "room": "Regulator leak",
+      "category": "hazard label",
+      "text": "REGULATOR LEAK",
+      "placement_intent": "Steam hazard label in the regulator lane.",
+      "dimensions_m": {
+        "width": 1.2,
+        "height": 0.22
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 1678,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "HAZ-L05-02",
+      "sheet": "warning_strips",
+      "level": "Level05 Governor Core",
+      "room": "Regulator surge floor",
+      "category": "hazard label",
+      "text": "SURGE FLOOR",
+      "placement_intent": "Floor strip for pulsing furnace-heat hazard.",
+      "dimensions_m": {
+        "width": 1.0,
+        "height": 0.22
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 1678,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "HAZ-L05-03",
+      "sheet": "warning_strips",
+      "level": "Level05 Governor Core",
+      "room": "Warden arena edge",
+      "category": "warning label",
+      "text": "WARDEN ACTIVE",
+      "placement_intent": "Red-orange encounter-state strip near the final lock.",
+      "dimensions_m": {
+        "width": 1.15,
+        "height": 0.22
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 1678,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "ARR-L01-01",
+      "sheet": "route_arrows",
+      "level": "Level01 Brassworks Intake",
+      "room": "Service entry",
+      "category": "route arrow",
+      "text": "TO KEY",
+      "placement_intent": "Amber floor/wall arrow toward gear-key plinth.",
+      "dimensions_m": {
+        "width": 0.85,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 86,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "ARR-L01-02",
+      "sheet": "route_arrows",
+      "level": "Level01 Brassworks Intake",
+      "room": "Repair bay return",
+      "category": "route arrow",
+      "text": "TO GATE",
+      "placement_intent": "Amber return arrow back to the pressure gate.",
+      "dimensions_m": {
+        "width": 0.85,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "left",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 86,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "ARR-L01-03",
+      "sheet": "route_arrows",
+      "level": "Level01 Brassworks Intake",
+      "room": "Furnace control exit",
+      "category": "route arrow",
+      "text": "TO LIFT",
+      "placement_intent": "Green arrow pointing to service lift.",
+      "dimensions_m": {
+        "width": 0.85,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "green",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 86,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "ARR-L02-01",
+      "sheet": "route_arrows",
+      "level": "Level02 Pipeworks Annex",
+      "room": "Pipeworks entry",
+      "category": "route arrow",
+      "text": "TO VALVE",
+      "placement_intent": "Amber arrow toward north routing valve.",
+      "dimensions_m": {
+        "width": 0.9,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "up",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 484,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "ARR-L02-02",
+      "sheet": "route_arrows",
+      "level": "Level02 Pipeworks Annex",
+      "room": "Valve return",
+      "category": "route arrow",
+      "text": "TO LIFT",
+      "placement_intent": "Green arrow returning to Boilerheart lift.",
+      "dimensions_m": {
+        "width": 0.85,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "green",
+      "direction": "down",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 484,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "ARR-L02-03",
+      "sheet": "route_arrows",
+      "level": "Level02 Pipeworks Annex",
+      "room": "Post-valve route",
+      "category": "route arrow",
+      "text": "GREEN SIGNAL",
+      "placement_intent": "Small green success arrow near restored lift signal.",
+      "dimensions_m": {
+        "width": 1.0,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "green",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 484,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "ARR-L03-01",
+      "sheet": "route_arrows",
+      "level": "Level03 Boilerheart Core",
+      "room": "Arrival floor",
+      "category": "route arrow",
+      "text": "TO VALVE",
+      "placement_intent": "Amber route arrow toward the pressure valve.",
+      "dimensions_m": {
+        "width": 0.9,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "up",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 882,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "ARR-L03-02",
+      "sheet": "route_arrows",
+      "level": "Level03 Boilerheart Core",
+      "room": "Scattergun display",
+      "category": "route arrow",
+      "text": "TO TOOL",
+      "placement_intent": "Amber local cue for Steam Scattergun pickup route.",
+      "dimensions_m": {
+        "width": 0.85,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 882,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "ARR-L03-03",
+      "sheet": "route_arrows",
+      "level": "Level03 Boilerheart Core",
+      "room": "Post-valve lift route",
+      "category": "route arrow",
+      "text": "TO FOUNDRY",
+      "placement_intent": "Green destination arrow after venting.",
+      "dimensions_m": {
+        "width": 1.0,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "green",
+      "direction": "up",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 882,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "ARR-L04-01",
+      "sheet": "route_arrows",
+      "level": "Level04 Furnace Foundry",
+      "room": "Arrival floor",
+      "category": "route arrow",
+      "text": "TO FURNACE",
+      "placement_intent": "Amber arrow toward the main foundry lane.",
+      "dimensions_m": {
+        "width": 1.0,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "up",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 1280,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "ARR-L04-02",
+      "sheet": "route_arrows",
+      "level": "Level04 Furnace Foundry",
+      "room": "Quench side bay",
+      "category": "route arrow",
+      "text": "TO QUENCH",
+      "placement_intent": "Amber side-route arrow for quench bay dressing.",
+      "dimensions_m": {
+        "width": 1.0,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 1280,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "ARR-L04-03",
+      "sheet": "route_arrows",
+      "level": "Level04 Furnace Foundry",
+      "room": "Final foundry lane",
+      "category": "route arrow",
+      "text": "TO HOIST",
+      "placement_intent": "Green arrow toward emergency hoist.",
+      "dimensions_m": {
+        "width": 0.9,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "green",
+      "direction": "up",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 1280,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "ARR-L05-01",
+      "sheet": "route_arrows",
+      "level": "Level05 Governor Core",
+      "room": "Arrival lane",
+      "category": "route arrow",
+      "text": "TO CORE",
+      "placement_intent": "Amber arrow into regulator ring.",
+      "dimensions_m": {
+        "width": 0.85,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "up",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 1678,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "ARR-L05-02",
+      "sheet": "route_arrows",
+      "level": "Level05 Governor Core",
+      "room": "Core return",
+      "category": "route arrow",
+      "text": "TO OVERRIDE",
+      "placement_intent": "Green arrow toward final hoist after Warden defeat.",
+      "dimensions_m": {
+        "width": 1.0,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "green",
+      "direction": "down",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 1678,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "ARR-L05-03",
+      "sheet": "route_arrows",
+      "level": "Level05 Governor Core",
+      "room": "Master hoist signal",
+      "category": "route arrow",
+      "text": "GREEN HOIST",
+      "placement_intent": "Success-state arrow near final lift signal.",
+      "dimensions_m": {
+        "width": 1.0,
+        "height": 0.3
+      },
+      "status": "ready",
+      "color_role": "green",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 1678,
+        "width": 581,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "MAC-L01-01",
+      "sheet": "stencil_labels",
+      "level": "Level01 Brassworks Intake",
+      "room": "Copper-pipe maintenance throat",
+      "category": "machinery label",
+      "text": "INTAKE PUMP 1",
+      "placement_intent": "Stencil on pump housing or nearby wall plate.",
+      "dimensions_m": {
+        "width": 0.9,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 86,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "MAC-L01-02",
+      "sheet": "stencil_labels",
+      "level": "Level01 Brassworks Intake",
+      "room": "Clockwork repair bay",
+      "category": "machinery label",
+      "text": "REPAIR BAY",
+      "placement_intent": "Small cream label over repair-bay entry.",
+      "dimensions_m": {
+        "width": 0.8,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 468,
+        "y": 86,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "MAC-L01-03",
+      "sheet": "stencil_labels",
+      "level": "Level01 Brassworks Intake",
+      "room": "Pressure gate",
+      "category": "machinery label",
+      "text": "GATE DRIVE",
+      "placement_intent": "Stencil on pressure-gate gear housing.",
+      "dimensions_m": {
+        "width": 0.8,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 866,
+        "y": 86,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "LOR-L01-01",
+      "sheet": "stencil_labels",
+      "level": "Level01 Brassworks Intake",
+      "room": "Pressure gate maintenance board",
+      "category": "work-order decal",
+      "text": "WO-01 CHECK GATE TEETH",
+      "placement_intent": "Short work order on a clipboard or enamel board.",
+      "dimensions_m": {
+        "width": 1.25,
+        "height": 0.2
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 1264,
+        "y": 86,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "LOR-L01-02",
+      "sheet": "stencil_labels",
+      "level": "Level01 Brassworks Intake",
+      "room": "Service entry wall",
+      "category": "lore decal",
+      "text": "LOG: INTAKE CREW MISSING",
+      "placement_intent": "Small archive-flavor decal near entry benches.",
+      "dimensions_m": {
+        "width": 1.3,
+        "height": 0.2
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 1662,
+        "y": 86,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "MAC-L02-01",
+      "sheet": "stencil_labels",
+      "level": "Level02 Pipeworks Annex",
+      "room": "Pipeworks main",
+      "category": "machinery label",
+      "text": "ANNEX MAIN FEED",
+      "placement_intent": "Stencil on the largest pipe run.",
+      "dimensions_m": {
+        "width": 1.05,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 484,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "MAC-L02-02",
+      "sheet": "stencil_labels",
+      "level": "Level02 Pipeworks Annex",
+      "room": "Baffle corridor",
+      "category": "machinery label",
+      "text": "BAFFLE CONTROL",
+      "placement_intent": "Label on baffle control housing.",
+      "dimensions_m": {
+        "width": 0.95,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 468,
+        "y": 484,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "MAC-L02-03",
+      "sheet": "stencil_labels",
+      "level": "Level02 Pipeworks Annex",
+      "room": "North valve run",
+      "category": "machinery label",
+      "text": "VALVE RUN 02",
+      "placement_intent": "Stencil next to pressure-routing valve.",
+      "dimensions_m": {
+        "width": 0.9,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 866,
+        "y": 484,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "LOR-L02-01",
+      "sheet": "stencil_labels",
+      "level": "Level02 Pipeworks Annex",
+      "room": "Cold pipe run",
+      "category": "work-order decal",
+      "text": "WO-02 PATCH COLD PIPE",
+      "placement_intent": "Short work order near the south-west pipe run.",
+      "dimensions_m": {
+        "width": 1.2,
+        "height": 0.2
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 1264,
+        "y": 484,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "LOR-L02-02",
+      "sheet": "stencil_labels",
+      "level": "Level02 Pipeworks Annex",
+      "room": "Annex checkpoint",
+      "category": "lore decal",
+      "text": "LOG: LANCERS SENT BELOW",
+      "placement_intent": "Small lore decal in first ranged-machine lane.",
+      "dimensions_m": {
+        "width": 1.25,
+        "height": 0.2
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 1662,
+        "y": 484,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "MAC-L03-01",
+      "sheet": "stencil_labels",
+      "level": "Level03 Boilerheart Core",
+      "room": "Furnace-core chamber",
+      "category": "machinery label",
+      "text": "BOILERHEART CORE",
+      "placement_intent": "Stencil around the furnace-core landmark.",
+      "dimensions_m": {
+        "width": 1.05,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 882,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "MAC-L03-02",
+      "sheet": "stencil_labels",
+      "level": "Level03 Boilerheart Core",
+      "room": "Bellows Node alcove",
+      "category": "machinery label",
+      "text": "BELLOWS NODE A",
+      "placement_intent": "Label on or near the support-machine prototype.",
+      "dimensions_m": {
+        "width": 1.0,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 468,
+        "y": 882,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "MAC-L03-03",
+      "sheet": "stencil_labels",
+      "level": "Level03 Boilerheart Core",
+      "room": "Gauge wall",
+      "category": "machinery label",
+      "text": "GAUGE BANK C",
+      "placement_intent": "Stencil over the gauge-bank dressing.",
+      "dimensions_m": {
+        "width": 0.9,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 866,
+        "y": 882,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "LOR-L03-01",
+      "sheet": "stencil_labels",
+      "level": "Level03 Boilerheart Core",
+      "room": "Foundry lift lock panel",
+      "category": "work-order decal",
+      "text": "WO-03 VENT BEFORE LIFT",
+      "placement_intent": "Maintenance note justifying the pressure-locked lift.",
+      "dimensions_m": {
+        "width": 1.25,
+        "height": 0.2
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 1264,
+        "y": 882,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "LOR-L03-02",
+      "sheet": "stencil_labels",
+      "level": "Level03 Boilerheart Core",
+      "room": "Core wall plaque cluster",
+      "category": "lore decal",
+      "text": "LOG: CORE BLEEDS FAST",
+      "placement_intent": "Short archive-flavor decal near the core.",
+      "dimensions_m": {
+        "width": 1.2,
+        "height": 0.2
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 1662,
+        "y": 882,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "MAC-L04-01",
+      "sheet": "stencil_labels",
+      "level": "Level04 Furnace Foundry",
+      "room": "Pour lane",
+      "category": "machinery label",
+      "text": "POUR LANE 4",
+      "placement_intent": "Stencil beside active furnace lane.",
+      "dimensions_m": {
+        "width": 0.85,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 1280,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "MAC-L04-02",
+      "sheet": "stencil_labels",
+      "level": "Level04 Furnace Foundry",
+      "room": "Quench side bay",
+      "category": "machinery label",
+      "text": "SLAG GUTTER",
+      "placement_intent": "Label on low gutter dressing.",
+      "dimensions_m": {
+        "width": 0.85,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 468,
+        "y": 1280,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "MAC-L04-03",
+      "sheet": "stencil_labels",
+      "level": "Level04 Furnace Foundry",
+      "room": "Bulwark pressure area",
+      "category": "machinery label",
+      "text": "HAMMER BAY",
+      "placement_intent": "Stencil near hammer/foundry machinery.",
+      "dimensions_m": {
+        "width": 0.85,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 866,
+        "y": 1280,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "LOR-L04-01",
+      "sheet": "stencil_labels",
+      "level": "Level04 Furnace Foundry",
+      "room": "Foundry maintenance board",
+      "category": "work-order decal",
+      "text": "WO-04 CLEAR SLAG GUTTER",
+      "placement_intent": "Short work order near slag and quench props.",
+      "dimensions_m": {
+        "width": 1.25,
+        "height": 0.2
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 1264,
+        "y": 1280,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "LOR-L04-02",
+      "sheet": "stencil_labels",
+      "level": "Level04 Furnace Foundry",
+      "room": "Coal cache vicinity",
+      "category": "lore decal",
+      "text": "LOG: COAL DOOR STICKS",
+      "placement_intent": "Flavor decal near coal-bin service area.",
+      "dimensions_m": {
+        "width": 1.2,
+        "height": 0.2
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 1662,
+        "y": 1280,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "MAC-L05-01",
+      "sheet": "stencil_labels",
+      "level": "Level05 Governor Core",
+      "room": "Regulator ring",
+      "category": "machinery label",
+      "text": "GOVERNOR CORE",
+      "placement_intent": "Stencil on regulator ring wall panels.",
+      "dimensions_m": {
+        "width": 1.0,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 1678,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "MAC-L05-02",
+      "sheet": "stencil_labels",
+      "level": "Level05 Governor Core",
+      "room": "Regulator machinery",
+      "category": "machinery label",
+      "text": "REGULATOR DRUM",
+      "placement_intent": "Label on drum/pylon dressing.",
+      "dimensions_m": {
+        "width": 1.0,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 468,
+        "y": 1678,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "MAC-L05-03",
+      "sheet": "stencil_labels",
+      "level": "Level05 Governor Core",
+      "room": "Warden lock panel",
+      "category": "machinery label",
+      "text": "WARDEN SEAL",
+      "placement_intent": "Small lock-state machinery label.",
+      "dimensions_m": {
+        "width": 0.9,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "danger",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 866,
+        "y": 1678,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "LOR-L05-01",
+      "sheet": "stencil_labels",
+      "level": "Level05 Governor Core",
+      "room": "Master hoist maintenance board",
+      "category": "work-order decal",
+      "text": "WO-05 HOLD MASTER HOIST",
+      "placement_intent": "Short work order beside final hoist controls.",
+      "dimensions_m": {
+        "width": 1.25,
+        "height": 0.2
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 1264,
+        "y": 1678,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "LOR-L05-02",
+      "sheet": "stencil_labels",
+      "level": "Level05 Governor Core",
+      "room": "Clerk alcove or archive plate",
+      "category": "lore decal",
+      "text": "LOG: WARDEN HEARS KEYS",
+      "placement_intent": "Short lore decal for the final lock mythology.",
+      "dimensions_m": {
+        "width": 1.25,
+        "height": 0.2
+      },
+      "status": "ready",
+      "color_role": "amber",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_StencilMachineryLore_2048.png",
+      "source_rect_px": {
+        "x": 1662,
+        "y": 1678,
+        "width": 316,
+        "height": 284
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "SEC-L01-01",
+      "sheet": "secret_marks",
+      "level": "Level01 Brassworks Intake",
+      "room": "Intake pressure cache approach",
+      "category": "secret hint",
+      "text": "WARM SEAM",
+      "placement_intent": "Worker chalk close to the warm service-panel edge.",
+      "dimensions_m": {
+        "width": 0.45,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "chalk",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 74,
+        "width": 581,
+        "height": 308
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "SEC-L01-02",
+      "sheet": "secret_marks",
+      "level": "Level01 Brassworks Intake",
+      "room": "Intake pressure cache panel",
+      "category": "secret hint",
+      "text": "THREE RIVETS OUT",
+      "placement_intent": "Chalk phrase below missing rivets clue.",
+      "dimensions_m": {
+        "width": 0.55,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "chalk",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 74,
+        "width": 581,
+        "height": 308
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "SEC-L01-03",
+      "sheet": "secret_marks",
+      "level": "Level01 Brassworks Intake",
+      "room": "Intake pressure cache recess",
+      "category": "secret hint",
+      "text": "SPARES BEHIND",
+      "placement_intent": "Low chalk note near optional resource cache.",
+      "dimensions_m": {
+        "width": 0.55,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "chalk",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 74,
+        "width": 581,
+        "height": 308
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "SEC-L02-01",
+      "sheet": "secret_marks",
+      "level": "Level02 Pipeworks Annex",
+      "room": "Pipeworks cartridge cache approach",
+      "category": "secret hint",
+      "text": "COLD PIPE",
+      "placement_intent": "Worker chalk beside cooler pipe color clue.",
+      "dimensions_m": {
+        "width": 0.45,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "chalk",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 472,
+        "width": 581,
+        "height": 308
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "SEC-L02-02",
+      "sheet": "secret_marks",
+      "level": "Level02 Pipeworks Annex",
+      "room": "Pipeworks cartridge cache recess",
+      "category": "secret hint",
+      "text": "BOLT SHADOWS",
+      "placement_intent": "Subtle chalk note near spare bolt marks.",
+      "dimensions_m": {
+        "width": 0.5,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "chalk",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 472,
+        "width": 581,
+        "height": 308
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "SEC-L02-03",
+      "sheet": "secret_marks",
+      "level": "Level02 Pipeworks Annex",
+      "room": "Pipeworks cartridge cache rack",
+      "category": "secret hint",
+      "text": "LOW RACK",
+      "placement_intent": "Chalk on floor trim near low pipe-rack cache.",
+      "dimensions_m": {
+        "width": 0.4,
+        "height": 0.16
+      },
+      "status": "ready",
+      "color_role": "chalk",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 472,
+        "width": 581,
+        "height": 308
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "SEC-L03-01",
+      "sheet": "secret_marks",
+      "level": "Level03 Boilerheart Core",
+      "room": "Optional gauge cache",
+      "category": "secret hint",
+      "text": "GAUGE LIES",
+      "placement_intent": "Rough optional clue for deferred gauge-cache route.",
+      "dimensions_m": {
+        "width": 0.45,
+        "height": 0.18
+      },
+      "status": "rough",
+      "color_role": "chalk",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 870,
+        "width": 581,
+        "height": 308
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "SEC-L03-02",
+      "sheet": "secret_marks",
+      "level": "Level03 Boilerheart Core",
+      "room": "Optional gauge cache",
+      "category": "secret hint",
+      "text": "SHUTTER DRAGS",
+      "placement_intent": "Rough optional clue for deferred gauge-shutter cache.",
+      "dimensions_m": {
+        "width": 0.5,
+        "height": 0.18
+      },
+      "status": "rough",
+      "color_role": "chalk",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 870,
+        "width": 581,
+        "height": 308
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "SEC-L03-03",
+      "sheet": "secret_marks",
+      "level": "Level03 Boilerheart Core",
+      "room": "Optional gauge cache",
+      "category": "secret hint",
+      "text": "NEEDLE STICKS",
+      "placement_intent": "Rough optional clue for deferred gauge-needle cache.",
+      "dimensions_m": {
+        "width": 0.5,
+        "height": 0.18
+      },
+      "status": "rough",
+      "color_role": "chalk",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 870,
+        "width": 581,
+        "height": 308
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "SEC-L04-01",
+      "sheet": "secret_marks",
+      "level": "Level04 Furnace Foundry",
+      "room": "Foundry coal cache approach",
+      "category": "secret hint",
+      "text": "COAL DOOR COOL",
+      "placement_intent": "Worker chalk beside cooler quench-pipe clue.",
+      "dimensions_m": {
+        "width": 0.55,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "chalk",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 1268,
+        "width": 581,
+        "height": 308
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "SEC-L04-02",
+      "sheet": "secret_marks",
+      "level": "Level04 Furnace Foundry",
+      "room": "Foundry coal cache floor",
+      "category": "secret hint",
+      "text": "BLACK BOOT MARK",
+      "placement_intent": "Chalk phrase near coal footprints.",
+      "dimensions_m": {
+        "width": 0.55,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "chalk",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 1268,
+        "width": 581,
+        "height": 308
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "SEC-L04-03",
+      "sheet": "secret_marks",
+      "level": "Level04 Furnace Foundry",
+      "room": "Foundry coal cache panel",
+      "category": "secret hint",
+      "text": "QUENCH HUSH",
+      "placement_intent": "Small service mark beside quiet quench pipe.",
+      "dimensions_m": {
+        "width": 0.5,
+        "height": 0.18
+      },
+      "status": "ready",
+      "color_role": "chalk",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 1268,
+        "width": 581,
+        "height": 308
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "SEC-L05-01",
+      "sheet": "secret_marks",
+      "level": "Level05 Governor Core",
+      "room": "Optional clerk void",
+      "category": "secret hint",
+      "text": "WRONG CLERK TAG",
+      "placement_intent": "Rough optional clue for deferred clerk-label secret.",
+      "dimensions_m": {
+        "width": 0.55,
+        "height": 0.18
+      },
+      "status": "rough",
+      "color_role": "chalk",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png",
+      "source_rect_px": {
+        "x": 70,
+        "y": 1666,
+        "width": 581,
+        "height": 308
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "SEC-L05-02",
+      "sheet": "secret_marks",
+      "level": "Level05 Governor Core",
+      "room": "Optional clerk void",
+      "category": "secret hint",
+      "text": "INDEX 5B",
+      "placement_intent": "Rough optional clue for deferred archive-index secret.",
+      "dimensions_m": {
+        "width": 0.4,
+        "height": 0.16
+      },
+      "status": "rough",
+      "color_role": "chalk",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png",
+      "source_rect_px": {
+        "x": 733,
+        "y": 1666,
+        "width": 581,
+        "height": 308
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    },
+    {
+      "id": "SEC-L05-03",
+      "sheet": "secret_marks",
+      "level": "Level05 Governor Core",
+      "room": "Optional clerk void",
+      "category": "secret hint",
+      "text": "NO STAMP",
+      "placement_intent": "Rough optional clue for deferred unapproved service panel.",
+      "dimensions_m": {
+        "width": 0.38,
+        "height": 0.16
+      },
+      "status": "rough",
+      "color_role": "chalk",
+      "direction": "right",
+      "sheet_file": "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_SecretServiceMarks_2048.png",
+      "source_rect_px": {
+        "x": 1396,
+        "y": 1666,
+        "width": 581,
+        "height": 308
+      },
+      "sheet_dimensions_px": {
+        "width": 2048,
+        "height": 2048
+      },
+      "import_group": "World decal atlas, sRGB color, alpha transparency"
+    }
+  ]
+}

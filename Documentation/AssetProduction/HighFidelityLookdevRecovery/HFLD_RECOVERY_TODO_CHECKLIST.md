@@ -6,7 +6,7 @@ Allowed output lanes: this folder, `Documentation/ConceptRenders/`, and optional
 
 ## Current Active Focus
 
-As of the follow-up direction, active recovery is narrowed to the pressure pistol only. Use `HFLD_PRESSURE_PISTOL_RECOVERY_CHECKLIST.md` and `HFLD_PRESSURE_PISTOL_ACCEPTANCE_GATES.md` for the next visual pass. Corridor and Scrapper recovery are paused until the gun reaches an acceptable visual direction.
+As of the follow-up direction, active recovery is narrowed to the pressure pistol only and must use Unity for test renders/lookdev. Use `HFLD_PRESSURE_PISTOL_RECOVERY_CHECKLIST.md`, `HFLD_PRESSURE_PISTOL_ACCEPTANCE_GATES.md`, and `UNITY_PRESSURE_PISTOL_RECOVERY04_BRIEF.md` for the next visual pass. Corridor and Scrapper recovery are paused until the gun reaches an acceptable visual direction.
 
 ## Recovery Principle
 
@@ -30,7 +30,7 @@ Batch01 is treated as a failed visual attempt, not a baseline to defend. The nex
 
 ## 2. Scene Setup
 
-- [ ] Create an isolated lookdev workspace only if the next pass is rendered in Unity:
+- [ ] Create an isolated lookdev workspace only if the Unity proof needs a saved scene:
   `Assets/_Project/ArtStaging/HighFidelityLookdevRecovery/Scenes/HFLD_Recovery_Lookdev.unity`.
 - [ ] Keep the recovery scene out of Build Settings and do not load or save `Assets/_Project/Scenes/Level*.unity` or `MainMenu.unity`.
 - [ ] Duplicate or generate recovery-only materials/assets under `Assets/_Project/ArtStaging/HighFidelityLookdevRecovery/`.
@@ -90,6 +90,6 @@ Batch01 is treated as a failed visual attempt, not a baseline to defend. The nex
 - [x] Gate 0: failed Batch01 acknowledged and documented.
 - [x] Gate 1: planning/reference breakdown exists in `Documentation/ConceptRenders/`.
 - [ ] Gate 2: density greybox screenshot passes counts before material polish begins.
-- [ ] Gate 3: material swatches pass PBR/roughness/edge-wear review before hero render.
-- [ ] Gate 4: first hero proof render passes objective checklist and human north-star comparison.
+- [ ] Gate 3: Unity material setup passes roughness/specular/edge-wear review before hero render.
+- [ ] Gate 4: Unity first hero proof render passes objective checklist and human north-star comparison.
 - [ ] Gate 5: only after Gate 4, decide whether to promote the Unity lookdev scene into a production art task.
