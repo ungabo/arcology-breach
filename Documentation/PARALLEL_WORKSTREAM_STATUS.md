@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-23 23:30 -04:00`
+Last updated: `2026-05-23 23:32 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -45,6 +45,7 @@ Current verified local build:
 | Locke | `019e5801-0e0c-7ab3-adca-12510a43e115` | V1 final material staging package | `Assets/_Project/ArtStaging/FinalMaterialsV1/`, `Documentation/AssetProduction/FinalMaterialsV1/` | `2026-05-23 23:26 -04:00` | running |
 | Lagrange | `019e5801-0e76-7f92-bff6-5aa46c5fb8b2` | V1 HUD/UI art staging package | `Assets/_Project/ArtStaging/UIHudV1/`, `Documentation/AssetProduction/UIHudV1/` | `2026-05-23 23:26 -04:00` | running |
 | Parfit | `019e5801-0ee0-71b3-bfba-3b8df1d41e70` | V1 audio production/staging lane | `Assets/_Project/ArtStaging/AudioV1/`, `Documentation/AssetProduction/AudioV1/` | `2026-05-23 23:26 -04:00` | running |
+| Singer | `019e5805-3d47-70c2-b58b-e556a173f473` | Render/toolchain unblock for Blender pressure-pistol Recovery04 proof | `Documentation/AssetProduction/HighFidelityLookdevRecovery/RENDER_TOOLCHAIN_UNBLOCK_PLAN.md`, `BLENDER_PRESSURE_PISTOL_RECOVERY04_BRIEF.md`, `PressurePistolProof/blender_pressure_pistol_recovery04_scene.py` | `2026-05-23 23:32 -04:00` | running |
 
 ## Completed Side-Agent Outputs
 
@@ -79,6 +80,7 @@ Current verified local build:
 | Locke | `2026-05-23 23:26 -04:00` | `Assets/_Project/ArtStaging/FinalMaterialsV1/`, `Documentation/AssetProduction/FinalMaterialsV1/` | Running final-direction material staging for later review/import. |
 | Lagrange | `2026-05-23 23:26 -04:00` | `Assets/_Project/ArtStaging/UIHudV1/`, `Documentation/AssetProduction/UIHudV1/` | Running V1 HUD/UI asset kit staging. |
 | Parfit | `2026-05-23 23:26 -04:00` | `Assets/_Project/ArtStaging/AudioV1/`, `Documentation/AssetProduction/AudioV1/` | Running V1 audio staging/specification. |
+| Singer | `2026-05-23 23:32 -04:00` | `Documentation/AssetProduction/HighFidelityLookdevRecovery/` | Running render-toolchain unblock work and a Blender-ready Recovery04 pressure-pistol proof script. |
 
 ## Integration Rules
 
