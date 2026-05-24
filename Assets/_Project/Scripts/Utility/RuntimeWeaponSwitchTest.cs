@@ -22,6 +22,7 @@ public class RuntimeWeaponSwitchTest : MonoBehaviour
         WeaponController weapon = Require<WeaponController>("WeaponController");
         SteamworksAudio audio = Require<SteamworksAudio>("SteamworksAudio");
         EnemyController target = FindCombatTarget();
+        Pickup weaponPickup = FindWeaponPickup();
 
         if (weapon.steamScattergunDefinition == null)
         {
@@ -37,7 +38,7 @@ public class RuntimeWeaponSwitchTest : MonoBehaviour
 
         DisableExtraEnemies(target);
         DisableRangedEnemies();
-        PlaceCombatActors(player, target);
+        DisableSupportEnemies();
         target.enabled = false;
 
         if (weapon.HasSteamScattergun)
@@ -46,10 +47,17 @@ public class RuntimeWeaponSwitchTest : MonoBehaviour
             yield break;
         }
 
-        weapon.UnlockSteamScattergun(switchToWeapon: true, showMessage: false);
-        if (!weapon.HasSteamScattergun || !weapon.IsUsingSteamScattergun || weapon.ActiveWeaponName != "Steam Scattergun")
+        Teleport(player, weaponPickup.transform.position);
+        yield return WaitUntilOrFail(() => inventory.HasSteamScattergun && weapon.HasSteamScattergun && weapon.IsUsingSteamScattergun && weapon.ActiveWeaponName == "Steam Scattergun", "Steam Scattergun pickup unlock", 2f);
+        if (failed)
         {
-            Fail("Weapon switch smoke failed: Steam Scattergun did not unlock and equip.");
+            yield break;
+        }
+
+        WeaponPickupVfx pickupVfx = UnityEngine.Object.FindAnyObjectByType<WeaponPickupVfx>();
+        if (pickupVfx == null || pickupVfx.PieceCount < 10)
+        {
+            Fail("Weapon switch smoke failed: Steam Scattergun pickup VFX did not spawn with enough visible pieces.");
             yield break;
         }
 
@@ -58,6 +66,9 @@ public class RuntimeWeaponSwitchTest : MonoBehaviour
             Fail("Weapon switch smoke failed: Steam Scattergun viewmodel did not become active.");
             yield break;
         }
+
+        PlaceCombatActors(player, target);
+        target.enabled = false;
 
         int startingAmmo = inventory.Ammo;
         if (!weapon.FireOnce())
@@ -113,6 +124,20 @@ public class RuntimeWeaponSwitchTest : MonoBehaviour
         return enemies[0];
     }
 
+    private static Pickup FindWeaponPickup()
+    {
+        Pickup[] pickups = UnityEngine.Object.FindObjectsByType<Pickup>(FindObjectsSortMode.None);
+        foreach (Pickup pickup in pickups)
+        {
+            if (pickup.kind == PickupKind.Weapon)
+            {
+                return pickup;
+            }
+        }
+
+        throw new InvalidOperationException("Weapon switch smoke failed: missing weapon pickup.");
+    }
+
     private static void DisableExtraEnemies(EnemyController target)
     {
         EnemyController[] enemies = UnityEngine.Object.FindObjectsByType<EnemyController>(FindObjectsSortMode.None);
@@ -132,6 +157,30 @@ public class RuntimeWeaponSwitchTest : MonoBehaviour
         {
             enemy.gameObject.SetActive(false);
         }
+    }
+
+    private static void DisableSupportEnemies()
+    {
+        BellowsNodeController[] nodes = UnityEngine.Object.FindObjectsByType<BellowsNodeController>(FindObjectsSortMode.None);
+        foreach (BellowsNodeController node in nodes)
+        {
+            node.gameObject.SetActive(false);
+        }
+    }
+
+    private static void Teleport(PlayerController player, Vector3 position)
+    {
+        CharacterController playerController = player.GetComponent<CharacterController>();
+        SetControllerEnabled(playerController, false);
+
+        player.transform.position = position;
+        player.transform.rotation = Quaternion.identity;
+        if (player.playerCamera != null)
+        {
+            player.playerCamera.localRotation = Quaternion.identity;
+        }
+
+        SetControllerEnabled(playerController, true);
     }
 
     private static void PlaceCombatActors(PlayerController player, EnemyController target)

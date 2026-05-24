@@ -81,6 +81,10 @@ public class Pickup : MonoBehaviour
         {
             GearKeyPickupVfx.Spawn(transform.position + Vector3.up * 0.25f);
         }
+        else if (kind == PickupKind.Weapon)
+        {
+            WeaponPickupVfx.Spawn(transform.position + Vector3.up * 0.24f);
+        }
         else
         {
             ResourcePickupVfx.Spawn(transform.position + Vector3.up * 0.2f, kind);

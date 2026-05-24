@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.81`.
+Current state: `v0.0.82`.
 
 Implemented:
 
@@ -81,7 +81,7 @@ Implemented:
 - Pipeworks cartridge-cache secret, bringing the current registered secret total to three.
 - Procedural brassworks ambience loop through `SteamworksAudio`, with level validation and runtime smoke coverage.
 - Pressure Pistol right-mouse `Pressure Burst` alternate fire, with ammo-cost/cooldown/spread values, level validation, and combat-scenario smoke coverage.
-- Steam Scattergun prototype with data-driven definition, Boilerheart pickup, persisted unlock state, `1`/`2` weapon switching, pellet fire, and packaged weapon-switch smoke coverage.
+- Steam Scattergun prototype with data-driven definition, Boilerheart pickup, persisted unlock state, `1`/`2` weapon switching, pellet fire, real Level03 world-pickup smoke coverage, and dedicated weapon-pickup VFX.
 - Distinct first-person Steam Scattergun viewmodel with runtime weapon-view swapping and smoke coverage.
 - Dedicated Steam Scattergun blast VFX with pressure ring, steam core, brass sparks, and smoke coverage.
 - Dedicated Steam Scattergun procedural fire audio cue with runtime and weapon-switch smoke coverage.
@@ -164,11 +164,12 @@ Current:
 - Separate first-person viewmodels for the Pressure Pistol and Steam Scattergun.
 - Dedicated Steam Scattergun blast VFX for close-range weapon readability.
 - Dedicated Steam Scattergun fire audio cue distinct from the Pressure Pistol.
+- Dedicated Steam Scattergun world-pickup acquisition VFX and smoke coverage through the real Level03 pickup route.
 
 Future:
 
 - Final brass-and-walnut `Pressure Pistol` polish and alternate-fire animation/audio treatment.
-- Final Steam Scattergun viewmodel, pickup art, animation, audio, and balance polish.
+- Final Steam Scattergun viewmodel, pickup art, pickup sound, animation, audio, and balance polish.
 - Arc-valve rifle or rivet launcher.
 - Data-driven weapon definitions.
 

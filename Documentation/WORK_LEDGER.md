@@ -91,6 +91,7 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 | ENEMY-006B | Add Bellows Node pressure boost | code/test | P1 | verified | v0.0.79 | Bellows Node pulses boost nearby Scrappers and V0_BELLOWS_NODE_PASS verifies the boost. |
 | VFX-016 | Add pressure boost state VFX | vfx/code/test | P1 | verified | v0.0.80 | Boosted Scrappers show animated brass/steam overdrive VFX and Bellows Node smoke verifies the visible state. |
 | AUD-014 | Add Bellows Node pulse audio | audio/code/test | P1 | verified | v0.0.81 | Bellows Node pulses use a dedicated procedural spatial cue verified by runtime and Bellows Node smoke. |
+| VFX-017 | Add weapon pickup VFX | vfx/code/test | P1 | verified | v0.0.82 | Steam Scattergun world pickup spawns dedicated acquisition VFX and weapon-switch smoke verifies the real pickup route. |
 
 ## Ready Next
 
@@ -225,3 +226,4 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 - `2026-05-23`: `v0.0.79` Bellows Node pressure-boost build created at `Builds/Windows/v0.0.79/BrassworksBreach_v0.0.79.exe` and passed the complete V0 matrix, including nearby Scrapper pressure-boost smoke coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.80` pressure-boost VFX build created at `Builds/Windows/v0.0.80/BrassworksBreach_v0.0.80.exe` and passed the complete V0 matrix, including visible Scrapper boost-state VFX coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.81` Bellows Node pulse-audio build created at `Builds/Windows/v0.0.81/BrassworksBreach_v0.0.81.exe` and passed the complete V0 matrix, including dedicated spatial support-cue coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.82` Steam Scattergun pickup-feedback build created at `Builds/Windows/v0.0.82/BrassworksBreach_v0.0.82.exe` and passed the complete V0 matrix, including real Level03 weapon-pickup acquisition and weapon-pickup VFX coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.

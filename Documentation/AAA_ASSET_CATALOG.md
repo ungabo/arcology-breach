@@ -80,9 +80,9 @@ Every major asset should eventually have three quality targets:
 | --- | --- | --- | --- | --- |
 | WPN-001 | Pressure Pistol prototype | P0 | prototype | Primitive first-person brass-and-walnut pneumatic sidearm with receiver, pressure tube, gauge, valve, trigger, and side pipes. |
 | WPN-002 | Pressure Pistol final | P1 | verified | Procedural brass-and-walnut pneumatic sidearm with pressure tank, muzzle crown, sights, vent, valve, gauge, pipes, rivets, recoil/flash feedback, right-mouse Pressure Burst alternate fire, and data-driven definition asset. |
-| WPN-003 | Steam Scattergun | P1 | prototype | Close-range breaching weapon prototype with data-driven pellet fire, slug alternate fire, Boilerheart pickup visual, distinct first-person triple-barrel viewmodel, dedicated blast VFX, dedicated procedural fire audio, unlock persistence, and weapon-switch smoke coverage. Final animation and balance polish remain planned. |
+| WPN-003 | Steam Scattergun | P1 | prototype | Close-range breaching weapon prototype with data-driven pellet fire, slug alternate fire, Boilerheart pickup visual, distinct first-person triple-barrel viewmodel, dedicated blast VFX, dedicated procedural fire audio, dedicated pickup VFX, unlock persistence, and real world-pickup weapon-switch smoke coverage. Final animation and balance polish remain planned. |
 | WPN-004 | Rivet Launcher | P2 | planned | Mechanical precision weapon for stronger machines. |
-| WPN-005 | Weapon pickup shells | P2 | planned | World pickup visuals for weapons. |
+| WPN-005 | Weapon pickup shells | P2 | prototype | World pickup visuals for weapons; Steam Scattergun acquisition now spawns `WeaponPickupVfx` with brass shell pieces, steam core, and pressure ring. |
 | WPN-006 | Ammo family | P1 | prototype | Pressure cartridge pack exists with data-driven pickup definition; rivet bundles and boiler caps remain planned. |
 | WPN-007 | Pressure Burst alternate fire | P1 | verified | Short-range deterministic pellet burst using three cartridges, separate cooldown/range/spread tuning, and combat-scenario smoke coverage. Final pass should add dedicated pressure dump animation, muzzle steam, and audio. |
 
@@ -136,6 +136,7 @@ Every major asset should eventually have three quality targets:
 | VFX-014 | Scattergun pressure blast | P1 | prototype | `ScattergunBlastVfx` adds a close-range pressure ring, steam core, and brass/warning spark cone to Steam Scattergun fire, verified by weapon-switch smoke. |
 | VFX-015 | Bellows Node pulse | P1 | prototype | `BellowsNodePulseVfx` adds a radial steam/brass pressure burst to the Bellows Node pulse attack, verified by Bellows Node smoke. |
 | VFX-016 | Pressure boost state | P1 | prototype | `PressureBoostVfx` adds an animated brass/steam overdrive ring and vent spokes to Scrappers while Bellows Node boost is active, verified by Bellows Node smoke. |
+| VFX-017 | Weapon pickup burst | P1 | prototype | `WeaponPickupVfx` adds a brass/steam weapon-acquisition ring, core, globe, and shell burst for weapon pickups; the Steam Scattergun world pickup route is verified by weapon-switch smoke. |
 
 ## 8. Audio
 

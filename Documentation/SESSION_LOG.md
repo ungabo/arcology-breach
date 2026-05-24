@@ -2558,3 +2558,42 @@ Build executable:
 `Builds/Windows/v0.0.81/BrassworksBreach_v0.0.81.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 20:55 -04:00
+
+Completed `v0.0.82` Steam Scattergun pickup feedback pass.
+
+Added:
+
+- `WeaponPickupVfx` procedural brass/steam weapon acquisition burst.
+- Weapon pickups now use dedicated weapon-acquisition feedback instead of the generic resource pickup VFX.
+- Weapon-switch smoke now routes to Level03 and acquires the Steam Scattergun through the real world pickup.
+- `RuntimeWeaponSwitchTest` verifies real pickup unlock, immediate equip, active weapon identity, weapon-pickup VFX visibility, fire audio, blast VFX, close-range kill, and Pressure Pistol re-equip.
+- Versioned Windows build `v0.0.82`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.82/BrassworksBreach_v0.0.82.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

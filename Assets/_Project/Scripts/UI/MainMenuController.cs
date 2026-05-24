@@ -78,6 +78,13 @@ public class MainMenuController : MonoBehaviour
             return;
         }
 
+        if (HasArgument("-v0WeaponSwitchSmoke"))
+        {
+            RunProgress.Reset();
+            SceneManager.LoadScene("Level03");
+            return;
+        }
+
         if (HasArgument("-v0BulwarkCombatSmoke"))
         {
             RunProgress.Reset();
