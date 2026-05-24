@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-23 22:45 -04:00`
+Last updated: `2026-05-23 23:11 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -17,8 +17,8 @@ Current focus:
 
 Current verified local build:
 
-- `v0.0.91`
-- Build path: `Builds/Windows/v0.0.91/BrassworksBreach_v0.0.91.exe`
+- `v0.0.92`
+- Build path: `Builds/Windows/v0.0.92/BrassworksBreach_v0.0.92.exe`
 - Matrix result: `V0_BUILD_MATRIX_PASS`
 
 ## Active Side Agents
@@ -37,6 +37,8 @@ Current verified local build:
 | Rawls | `019e57ad-3c85-71f3-b860-9187f4e58b2e` | Staged weapon and gameplay prop meshes | `Assets/_Project/ArtStaging/WeaponsProps/`, `Documentation/AssetProduction/WeaponsProps/` | `2026-05-23 21:49 -04:00` | completed |
 | Linnaeus | `019e57ad-64ad-73c3-94e0-eb3c6980117e` | Staged mechanical enemy blockout meshes | `Assets/_Project/ArtStaging/Enemies/`, `Documentation/AssetProduction/Enemies/` | `2026-05-23 21:49 -04:00` | completed |
 | Hooke | `019e57ae-0c70-74e2-9627-20c741592f05` | View-only object and room concept renders | `Documentation/ConceptRenders/` | `2026-05-23 21:50 -04:00` | completed |
+| Dalton | `019e57e7-b975-7560-9ec0-afc1c4069dac` | High-fidelity lookdev recovery and pressure-pistol-only proof planning | `Documentation/AssetProduction/HighFidelityLookdevRecovery/`, `Documentation/ConceptRenders/` | `2026-05-23 22:57 -04:00` | completed current planning pass |
+| Lorentz | `019e57e8-101a-77a2-8342-bf29fdfd7dff` | Main build continuation for pressure-bolt impact feedback | gameplay scripts, generated scenes, build output | `2026-05-23 22:57 -04:00` | completed and ready for main integration |
 
 ## Completed Side-Agent Outputs
 
@@ -56,12 +58,15 @@ Current verified local build:
 | Poincare | `2026-05-23 22:11 -04:00` | `Assets/_Project/ArtStaging/ModularKit/`, `Documentation/AssetProduction/ModularKit/` | Created first modular corridor kit with 12 OBJ meshes, 8 base-color texture PNGs, material library, manifests, previews, and contact sheet. |
 | Hooke | `2026-05-23 22:29 -04:00` | `Documentation/ConceptRenders/` | Added batch 02 staged room/object JPGs for modular corridor, pressure-gate control alcove, enemy lineup, weapon/prop lineup, and a combined contact sheet. |
 | Curie | `2026-05-23 22:43 -04:00` | `Documentation/AssetProduction/HighFidelityLookdev/`, `Assets/_Project/ArtStaging/HighFidelityLookdev/`, `Documentation/ConceptRenders/` | Created the first high-fidelity north-star lookdev package: standards/brief docs, OBJ blockouts for corridor/door, pressure pistol, and Scrapper-like monster, material swatches, manifest, and non-shipping JPG renders. Best first file: `Documentation/ConceptRenders/CONTACTSHEET_LOOKDEV_HFLD_Batch01_nonshipping.jpg`. |
+| Dalton | `2026-05-23 23:04 -04:00` | `Documentation/AssetProduction/HighFidelityLookdevRecovery/`, `Documentation/ConceptRenders/` | Marked Batch01 as visually rejected, created recovery rubrics/failure diagnosis, then narrowed the active proof target to the pressure pistol only with objective acceptance gates and planning/reference JPGs. |
+| Lorentz | `2026-05-23 23:02 -04:00` | `Assets/_Project/Scripts/Enemies/PressureBolt.cs`, `Assets/_Project/Scripts/Utility/PressureBoltImpactVfx.cs`, `RuntimeRangedCombatTest.cs`, generated scenes, `v0.0.92` build | Added swept pressure-bolt impact resolution, dedicated impact VFX, ranged-combat verification, and produced a full-matrix-passing Windows build. |
 
 ## Active Reassigned Work
 
 | Agent | Reassigned | Output Scope | Target |
 | --- | ---:| --- | --- |
-| Curie | `2026-05-23 22:33 -04:00` | `Documentation/AssetProduction/HighFidelityLookdev/`, `Documentation/ConceptRenders/`, `Assets/_Project/ArtStaging/HighFidelityLookdev/` | Completed Batch01 static material/model lookdev toward the north-star image: realistic wet dark stone, riveted bronze/iron corridor and pressure door, chunky pressure pistol, and Scrapper-like mechanical monster. Rigging and gameplay integration are deferred. |
+| Curie | `2026-05-23 22:33 -04:00` | `Documentation/AssetProduction/HighFidelityLookdev/`, `Documentation/ConceptRenders/`, `Assets/_Project/ArtStaging/HighFidelityLookdev/` | Completed Batch01 static material/model lookdev; user review rejected it as not matching the north-star concept art, so it remains reference/failure analysis only. Rigging and gameplay integration are deferred. |
+| Dalton | `2026-05-23 23:04 -04:00` | `Documentation/AssetProduction/HighFidelityLookdevRecovery/`, `Documentation/ConceptRenders/` | Completed the current recovery-planning pass. Next useful side-agent task is a real pressure-pistol proof render/model-material pass, still view-only and outside the Unity build. |
 
 ## Integration Rules
 

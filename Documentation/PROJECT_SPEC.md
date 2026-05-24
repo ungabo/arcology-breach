@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.91`.
+Current state: `v0.0.92`.
 
 Implemented:
 
@@ -75,6 +75,7 @@ Implemented:
 - `FurnaceHeatHazardVfx` animated phase signals and active heat ripples on generated furnace heat hazards, with validation and hazard smoke coverage.
 - `MachineMotionVfx` procedural enemy body, limb, and pressure-part animation for Scrappers, Lancers, Bulwarks, and the Governor Warden, with validation and runtime smoke coverage.
 - `PressureBoltVfx` glow/trail/spark projectile readability for Lancer and Governor Warden pressure bolts, with ranged-combat smoke coverage.
+- `PressureBoltImpactVfx` pressure flash/ring/steam/brass-shard impact feedback when pressure bolts hit the player or world, with ranged-combat smoke coverage.
 - `ImpactDecalVfx` pressure-pistol impact decal and spark feedback, with combat-scenario smoke coverage.
 - `PlayerDamageVfx` first-person pressure/heat/brass hurt burst on player damage, with combat-edge smoke coverage.
 - `LorePlaque` archive plaques placed in every current gameplay level, with level validation and interaction smoke coverage.
@@ -96,6 +97,7 @@ Implemented:
 - Scrapper deaths now use a dedicated shutdown style with pressure ring, steam puffs, brass sparks, cutter shards, flywheel gears, valve wheel, pressure tank burst, and furnace flash, verified by combat smoke.
 - Lancer ranged attacks now have a clearer pre-shot warning state with muzzle charge ring, pressure needle, coil bloom, furnace-lens flare, steam puffs, brass sparks, and a dedicated `LancerFireTell` audio cue, verified by runtime and ranged-combat smoke.
 - First high-fidelity north-star lookdev package is present under `Assets/_Project/ArtStaging/HighFidelityLookdev/`, with standards/briefs under `Documentation/AssetProduction/HighFidelityLookdev/` and non-shipping review renders under `Documentation/ConceptRenders/`.
+- The high-fidelity lookdev lane has been reset after visual rejection of Batch01; active recovery is narrowed to the Pressure Pistol only, with acceptance gates under `Documentation/AssetProduction/HighFidelityLookdevRecovery/`.
 
 ## 3. Target Platform
 

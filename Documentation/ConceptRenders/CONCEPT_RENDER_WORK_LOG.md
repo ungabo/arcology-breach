@@ -75,3 +75,19 @@
   - `RENDER_LOOKDEV_HFLD_Batch01_scrapper_monster_nonshipping.jpg`
 - Source/staging assets and standards live under `Assets/_Project/ArtStaging/HighFidelityLookdev/` and `Documentation/AssetProduction/HighFidelityLookdev/`.
 - These JPGs are lookdev/reference only and are not final shipping art.
+
+## 2026-05-23 22:59:19 -04:00
+
+- Batch01 high-fidelity lookdev was rejected by user review as not matching the north-star concept art.
+- Dalton started recovery by creating a failure diagnosis, recovery rubric, render production plan, and reference-breakdown planning sheet.
+- Added planning/reference JPG:
+  - `CONTACTSHEET_HFLD_Recovery01_reference_breakdown_planning.jpg`
+- This is not a success render; it is a target-analysis document for the next proof attempt.
+
+## 2026-05-23 23:04:20 -04:00
+
+- Recovery scope was narrowed to the pressure pistol only so the next side-agent art pass has one clear target.
+- Added pressure-pistol-only checklist, acceptance gates, and target-breakdown planning sheet.
+- Added planning/reference JPG:
+  - `CONTACTSHEET_HFLD_Recovery02_pressure_pistol_target_breakdown_planning.jpg`
+- Open proof work remains: credible pistol model/material render, measured silhouette comparison, 60+ fastener proof, 6+ coil turns, material-slot proof, PBR validation, and lighting validation.

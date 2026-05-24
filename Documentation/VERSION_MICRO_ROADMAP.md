@@ -37,7 +37,7 @@ The roadmap is a living plan, not a promise that every version number is immutab
 | v0.0.89 | Scrapper attack readability pass | Completed: Scrapper melee windup now has dedicated warning VFX/audio and smoke coverage before damage lands. | Full V0 matrix passed; combat-edge smoke verifies tell before player damage. |
 | v0.0.90 | Scrapper shutdown polish | Completed: Scrapper death now uses a richer shutdown variant with brass/steam sparks, cutter shards, flywheel gears, valve wheel, pressure-tank burst, and furnace flash. | Full V0 matrix passed; combat smoke verifies Scrapper-specific shutdown detail. |
 | v0.0.91 | Lancer firing tell pass | Completed: Lancer pressure-bolt windup now has dedicated muzzle/coil/lens VFX and a procedural valve-charge audio cue. | Full V0 matrix passed; ranged-combat smoke verifies tell before pressure-bolt VFX/damage. |
-| v0.0.92 | Lancer projectile impact feedback | Add distinct pressure-bolt impact feedback on player/world collision. | Full V0 matrix; ranged-combat and combat-edge smoke. |
+| v0.0.92 | Lancer projectile impact feedback | Completed: Pressure bolts now spawn dedicated pressure/steam/brass impact VFX on player/world hit. | Full V0 matrix passed; ranged-combat smoke verifies impact VFX when damage lands. |
 | v0.0.93 | Bulwark attack readability pass | Improve heavy enemy hammer/windup threat cues. | Full V0 matrix; Bulwark combat smoke. |
 | v0.0.94 | Bulwark shutdown polish | Add heavier furnace/boiler death feedback to distinguish it from smaller machines. | Full V0 matrix; Bulwark combat smoke. |
 | v0.0.95 | Bellows Node encounter readability | Add stronger spatial/visual cues around the support-machine role and boost radius. | Full V0 matrix; Bellows Node smoke. |

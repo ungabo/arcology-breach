@@ -123,6 +123,7 @@ Every major asset should eventually have three quality targets:
 | --- | --- | --- | --- | --- |
 | RENDER-001 | Concept render lane | P1 | review | `Documentation/ConceptRenders/` contains mockup and staged-asset JPG contact sheets for objects, room mood, staged PBR materials, enemy blockouts, modular corridor/pressure-gate alcove composites, and weapon/prop blockouts. These are user-review files outside Unity build assets. |
 | RENDER-002 | High-fidelity north-star lookdev renders | P1 | review | `Documentation/ConceptRenders/CONTACTSHEET_LOOKDEV_HFLD_Batch01_nonshipping.jpg` and companion JPGs show Curie's first static lookdev pass for corridor/pressure door, pressure pistol, and Scrapper-like monster assets. |
+| RENDER-003 | High-fidelity lookdev recovery | P1 | active | Batch01 was rejected visually. Current accepted work is planning/reference only: Dalton's recovery checklist, acceptance rubric, failure diagnosis, and pressure-pistol-only target breakdown sheets under `Documentation/AssetProduction/HighFidelityLookdevRecovery/` and `Documentation/ConceptRenders/`. Real proof renders remain required. |
 
 ## 7. VFX
 
@@ -143,6 +144,7 @@ Every major asset should eventually have three quality targets:
 | VFX-009 | Steam hazard field | P2 | prototype | `SteamHazardVfx` animates low/high steam puffs on generated steam hazards; final pass should add denser particles, sound sync, and wind direction. |
 | VFX-010 | Furnace heat field | P2 | prototype | `FurnaceHeatHazardVfx` pulses phase signals and animates active heat ripples on generated furnace hazards; final pass should add heat shimmer particles, distortion, and furnace audio sync. |
 | VFX-011 | Pressure-bolt projectile trail | P1 | prototype | `PressureBoltVfx` adds core glow, trailing pressure puffs, and side sparks to Lancer and Governor Warden pressure bolts. |
+| VFX-011B | Pressure-bolt impact burst | P1 | prototype | `PressureBoltImpactVfx` adds a short pressure flash, brass/pressure rings, steam pop, and shard burst when pressure bolts hit the player or world; ranged-combat smoke verifies the effect when Lancer damage lands. |
 | VFX-012 | Pressure-pistol impact decal | P1 | prototype | `ImpactDecalVfx` adds a scorch disc, brass impact plate, and short spark burst to pressure-pistol raycast hits. |
 | VFX-013 | Player damage burst | P1 | prototype | `PlayerDamageVfx` adds first-person pressure slashes, heat edges, and brass sparks on player damage. |
 | VFX-014 | Scattergun pressure blast | P1 | prototype | `ScattergunBlastVfx` adds a close-range pressure ring, steam core, and brass/warning spark cone to Steam Scattergun fire, verified by weapon-switch smoke. |

@@ -67,7 +67,7 @@ public class RuntimeRangedCombatTest : MonoBehaviour
             yield break;
         }
 
-        yield return WaitUntilOrFail(() => health.CurrentHealth < startingHealth, "Lancer pressure bolt damage", 5f);
+        yield return WaitUntilOrFail(() => health.CurrentHealth < startingHealth && HasPressureBoltImpactVfx(), "Lancer pressure bolt damage and impact VFX", 5f);
         if (failed)
         {
             yield break;
@@ -81,6 +81,12 @@ public class RuntimeRangedCombatTest : MonoBehaviour
     {
         PressureBoltVfx boltVfx = UnityEngine.Object.FindAnyObjectByType<PressureBoltVfx>();
         return boltVfx != null && boltVfx.VisiblePieceCount >= 5;
+    }
+
+    private static bool HasPressureBoltImpactVfx()
+    {
+        PressureBoltImpactVfx impactVfx = UnityEngine.Object.FindAnyObjectByType<PressureBoltImpactVfx>();
+        return impactVfx != null && impactVfx.PieceCount >= 12;
     }
 
     private static bool HasActiveLancerFireTell(RangedEnemyController lancer)

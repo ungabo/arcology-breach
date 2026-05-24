@@ -1332,6 +1332,18 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.92 Pressure-Bolt Impact Feedback Pass
+
+- [x] Add swept pressure-bolt collision checks so fast bolts reliably resolve player/world hits.
+- [x] Add `PressureBoltImpactVfx` with pressure flash, brass/pressure rings, steam pop, and shard burst.
+- [x] Route player and world pressure-bolt impacts through the new impact effect before bolt destruction.
+- [x] Expand ranged-combat smoke so Lancer damage requires visible pressure-bolt impact VFX.
+- [x] Integrate high-fidelity lookdev recovery docs after Batch01 visual rejection.
+- [x] Narrow the active parallel lookdev lane to pressure-pistol-only proof work.
+- [x] Build `v0.0.92` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
