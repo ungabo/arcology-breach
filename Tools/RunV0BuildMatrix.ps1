@@ -4,7 +4,8 @@ param(
     [string]$LogPrefix = "",
     [switch]$SkipSceneRebuild,
     [switch]$SkipPackage,
-    [switch]$SkipQAPacket
+    [switch]$SkipQAPacket,
+    [switch]$SkipCandidateReadiness
 )
 
 Set-StrictMode -Version Latest
@@ -220,6 +221,16 @@ if (-not $SkipQAPacket) {
 
     Write-Host "Running Windows QA packet step"
     & $qaPacketScript -ProjectPath $ProjectPath
+}
+
+if (-not $SkipCandidateReadiness) {
+    $candidateScript = Join-Path $ProjectPath "Tools\GenerateWindowsCandidateReadiness.ps1"
+    if (-not (Test-Path -LiteralPath $candidateScript)) {
+        throw "Windows candidate readiness script was not found: $candidateScript"
+    }
+
+    Write-Host "Running Windows candidate readiness step"
+    & $candidateScript -ProjectPath $ProjectPath -LogPrefix $LogPrefix
 }
 
 Write-Host "V0_BUILD_MATRIX_PASS $version $windowsBuildPath"

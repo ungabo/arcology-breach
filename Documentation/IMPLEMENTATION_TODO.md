@@ -1556,6 +1556,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.1.15 Windows Candidate Readiness Automation
+
+- [x] Add `Tools/GenerateWindowsCandidateReadiness.ps1`.
+- [x] Verify the current Windows executable, package ZIP, package manifest, route audit, QA packet, QA manifest, and release notes.
+- [x] Verify required smoke-log markers for the complete Windows matrix.
+- [x] Generate `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.15.md`.
+- [x] Generate `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.15.json`.
+- [x] Wire candidate-readiness generation into `Tools/RunV0BuildMatrix.ps1`.
+- [x] Add `V0_WINDOWS_CANDIDATE_PASS` to the full matrix.
+- [x] Refresh `V0RouteAudit` next-action guidance for the post-candidate-readiness sequence.
+- [x] Build, package, generate route-QA evidence, and generate candidate-readiness evidence for `v0.1.15` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
