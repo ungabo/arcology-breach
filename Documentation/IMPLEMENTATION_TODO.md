@@ -1212,6 +1212,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.83 Weapon Pickup Audio Pass
+
+- [x] Add `SteamworksAudioCue.WeaponPickup` at the end of the enum without shifting existing serialized cue values.
+- [x] Generate a dedicated procedural brass latch, pressure rise, gear chime, and steam bloom pickup clip.
+- [x] Route the Steam Scattergun pickup definition through the dedicated weapon-pickup cue.
+- [x] Expand runtime smoke to verify weapon-pickup cue configuration.
+- [x] Expand weapon-switch smoke to verify real Level03 pickup audio routing before fire tests.
+- [x] Rebuild generated scenes through the runner.
+- [x] Build Windows player through the runner.
+- [x] Run full packaged smoke matrix through the runner.
+- [x] Commit and push `v0.0.83`.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

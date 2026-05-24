@@ -156,7 +156,7 @@ public class Pickup : MonoBehaviour
             case PickupKind.Key:
                 return SteamworksAudioCue.GearKey;
             case PickupKind.Weapon:
-                return SteamworksAudioCue.AmmoPickup;
+                return SteamworksAudioCue.WeaponPickup;
             default:
                 return SteamworksAudioCue.AmmoPickup;
         }

@@ -30,9 +30,9 @@ public class RuntimeWeaponSwitchTest : MonoBehaviour
             yield break;
         }
 
-        if (!audio.HasClip(SteamworksAudioCue.SteamScattergunFire))
+        if (!audio.HasClip(SteamworksAudioCue.SteamScattergunFire) || !audio.HasClip(SteamworksAudioCue.WeaponPickup))
         {
-            Fail("Weapon switch smoke failed: Steam Scattergun audio cue is missing.");
+            Fail("Weapon switch smoke failed: Steam Scattergun acquisition/fire audio cue is missing.");
             yield break;
         }
 
@@ -58,6 +58,12 @@ public class RuntimeWeaponSwitchTest : MonoBehaviour
         if (pickupVfx == null || pickupVfx.PieceCount < 10)
         {
             Fail("Weapon switch smoke failed: Steam Scattergun pickup VFX did not spawn with enough visible pieces.");
+            yield break;
+        }
+
+        if (!audio.HasLastOneShotCue || audio.LastOneShotCue != SteamworksAudioCue.WeaponPickup)
+        {
+            Fail("Weapon switch smoke failed: Steam Scattergun pickup did not use its dedicated acquisition audio cue.");
             yield break;
         }
 

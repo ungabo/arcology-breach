@@ -2597,3 +2597,43 @@ Build executable:
 `Builds/Windows/v0.0.82/BrassworksBreach_v0.0.82.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 21:03 -04:00
+
+Completed `v0.0.83` weapon pickup audio pass.
+
+Added:
+
+- `SteamworksAudioCue.WeaponPickup` appended to the cue list without shifting existing serialized cue values.
+- Dedicated procedural weapon acquisition clip with brass latch, pressure rise, gear chimes, and steam bloom.
+- Steam Scattergun pickup definition now routes through the dedicated acquisition cue instead of the generic ammo pickup tick.
+- Runtime smoke now verifies the weapon-pickup cue is configured.
+- Weapon-switch smoke now verifies the real Level03 pickup triggers the dedicated acquisition audio cue before firing tests continue.
+- Versioned Windows build `v0.0.83`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.83/BrassworksBreach_v0.0.83.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

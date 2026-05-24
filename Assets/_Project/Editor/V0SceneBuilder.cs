@@ -576,7 +576,7 @@ public static class V0SceneBuilder
         definition.spinDegreesPerSecond = 44f;
         definition.bobAmplitude = 0.08f;
         definition.bobSpeed = 2.3f;
-        definition.audioCue = SteamworksAudioCue.AmmoPickup;
+        definition.audioCue = SteamworksAudioCue.WeaponPickup;
         definition.collectMessage = "Steam Scattergun acquired";
         definition.weaponUnlockId = WeaponController.SteamScattergunId;
         EditorUtility.SetDirty(definition);

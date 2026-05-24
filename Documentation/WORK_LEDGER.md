@@ -8,6 +8,10 @@ Current target: `v1.0 Windows Complete Build`.
 
 Primary goal: keep turning the current Windows prototype into a complete distributable steampunk FPS through sequential versioned builds, automated verification, and regular commits without stopping for review gates.
 
+## Working Sequence Source
+
+The active step sequence is driven by this ledger plus `IMPLEMENTATION_TODO.md`, with scope pulled from `PROJECT_SPEC.md`, `AAA_ASSET_CATALOG.md`, and `LEVEL_DESIGN_AND_MAPS.md`. Each completed versioned slice is recorded in `SESSION_LOG.md` and `BUILD_STATUS.md`, then the next highest-impact unfinished task starts immediately.
+
 ## Current State
 
 | ID | Task | Type | Priority | Status | Milestone | Verification |
@@ -92,6 +96,7 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 | VFX-016 | Add pressure boost state VFX | vfx/code/test | P1 | verified | v0.0.80 | Boosted Scrappers show animated brass/steam overdrive VFX and Bellows Node smoke verifies the visible state. |
 | AUD-014 | Add Bellows Node pulse audio | audio/code/test | P1 | verified | v0.0.81 | Bellows Node pulses use a dedicated procedural spatial cue verified by runtime and Bellows Node smoke. |
 | VFX-017 | Add weapon pickup VFX | vfx/code/test | P1 | verified | v0.0.82 | Steam Scattergun world pickup spawns dedicated acquisition VFX and weapon-switch smoke verifies the real pickup route. |
+| AUD-015 | Add weapon pickup audio | audio/code/test | P1 | verified | v0.0.83 | Steam Scattergun world pickup uses a dedicated acquisition cue verified by runtime and weapon-switch smoke. |
 
 ## Ready Next
 
@@ -227,3 +232,4 @@ Primary goal: keep turning the current Windows prototype into a complete distrib
 - `2026-05-23`: `v0.0.80` pressure-boost VFX build created at `Builds/Windows/v0.0.80/BrassworksBreach_v0.0.80.exe` and passed the complete V0 matrix, including visible Scrapper boost-state VFX coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.81` Bellows Node pulse-audio build created at `Builds/Windows/v0.0.81/BrassworksBreach_v0.0.81.exe` and passed the complete V0 matrix, including dedicated spatial support-cue coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
 - `2026-05-23`: `v0.0.82` Steam Scattergun pickup-feedback build created at `Builds/Windows/v0.0.82/BrassworksBreach_v0.0.82.exe` and passed the complete V0 matrix, including real Level03 weapon-pickup acquisition and weapon-pickup VFX coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.
+- `2026-05-23`: `v0.0.83` weapon-pickup audio build created at `Builds/Windows/v0.0.83/BrassworksBreach_v0.0.83.exe` and passed the complete V0 matrix, including dedicated Steam Scattergun pickup audio coverage. Next-step directive: continue immediately with the next highest-impact unfinished task.

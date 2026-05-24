@@ -67,7 +67,7 @@ Near-term:
 - The Steam Scattergun now swaps to a distinct first-person viewmodel when equipped, preserving readable weapon identity for later VR hand mapping.
 - Steam Scattergun fire now has a dedicated pressure-ring, steam-core, and brass-spark blast VFX so close-range weapon readability is not dependent on shared pistol feedback.
 - Steam Scattergun fire now uses a dedicated low-pressure procedural audio cue so weapon identity is readable by sound as well as viewmodel/VFX.
-- Weapon pickups now spawn a dedicated brass/steam acquisition burst; the Steam Scattergun pickup verifies this feedback before combat smoke continues.
+- Weapon pickups now spawn a dedicated brass/steam acquisition burst and acquisition audio cue; the Steam Scattergun pickup verifies this feedback before combat smoke continues.
 - Player damage now triggers first-person pressure/heat/brass hurt VFX, verified by combat-edge smoke.
 - Each current gameplay level now includes an interactable archive plaque for short environmental lore, verified by level validation and interaction smoke.
 - Each current gameplay level now has a procedural brassworks ambience loop through `SteamworksAudio`, verified by runtime smoke.
@@ -174,7 +174,7 @@ Approximate footprint:
 New mechanics:
 
 - Current prototype: Boilerheart pressure-valve objective, locked foundry lift, and linked hazard shutdown.
-- Current prototype: first Steam Scattergun pickup with dedicated acquisition VFX and real pickup-route automation, introducing close-range weapon switching before the foundry escalation.
+- Current prototype: first Steam Scattergun pickup with dedicated acquisition VFX/audio and real pickup-route automation, introducing close-range weapon switching before the foundry escalation.
 - Current prototype: `Bellows Node` stationary support machine with pressure-pulse damage, dedicated pulse audio, short nearby Scrapper boost, pulse VFX, and boost-state VFX.
 - Planned: expanded valve/gauge lock sequence.
 - Current prototype: steam hazard zones with vent/puff visuals.

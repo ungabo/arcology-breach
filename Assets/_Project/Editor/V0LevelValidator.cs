@@ -252,6 +252,11 @@ public static class V0LevelValidator
             {
                 throw new InvalidOperationException("Level validation failed: " + sceneName + " weapon pickup " + pickup.name + " has no weapon unlock id.");
             }
+
+            if (pickup.kind == PickupKind.Weapon && pickup.definition.audioCue != SteamworksAudioCue.WeaponPickup)
+            {
+                throw new InvalidOperationException("Level validation failed: " + sceneName + " weapon pickup " + pickup.name + " does not use the weapon pickup audio cue.");
+            }
         }
     }
 

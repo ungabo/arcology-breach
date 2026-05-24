@@ -33,6 +33,8 @@ public class RuntimeSmokeTest : MonoBehaviour
         bool scattergunCueConfigured = audio.HasClip(SteamworksAudioCue.PressureFire)
             && audio.HasClip(SteamworksAudioCue.SteamScattergunFire)
             && audio.HasClip(SteamworksAudioCue.BellowsNodePulse)
+            && audio.HasClip(SteamworksAudioCue.WeaponPickup)
+            && audio.GetClipSampleCount(SteamworksAudioCue.WeaponPickup) > audio.GetClipSampleCount(SteamworksAudioCue.AmmoPickup)
             && audio.GetClipSampleCount(SteamworksAudioCue.SteamScattergunFire) > audio.GetClipSampleCount(SteamworksAudioCue.PressureFire);
         if (!scattergunCueConfigured)
         {
