@@ -64,9 +64,9 @@ public static class V0RouteAudit
         report.AppendLine();
         report.AppendLine("## Next Actionable Slices");
         report.AppendLine();
-        report.AppendLine("- `v0.1.30`: convert accepted route-triage findings into concrete polish tasks once manual notes exist, or continue the next route-safe asset promotion if no manual notes exist.");
-        report.AppendLine("- `v0.1.31`: promote the next authored gameplay prop component from the asset queue after package index/hash guidance is verified.");
+        report.AppendLine("- `v0.1.31`: promote the next authored gameplay prop component from the asset queue if no accepted manual route note appears.");
         report.AppendLine("- `v0.1.32`: continue release-distribution or manual QA hardening based on the next route packet.");
+        report.AppendLine("- `v0.1.33`: reserve a route-polish slice for any accepted human feel issue from the Windows QA packet.");
 
         string absoluteOutputPath = Path.Combine(Directory.GetCurrentDirectory(), OutputPath);
         Directory.CreateDirectory(Path.GetDirectoryName(absoluteOutputPath));

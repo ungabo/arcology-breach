@@ -2,6 +2,7 @@ using System;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public static class V0LevelValidator
@@ -1628,6 +1629,73 @@ public static class V0LevelValidator
         RequireRendererMaterial(prototype.steamSeepRenderer, sceneName + " pressure tank rack steam seep", "Steam");
     }
 
+    private static void ValidateServiceLiftCallBoxPrototype(string sceneName, string objectName, string expectedPlacementRole)
+    {
+        GameObject root = RequireNamed(objectName, sceneName + " service lift call box prototype root");
+        ServiceLiftCallBoxPrototype prototype = root.GetComponent<ServiceLiftCallBoxPrototype>();
+        if (prototype == null)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " service lift call box prototype is missing its marker component (" + objectName + ").");
+        }
+
+        if (prototype.promotionVersion != "v0.1.30" || prototype.placementRole != expectedPlacementRole || !prototype.HasRequiredParts || root.name.IndexOf(expectedPlacementRole, StringComparison.OrdinalIgnoreCase) < 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " service lift call box metadata, role, root name, or required parts are incomplete (" + objectName + ").");
+        }
+
+        if (prototype.backplateRoot.childCount < 1 || prototype.leverRoot.childCount < 1 || prototype.gaugeRoot.childCount < 1 || prototype.lampRoot.childCount < 2 || prototype.pipeRoot.childCount < 2 || prototype.labelRoot.childCount < 1 || prototype.rivetRoot.childCount < 8 || prototype.grimeRoot.childCount < 2)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " service lift call box does not have the required backplate/lever/gauge/lamp/pipe/label/rivet/grime detail counts (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<Collider>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " service lift call box must remain non-blocking route dressing with no colliders (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<NavMeshObstacle>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " service lift call box must not add NavMeshObstacle components (" + objectName + ").");
+        }
+
+        if (root.GetComponentsInChildren<LevelTransitionTrigger>().Length > 0 || root.GetComponentsInChildren<ExitTrigger>().Length > 0 || root.GetComponentsInChildren<SteamValveObjective>().Length > 0 || root.GetComponentsInChildren<Pickup>().Length > 0 || root.GetComponentsInChildren<SteamHazard>().Length > 0 || root.GetComponentsInChildren<FurnaceHeatHazard>().Length > 0)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " service lift call box must remain visual dressing with no gameplay authority components (" + objectName + ").");
+        }
+
+        RequireNamed(objectName + " Backplate Root", sceneName + " service lift call box backplate root");
+        RequireNamed(objectName + " Lever Root", sceneName + " service lift call box lever root");
+        RequireNamed(objectName + " Gauge Root", sceneName + " service lift call box gauge root");
+        RequireNamed(objectName + " Lamp Root", sceneName + " service lift call box lamp root");
+        RequireNamed(objectName + " Pipe Root", sceneName + " service lift call box pipe root");
+        RequireNamed(objectName + " Label Root", sceneName + " service lift call box label root");
+        RequireNamed(objectName + " Rivet Root", sceneName + " service lift call box rivet root");
+        RequireNamed(objectName + " Grime Root", sceneName + " service lift call box grime root");
+        RequireNamed(objectName + " Blackened Iron Call Box Backplate", sceneName + " service lift call box backplate");
+        RequireNamed(objectName + " Aged Brass Pull Lever", sceneName + " service lift call box pull lever");
+        RequireNamed(objectName + " Aged Brass Lever Guard Left", sceneName + " service lift call box lever guard");
+        RequireNamed(objectName + " Cream Enamel Lift Pressure Gauge", sceneName + " service lift call box gauge");
+        RequireNamed(objectName + " Dark Lift Gauge Needle", sceneName + " service lift call box gauge needle");
+        RequireNamed(objectName + " Amber Lift Ready Lamp", sceneName + " service lift call box amber lamp");
+        RequireNamed(objectName + " Red Lift Locked Lamp", sceneName + " service lift call box red lamp");
+        RequireNamed(objectName + " Green Service Lift Lamp", sceneName + " service lift call box green lamp");
+        RequireNamed(objectName + " Copper Pressure Feed Pipe A", sceneName + " service lift call box feed pipe");
+        RequireNamed(objectName + " Copper Pressure Return Pipe B", sceneName + " service lift call box return pipe");
+        RequireNamed(objectName + " Stamped Brass Hoist Call Label", sceneName + " service lift call box label plate");
+        RequireNamed(objectName + " Brass Call Box Rivet 00", sceneName + " service lift call box rivet");
+        RequireNamed(objectName + " Oil Streak Plate Low", sceneName + " service lift call box oil streak");
+        RequireNamed(objectName + " Soot Scorch Plate Upper", sceneName + " service lift call box scorch mark");
+
+        RequireRendererMaterial(prototype.backplateRenderer, sceneName + " service lift call box backplate", "Iron");
+        RequireRendererMaterial(prototype.leverRenderer, sceneName + " service lift call box lever", "Brass");
+        RequireRendererMaterial(prototype.gaugeRenderer, sceneName + " service lift call box gauge", "CreamGaugeFace");
+        RequireRendererMaterial(prototype.lampRenderer, sceneName + " service lift call box green lamp", "ServiceLift");
+        RequireRendererMaterial(prototype.pipeRenderer, sceneName + " service lift call box pressure pipe", "Brass");
+        RequireRendererMaterial(prototype.labelRenderer, sceneName + " service lift call box label", "Brass");
+        RequireRendererMaterial(prototype.rivetRenderer, sceneName + " service lift call box rivet", "Brass");
+        RequireRendererMaterial(prototype.grimeRenderer, sceneName + " service lift call box grime", "Oil");
+    }
+
     private static void RequireRendererMaterial(Renderer renderer, string label, string expectedNameFragment)
     {
         if (renderer == null || renderer.sharedMaterial == null || renderer.sharedMaterial.shader == null)
@@ -1658,6 +1726,7 @@ public static class V0LevelValidator
             ValidatePressureReliefVentPrototype(sceneName, "North Star Intake Pressure Relief Vent", "intake_pressure_relief_vent");
             ValidateFloorDrainGratePrototype(sceneName, "North Star Intake Floor Drain Grate", "intake_floor_drain_grate");
             ValidatePressureTankRackPrototype(sceneName, "North Star Intake Pressure Tank Rack", "intake_pressure_tank_rack");
+            ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_intake_service_lift_call_box", "intake_service_lift_call_box");
             RequireNamed("Secret - Intake Pressure Cache", sceneName + " secret pressure cache");
             RequireNamed("Secret Pressure Cache Brass Floor Plate", sceneName + " secret pressure cache floor plate");
             RequireNamed("Level01 Flow Polish V015", sceneName + " flow polish prop root");
@@ -1689,6 +1758,7 @@ public static class V0LevelValidator
             ValidateCatwalkRailPrototype(sceneName, "North Star Pipeworks Service Rail", "pipeworks_service_rail");
             ValidateFloorDrainGratePrototype(sceneName, "North Star Pipeworks Floor Drain Grate", "pipeworks_floor_drain_grate");
             ValidatePressureTankRackPrototype(sceneName, "North Star Pipeworks Pressure Tank Rack", "pipeworks_pressure_tank_rack");
+            ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_pipeworks_service_lift_call_box", "pipeworks_service_lift_call_box");
             ValidateWallPipeGaugeClusterPrototype(sceneName, "Pipeworks Prototype Wall Pipe Gauge Cluster", "pipeworks_route_wall");
             ValidateBoilerControlConsolePrototype(sceneName, "Pipeworks Prototype Boiler Control Console", "pipeworks_route_console");
             ValidateRivetedPressureDoorFramePrototype(sceneName, "Pipeworks Prototype Riveted Pressure Door Frame", "pipeworks_route_pressure_frame");
@@ -1718,6 +1788,7 @@ public static class V0LevelValidator
             ValidateWallPipeGaugeClusterPrototype(sceneName, "Boilerheart Prototype Wall Pipe Gauge Cluster", "boilerheart_route_wall");
             ValidateBoilerControlConsolePrototype(sceneName, "Boilerheart Prototype Boiler Control Console", "boilerheart_route_console");
             ValidateRivetedPressureDoorFramePrototype(sceneName, "Boilerheart Prototype Riveted Pressure Door Frame", "boilerheart_route_pressure_frame");
+            ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_boilerheart_service_lift_call_box", "boilerheart_service_lift_call_box");
             RequireNamed("Boilerheart Pressure Valve Objective", sceneName + " boilerheart pressure valve objective");
             RequireNamed("Boilerheart Pressure Valve Wheel", sceneName + " boilerheart pressure valve wheel visual");
             RequireNamed("Boilerheart Valve Vented Lamp", sceneName + " boilerheart valve vented signal");
@@ -1765,6 +1836,7 @@ public static class V0LevelValidator
             ValidateCagedGaslightPrototype(sceneName, "North Star Foundry Gaslight West", "foundry_route_gaslight");
             ValidatePressureReliefVentPrototype(sceneName, "North Star Foundry Pressure Relief Vent", "foundry_pressure_relief_vent");
             ValidateFloorDrainGratePrototype(sceneName, "North Star Foundry Floor Drain Grate", "foundry_floor_drain_grate");
+            ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_foundry_emergency_hoist_call_box", "foundry_emergency_hoist_call_box");
             RequireNamed("Foundry Furnace Row", sceneName + " foundry furnace row visual");
             RequireNamed("Foundry Steam Hazard - Casting Leak", sceneName + " foundry steam hazard");
             RequireNamed("Foundry Steam Hazard - Crucible Bleed", sceneName + " foundry steam hazard");
@@ -1795,6 +1867,7 @@ public static class V0LevelValidator
             RequireNamed("North Star Governor Gaslight Left", sceneName + " north-star governor gaslight");
             ValidateCagedGaslightPrototype(sceneName, "North Star Governor Gaslight Left", "governor_route_gaslight");
             ValidatePressureTankRackPrototype(sceneName, "North Star Governor Pressure Tank Rack", "governor_pressure_tank_rack");
+            ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_governor_master_hoist_call_box", "governor_master_hoist_call_box");
             RequireNamed("North Star Governor Regulator Crown", sceneName + " north-star governor regulator crown");
             RequireNamed("Governor Core Regulator Pillar", sceneName + " governor core regulator visual");
             RequireNamed("Governor Core Steam Hazard - Regulator Leak", sceneName + " governor core steam hazard");

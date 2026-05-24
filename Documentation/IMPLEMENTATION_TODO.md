@@ -1780,6 +1780,7 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 - [x] Generate gear-key visual.
 - [x] Generate pressure-gate visual.
 - [x] Generate service-lift visual.
+- [x] Promote service-lift call box visual dressing across all current lifts/hoists.
 - [x] Generate primitive `Scrapper` visual.
 - [x] Generate primitive `Pressure Pistol` visual.
 - [x] Replace placeholder hit marker with primitive spark impact VFX.

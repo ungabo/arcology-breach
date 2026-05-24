@@ -1,0 +1,219 @@
+{
+  "component": "ServiceLiftCallBoxPrototype",
+  "targetVersion": "v0.1.30",
+  "promotionVersion": "v0.1.30",
+  "productionState": "verified",
+  "statuses": {
+    "documentation": "verified",
+    "implementation": "verified",
+    "validation": "verified"
+  },
+  "ownership": {
+    "assetType": "Unity-owned geometry",
+    "usage": "route-safe service lift and hoist call box dressing for steampunk transition areas",
+    "writeScope": "Documentation/AssetProduction/ServiceLiftCallBoxPrototype",
+    "docsOnlyHandoff": false,
+    "codeSceneAndSharedDocEditsAllowed": true
+  },
+  "sourcePlanningPacket": "Documentation/Planning/V0_1_30_AssetQueue/ASSET_QUEUE_PLAN_v0.1.30.md",
+  "styleNorthStar": {
+    "theme": "Brassworks Breach compact steampunk service lift call box",
+    "summary": "Wall-adjacent lift or hoist control dressing with blackened riveted iron backplate, aged brass pull lever and guard, cream enamel gauge, amber/red/green lamp language, copper or brass pressure pipes, stamped label plate, visible fasteners, and oil/scorch grime.",
+    "requiredVisualElements": [
+      "blackened riveted iron backplate",
+      "aged brass pull lever and guard",
+      "cream enamel lift pressure gauge",
+      "amber red green service lamp language",
+      "copper or brass pressure feed pipes",
+      "stamped hoist or lift label",
+      "visible rivets screws or mounting bolts",
+      "oil scorch grime or soot wear plates"
+    ],
+    "routeSafetyLanguage": [
+      "compact wall-adjacent or lift-frame-adjacent fixture",
+      "transition readability dressing only",
+      "no new interaction or route authority",
+      "does not narrow navigation or doorway clearance"
+    ]
+  },
+  "expectedPlacementRoles": [
+    "intake_service_lift_call_box",
+    "pipeworks_service_lift_call_box",
+    "boilerheart_service_lift_call_box",
+    "foundry_emergency_hoist_call_box",
+    "governor_master_hoist_call_box"
+  ],
+  "placementIntent": {
+    "intake_service_lift_call_box": "Beside the service lift or lift-facing wall after the pressure-gate route, with amber/green readiness language and mineral-stained lower pipes.",
+    "pipeworks_service_lift_call_box": "Beside the Pipeworks lift to Boilerheart, outside the combat lane, with darker oil grime and denser pressure pipe tie-ins.",
+    "boilerheart_service_lift_call_box": "Near the Boilerheart lift transition, with heat-scorched backplate edges and strong red/amber pressure-status language.",
+    "foundry_emergency_hoist_call_box": "Beside the emergency hoist path on a foundry-safe wall or lift frame, with emergency red lamp language and heavier soot.",
+    "governor_master_hoist_call_box": "Beside the master override hoist or final exit, with ceremonial brass trim, cleaner gauge face, and master-hoist label language."
+  },
+  "unityContract": {
+    "geometryOnly": true,
+    "unityOwnedGeometryOnly": true,
+    "noExternalMeshDependencyRequired": true,
+    "noColliders": true,
+    "noTriggers": true,
+    "noNavMeshObstacles": true,
+    "noBlocking": true,
+    "noNavigationNarrowing": true,
+    "noStepUpGeometry": true,
+    "noCoverBehavior": true,
+    "noGameplayInteraction": true,
+    "noTransitionLogicChanges": true,
+    "existingRouteTriggersRemainAuthority": true,
+    "lampsPreferEmissiveMaterials": true,
+    "ambientEffectsNonObscuring": true
+  },
+  "hierarchyTarget": {
+    "rootNamePattern": "ServiceLiftCallBoxPrototype_[role]",
+    "requiredRootObjects": [
+      "Backplate Root",
+      "Lever Root",
+      "Gauge Root",
+      "Lamp Root",
+      "Pipe Root",
+      "Label Root",
+      "Rivet Root",
+      "Grime Root"
+    ],
+    "exampleNamedParts": [
+      "Blackened Iron Call Box Backplate",
+      "Blackened Iron Backplate Edge Rail Left",
+      "Aged Brass Pull Lever",
+      "Aged Brass Lever Guard",
+      "Cream Enamel Lift Pressure Gauge",
+      "Dark Lift Gauge Needle",
+      "Amber Lift Ready Lamp",
+      "Red Lift Locked Lamp",
+      "Green Service Lift Lamp",
+      "Copper Pressure Feed Pipe A",
+      "Copper Pressure Return Pipe B",
+      "Stamped Brass Hoist Call Label",
+      "Brass Call Box Rivet 00",
+      "Oil Streak Plate Low",
+      "Soot Scorch Plate Upper"
+    ]
+  },
+  "materialRoleCoverage": [
+    "blackened_riveted_iron_backplate",
+    "aged_brass_lever_and_trim",
+    "cream_enamel_gauge_or_label",
+    "amber_red_green_lamp_language",
+    "copper_or_brass_pressure_pipes",
+    "dark_hardware_rivets_screws",
+    "oil_scorch_grime_marks"
+  ],
+  "minimumCounts": {
+    "backplate": ">=1",
+    "leverOrSwitchHandle": ">=1",
+    "gaugeOrDial": ">=1",
+    "lamps": ">=2",
+    "pressurePipes": ">=2",
+    "labelPlates": ">=1",
+    "rivetsScrewsOrMountingBolts": ">=8",
+    "grimeOilScorchOrWearPlates": ">=2",
+    "colliders": 0,
+    "triggers": 0,
+    "navMeshObstacles": 0
+  },
+  "acceptanceGates": [
+    {
+      "id": "metadata_component_present",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "promotion_version_exact",
+      "required": true,
+      "expectedValue": "v0.1.30",
+      "status": "passed"
+    },
+    {
+      "id": "named_hierarchy",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "all_expected_roles_present",
+      "required": true,
+      "expectedRoles": [
+        "intake_service_lift_call_box",
+        "pipeworks_service_lift_call_box",
+        "boilerheart_service_lift_call_box",
+        "foundry_emergency_hoist_call_box",
+        "governor_master_hoist_call_box"
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "material_role_coverage",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "minimum_counts_met",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "no_colliders_triggers_or_navmesh_obstacles",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "route_safe_wall_or_lift_frame_placement",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "no_unimplemented_prompt_puzzle_or_interaction_read",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "lamp_language_matches_nearby_route_state",
+      "required": true,
+      "status": "passed"
+    },
+    {
+      "id": "full_v0_matrix_passes",
+      "required": true,
+      "status": "passed"
+    }
+  ],
+  "validationPlan": {
+    "validatorName": "ValidateServiceLiftCallBoxPrototype",
+    "requiredChecks": [
+      "Find root by exact object name.",
+      "Confirm metadata component, component name, placement role, and promotion version.",
+      "Confirm required child roots or required named parts.",
+      "Count renderer-bearing children for backplate, lever, gauge, lamps, pipes, label, rivets, and grime.",
+      "Confirm zero colliders, zero trigger colliders, and zero NavMeshObstacle components under the hierarchy.",
+      "Confirm material names or child names include required role keywords: iron, brass, enamel or gauge, lamp, pipe, rivet or bolt, grime or oil or scorch.",
+      "Confirm each expected scene placement exists in Level01 through Level05 if all five roles are selected.",
+      "Confirm no object in the call-box hierarchy has a gameplay interaction component unless a future slice explicitly owns that work."
+    ]
+  },
+  "expectedVerificationArtifacts": {
+    "logPrefix": "v040",
+    "sceneRebuildLog": "Logs/v040-scene.log",
+    "routeAudit": "Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.30.md",
+    "levelValidationLog": "Logs/v040-level-validation.log",
+    "buildMatrix": "V0_BUILD_MATRIX_PASS",
+    "windowsExecutable": "Builds/Windows/v0.1.30/BrassworksBreach_v0.1.30.exe",
+    "windowsPackage": "Builds/WindowsPackages/v0.1.30/BrassworksBreach_v0.1.30_Windows.zip",
+    "candidateReadiness": "Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.30.md",
+    "releaseNotes": "Documentation/Releases/RELEASE_NOTES_v0.1.30.md",
+    "packageSha256": "78BABF0B79472233E25AC4FB7392FCF6C25E91B281889EF02B02A035D529991E"
+  },
+  "notes": [
+    "Docs-only sidecar handoff created for the selected v0.1.30 asset queue slice.",
+    "Implementation must remain route-safe and noninteractive.",
+    "Existing transition triggers remain the only gameplay authority.",
+    "Main lane implemented and validated five collider-free call box placements in v0.1.30.",
+    "v040 route audit and full V0 matrix passed on 2026-05-24 10:43 -04:00."
+  ]
+}

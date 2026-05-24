@@ -120,7 +120,7 @@ public static class V0SceneBuilder
         CreateAccentLights();
         CreateObjectiveGuides(brassGuideMaterial, pressureWarningMaterial, keyMaterial, exitMaterial);
         CreateLevel01FlowPolish(brassGuideMaterial, pressureWarningMaterial, keyMaterial, exitMaterial, rivetedIronMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
-        CreateSteamworksDressing(rivetedIronMaterial, oilStoneMaterial, brassGuideMaterial, pressureWarningMaterial, brassHazardMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
+        CreateSteamworksDressing(rivetedIronMaterial, oilStoneMaterial, brassGuideMaterial, pressureWarningMaterial, exitMaterial, brassHazardMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreateSecretCache(brassGuideMaterial, rivetedIronMaterial, pressureWarningMaterial, healthMaterial, glassVialMaterial, medicinalFluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
         CreateLevel01SignageDecalsV1();
 
@@ -1051,7 +1051,7 @@ public static class V0SceneBuilder
         boilerheartLift.requiredValve = routingValve;
         boilerheartLift.lockedPrompt = "route pipe pressure first";
         boilerheartLift.lockedMessage = "The Boilerheart lift is pressure-locked. Route the Pipeworks valve first.";
-        CreatePipeworksDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
+        CreatePipeworksDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, exitMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreatePipeworksSecretCache(brassMaterial, ironMaterial, warningMaterial, healthMaterial, glassMaterial, fluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
         CreatePipeworksFlowPolish(brassMaterial, warningMaterial, exitMaterial, ironMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
         CreatePointLight("Pipeworks Exit Green Light", new Vector3(0f, 2.4f, 22.7f), new Color(0.1f, 1f, 0.3f), 2.8f, 7f);
@@ -1079,7 +1079,7 @@ public static class V0SceneBuilder
         CreatePressureCartridgePickup("Pickup - Boilerheart Pressure Cartridge Pack", new Vector3(3.4f, 0.55f, 9.8f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
         CreateSteamScattergunPickup("Pickup - Steam Scattergun", new Vector3(0f, 0.72f, 13.9f), gunMaterial, brassMaterial, ironMaterial, warningMaterial, steamScattergunPickupDefinition);
         CreateSteamScattergunPickupReadabilityCues(brassMaterial, warningMaterial, ironMaterial, gaugeFaceMaterial);
-        SteamHazard[] boilerheartHazards = CreateBoilerheartDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
+        SteamHazard[] boilerheartHazards = CreateBoilerheartDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, exitMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         LevelTransitionTrigger foundryLift = CreateLevelTransitionLiftAt("Boilerheart Service Lift To Foundry", new Vector3(0f, 1.1f, 24.3f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial, "Level04", "Service lift climbing toward the Furnace Foundry").GetComponent<LevelTransitionTrigger>();
         SteamValveObjective pressureValve = CreateBoilerheartPressureValve(ironMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial);
         pressureValve.hazardsToDisableOnComplete = boilerheartHazards;
@@ -1112,7 +1112,7 @@ public static class V0SceneBuilder
         CreateHealthVialPickup("Pickup - Foundry Health Vial", new Vector3(-4.35f, 0.65f, 13.2f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
         CreatePressureCartridgePickup("Pickup - Foundry Pressure Cartridge Pack", new Vector3(4.25f, 0.55f, 18.4f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
         CreateFoundrySecretCache(brassMaterial, ironMaterial, warningMaterial, healthMaterial, glassMaterial, fluidMaterial, ammoMaterial, healthPickupDefinition, ammoPickupDefinition);
-        CreateFurnaceFoundryDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
+        CreateFurnaceFoundryDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, exitMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreateFoundryClimaxPolish(brassMaterial, warningMaterial, exitMaterial, ironMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
         CreateLevelTransitionLiftAt("Foundry Emergency Hoist", new Vector3(0f, 1.1f, 28.3f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial, "Level05", "Emergency hoist rising toward the Governor Core");
         CreatePointLight("Foundry Furnace Light West", new Vector3(-4.65f, 2.1f, 14.8f), new Color(1f, 0.32f, 0.08f), 3.2f, 8f);
@@ -1140,7 +1140,7 @@ public static class V0SceneBuilder
         GovernorWardenController warden = CreateGovernorWardenEnemy("Enemy - Governor Core Warden", new Vector3(0f, 1.45f, 24.1f), enemyMaterial, enemyEyeMaterial, brassMaterial, ironMaterial, warningMaterial, governorWardenDefinition);
         CreateHealthVialPickup("Pickup - Governor Health Vial", new Vector3(-4.55f, 0.65f, 13.5f), healthMaterial, glassMaterial, fluidMaterial, brassMaterial, healthPickupDefinition);
         CreatePressureCartridgePickup("Pickup - Governor Pressure Cartridge Pack", new Vector3(4.45f, 0.55f, 20.2f), ammoMaterial, ironMaterial, brassMaterial, ammoPickupDefinition);
-        CreateGovernorCoreDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
+        CreateGovernorCoreDressing(ironMaterial, oilStoneMaterial, brassMaterial, warningMaterial, exitMaterial, gaugeFaceMaterial, steamPuffMaterial, furnaceGlowMaterial);
         CreateGovernorClimaxPolish(brassMaterial, warningMaterial, exitMaterial, ironMaterial, gaugeFaceMaterial, furnaceGlowMaterial);
         ExitTrigger finalHoist = CreateExitAt("Governor Core Master Override Hoist", new Vector3(0f, 1.1f, 28.6f), exitMaterial, ironMaterial, brassMaterial, gaugeFaceMaterial).GetComponent<ExitTrigger>();
         GuardianDefeatObjective guardianObjective = CreateGovernorWardenDefeatObjective(warden, ironMaterial, brassMaterial, warningMaterial);
@@ -1169,7 +1169,7 @@ public static class V0SceneBuilder
         CreateCube("Governor Core Low Gear Cover B", new Vector3(1.8f, 0.5f, 21.4f), new Vector3(1.6f, 1f, 1.2f), wallMaterial, parent.transform);
     }
 
-    private static void CreateGovernorCoreDressing(Material ironMaterial, Material floorPatchMaterial, Material brassMaterial, Material warningMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial)
+    private static void CreateGovernorCoreDressing(Material ironMaterial, Material floorPatchMaterial, Material brassMaterial, Material warningMaterial, Material exitMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial)
     {
         GameObject parent = new GameObject("Governor Core Dressing");
 
@@ -1185,6 +1185,7 @@ public static class V0SceneBuilder
         CreateCagedGaslight("North Star Governor Gaslight Left", new Vector3(-4.85f, 2.08f, 12.8f), Quaternion.Euler(0f, 90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "governor_route_gaslight");
         CreateCagedGaslight("North Star Governor Gaslight Right", new Vector3(4.85f, 2.08f, 20.2f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "governor_route_gaslight");
         CreatePressureTankRackPrototype("North Star Governor Pressure Tank Rack", new Vector3(6.86f, 0.76f, 13.4f), Quaternion.Euler(0f, -90f, 0f), 1.05f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, steamMaterial, "governor_pressure_tank_rack", parent.transform);
+        CreateServiceLiftCallBoxPrototype("ServiceLiftCallBoxPrototype_governor_master_hoist_call_box", new Vector3(1.76f, 1.28f, 27.88f), Quaternion.identity, 1.08f, ironMaterial, brassMaterial, gaugeFaceMaterial, warningMaterial, exitMaterial, floorPatchMaterial, "governor_master_hoist_call_box", parent.transform);
         CreateRegulatorCrown("North Star Governor Regulator Crown", new Vector3(0f, 2.72f, 16.2f), ironMaterial, brassMaterial, warningMaterial, parent.transform);
         CreateSteamHazard("Governor Core Steam Hazard - Regulator Leak", new Vector3(-4.8f, 0.75f, 20.8f), new Vector3(1.25f, 1.5f, 1.25f), ironMaterial, steamMaterial, warningMaterial, parent.transform);
         CreateFurnaceHeatHazard("Governor Core Furnace Heat Hazard - Regulator Surge", new Vector3(0f, 0.75f, 18.9f), new Vector3(4.4f, 1.5f, 1.25f), ironMaterial, glowMaterial, warningMaterial, parent.transform, 0.8f);
@@ -1209,7 +1210,7 @@ public static class V0SceneBuilder
         CreateCube("Foundry Low Pipe Barrier", new Vector3(0f, 0.42f, 23.8f), new Vector3(2.4f, 0.84f, 0.58f), wallMaterial, parent.transform);
     }
 
-    private static SteamHazard[] CreateFurnaceFoundryDressing(Material ironMaterial, Material floorPatchMaterial, Material brassMaterial, Material warningMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial)
+    private static SteamHazard[] CreateFurnaceFoundryDressing(Material ironMaterial, Material floorPatchMaterial, Material brassMaterial, Material warningMaterial, Material exitMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial)
     {
         GameObject parent = new GameObject("Furnace Foundry Dressing");
 
@@ -1224,6 +1225,7 @@ public static class V0SceneBuilder
         CreateCagedGaslight("North Star Foundry Gaslight East", new Vector3(5.88f, 2.06f, 21.2f), Quaternion.Euler(0f, -90f, 0f), ironMaterial, brassMaterial, glowMaterial, parent.transform, "foundry_route_gaslight");
         CreatePressureReliefVentPrototype("North Star Foundry Pressure Relief Vent", new Vector3(-6.28f, 1.05f, 21.55f), Quaternion.Euler(0f, 90f, 0f), 1.08f, brassMaterial, ironMaterial, steamMaterial, warningMaterial, "foundry_pressure_relief_vent", parent.transform);
         CreateFloorDrainGratePrototype("North Star Foundry Floor Drain Grate", new Vector3(-4.72f, 0.045f, 14.25f), Quaternion.identity, 1.42f, 1.06f, ironMaterial, brassMaterial, floorPatchMaterial, steamMaterial, "foundry_floor_drain_grate", parent.transform);
+        CreateServiceLiftCallBoxPrototype("ServiceLiftCallBoxPrototype_foundry_emergency_hoist_call_box", new Vector3(1.72f, 1.26f, 27.58f), Quaternion.identity, 1.02f, ironMaterial, brassMaterial, gaugeFaceMaterial, warningMaterial, exitMaterial, floorPatchMaterial, "foundry_emergency_hoist_call_box", parent.transform);
         CreatePressureGauge("Foundry Gauge A", new Vector3(-6.45f, 1.65f, 12.2f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreatePressureGauge("Foundry Gauge B", new Vector3(6.45f, 1.65f, 21.6f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateValveWheel("Foundry Valve A", new Vector3(-6.45f, 1.35f, 19.2f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, warningMaterial, parent.transform);
@@ -1265,7 +1267,7 @@ public static class V0SceneBuilder
         CreateCube("Boilerheart Low Cover East", new Vector3(2.8f, 0.5f, 20.4f), new Vector3(1.4f, 1f, 1.1f), wallMaterial, parent.transform);
     }
 
-    private static SteamHazard[] CreateBoilerheartDressing(Material ironMaterial, Material floorPatchMaterial, Material brassMaterial, Material warningMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial)
+    private static SteamHazard[] CreateBoilerheartDressing(Material ironMaterial, Material floorPatchMaterial, Material brassMaterial, Material warningMaterial, Material exitMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial)
     {
         GameObject parent = new GameObject("Boilerheart Dressing");
 
@@ -1282,6 +1284,7 @@ public static class V0SceneBuilder
         CreateWallPipeGaugeClusterPrototype("Boilerheart Prototype Wall Pipe Gauge Cluster", new Vector3(-5.94f, 1.58f, 10.8f), Quaternion.Euler(0f, 90f, 0f), 0.94f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "boilerheart_route_wall", parent.transform);
         CreateBoilerControlConsolePrototype("Boilerheart Prototype Boiler Control Console", new Vector3(5.52f, 0.62f, 18.62f), Quaternion.Euler(0f, -90f, 0f), 0.92f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "boilerheart_route_console", parent.transform);
         CreateRivetedPressureDoorFramePrototype("Boilerheart Prototype Riveted Pressure Door Frame", new Vector3(0f, 1.58f, 23.52f), Quaternion.identity, 1f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "boilerheart_route_pressure_frame", parent.transform);
+        CreateServiceLiftCallBoxPrototype("ServiceLiftCallBoxPrototype_boilerheart_service_lift_call_box", new Vector3(1.66f, 1.26f, 23.62f), Quaternion.identity, 0.98f, ironMaterial, brassMaterial, gaugeFaceMaterial, warningMaterial, exitMaterial, floorPatchMaterial, "boilerheart_service_lift_call_box", parent.transform);
         CreatePressureGauge("Boilerheart Gauge A", new Vector3(-5.95f, 1.65f, 12.4f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateValveWheel("Boilerheart Valve A", new Vector3(5.95f, 1.45f, 17.4f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, warningMaterial, parent.transform);
         CreateSteamVent("Boilerheart Steam Vent A", new Vector3(-4.8f, 0.05f, 20.8f), brassMaterial, steamMaterial, parent.transform);
@@ -1433,7 +1436,7 @@ public static class V0SceneBuilder
         CreateCube("Pipeworks Mid Right Baffle", new Vector3(2.4f, 1.5f, 15.5f), new Vector3(0.5f, 3f, 5.6f), wallMaterial, parent.transform);
     }
 
-    private static void CreatePipeworksDressing(Material ironMaterial, Material floorPatchMaterial, Material brassMaterial, Material warningMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial)
+    private static void CreatePipeworksDressing(Material ironMaterial, Material floorPatchMaterial, Material brassMaterial, Material warningMaterial, Material exitMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial)
     {
         GameObject parent = new GameObject("Pipeworks Annex Dressing");
         CreateCube("Pipeworks Oil Patch A", new Vector3(-2.9f, 0.02f, 6.5f), new Vector3(1.6f, 0.04f, 1.2f), floorPatchMaterial, parent.transform);
@@ -1450,6 +1453,7 @@ public static class V0SceneBuilder
         CreateCatwalkRail("North Star Pipeworks Service Rail", new Vector3(-5.04f, 1f, 10.4f), Quaternion.Euler(0f, 90f, 0f), 4.4f, ironMaterial, brassMaterial, parent.transform, "pipeworks_service_rail");
         CreateFloorDrainGratePrototype("North Star Pipeworks Floor Drain Grate", new Vector3(3.82f, 0.045f, 5.55f), Quaternion.Euler(0f, 90f, 0f), 1.32f, 0.94f, ironMaterial, brassMaterial, floorPatchMaterial, steamMaterial, "pipeworks_floor_drain_grate", parent.transform);
         CreatePressureTankRackPrototype("North Star Pipeworks Pressure Tank Rack", new Vector3(-4.92f, 0.76f, 8.45f), Quaternion.Euler(0f, 90f, 0f), 0.96f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, steamMaterial, "pipeworks_pressure_tank_rack", parent.transform);
+        CreateServiceLiftCallBoxPrototype("ServiceLiftCallBoxPrototype_pipeworks_service_lift_call_box", new Vector3(1.68f, 1.24f, 22.52f), Quaternion.identity, 0.96f, ironMaterial, brassMaterial, gaugeFaceMaterial, warningMaterial, exitMaterial, floorPatchMaterial, "pipeworks_service_lift_call_box", parent.transform);
         CreateWallPipeGaugeClusterPrototype("Pipeworks Prototype Wall Pipe Gauge Cluster", new Vector3(4.94f, 1.58f, 5.7f), Quaternion.Euler(0f, -90f, 0f), 1f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "pipeworks_route_wall", parent.transform);
         CreateBoilerControlConsolePrototype("Pipeworks Prototype Boiler Control Console", new Vector3(-4.82f, 0.62f, 18.72f), Quaternion.Euler(0f, 90f, 0f), 0.96f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "pipeworks_route_console", parent.transform);
         CreateRivetedPressureDoorFramePrototype("Pipeworks Prototype Riveted Pressure Door Frame", new Vector3(0f, 1.58f, 22.42f), Quaternion.identity, 0.98f, brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, "pipeworks_route_pressure_frame", parent.transform);
@@ -3138,7 +3142,7 @@ public static class V0SceneBuilder
         CreateWorldLabel("Label - Foundry Secret Cache", "COAL CACHE", new Vector3(-5.2f, 1.85f, 24.7f), new Color(1f, 0.72f, 0.28f), 0.16f);
     }
 
-    private static void CreateSteamworksDressing(Material rivetedIronMaterial, Material oilStoneMaterial, Material brassMaterial, Material warningMaterial, Material amberMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial)
+    private static void CreateSteamworksDressing(Material rivetedIronMaterial, Material oilStoneMaterial, Material brassMaterial, Material warningMaterial, Material exitMaterial, Material amberMaterial, Material gaugeFaceMaterial, Material steamPuffMaterial, Material furnaceGlowMaterial)
     {
         GameObject parent = new GameObject("Steamworks Dressing - Brassworks Intake");
 
@@ -3177,6 +3181,7 @@ public static class V0SceneBuilder
         CreatePressureReliefVentPrototype("North Star Intake Pressure Relief Vent", new Vector3(-5.92f, 1.06f, 15.72f), Quaternion.Euler(0f, 90f, 0f), 0.9f, brassMaterial, rivetedIronMaterial, steamPuffMaterial, warningMaterial, "intake_pressure_relief_vent", parent.transform);
         CreateFloorDrainGratePrototype("North Star Intake Floor Drain Grate", new Vector3(2.72f, 0.045f, 7.68f), Quaternion.identity, 1.24f, 0.9f, rivetedIronMaterial, brassMaterial, oilStoneMaterial, steamPuffMaterial, "intake_floor_drain_grate", parent.transform);
         CreatePressureTankRackPrototype("North Star Intake Pressure Tank Rack", new Vector3(5.82f, 0.76f, 26.7f), Quaternion.Euler(0f, -90f, 0f), 0.94f, brassMaterial, rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, steamPuffMaterial, "intake_pressure_tank_rack", parent.transform);
+        CreateServiceLiftCallBoxPrototype("ServiceLiftCallBoxPrototype_intake_service_lift_call_box", new Vector3(1.72f, 1.26f, 34.02f), Quaternion.identity, 0.98f, rivetedIronMaterial, brassMaterial, gaugeFaceMaterial, warningMaterial, exitMaterial, oilStoneMaterial, "intake_service_lift_call_box", parent.transform);
         CreateWorkOrderBoard("Work Order Board - Intake", "ORDER 17\nSEAL MAIN\nWATCH PSI", new Vector3(-5.92f, 1.55f, 10.8f), Quaternion.Euler(0f, 90f, 0f), rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateLorePlaque("Lore Plaque - Intake Archive", "Intake Archive", "The Brassworks sealed itself when the master governor jammed and every service machine obeyed the wrong pressure order.", new Vector3(-5.92f, 1.55f, 13.2f), Quaternion.Euler(0f, 90f, 0f), rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
         CreateWorkOrderBoard("Work Order Board - Gate", "KEY CREW\nBLEED LOCK\nNO OPEN FLAME", new Vector3(1.45f, 1.75f, 22.15f), Quaternion.Euler(0f, 180f, 0f), rivetedIronMaterial, gaugeFaceMaterial, warningMaterial, parent.transform);
@@ -4150,6 +4155,146 @@ public static class V0SceneBuilder
         prototype.tagRoot = tagRoot.transform;
         prototype.steamRoot = steamRoot.transform;
         return prototype;
+    }
+
+    private static ServiceLiftCallBoxPrototype CreateServiceLiftCallBoxPrototype(string name, Vector3 position, Quaternion rotation, float scale, Material ironMaterial, Material brassMaterial, Material gaugeFaceMaterial, Material warningMaterial, Material exitMaterial, Material grimeMaterial, string placementRole, Transform parent)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.SetParent(parent);
+        root.transform.position = position;
+        root.transform.rotation = rotation;
+
+        Material greenLampMaterial = exitMaterial != null ? exitMaterial : warningMaterial;
+        Material oilMaterial = grimeMaterial != null ? grimeMaterial : ironMaterial;
+
+        ServiceLiftCallBoxPrototype prototype = root.AddComponent<ServiceLiftCallBoxPrototype>();
+        prototype.placementRole = placementRole;
+
+        GameObject backplateRoot = CreateLocalEmpty(name + " Backplate Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject leverRoot = CreateLocalEmpty(name + " Lever Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject gaugeRoot = CreateLocalEmpty(name + " Gauge Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject lampRoot = CreateLocalEmpty(name + " Lamp Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject pipeRoot = CreateLocalEmpty(name + " Pipe Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject labelRoot = CreateLocalEmpty(name + " Label Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject rivetRoot = CreateLocalEmpty(name + " Rivet Root", root.transform, Vector3.zero, Quaternion.identity);
+        GameObject grimeRoot = CreateLocalEmpty(name + " Grime Root", root.transform, Vector3.zero, Quaternion.identity);
+
+        GameObject backplate = CreateLocalCube(name + " Blackened Iron Call Box Backplate", backplateRoot.transform, Vector3.zero, new Vector3(0.72f * scale, 1.18f * scale, 0.08f * scale), ironMaterial);
+        CreateLocalCube(name + " Blackened Iron Backplate Edge Rail Left", backplateRoot.transform, new Vector3(-0.39f * scale, 0f, -0.035f * scale), new Vector3(0.045f * scale, 1.26f * scale, 0.075f * scale), ironMaterial);
+        CreateLocalCube(name + " Blackened Iron Backplate Edge Rail Right", backplateRoot.transform, new Vector3(0.39f * scale, 0f, -0.035f * scale), new Vector3(0.045f * scale, 1.26f * scale, 0.075f * scale), ironMaterial);
+        CreateLocalCube(name + " Aged Brass Top Trim Rail", backplateRoot.transform, new Vector3(0f, 0.62f * scale, -0.055f * scale), new Vector3(0.74f * scale, 0.055f * scale, 0.045f * scale), brassMaterial);
+        CreateLocalCube(name + " Aged Brass Bottom Trim Rail", backplateRoot.transform, new Vector3(0f, -0.62f * scale, -0.055f * scale), new Vector3(0.74f * scale, 0.055f * scale, 0.045f * scale), brassMaterial);
+
+        GameObject leverHinge = CreateLocalPrimitive(name + " Aged Brass Lever Hinge", PrimitiveType.Cylinder, leverRoot.transform, new Vector3(-0.18f * scale, -0.05f * scale, -0.075f * scale), new Vector3(0.1f * scale, 0.035f * scale, 0.1f * scale), brassMaterial);
+        leverHinge.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject lever = CreateLocalCube(name + " Aged Brass Pull Lever", leverRoot.transform, new Vector3(-0.11f * scale, -0.22f * scale, -0.105f * scale), new Vector3(0.055f * scale, 0.38f * scale, 0.045f * scale), brassMaterial);
+        lever.transform.localRotation = Quaternion.Euler(0f, 0f, -22f);
+        CreateLocalPrimitive(name + " Aged Brass Lever Knob", PrimitiveType.Sphere, leverRoot.transform, new Vector3(-0.02f * scale, -0.42f * scale, -0.11f * scale), new Vector3(0.09f * scale, 0.09f * scale, 0.07f * scale), brassMaterial);
+        CreateLocalCube(name + " Aged Brass Lever Guard Left", leverRoot.transform, new Vector3(-0.31f * scale, -0.24f * scale, -0.09f * scale), new Vector3(0.04f * scale, 0.44f * scale, 0.04f * scale), brassMaterial);
+        CreateLocalCube(name + " Aged Brass Lever Guard Right", leverRoot.transform, new Vector3(0.09f * scale, -0.24f * scale, -0.09f * scale), new Vector3(0.04f * scale, 0.44f * scale, 0.04f * scale), brassMaterial);
+
+        GameObject gaugeBezel = CreateLocalPrimitive(name + " Aged Brass Gauge Bezel", PrimitiveType.Cylinder, gaugeRoot.transform, new Vector3(0.15f * scale, 0.28f * scale, -0.075f * scale), new Vector3(0.19f * scale, 0.028f * scale, 0.19f * scale), brassMaterial);
+        gaugeBezel.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject gaugeFace = CreateLocalPrimitive(name + " Cream Enamel Lift Pressure Gauge", PrimitiveType.Cylinder, gaugeRoot.transform, new Vector3(0.15f * scale, 0.28f * scale, -0.102f * scale), new Vector3(0.15f * scale, 0.018f * scale, 0.15f * scale), gaugeFaceMaterial);
+        gaugeFace.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+        GameObject gaugeNeedle = CreateLocalCube(name + " Dark Lift Gauge Needle", gaugeRoot.transform, new Vector3(0.19f * scale, 0.3f * scale, -0.122f * scale), new Vector3(0.11f * scale, 0.012f * scale, 0.012f * scale), warningMaterial);
+        gaugeNeedle.transform.localRotation = Quaternion.Euler(0f, 0f, 22f);
+
+        CreateLocalPrimitive(name + " Amber Lift Ready Lamp", PrimitiveType.Sphere, lampRoot.transform, new Vector3(-0.22f * scale, 0.45f * scale, -0.105f * scale), new Vector3(0.085f * scale, 0.085f * scale, 0.06f * scale), warningMaterial);
+        CreateLocalPrimitive(name + " Red Lift Locked Lamp", PrimitiveType.Sphere, lampRoot.transform, new Vector3(-0.08f * scale, 0.45f * scale, -0.105f * scale), new Vector3(0.085f * scale, 0.085f * scale, 0.06f * scale), warningMaterial);
+        GameObject greenLamp = CreateLocalPrimitive(name + " Green Service Lift Lamp", PrimitiveType.Sphere, lampRoot.transform, new Vector3(0.06f * scale, 0.45f * scale, -0.105f * scale), new Vector3(0.085f * scale, 0.085f * scale, 0.06f * scale), greenLampMaterial);
+        CreateLocalCube(name + " Aged Brass Lamp Retainer Rail", lampRoot.transform, new Vector3(-0.08f * scale, 0.38f * scale, -0.095f * scale), new Vector3(0.42f * scale, 0.025f * scale, 0.035f * scale), brassMaterial);
+
+        GameObject feedPipe = CreateLocalPrimitive(name + " Copper Pressure Feed Pipe A", PrimitiveType.Cylinder, pipeRoot.transform, new Vector3(-0.42f * scale, -0.18f * scale, -0.04f * scale), new Vector3(0.035f * scale, 0.56f * scale, 0.035f * scale), brassMaterial);
+        GameObject returnPipe = CreateLocalPrimitive(name + " Copper Pressure Return Pipe B", PrimitiveType.Cylinder, pipeRoot.transform, new Vector3(0.36f * scale, -0.34f * scale, -0.04f * scale), new Vector3(0.035f * scale, 0.42f * scale, 0.035f * scale), brassMaterial);
+        GameObject lowerManifold = CreateLocalPrimitive(name + " Aged Brass Lower Pressure Manifold", PrimitiveType.Cylinder, pipeRoot.transform, new Vector3(-0.03f * scale, -0.55f * scale, -0.04f * scale), new Vector3(0.04f * scale, 0.82f * scale, 0.04f * scale), brassMaterial);
+        lowerManifold.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        CreateLocalPrimitive(name + " Aged Brass Pipe Union A", PrimitiveType.Sphere, pipeRoot.transform, new Vector3(-0.42f * scale, -0.55f * scale, -0.04f * scale), new Vector3(0.075f * scale, 0.075f * scale, 0.06f * scale), brassMaterial);
+        CreateLocalPrimitive(name + " Aged Brass Pipe Union B", PrimitiveType.Sphere, pipeRoot.transform, new Vector3(0.36f * scale, -0.55f * scale, -0.04f * scale), new Vector3(0.075f * scale, 0.075f * scale, 0.06f * scale), brassMaterial);
+
+        GameObject labelPlate = CreateLocalCube(name + " Stamped Brass Hoist Call Label", labelRoot.transform, new Vector3(0.1f * scale, -0.15f * scale, -0.102f * scale), new Vector3(0.34f * scale, 0.1f * scale, 0.025f * scale), brassMaterial);
+        CreateLocalCube(name + " Cream Enamel Label Inset", labelRoot.transform, new Vector3(0.1f * scale, -0.15f * scale, -0.122f * scale), new Vector3(0.28f * scale, 0.055f * scale, 0.012f * scale), gaugeFaceMaterial);
+        GameObject labelText = new GameObject(name + " Stamped Label Text");
+        labelText.transform.SetParent(labelRoot.transform, false);
+        labelText.transform.localPosition = new Vector3(-0.015f * scale, -0.162f * scale, -0.139f * scale);
+        labelText.transform.localRotation = Quaternion.identity;
+        TextMesh textMesh = labelText.AddComponent<TextMesh>();
+        textMesh.text = GetServiceLiftCallBoxLabel(placementRole);
+        textMesh.anchor = TextAnchor.MiddleCenter;
+        textMesh.alignment = TextAlignment.Center;
+        textMesh.characterSize = 0.034f * scale;
+        textMesh.fontSize = 32;
+        textMesh.color = new Color(0.12f, 0.06f, 0.025f);
+
+        Vector3[] rivetPositions =
+        {
+            new Vector3(-0.31f, 0.53f, -0.105f),
+            new Vector3(0.31f, 0.53f, -0.105f),
+            new Vector3(-0.31f, 0.25f, -0.105f),
+            new Vector3(0.31f, 0.25f, -0.105f),
+            new Vector3(-0.31f, -0.03f, -0.105f),
+            new Vector3(0.31f, -0.03f, -0.105f),
+            new Vector3(-0.31f, -0.31f, -0.105f),
+            new Vector3(0.31f, -0.31f, -0.105f),
+            new Vector3(-0.31f, -0.53f, -0.105f),
+            new Vector3(0.31f, -0.53f, -0.105f)
+        };
+
+        GameObject firstRivet = null;
+        for (int i = 0; i < rivetPositions.Length; i++)
+        {
+            GameObject rivet = CreateLocalPrimitive(name + " Brass Call Box Rivet " + i.ToString("00"), PrimitiveType.Sphere, rivetRoot.transform, rivetPositions[i] * scale, new Vector3(0.045f * scale, 0.045f * scale, 0.026f * scale), brassMaterial);
+            if (firstRivet == null)
+            {
+                firstRivet = rivet;
+            }
+        }
+
+        GameObject oilStreak = CreateLocalCube(name + " Oil Streak Plate Low", grimeRoot.transform, new Vector3(-0.2f * scale, -0.47f * scale, -0.128f * scale), new Vector3(0.085f * scale, 0.22f * scale, 0.012f * scale), oilMaterial);
+        oilStreak.transform.localRotation = Quaternion.Euler(0f, 0f, -7f);
+        CreateLocalCube(name + " Soot Scorch Plate Upper", grimeRoot.transform, new Vector3(0.28f * scale, 0.43f * scale, -0.127f * scale), new Vector3(0.12f * scale, 0.16f * scale, 0.012f * scale), oilMaterial);
+        CreateLocalCube(name + " Pipe Union Oil Smear", grimeRoot.transform, new Vector3(0.32f * scale, -0.55f * scale, -0.128f * scale), new Vector3(0.16f * scale, 0.05f * scale, 0.012f * scale), oilMaterial);
+
+        prototype.backplateCount = 5;
+        prototype.leverCount = 5;
+        prototype.gaugeCount = 3;
+        prototype.lampCount = 3;
+        prototype.pipeCount = 5;
+        prototype.labelCount = 2;
+        prototype.rivetCount = rivetPositions.Length;
+        prototype.grimeCount = 3;
+        prototype.backplateRenderer = backplate.GetComponent<Renderer>();
+        prototype.leverRenderer = lever.GetComponent<Renderer>();
+        prototype.gaugeRenderer = gaugeFace.GetComponent<Renderer>();
+        prototype.lampRenderer = greenLamp.GetComponent<Renderer>();
+        prototype.pipeRenderer = feedPipe.GetComponent<Renderer>();
+        prototype.labelRenderer = labelPlate.GetComponent<Renderer>();
+        prototype.rivetRenderer = firstRivet.GetComponent<Renderer>();
+        prototype.grimeRenderer = oilStreak.GetComponent<Renderer>();
+        prototype.backplateRoot = backplateRoot.transform;
+        prototype.leverRoot = leverRoot.transform;
+        prototype.gaugeRoot = gaugeRoot.transform;
+        prototype.lampRoot = lampRoot.transform;
+        prototype.pipeRoot = pipeRoot.transform;
+        prototype.labelRoot = labelRoot.transform;
+        prototype.rivetRoot = rivetRoot.transform;
+        prototype.grimeRoot = grimeRoot.transform;
+        return prototype;
+    }
+
+    private static string GetServiceLiftCallBoxLabel(string placementRole)
+    {
+        switch (placementRole)
+        {
+            case "foundry_emergency_hoist_call_box":
+                return "HOIST";
+            case "governor_master_hoist_call_box":
+                return "MASTER";
+            case "boilerheart_service_lift_call_box":
+                return "VENT";
+            default:
+                return "CALL";
+        }
     }
 
     private static void CreateRegulatorCrown(string name, Vector3 position, Material ironMaterial, Material brassMaterial, Material warningMaterial, Transform parent)
