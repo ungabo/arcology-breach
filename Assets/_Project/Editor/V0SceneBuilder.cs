@@ -1908,6 +1908,11 @@ public static class V0SceneBuilder
             new[] { "Lancer Left Tripod Leg" },
             new[] { "Lancer Right Tripod Leg", "Lancer Valve Rifle Barrel" },
             new[] { "Lancer Furnace Lens", "Lancer Hot Pressure Coil", "Lancer Back Pressure Tank" });
+        LancerFireTellVfx fireTell = enemy.AddComponent<LancerFireTellVfx>();
+        fireTell.muzzle = muzzle;
+        fireTell.hotPressureCoil = enemy.transform.Find("Lancer Hot Pressure Coil");
+        fireTell.furnaceLens = enemy.transform.Find("Lancer Furnace Lens");
+        fireTell.backPressureTank = enemy.transform.Find("Lancer Back Pressure Tank");
 
         CharacterController controller = enemy.AddComponent<CharacterController>();
         controller.height = 2f;
@@ -1917,6 +1922,7 @@ public static class V0SceneBuilder
         RangedEnemyController ranged = enemy.AddComponent<RangedEnemyController>();
         ranged.definition = definition;
         ranged.muzzle = muzzle;
+        ranged.fireTellVfx = fireTell;
         ranged.maxHealth = GameBalance.LancerHealth;
         ranged.detectionRange = GameBalance.LancerDetectionRange;
         ranged.fireRange = GameBalance.LancerFireRange;

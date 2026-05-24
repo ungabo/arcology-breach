@@ -16,6 +16,7 @@ public class RangedEnemyController : MonoBehaviour, IDamageable
     public float projectileSpeed = 8f;
     public Color hitFlashColor = Color.white;
     public Color fireTellColor = new Color(1f, 0.42f, 0.08f);
+    public LancerFireTellVfx fireTellVfx;
 
     private CharacterController characterController;
     private PlayerHealth playerHealth;
@@ -32,6 +33,11 @@ public class RangedEnemyController : MonoBehaviour, IDamageable
         ApplyDefinition();
         characterController = GetComponent<CharacterController>();
         playerHealth = Object.FindAnyObjectByType<PlayerHealth>();
+        if (fireTellVfx == null)
+        {
+            fireTellVfx = GetComponent<LancerFireTellVfx>();
+        }
+
         renderers = GetComponentsInChildren<Renderer>();
         originalColors = new Color[renderers.Length];
         for (int i = 0; i < renderers.Length; i++)
@@ -143,6 +149,8 @@ public class RangedEnemyController : MonoBehaviour, IDamageable
         windingUpFire = true;
         fireResolveTime = Time.time + fireWindup;
         SetColor(fireTellColor);
+        fireTellVfx?.StartTell(fireWindup);
+        SteamworksAudio.PlayAt(SteamworksAudioCue.LancerFireTell, transform.position);
     }
 
     private void FirePressureBolt()
@@ -150,6 +158,7 @@ public class RangedEnemyController : MonoBehaviour, IDamageable
         windingUpFire = false;
         nextFireTime = Time.time + fireCooldown;
         RestoreColors();
+        fireTellVfx?.StopTell();
 
         Vector3 origin = muzzle != null ? muzzle.position : transform.position + Vector3.up * 1.1f + transform.forward * 0.6f;
         Vector3 targetPoint = playerHealth.transform.position + Vector3.up * 0.8f;
@@ -187,6 +196,7 @@ public class RangedEnemyController : MonoBehaviour, IDamageable
 
         windingUpFire = false;
         RestoreColors();
+        fireTellVfx?.StopTell();
     }
 
     private void Die()

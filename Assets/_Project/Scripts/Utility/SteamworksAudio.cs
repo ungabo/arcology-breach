@@ -20,7 +20,8 @@ public enum SteamworksAudioCue
     WeaponPickup,
     SteamScattergunSlug,
     PressureBurst,
-    EnemyAttackTell
+    EnemyAttackTell,
+    LancerFireTell
 }
 
 [RequireComponent(typeof(AudioSource))]
@@ -113,6 +114,7 @@ public class SteamworksAudio : MonoBehaviour
         clips[SteamworksAudioCue.SteamScattergunSlug] = CreateClip("Steam Scattergun Slug", 0.34f, ScattergunSlugSample);
         clips[SteamworksAudioCue.PressureBurst] = CreateClip("Pressure Burst", 0.24f, PressureBurstSample);
         clips[SteamworksAudioCue.EnemyAttackTell] = CreateClip("Enemy Attack Tell", 0.18f, EnemyAttackTellSample);
+        clips[SteamworksAudioCue.LancerFireTell] = CreateClip("Lancer Fire Tell", 0.2f, LancerFireTellSample);
         clips[SteamworksAudioCue.EmptyClick] = CreateClip("Empty Click", 0.09f, (t, _) => Noise(t) * 0.26f * Envelope(t, 0.001f, 0.025f, 0.09f));
         clips[SteamworksAudioCue.HealthPickup] = CreateClip("Health Pickup", 0.2f, (t, _) => Tone(Slide(520f, 780f, t), t) * Envelope(t, 0.005f, 0.08f, 0.2f));
         clips[SteamworksAudioCue.AmmoPickup] = CreateClip("Ammo Pickup", 0.18f, (t, _) => Tone(Slide(410f, 760f, t), t) * Envelope(t, 0.003f, 0.07f, 0.18f));
@@ -237,6 +239,15 @@ public class SteamworksAudio : MonoBehaviour
         float pressureRise = Tone(Slide(220f, 520f, normalized), t) * 0.24f * Envelope(t, 0.004f, 0.13f, 0.18f);
         float cutterScrape = Noise(sampleIndex * 0.00032f) * 0.18f * Envelope(t, 0.001f, 0.15f, 0.18f);
         return Mathf.Clamp(ratchet + pressureRise + cutterScrape, -1f, 1f);
+    }
+
+    private static float LancerFireTellSample(float t, int sampleIndex)
+    {
+        float normalized = t / 0.2f;
+        float valveTick = t < 0.055f ? Tone(1280f, t) * 0.24f * Envelope(t, 0.001f, 0.035f, 0.055f) : 0f;
+        float coilCharge = Tone(Slide(330f, 860f, normalized), t) * 0.26f * Envelope(t, 0.006f, 0.16f, 0.2f);
+        float steamNeedle = Noise(sampleIndex * 0.00027f) * 0.16f * Envelope(t, 0.002f, 0.18f, 0.2f);
+        return Mathf.Clamp(valveTick + coilCharge + steamNeedle, -1f, 1f);
     }
 
     private static float WinSample(float t, int sampleIndex)

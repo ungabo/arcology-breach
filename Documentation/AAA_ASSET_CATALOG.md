@@ -96,7 +96,7 @@ Every major asset should eventually have three quality targets:
 | ENEMY-001 | Primitive Scrapper | P0 | verified | Existing primitive clockwork silhouette with boiler torso, brass plate, furnace eye, pressure tank, piston arms, cutters, blocky feet, and data-driven definition asset. |
 | ENEMY-002 | Scrapper final | P1 | planned | Maintenance frame with cutter arms, brass plating, pistons, and furnace eyes. |
 | ENEMY-003 | Boiler Tick | P1 | planned | Squat scout with clockwork legs and pressure tank body. |
-| ENEMY-004 | Lancer | P1 | verified | Thin ranged valve-rifle automaton with primitive tripod silhouette, pressure-bolt attack, and data-driven definition asset. |
+| ENEMY-004 | Lancer | P1 | verified | Thin ranged valve-rifle automaton with primitive tripod silhouette, pressure-bolt attack, data-driven definition asset, and dedicated pre-shot fire-tell VFX/audio. |
 | ENEMY-005 | Bulwark | P2 | prototype | Primitive furnace-plated machine with boiler body, hammer arms, data-driven definition, Level04/Level05 placement, and combat smoke coverage. |
 | ENEMY-006 | Bellows Node | P2 | prototype | Stationary pressure amplifier prototype in Level03 with data-driven definition, primitive bellows silhouette, pressure-pulse damage, dedicated pulse audio, short nearby-Scrapper boost, pulse VFX, boost-state VFX, validation, and packaged smoke coverage. Future pass can add richer support behavior for more machine types. |
 | ENEMY-007 | Governor Warden | P1 | prototype | Final guardian prototype with data-driven definition, Level05 placement, stomp attack, pressure-bolt attack, enraged half-health behavior, primitive core body/furnace heart/pressure crown/pressure cannon silhouette, boss health HUD integration, shutdown VFX, validation, and combat smoke coverage. |
@@ -111,7 +111,7 @@ Every major asset should eventually have three quality targets:
 | ANIM-003 | Scrapper idle/chase | P1 | prototype | `MachineMotionVfx` now gives Scrappers baseline boiler bob, piston/cutter motion, and pressure pulsing; final pass should replace it with authored stride/attack clips. |
 | ANIM-004 | Scrapper attack tell | P1 | verified | `ScrapperAttackTellVfx` now adds cutter-edge warning glows, furnace flare, pressure surge, steam puffs, brass sparks, and a ground warning ring during melee windup, with dedicated `EnemyAttackTell` audio and combat-edge smoke coverage before damage lands. |
 | ANIM-005 | Scrapper hit/death | P1 | prototype | Non-lethal hits spawn `MachineHitVfx`; death now routes through a Scrapper-specific `MachineDeathVfx` shutdown variant with cutter shards, flywheel gears, valve wheel, tank burst, and furnace flash. Final authored stagger/collapse clips remain planned. |
-| ANIM-006 | Lancer aim/fire | P1 | planned | Valve charge tell and shot release. |
+| ANIM-006 | Lancer aim/fire | P1 | verified | `LancerFireTellVfx` now adds muzzle charge ring, pressure needle, coil bloom, furnace-lens flare, steam puffs, and brass sparks before pressure-bolt release, with dedicated `LancerFireTell` audio and ranged-combat smoke coverage. |
 | ANIM-007 | Gate open/close | P1 | prototype | Existing sliding motion, needs gear-driven animation. |
 | ANIM-008 | Pickup bob/spin | P1 | prototype | Existing bobbing/spin can become clockwork hover or plinth animation. |
 | ANIM-009 | Machinery spinner loop | P1 | prototype | Reusable local-axis spinner loop for pressure gates, service lifts, valve wheels, and menu steamworks motion; final pass should vary speed, timing, linkage, and sound. |
@@ -122,7 +122,7 @@ Every major asset should eventually have three quality targets:
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
 | RENDER-001 | Concept render lane | P1 | review | `Documentation/ConceptRenders/` contains mockup and staged-asset JPG contact sheets for objects, room mood, staged PBR materials, enemy blockouts, modular corridor/pressure-gate alcove composites, and weapon/prop blockouts. These are user-review files outside Unity build assets. |
-| RENDER-002 | High-fidelity north-star lookdev renders | P1 | in-progress | Curie is assigned to create non-shipping lookdev briefs, static material/model targets, and review JPGs pushing corridor/door, pressure pistol, and Scrapper-like monster assets toward the north-star concept-art realism. |
+| RENDER-002 | High-fidelity north-star lookdev renders | P1 | review | `Documentation/ConceptRenders/CONTACTSHEET_LOOKDEV_HFLD_Batch01_nonshipping.jpg` and companion JPGs show Curie's first static lookdev pass for corridor/pressure door, pressure pistol, and Scrapper-like monster assets. |
 
 ## 7. VFX
 
@@ -152,6 +152,7 @@ Every major asset should eventually have three quality targets:
 | VFX-018 | Scattergun slug pressure spear | P1 | prototype | `ScattergunSlugVfx` adds a narrow pressure spear, brass collar, steam core, and sparks to Steam Scattergun alternate fire; verified by weapon-switch smoke. |
 | VFX-019 | Pressure Burst dump | P1 | prototype | `PressureBurstVfx` adds a pressure ring, steam core, brass valve flash, and shard burst to Pressure Pistol alternate fire; verified by combat-scenario smoke. |
 | VFX-020 | Scrapper attack tell | P1 | prototype | `ScrapperAttackTellVfx` adds pre-damage warning pieces around Scrapper cutter arms, furnace eye, pressure tank, and floor threat area; verified by level validation and combat-edge smoke. |
+| VFX-021 | Lancer fire tell | P1 | verified | `LancerFireTellVfx` adds pre-shot warning pieces around Lancer muzzle, valve rifle, hot coil, furnace lens, and back pressure tank; verified by level validation and ranged-combat smoke. |
 
 ## 8. Audio
 

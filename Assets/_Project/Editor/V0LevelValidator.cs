@@ -338,6 +338,7 @@ public static class V0LevelValidator
             RequireApprox(enemy.definition.fireCooldown, GameBalance.LancerFireCooldown, sceneName + " Lancer definition cooldown");
             RequireEqual(enemy.definition.projectileDamage, GameBalance.LancerProjectileDamage, sceneName + " Lancer definition projectile damage");
             RequireMachineMotion(enemy.gameObject, sceneName + " Lancer machine motion");
+            RequireLancerFireTell(enemy.gameObject, sceneName + " Lancer fire tell");
         }
 
         BulwarkEnemyController[] bulwarks = UnityEngine.Object.FindObjectsByType<BulwarkEnemyController>(FindObjectsSortMode.None);
@@ -444,6 +445,15 @@ public static class V0LevelValidator
         if (attackTell == null || !attackTell.IsConfigured)
         {
             throw new InvalidOperationException("Level validation failed: " + label + " is missing configured ScrapperAttackTellVfx.");
+        }
+    }
+
+    private static void RequireLancerFireTell(GameObject enemy, string label)
+    {
+        LancerFireTellVfx fireTell = enemy.GetComponent<LancerFireTellVfx>();
+        if (fireTell == null || !fireTell.IsConfigured)
+        {
+            throw new InvalidOperationException("Level validation failed: " + label + " is missing configured LancerFireTellVfx.");
         }
     }
 

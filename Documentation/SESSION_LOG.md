@@ -2944,3 +2944,51 @@ Build executable:
 `Builds/Windows/v0.0.90/BrassworksBreach_v0.0.90.exe`
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
+
+## 2026-05-23 22:45 -04:00
+
+Completed `v0.0.91` Lancer firing tell pass.
+
+Added:
+
+- `LancerFireTellVfx` warning state with muzzle charge ring, pressure needle, coil bloom, furnace-lens flare, pressure puff, steam puffs, and brass sparks.
+- `SteamworksAudioCue.LancerFireTell` appended to the cue list without shifting existing serialized cue values.
+- Dedicated procedural Lancer fire-tell audio with valve tick, coil charge, and steam-needle character.
+- Generated Lancers now receive configured `LancerFireTellVfx` references.
+- Level validation now requires configured Lancer fire-tell components.
+- Runtime smoke now verifies the `LancerFireTell` cue is configured.
+- Ranged-combat smoke now verifies Lancer fire-tell VFX/audio before pressure-bolt VFX and player damage.
+- Versioned Windows build `v0.0.91`.
+
+Side-agent update:
+
+- Curie completed the first high-fidelity north-star lookdev package.
+- The package includes standards/brief docs, OBJ blockouts, material swatches, manifest, and non-shipping review renders for a corridor/pressure door, pressure pistol, and Scrapper-like monster.
+- Best first review file: `Documentation/ConceptRenders/CONTACTSHEET_LOOKDEV_HFLD_Batch01_nonshipping.jpg`.
+
+Verification completed through the runner:
+
+- `V0_LEVEL_VALIDATION_PASS`
+- `V0_SMOKE_TEST_PASS`
+- `V0_WINDOWS_BUILD_PASS`
+- `V0_RUNTIME_SMOKE_PASS`
+- `V0_AUTO_PLAYTHROUGH_PASS`
+- `V0_COMBAT_SMOKE_PASS`
+- `V0_COMBAT_EDGE_PASS`
+- `V0_COMBAT_SCENARIO_PASS`
+- `V0_WEAPON_SWITCH_PASS`
+- `V0_BELLOWS_NODE_PASS`
+- `V0_RANGED_COMBAT_PASS`
+- `V0_BULWARK_COMBAT_PASS`
+- `V0_WARDEN_COMBAT_PASS`
+- `V0_INTERACTION_SMOKE_PASS`
+- `V0_HAZARD_PASS`
+- `V0_SECRET_PASS`
+- `V0_PAUSE_FLOW_PASS`
+- `V0_BUILD_MATRIX_PASS`
+
+Build executable:
+
+`Builds/Windows/v0.0.91/BrassworksBreach_v0.0.91.exe`
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.

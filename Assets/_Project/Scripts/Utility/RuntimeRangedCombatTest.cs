@@ -48,6 +48,19 @@ public class RuntimeRangedCombatTest : MonoBehaviour
         }
 
         int startingHealth = health.CurrentHealth;
+        yield return WaitUntilOrFail(() => HasActiveLancerFireTell(lancer), "Lancer fire tell VFX", 3f);
+        if (failed)
+        {
+            yield break;
+        }
+
+        SteamworksAudio audio = UnityEngine.Object.FindAnyObjectByType<SteamworksAudio>();
+        if (audio == null || !audio.HasClip(SteamworksAudioCue.LancerFireTell) || !audio.HasLastSpatialCue || audio.LastSpatialCue != SteamworksAudioCue.LancerFireTell)
+        {
+            Fail("Ranged combat smoke failed: Lancer fire tell audio did not play before pressure bolt.");
+            yield break;
+        }
+
         yield return WaitUntilOrFail(HasPressureBoltVfx, "Lancer pressure bolt VFX", 5f);
         if (failed)
         {
@@ -68,6 +81,17 @@ public class RuntimeRangedCombatTest : MonoBehaviour
     {
         PressureBoltVfx boltVfx = UnityEngine.Object.FindAnyObjectByType<PressureBoltVfx>();
         return boltVfx != null && boltVfx.VisiblePieceCount >= 5;
+    }
+
+    private static bool HasActiveLancerFireTell(RangedEnemyController lancer)
+    {
+        if (lancer == null)
+        {
+            return false;
+        }
+
+        LancerFireTellVfx fireTell = lancer.GetComponent<LancerFireTellVfx>();
+        return fireTell != null && fireTell.IsActive && fireTell.PieceCount >= 8;
     }
 
     private IEnumerator WaitUntilOrFail(Func<bool> predicate, string step, float timeoutSeconds)

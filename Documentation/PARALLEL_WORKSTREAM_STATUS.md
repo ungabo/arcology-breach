@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-23 22:33 -04:00`
+Last updated: `2026-05-23 22:45 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -17,8 +17,8 @@ Current focus:
 
 Current verified local build:
 
-- `v0.0.90`
-- Build path: `Builds/Windows/v0.0.90/BrassworksBreach_v0.0.90.exe`
+- `v0.0.91`
+- Build path: `Builds/Windows/v0.0.91/BrassworksBreach_v0.0.91.exe`
 - Matrix result: `V0_BUILD_MATRIX_PASS`
 
 ## Active Side Agents
@@ -32,7 +32,7 @@ Current verified local build:
 | Chandrasekhar | `019e57a1-724c-7971-8722-d635910c6f85` | Local Unity/Asset Store pack inventory | `Documentation/PARALLEL_LOCAL_ASSET_PACK_INVENTORY.md` | `2026-05-23 21:37 -04:00` | completed |
 | Beauvoir | `019e57a1-a809-7f20-9ead-228500ae4ad9` | Concrete asset generation/import briefs | `Documentation/PARALLEL_ASSET_GENERATION_BRIEFS.md` | `2026-05-23 21:37 -04:00` | completed |
 | Nietzsche | `019e57a8-8d30-7543-af03-13e33acbdd3d` | Asset viewing guide and preview swatches | `Documentation/ASSET_VIEWING_GUIDE.md`, `Documentation/AssetPreviews/` | `2026-05-23 21:45 -04:00` | completed |
-| Curie | `019e57ac-ba96-75f2-a362-cc3af0f1d0cd` | High-fidelity north-star lookdev for corridor/door, pressure pistol, and Scrapper-like monster | `Documentation/AssetProduction/HighFidelityLookdev/`, `Documentation/ConceptRenders/`, optional `Assets/_Project/ArtStaging/HighFidelityLookdev/` | `2026-05-23 22:33 -04:00` | in-progress |
+| Curie | `019e57ac-ba96-75f2-a362-cc3af0f1d0cd` | High-fidelity north-star lookdev for corridor/door, pressure pistol, and Scrapper-like monster | `Documentation/AssetProduction/HighFidelityLookdev/`, `Documentation/ConceptRenders/`, `Assets/_Project/ArtStaging/HighFidelityLookdev/` | `2026-05-23 22:33 -04:00` | completed |
 | Poincare | `019e57ad-10a2-71d3-b094-4c469c95ca42` | Staged modular environment kit meshes | `Assets/_Project/ArtStaging/ModularKit/`, `Documentation/AssetProduction/ModularKit/` | `2026-05-23 21:49 -04:00` | completed |
 | Rawls | `019e57ad-3c85-71f3-b860-9187f4e58b2e` | Staged weapon and gameplay prop meshes | `Assets/_Project/ArtStaging/WeaponsProps/`, `Documentation/AssetProduction/WeaponsProps/` | `2026-05-23 21:49 -04:00` | completed |
 | Linnaeus | `019e57ad-64ad-73c3-94e0-eb3c6980117e` | Staged mechanical enemy blockout meshes | `Assets/_Project/ArtStaging/Enemies/`, `Documentation/AssetProduction/Enemies/` | `2026-05-23 21:49 -04:00` | completed |
@@ -55,12 +55,13 @@ Current verified local build:
 | Hooke | `2026-05-23 22:06 -04:00` | `Documentation/ConceptRenders/` | Created 13 view-only JPG concept renders/contact sheets plus index, render plan, and work log. Best first file: `Documentation/ConceptRenders/CONTACTSHEET_staged_assets_current.jpg`. |
 | Poincare | `2026-05-23 22:11 -04:00` | `Assets/_Project/ArtStaging/ModularKit/`, `Documentation/AssetProduction/ModularKit/` | Created first modular corridor kit with 12 OBJ meshes, 8 base-color texture PNGs, material library, manifests, previews, and contact sheet. |
 | Hooke | `2026-05-23 22:29 -04:00` | `Documentation/ConceptRenders/` | Added batch 02 staged room/object JPGs for modular corridor, pressure-gate control alcove, enemy lineup, weapon/prop lineup, and a combined contact sheet. |
+| Curie | `2026-05-23 22:43 -04:00` | `Documentation/AssetProduction/HighFidelityLookdev/`, `Assets/_Project/ArtStaging/HighFidelityLookdev/`, `Documentation/ConceptRenders/` | Created the first high-fidelity north-star lookdev package: standards/brief docs, OBJ blockouts for corridor/door, pressure pistol, and Scrapper-like monster, material swatches, manifest, and non-shipping JPG renders. Best first file: `Documentation/ConceptRenders/CONTACTSHEET_LOOKDEV_HFLD_Batch01_nonshipping.jpg`. |
 
 ## Active Reassigned Work
 
 | Agent | Reassigned | Output Scope | Target |
 | --- | ---:| --- | --- |
-| Curie | `2026-05-23 22:33 -04:00` | `Documentation/AssetProduction/HighFidelityLookdev/`, `Documentation/ConceptRenders/`, optional `Assets/_Project/ArtStaging/HighFidelityLookdev/` | Push static material/model lookdev toward the north-star image: realistic wet dark stone, riveted bronze/iron corridor and pressure door, chunky pressure pistol, and Scrapper-like mechanical monster. Rigging and gameplay integration are deferred. |
+| Curie | `2026-05-23 22:33 -04:00` | `Documentation/AssetProduction/HighFidelityLookdev/`, `Documentation/ConceptRenders/`, `Assets/_Project/ArtStaging/HighFidelityLookdev/` | Completed Batch01 static material/model lookdev toward the north-star image: realistic wet dark stone, riveted bronze/iron corridor and pressure door, chunky pressure pistol, and Scrapper-like mechanical monster. Rigging and gameplay integration are deferred. |
 
 ## Integration Rules
 

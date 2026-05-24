@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.90`.
+Current state: `v0.0.91`.
 
 Implemented:
 
@@ -37,6 +37,7 @@ Implemented:
 - Unity editor smoke test, Windows build, and runtime smoke test.
 - Early multi-level flow foundation that has since expanded into the current five-level route.
 - Ranged Lancer enemy prototype and ranged-combat smoke test.
+- Lancer valve-rifle fire-tell VFX/audio before pressure bolts.
 - Centralized `GameBalance` values.
 - Data-driven Pressure Pistol, Scrapper, and Lancer definitions.
 - One-command V0 Windows build matrix runner.
@@ -93,6 +94,8 @@ Implemented:
 - View-only concept renders for staged assets and steampunk room/object mockups are present under `Documentation/ConceptRenders/`; these are review files and are not part of the Unity build.
 - Scrapper melee attacks now have a clearer pre-damage warning state with cutter-edge glows, furnace flare, pressure surge, steam puffs, brass sparks, and a dedicated `EnemyAttackTell` audio cue, verified by runtime and combat-edge smoke.
 - Scrapper deaths now use a dedicated shutdown style with pressure ring, steam puffs, brass sparks, cutter shards, flywheel gears, valve wheel, pressure tank burst, and furnace flash, verified by combat smoke.
+- Lancer ranged attacks now have a clearer pre-shot warning state with muzzle charge ring, pressure needle, coil bloom, furnace-lens flare, steam puffs, brass sparks, and a dedicated `LancerFireTell` audio cue, verified by runtime and ranged-combat smoke.
+- First high-fidelity north-star lookdev package is present under `Assets/_Project/ArtStaging/HighFidelityLookdev/`, with standards/briefs under `Documentation/AssetProduction/HighFidelityLookdev/` and non-shipping review renders under `Documentation/ConceptRenders/`.
 
 ## 3. Target Platform
 

@@ -64,3 +64,14 @@
 
 - Visually checked the two room renders, the enemy lineup, the weapon/prop lineup, and the batch contact sheet.
 - Updated `INDEX.md` with all batch 02 JPGs, source assets, timestamps, and staged status.
+
+## 2026-05-23 22:43:22 -04:00
+
+- Curie completed the first high-fidelity lookdev render package using the north-star concept art as the target.
+- Added non-shipping review JPGs:
+  - `CONTACTSHEET_LOOKDEV_HFLD_Batch01_nonshipping.jpg`
+  - `RENDER_LOOKDEV_HFLD_Batch01_corridor_pressure_door_nonshipping.jpg`
+  - `RENDER_LOOKDEV_HFLD_Batch01_pressure_pistol_nonshipping.jpg`
+  - `RENDER_LOOKDEV_HFLD_Batch01_scrapper_monster_nonshipping.jpg`
+- Source/staging assets and standards live under `Assets/_Project/ArtStaging/HighFidelityLookdev/` and `Documentation/AssetProduction/HighFidelityLookdev/`.
+- These JPGs are lookdev/reference only and are not final shipping art.

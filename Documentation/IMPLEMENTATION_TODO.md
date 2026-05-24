@@ -1318,6 +1318,20 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.91 Lancer Firing Tell Pass
+
+- [x] Add `LancerFireTellVfx` with muzzle charge ring, pressure needle, coil bloom, furnace-lens flare, pressure puff, steam puffs, and brass sparks.
+- [x] Add `SteamworksAudioCue.LancerFireTell` at the end of the enum without shifting existing serialized cue values.
+- [x] Generate a dedicated procedural valve-tick/coil-charge fire-tell audio clip.
+- [x] Attach configured fire-tell components to generated Lancers.
+- [x] Expand level validation to require configured Lancer fire-tell components.
+- [x] Expand runtime smoke to verify the new Lancer fire-tell audio cue.
+- [x] Expand ranged-combat smoke to verify Lancer fire-tell VFX/audio before pressure-bolt VFX and player damage.
+- [x] Integrate completed high-fidelity lookdev staging outputs for corridor/door, pressure pistol, and Scrapper-like monster targets.
+- [x] Build `v0.0.91` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.
