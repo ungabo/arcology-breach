@@ -72,7 +72,8 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Generate package-local manifest and preview swatches/renders.
 - [x] Run package-specific sidecar validator.
 - [ ] Review import risk and decide whether to import package or bind selected materials into gameplay surfaces.
-- [ ] Complete level-dressing, mechanical-enemy-visual, and weapon-props sidecar packages in parallel.
+- [x] Complete level-dressing, mechanical-enemy-visual, and weapon-props sidecar packages in parallel.
+- [x] Complete level-dressing sidecar package with previews and zero-warning package validation.
 - [x] Complete mechanical-enemy-visual sidecar package with previews and zero-warning package validation.
 - [x] Complete weapon-props sidecar package with previews and zero-warning package validation.
 - [x] Validate completed sidecars package-by-package before any main-project import.
