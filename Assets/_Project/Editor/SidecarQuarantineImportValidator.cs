@@ -9,6 +9,40 @@ public static class SidecarQuarantineImportValidator
     private static readonly PackageCheck[] Packages =
     {
         new PackageCheck(
+            "Corridor Kit Set 02",
+            "com.brassworks.sidecar.corridor-kit-set02",
+            "Documentation~/Manifest/SCK2_CorridorKitSet02_Manifest_v0.1.41-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.corridor-kit-set02/Runtime/Prefabs/SCK2_CorridorStraight_4m_NorthStar.prefab",
+                "Packages/com.brassworks.sidecar.corridor-kit-set02/Runtime/Prefabs/SCK2_CorridorStraight_2m_ServiceDense.prefab",
+                "Packages/com.brassworks.sidecar.corridor-kit-set02/Runtime/Prefabs/SCK2_CorridorCorner_90_Bulkhead.prefab",
+                "Packages/com.brassworks.sidecar.corridor-kit-set02/Runtime/Prefabs/SCK2_CorridorTJunction_PipeSpine.prefab",
+                "Packages/com.brassworks.sidecar.corridor-kit-set02/Runtime/Prefabs/SCK2_CorridorCrossJunction_CompassHub.prefab",
+                "Packages/com.brassworks.sidecar.corridor-kit-set02/Runtime/Prefabs/SCK2_Door_BulkheadRound_3m.prefab",
+                "Packages/com.brassworks.sidecar.corridor-kit-set02/Runtime/Prefabs/SCK2_Door_PressureLock_DoubleLeaf.prefab",
+                "Packages/com.brassworks.sidecar.corridor-kit-set02/Runtime/Prefabs/SCK2_RoomWallPanel_GaugeNest.prefab",
+                "Packages/com.brassworks.sidecar.corridor-kit-set02/Runtime/Prefabs/SCK2_LightRun_AmberCaged_4m.prefab",
+                "Packages/com.brassworks.sidecar.corridor-kit-set02/Runtime/Materials/SCK2_MAT_PressureGreenGlass.mat",
+                "Packages/com.brassworks.sidecar.corridor-kit-set02/Runtime/Meshes/SCK2_MESH_NorthStar8Unit.asset"
+            }),
+        new PackageCheck(
+            "Encounter Enemy Set 02",
+            "com.brassworks.sidecar.encounter-enemy-set02",
+            "Documentation~/Manifest/EE02_EncounterEnemySet02_Manifest_v0.1.41-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.encounter-enemy-set02/Runtime/Prefabs/EE02_AshcanReclaimer_A_IdleSawScout.prefab",
+                "Packages/com.brassworks.sidecar.encounter-enemy-set02/Runtime/Prefabs/EE02_AshcanReclaimer_B_ClawWindupTell.prefab",
+                "Packages/com.brassworks.sidecar.encounter-enemy-set02/Runtime/Prefabs/EE02_PressureSpindle_B_NeedleThrustTell.prefab",
+                "Packages/com.brassworks.sidecar.encounter-enemy-set02/Runtime/Prefabs/EE02_GatehammerBastion_A_ShieldedIdle.prefab",
+                "Packages/com.brassworks.sidecar.encounter-enemy-set02/Runtime/Prefabs/EE02_GovernorWarden_B_BellBeaconCastTell.prefab",
+                "Packages/com.brassworks.sidecar.encounter-enemy-set02/Runtime/Materials/EE02_MAT_RedOverheatTell.mat",
+                "Packages/com.brassworks.sidecar.encounter-enemy-set02/Runtime/Materials/EE02_MAT_ReadabilityGhost.mat",
+                "Packages/com.brassworks.sidecar.encounter-enemy-set02/Runtime/Meshes/EE02_MESH_36ToothSawBlade.asset",
+                "Packages/com.brassworks.sidecar.encounter-enemy-set02/Runtime/Meshes/EE02_MESH_GovernorCommandGearHalo.asset"
+            }),
+        new PackageCheck(
             "Feedback FX Audio",
             "com.brassworks.sidecar.feedback-fx-audio",
             "Documentation~/Manifest/SCFX_FeedbackFXAudio_Manifest_v0.1.38-p001.json",
@@ -98,6 +132,23 @@ public static class SidecarQuarantineImportValidator
                 "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Prefabs/SCLVL_ValveConsole.prefab",
                 "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Materials/SCLVL_AgedBrass.mat",
                 "Packages/com.brassworks.sidecar.steamworks-level-kit/Runtime/Meshes/SCLVL_BoxUnit.asset"
+            }),
+        new PackageCheck(
+            "Weapon Viewmodel Set 03",
+            "com.brassworks.sidecar.weapon-viewmodel-set03",
+            "Documentation~/Manifest/WVM03_WeaponViewmodelSet03_Manifest_v0.1.41-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.weapon-viewmodel-set03/Runtime/Prefabs/BB_WVM03_PressurePistol_FullAssembly_A.prefab",
+                "Packages/com.brassworks.sidecar.weapon-viewmodel-set03/Runtime/Prefabs/BB_WVM03_PressurePistol_FullAssembly_B_DualGauge.prefab",
+                "Packages/com.brassworks.sidecar.weapon-viewmodel-set03/Runtime/Prefabs/BB_WVM03_Scattergun_FullAssembly_A.prefab",
+                "Packages/com.brassworks.sidecar.weapon-viewmodel-set03/Runtime/Prefabs/BB_WVM03_BoltThrower_FullAssembly_A.prefab",
+                "Packages/com.brassworks.sidecar.weapon-viewmodel-set03/Runtime/Prefabs/BB_WVM03_GloveSilhouette_RightGrip.prefab",
+                "Packages/com.brassworks.sidecar.weapon-viewmodel-set03/Runtime/Prefabs/BB_WVM03_GloveSilhouette_LeftSupport.prefab",
+                "Packages/com.brassworks.sidecar.weapon-viewmodel-set03/Runtime/Prefabs/BB_WVM03_AmmoPressureCell_Single.prefab",
+                "Packages/com.brassworks.sidecar.weapon-viewmodel-set03/Runtime/Materials/WVM03_MAT_GreenGaugeGlass.mat",
+                "Packages/com.brassworks.sidecar.weapon-viewmodel-set03/Runtime/Meshes/WVM03_Mesh_GlovePalm.asset",
+                "Packages/com.brassworks.sidecar.weapon-viewmodel-set03/Runtime/WeaponViewmodelSet03Identity.cs"
             }),
         new PackageCheck(
             "Level Dressing Set 01",

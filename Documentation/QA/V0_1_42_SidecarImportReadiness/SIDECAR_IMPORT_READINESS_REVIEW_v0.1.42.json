@@ -1,0 +1,108 @@
+{
+  "version": "0.1.42",
+  "generated_date": "2026-05-24",
+  "scope": {
+    "planning_root": "Documentation/Planning/V0_1_42_SidecarImportReadiness",
+    "qa_root": "Documentation/QA/V0_1_42_SidecarImportReadiness",
+    "documents_only": true,
+    "main_manifest_edited": false,
+    "generated_scenes_edited": false,
+    "gameplay_scripts_edited": false,
+    "shared_status_docs_edited": false,
+    "package_roots_edited": false,
+    "git_history_edited": false
+  },
+  "baseline": {
+    "current_manifest_sidecar_packages": 8,
+    "current_validator_packages": 8,
+    "current_validator_representative_assets": 51,
+    "target_packages_present_in_main_manifest": false
+  },
+  "target_packages": [
+    {
+      "folder": "AssetPacks/BrassworksBreach.CorridorKitSet02",
+      "upm_name": "com.brassworks.sidecar.corridor-kit-set02",
+      "package_json_version": "0.1.41-p001",
+      "manifest_version": "0.1.41",
+      "manifest_build_id": "p001",
+      "manifest": "AssetPacks/BrassworksBreach.CorridorKitSet02/Documentation~/Manifest/SCK2_CorridorKitSet02_Manifest_v0.1.41-p001.json",
+      "static_validation": "pass_0_errors_0_warnings",
+      "main_manifest_status": "absent",
+      "asset_counts": {
+        "generated_prefabs": 32,
+        "generated_materials": 18,
+        "generated_meshes": 6,
+        "textures": 0,
+        "runtime_scripts": 0,
+        "preview_renders": 5
+      },
+      "representative_asset_checks": 11
+    },
+    {
+      "folder": "AssetPacks/BrassworksBreach.EncounterEnemySet02",
+      "upm_name": "com.brassworks.sidecar.encounter-enemy-set02",
+      "package_json_version": "0.1.41-p001",
+      "manifest_version": "0.1.41",
+      "manifest_build_id": "p001",
+      "manifest": "AssetPacks/BrassworksBreach.EncounterEnemySet02/Documentation~/Manifest/EE02_EncounterEnemySet02_Manifest_v0.1.41-p001.json",
+      "static_validation": "pass_0_errors_0_warnings",
+      "main_manifest_status": "absent",
+      "asset_counts": {
+        "generated_prefabs": 16,
+        "generated_materials": 16,
+        "generated_meshes": 12,
+        "textures": 0,
+        "runtime_scripts": 0,
+        "preview_renders": 21
+      },
+      "representative_asset_checks": 9
+    },
+    {
+      "folder": "AssetPacks/BrassworksBreach.WeaponViewmodelSet03",
+      "upm_name": "com.brassworks.sidecar.weapon-viewmodel-set03",
+      "package_json_version": "0.1.41",
+      "manifest_version": "0.1.41",
+      "manifest_build_id": "p001",
+      "manifest": "AssetPacks/BrassworksBreach.WeaponViewmodelSet03/Documentation~/Manifest/WVM03_WeaponViewmodelSet03_Manifest_v0.1.41-p001.json",
+      "static_validation": "pass_0_errors_0_warnings",
+      "main_manifest_status": "absent",
+      "asset_counts": {
+        "generated_prefabs": 20,
+        "generated_materials": 14,
+        "generated_meshes": 7,
+        "textures": 0,
+        "runtime_scripts": 1,
+        "editor_scripts": 3,
+        "preview_renders": 21
+      },
+      "representative_asset_checks": 10
+    }
+  ],
+  "expected_main_lane_changes": [
+    "Add three local UPM package references to Packages/manifest.json.",
+    "Add three PackageCheck entries to Assets/_Project/Editor/SidecarQuarantineImportValidator.cs.",
+    "Add quarantine showcase placements to Assets/_Project/Editor/V0SceneBuilder.cs after import validation passes.",
+    "Add per-level required showcase names to Assets/_Project/Editor/V0LevelValidator.cs.",
+    "Rebuild generated scenes through Unity only after validator import gate is green."
+  ],
+  "expected_validator_total_if_inventory_used": {
+    "current_packages": 8,
+    "current_representative_assets": 51,
+    "new_packages": 3,
+    "new_representative_assets": 30,
+    "total_packages": 11,
+    "total_representative_assets": 81
+  },
+  "top_actionable_recommendations": [
+    "Import in two compile batches: manifest plus import validator first, showcase and scene rebuild second.",
+    "Use the representative inventory rather than every generated asset to keep validation fast while covering prefabs, materials, meshes, and the WVM03 runtime script.",
+    "Block scene work until WVM03 compiles because it is the only target package with a runtime assembly.",
+    "Keep SCK2 modules presentation-only until collision, occlusion, nav, and door authority are owned by the primary level lane.",
+    "Keep EE02 visual enemy poses detached from AI, damage, nav, hit proxies, animation, and spawner authority.",
+    "Keep WVM03 weapon visuals presentation-only until first-person hand scale, muzzle alignment, recoil clearance, reload clearance, and sockets pass.",
+    "Add manifest-count and prefab-safety validator helpers after basic loadability passes.",
+    "Require at least one new showcase object from each target package family in V0LevelValidator.",
+    "Preserve rollback as package-reference removal plus validator/showcase cleanup, not package-root deletion.",
+    "Run Unity lookdev only; do not use Blender for this intake."
+  ]
+}

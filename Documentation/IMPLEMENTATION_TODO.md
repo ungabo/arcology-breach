@@ -86,12 +86,29 @@ This checklist tracks implementation work. Detailed production tracking lives in
 - [x] Accept package roots and preview/evidence docs without importing them into the main Unity manifest yet.
 - [x] Start the next parallel package lanes for Steam VFX Set 02, Objective Props Set 02, and v0.1.42 import-readiness planning.
 
+## v0.1.43 Second Sidecar Visual Import
+
+- [x] Review and apply the v0.1.42 import-readiness packet for Corridor Kit Set 02, Encounter Enemy Set 02, and Weapon Viewmodel Set 03.
+- [x] Add all three packages as local Unity package references.
+- [x] Expand `SidecarQuarantineImportValidator` to eleven packages and eighty-one representative asset checks.
+- [x] Add visual-only showcase placements and material swatches for the three imported packages across all five generated gameplay levels.
+- [x] Raise level validation thresholds and required-name checks for the new showcase content.
+- [x] Rebuild scenes, run route audit, run the full Windows matrix through package, and generate QA, issue-triage, candidate-readiness, and release-note evidence.
+
+## v0.1.44 Sidecar Package Acceptance Wave
+
+- [ ] Locally validate Steam VFX Set 02 package.
+- [ ] Locally validate Objective Props Set 02 package.
+- [ ] Review v0.1.44 import-readiness guidance from the side-agent lane.
+- [ ] Accept clean package roots and preview/evidence docs without importing them into the main Unity manifest yet.
+- [ ] Keep Level Atmosphere Set 03 and Enemy Animation Proxy Set 01 running as separate parallel lanes.
+
 ## Parallel Priority: v0.1.40 Sidecar Asset Bundles
 
 - [x] Complete broad steampunk material family sidecar package.
 - [x] Generate package-local manifest and preview swatches/renders.
 - [x] Run package-specific sidecar validator.
-- [ ] Review import risk and decide whether to import package or bind selected materials into gameplay surfaces.
+- [x] Review import risk and decide whether to import package or bind selected materials into gameplay surfaces.
 - [x] Complete level-dressing, mechanical-enemy-visual, and weapon-props sidecar packages in parallel.
 - [x] Complete level-dressing sidecar package with previews and zero-warning package validation.
 - [x] Complete mechanical-enemy-visual sidecar package with previews and zero-warning package validation.

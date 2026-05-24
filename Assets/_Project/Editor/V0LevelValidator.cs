@@ -2393,12 +2393,12 @@ public static class V0LevelValidator
         switch (sceneName)
         {
             case "Level01":
-                return 28;
+                return 34;
             case "Level02":
             case "Level03":
             case "Level04":
             case "Level05":
-                return 18;
+                return 24;
             default:
                 return 1;
         }
@@ -2409,15 +2409,15 @@ public static class V0LevelValidator
         switch (sceneName)
         {
             case "Level01":
-                return new[] { "PressurePistolCore", "WPS02PressurePistolFrame", "SCLDGaugePanelTriple" };
+                return new[] { "PressurePistolCore", "SCK2NorthStarCorridor", "EE02PressureSpindleHarpoon", "WVM03PressurePistolFull", "WPS02PressurePistolFrame", "SCLDGaugePanelTriple" };
             case "Level02":
-                return new[] { "CorridorStraight", "SCLDPipeJunctionX", "MEV01RivetLancerRail", "WPS02PressureCell" };
+                return new[] { "CorridorStraight", "SCK2PressureGaugeColumn", "EE02AshcanSawScout", "WVM03BoltThrowerFull", "SCLDPipeJunctionX", "MEV01RivetLancerRail", "WPS02PressureCell" };
             case "Level03":
-                return new[] { "TJunction", "MEV01SawScrapperBoiler", "WPS02ScattergunTwin", "SCLDDrainChannel" };
+                return new[] { "TJunction", "SCK2RoomGaugeNest", "EE02AshcanOvercrank", "WVM03ScattergunFull", "MEV01SawScrapperBoiler", "WPS02ScattergunTwin", "SCLDDrainChannel" };
             case "Level04":
-                return new[] { "ArchedDoor", "MEV01BulwarkShieldBoiler", "SCLDPressureTankFloor", "WPS02AmmoCabinetOpen" };
+                return new[] { "ArchedDoor", "SCK2BulkheadDoor", "EE02GatehammerShielded", "WVM03AmmoShellStrip", "MEV01BulwarkShieldBoiler", "SCLDPressureTankFloor", "WPS02AmmoCabinetOpen" };
             case "Level05":
-                return new[] { "VaultDoor", "MEV01WardenTall", "SCLDGearHousingOpen", "WPS02WallWeaponRack" };
+                return new[] { "VaultDoor", "SCK2PressureLockDoor", "EE02GovernorWardenTall", "WVM03GaugeClusterTriple", "MEV01WardenTall", "SCLDGearHousingOpen", "WPS02WallWeaponRack" };
             default:
                 return Array.Empty<string>();
         }
@@ -2428,15 +2428,15 @@ public static class V0LevelValidator
         switch (sceneName)
         {
             case "Level01":
-                return new[] { "AgedBrass" };
+                return new[] { "AgedBrass", "SCK2OilWetFloor", "EE02FurnaceEye", "WVM03AgedBrass" };
             case "Level02":
-                return new[] { "WetStone" };
+                return new[] { "WetStone", "SCK2PressureGreenGlass", "EE02ChippedHazardYellow", "WVM03BluedSpringSteel" };
             case "Level03":
-                return new[] { "HazardPaint" };
+                return new[] { "HazardPaint", "SCK2DarkRivetedIron", "EE02SootBlackGrime", "WVM03VarnishedWalnut" };
             case "Level04":
-                return new[] { "OxidizedCopper" };
+                return new[] { "OxidizedCopper", "SCK2BurnishedCopper", "EE02RedOverheatTell", "WVM03OxidizedCopper" };
             case "Level05":
-                return new[] { "PressureGaugeGlass" };
+                return new[] { "PressureGaugeGlass", "SCK2GaugeIvory", "EE02CyanPressureTell", "WVM03GreenGaugeGlass" };
             default:
                 return Array.Empty<string>();
         }
