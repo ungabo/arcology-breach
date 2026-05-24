@@ -39,3 +39,28 @@
 - Verified JPG dimensions and file presence.
 - Performed visual checks on the staged contact sheet, enemy turntable, weapon/prop turntable, and staged corridor mood render.
 - Confirmed this worker wrote only inside `Documentation/ConceptRenders/`; ArtStaging was inspected as read-only input while other workers populated it.
+
+## 2026-05-23 22:24:58 -04:00
+
+- Started render-lane continuation task for batch 02.
+- Confirmed current staged read-only inputs now include:
+  - `Assets/_Project/ArtStaging/ModularKit/*.obj`
+  - `Assets/_Project/ArtStaging/ModularKit/KIT_MAT_*_BaseColor.png`
+  - `Assets/_Project/ArtStaging/ModularKit/KIT_ModularKit_Manifest.json`
+  - Existing `Enemies/*.obj` and `WeaponsProps/*.obj`
+- Added `generate_batch02_modular_renders.py` inside `Documentation/ConceptRenders/` only.
+
+## 2026-05-23 22:28:32 -04:00
+
+- Generated batch 02 staged-composite JPGs:
+  - `RENDER_ROOM_modularkit_brassworks_corridor_batch02.jpg`
+  - `RENDER_ROOM_pressure_gate_control_alcove_batch02.jpg`
+  - `RENDER_OBJECT_scrapper_sentinel_lineup_batch02.jpg`
+  - `RENDER_OBJECT_weapon_prop_lineup_batch02.jpg`
+  - `CONTACTSHEET_batch02_modular_room_object_renders.jpg`
+- Each file is labeled as staged review-only, non-shipping concept/reference art.
+
+## 2026-05-23 22:29:01 -04:00
+
+- Visually checked the two room renders, the enemy lineup, the weapon/prop lineup, and the batch contact sheet.
+- Updated `INDEX.md` with all batch 02 JPGs, source assets, timestamps, and staged status.

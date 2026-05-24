@@ -110,7 +110,7 @@ Every major asset should eventually have three quality targets:
 | ANIM-002 | Pressure Pistol reload/check | P2 | planned | Optional if reloads become part of gameplay. |
 | ANIM-003 | Scrapper idle/chase | P1 | prototype | `MachineMotionVfx` now gives Scrappers baseline boiler bob, piston/cutter motion, and pressure pulsing; final pass should replace it with authored stride/attack clips. |
 | ANIM-004 | Scrapper attack tell | P1 | verified | `ScrapperAttackTellVfx` now adds cutter-edge warning glows, furnace flare, pressure surge, steam puffs, brass sparks, and a ground warning ring during melee windup, with dedicated `EnemyAttackTell` audio and combat-edge smoke coverage before damage lands. |
-| ANIM-005 | Scrapper hit/death | P1 | planned | Sparks, stagger, collapse, or shutdown. |
+| ANIM-005 | Scrapper hit/death | P1 | prototype | Non-lethal hits spawn `MachineHitVfx`; death now routes through a Scrapper-specific `MachineDeathVfx` shutdown variant with cutter shards, flywheel gears, valve wheel, tank burst, and furnace flash. Final authored stagger/collapse clips remain planned. |
 | ANIM-006 | Lancer aim/fire | P1 | planned | Valve charge tell and shot release. |
 | ANIM-007 | Gate open/close | P1 | prototype | Existing sliding motion, needs gear-driven animation. |
 | ANIM-008 | Pickup bob/spin | P1 | prototype | Existing bobbing/spin can become clockwork hover or plinth animation. |
@@ -121,7 +121,8 @@ Every major asset should eventually have three quality targets:
 
 | ID | Asset | Priority | Status | Description |
 | --- | --- | --- | --- | --- |
-| RENDER-001 | Concept render lane | P1 | review | `Documentation/ConceptRenders/` contains mockup and staged-asset JPG contact sheets for objects, room mood, staged PBR materials, enemy blockouts, and weapon/prop blockouts. These are user-review files outside Unity build assets. |
+| RENDER-001 | Concept render lane | P1 | review | `Documentation/ConceptRenders/` contains mockup and staged-asset JPG contact sheets for objects, room mood, staged PBR materials, enemy blockouts, modular corridor/pressure-gate alcove composites, and weapon/prop blockouts. These are user-review files outside Unity build assets. |
+| RENDER-002 | High-fidelity north-star lookdev renders | P1 | in-progress | Curie is assigned to create non-shipping lookdev briefs, static material/model targets, and review JPGs pushing corridor/door, pressure pistol, and Scrapper-like monster assets toward the north-star concept-art realism. |
 
 ## 7. VFX
 
@@ -131,9 +132,10 @@ Every major asset should eventually have three quality targets:
 | VFX-002 | Pressure muzzle flash | P1 | planned | Hot spark and steam puff. |
 | VFX-003 | Impact sparks | P1 | prototype | Short primitive metal spark burst at weapon impact point. |
 | VFX-004 | Machine hit effect | P1 | prototype | `MachineHitVfx` now spawns short brass sparks and steam pops for non-lethal Scrapper, Lancer, Bulwark, and Governor Warden damage; final pass should add per-enemy oil flecks, impact decals, and stronger directional bursts. |
-| VFX-005 | Machine death effect | P1 | prototype | Standard machine shutdown now spawns steam puffs, brass sparks, and a pressure ring for Scrappers/Lancers/Bulwarks; final per-enemy variants remain planned. |
+| VFX-005 | Machine death effect | P1 | prototype | Standard machine shutdown spawns steam puffs, brass sparks, and a pressure ring for Lancers/Bulwarks/support machines; Scrappers now use a richer dedicated shutdown variant. |
 | VFX-005B | Warden shutdown burst | P1 | prototype | Boss-specific shutdown effect spawned by `GovernorWardenController`, verified by Warden combat smoke. |
-| VFX-005C | Standard shutdown burst | P1 | prototype | Compact `MachineDeathVfx` used by Scrappers and Lancers, scaled up for Bulwarks, verified by combat smoke. |
+| VFX-005C | Standard shutdown burst | P1 | prototype | Compact `MachineDeathVfx` used by Lancers and scaled up for Bulwarks/support machines, verified by combat smoke. |
+| VFX-005D | Scrapper shutdown burst | P1 | verified | Scrapper death now uses a dedicated `MachineDeathVfx` style with pressure ring, steam puffs, brass sparks, boiler cap, chest plate, cutter shards, flywheel gears, valve wheel, pressure-tank burst, and furnace flash, verified by combat smoke. |
 | VFX-006 | Gear-key pickup effect | P1 | prototype | `GearKeyPickupVfx` spawns a brass ring, center glow, and tooth sparks when the gear key is collected; final pass should add clockwork glyphs and stronger pickup audio sync. |
 | VFX-006B | Resource pickup effects | P1 | prototype | `ResourcePickupVfx` spawns red medicinal bursts for health vials and brass/cyan pressure bursts for ammo pickups, verified by auto-playthrough. |
 | VFX-007 | Pressure gate open effect | P2 | prototype | `GateOpenVfx` spawns green pressure wash, steam jets, and brass/green sparks when the Level01 pressure gate opens; final pass should link lamp states, gear sound, and denser steam. |

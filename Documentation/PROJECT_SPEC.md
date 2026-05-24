@@ -8,7 +8,7 @@ The genre target remains compact classic FPS exploration: movement, shooting, ke
 
 ## 2. Current Version
 
-Current state: `v0.0.89`.
+Current state: `v0.0.90`.
 
 Implemented:
 
@@ -63,7 +63,7 @@ Implemented:
 - Warden boss health HUD with brass backplate, red pressure fill, boss label, runtime visibility, validation, and packaged Warden combat smoke damage feedback coverage.
 - Warden shutdown VFX with steam jets, brass sparks, expanding pressure ring, and packaged Warden combat smoke coverage.
 - Persistent objective HUD with key, gate, valve, Warden defeat, death, and win-state updates plus auto-playthrough coverage.
-- Standard machine death VFX for Scrappers, Lancers, and Bulwarks with combat smoke coverage.
+- Standard machine death VFX for Lancers and Bulwarks, plus a richer Scrapper-specific shutdown burst, with combat smoke coverage.
 - Reusable `SteamworksSpinner` component animating pressure-gate gears, service-lift pulleys, valve wheels, and the main-menu gear with validation/runtime smoke coverage.
 - Non-lethal `MachineHitVfx` impact feedback for Scrappers, Lancers, Bulwarks, and the Governor Warden with combat automation coverage.
 - `GateOpenVfx` feedback when the Level01 pressure gate opens, with auto-playthrough coverage.
@@ -92,6 +92,7 @@ Implemented:
 - First staged production assets are present under `Assets/_Project/ArtStaging/`: PBR material texture maps, mechanical enemy OBJ blockouts, weapon/prop OBJ blockouts, and modular corridor-kit OBJ meshes, with manifests and preview sheets under `Documentation/AssetProduction/`.
 - View-only concept renders for staged assets and steampunk room/object mockups are present under `Documentation/ConceptRenders/`; these are review files and are not part of the Unity build.
 - Scrapper melee attacks now have a clearer pre-damage warning state with cutter-edge glows, furnace flare, pressure surge, steam puffs, brass sparks, and a dedicated `EnemyAttackTell` audio cue, verified by runtime and combat-edge smoke.
+- Scrapper deaths now use a dedicated shutdown style with pressure ring, steam puffs, brass sparks, cutter shards, flywheel gears, valve wheel, pressure tank burst, and furnace flash, verified by combat smoke.
 
 ## 3. Target Platform
 

@@ -1307,6 +1307,17 @@ Next-step directive: continue immediately with the next highest-impact unfinishe
 
 Next-step directive: continue immediately with the next highest-impact unfinished task.
 
+## v0.0.90 Scrapper Shutdown Polish Pass
+
+- [x] Add a Scrapper-specific `MachineDeathVfx` shutdown style without changing Lancer/Bulwark/support-machine shutdown hooks.
+- [x] Add boiler cap, chest plate, cutter shards, flywheel gears, valve wheel, pressure-tank burst, and furnace-flash pieces to the Scrapper shutdown variant.
+- [x] Route `EnemyController.Die()` through the Scrapper shutdown variant.
+- [x] Expand combat smoke to require Scrapper-specific shutdown detail.
+- [x] Integrate side-agent batch 02 room/object concept renders under `Documentation/ConceptRenders/`.
+- [x] Build `v0.0.90` through the full V0 matrix.
+
+Next-step directive: continue immediately with the next highest-impact unfinished task.
+
 ## v0.2 Combat Feel Slice
 
 - [ ] Run manual Windows playthrough.

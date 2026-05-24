@@ -177,7 +177,7 @@ public class EnemyController : MonoBehaviour, IDamageable
     private void Die()
     {
         dead = true;
-        MachineDeathVfx.Spawn(transform.position + Vector3.up * 0.55f);
+        MachineDeathVfx.SpawnScrapperShutdown(transform.position + Vector3.up * 0.55f);
         SteamworksAudio.PlayAt(SteamworksAudioCue.EnemyDeath, transform.position);
         HUDController.Instance?.ShowTemporaryMessage("Enemy down", 0.6f);
         Destroy(gameObject);

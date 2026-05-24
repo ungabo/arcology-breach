@@ -46,9 +46,9 @@ public class RuntimeCombatTest : MonoBehaviour
         }
 
         MachineDeathVfx deathVfx = UnityEngine.Object.FindAnyObjectByType<MachineDeathVfx>();
-        if (deathVfx == null || deathVfx.PieceCount < 8)
+        if (deathVfx == null || !deathVfx.HasScrapperShutdownDetail || deathVfx.PieceCount < 18)
         {
-            Fail("Combat smoke failed: machine death VFX did not spawn with enough visible pieces.");
+            Fail("Combat smoke failed: Scrapper shutdown VFX did not spawn with enough visible pieces.");
             yield break;
         }
 

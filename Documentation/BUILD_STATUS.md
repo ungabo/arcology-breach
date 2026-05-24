@@ -2,9 +2,9 @@
 
 ## Current Version
 
-`v0.0.89` versioned build for `Brassworks Breach`.
+`v0.0.90` versioned build for `Brassworks Breach`.
 
-`v0.0` core loop is complete. The current build gives Scrapper melee windups dedicated warning VFX/audio before damage lands, and gives the Pressure Pistol right-mouse Pressure Burst its own procedural pressure-dump audio cue, dedicated pressure/steam/brass burst VFX, and first-person pressure-dump viewmodel motion with a kicking gauge needle, spinning valve wheel, snapping dump lever, recoiling pressure chamber, and side vent flash. This sits on top of Level03 Steam Scattergun pickup readability cues, the richer pickup display stand, dedicated Steam Scattergun slug audio/VFX, dedicated weapon-pickup acquisition audio, real pickup-route acquisition, dedicated brass/steam weapon-pickup VFX, Bellows Node pulse audio, visible brass/steam pressure-boost VFX for over-pressurized Scrappers, Bellows Node support-machine boost behavior, first Bellows Node support-machine prototype in Level03, dedicated Steam Scattergun procedural fire cue, dedicated Steam Scattergun pressure-ring/steam/brass-spark blast VFX, Steam Scattergun first-person viewmodel, Steam Scattergun prototype, Pressure Burst alternate fire, the procedural brassworks ambience loop, Level02 Pipeworks cartridge-cache secret, Pipeworks routing valve objective, interactable lore plaques, first-person player damage VFX, pressure-pistol impact decal VFX, visible pressure-bolt projectile VFX, reusable procedural machine motion, animated furnace heat-ripple readability, animated steam hazard puffs, health/ammo/key pickup VFX, service-lift activation VFX, pressure-gate opening VFX, non-lethal machine hit VFX, animated steampunk machinery, standard machine death VFX, persistent objective HUD guidance, Warden shutdown VFX, the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
+`v0.0` core loop is complete. The current build gives Scrapper deaths a richer dedicated shutdown burst, gives Scrapper melee windups dedicated warning VFX/audio before damage lands, and gives the Pressure Pistol right-mouse Pressure Burst its own procedural pressure-dump audio cue, dedicated pressure/steam/brass burst VFX, and first-person pressure-dump viewmodel motion with a kicking gauge needle, spinning valve wheel, snapping dump lever, recoiling pressure chamber, and side vent flash. This sits on top of Level03 Steam Scattergun pickup readability cues, the richer pickup display stand, dedicated Steam Scattergun slug audio/VFX, dedicated weapon-pickup acquisition audio, real pickup-route acquisition, dedicated brass/steam weapon-pickup VFX, Bellows Node pulse audio, visible brass/steam pressure-boost VFX for over-pressurized Scrappers, Bellows Node support-machine boost behavior, first Bellows Node support-machine prototype in Level03, dedicated Steam Scattergun procedural fire cue, dedicated Steam Scattergun pressure-ring/steam/brass-spark blast VFX, Steam Scattergun first-person viewmodel, Steam Scattergun prototype, Pressure Burst alternate fire, the procedural brassworks ambience loop, Level02 Pipeworks cartridge-cache secret, Pipeworks routing valve objective, interactable lore plaques, first-person player damage VFX, pressure-pistol impact decal VFX, visible pressure-bolt projectile VFX, reusable procedural machine motion, animated furnace heat-ripple readability, animated steam hazard puffs, health/ammo/key pickup VFX, service-lift activation VFX, pressure-gate opening VFX, non-lethal machine hit VFX, animated steampunk machinery, standard machine death VFX plus Scrapper-specific shutdown detail, persistent objective HUD guidance, Warden shutdown VFX, the Warden boss health HUD, Warden-gated finale, the Governor Warden final guardian prototype, Level05 Governor Core, five-level campaign auto-playthrough, Foundry secret cache, first heavy Bulwark enemy role, Level04 Furnace Foundry foundation, secret-stat win persistence, persistent run secret stats, win-screen secret progress, Boilerheart hazard shutdown, level-specific objective briefing messages, reusable steam hazard volumes, the Level03 Boilerheart pressure-valve objective, locked foundry lift, Level03 Boilerheart Core, expanded combat scenario automation, data-driven platform quality profiles, the reusable level transition controller, data-driven pickup definitions, the interaction system foundation, one-command V0 build matrix runner, data-driven Scrapper and Lancer enemy definition assets, the data-driven Pressure Pistol, `GameBalance` profile, Level01 cover pass, steampunk environment signage, first-person Pressure Pistol pass, service-lift, gear-key/gate art passes, generated material textures, ranged Lancer combat, level validation, runtime performance profile, retheme, menu/settings flow, brass HUD, pickup visuals, and impact sparks.
 
 ## Completed
 
@@ -70,7 +70,7 @@
 - Warden boss health HUD with top-center brass backplate, red pressure fill, label text, editor/runtime validation, and packaged Warden combat smoke coverage for damage feedback.
 - `WardenShutdownVfx` spawns steam jets, brass sparks, and an expanding pressure ring when the Governor Warden is destroyed, verified by packaged Warden combat smoke.
 - Persistent objective HUD with editor/runtime wiring checks and auto-playthrough coverage for key, gate, valve, Warden defeat, and win updates.
-- `MachineDeathVfx` now gives Scrappers, Lancers, and Bulwarks steam/spark shutdown feedback, verified by combat and Bulwark combat smoke.
+- `MachineDeathVfx` now gives Lancers and Bulwarks steam/spark shutdown feedback, while Scrappers use a richer dedicated shutdown variant with cutter shards, flywheel gears, valve wheel, pressure-tank burst, and furnace flash, verified by combat and Bulwark combat smoke.
 - `SteamworksSpinner` now animates pressure-gate gears, service-lift pulley gears, valve wheels, and the menu gear, with editor and runtime smoke validation.
 - `MachineHitVfx` now gives Scrappers, Lancers, Bulwarks, and the Governor Warden non-lethal spark/steam impact feedback, verified by combat-scenario, Bulwark, and Warden combat smoke.
 - `GateOpenVfx` now gives the pressure gate green pressure-wash, steam-jet, and spark feedback, verified by auto-playthrough.
@@ -104,12 +104,14 @@
 - First side-agent material, enemy, weapon/prop, and modular corridor-kit staging packages exist under `Assets/_Project/ArtStaging/`, with 1024px PBR texture maps, OBJ blockouts, Unity `.meta` sidecars, manifests, and preview sheets in `Documentation/AssetProduction/`.
 - View-only concept renders for staged assets and room/object mockups exist under `Documentation/ConceptRenders/` and are intentionally outside Unity build assets.
 - Scrapper melee windup now has dedicated warning VFX and `EnemyAttackTell` audio, verified by level validation, runtime smoke, and combat-edge smoke before player damage.
+- Scrapper shutdown VFX now has a dedicated richer death variant, verified by combat smoke.
+- Batch 02 view-only modular corridor, pressure-gate alcove, enemy-lineup, and weapon/prop-lineup renders exist under `Documentation/ConceptRenders/`.
 
 ## Verification Results
 
-Latest fully verified build: `v0.0.89`.
+Latest fully verified build: `v0.0.90`.
 
-Current `v0.0.89` verification:
+Current `v0.0.90` verification:
 
 - Editor level validation: passed.
 - Editor smoke test: passed.
@@ -155,7 +157,7 @@ Pass markers:
 
 Current target:
 
-`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.89\BrassworksBreach_v0.0.89.exe`
+`D:\__MY APPS\Unity Doom\Builds\Windows\v0.0.90\BrassworksBreach_v0.0.90.exe`
 
 ## Latest Build Verification
 
@@ -1322,13 +1324,32 @@ Current target:
 - `2026-05-23 22:17 -04:00`: `v0.0.89` packaged hazard smoke passed.
 - `2026-05-23 22:17 -04:00`: `v0.0.89` packaged secret smoke passed.
 - `2026-05-23 22:17 -04:00`: `v0.0.89` packaged pause-flow smoke passed.
+- `2026-05-23 22:29 -04:00`: `v0.0.90` one-command build matrix runner passed.
+- `2026-05-23 22:27 -04:00`: `v0.0.90` scene rebuild passed.
+- `2026-05-23 22:27 -04:00`: `v0.0.90` level validation passed.
+- `2026-05-23 22:27 -04:00`: `v0.0.90` editor smoke passed.
+- `2026-05-23 22:27 -04:00`: `v0.0.90` Windows build passed.
+- `2026-05-23 22:28 -04:00`: `v0.0.90` packaged runtime smoke passed.
+- `2026-05-23 22:28 -04:00`: `v0.0.90` packaged auto-playthrough passed.
+- `2026-05-23 22:28 -04:00`: `v0.0.90` packaged combat smoke passed with Scrapper-specific shutdown VFX detail coverage.
+- `2026-05-23 22:28 -04:00`: `v0.0.90` packaged combat-edge smoke passed.
+- `2026-05-23 22:28 -04:00`: `v0.0.90` packaged combat-scenario smoke passed.
+- `2026-05-23 22:28 -04:00`: `v0.0.90` packaged weapon-switch smoke passed.
+- `2026-05-23 22:28 -04:00`: `v0.0.90` packaged Bellows Node smoke passed.
+- `2026-05-23 22:28 -04:00`: `v0.0.90` packaged ranged combat smoke passed.
+- `2026-05-23 22:28 -04:00`: `v0.0.90` packaged Bulwark combat smoke passed.
+- `2026-05-23 22:28 -04:00`: `v0.0.90` packaged Warden combat smoke passed.
+- `2026-05-23 22:28 -04:00`: `v0.0.90` packaged interaction smoke passed.
+- `2026-05-23 22:28 -04:00`: `v0.0.90` packaged hazard smoke passed.
+- `2026-05-23 22:29 -04:00`: `v0.0.90` packaged secret smoke passed.
+- `2026-05-23 22:29 -04:00`: `v0.0.90` packaged pause-flow smoke passed.
 
-Future builds should increment as `v0.0.90`, `v0.0.91`, etc. when meaningful progress is ready for local playtesting.
+Future builds should increment as `v0.0.91`, `v0.0.92`, etc. when meaningful progress is ready for local playtesting.
 
 ## Known Limitations
 
 - Runtime smoke test verifies boot/object presence. Auto-playthrough verifies the current five-level objective flow but not human combat feel.
-- Combat smoke verifies weapon raycast damage, enemy death, and Scrapper death VFX; combat-edge smoke verifies empty ammo, Scrapper attack-tell VFX/audio before melee damage, Scrapper melee damage, player damage VFX, and player death state; combat-scenario smoke verifies cooldown, primary/secondary ammo accounting, Pressure Burst alternate fire, dedicated Pressure Burst audio/VFX, secondary viewmodel pressure-dump motion cues, expected shot count, enemy survival until final hit, non-lethal Scrapper hit VFX, and pressure-pistol impact decal VFX; weapon-switch smoke verifies real Level03 Steam Scattergun pickup acquisition, dedicated acquisition audio, weapon-pickup VFX, unlock/equip, viewmodel activation, slug audio/VFX, slug ammo cost, primary blast VFX spawn, dedicated scattergun audio cue routing, ammo cost, one-shot close-range machine kill, Pressure Pistol re-equip, and pistol viewmodel reactivation; Bellows Node smoke verifies support-machine pulse damage, dedicated spatial pulse audio, pressure-pulse VFX, nearby Scrapper speed boost, pressure-boost VFX, three-shot-equivalent durability, and destruction VFX; ranged combat smoke verifies Lancer projectile damage and pressure-bolt VFX; Bulwark combat smoke verifies heavy enemy durability/death, scaled hit VFX, and scaled death VFX; Warden combat smoke verifies final guardian durability/death, boss health HUD damage feedback, hit VFX, and shutdown VFX spawn; interaction smoke verifies gate/lift prompts plus lore-plaque HUD read feedback; auto-playthrough verifies health pickup VFX, ammo pickup VFX, gear-key pickup VFX, pressure-gate open VFX, service-lift activation VFX, Pipeworks routing-valve lock/unlock, at least three registered secrets, and downstream level transitions; hazard smoke verifies steam damage, animated steam puffs, furnace-heat hazard damage, and active furnace heat ripples; secret smoke verifies secret discovery; runtime smoke verifies brassworks ambience is active and weapon/support/pickup/scattergun-slug/pressure-burst/enemy-attack-tell audio cues are configured. Editor/runtime smoke also requires the current machinery spinner and machine motion passes.
+- Combat smoke verifies weapon raycast damage, enemy death, and Scrapper-specific shutdown VFX; combat-edge smoke verifies empty ammo, Scrapper attack-tell VFX/audio before melee damage, Scrapper melee damage, player damage VFX, and player death state; combat-scenario smoke verifies cooldown, primary/secondary ammo accounting, Pressure Burst alternate fire, dedicated Pressure Burst audio/VFX, secondary viewmodel pressure-dump motion cues, expected shot count, enemy survival until final hit, non-lethal Scrapper hit VFX, and pressure-pistol impact decal VFX; weapon-switch smoke verifies real Level03 Steam Scattergun pickup acquisition, dedicated acquisition audio, weapon-pickup VFX, unlock/equip, viewmodel activation, slug audio/VFX, slug ammo cost, primary blast VFX spawn, dedicated scattergun audio cue routing, ammo cost, one-shot close-range machine kill, Pressure Pistol re-equip, and pistol viewmodel reactivation; Bellows Node smoke verifies support-machine pulse damage, dedicated spatial pulse audio, pressure-pulse VFX, nearby Scrapper speed boost, pressure-boost VFX, three-shot-equivalent durability, and destruction VFX; ranged combat smoke verifies Lancer projectile damage and pressure-bolt VFX; Bulwark combat smoke verifies heavy enemy durability/death, scaled hit VFX, and scaled death VFX; Warden combat smoke verifies final guardian durability/death, boss health HUD damage feedback, hit VFX, and shutdown VFX spawn; interaction smoke verifies gate/lift prompts plus lore-plaque HUD read feedback; auto-playthrough verifies health pickup VFX, ammo pickup VFX, gear-key pickup VFX, pressure-gate open VFX, service-lift activation VFX, Pipeworks routing-valve lock/unlock, at least three registered secrets, and downstream level transitions; hazard smoke verifies steam damage, animated steam puffs, furnace-heat hazard damage, and active furnace heat ripples; secret smoke verifies secret discovery; runtime smoke verifies brassworks ambience is active and weapon/support/pickup/scattergun-slug/pressure-burst/enemy-attack-tell audio cues are configured. Editor/runtime smoke also requires the current machinery spinner and machine motion passes.
 - Visual dressing is still procedural primitive art, though the objective props now have stronger final-direction silhouettes.
 - Windows runtime performance profile exists, but visible performance profiling still needs a real play session.
 - Enemy pathing uses simple side-steering, not NavMesh.
