@@ -403,3 +403,25 @@ Accepted two Unity-only lookdev side lanes as guidance evidence while `roomtest`
 - Galileo the 2nd remains active on isolated `roomtest` v0.2 and owns only `D:/__MY APPS/Unity Doom/roomtest/`; those active edits are intentionally not staged.
 
 Next-step directive: commit/push the accepted lookdev evidence, keep active `roomtest` edits unstaged until Galileo reports completion, and continue immediately with the next highest-impact material-binding or playable route-polish task.
+
+## 2026-05-24 20:05 -04:00
+
+Completed the `v0.1.53` playable material-binding and route-polish build.
+
+- Imported Surface Material Detail Set 08 as a local Unity package dependency and bound Set08 albedo/normal/RMA/grime texture maps into active gameplay materials for soot brick, wet stone, oil-dark floor, riveted iron, brass trim/guide, pressure gates, warning enamel, gauges, and amber glass.
+- Added Level02 pressure-bypass, Level03 foundry-gantry, and Level04 observatory-pumpworks route-polish markers: route labels, green/warning gauges, safe-pocket language, secret/readability clues, rejoin arrows, redline warnings, and pump/arena warnings.
+- Extended editor validation, route audit notes, runtime midgame/climax smoke checks, and sidecar quarantine validation for the new material/route gates.
+- Fixed `Tools/RunV0BuildMatrix.ps1` so route audit is generated before the Windows QA packet step.
+- Created `Builds/Windows/v0.1.53/BrassworksBreach_v0.1.53.exe`.
+- Created `Builds/WindowsPackages/v0.1.53/BrassworksBreach_v0.1.53_Windows.zip`.
+- Generated `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.53.md`, `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.53.md`, `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.53.md`, and `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.53.md`.
+- Full Windows build matrix passed with `SIDECAR_QUARANTINE_IMPORT_PASS packages=18 assets=161` and `V0_BUILD_MATRIX_PASS v0.1.53`.
+- Package SHA-256: `E2925407F8D4535044CB40D1E8D1AEDBEB8C170A684ECD746BC24C7E08C6594B`.
+
+Parallel lane status:
+
+- Euler the 2nd completed and committed Steam Corridor Dressing Set 09 as `9082883`; it is a v0.1.54 sidecar candidate for future review/import rather than part of the v0.1.53 playable build.
+- Galileo the 2nd has produced `roomtest` v0.3 texture/material/scene/render outputs under `roomtest/`; those remain unstaged until final review.
+- Feynman the 2nd has active Clockwork Enemy Parts Set 09 outputs under its assigned package/docs roots; those remain unstaged until final report and review.
+
+Next-step directive: commit/push the verified `v0.1.53` slice, then continue immediately into review/integration planning for `roomtest` v0.3, Clockwork Enemy Parts Set 09, Steam Corridor Dressing Set 09, and the next larger playable art/content leap.

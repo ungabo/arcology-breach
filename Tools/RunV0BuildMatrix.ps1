@@ -4,6 +4,7 @@ param(
     [string]$LogPrefix = "",
     [switch]$SkipSceneRebuild,
     [switch]$SkipPackage,
+    [switch]$SkipRouteAudit,
     [switch]$SkipQAPacket,
     [switch]$SkipIssueTriage,
     [switch]$SkipCandidateReadiness
@@ -215,6 +216,16 @@ if (-not $SkipPackage) {
 
     Write-Host "Running Windows package step"
     & $packageScript -ProjectPath $ProjectPath
+}
+
+if (-not $SkipRouteAudit -and -not $SkipQAPacket) {
+    $routeAuditScript = Join-Path $ProjectPath "Tools\RunV0RouteAudit.ps1"
+    if (-not (Test-Path -LiteralPath $routeAuditScript)) {
+        throw "Route audit script was not found: $routeAuditScript"
+    }
+
+    Write-Host "Running route audit step"
+    & $routeAuditScript -ProjectPath $ProjectPath -UnityPath $UnityPath -LogPrefix $LogPrefix
 }
 
 if (-not $SkipQAPacket) {

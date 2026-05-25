@@ -69,6 +69,24 @@ public static class SidecarQuarantineImportValidator
                 "Packages/com.brassworks.sidecar.materials-set01/Runtime/Textures/Mask/MSET01_MAT_AgedBrass_MSK.png"
             }),
         new PackageCheck(
+            "Surface Material Detail Set 08",
+            "com.brassworks.sidecar.surface-material-detail-set08",
+            "Documentation~/Manifest/SMD08_SurfaceMaterialDetailSet08_Manifest_0.1.52-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.surface-material-detail-set08/Runtime/Materials/SMD08_MAT_WetBlackStoneSlab.mat",
+                "Packages/com.brassworks.sidecar.surface-material-detail-set08/Runtime/Materials/SMD08_MAT_ChippedBlackIronWallPanel.mat",
+                "Packages/com.brassworks.sidecar.surface-material-detail-set08/Runtime/Materials/SMD08_MAT_RivetedBrassTrim.mat",
+                "Packages/com.brassworks.sidecar.surface-material-detail-set08/Runtime/Materials/SMD08_MAT_WornBrassPipe.mat",
+                "Packages/com.brassworks.sidecar.surface-material-detail-set08/Runtime/Materials/SMD08_MAT_RedPressureEnamel.mat",
+                "Packages/com.brassworks.sidecar.surface-material-detail-set08/Runtime/Materials/SMD08_MAT_GaugeFaceEnamel.mat",
+                "Packages/com.brassworks.sidecar.surface-material-detail-set08/Runtime/Textures/Albedo/SMD08_MAT_WetBlackStoneSlab_ALB.png",
+                "Packages/com.brassworks.sidecar.surface-material-detail-set08/Runtime/Textures/Normal/SMD08_MAT_WetBlackStoneSlab_NRM.png",
+                "Packages/com.brassworks.sidecar.surface-material-detail-set08/Runtime/Textures/RoughnessMetallic/SMD08_MAT_WetBlackStoneSlab_RMA.png",
+                "Packages/com.brassworks.sidecar.surface-material-detail-set08/Runtime/Textures/GrimeEdgewear/SMD08_MAT_WetBlackStoneSlab_GRM.png",
+                "Packages/com.brassworks.sidecar.surface-material-detail-set08/Runtime/Metadata/SMD08_SurfaceMaterialDetailCatalog_0.1.52-p001.json"
+            }),
+        new PackageCheck(
             "Steampunk Weapons",
             "com.brassworks.sidecar.steampunk-weapons",
             "Documentation~/Manifest/SCWPN_SteampunkWeapons_Manifest_v0.1.37-p001.json",

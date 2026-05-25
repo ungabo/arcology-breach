@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 18:58 -04:00`
+Last updated: `2026-05-24 20:05 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -19,13 +19,13 @@ Current focus:
 
 Current verified local build:
 
-- `v0.1.51`
-- Build path: `Builds/Windows/v0.1.51/BrassworksBreach_v0.1.51.exe`
-- Package path: `Builds/WindowsPackages/v0.1.51/BrassworksBreach_v0.1.51_Windows.zip`
-- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.51.md`
-- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.51.md`
-- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.51.md`
-- Matrix result: route audit, full smoke/build/package sequence, `SIDECAR_QUARANTINE_IMPORT_PASS packages=17 assets=150`, Level02-Level04 route-expansion validation, deterministic ranged-combat smoke targeting, `V0_GAMEPLAY_FEEDBACK_PASS`, `V0_WORLD_LABEL_READABILITY_PASS`, `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, and `V0_WINDOWS_CANDIDATE_PASS`
+- `v0.1.53`
+- Build path: `Builds/Windows/v0.1.53/BrassworksBreach_v0.1.53.exe`
+- Package path: `Builds/WindowsPackages/v0.1.53/BrassworksBreach_v0.1.53_Windows.zip`
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.53.md`
+- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.53.md`
+- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.53.md`
+- Matrix result: route audit, full smoke/build/package sequence, `SIDECAR_QUARANTINE_IMPORT_PASS packages=18 assets=161`, Set08 active material binding validation, Level02-Level04 route-polish validation, `V0_GAMEPLAY_FEEDBACK_PASS`, `V0_WORLD_LABEL_READABILITY_PASS`, `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, `V0_WINDOWS_CANDIDATE_PASS`, and `V0_BUILD_MATRIX_PASS v0.1.53`
 
 Current sidecar-gate status:
 
@@ -36,8 +36,8 @@ Current sidecar-gate status:
 - Completed and implemented route-planning lane: Level Expansion Routes for Level02-Level04 is now represented by v0.1.51 pressure-bypass, foundry-gantry, and observatory-pumpworks scene modules.
 - Completed Set07 sidecar/lookdev lanes remain quarantined for review: Weapon Component Set 07, Room Shell Set 07, Mechanical Enemy Parts Set 07, Interior Dressing Set 07, Hero Room Render Set 07, and Set07 acceptance review. The procedural/non-Unity Weapon Component Set 07 assembly lookdev proof is not accepted or staged; any replacement must be Unity-rendered.
 - Current art conclusion: the best corridor render is useful for density/composition but still falls short of final north-star material realism. Do not bulk-promote Set07 into gameplay.
-- Completed and accepted sidecar/readiness lanes pending future import or binding: Surface Material Detail Set 08, the v0.1.52 Route Expansion Tuning packet, and Meitner's Unity-only Weapon Assembly Lookdev replacement.
-- Active sidecar lane: no blocking sidecar lane is active after Meitner; next refill should target Unity-only corridor material validation and production-grade material/route polish evidence in parallel with the main v0.1.53 implementation lane.
+- Completed and accepted sidecar/readiness lanes pending future promotion decisions: Surface Material Detail Set 08, the v0.1.52 Route Expansion Tuning packet, Meitner's Unity-only Weapon Assembly Lookdev replacement, Steam Corridor Dressing Set 09, and Clockwork Enemy Parts Set 09.
+- Active sidecar lane: Galileo the 2nd owns isolated `roomtest/` v0.3 lookdev outputs. The outputs are not part of the playable build until reviewed.
 
 Current speed adjustment:
 
@@ -232,6 +232,15 @@ Current PM rule: keep incomplete sidecar package roots unstaged until their agen
 | Boole | completed, reviewed, and closed | `AssetPacks/BrassworksBreach.UnityMaterialCorridorValidation09/`, `Documentation/ConceptRenders/V0_1_53_UnityMaterialCorridorValidation/`, `Documentation/Planning/V0_1_53_UnityMaterialCorridorValidation/`, `Documentation/QA/V0_1_53_UnityMaterialCorridorValidation/` | Accepted as a Unity-only corridor composition/material-placement guide. QA manifest parses, marker `UNITY_MATERIAL_CORRIDOR_VALIDATION_RENDERED` is present, and 8/8 PNG gates pass. Not final shader/material fidelity. |
 | Boyle the 2nd | completed, reviewed, and closed | `AssetPacks/BrassworksBreach.UnityWeaponMaterialCellLookdev09/`, `Documentation/ConceptRenders/V0_1_54_UnityWeaponMaterialCellLookdev/`, `Documentation/Planning/V0_1_54_UnityWeaponMaterialCellLookdev/`, `Documentation/QA/V0_1_54_UnityWeaponMaterialCellLookdev/` | Accepted for weapon component direction only. QA manifest parses, marker `UNITY_WEAPON_MATERIAL_CELL_LOOKDEV_RENDERED` is present, and 8/8 PNG gates pass. Not final game mesh/material content. |
 | Galileo the 2nd | active | `roomtest/` only | Owns isolated roomtest v0.2 staged lookdev pass; active edits remain unstaged until final report. |
+
+## 2026-05-24 20:05 -04:00 Parallel Lane Update
+
+| Agent | Status | Output Scope | PM Action |
+| --- | --- | --- | --- |
+| Primary lane | completed and verified | Main project code, generated scenes, package manifest, route/QA/release docs | `v0.1.53` passed full Windows matrix with Set08 material bindings, Level02-Level04 route polish, route audit, QA packet, issue triage, candidate readiness, and package hash evidence. |
+| Galileo the 2nd | active output under review | `roomtest/` only | Produced v0.3 texture/material/scene/render outputs. Keep isolated and unstaged until visual review and acceptance/rejection notes are complete. |
+| Euler the 2nd | completed and committed | `AssetPacks/BrassworksBreach.SteamCorridorDressingSet09/`, v0.1.54 Set09 docs and contact sheet | Commit `9082883` adds a self-contained corridor dressing sidecar with 20 piece definitions. Candidate for v0.1.54 review/import-readiness, not part of v0.1.53 playable build. |
+| Feynman the 2nd | completed and committed | `AssetPacks/BrassworksBreach.ClockworkEnemyPartsSet09/`, v0.1.54 Set09 docs and preview/contact sheets | Commit `326939d` adds a self-contained enemy-parts sidecar with 3 archetype families, 32 prefabs, 22 materials, 16 meshes, 22 runtime textures, and 57 preview/swatch/contact-sheet PNGs. Candidate for v0.1.54 review/import-readiness, not part of v0.1.53 playable build. |
 
 ## Integration Rules
 

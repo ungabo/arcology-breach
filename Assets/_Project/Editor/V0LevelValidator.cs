@@ -15,6 +15,7 @@ public static class V0LevelValidator
     private const string Level05ScenePath = "Assets/_Project/Scenes/Level05.unity";
     private const string MaterialFolder = "Assets/_Project/Materials";
     private const string FinalMaterialsTextureFolder = "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures";
+    private const string SurfaceMaterialDetailSet08TextureFolder = "Packages/com.brassworks.sidecar.surface-material-detail-set08/Runtime/Textures";
     private const string SignageObjectiveTexturePath = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_ObjectivePlates_2048.png";
     private const string SignageWarningTexturePath = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_WarningHazardStrips_2048.png";
     private const string SignageRouteTexturePath = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures/T_SignageDecalsV1_RouteArrowsChevrons_2048.png";
@@ -34,6 +35,7 @@ public static class V0LevelValidator
     {
         ValidateBuildSceneOrder();
         ValidateFinalMaterialsV1();
+        ValidateSurfaceMaterialDetailSet08();
         ValidateUIHudV1SpriteImports();
         ValidateAudioV1Imports();
 
@@ -72,17 +74,23 @@ public static class V0LevelValidator
 
     private static void ValidateFinalMaterialsV1()
     {
-        RequireFinalMaterialBinding("M_Greybox_SootBrickWall", "SootBrick");
-        RequireFinalMaterialBinding("M_Greybox_OilStoneFloor", "WetOilDarkStone");
-        RequireFinalMaterialBinding("M_Greybox_PressureGate", "BlackenedRivetedIron");
         RequireFinalMaterialBinding("M_Greybox_GearKey", "AgedBrass");
-        RequireFinalMaterialBinding("M_Greybox_BrassTrim", "AgedBrass");
-        RequireFinalMaterialBinding("M_Greybox_BrassGuide", "CopperPipe");
-        RequireFinalMaterialBinding("M_Greybox_PressureWarning", "HazardEnamel");
-        RequireFinalMaterialBinding("M_Steam_RivetedIron", "BlackenedRivetedIron");
-        RequireFinalMaterialBinding("M_Steam_OilDarkStone", "WetOilDarkStone");
-        RequireFinalMaterialBinding("M_Steam_CreamGaugeFace", "CreamEnamelGauge");
         RequireFinalMaterialBinding("M_Greybox_WalnutGrip", "GreasyWalnut");
+    }
+
+    private static void ValidateSurfaceMaterialDetailSet08()
+    {
+        RequireSet08MaterialBinding("M_Greybox_SootBrickWall", "SMD08_MAT_ChippedBlackIronWallPanel");
+        RequireSet08MaterialBinding("M_Greybox_OilStoneFloor", "SMD08_MAT_WetBlackStoneSlab");
+        RequireSet08MaterialBinding("M_Greybox_PressureGate", "SMD08_MAT_ChippedBlackIronServicePlate");
+        RequireSet08MaterialBinding("M_Greybox_BrassTrim", "SMD08_MAT_RivetedBrassTrim");
+        RequireSet08MaterialBinding("M_Greybox_BrassGuide", "SMD08_MAT_WornBrassPipe");
+        RequireSet08MaterialBinding("M_Greybox_PressureWarning", "SMD08_MAT_RedPressureEnamel");
+        RequireSet08MaterialBinding("M_Steam_RivetedIron", "SMD08_MAT_RivetedBlackIronTrim");
+        RequireSet08MaterialBinding("M_Steam_OilDarkStone", "SMD08_MAT_BlackOilWetFloor");
+        RequireSet08MaterialBinding("M_Steam_BrassHazard", "SMD08_MAT_WornBrassValveBody");
+        RequireSet08MaterialBinding("M_Steam_CreamGaugeFace", "SMD08_MAT_GaugeFaceEnamel");
+        RequireSet08MaterialBinding("M_Steam_FrostedGlassVial", "SMD08_MAT_AmberGaslightGlass");
     }
 
     private static void ValidateUIHudV1SpriteImports()
@@ -352,6 +360,50 @@ public static class V0LevelValidator
         RequireMaterialTexture(material, materialName, familyName, "BaseColor", "_BaseMap", "_MainTex");
         RequireMaterialTexture(material, materialName, familyName, "Normal", "_BumpMap", null);
         RequireMaterialTexture(material, materialName, familyName, "ORM", "_OcclusionMap", null);
+    }
+
+    private static void RequireSet08MaterialBinding(string materialName, string materialId)
+    {
+        Material material = AssetDatabase.LoadAssetAtPath<Material>(MaterialFolder + "/" + materialName + ".mat");
+        if (material == null)
+        {
+            throw new InvalidOperationException("Level validation failed: missing SurfaceMaterialDetailSet08-bound material " + materialName + ".");
+        }
+
+        RequireSet08MaterialTexture(material, materialName, materialId, "Albedo", "ALB", "_BaseMap", "_MainTex");
+        RequireSet08MaterialTexture(material, materialName, materialId, "Normal", "NRM", "_BumpMap", null);
+        RequireSet08MaterialTexture(material, materialName, materialId, "RoughnessMetallic", "RMA", "_OcclusionMap", "_MetallicGlossMap");
+    }
+
+    private static void RequireSet08MaterialTexture(Material material, string materialName, string materialId, string textureFolder, string suffix, string primaryProperty, string fallbackProperty)
+    {
+        Texture texture = null;
+        if (material.HasProperty(primaryProperty))
+        {
+            texture = material.GetTexture(primaryProperty);
+        }
+
+        if (texture == null && !string.IsNullOrEmpty(fallbackProperty) && material.HasProperty(fallbackProperty))
+        {
+            texture = material.GetTexture(fallbackProperty);
+        }
+
+        if (texture == null && suffix == "ALB")
+        {
+            texture = material.mainTexture;
+        }
+
+        if (texture == null)
+        {
+            throw new InvalidOperationException("Level validation failed: material " + materialName + " is missing its SurfaceMaterialDetailSet08 " + suffix + " texture.");
+        }
+
+        string expectedPath = SurfaceMaterialDetailSet08TextureFolder + "/" + textureFolder + "/" + materialId + "_" + suffix + ".png";
+        string actualPath = AssetDatabase.GetAssetPath(texture).Replace("\\", "/");
+        if (actualPath != expectedPath)
+        {
+            throw new InvalidOperationException("Level validation failed: material " + materialName + " expected " + expectedPath + " but found " + actualPath + ".");
+        }
     }
 
     private static void RequireMaterialTexture(Material material, string materialName, string familyName, string suffix, string primaryProperty, string fallbackProperty)
@@ -2206,6 +2258,7 @@ public static class V0LevelValidator
             ValidateValveWheelConsolePrototype(sceneName, "ValveWheelConsolePrototype_pipeworks_pressure_console", "pipeworks_pressure_console");
             ValidateV0149RouteShellPromotionPilot(sceneName);
             ValidateV0151RouteExpansion(sceneName);
+            ValidateV0153RoutePolish(sceneName);
             ValidateThresholdRouteDressingBatch(sceneName, "pipeworks");
             ValidateV0134BatchPolishCoverage(sceneName, 4, 2, new[] { "pressure_pistol", "steam_scattergun", "pressure_cartridge_pack", "scrapper", "lancer" });
             RequireNamed("Secret - Pipeworks Cartridge Cache", sceneName + " pipeworks secret cache");
@@ -2238,6 +2291,7 @@ public static class V0LevelValidator
             ValidateValveWheelConsolePrototype(sceneName, "ValveWheelConsolePrototype_boilerheart_pressure_console", "boilerheart_pressure_console");
             ValidateThresholdRouteDressingBatch(sceneName, "boilerheart");
             ValidateV0151RouteExpansion(sceneName);
+            ValidateV0153RoutePolish(sceneName);
             ValidateV0134BatchPolishCoverage(sceneName, 4, 2, new[] { "pressure_pistol", "steam_scattergun", "pressure_cartridge_pack", "steam_scattergun_pickup", "scrapper" });
             RequireNamed("Boilerheart Pressure Valve Objective", sceneName + " boilerheart pressure valve objective");
             RequireNamed("Boilerheart Pressure Valve Wheel", sceneName + " boilerheart pressure valve wheel visual");
@@ -2289,6 +2343,7 @@ public static class V0LevelValidator
             ValidateServiceLiftCallBoxPrototype(sceneName, "ServiceLiftCallBoxPrototype_foundry_emergency_hoist_call_box", "foundry_emergency_hoist_call_box");
             ValidateThresholdRouteDressingBatch(sceneName, "foundry");
             ValidateV0151RouteExpansion(sceneName);
+            ValidateV0153RoutePolish(sceneName);
             ValidateV0134BatchPolishCoverage(sceneName, 4, 4, new[] { "pressure_pistol", "steam_scattergun", "pressure_cartridge_pack", "scrapper", "lancer", "bulwark" });
             RequireNamed("Foundry Furnace Row", sceneName + " foundry furnace row visual");
             RequireNamed("Foundry Steam Hazard - Casting Leak", sceneName + " foundry steam hazard");
@@ -2670,6 +2725,83 @@ public static class V0LevelValidator
         if (visualRoot.GetComponentsInChildren<AudioSource>(true).Length > 0 || visualRoot.GetComponentsInChildren<Camera>(true).Length > 0 || visualRoot.GetComponentsInChildren<Light>(true).Length > 0 || visualRoot.GetComponentsInChildren<ParticleSystem>(true).Length > 0)
         {
             throw new InvalidOperationException("Level validation failed: " + sceneName + " v0.1.51 visual-only route content must not include autonomous systems.");
+        }
+    }
+
+    private static void ValidateV0153RoutePolish(string sceneName)
+    {
+        if (sceneName == "Level02")
+        {
+            GameObject manualBleed = RequireNamed("Label - L02 Manual Bleed", sceneName + " v0.1.53 manual bleed label");
+            GameObject rejoin = RequireNamed("Label - L02 Mainline Rejoin", sceneName + " v0.1.53 rejoin label");
+            GameObject rejoinGauge = RequireNamed("L02 Pressure Bypass Rejoin Green Gauge", sceneName + " v0.1.53 rejoin green gauge");
+            GameObject teachPocket = RequireNamed("L02 Pressure Bypass Teach Vent Safe Pocket", sceneName + " v0.1.53 teach vent safe pocket");
+            GameObject pumpPocket = RequireNamed("L02 Pressure Bypass Pump Vent Safe Pocket", sceneName + " v0.1.53 pump vent safe pocket");
+            GameObject secretClue = RequireNamed("L02 Pressure Bypass Secret Bleed Wheel Clue", sceneName + " v0.1.53 secret bleed clue");
+            RequireNamed("L02 Pump Vent Preview Warning Gauge", sceneName + " v0.1.53 pump vent warning gauge");
+            RequireNamed("L02 Pressure Bypass Steam Idle Tell", sceneName + " v0.1.53 steam idle tell");
+            RequireNamed("L02 Pressure Bypass Redline Around Pump Vent", sceneName + " v0.1.53 pump vent redline");
+            RequireNamed("L02 Pressure Bypass Rejoin Brass Arrow", sceneName + " v0.1.53 rejoin brass arrow");
+            RequireNamed("L02 Pressure Bypass Rejoin Iron Threshold", sceneName + " v0.1.53 rejoin iron threshold");
+
+            RequireSpatial(sceneName, manualBleed.transform.position.z < rejoin.transform.position.z, "manual bleed label must appear before rejoin label");
+            RequireSpatial(sceneName, Vector3.Distance(rejoin.transform.position, rejoinGauge.transform.position) < 3.2f, "rejoin label must be close to green gauge");
+            RequireSpatial(sceneName, teachPocket.transform.position.z < pumpPocket.transform.position.z, "teach vent safe pocket must precede pump vent safe pocket");
+            RequireSpatial(sceneName, secretClue.transform.position.x < -11.5f, "secret bleed clue must stay off the mandatory rejoin centerline");
+            return;
+        }
+
+        if (sceneName == "Level03")
+        {
+            GameObject foundryFloor = RequireNamed("Label - L03 Foundry Floor", sceneName + " v0.1.53 foundry floor label");
+            GameObject upperGantry = RequireNamed("Label - L03 Upper Gantry", sceneName + " v0.1.53 upper gantry label");
+            GameObject controlWalkway = RequireNamed("Label - L03 Control Walkway", sceneName + " v0.1.53 control walkway label");
+            GameObject craneReturn = RequireNamed("Label - L03 Crane Return", sceneName + " v0.1.53 crane return label");
+            GameObject highRejoin = RequireNamed("Label - L03 High Rejoin", sceneName + " v0.1.53 high rejoin label");
+            GameObject breathGauge = RequireNamed("L03 Gantry Breath Pocket Green Gauge", sceneName + " v0.1.53 breath pocket gauge");
+            RequireNamed("L03 Furnace West Preview Strip", sceneName + " v0.1.53 west furnace preview strip");
+            RequireNamed("L03 Furnace East Safe Lane Brass Edge", sceneName + " v0.1.53 east furnace safe edge");
+            RequireNamed("L03 Slag Vent Safe Preview Gauge", sceneName + " v0.1.53 slag vent preview gauge");
+            RequireNamed("L03 Narrow Span One Threat Limit Marker", sceneName + " v0.1.53 narrow span threat marker");
+            RequireNamed("L03 Crucible Shelf Coolant Leak Clue", sceneName + " v0.1.53 crucible shelf clue");
+            RequireNamed("L03 High Rejoin Brass Arrow", sceneName + " v0.1.53 high rejoin brass arrow");
+
+            RequireSpatial(sceneName, foundryFloor.transform.position.z < controlWalkway.transform.position.z, "foundry floor label must precede control walkway label");
+            RequireSpatial(sceneName, upperGantry.transform.position.z < highRejoin.transform.position.z, "upper gantry label must precede high rejoin label");
+            RequireSpatial(sceneName, craneReturn.transform.position.z < highRejoin.transform.position.z, "crane return label must appear before high rejoin label");
+            RequireSpatial(sceneName, breathGauge.transform.position.z > controlWalkway.transform.position.z, "breath pocket gauge must sit after the control walkway read");
+            return;
+        }
+
+        if (sceneName == "Level04")
+        {
+            GameObject intake = RequireNamed("Label - L04 Intake Control", sceneName + " v0.1.53 intake control label");
+            GameObject primer = RequireNamed("Label - L04 Pump Primer", sceneName + " v0.1.53 pump primer label");
+            GameObject pressureReturn = RequireNamed("Label - L04 Pressure Return", sceneName + " v0.1.53 pressure return label");
+            GameObject observatoryFeed = RequireNamed("Label - L04 Observatory Feed", sceneName + " v0.1.53 observatory feed label");
+            GameObject rejoin = RequireNamed("Label - L04 Pumpworks Rejoin", sceneName + " v0.1.53 pumpworks rejoin label");
+            GameObject pumpGauge = RequireNamed("L04 Pump State Reveal Gauge", sceneName + " v0.1.53 pump state reveal gauge");
+            RequireNamed("L04 Arena Overpressure Warning Gauge", sceneName + " v0.1.53 arena overpressure warning gauge");
+            RequireNamed("L04 Pumpworks Arena Warning Floor Strip", sceneName + " v0.1.53 arena warning floor strip");
+            RequireNamed("L04 Pumpworks North Jet Safe Pocket", sceneName + " v0.1.53 north jet safe pocket");
+            RequireNamed("L04 Pumpworks South Jet Safe Pocket", sceneName + " v0.1.53 south jet safe pocket");
+            RequireNamed("L04 Gear Sweep Telegraph Brass Tick", sceneName + " v0.1.53 gear sweep telegraph");
+            RequireNamed("L04 Observatory Return Duct Gauge Clue", sceneName + " v0.1.53 return duct gauge clue");
+            RequireNamed("L04 Pumpworks Bulwark Release Buffer", sceneName + " v0.1.53 Bulwark release buffer");
+
+            RequireSpatial(sceneName, intake.transform.position.z < primer.transform.position.z, "intake control label must precede pump primer label");
+            RequireSpatial(sceneName, primer.transform.position.z < pressureReturn.transform.position.z, "pump primer label must precede pressure return label");
+            RequireSpatial(sceneName, pressureReturn.transform.position.z < observatoryFeed.transform.position.z, "pressure return label must precede observatory feed label");
+            RequireSpatial(sceneName, observatoryFeed.transform.position.z < rejoin.transform.position.z, "observatory feed label must precede pumpworks rejoin label");
+            RequireSpatial(sceneName, Vector3.Distance(pressureReturn.transform.position, pumpGauge.transform.position) < 3.0f, "pressure return label must be close to pump state reveal gauge");
+        }
+    }
+
+    private static void RequireSpatial(string sceneName, bool condition, string message)
+    {
+        if (!condition)
+        {
+            throw new InvalidOperationException("Level validation failed: " + sceneName + " v0.1.53 route polish spatial gate failed: " + message + ".");
         }
     }
 

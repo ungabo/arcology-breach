@@ -20,6 +20,7 @@ public static class V0SceneBuilder
     private const string TextureFolder = "Assets/_Project/Textures";
     private const string DataFolder = "Assets/_Project/Data";
     private const string FinalMaterialsTextureFolder = "Assets/_Project/ArtStaging/FinalMaterialsV1/Textures";
+    private const string SurfaceMaterialDetailSet08TextureFolder = "Packages/com.brassworks.sidecar.surface-material-detail-set08/Runtime/Textures";
     private const string SignageDecalsTextureFolder = "Assets/_Project/ArtStaging/SignageDecalsV1/Textures";
     private const string UIHudTextureFolder = "Assets/_Project/ArtStaging/UIHudV1";
     private const string AudioV1Folder = "Assets/_Project/ArtStaging/AudioV1";
@@ -86,6 +87,17 @@ public static class V0SceneBuilder
         ApplyFinalMaterialTextureSet(brassHazardMaterial, "AgedBrass", new Vector2(1.3f, 1.3f), 0.82f, 0.45f);
         ApplyFinalMaterialTextureSet(gaugeFaceMaterial, "CreamEnamelGauge", new Vector2(1f, 1f), 0f, 0.32f);
         ApplyFinalMaterialTextureSet(glassVialMaterial, "AmberGlass", new Vector2(1f, 1f), 0f, 0.7f);
+        ApplySurfaceMaterialDetailSet08(wallMaterial, "SMD08_MAT_ChippedBlackIronWallPanel", new Vector2(1.45f, 1.45f), 0.88f, 0.44f, 0.58f);
+        ApplySurfaceMaterialDetailSet08(floorMaterial, "SMD08_MAT_WetBlackStoneSlab", new Vector2(2.4f, 2.4f), 0.02f, 0.72f, 0.62f);
+        ApplySurfaceMaterialDetailSet08(doorMaterial, "SMD08_MAT_ChippedBlackIronServicePlate", new Vector2(1.2f, 1.2f), 0.9f, 0.38f, 0.68f);
+        ApplySurfaceMaterialDetailSet08(gunTrimMaterial, "SMD08_MAT_RivetedBrassTrim", new Vector2(1.1f, 1.1f), 0.85f, 0.42f, 0.54f);
+        ApplySurfaceMaterialDetailSet08(brassGuideMaterial, "SMD08_MAT_WornBrassPipe", new Vector2(1.7f, 1.05f), 0.86f, 0.46f, 0.44f);
+        ApplySurfaceMaterialDetailSet08(pressureWarningMaterial, "SMD08_MAT_RedPressureEnamel", new Vector2(1.25f, 1.25f), 0.22f, 0.4f, 0.46f);
+        ApplySurfaceMaterialDetailSet08(rivetedIronMaterial, "SMD08_MAT_RivetedBlackIronTrim", new Vector2(1.35f, 1.35f), 0.88f, 0.36f, 0.52f);
+        ApplySurfaceMaterialDetailSet08(oilStoneMaterial, "SMD08_MAT_BlackOilWetFloor", new Vector2(1.8f, 1.8f), 0.03f, 0.82f, 0.5f);
+        ApplySurfaceMaterialDetailSet08(brassHazardMaterial, "SMD08_MAT_WornBrassValveBody", new Vector2(1.15f, 1.15f), 0.84f, 0.36f, 0.5f);
+        ApplySurfaceMaterialDetailSet08(gaugeFaceMaterial, "SMD08_MAT_GaugeFaceEnamel", new Vector2(1f, 1f), 0.03f, 0.34f, 0.38f);
+        ApplySurfaceMaterialDetailSet08(glassVialMaterial, "SMD08_MAT_AmberGaslightGlass", new Vector2(1f, 1f), 0.02f, 0.7f, 0.25f);
         WeaponDefinition pressurePistolDefinition = CreatePressurePistolDefinition();
         WeaponDefinition steamScattergunDefinition = CreateSteamScattergunDefinition();
         EnemyDefinition scrapperDefinition = CreateScrapperDefinition();
@@ -383,6 +395,48 @@ public static class V0SceneBuilder
         EditorUtility.SetDirty(material);
     }
 
+    private static void ApplySurfaceMaterialDetailSet08(Material material, string materialId, Vector2 tiling, float metallic, float smoothness, float bumpScale)
+    {
+        Texture2D albedo = LoadSurfaceMaterialDetailSet08Texture(materialId, "Albedo", "ALB", TextureImporterType.Default, true);
+        Texture2D normal = LoadSurfaceMaterialDetailSet08Texture(materialId, "Normal", "NRM", TextureImporterType.NormalMap, false);
+        Texture2D rma = LoadSurfaceMaterialDetailSet08Texture(materialId, "RoughnessMetallic", "RMA", TextureImporterType.Default, false);
+        Texture2D grime = LoadSurfaceMaterialDetailSet08Texture(materialId, "GrimeEdgewear", "GRM", TextureImporterType.Default, false);
+
+        SetMaterialTexture(material, "_MainTex", albedo, tiling);
+        SetMaterialTexture(material, "_BaseMap", albedo, tiling);
+        SetMaterialTexture(material, "_BumpMap", normal, tiling);
+        SetMaterialTexture(material, "_OcclusionMap", rma, tiling);
+        SetMaterialTexture(material, "_MetallicGlossMap", rma, tiling);
+        SetMaterialTexture(material, "_DetailMask", grime, tiling);
+
+        if (material.HasProperty("_Metallic"))
+        {
+            material.SetFloat("_Metallic", metallic);
+        }
+
+        if (material.HasProperty("_Glossiness"))
+        {
+            material.SetFloat("_Glossiness", smoothness);
+        }
+
+        if (material.HasProperty("_Smoothness"))
+        {
+            material.SetFloat("_Smoothness", smoothness);
+        }
+
+        if (material.HasProperty("_BumpScale"))
+        {
+            material.SetFloat("_BumpScale", bumpScale);
+        }
+
+        material.mainTexture = albedo;
+        material.mainTextureScale = tiling;
+        material.EnableKeyword("_NORMALMAP");
+        material.EnableKeyword("_OCCLUSIONMAP");
+        material.EnableKeyword("_METALLICGLOSSMAP");
+        EditorUtility.SetDirty(material);
+    }
+
     private static Texture2D LoadFinalMaterialTexture(string familyName, string suffix, TextureImporterType textureType, bool sRgb)
     {
         string path = $"{FinalMaterialsTextureFolder}/T_BBW_{familyName}_{suffix}_2048.png";
@@ -393,6 +447,19 @@ public static class V0SceneBuilder
         }
 
         ConfigureFinalMaterialTextureImporter(path, textureType, sRgb);
+        return texture;
+    }
+
+    private static Texture2D LoadSurfaceMaterialDetailSet08Texture(string materialId, string textureFolder, string suffix, TextureImporterType textureType, bool sRgb)
+    {
+        string path = $"{SurfaceMaterialDetailSet08TextureFolder}/{textureFolder}/{materialId}_{suffix}.png";
+        Texture2D texture = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+        if (texture == null)
+        {
+            throw new FileNotFoundException("Missing SurfaceMaterialDetailSet08 texture", path);
+        }
+
+        ConfigureSurfaceMaterialDetailSet08TextureImporter(path, textureType, sRgb);
         return texture;
     }
 
@@ -432,6 +499,51 @@ public static class V0SceneBuilder
         if (importer.maxTextureSize != 2048)
         {
             importer.maxTextureSize = 2048;
+            changed = true;
+        }
+
+        if (changed)
+        {
+            importer.SaveAndReimport();
+        }
+    }
+
+    private static void ConfigureSurfaceMaterialDetailSet08TextureImporter(string path, TextureImporterType textureType, bool sRgb)
+    {
+        TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
+        if (importer == null)
+        {
+            return;
+        }
+
+        bool changed = false;
+        if (importer.textureType != textureType)
+        {
+            importer.textureType = textureType;
+            changed = true;
+        }
+
+        if (textureType == TextureImporterType.Default && importer.sRGBTexture != sRgb)
+        {
+            importer.sRGBTexture = sRgb;
+            changed = true;
+        }
+
+        if (!importer.mipmapEnabled)
+        {
+            importer.mipmapEnabled = true;
+            changed = true;
+        }
+
+        if (importer.wrapMode != TextureWrapMode.Repeat)
+        {
+            importer.wrapMode = TextureWrapMode.Repeat;
+            changed = true;
+        }
+
+        if (importer.maxTextureSize != 512)
+        {
+            importer.maxTextureSize = 512;
             changed = true;
         }
 
@@ -1532,6 +1644,7 @@ public static class V0SceneBuilder
         CreateRouteVisualPipeGallery("VIS_L02_PressureBypass_PipeGallery", new Vector3(-10.8f, 1.55f, 18.6f), brassMaterial, ironMaterial, warningMaterial, steamMaterial, visual);
         CreateRouteVisualGaugeCluster("VIS_L02_PressureBypass_GaugeCluster", new Vector3(-7.3f, 1.55f, 20.7f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, visual);
         CreateRouteVisualBoilerColumn("VIS_L02_PressureBypass_BoilerColumn", new Vector3(-13.7f, 1.2f, 21.8f), ironMaterial, brassMaterial, glowMaterial, visual);
+        CreateLevel02RoutePolishV0153(visual, brassMaterial, warningMaterial, ironMaterial, gaugeFaceMaterial, steamMaterial, glowMaterial);
         CreateWorldLabel("Label - L02 Pressure Bypass", "PRESSURE BYPASS", new Vector3(-9.2f, 2.35f, 7.2f), new Color(1f, 0.78f, 0.28f), 0.16f);
         CreatePointLight("L02 Pressure Bypass Amber Gaslight", new Vector3(-10.9f, 2.35f, 18.1f), new Color(1f, 0.55f, 0.16f), 2.2f, 6.2f);
     }
@@ -1588,6 +1701,7 @@ public static class V0SceneBuilder
         CreateRouteVisualPipeGallery("VIS_L03_FoundryGantry_OverheadPipeGallery", new Vector3(10.4f, 2.2f, 14.5f), brassMaterial, ironMaterial, warningMaterial, steamMaterial, visual);
         CreateRouteVisualGaugeCluster("VIS_L03_FoundryGantry_ControlGaugeCluster", new Vector3(13.35f, 1.7f, 20.5f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, visual);
         CreateRouteVisualBoilerColumn("VIS_L03_FoundryGantry_FurnaceColumn", new Vector3(12.8f, 1.1f, 11.6f), ironMaterial, brassMaterial, glowMaterial, visual);
+        CreateLevel03RoutePolishV0153(visual, brassMaterial, warningMaterial, ironMaterial, gaugeFaceMaterial, steamMaterial, glowMaterial);
         CreateWorldLabel("Label - L03 Foundry Gantry", "FOUNDRY GANTRY", new Vector3(9.2f, 2.45f, 6.8f), new Color(1f, 0.72f, 0.24f), 0.16f);
         CreatePointLight("L03 Gantry Amber Worklight", new Vector3(10.8f, 3.2f, 20.8f), new Color(1f, 0.44f, 0.1f), 2.4f, 7.2f);
     }
@@ -1651,8 +1765,76 @@ public static class V0SceneBuilder
         CreateRouteVisualPipeGallery("VIS_L04_Pumpworks_PipeGallery", new Vector3(10.2f, 2.25f, 23.6f), brassMaterial, ironMaterial, warningMaterial, steamMaterial, visual);
         CreateRouteVisualGaugeCluster("VIS_L04_Pumpworks_RegulatorGaugeCluster", new Vector3(7.05f, 1.7f, 20.4f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, ironMaterial, gaugeFaceMaterial, warningMaterial, visual);
         CreateRouteVisualBoilerColumn("VIS_L04_Pumpworks_VerticalPumpColumn", new Vector3(12.9f, 1.25f, 26.9f), ironMaterial, brassMaterial, glowMaterial, visual);
+        CreateLevel04RoutePolishV0153(visual, brassMaterial, warningMaterial, ironMaterial, gaugeFaceMaterial, steamMaterial, glowMaterial);
         CreateWorldLabel("Label - L04 Observatory Pumpworks", "OBSERVATORY PUMPWORKS", new Vector3(10f, 2.45f, 7f), new Color(1f, 0.72f, 0.24f), 0.14f);
         CreatePointLight("L04 Pumpworks Amber Dome Light", new Vector3(10.2f, 3.4f, 26.9f), new Color(1f, 0.46f, 0.12f), 2.8f, 8f);
+    }
+
+    private static void CreateLevel02RoutePolishV0153(Transform visual, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial)
+    {
+        CreateRouteWorldLabel("Label - L02 Manual Bleed", "MANUAL BLEED", new Vector3(-11.3f, 2.15f, 16.15f), new Color(1f, 0.78f, 0.28f), 0.12f, visual);
+        CreateRouteWorldLabel("Label - L02 Mainline Rejoin", "MAINLINE REJOIN", new Vector3(-5.1f, 2.15f, 23.9f), new Color(0.45f, 1f, 0.52f), 0.12f, visual);
+        CreateRoutePolishGauge("L02 Pressure Bypass Rejoin Green Gauge", new Vector3(-6.05f, 1.65f, 22.05f), Quaternion.Euler(0f, -90f, 0f), brassMaterial, gaugeFaceMaterial, glowMaterial, visual);
+        CreateRoutePolishGauge("L02 Pump Vent Preview Warning Gauge", new Vector3(-10.95f, 1.25f, 20.75f), Quaternion.identity, brassMaterial, gaugeFaceMaterial, warningMaterial, visual);
+        CreateRoutePolishSafePocket("L02 Pressure Bypass Teach Vent Safe Pocket", new Vector3(-9.35f, 0.06f, 13.85f), brassMaterial, visual);
+        CreateRoutePolishSafePocket("L02 Pressure Bypass Pump Vent Safe Pocket", new Vector3(-9.6f, 0.06f, 22.9f), brassMaterial, visual);
+        CreateDecoCube("L02 Pressure Bypass Secret Bleed Wheel Clue", new Vector3(-12.05f, 1.2f, 22.15f), new Vector3(0.12f, 0.12f, 1.25f), brassMaterial, visual);
+        CreateDecoCube("L02 Pressure Bypass Steam Idle Tell", new Vector3(-10.9f, 1.35f, 11.9f), new Vector3(0.72f, 0.08f, 0.12f), steamMaterial, visual);
+        CreateDecoCube("L02 Pressure Bypass Redline Around Pump Vent", new Vector3(-11.8f, 0.08f, 20.88f), new Vector3(1.35f, 0.06f, 0.14f), warningMaterial, visual);
+        CreateDecoCube("L02 Pressure Bypass Rejoin Brass Arrow", new Vector3(-5.35f, 0.07f, 23.95f), new Vector3(0.88f, 0.07f, 0.18f), brassMaterial, visual).transform.rotation = Quaternion.Euler(0f, 28f, 0f);
+        CreateDecoCube("L02 Pressure Bypass Rejoin Iron Threshold", new Vector3(-6.3f, 0.08f, 23f), new Vector3(0.2f, 0.1f, 2.2f), ironMaterial, visual);
+    }
+
+    private static void CreateLevel03RoutePolishV0153(Transform visual, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial)
+    {
+        CreateRouteWorldLabel("Label - L03 Foundry Floor", "FOUNDRY FLOOR", new Vector3(10.2f, 2.2f, 10.2f), new Color(1f, 0.68f, 0.22f), 0.12f, visual);
+        CreateRouteWorldLabel("Label - L03 Upper Gantry", "UPPER GANTRY", new Vector3(12.5f, 2.35f, 17.3f), new Color(1f, 0.78f, 0.28f), 0.12f, visual);
+        CreateRouteWorldLabel("Label - L03 Control Walkway", "CONTROL WALKWAY", new Vector3(10.9f, 2.6f, 21.05f), new Color(1f, 0.78f, 0.28f), 0.11f, visual);
+        CreateRouteWorldLabel("Label - L03 Crane Return", "CRANE RETURN", new Vector3(7.2f, 2.2f, 25.8f), new Color(0.45f, 1f, 0.52f), 0.11f, visual);
+        CreateRouteWorldLabel("Label - L03 High Rejoin", "HIGH REJOIN", new Vector3(9.3f, 3.05f, 27.45f), new Color(0.45f, 1f, 0.52f), 0.11f, visual);
+        CreateDecoCube("L03 Furnace West Preview Strip", new Vector3(8.25f, 0.08f, 9.35f), new Vector3(1.25f, 0.06f, 0.16f), warningMaterial, visual);
+        CreateDecoCube("L03 Furnace East Safe Lane Brass Edge", new Vector3(11.05f, 0.08f, 14.25f), new Vector3(1.35f, 0.06f, 0.16f), brassMaterial, visual);
+        CreateRoutePolishGauge("L03 Slag Vent Safe Preview Gauge", new Vector3(9.25f, 1.5f, 19.65f), Quaternion.identity, brassMaterial, gaugeFaceMaterial, warningMaterial, visual);
+        CreateRoutePolishGauge("L03 Gantry Breath Pocket Green Gauge", new Vector3(8.55f, 1.65f, 23.55f), Quaternion.Euler(0f, 35f, 0f), brassMaterial, gaugeFaceMaterial, glowMaterial, visual);
+        CreateDecoCube("L03 Narrow Span One Threat Limit Marker", new Vector3(10.3f, 1.9f, 25.15f), new Vector3(2.2f, 0.05f, 0.12f), ironMaterial, visual);
+        CreateDecoCube("L03 Crucible Shelf Coolant Leak Clue", new Vector3(6.3f, 2.05f, 24.2f), new Vector3(0.12f, 0.1f, 1.1f), steamMaterial, visual);
+        CreateDecoCube("L03 High Rejoin Brass Arrow", new Vector3(8.2f, 1.9f, 26.85f), new Vector3(0.9f, 0.07f, 0.18f), brassMaterial, visual).transform.rotation = Quaternion.Euler(0f, -28f, 0f);
+    }
+
+    private static void CreateLevel04RoutePolishV0153(Transform visual, Material brassMaterial, Material warningMaterial, Material ironMaterial, Material gaugeFaceMaterial, Material steamMaterial, Material glowMaterial)
+    {
+        CreateRouteWorldLabel("Label - L04 Intake Control", "INTAKE CONTROL", new Vector3(8.4f, 2.25f, 7.3f), new Color(1f, 0.78f, 0.28f), 0.11f, visual);
+        CreateRouteWorldLabel("Label - L04 Pump Primer", "PUMP PRIMER", new Vector3(12.2f, 2.15f, 14.2f), new Color(1f, 0.78f, 0.28f), 0.11f, visual);
+        CreateRouteWorldLabel("Label - L04 Pressure Return", "PRESSURE RETURN", new Vector3(8.1f, 2.2f, 21.05f), new Color(0.45f, 1f, 0.52f), 0.105f, visual);
+        CreateRouteWorldLabel("Label - L04 Observatory Feed", "OBSERVATORY FEED", new Vector3(10.2f, 3.15f, 26.1f), new Color(0.45f, 1f, 0.52f), 0.105f, visual);
+        CreateRouteWorldLabel("Label - L04 Pumpworks Rejoin", "PUMPWORKS REJOIN", new Vector3(10f, 2.05f, 30.55f), new Color(0.45f, 1f, 0.52f), 0.105f, visual);
+        CreateRoutePolishGauge("L04 Pump State Reveal Gauge", new Vector3(8.15f, 1.65f, 20.65f), Quaternion.Euler(0f, 90f, 0f), brassMaterial, gaugeFaceMaterial, glowMaterial, visual);
+        CreateRoutePolishGauge("L04 Arena Overpressure Warning Gauge", new Vector3(10.2f, 1.65f, 24.6f), Quaternion.identity, brassMaterial, gaugeFaceMaterial, warningMaterial, visual);
+        CreateDecoCube("L04 Pumpworks Arena Warning Floor Strip", new Vector3(10.2f, 0.08f, 24.9f), new Vector3(4.2f, 0.06f, 0.18f), warningMaterial, visual);
+        CreateRoutePolishSafePocket("L04 Pumpworks North Jet Safe Pocket", new Vector3(9.15f, 0.35f, 27.75f), brassMaterial, visual);
+        CreateRoutePolishSafePocket("L04 Pumpworks South Jet Safe Pocket", new Vector3(11.25f, 0.35f, 25.75f), brassMaterial, visual);
+        CreateDecoCube("L04 Gear Sweep Telegraph Brass Tick", new Vector3(10.2f, 0.08f, 26.05f), new Vector3(1.6f, 0.06f, 0.14f), brassMaterial, visual);
+        CreateDecoCube("L04 Observatory Return Duct Gauge Clue", new Vector3(6.8f, 1.7f, 26.25f), new Vector3(0.12f, 0.1f, 1.1f), steamMaterial, visual);
+        CreateDecoCube("L04 Pumpworks Bulwark Release Buffer", new Vector3(10.1f, 0.34f, 25.25f), new Vector3(2.4f, 0.08f, 0.16f), ironMaterial, visual);
+    }
+
+    private static GameObject CreateRouteWorldLabel(string name, string text, Vector3 position, Color color, float characterSize, Transform parent)
+    {
+        GameObject label = CreateWorldLabel(name, text, position, color, characterSize);
+        label.transform.SetParent(parent, true);
+        return label;
+    }
+
+    private static void CreateRoutePolishGauge(string name, Vector3 position, Quaternion rotation, Material brassMaterial, Material gaugeFaceMaterial, Material signalMaterial, Transform parent)
+    {
+        CreatePressureGauge(name, position, rotation, brassMaterial, gaugeFaceMaterial, signalMaterial, parent);
+        CreateDecoCube(name + " Signal Backplate", position + rotation * new Vector3(0f, 0f, 0.08f), new Vector3(0.7f, 0.58f, 0.05f), signalMaterial, parent);
+    }
+
+    private static void CreateRoutePolishSafePocket(string name, Vector3 position, Material material, Transform parent)
+    {
+        CreateDecoCube(name, position, new Vector3(1.1f, 0.06f, 0.72f), material, parent);
+        CreateDecoCube(name + " Center Tick", position + new Vector3(0f, 0.02f, 0f), new Vector3(0.12f, 0.07f, 0.7f), material, parent);
     }
 
     private static GameObject CreateRouteExpansionRoot(string name, out Transform geo, out Transform col, out Transform trg, out Transform auth, out Transform spawn, out Transform visual)
@@ -3727,7 +3909,7 @@ public static class V0SceneBuilder
         public Vector3 Scale { get; }
     }
 
-    private static void CreateWorldLabel(string name, string text, Vector3 position, Color color, float characterSize)
+    private static GameObject CreateWorldLabel(string name, string text, Vector3 position, Color color, float characterSize)
     {
         GameObject label = new GameObject(name);
         label.transform.position = position;
@@ -3742,6 +3924,7 @@ public static class V0SceneBuilder
         textMesh.color = color;
 
         ConfigureWorldLabelReadability(label, textMesh, text, color, characterSize);
+        return label;
     }
 
     private static void ConfigureWorldLabelReadability(GameObject label, TextMesh textMesh, string text, Color color, float characterSize)

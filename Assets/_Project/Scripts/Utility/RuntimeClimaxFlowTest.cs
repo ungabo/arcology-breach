@@ -56,18 +56,36 @@ public class RuntimeClimaxFlowTest : MonoBehaviour
         GameObject bulwarkRing = RequireNamed("Level04 Bulwark Hammer Bay Floor Ring");
         GameObject hoistRunway = RequireNamed("Level04 Hoist Green Runway Strip");
         GameObject coalClue = RequireNamed("Level04 Coal Cache Footprint Clue");
+        GameObject intakeLabel = RequireNamed("Label - L04 Intake Control");
+        GameObject primerLabel = RequireNamed("Label - L04 Pump Primer");
+        GameObject returnLabel = RequireNamed("Label - L04 Pressure Return");
+        GameObject feedLabel = RequireNamed("Label - L04 Observatory Feed");
+        GameObject rejoinLabel = RequireNamed("Label - L04 Pumpworks Rejoin");
+        GameObject pumpRevealGauge = RequireNamed("L04 Pump State Reveal Gauge");
+        GameObject northSafePocket = RequireNamed("L04 Pumpworks North Jet Safe Pocket");
+        GameObject southSafePocket = RequireNamed("L04 Pumpworks South Jet Safe Pocket");
 
         RequireNamed("Level04 Foundry Climax Polish V017");
         RequireNamed("Level04 Heat Lane Warning Gauge");
         RequireNamed("Level04 Furnace Safe Edge Brass Rail");
         RequireNamed("Level04 Bulwark Retreat Cover Signal West");
         RequireNamed("Level04 Emergency Hoist Green Beacon");
+        RequireNamed("L04 Arena Overpressure Warning Gauge");
+        RequireNamed("L04 Pumpworks Arena Warning Floor Strip");
+        RequireNamed("L04 Gear Sweep Telegraph Brass Tick");
+        RequireNamed("L04 Observatory Return Duct Gauge Clue");
+        RequireNamed("L04 Pumpworks Bulwark Release Buffer");
 
         RequireState(timingStrip.transform.position.z < bulwark.transform.position.z, "furnace timing read appears before Bulwark bay");
         RequireDistance(bulwarkRing.transform.position, bulwark.transform.position, 0f, 1.1f, "Bulwark bay ring center");
         RequireState(hoist.transform.position.z > bulwark.transform.position.z, "emergency hoist remains after Bulwark bay");
         RequireState(hoistRunway.transform.position.z > bulwark.transform.position.z && hoistRunway.transform.position.z < hoist.transform.position.z, "green runway bridges Bulwark bay to hoist");
         RequireDistance(coalClue.transform.position, coalCache.transform.position, 0.45f, 1.7f, "foundry coal cache clue distance");
+        RequireState(intakeLabel.transform.position.z < primerLabel.transform.position.z, "pumpworks intake label precedes pump primer");
+        RequireState(primerLabel.transform.position.z < returnLabel.transform.position.z, "pump primer label precedes pressure return");
+        RequireState(returnLabel.transform.position.z < feedLabel.transform.position.z && feedLabel.transform.position.z < rejoinLabel.transform.position.z, "pump route state labels preserve route order");
+        RequireDistance(returnLabel.transform.position, pumpRevealGauge.transform.position, 0.1f, 3.0f, "pump reveal gauge distance");
+        RequireDistance(northSafePocket.transform.position, southSafePocket.transform.position, 1.0f, 4.0f, "pumpworks safe pocket separation");
     }
 
     private void VerifyGovernorCore()

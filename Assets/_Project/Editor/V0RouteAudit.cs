@@ -155,6 +155,11 @@ public static class V0RouteAudit
     {
         StringBuilder notes = new StringBuilder();
         notes.Append("Plaques:" + lorePlaques);
+        int routePolishMarkers = CountRoutePolishMarkers(sceneName);
+        if (routePolishMarkers > 0)
+        {
+            notes.Append(" V0153Polish:" + routePolishMarkers);
+        }
 
         if (player != null && door != null)
         {
@@ -231,6 +236,61 @@ public static class V0RouteAudit
     private static int Count<T>() where T : UnityEngine.Object
     {
         return UnityEngine.Object.FindObjectsByType<T>(FindObjectsSortMode.None).Length;
+    }
+
+    private static int CountRoutePolishMarkers(string sceneName)
+    {
+        string[] requiredNames;
+        if (sceneName == "Level02")
+        {
+            requiredNames = new[]
+            {
+                "Label - L02 Manual Bleed",
+                "Label - L02 Mainline Rejoin",
+                "L02 Pressure Bypass Rejoin Green Gauge",
+                "L02 Pressure Bypass Teach Vent Safe Pocket",
+                "L02 Pressure Bypass Pump Vent Safe Pocket"
+            };
+        }
+        else if (sceneName == "Level03")
+        {
+            requiredNames = new[]
+            {
+                "Label - L03 Foundry Floor",
+                "Label - L03 Upper Gantry",
+                "Label - L03 Control Walkway",
+                "Label - L03 Crane Return",
+                "Label - L03 High Rejoin",
+                "L03 Gantry Breath Pocket Green Gauge"
+            };
+        }
+        else if (sceneName == "Level04")
+        {
+            requiredNames = new[]
+            {
+                "Label - L04 Intake Control",
+                "Label - L04 Pump Primer",
+                "Label - L04 Pressure Return",
+                "Label - L04 Observatory Feed",
+                "Label - L04 Pumpworks Rejoin",
+                "L04 Pump State Reveal Gauge"
+            };
+        }
+        else
+        {
+            return 0;
+        }
+
+        int count = 0;
+        for (int i = 0; i < requiredNames.Length; i++)
+        {
+            if (GameObject.Find(requiredNames[i]) != null)
+            {
+                count++;
+            }
+        }
+
+        return count;
     }
 
     private static PickupCounts CountPickups()
