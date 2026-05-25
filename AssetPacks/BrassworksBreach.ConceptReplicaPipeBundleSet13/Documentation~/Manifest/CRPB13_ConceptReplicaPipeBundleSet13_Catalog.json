@@ -1,0 +1,73 @@
+{
+  "package": "com.brassworks.sidecar.concept-replica-pipe-bundle-set13",
+  "version": "0.1.57-p013",
+  "purpose": "Unity-only modular concept-art replica of the north-star Pipe Bundle crop.",
+  "qualityGate": "visual-only modular prefabs with collars, seams, flanges, brackets, valves, tarnish, dark masonry, steam hints, and warm specular lighting renders",
+  "prefabs": [
+    { "path": "Runtime/Prefabs/CRPB13_PREFAB_StraightPipeModule.prefab", "name": "CRPB13_PREFAB_StraightPipeModule", "tag": "modular aged copper straight pipe" },
+    { "path": "Runtime/Prefabs/CRPB13_PREFAB_ElbowPipeModule.prefab", "name": "CRPB13_PREFAB_ElbowPipeModule", "tag": "modular 90 degree elbow with collars" },
+    { "path": "Runtime/Prefabs/CRPB13_PREFAB_FlangeCollarModule.prefab", "name": "CRPB13_PREFAB_FlangeCollarModule", "tag": "reusable bolted flange/collar" },
+    { "path": "Runtime/Prefabs/CRPB13_PREFAB_WallBracketClampModule.prefab", "name": "CRPB13_PREFAB_WallBracketClampModule", "tag": "wall bracket and pipe clamp module" },
+    { "path": "Runtime/Prefabs/CRPB13_PREFAB_ValveHandwheelModule.prefab", "name": "CRPB13_PREFAB_ValveHandwheelModule", "tag": "small valve and handwheel module" },
+    { "path": "Runtime/Prefabs/CRPB13_PREFAB_DarkWetMasonryBackingModule.prefab", "name": "CRPB13_PREFAB_DarkWetMasonryBackingModule", "tag": "dark wet masonry backing module" },
+    { "path": "Runtime/Prefabs/CRPB13_PREFAB_AssembledConceptReplicaPipeBundle.prefab", "name": "CRPB13_PREFAB_AssembledConceptReplicaPipeBundle", "tag": "reference-style assembled pipe bundle crop" }
+  ],
+  "materials": [
+    { "path": "Runtime/Materials/CRPB13_MAT_AgedCopperBrass.mat", "name": "CRPB13_MAT_AgedCopperBrass", "tag": "aged copper/brass pipe with tarnish and oily highlights" },
+    { "path": "Runtime/Materials/CRPB13_MAT_DulledRimBrass.mat", "name": "CRPB13_MAT_DulledRimBrass", "tag": "worn brass raised lips and rivets" },
+    { "path": "Runtime/Materials/CRPB13_MAT_BlackenedIronBands.mat", "name": "CRPB13_MAT_BlackenedIronBands", "tag": "blackened iron clamp and collar bands" },
+    { "path": "Runtime/Materials/CRPB13_MAT_WetGrimeSoot.mat", "name": "CRPB13_MAT_WetGrimeSoot", "tag": "wet grime, soot, contact shadow, and oily streak material" },
+    { "path": "Runtime/Materials/CRPB13_MAT_DarkWetMasonry.mat", "name": "CRPB13_MAT_DarkWetMasonry", "tag": "dark wet masonry backing with mortar and warm reflected grime" },
+    { "path": "Runtime/Materials/CRPB13_MAT_WarmSpecularAmber.mat", "name": "CRPB13_MAT_WarmSpecularAmber", "tag": "thin warm reflected gaslight cards" },
+    { "path": "Runtime/Materials/CRPB13_MAT_ValveRedEnamel.mat", "name": "CRPB13_MAT_ValveRedEnamel", "tag": "small oxidized red valve enamel accent" },
+    { "path": "Runtime/Materials/CRPB13_MAT_SteamHazeSoftBillow.mat", "name": "CRPB13_MAT_SteamHazeSoftBillow", "tag": "soft transparent steam source hint" }
+  ],
+  "textures": [
+    { "path": "Runtime/Textures/CRPB13_TEX_AgedCopperBrass_Albedo.png", "name": "AgedCopperBrass_Albedo", "tag": "aged copper/brass pipe with tarnish and oily highlights" },
+    { "path": "Runtime/Textures/CRPB13_TEX_AgedCopperBrass_Normal.png", "name": "AgedCopperBrass_Normal", "tag": "aged copper/brass pipe with tarnish and oily highlights" },
+    { "path": "Runtime/Textures/CRPB13_TEX_AgedCopperBrass_MetallicSmoothness.png", "name": "AgedCopperBrass_MetallicSmoothness", "tag": "aged copper/brass pipe with tarnish and oily highlights" },
+    { "path": "Runtime/Textures/CRPB13_TEX_AgedCopperBrass_Occlusion.png", "name": "AgedCopperBrass_Occlusion", "tag": "aged copper/brass pipe with tarnish and oily highlights" },
+    { "path": "Runtime/Textures/CRPB13_TEX_DulledRimBrass_Albedo.png", "name": "DulledRimBrass_Albedo", "tag": "worn brass raised lips and rivets" },
+    { "path": "Runtime/Textures/CRPB13_TEX_DulledRimBrass_Normal.png", "name": "DulledRimBrass_Normal", "tag": "worn brass raised lips and rivets" },
+    { "path": "Runtime/Textures/CRPB13_TEX_DulledRimBrass_MetallicSmoothness.png", "name": "DulledRimBrass_MetallicSmoothness", "tag": "worn brass raised lips and rivets" },
+    { "path": "Runtime/Textures/CRPB13_TEX_DulledRimBrass_Occlusion.png", "name": "DulledRimBrass_Occlusion", "tag": "worn brass raised lips and rivets" },
+    { "path": "Runtime/Textures/CRPB13_TEX_BlackenedIronBands_Albedo.png", "name": "BlackenedIronBands_Albedo", "tag": "blackened iron clamp and collar bands" },
+    { "path": "Runtime/Textures/CRPB13_TEX_BlackenedIronBands_Normal.png", "name": "BlackenedIronBands_Normal", "tag": "blackened iron clamp and collar bands" },
+    { "path": "Runtime/Textures/CRPB13_TEX_BlackenedIronBands_MetallicSmoothness.png", "name": "BlackenedIronBands_MetallicSmoothness", "tag": "blackened iron clamp and collar bands" },
+    { "path": "Runtime/Textures/CRPB13_TEX_BlackenedIronBands_Occlusion.png", "name": "BlackenedIronBands_Occlusion", "tag": "blackened iron clamp and collar bands" },
+    { "path": "Runtime/Textures/CRPB13_TEX_WetGrimeSoot_Albedo.png", "name": "WetGrimeSoot_Albedo", "tag": "wet grime, soot, contact shadow, and oily streak material" },
+    { "path": "Runtime/Textures/CRPB13_TEX_WetGrimeSoot_Normal.png", "name": "WetGrimeSoot_Normal", "tag": "wet grime, soot, contact shadow, and oily streak material" },
+    { "path": "Runtime/Textures/CRPB13_TEX_WetGrimeSoot_MetallicSmoothness.png", "name": "WetGrimeSoot_MetallicSmoothness", "tag": "wet grime, soot, contact shadow, and oily streak material" },
+    { "path": "Runtime/Textures/CRPB13_TEX_WetGrimeSoot_Occlusion.png", "name": "WetGrimeSoot_Occlusion", "tag": "wet grime, soot, contact shadow, and oily streak material" },
+    { "path": "Runtime/Textures/CRPB13_TEX_DarkWetMasonry_Albedo.png", "name": "DarkWetMasonry_Albedo", "tag": "dark wet masonry backing with mortar and warm reflected grime" },
+    { "path": "Runtime/Textures/CRPB13_TEX_DarkWetMasonry_Normal.png", "name": "DarkWetMasonry_Normal", "tag": "dark wet masonry backing with mortar and warm reflected grime" },
+    { "path": "Runtime/Textures/CRPB13_TEX_DarkWetMasonry_MetallicSmoothness.png", "name": "DarkWetMasonry_MetallicSmoothness", "tag": "dark wet masonry backing with mortar and warm reflected grime" },
+    { "path": "Runtime/Textures/CRPB13_TEX_DarkWetMasonry_Occlusion.png", "name": "DarkWetMasonry_Occlusion", "tag": "dark wet masonry backing with mortar and warm reflected grime" },
+    { "path": "Runtime/Textures/CRPB13_TEX_WarmSpecularAmber_Albedo.png", "name": "WarmSpecularAmber_Albedo", "tag": "thin warm reflected gaslight cards" },
+    { "path": "Runtime/Textures/CRPB13_TEX_WarmSpecularAmber_Normal.png", "name": "WarmSpecularAmber_Normal", "tag": "thin warm reflected gaslight cards" },
+    { "path": "Runtime/Textures/CRPB13_TEX_WarmSpecularAmber_MetallicSmoothness.png", "name": "WarmSpecularAmber_MetallicSmoothness", "tag": "thin warm reflected gaslight cards" },
+    { "path": "Runtime/Textures/CRPB13_TEX_WarmSpecularAmber_Occlusion.png", "name": "WarmSpecularAmber_Occlusion", "tag": "thin warm reflected gaslight cards" },
+    { "path": "Runtime/Textures/CRPB13_TEX_ValveRedEnamel_Albedo.png", "name": "ValveRedEnamel_Albedo", "tag": "small oxidized red valve enamel accent" },
+    { "path": "Runtime/Textures/CRPB13_TEX_ValveRedEnamel_Normal.png", "name": "ValveRedEnamel_Normal", "tag": "small oxidized red valve enamel accent" },
+    { "path": "Runtime/Textures/CRPB13_TEX_ValveRedEnamel_MetallicSmoothness.png", "name": "ValveRedEnamel_MetallicSmoothness", "tag": "small oxidized red valve enamel accent" },
+    { "path": "Runtime/Textures/CRPB13_TEX_ValveRedEnamel_Occlusion.png", "name": "ValveRedEnamel_Occlusion", "tag": "small oxidized red valve enamel accent" },
+    { "path": "Runtime/Textures/CRPB13_TEX_SteamHaze_SoftAlpha.png", "name": "SteamHaze_SoftAlpha", "tag": "transparent steam silhouette" }
+  ],
+  "meshes": [
+    { "path": "Runtime/Meshes/CRPB13_MESH_BoxUnit.asset", "name": "CRPB13_MESH_BoxUnit", "tag": "beveled brick and plate primitive" },
+    { "path": "Runtime/Meshes/CRPB13_MESH_Cylinder48_X.asset", "name": "CRPB13_MESH_Cylinder48_X", "tag": "straight horizontal pipe primitive" },
+    { "path": "Runtime/Meshes/CRPB13_MESH_Cylinder48_Y.asset", "name": "CRPB13_MESH_Cylinder48_Y", "tag": "vertical pipe primitive" },
+    { "path": "Runtime/Meshes/CRPB13_MESH_Cylinder48_Z.asset", "name": "CRPB13_MESH_Cylinder48_Z", "tag": "depth connector and valve primitive" },
+    { "path": "Runtime/Meshes/CRPB13_MESH_Torus56_X.asset", "name": "CRPB13_MESH_Torus56_X", "tag": "flange ring around horizontal pipe" },
+    { "path": "Runtime/Meshes/CRPB13_MESH_Torus56_Y.asset", "name": "CRPB13_MESH_Torus56_Y", "tag": "flange ring around vertical pipe" },
+    { "path": "Runtime/Meshes/CRPB13_MESH_Torus56_Z.asset", "name": "CRPB13_MESH_Torus56_Z", "tag": "valve handwheel and face ring" },
+    { "path": "Runtime/Meshes/CRPB13_MESH_QuarterElbow_XY.asset", "name": "CRPB13_MESH_QuarterElbow_XY", "tag": "90 degree pipe elbow module" },
+    { "path": "Runtime/Meshes/CRPB13_MESH_RivetDome_Z.asset", "name": "CRPB13_MESH_RivetDome_Z", "tag": "bolt and rivet cap" },
+    { "path": "Runtime/Meshes/CRPB13_MESH_SoftPlane.asset", "name": "CRPB13_MESH_SoftPlane", "tag": "transparent steam and wet shadow plane" }
+  ],
+  "renders": [
+    { "path": "Documentation/ConceptRenders/V0_1_57_ConceptReplicaPipeBundleSet13/CRPB13_RENDER_01_reference_style_pipe_bundle_beauty.png", "name": "CRPB13_RENDER_01_reference_style_pipe_bundle_beauty.png", "tag": "beauty render matching pipe bundle crop" },
+    { "path": "Documentation/ConceptRenders/V0_1_57_ConceptReplicaPipeBundleSet13/CRPB13_RENDER_02_modular_breakdown_contact_sheet.png", "name": "CRPB13_RENDER_02_modular_breakdown_contact_sheet.png", "tag": "modular breakdown contact sheet" },
+    { "path": "Documentation/ConceptRenders/V0_1_57_ConceptReplicaPipeBundleSet13/CRPB13_RENDER_03_material_grazing_light_closeup.png", "name": "CRPB13_RENDER_03_material_grazing_light_closeup.png", "tag": "material and collar closeup under grazing light" }
+  ]
+}
