@@ -1,0 +1,143 @@
+{
+  "catalog_id": "CEPS09_ClockworkEnemyPartsCatalog",
+  "pack_id": "CEPS09",
+  "version": "0.1.54-p001",
+  "purpose": "Rigging-ready visual organization catalog for three steampunk mechanical enemy archetype part families.",
+  "material_contract": [
+    "CEPS09_MAT_AgedBrassBoiler",
+    "CEPS09_MAT_BlackenedRivetedIron",
+    "CEPS09_MAT_AmberGlowGlass",
+    "CEPS09_MAT_WhiteHotPressureCore",
+    "CEPS09_MAT_SootDamageAccent",
+    "CEPS09_MAT_AgedCopperTank",
+    "CEPS09_MAT_VerdigrisCopperPatina",
+    "CEPS09_MAT_HeatBluedSawSteel",
+    "CEPS09_MAT_ChippedHazardOchre",
+    "CEPS09_MAT_CrimsonPressurePaint",
+    "CEPS09_MAT_SmokedOpticGlass",
+    "CEPS09_MAT_IvoryGaugeFace",
+    "CEPS09_MAT_OilyRubberHose",
+    "CEPS09_MAT_BrassRivetHeads",
+    "CEPS09_MAT_OilDarkLeatherGasket",
+    "CEPS09_MAT_BoneCeramicInsulator",
+    "CEPS09_MAT_GunmetalEdgeWear",
+    "CEPS09_MAT_AshGreyArmorPlate",
+    "CEPS09_MAT_OrangeCinderGlow",
+    "CEPS09_MAT_TealStatusGlass",
+    "CEPS09_MAT_DarkGrease",
+    "CEPS09_MAT_FreshCutSteel"
+  ],
+  "required_surface_coverage": [
+    "aged brass boiler shells",
+    "aged copper tanks and pipes",
+    "blackened riveted iron torsos",
+    "amber glowing optic glass",
+    "oily rubber hose loops",
+    "soot and damage accents"
+  ],
+  "archetype_sets": [
+    {
+      "id": "small_skitter_unit",
+      "silhouette_role": "low fast silhouette",
+      "prefabs": [
+        "CEPS09_Skitter_Torso_LowBoilerPan_A",
+        "CEPS09_Skitter_Head_TwinAmberOptics_A",
+        "CEPS09_Skitter_Limb_SplayedPistonLeg_A",
+        "CEPS09_Skitter_Limb_NeedleHookLeg_B",
+        "CEPS09_Skitter_Weapon_BellySaw_A",
+        "CEPS09_Skitter_Weapon_SteamClaw_B",
+        "CEPS09_Skitter_Attachment_BackPressureTick_A",
+        "CEPS09_Skitter_Attachment_HoseLoopCage_A"
+      ],
+      "rigging_socket_expectations": [
+        "SOCK_RigFuture_Root",
+        "SOCK_HeadFront",
+        "SOCK_Leg_1 through SOCK_Leg_4",
+        "SOCK_WeaponUnder",
+        "SOCK_BackTank",
+        "SOCK_SteamLine"
+      ],
+      "integration_notes": [
+        "visual-only prefab modules",
+        "no colliders, rigidbodies, MonoBehaviours, or animation controllers",
+        "socket names are stable handoff anchors for future rigging"
+      ]
+    },
+    {
+      "id": "humanoid_boiler_brute",
+      "silhouette_role": "large readable humanoid silhouette",
+      "prefabs": [
+        "CEPS09_Brute_Torso_RivetedBoilerChest_A",
+        "CEPS09_Brute_Head_FurnaceVisor_A",
+        "CEPS09_Brute_Limb_PistonArmLeft_A",
+        "CEPS09_Brute_Limb_PistonArmRight_A",
+        "CEPS09_Brute_Limb_HeavyFootAssembly_A",
+        "CEPS09_Brute_Weapon_SawClawArm_A",
+        "CEPS09_Brute_Weapon_PressureMaul_B",
+        "CEPS09_Brute_Attachment_ShoulderGearYoke_A",
+        "CEPS09_Brute_Attachment_BackTwinTanks_A"
+      ],
+      "rigging_socket_expectations": [
+        "SOCK_RigFuture_Hips",
+        "SOCK_Head",
+        "SOCK_LeftShoulder",
+        "SOCK_RightShoulder",
+        "SOCK_Wrist",
+        "SOCK_AnkleMount",
+        "SOCK_BackTanks"
+      ],
+      "integration_notes": [
+        "visual-only prefab modules",
+        "no colliders, rigidbodies, MonoBehaviours, or animation controllers",
+        "socket names are stable handoff anchors for future rigging"
+      ]
+    },
+    {
+      "id": "wall_ceiling_sentry",
+      "silhouette_role": "mounted wall or ceiling turret silhouette",
+      "prefabs": [
+        "CEPS09_Sentry_Torso_CeilingMountHub_A",
+        "CEPS09_Sentry_Head_RotaryOpticCluster_A",
+        "CEPS09_Sentry_Limb_WallClampStrut_A",
+        "CEPS09_Sentry_Limb_CeilingRailLeg_A",
+        "CEPS09_Sentry_Weapon_TwinSteamLance_A",
+        "CEPS09_Sentry_Weapon_MiniSawTurret_B",
+        "CEPS09_Sentry_Attachment_CableHoseHalo_A",
+        "CEPS09_Sentry_Attachment_PressureBottleRack_A"
+      ],
+      "rigging_socket_expectations": [
+        "SOCK_CeilingAnchor",
+        "SOCK_RotaryHead",
+        "SOCK_LeftWeapon",
+        "SOCK_RightWeapon",
+        "SOCK_WallOrCeilingMount",
+        "SOCK_TurretMount",
+        "SOCK_SteamVent"
+      ],
+      "integration_notes": [
+        "visual-only prefab modules",
+        "no colliders, rigidbodies, MonoBehaviours, or animation controllers",
+        "socket names are stable handoff anchors for future rigging"
+      ]
+    }
+  ],
+  "shared_parts": [
+    "CEPS09_Shared_Optic_SingleAmberLens_A",
+    "CEPS09_Shared_GearCluster_ExposedGovernor_A",
+    "CEPS09_Shared_Gauge_SteamPressureDial_A",
+    "CEPS09_Shared_RivetPlate_DamageScab_A"
+  ],
+  "archetype_previews": [
+    "CEPS09_ArchetypePreview_SkitterUnit_ReadableLowProfile",
+    "CEPS09_ArchetypePreview_BoilerBrute_HumanoidSilhouette",
+    "CEPS09_ArchetypePreview_WallCeilingSentry_MountedProfile"
+  ],
+  "deferred_dependencies": [
+    "final skeleton hierarchy and bind pose per archetype",
+    "skin weights or rigid parent constraints",
+    "locomotion, attack, idle, recoil, and destruction animation clips",
+    "hit volume and weak-point ownership in main gameplay assemblies",
+    "LOD group authoring and final occlusion/collider pass"
+  ],
+  "decision": "ready_for_quarantine_visual_intake_not_gameplay_promotion"
+}
