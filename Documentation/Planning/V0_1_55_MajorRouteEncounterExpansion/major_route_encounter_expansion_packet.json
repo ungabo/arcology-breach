@@ -1,0 +1,222 @@
+{
+  "packet": "V0_1_55_MajorRouteEncounterExpansion",
+  "created": "2026-05-25",
+  "scope": "docs-only implementation planning for v0.1.55/v0.1.56",
+  "release_split": {
+    "v0.1.55": "Visible content leap across Level01-Level05 with P0 sidecar imports, expansion roots, objective hooks, secrets, encounter waves, validation, smoke, and full matrix.",
+    "v0.1.56": "Stabilization of the same expanded campaign shape with objective order, encounter budget, secret total, final flow, performance density, and review evidence polish."
+  },
+  "p0_sidecar_imports": [
+    {
+      "package": "com.brassworks.sidecar.room-shell-set07",
+      "path": "AssetPacks/BrassworksBreach.RoomShellSet07",
+      "purpose": "expanded room and corridor shells",
+      "authority": "visual-only"
+    },
+    {
+      "package": "com.brassworks.sidecar.interior-dressing-set07",
+      "path": "AssetPacks/BrassworksBreach.InteriorDressingSet07",
+      "purpose": "dense steampunk interior dressing",
+      "authority": "visual-only"
+    },
+    {
+      "package": "com.brassworks.sidecar.hazard-props-set06",
+      "path": "AssetPacks/BrassworksBreach.HazardPropsSet06",
+      "purpose": "hazard readability props",
+      "authority": "visual-only"
+    },
+    {
+      "package": "com.brassworks.sidecar.steam-fx-set06",
+      "path": "AssetPacks/BrassworksBreach.SteamFXSet06",
+      "purpose": "steam and pressure state VFX dressing",
+      "authority": "visual-only unless paired with scene-owned AUTH hazards"
+    },
+    {
+      "package": "com.brassworks.sidecar.objective-interactables-set05",
+      "path": "AssetPacks/BrassworksBreach.ObjectiveInteractablesSet05",
+      "purpose": "valve, lock, terminal, and lift station dressing",
+      "authority": "visual-only; scene-owned AUTH objects interact"
+    },
+    {
+      "package": "com.brassworks.sidecar.mechanical-enemy-elite-set05",
+      "path": "AssetPacks/BrassworksBreach.MechanicalEnemyEliteSet05",
+      "purpose": "elite enemy visual readability upgrades",
+      "authority": "visual proxy only"
+    },
+    {
+      "package": "com.brassworks.sidecar.steam-corridor-dressing-set09",
+      "path": "AssetPacks/BrassworksBreach.SteamCorridorDressingSet09",
+      "purpose": "new corridor dressing density and threshold readability",
+      "authority": "visual-only"
+    },
+    {
+      "package": "com.brassworks.sidecar.clockwork-enemy-parts-set09",
+      "path": "AssetPacks/BrassworksBreach.ClockworkEnemyPartsSet09",
+      "purpose": "clockwork enemy silhouette dressing",
+      "authority": "visual proxy only"
+    }
+  ],
+  "levels": [
+    {
+      "scene": "Level01",
+      "expansion_root": "EXPAN_L01_IntakeFoundations_v0_1_55",
+      "polish_root": "POLISH_L01_IntakeFoundations_v0_1_56",
+      "target_footprint_m": { "x": 72, "z": 48, "y_min": 0, "y_max": 6 },
+      "duration_minutes": "6-8",
+      "peak_active_enemies": 6,
+      "required_objectives": [
+        "AUTH_L01_Item_GearKey_Expanded",
+        "AUTH_L01_PressureGate_Expanded",
+        "AUTH_L01_LiftCallBox_Expanded"
+      ],
+      "optional_secrets": [
+        "TRG_L01_Secret_IntakePressureCache_Expanded"
+      ],
+      "major_beats": [
+        "FirstContact",
+        "KeyCost",
+        "GateReward",
+        "PumpGallery",
+        "LiftSendoff"
+      ]
+    },
+    {
+      "scene": "Level02",
+      "expansion_root": "EXPAN_L02_PipeworksPressureDistrict_v0_1_55",
+      "polish_root": "POLISH_L02_PipeworksPressureDistrict_v0_1_56",
+      "preserve_roots": [
+        "ROUTE_L02_PressureBypass_v0_1_50"
+      ],
+      "target_footprint_m": { "x": 88, "z": 56, "y_min": 0, "y_max": 7 },
+      "duration_minutes": "8-10",
+      "peak_active_enemies": 8,
+      "required_objectives": [
+        "AUTH_L02_Valve_RoutingDeck_C",
+        "AUTH_L02_LiftLock_BoilerheartExpanded"
+      ],
+      "optional_secrets": [
+        "TRG_L02_Secret_CartridgeCacheExpanded"
+      ],
+      "major_beats": [
+        "PressureDoorRead",
+        "CrosspipePinch",
+        "ValveCommit",
+        "NorthHallFight",
+        "LiftLockhouse"
+      ]
+    },
+    {
+      "scene": "Level03",
+      "expansion_root": "EXPAN_L03_BoilerheartFoundryBridge_v0_1_55",
+      "polish_root": "POLISH_L03_BoilerheartFoundryBridge_v0_1_56",
+      "preserve_roots": [
+        "ROUTE_L03_FoundryGantry_v0_1_50"
+      ],
+      "target_footprint_m": { "x": 84, "z": 66, "y_min": 0, "y_max": 10 },
+      "duration_minutes": "9-11",
+      "peak_active_enemies": 9,
+      "required_objectives": [
+        "AUTH_L03_Weapon_SteamScattergun_Expanded",
+        "AUTH_L03_BoilerheartPressureValve_Expanded",
+        "AUTH_L03_FoundryLiftLock_Expanded"
+      ],
+      "optional_secrets": [
+        "TRG_L03_Secret_CrucibleShelfExpanded"
+      ],
+      "major_beats": [
+        "ArrivalHeatRead",
+        "ScattergunPractice",
+        "ValveCommit",
+        "BellowsPressure",
+        "UpperGantry",
+        "FoundryLift"
+      ]
+    },
+    {
+      "scene": "Level04",
+      "expansion_root": "EXPAN_L04_FoundryAssemblyWorks_v0_1_55",
+      "polish_root": "POLISH_L04_FoundryAssemblyWorks_v0_1_56",
+      "preserve_roots": [
+        "ROUTE_L04_ObservatoryPumpworks_v0_1_50"
+      ],
+      "target_footprint_m": { "x": 96, "z": 72, "y_min": 0, "y_max": 12 },
+      "duration_minutes": "10-12",
+      "peak_active_enemies": 10,
+      "required_objectives": [
+        "AUTH_L04_Item_PressureKey_Expanded",
+        "AUTH_L04_AssemblyFloorClear",
+        "AUTH_L04_EmergencyHoist_Expanded"
+      ],
+      "optional_secrets": [
+        "TRG_L04_Secret_CoalCacheExpanded",
+        "TRG_L04_Secret_ReturnDuct"
+      ],
+      "major_beats": [
+        "ArrivalPressure",
+        "KeyRoomCost",
+        "AssemblyFloor",
+        "RerouteCommit",
+        "PumpArena",
+        "HoistRejoin"
+      ]
+    },
+    {
+      "scene": "Level05",
+      "expansion_root": "EXPAN_L05_GovernorCoreFinale_v0_1_55",
+      "polish_root": "POLISH_L05_GovernorCoreFinale_v0_1_56",
+      "preserve_roots": [
+        "ROUTE_L05_GovernorCore_v0_1_54"
+      ],
+      "target_footprint_m": { "x": 88, "z": 82, "y_min": 0, "y_max": 14 },
+      "duration_minutes": "10-13",
+      "peak_active_enemies": 11,
+      "required_objectives": [
+        "AUTH_L05_ReliefValve_North",
+        "AUTH_L05_ReliefValve_South",
+        "AUTH_L05_WardenCoreBreach",
+        "AUTH_L05_FinalExitInteract_Expanded",
+        "TRG_L05_CampaignComplete_Expanded"
+      ],
+      "optional_secrets": [
+        "TRG_L05_Secret_RegulatorNicheExpanded"
+      ],
+      "major_beats": [
+        "FinaleRead",
+        "ServiceSplit",
+        "ReliefCommitNorth",
+        "ReliefCommitSouth",
+        "WardenPhaseTeach",
+        "WardenPhaseCombine",
+        "CoreBreach",
+        "FinalExit"
+      ]
+    }
+  ],
+  "validator_hooks": [
+    "ValidateV0155MajorRouteEncounterExpansion(sceneName)",
+    "ValidateV0155SidecarImportEnvelope()",
+    "ValidateV0155VisualOnlyAuthority(sceneName)",
+    "ValidateV0155ObjectiveSecretChain(sceneName)",
+    "ValidateV0155EncounterBudgets(sceneName)",
+    "ValidateV0155CampaignScaleAndRouteOrder(sceneName)",
+    "ValidateV0156FirstVersionStabilization(sceneName)"
+  ],
+  "runtime_smoke_additions": [
+    "RuntimeMajorRouteEncounterTest",
+    "RuntimeEncounterBudgetTest",
+    "RuntimeGovernorFinaleFlowTest",
+    "RuntimeAutoPlaythroughTest objective-chain extension",
+    "RuntimeSecretTest first-version secret-total extension",
+    "RuntimeHazardTest tell-order extension",
+    "Sidecar quarantine smoke package/name/authority extension"
+  ],
+  "pass_markers": [
+    "V0_MAJOR_ROUTE_ENCOUNTER_PASS",
+    "V0_V0155_SIDECAR_IMPORT_PASS",
+    "V0_VISUALONLY_AUTHORITY_PASS",
+    "V0_FIRST_VERSION_OBJECTIVE_CHAIN_PASS",
+    "V0_ENCOUNTER_BUDGET_PASS",
+    "V0_CAMPAIGN_SCALE_ROUTE_ORDER_PASS",
+    "V0_FIRST_VERSION_STABILIZATION_PASS"
+  ]
+}
