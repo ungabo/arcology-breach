@@ -1,0 +1,522 @@
+{
+  "common_schema": "brassworks.sidecar.visual_pack_manifest.v1",
+  "pack_id": "RSR11",
+  "display_name": "Room Surface Relief Set 11",
+  "package": {
+    "name": "BrassworksBreach.RoomSurfaceReliefSet11",
+    "packageId": "com.brassworks.sidecar.room-surface-relief-set11",
+    "version": "0.1.56-p001",
+    "generated_at_utc": "2026-05-25T01:48:43Z",
+    "unityCompatibility": "Unity 2022.3+ native Mesh/Material/Prefab assets generated in Unity; no Blender or external DCC.",
+    "externalDccToolsUsed": []
+  },
+  "owner": {
+    "worker": "RoomSurfaceReliefSet11",
+    "assignedRootsOnly": true,
+    "lane": "sidecar-room-surface-relief-set11"
+  },
+  "roots": {
+    "packageRoot": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11",
+    "productionDocumentationRoot": "Documentation/AssetProduction/V0_1_56_RoomSurfaceReliefSet11",
+    "conceptRenderRoot": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11",
+    "planningRoot": "Documentation/Planning/V0_1_56_RoomSurfaceReliefSet11ImportReadiness",
+    "qaRoot": "Documentation/QA/V0_1_56_RoomSurfaceReliefSet11ImportReadiness"
+  },
+  "counts": {
+    "prefabs": 28,
+    "materials": 14,
+    "meshes": 17,
+    "runtimeTexturePNGs": 56,
+    "previewPNGs": 29,
+    "packagePreviewPNGs": 30,
+    "families": 7
+  },
+  "roomtest_v0_6_context": {
+    "targetProblem": "flat/regular material grids needed shallow individual brick and stone face geometry over dark mortar",
+    "placementIntent": [
+      "drop modular wall panels onto roomtest-style masonry runs without editing roomtest",
+      "layer floor slabs and wet reflection cards under warm gaslight",
+      "add ceiling brick panels with restrained soot washes",
+      "use mortar shadow cards, corner grime strips, and raised edge trim to break flat seams"
+    ]
+  },
+  "visualOnlyContract": {
+    "visualOnly": true,
+    "containsScriptsInRuntimePrefabs": false,
+    "containsColliders": false,
+    "containsRigidbodies": false,
+    "containsLights": false,
+    "containsReflectionProbes": false,
+    "containsAudio": false,
+    "containsAnimations": false,
+    "containsScenes": false,
+    "intendedRuntimeBehavior": "None. Collision, occlusion, light placement, probes, sound, scripts, and gameplay authority belong to integrating scenes."
+  },
+  "families": [
+    {
+      "name": "WallPanels",
+      "variants": 4,
+      "role": "raised brick wall modules over dark mortar with damp base and corner trim options"
+    },
+    {
+      "name": "FloorSlabs",
+      "variants": 4,
+      "role": "large wet flagstone slabs with dark joints, raised lips, and reflection helpers"
+    },
+    {
+      "name": "CeilingPanels",
+      "variants": 4,
+      "role": "small sooted ceiling brick relief panels with smoke wash cards"
+    },
+    {
+      "name": "MortarShadowCards",
+      "variants": 4,
+      "role": "cards and thin geometry to deepen mortar/joint reads on existing surfaces"
+    },
+    {
+      "name": "CornerGrimeStrips",
+      "variants": 4,
+      "role": "folded damp/soot corner buildup for vertical room and corridor seams"
+    },
+    {
+      "name": "WetReflectionHelpers",
+      "variants": 4,
+      "role": "transparent warm/cool wet glint cards with no light/probe behavior"
+    },
+    {
+      "name": "RaisedUnevenStoneEdges",
+      "variants": 4,
+      "role": "trim, chipped lips, and raised stone edge modules"
+    }
+  ],
+  "assets": {
+    "prefabs": [
+      {
+        "name": "RSR11_PREFAB_01_WallPanel_ModularBrick_A",
+        "family": "WallPanels",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_01_WallPanel_ModularBrick_A.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_01_WallPanel_ModularBrick_A.png",
+        "childRenderers": 74,
+        "meshAssetsUsed": 7,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "modular wall panel with 56 individual raised bricks, shadow mortar, damp/glint layers"
+      },
+      {
+        "name": "RSR11_PREFAB_02_WallPanel_ModularBrick_B",
+        "family": "WallPanels",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_02_WallPanel_ModularBrick_B.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_02_WallPanel_ModularBrick_B.png",
+        "childRenderers": 95,
+        "meshAssetsUsed": 9,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "modular wall panel with 72 individual raised bricks, shadow mortar, damp/glint layers"
+      },
+      {
+        "name": "RSR11_PREFAB_03_WallPanel_CorridorBand_C",
+        "family": "WallPanels",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_03_WallPanel_CorridorBand_C.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_03_WallPanel_CorridorBand_C.png",
+        "childRenderers": 84,
+        "meshAssetsUsed": 6,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "modular wall panel with 67 individual raised bricks, shadow mortar, damp/glint layers"
+      },
+      {
+        "name": "RSR11_PREFAB_04_WallPanel_LampSootReady_D",
+        "family": "WallPanels",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_04_WallPanel_LampSootReady_D.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_04_WallPanel_LampSootReady_D.png",
+        "childRenderers": 95,
+        "meshAssetsUsed": 9,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "modular wall panel with 72 individual raised bricks, shadow mortar, damp/glint layers"
+      },
+      {
+        "name": "RSR11_PREFAB_05_FloorSlab_WetFlagstone_A",
+        "family": "FloorSlabs",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_05_FloorSlab_WetFlagstone_A.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_05_FloorSlab_WetFlagstone_A.png",
+        "childRenderers": 20,
+        "meshAssetsUsed": 8,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "large wet flagstone floor module with 9 raised uneven slabs and helper reflection cards"
+      },
+      {
+        "name": "RSR11_PREFAB_06_FloorSlab_WetFlagstone_B",
+        "family": "FloorSlabs",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_06_FloorSlab_WetFlagstone_B.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_06_FloorSlab_WetFlagstone_B.png",
+        "childRenderers": 25,
+        "meshAssetsUsed": 8,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "large wet flagstone floor module with 12 raised uneven slabs and helper reflection cards"
+      },
+      {
+        "name": "RSR11_PREFAB_07_FloorSlab_CorridorRun_C",
+        "family": "FloorSlabs",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_07_FloorSlab_CorridorRun_C.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_07_FloorSlab_CorridorRun_C.png",
+        "childRenderers": 23,
+        "meshAssetsUsed": 8,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "large wet flagstone floor module with 10 raised uneven slabs and helper reflection cards"
+      },
+      {
+        "name": "RSR11_PREFAB_08_FloorSlab_ThresholdPool_D",
+        "family": "FloorSlabs",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_08_FloorSlab_ThresholdPool_D.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_08_FloorSlab_ThresholdPool_D.png",
+        "childRenderers": 20,
+        "meshAssetsUsed": 8,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "large wet flagstone floor module with 9 raised uneven slabs and helper reflection cards"
+      },
+      {
+        "name": "RSR11_PREFAB_09_CeilingBrickPanel_Sooted_A",
+        "family": "CeilingPanels",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_09_CeilingBrickPanel_Sooted_A.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_09_CeilingBrickPanel_Sooted_A.png",
+        "childRenderers": 49,
+        "meshAssetsUsed": 5,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "small-scale ceiling brick panel with 45 individual bricks and transparent soot wash"
+      },
+      {
+        "name": "RSR11_PREFAB_10_CeilingBrickPanel_Sooted_B",
+        "family": "CeilingPanels",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_10_CeilingBrickPanel_Sooted_B.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_10_CeilingBrickPanel_Sooted_B.png",
+        "childRenderers": 51,
+        "meshAssetsUsed": 5,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "small-scale ceiling brick panel with 47 individual bricks and transparent soot wash"
+      },
+      {
+        "name": "RSR11_PREFAB_11_CeilingBrickPanel_Corridor_C",
+        "family": "CeilingPanels",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_11_CeilingBrickPanel_Corridor_C.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_11_CeilingBrickPanel_Corridor_C.png",
+        "childRenderers": 46,
+        "meshAssetsUsed": 5,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "small-scale ceiling brick panel with 42 individual bricks and transparent soot wash"
+      },
+      {
+        "name": "RSR11_PREFAB_12_CeilingBrickPanel_CornerSmoke_D",
+        "family": "CeilingPanels",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_12_CeilingBrickPanel_CornerSmoke_D.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_12_CeilingBrickPanel_CornerSmoke_D.png",
+        "childRenderers": 56,
+        "meshAssetsUsed": 5,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "small-scale ceiling brick panel with 52 individual bricks and transparent soot wash"
+      },
+      {
+        "name": "RSR11_PREFAB_13_MortarShadowCards_Horizontal_A",
+        "family": "MortarShadowCards",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_13_MortarShadowCards_Horizontal_A.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_13_MortarShadowCards_Horizontal_A.png",
+        "childRenderers": 6,
+        "meshAssetsUsed": 1,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "transparent and solid dark mortar cards for added seam depth over existing geometry"
+      },
+      {
+        "name": "RSR11_PREFAB_14_MortarShadowCards_Grid_B",
+        "family": "MortarShadowCards",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_14_MortarShadowCards_Grid_B.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_14_MortarShadowCards_Grid_B.png",
+        "childRenderers": 13,
+        "meshAssetsUsed": 1,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "transparent and solid dark mortar cards for added seam depth over existing geometry"
+      },
+      {
+        "name": "RSR11_PREFAB_15_MortarShadowCards_Corner_C",
+        "family": "MortarShadowCards",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_15_MortarShadowCards_Corner_C.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_15_MortarShadowCards_Corner_C.png",
+        "childRenderers": 13,
+        "meshAssetsUsed": 1,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "transparent and solid dark mortar cards for added seam depth over existing geometry"
+      },
+      {
+        "name": "RSR11_PREFAB_16_MortarShadowCards_ThinBand_D",
+        "family": "MortarShadowCards",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_16_MortarShadowCards_ThinBand_D.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_16_MortarShadowCards_ThinBand_D.png",
+        "childRenderers": 6,
+        "meshAssetsUsed": 1,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "transparent and solid dark mortar cards for added seam depth over existing geometry"
+      },
+      {
+        "name": "RSR11_PREFAB_17_CornerGrimeStrip_VerticalDamp_A",
+        "family": "CornerGrimeStrips",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_17_CornerGrimeStrip_VerticalDamp_A.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_17_CornerGrimeStrip_VerticalDamp_A.png",
+        "childRenderers": 3,
+        "meshAssetsUsed": 3,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "folded corner grime strip with damp leak geometry and coal-dark base"
+      },
+      {
+        "name": "RSR11_PREFAB_18_CornerGrimeStrip_LampSoot_B",
+        "family": "CornerGrimeStrips",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_18_CornerGrimeStrip_LampSoot_B.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_18_CornerGrimeStrip_LampSoot_B.png",
+        "childRenderers": 3,
+        "meshAssetsUsed": 3,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "folded corner grime strip with damp leak geometry and coal-dark base"
+      },
+      {
+        "name": "RSR11_PREFAB_19_CornerGrimeStrip_BaseWet_C",
+        "family": "CornerGrimeStrips",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_19_CornerGrimeStrip_BaseWet_C.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_19_CornerGrimeStrip_BaseWet_C.png",
+        "childRenderers": 3,
+        "meshAssetsUsed": 3,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "folded corner grime strip with damp leak geometry and coal-dark base"
+      },
+      {
+        "name": "RSR11_PREFAB_20_CornerGrimeStrip_CeilingDrape_D",
+        "family": "CornerGrimeStrips",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_20_CornerGrimeStrip_CeilingDrape_D.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_20_CornerGrimeStrip_CeilingDrape_D.png",
+        "childRenderers": 3,
+        "meshAssetsUsed": 3,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "folded corner grime strip with damp leak geometry and coal-dark base"
+      },
+      {
+        "name": "RSR11_PREFAB_21_WetReflectionHelper_WarmPool_A",
+        "family": "WetReflectionHelpers",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_21_WetReflectionHelper_WarmPool_A.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_21_WetReflectionHelper_WarmPool_A.png",
+        "childRenderers": 3,
+        "meshAssetsUsed": 1,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "visual-only transparent wet reflection helpers with no Light or ReflectionProbe components"
+      },
+      {
+        "name": "RSR11_PREFAB_22_WetReflectionHelper_NarrowGlint_B",
+        "family": "WetReflectionHelpers",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_22_WetReflectionHelper_NarrowGlint_B.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_22_WetReflectionHelper_NarrowGlint_B.png",
+        "childRenderers": 3,
+        "meshAssetsUsed": 1,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "visual-only transparent wet reflection helpers with no Light or ReflectionProbe components"
+      },
+      {
+        "name": "RSR11_PREFAB_23_WetReflectionHelper_WallBase_C",
+        "family": "WetReflectionHelpers",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_23_WetReflectionHelper_WallBase_C.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_23_WetReflectionHelper_WallBase_C.png",
+        "childRenderers": 3,
+        "meshAssetsUsed": 1,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "visual-only transparent wet reflection helpers with no Light or ReflectionProbe components"
+      },
+      {
+        "name": "RSR11_PREFAB_24_WetReflectionHelper_CoolPin_D",
+        "family": "WetReflectionHelpers",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_24_WetReflectionHelper_CoolPin_D.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_24_WetReflectionHelper_CoolPin_D.png",
+        "childRenderers": 3,
+        "meshAssetsUsed": 1,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "visual-only transparent wet reflection helpers with no Light or ReflectionProbe components"
+      },
+      {
+        "name": "RSR11_PREFAB_25_RaisedUnevenStoneEdges_WallBase_A",
+        "family": "RaisedUnevenStoneEdges",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_25_RaisedUnevenStoneEdges_WallBase_A.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_25_RaisedUnevenStoneEdges_WallBase_A.png",
+        "childRenderers": 7,
+        "meshAssetsUsed": 2,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "raised uneven stone trim and chipped edge geometry for wall bases, floor lips, and ceiling seams"
+      },
+      {
+        "name": "RSR11_PREFAB_26_RaisedUnevenStoneEdges_FloorLip_B",
+        "family": "RaisedUnevenStoneEdges",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_26_RaisedUnevenStoneEdges_FloorLip_B.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_26_RaisedUnevenStoneEdges_FloorLip_B.png",
+        "childRenderers": 7,
+        "meshAssetsUsed": 2,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "raised uneven stone trim and chipped edge geometry for wall bases, floor lips, and ceiling seams"
+      },
+      {
+        "name": "RSR11_PREFAB_27_RaisedUnevenStoneEdges_CeilingTrim_C",
+        "family": "RaisedUnevenStoneEdges",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_27_RaisedUnevenStoneEdges_CeilingTrim_C.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_27_RaisedUnevenStoneEdges_CeilingTrim_C.png",
+        "childRenderers": 7,
+        "meshAssetsUsed": 2,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "raised uneven stone trim and chipped edge geometry for wall bases, floor lips, and ceiling seams"
+      },
+      {
+        "name": "RSR11_PREFAB_28_RaisedUnevenStoneEdges_ChippedD",
+        "family": "RaisedUnevenStoneEdges",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Prefabs/RSR11_PREFAB_28_RaisedUnevenStoneEdges_ChippedD.prefab",
+        "preview": "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_PREVIEW_28_RaisedUnevenStoneEdges_ChippedD.png",
+        "childRenderers": 7,
+        "meshAssetsUsed": 2,
+        "componentContract": "GameObject, Transform, MeshFilter, MeshRenderer only",
+        "notes": "raised uneven stone trim and chipped edge geometry for wall bases, floor lips, and ceiling seams"
+      }
+    ],
+    "materials": [
+      {
+        "name": "RSR11_MAT_DarkIrregularBrickFace",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Materials/RSR11_MAT_DarkIrregularBrickFace.mat",
+        "textureFamily": "DarkIrregularBrickFace",
+        "role": "raised irregular wall bricks",
+        "metallic": 0,
+        "smoothness": 0.42,
+        "transparent": false
+      },
+      {
+        "name": "RSR11_MAT_BrickEdgeWarmWear",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Materials/RSR11_MAT_BrickEdgeWarmWear.mat",
+        "textureFamily": "BrickEdgeWarmWear",
+        "role": "worn warmer brick edge chips",
+        "metallic": 0,
+        "smoothness": 0.36,
+        "transparent": false
+      },
+      {
+        "name": "RSR11_MAT_DeepBlackMortarShadow",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Materials/RSR11_MAT_DeepBlackMortarShadow.mat",
+        "textureFamily": "DeepBlackMortarShadow",
+        "role": "recessed nearly black mortar and crevice shadows",
+        "metallic": 0,
+        "smoothness": 0.18,
+        "transparent": false
+      },
+      {
+        "name": "RSR11_MAT_WetWarmFlagstone",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Materials/RSR11_MAT_WetWarmFlagstone.mat",
+        "textureFamily": "WetWarmFlagstone",
+        "role": "large warm-black wet flagstone faces",
+        "metallic": 0,
+        "smoothness": 0.84,
+        "transparent": false
+      },
+      {
+        "name": "RSR11_MAT_RaisedFlagstoneEdge",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Materials/RSR11_MAT_RaisedFlagstoneEdge.mat",
+        "textureFamily": "RaisedFlagstoneEdge",
+        "role": "raised uneven stone lips and broken slab edges",
+        "metallic": 0,
+        "smoothness": 0.58,
+        "transparent": false
+      },
+      {
+        "name": "RSR11_MAT_SootedCeilingBrick",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Materials/RSR11_MAT_SootedCeilingBrick.mat",
+        "textureFamily": "SootedCeilingBrick",
+        "role": "small ceiling brick courses under soot",
+        "metallic": 0,
+        "smoothness": 0.3,
+        "transparent": false
+      },
+      {
+        "name": "RSR11_MAT_CeilingSootWash",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Materials/RSR11_MAT_CeilingSootWash.mat",
+        "textureFamily": "CeilingSootWash",
+        "role": "transparent broad ceiling and lamp soot wash",
+        "metallic": 0,
+        "smoothness": 0.44,
+        "transparent": true
+      },
+      {
+        "name": "RSR11_MAT_CornerGrimeDamp",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Materials/RSR11_MAT_CornerGrimeDamp.mat",
+        "textureFamily": "CornerGrimeDamp",
+        "role": "transparent corner grime and damp base buildup",
+        "metallic": 0,
+        "smoothness": 0.72,
+        "transparent": true
+      },
+      {
+        "name": "RSR11_MAT_WarmWetReflection",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Materials/RSR11_MAT_WarmWetReflection.mat",
+        "textureFamily": "WarmWetReflection",
+        "role": "warm gaslight wet reflection helper card",
+        "metallic": 0,
+        "smoothness": 0.95,
+        "transparent": true
+      },
+      {
+        "name": "RSR11_MAT_CoolPinReflection",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Materials/RSR11_MAT_CoolPinReflection.mat",
+        "textureFamily": "CoolPinReflection",
+        "role": "small cool wet glint helper card",
+        "metallic": 0,
+        "smoothness": 0.9,
+        "transparent": true
+      },
+      {
+        "name": "RSR11_MAT_AgedStoneTrim",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Materials/RSR11_MAT_AgedStoneTrim.mat",
+        "textureFamily": "AgedStoneTrim",
+        "role": "dark damp stone trim and coping pieces",
+        "metallic": 0,
+        "smoothness": 0.44,
+        "transparent": false
+      },
+      {
+        "name": "RSR11_MAT_DampLeakStreak",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Materials/RSR11_MAT_DampLeakStreak.mat",
+        "textureFamily": "DampLeakStreak",
+        "role": "transparent vertical leak and wall wetness streaks",
+        "metallic": 0,
+        "smoothness": 0.86,
+        "transparent": true
+      },
+      {
+        "name": "RSR11_MAT_ChipFaceHighlight",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Materials/RSR11_MAT_ChipFaceHighlight.mat",
+        "textureFamily": "ChipFaceHighlight",
+        "role": "thin chipped masonry face highlights",
+        "metallic": 0,
+        "smoothness": 0.36,
+        "transparent": false
+      },
+      {
+        "name": "RSR11_MAT_CoalDustCrevice",
+        "path": "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Materials/RSR11_MAT_CoalDustCrevice.mat",
+        "textureFamily": "CoalDustCrevice",
+        "role": "extra dark soot and joint filler",
+        "metallic": 0,
+        "smoothness": 0.16,
+        "transparent": false
+      }
+    ],
+    "contactSheets": [
+      "Documentation/ConceptRenders/V0_1_56_RoomSurfaceReliefSet11/RSR11_CONTACTSHEET_RoomSurfaceReliefSet11.png",
+      "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Runtime/Previews/RSR11_CONTACTSHEET_RoomSurfaceReliefSet11.png",
+      "AssetPacks/BrassworksBreach.RoomSurfaceReliefSet11/Documentation~/Previews/RSR11_CONTACTSHEET_RoomSurfaceReliefSet11.png"
+    ]
+  },
+  "targetComparison": {
+    "surfaceReliefDepth": "Real child mesh protrusion ranges roughly 0.03-0.14 Unity units on bricks/slabs; closer to v0.6 target than flat maps, still modular rather than hand-sculpted.",
+    "wetnessReflection": "High-smoothness wet flagstone material plus transparent warm/cool helper cards; no real probe or light behavior included.",
+    "mortarDarkness": "Deep black mortar backers, hairlines, and coal crevice cards are intentionally darker than brick albedo.",
+    "brickRandomness": "Alternating row offsets, per-brick scale, depth jitter, chip strips, and texture noise break the grid, but long walls will still need variant mixing.",
+    "ceilingFloorScale": "Ceiling bricks are small and tight; floor stones are larger slab modules with raised lips and wider wet joints.",
+    "remainingGaps": "No bespoke scene lighting, silhouette-destroying damage, puddle physics, decals projected onto existing roomtest meshes, or playable collision."
+  },
+  "importReadiness": {
+    "status": "static_ready_visual_only_validation_passed",
+    "pathCollisionsChecked": true,
+    "rollbackPath": "Remove local package reference com.brassworks.sidecar.room-surface-relief-set11 and delete the isolated Set11 assigned roots."
+  }
+}
