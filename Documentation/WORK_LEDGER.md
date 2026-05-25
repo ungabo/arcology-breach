@@ -477,7 +477,10 @@ Parallel lane status:
 
 - Galileo the 2nd's `roomtest` v0.3-v0.5 lookdev refinements are now committed as isolated evidence.
 - Banach the 2nd completed Room Material Set 10 as a static-ready sidecar candidate for review.
+- Cicero the 2nd completed Door/Vault Set10 with 9 visual-only prefabs, 8 materials, 9 meshes, and no prefab gameplay-authority components.
+- Chandrasekhar the 2nd completed Pipe/Tank/Gauge Set10 with 13 visual-only prefabs, 10 materials, 15 textures, 11 meshes, and `PTG10_GENERATE_PASS`.
+- Beauvoir the 2nd completed Grime/Decal/Wetness Set10 with 32 visual-only quad prefabs, 16 transparent materials, 48 texture maps, 32 preview PNGs, and static validation pass.
 - Noether the 2nd and Avicenna the 2nd completed Pressure Pistol Hero Set 10 and Gaslight/Pipe Dressing Set 10 candidates; they remain unaccepted until visual review.
-- Cicero the 2nd, Chandrasekhar the 2nd, Beauvoir the 2nd, and Linnaeus the 2nd are active on door/vault, pipe/tank/gauge, grime/wetness, and assembled corridor lookdev lanes.
+- Linnaeus the 2nd remains active on assembled corridor lookdev, while McClintock the 2nd, Meitner the 2nd, and Carver the 2nd are active on atmosphere VFX, mechanical sentinel hero, and door mechanism sidecar packages.
 
 Next-step directive: commit/push the verified `v0.1.54` slice, then continue immediately with Set10 visual review, accepted sidecar package intake, and larger playable art/content batches.

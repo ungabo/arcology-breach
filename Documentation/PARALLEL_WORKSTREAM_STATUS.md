@@ -9,9 +9,9 @@ Purpose: track side-agent work that can advance independently from the main Unit
 - Main lane: `v0.1.54` Set09 quarantine-import build passed the full Windows matrix and produced `Builds/Windows/v0.1.54/BrassworksBreach_v0.1.54.exe`.
 - Verification: `SIDECAR_QUARANTINE_IMPORT_PASS packages=20 assets=177`, route audit, QA packet, issue triage packet, candidate readiness, and Windows package generation all passed.
 - Active fidelity strategy: split the north-star room target into object/material family lanes instead of making Galileo solve every surface and prop alone.
-- Completed candidate for review: Banach the 2nd's Room Material Set 10, with six material families, thirty 512x512 maps, preview PNGs, manifests, and static QA.
+- Completed candidates for review: Banach the 2nd's Room Material Set 10, Cicero the 2nd's Door/Vault Set10, Chandrasekhar the 2nd's Pipe/Tank/Gauge Set10, and Beauvoir the 2nd's Grime/Decal/Wetness Set10.
 - Completed candidates still awaiting visual review: Noether the 2nd's Pressure Pistol Hero Set 10 and Avicenna the 2nd's Gaslight/Pipe Dressing Set 10.
-- Active workers: Galileo the 2nd (`roomtest`), Cicero the 2nd (Door/Vault Set10), Chandrasekhar the 2nd (Pipe/Tank/Gauge Set10), Beauvoir the 2nd (Grime/Decal/Wetness Set10), and Linnaeus the 2nd (Corridor Assembly Lookdev Set10).
+- Active workers: Galileo the 2nd (`roomtest` continuation if needed), Linnaeus the 2nd (Corridor Assembly Lookdev Set10), McClintock the 2nd (Steam Atmosphere VFX Set10), Meitner the 2nd (Mechanical Sentinel Hero Set10), and Carver the 2nd (Brassworks Door Mechanism Set10).
 
 ## Main Integration Lane
 
