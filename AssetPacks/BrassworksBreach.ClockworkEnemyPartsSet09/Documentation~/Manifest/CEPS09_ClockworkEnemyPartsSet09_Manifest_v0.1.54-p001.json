@@ -24,6 +24,18 @@
     "animation_clips": 0,
     "animator_controllers": 0
   },
+  "dependencies": [
+    "Unity Package Manager local package reference",
+    "Unity built-in mesh/material APIs",
+    "Unity built-in Standard shader"
+  ],
+  "required_primary_changes": [
+    "Add local package reference only after quarantine import review.",
+    "Keep prefabs visual-only until main-lane rigging, collision, hit-volume, AI, and animation authority are authored.",
+    "Use archetype previews as silhouette guides rather than final gameplay enemies."
+  ],
+  "path_collisions_checked": true,
+  "guid_collisions_checked": true,
   "generated_prefabs": [
     "Packages/com.brassworks.sidecar.clockwork-enemy-parts-set09/Runtime/Prefabs/CEPS09_ArchetypePreview_BoilerBrute_HumanoidSilhouette.prefab",
     "Packages/com.brassworks.sidecar.clockwork-enemy-parts-set09/Runtime/Prefabs/CEPS09_ArchetypePreview_SkitterUnit_ReadableLowProfile.prefab",

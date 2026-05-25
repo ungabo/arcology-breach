@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 20:05 -04:00`
+Last updated: `2026-05-24 20:17 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -241,6 +241,13 @@ Current PM rule: keep incomplete sidecar package roots unstaged until their agen
 | Galileo the 2nd | active output under review | `roomtest/` only | Produced v0.3 texture/material/scene/render outputs. Keep isolated and unstaged until visual review and acceptance/rejection notes are complete. |
 | Euler the 2nd | completed and committed | `AssetPacks/BrassworksBreach.SteamCorridorDressingSet09/`, v0.1.54 Set09 docs and contact sheet | Commit `9082883` adds a self-contained corridor dressing sidecar with 20 piece definitions. Candidate for v0.1.54 review/import-readiness, not part of v0.1.53 playable build. |
 | Feynman the 2nd | completed and committed | `AssetPacks/BrassworksBreach.ClockworkEnemyPartsSet09/`, v0.1.54 Set09 docs and preview/contact sheets | Commit `326939d` adds a self-contained enemy-parts sidecar with 3 archetype families, 32 prefabs, 22 materials, 16 meshes, 22 runtime textures, and 57 preview/swatch/contact-sheet PNGs. Candidate for v0.1.54 review/import-readiness, not part of v0.1.53 playable build. |
+
+## 2026-05-24 20:17 -04:00 Parallel Lane Update
+
+| Agent | Status | Output Scope | PM Action |
+| --- | --- | --- | --- |
+| Primary lane | validation cleanup complete | `AssetPacks/BrassworksBreach.SteamCorridorDressingSet09/`, `AssetPacks/BrassworksBreach.ClockworkEnemyPartsSet09/` | Normalized both Set09 sidecar manifests to the shared schema, added missing SCD09 Unity `.meta` files, and reran `Tools/SidecarValidation/Test-SidecarAssetPacks.ps1 -PackageNamePattern BrassworksBreach.*Set09`; result: 2 packages checked, 0 errors, 0 warnings. |
+| Galileo the 2nd | active | `roomtest/` only | Received a redirect to continue Unity-only v0.4/v0.5 room lookdev refinement inside the isolated `roomtest/` project. Keep unstaged until final report and PM visual acceptance. |
 
 ## Integration Rules
 

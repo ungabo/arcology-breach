@@ -1,39 +1,74 @@
 {
-  "package": {
-    "name": "BrassworksBreach.SteamCorridorDressingSet09",
-    "packageId": "com.brassworks.sidecar.steam-corridor-dressing-set09",
-    "version": "0.1.54-p001",
-    "unity": "2022.3",
-    "description": "Unity-only deterministic generator package for a steampunk corridor dressing family."
+  "pack_id": "SCD09",
+  "display_name": "Steam Corridor Dressing Set 09",
+  "version": "0.1.54",
+  "build_id": "p001",
+  "unity_version": "6000.4.6f1",
+  "generated_at_utc": "2026-05-25T00:00:00Z",
+  "sidecar_project": "UD-SC-ENV-SteamCorridorDressingSet09",
+  "owner_lane": "sidecar-steam-corridor-dressing-set09",
+  "primary_intake_owner": "main-lane-art-integration",
+  "canonical_root": "AssetPacks/BrassworksBreach.SteamCorridorDressingSet09",
+  "package_root": "AssetPacks/BrassworksBreach.SteamCorridorDressingSet09",
+  "package_name": "com.brassworks.sidecar.steam-corridor-dressing-set09",
+  "common_schema": "brassworks.sidecar.visual_pack_manifest.v1",
+  "asset_counts": {
+    "families": 4,
+    "piece_definitions": 20,
+    "planned_generated_piece_prefabs": 20,
+    "planned_generated_palette_prefabs": 1,
+    "planned_generated_materials": 12,
+    "planned_generated_meshes": 6,
+    "runtime_scripts": 1,
+    "editor_generators": 1,
+    "preview_pngs": 1
   },
-  "ownedRoots": [
+  "source_files": {
+    "upm_manifest": "package.json",
+    "runtime_assembly": "Runtime/BrassworksBreach.SteamCorridorDressingSet09.asmdef",
+    "editor_assembly": "Editor/BrassworksBreach.SteamCorridorDressingSet09.Editor.asmdef",
+    "runtime_catalog": "Runtime/Definitions/SteamCorridorDressingSet09Catalog.cs",
+    "metadata_catalog": "Runtime/Metadata/SCD09_SteamCorridorDressingSet09_Catalog_0.1.54-p001.json",
+    "editor_generator": "Editor/SteamCorridorDressingSet09Generator.cs"
+  },
+  "owned_roots": [
     "AssetPacks/BrassworksBreach.SteamCorridorDressingSet09",
     "Documentation/AssetProduction/V0_1_54_SteamCorridorDressingSet09",
     "Documentation/ConceptRenders/V0_1_54_SteamCorridorDressingSet09",
     "Documentation/Planning/V0_1_54_SteamCorridorDressingSet09ImportReadiness",
     "Documentation/QA/V0_1_54_SteamCorridorDressingSet09ImportReadiness"
   ],
-  "sourceFiles": {
-    "upmManifest": "package.json",
-    "runtimeAssembly": "Runtime/BrassworksBreach.SteamCorridorDressingSet09.asmdef",
-    "editorAssembly": "Editor/BrassworksBreach.SteamCorridorDressingSet09.Editor.asmdef",
-    "runtimeCatalog": "Runtime/Definitions/SteamCorridorDressingSet09Catalog.cs",
-    "metadataCatalog": "Runtime/Metadata/SCD09_SteamCorridorDressingSet09_Catalog_0.1.54-p001.json",
-    "editorGenerator": "Editor/SteamCorridorDressingSet09Generator.cs"
-  },
-  "counts": {
-    "families": 4,
-    "pieceDefinitions": 20,
-    "plannedGeneratedPiecePrefabs": 20,
-    "plannedGeneratedPalettePrefabs": 1,
-    "plannedGeneratedMaterials": 12,
-    "plannedGeneratedMeshes": 6
-  },
-  "constraints": {
-    "externalDccToolsUsed": [],
-    "modifiesMainProjectManifest": false,
-    "modifiesMainAssets": false,
-    "modifiesMainScenes": false,
-    "checkedInPrefabYaml": false
-  }
+  "piece_families": [
+    "wall pipe, gauge, tank, valve, gaslight, and cable bracket dressing",
+    "floor wet drain, grate channel, steam vent, handrail, and inspection hatch dressing",
+    "ceiling pipe cluster, condensate tray, lamp cage, cable loom, and steam nozzle dressing",
+    "doorway riveted header, pressure lock, threshold drain, and side tank dressing"
+  ],
+  "visual_contract": [
+    "visual_only_no_gameplay_authority",
+    "generator_definitions_only_until_quarantine_import",
+    "no_checked_in_runtime_colliders",
+    "no_ai_or_damage_authority",
+    "no_external_dcc_dependency"
+  ],
+  "dependencies": [
+    "Unity Package Manager local package reference",
+    "Unity built-in mesh/material APIs",
+    "Unity built-in Standard shader"
+  ],
+  "required_primary_changes": [
+    "Add local package reference only after quarantine import review.",
+    "Run generator in a quarantine scene/project before any main-scene placement.",
+    "Promote generated prefabs as visual-only dressing until collision/gameplay authority is deliberately authored in main scene code."
+  ],
+  "path_collisions_checked": true,
+  "guid_collisions_checked": true,
+  "import_smoke_status": "static_validation_normalized_pending_quarantine_generator_run",
+  "known_risks": [
+    "Current contact sheet is catalog-like and not final north-star corridor art.",
+    "Generated geometry is procedural blockout language and needs material/lighting review before player-facing promotion.",
+    "Gaslight and red accents must be reviewed so visual dressing does not imply gameplay signaling by accident."
+  ],
+  "rollback_path": "remove local package reference com.brassworks.sidecar.steam-corridor-dressing-set09 and delete isolated package root",
+  "decision": "ready_for_primary_quarantine_after_static_validation_and_generator_review"
 }
