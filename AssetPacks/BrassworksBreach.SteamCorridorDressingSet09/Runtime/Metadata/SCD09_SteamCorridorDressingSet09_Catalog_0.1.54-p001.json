@@ -1,0 +1,263 @@
+{
+  "package": {
+    "name": "BrassworksBreach.SteamCorridorDressingSet09",
+    "packageId": "com.brassworks.sidecar.steam-corridor-dressing-set09",
+    "version": "0.1.54-p001",
+    "unityCompatibility": "Unity 2022.3+; deterministic editor generator; no checked-in prefab YAML required.",
+    "externalDccToolsUsed": [],
+    "generatedAssetRoot": "Runtime/Generated"
+  },
+  "roots": {
+    "packageRoot": "AssetPacks/BrassworksBreach.SteamCorridorDressingSet09",
+    "productionDocumentationRoot": "Documentation/AssetProduction/V0_1_54_SteamCorridorDressingSet09",
+    "conceptRenderRoot": "Documentation/ConceptRenders/V0_1_54_SteamCorridorDressingSet09",
+    "planningRoot": "Documentation/Planning/V0_1_54_SteamCorridorDressingSet09ImportReadiness",
+    "qaRoot": "Documentation/QA/V0_1_54_SteamCorridorDressingSet09ImportReadiness"
+  },
+  "generation": {
+    "menuItem": "Brassworks Breach/Sidecars/Steam Corridor Dressing Set 09/Generate Package Assets",
+    "sourceOfTruth": [
+      "Runtime/Definitions/SteamCorridorDressingSet09Catalog.cs",
+      "Runtime/Metadata/SCD09_SteamCorridorDressingSet09_Catalog_0.1.54-p001.json"
+    ],
+    "plannedOutputs": {
+      "materials": 12,
+      "meshes": 6,
+      "piecePrefabs": 20,
+      "palettePrefabs": 1
+    },
+    "determinismNotes": [
+      "The editor generator creates mesh assets from code with fixed vertex counts.",
+      "Prefab composition is generated from catalog transforms and material keys.",
+      "The generator deletes and recreates Runtime/Generated inside the package only."
+    ]
+  },
+  "visualOnlyContract": {
+    "visualOnly": true,
+    "containsCheckedInPrefabs": false,
+    "containsScripts": true,
+    "scriptScope": "Runtime catalog data and Editor-only generator. Generated prefabs contain MeshFilter and MeshRenderer components only.",
+    "containsColliders": false,
+    "containsRigidbodies": false,
+    "containsAudio": false,
+    "containsAnimations": false,
+    "containsScenes": false,
+    "containsLights": false,
+    "intendedRuntimeBehavior": "None. All gameplay, collision, lighting, VFX, audio, occlusion, and interactable behavior must be added by the importing project after approval."
+  },
+  "lookTarget": [
+    "blackened stone",
+    "wet floors",
+    "brass and copper pipework",
+    "pressure gauges",
+    "gaslight lamps",
+    "riveted iron",
+    "valves",
+    "steam vents",
+    "handrails",
+    "cable brackets",
+    "floor drains",
+    "ceiling pipe clusters",
+    "wall tanks"
+  ],
+  "materials": [
+    { "key": "WetBlackStone", "role": "wet black masonry and floor recesses" },
+    { "key": "BlackenedBrick", "role": "soot-stained brick wall backers" },
+    { "key": "OilyIron", "role": "rivet plates, brackets, grates, drain darkness" },
+    { "key": "AgedBrass", "role": "pipework, rims, handrails, pressure strips" },
+    { "key": "BurnishedCopper", "role": "tank bodies, condensate pipes, warm pipe contrast" },
+    { "key": "VerdigrisCopper", "role": "aged drip points and greened copper accents" },
+    { "key": "AmberGaslightGlass", "role": "gaslight lamp lenses" },
+    { "key": "GaugeIvory", "role": "pressure gauge faces" },
+    { "key": "RedEnamelNeedle", "role": "gauge needles and lock wheels" },
+    { "key": "WarningPaint", "role": "aged caution tabs and valve accents" },
+    { "key": "SteamMist", "role": "non-behavioral placeholder mist volumes" },
+    { "key": "DarkCableRubber", "role": "wall and ceiling cable looms" }
+  ],
+  "families": [
+    {
+      "name": "Wall",
+      "pieceCount": 6,
+      "pieces": [
+        {
+          "id": "SCD09_001_WallPipeTripleRun_A",
+          "displayName": "Wall Pipe Triple Run A",
+          "anchor": "wall_center",
+          "footprintMeters": [3.80, 2.15, 0.34],
+          "tags": ["pipework", "blackened-stone", "brass", "corridor-wall"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_001_WallPipeTripleRun_A.prefab"
+        },
+        {
+          "id": "SCD09_002_WallGaugeManifold_B",
+          "displayName": "Wall Gauge Manifold B",
+          "anchor": "wall_center",
+          "footprintMeters": [2.85, 2.35, 0.36],
+          "tags": ["pressure-gauge", "manifold", "rivet", "brass"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_002_WallGaugeManifold_B.prefab"
+        },
+        {
+          "id": "SCD09_003_WallTankStrapped_C",
+          "displayName": "Wall Tank Strapped C",
+          "anchor": "wall_lower",
+          "footprintMeters": [2.55, 2.80, 0.62],
+          "tags": ["wall-tank", "copper", "valve", "wet-stone"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_003_WallTankStrapped_C.prefab"
+        },
+        {
+          "id": "SCD09_004_WallValveBattery_D",
+          "displayName": "Wall Valve Battery D",
+          "anchor": "wall_center",
+          "footprintMeters": [3.20, 1.90, 0.44],
+          "tags": ["valves", "pipework", "warning-paint", "industrial"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_004_WallValveBattery_D.prefab"
+        },
+        {
+          "id": "SCD09_005_WallGaslightSconce_E",
+          "displayName": "Wall Gaslight Sconce E",
+          "anchor": "wall_upper",
+          "footprintMeters": [1.20, 1.95, 0.44],
+          "tags": ["gaslight", "amber", "cage", "wall-light"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_005_WallGaslightSconce_E.prefab"
+        },
+        {
+          "id": "SCD09_006_WallCableBracketRail_F",
+          "displayName": "Wall Cable Bracket Rail F",
+          "anchor": "wall_mid",
+          "footprintMeters": [3.60, 1.30, 0.28],
+          "tags": ["cable", "bracket", "wall-utility", "rubber"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_006_WallCableBracketRail_F.prefab"
+        }
+      ]
+    },
+    {
+      "name": "Floor",
+      "pieceCount": 5,
+      "pieces": [
+        {
+          "id": "SCD09_007_FloorWetDrainPlate_A",
+          "displayName": "Floor Wet Drain Plate A",
+          "anchor": "floor_center",
+          "footprintMeters": [2.40, 0.18, 1.30],
+          "tags": ["floor-drain", "wet-floor", "stone", "brass-rim"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_007_FloorWetDrainPlate_A.prefab"
+        },
+        {
+          "id": "SCD09_008_FloorGrateChannel_B",
+          "displayName": "Floor Grate Channel B",
+          "anchor": "floor_strip",
+          "footprintMeters": [3.60, 0.22, 0.82],
+          "tags": ["floor-grate", "wet-floor", "iron", "warning"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_008_FloorGrateChannel_B.prefab"
+        },
+        {
+          "id": "SCD09_009_FloorSteamVentLow_C",
+          "displayName": "Floor Steam Vent Low C",
+          "anchor": "floor_corner",
+          "footprintMeters": [1.60, 0.56, 1.15],
+          "tags": ["steam-vent", "floor", "iron", "mist-marker"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_009_FloorSteamVentLow_C.prefab"
+        },
+        {
+          "id": "SCD09_010_FloorHandrailStanchion_D",
+          "displayName": "Floor Handrail Stanchion D",
+          "anchor": "floor_edge",
+          "footprintMeters": [2.40, 1.22, 0.42],
+          "tags": ["handrail", "floor-edge", "brass", "safety"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_010_FloorHandrailStanchion_D.prefab"
+        },
+        {
+          "id": "SCD09_011_FloorInspectionHatch_E",
+          "displayName": "Floor Inspection Hatch E",
+          "anchor": "floor_center",
+          "footprintMeters": [1.80, 0.18, 1.80],
+          "tags": ["inspection-hatch", "floor", "rivet", "brass-ring"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_011_FloorInspectionHatch_E.prefab"
+        }
+      ]
+    },
+    {
+      "name": "Ceiling",
+      "pieceCount": 5,
+      "pieces": [
+        {
+          "id": "SCD09_012_CeilingPipeCluster_A",
+          "displayName": "Ceiling Pipe Cluster A",
+          "anchor": "ceiling_center",
+          "footprintMeters": [3.80, 0.72, 1.20],
+          "tags": ["ceiling-pipes", "pipe-cluster", "brass", "copper"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_012_CeilingPipeCluster_A.prefab"
+        },
+        {
+          "id": "SCD09_013_CeilingCondensateTray_B",
+          "displayName": "Ceiling Condensate Tray B",
+          "anchor": "ceiling_edge",
+          "footprintMeters": [2.80, 0.44, 0.78],
+          "tags": ["condensate", "ceiling", "wet", "verdigris"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_013_CeilingCondensateTray_B.prefab"
+        },
+        {
+          "id": "SCD09_014_CeilingLampCage_C",
+          "displayName": "Ceiling Lamp Cage C",
+          "anchor": "ceiling_center",
+          "footprintMeters": [1.12, 1.24, 1.12],
+          "tags": ["ceiling-lamp", "gaslight", "amber", "cage"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_014_CeilingLampCage_C.prefab"
+        },
+        {
+          "id": "SCD09_015_CeilingCableLoom_D",
+          "displayName": "Ceiling Cable Loom D",
+          "anchor": "ceiling_edge",
+          "footprintMeters": [3.50, 0.40, 0.72],
+          "tags": ["ceiling-cable", "loom", "bracket", "rubber"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_015_CeilingCableLoom_D.prefab"
+        },
+        {
+          "id": "SCD09_016_CeilingSteamNozzle_E",
+          "displayName": "Ceiling Steam Nozzle E",
+          "anchor": "ceiling_spot",
+          "footprintMeters": [0.90, 0.72, 0.90],
+          "tags": ["steam-nozzle", "ceiling", "copper", "mist-marker"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_016_CeilingSteamNozzle_E.prefab"
+        }
+      ]
+    },
+    {
+      "name": "Doorway",
+      "pieceCount": 4,
+      "pieces": [
+        {
+          "id": "SCD09_017_DoorwayRivetedHeader_A",
+          "displayName": "Doorway Riveted Header A",
+          "anchor": "doorway_top",
+          "footprintMeters": [3.40, 0.72, 0.38],
+          "tags": ["doorway", "header", "rivet", "iron"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_017_DoorwayRivetedHeader_A.prefab"
+        },
+        {
+          "id": "SCD09_018_DoorwayPressureLockValve_B",
+          "displayName": "Doorway Pressure Lock Valve B",
+          "anchor": "doorway_side",
+          "footprintMeters": [1.10, 2.40, 0.40],
+          "tags": ["doorway", "pressure-lock", "valve", "gauge"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_018_DoorwayPressureLockValve_B.prefab"
+        },
+        {
+          "id": "SCD09_019_DoorwayThresholdDrain_C",
+          "displayName": "Doorway Threshold Drain C",
+          "anchor": "doorway_floor",
+          "footprintMeters": [3.20, 0.20, 0.72],
+          "tags": ["doorway", "threshold", "floor-drain", "wet"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_019_DoorwayThresholdDrain_C.prefab"
+        },
+        {
+          "id": "SCD09_020_DoorwaySideTankPair_D",
+          "displayName": "Doorway Side Tank Pair D",
+          "anchor": "doorway_side_pair",
+          "footprintMeters": [1.40, 2.65, 0.70],
+          "tags": ["doorway", "side-tank", "copper", "gauge"],
+          "plannedPrefab": "Runtime/Generated/Prefabs/SCD09_PREFAB_020_DoorwaySideTankPair_D.prefab"
+        }
+      ]
+    }
+  ]
+}
