@@ -721,8 +721,28 @@ namespace BrassworksBreach.ConceptReplicaPipeBundleSet13.Editor
         {
             var sb = new StringBuilder();
             sb.AppendLine("{");
-            sb.AppendLine("  \"package\": \"" + PackageName + "\",");
+            sb.AppendLine("  \"pack_id\": \"" + Prefix + "\",");
+            sb.AppendLine("  \"display_name\": \"Brassworks Breach - Concept Replica Pipe Bundle Set 13\",");
             sb.AppendLine("  \"version\": \"" + Version + "\",");
+            sb.AppendLine("  \"build_id\": \"v0.1.57-p013-crpb13\",");
+            sb.AppendLine("  \"unity_version\": \"6000.4.6f1\",");
+            sb.AppendLine("  \"sidecar_project\": \"Unity batchmode isolated validation project; temporary cache discarded after generation\",");
+            sb.AppendLine("  \"owner_lane\": \"concept-replica-pipe-bundle\",");
+            sb.AppendLine("  \"primary_intake_owner\": \"main Unity project quarantine import\",");
+            sb.AppendLine("  \"canonical_root\": \"AssetPacks/BrassworksBreach.ConceptReplicaPipeBundleSet13\",");
+            sb.AppendLine("  \"asset_counts\": { \"prefabs\": " + PrefabRecords.Count.ToString(CultureInfo.InvariantCulture) +
+                          ", \"materials\": " + MaterialRecords.Count.ToString(CultureInfo.InvariantCulture) +
+                          ", \"textures\": " + TextureRecords.Count.ToString(CultureInfo.InvariantCulture) +
+                          ", \"meshes\": " + MeshRecords.Count.ToString(CultureInfo.InvariantCulture) +
+                          ", \"renders\": " + RenderRecords.Count.ToString(CultureInfo.InvariantCulture) + " },");
+            sb.AppendLine("  \"dependencies\": [\"Unity built-in renderer or URP-compatible Lit/Standard shader fallback\"],");
+            sb.AppendLine("  \"required_primary_changes\": [\"Add package to main manifest only after quarantine review\", \"Place prefabs as visual-only dressing; author gameplay collision separately\"],");
+            sb.AppendLine("  \"path_collisions_checked\": true,");
+            sb.AppendLine("  \"guid_collisions_checked\": true,");
+            sb.AppendLine("  \"import_smoke_status\": \"UNITY_BATCHMODE_PASS_CRPB13_GENERATE_PASS\",");
+            sb.AppendLine("  \"known_risks\": [\"Not final AAA art\", \"Procedural masonry remains blocky\", \"Exact crop proportions need another focused pass\"],");
+            sb.AppendLine("  \"rollback_path\": \"Remove the package manifest entry and delete placed CRPB13_* prefab instances from playable scenes\",");
+            sb.AppendLine("  \"package\": \"" + PackageName + "\",");
             sb.AppendLine("  \"purpose\": \"Unity-only modular concept-art replica of the north-star Pipe Bundle crop.\",");
             sb.AppendLine("  \"qualityGate\": \"visual-only modular prefabs with collars, seams, flanges, brackets, valves, tarnish, dark masonry, steam hints, and warm specular lighting renders\",");
             AppendJsonArray(sb, "prefabs", PrefabRecords, true);
