@@ -1,0 +1,217 @@
+{
+  "schema": "com.brassworks.asset_manifest.v1",
+  "package": {
+    "name": "com.brassworks.sidecar.pressure-pistol-hero-set12",
+    "version": "0.1.57-set12",
+    "displayName": "Brassworks Breach Pressure Pistol Hero Set 12",
+    "unity": "6000.4"
+  },
+  "safety": {
+    "unityOnly": true,
+    "externalDcc": false,
+    "visualOnlyRuntimePrefabs": true
+  },
+  "northStarReference": "Documentation/ConceptArt/north-star-steampunk-brassworks-pressure-pistol.png",
+  "components": [
+    {
+      "id": "PPH12_WoodLeatherGrip_Component",
+      "role": "wooden_leather_grip",
+      "acceptanceStatus": "component-pass",
+      "prefab": "Runtime/Prefabs/PPH12_WoodLeatherGrip_Component.prefab",
+      "rendererCount": 47,
+      "meshPartCount": 47,
+      "notes": "Raked walnut pistol grip with leather wrap, brass backstrap, riveted grip plates, grime in seams, and carved side grooves.",
+      "boundsSize": {
+        "x": 0.611,
+        "y": 1.197,
+        "z": 0.535
+      }
+    },
+    {
+      "id": "PPH12_BrassTriggerGuard_Component",
+      "role": "brass_trigger_guard",
+      "acceptanceStatus": "component-pass",
+      "prefab": "Runtime/Prefabs/PPH12_BrassTriggerGuard_Component.prefab",
+      "rendererCount": 23,
+      "meshPartCount": 23,
+      "notes": "Layered brass trigger guard with double side rails, iron curved trigger blade, hinge pins, and overbuilt receiver tabs.",
+      "boundsSize": {
+        "x": 0.435,
+        "y": 0.683,
+        "z": 0.852
+      }
+    },
+    {
+      "id": "PPH12_PressureCylinderBarrel_Component",
+      "role": "pressure_cylinder_barrel",
+      "acceptanceStatus": "component-pass",
+      "prefab": "Runtime/Prefabs/PPH12_PressureCylinderBarrel_Component.prefab",
+      "rendererCount": 33,
+      "meshPartCount": 33,
+      "notes": "Stacked dark iron barrel over a brass pressure cylinder with clamps, amber sight glass, copper transfer pipes, iron receiver block, and rivet rows.",
+      "boundsSize": {
+        "x": 0.798,
+        "y": 0.945,
+        "z": 2.26
+      }
+    },
+    {
+      "id": "PPH12_CopperCoilArray_Component",
+      "role": "copper_coil_array",
+      "acceptanceStatus": "component-pass",
+      "prefab": "Runtime/Prefabs/PPH12_CopperCoilArray_Component.prefab",
+      "rendererCount": 42,
+      "meshPartCount": 42,
+      "notes": "Open top coil array with glowing amber pressure tube, oxidized copper loops, brass cradle rails, terminal blocks, rivets, and grime-filled recesses.",
+      "boundsSize": {
+        "x": 0.752,
+        "y": 0.693,
+        "z": 1.64
+      }
+    },
+    {
+      "id": "PPH12_PressureGauge_Component",
+      "role": "pressure_gauge",
+      "acceptanceStatus": "component-pass",
+      "prefab": "Runtime/Prefabs/PPH12_PressureGauge_Component.prefab",
+      "rendererCount": 51,
+      "meshPartCount": 51,
+      "notes": "Readable ivory-face pressure gauge with brass bezel, printed ticks, red overpressure arc, black needle, amber glass, pipe socket, and grime ring.",
+      "boundsSize": {
+        "x": 1.021,
+        "y": 1.394,
+        "z": 0.36
+      }
+    },
+    {
+      "id": "PPH12_SideValveWheels_Component",
+      "role": "side_valve_wheels",
+      "acceptanceStatus": "component-pass",
+      "prefab": "Runtime/Prefabs/PPH12_SideValveWheels_Component.prefab",
+      "rendererCount": 26,
+      "meshPartCount": 26,
+      "notes": "Twin side-mounted handwheel valves with brass cog rims, copper stems, dark iron hubs, red pressure witness marks, and connecting pipes.",
+      "boundsSize": {
+        "x": 0.483,
+        "y": 0.61,
+        "z": 1.23
+      }
+    },
+    {
+      "id": "PPH12_MuzzleCrownCogBrake_Component",
+      "role": "muzzle_crown_cog_brake",
+      "acceptanceStatus": "component-pass",
+      "prefab": "Runtime/Prefabs/PPH12_MuzzleCrownCogBrake_Component.prefab",
+      "rendererCount": 18,
+      "meshPartCount": 18,
+      "notes": "Layered cog-tooth muzzle crown with brass brake gear, dark bore, copper heat collar, vent shadows, and small front sight fork.",
+      "boundsSize": {
+        "x": 0.62,
+        "y": 0.765,
+        "z": 0.698
+      }
+    },
+    {
+      "id": "PPH12_LeatherGloveHandProxy_Component",
+      "role": "leather_glove_hand_proxy",
+      "acceptanceStatus": "component-pass",
+      "prefab": "Runtime/Prefabs/PPH12_LeatherGloveHandProxy_Component.prefab",
+      "rendererCount": 23,
+      "meshPartCount": 23,
+      "notes": "First-person right-hand proxy in worn leather with curled fingers, cuff ring, seam ridges, brass cuff button, and black grime creases.",
+      "boundsSize": {
+        "x": 0.804,
+        "y": 0.983,
+        "z": 0.797
+      }
+    },
+    {
+      "id": "PPH12_FullFirstPersonHeroPistol",
+      "role": "full_assembled_first_person_hero_pistol",
+      "acceptanceStatus": "hero-pass",
+      "prefab": "Runtime/Prefabs/PPH12_FullFirstPersonHeroPistol.prefab",
+      "rendererCount": 283,
+      "meshPartCount": 283,
+      "notes": "Full Set12 first-person pressure pistol assembled from isolated components with layered receiver plates, side valves, readable gauge, coil pack, hand proxy, and FPS-ready massing.",
+      "boundsSize": {
+        "x": 1.252,
+        "y": 2.361,
+        "z": 2.718
+      }
+    }
+  ],
+  "materials": [
+    "Runtime/Materials/PPH12_MAT_AgedBrass_OxideScratched.mat",
+    "Runtime/Materials/PPH12_MAT_BlackGrimeOilInSeams.mat",
+    "Runtime/Materials/PPH12_MAT_CrackedBrownLeather.mat",
+    "Runtime/Materials/PPH12_MAT_DarkBluedIron_OilyWear.mat",
+    "Runtime/Materials/PPH12_MAT_IvoryGaugeEnamelPrinted.mat",
+    "Runtime/Materials/PPH12_MAT_OxidizedCopper_HeatCoils.mat",
+    "Runtime/Materials/PPH12_MAT_RedDangerEnamelChipped.mat",
+    "Runtime/Materials/PPH12_MAT_WarmAmberPressureGlass.mat",
+    "Runtime/Materials/PPH12_MAT_WornWalnutVarnish.mat"
+  ],
+  "textures": [
+    "Runtime/Textures/PPH12_TEX_AgedBrassLayered_Albedo.png",
+    "Runtime/Textures/PPH12_TEX_AgedBrassLayered_MetallicSmoothness.png",
+    "Runtime/Textures/PPH12_TEX_AgedBrassLayered_Normal.png",
+    "Runtime/Textures/PPH12_TEX_BlackGrimeOil_Albedo.png",
+    "Runtime/Textures/PPH12_TEX_BlackGrimeOil_Smoothness.png",
+    "Runtime/Textures/PPH12_TEX_CrackedBrownLeather_Albedo.png",
+    "Runtime/Textures/PPH12_TEX_CrackedBrownLeather_Normal.png",
+    "Runtime/Textures/PPH12_TEX_DarkBluedIron_Albedo.png",
+    "Runtime/Textures/PPH12_TEX_DarkBluedIron_MetallicSmoothness.png",
+    "Runtime/Textures/PPH12_TEX_DarkBluedIron_Normal.png",
+    "Runtime/Textures/PPH12_TEX_IvoryGaugeFace_Albedo.png",
+    "Runtime/Textures/PPH12_TEX_OxidizedCopperCoil_Albedo.png",
+    "Runtime/Textures/PPH12_TEX_OxidizedCopperCoil_MetallicSmoothness.png",
+    "Runtime/Textures/PPH12_TEX_OxidizedCopperCoil_Normal.png",
+    "Runtime/Textures/PPH12_TEX_RedDangerEnamel_Albedo.png",
+    "Runtime/Textures/PPH12_TEX_WarmAmberGlass_Albedo.png",
+    "Runtime/Textures/PPH12_TEX_WarmAmberGlass_Smoothness.png",
+    "Runtime/Textures/PPH12_TEX_WornWalnutGrip_Albedo.png",
+    "Runtime/Textures/PPH12_TEX_WornWalnutGrip_Normal.png"
+  ],
+  "meshes": [
+    "Runtime/Meshes/PPH12_MESH_BoxUnit.asset",
+    "Runtime/Meshes/PPH12_MESH_CogGearRing24_Z.asset",
+    "Runtime/Meshes/PPH12_MESH_Cylinder12_Z.asset",
+    "Runtime/Meshes/PPH12_MESH_Cylinder16_Z.asset",
+    "Runtime/Meshes/PPH12_MESH_Cylinder24_Z.asset",
+    "Runtime/Meshes/PPH12_MESH_Cylinder32_Z.asset",
+    "Runtime/Meshes/PPH12_MESH_Cylinder48_Z.asset",
+    "Runtime/Meshes/PPH12_MESH_Cylinder64_Z.asset",
+    "Runtime/Meshes/PPH12_MESH_DomedRivet.asset",
+    "Runtime/Meshes/PPH12_MESH_GaugeNeedlePrism.asset",
+    "Runtime/Meshes/PPH12_MESH_GlovePalmProxy.asset",
+    "Runtime/Meshes/PPH12_MESH_Sphere16Unit.asset",
+    "Runtime/Meshes/PPH12_MESH_TaperedGripWedge.asset",
+    "Runtime/Meshes/PPH12_MESH_WasherRing32_Z.asset",
+    "Runtime/Meshes/PPH12_MESH_WasherRing48_Z.asset"
+  ],
+  "renders": [
+    "Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_brass-trigger-guard-component.png",
+    "Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_copper-coil-array-component.png",
+    "Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_full-first-person-hero-pistol.png",
+    "Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_leather-glove-hand-proxy-component.png",
+    "Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_muzzle-crown-cog-brake-component.png",
+    "Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_pressure-cylinder-barrel-component.png",
+    "Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_pressure-gauge-component.png",
+    "Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_side-valve-wheels-component.png",
+    "Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_wood-leather-grip-component.png",
+    "Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_RENDER_component-sheet.png",
+    "Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_RENDER_fps-hand-weapon-framing.png",
+    "Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_RENDER_full-hero-pistol.png",
+    "Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_RENDER_material-closeup.png"
+  ],
+  "validation": {
+    "status": "pass",
+    "prefabCount": 9,
+    "materialCount": 9,
+    "textureCount": 19,
+    "meshCount": 15,
+    "renderCount": 13,
+    "failures": [
+    ]
+  }
+}

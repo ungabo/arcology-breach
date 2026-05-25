@@ -1,0 +1,170 @@
+# Pressure Pistol Hero Set12 Asset Manifest
+
+Package: com.brassworks.sidecar.pressure-pistol-hero-set12
+Version: 0.1.57-set12
+
+## Counts
+
+- Prefabs: 9
+- Materials: 9
+- Textures: 19
+- Meshes: 15
+- Render PNGs: 13
+
+## Runtime Components
+- `Runtime/Prefabs/PPH12_WoodLeatherGrip_Component.prefab`: wooden_leather_grip; 47 mesh parts.
+- `Runtime/Prefabs/PPH12_BrassTriggerGuard_Component.prefab`: brass_trigger_guard; 23 mesh parts.
+- `Runtime/Prefabs/PPH12_PressureCylinderBarrel_Component.prefab`: pressure_cylinder_barrel; 33 mesh parts.
+- `Runtime/Prefabs/PPH12_CopperCoilArray_Component.prefab`: copper_coil_array; 42 mesh parts.
+- `Runtime/Prefabs/PPH12_PressureGauge_Component.prefab`: pressure_gauge; 51 mesh parts.
+- `Runtime/Prefabs/PPH12_SideValveWheels_Component.prefab`: side_valve_wheels; 26 mesh parts.
+- `Runtime/Prefabs/PPH12_MuzzleCrownCogBrake_Component.prefab`: muzzle_crown_cog_brake; 18 mesh parts.
+- `Runtime/Prefabs/PPH12_LeatherGloveHandProxy_Component.prefab`: leather_glove_hand_proxy; 23 mesh parts.
+- `Runtime/Prefabs/PPH12_FullFirstPersonHeroPistol.prefab`: full_assembled_first_person_hero_pistol; 283 mesh parts.
+
+## Render Outputs
+- Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_brass-trigger-guard-component.png
+- Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_copper-coil-array-component.png
+- Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_full-first-person-hero-pistol.png
+- Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_leather-glove-hand-proxy-component.png
+- Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_muzzle-crown-cog-brake-component.png
+- Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_pressure-cylinder-barrel-component.png
+- Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_pressure-gauge-component.png
+- Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_side-valve-wheels-component.png
+- Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_PREVIEW_wood-leather-grip-component.png
+- Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_RENDER_component-sheet.png
+- Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_RENDER_fps-hand-weapon-framing.png
+- Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_RENDER_full-hero-pistol.png
+- Documentation/ConceptRenders/V0_1_57_PressurePistolHeroSet12/PPH12_RENDER_material-closeup.png
+
+## Package Files
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/CHANGELOG.md
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/CHANGELOG.md.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Documentation~/Manifest/PPH12_PressurePistolHeroSet12_Manifest_0.1.57-set12.json
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Documentation~/Manifest/README.md
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Editor.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Editor/BrassworksBreach.PressurePistolHeroSet12.Editor.asmdef
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Editor/BrassworksBreach.PressurePistolHeroSet12.Editor.asmdef.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Editor/PressurePistolHeroSet12Builder.cs
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Editor/PressurePistolHeroSet12Builder.cs.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/README.md
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/README.md.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/BrassworksBreach.PressurePistolHeroSet12.asmdef
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/BrassworksBreach.PressurePistolHeroSet12.asmdef.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_AgedBrass_OxideScratched.mat
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_AgedBrass_OxideScratched.mat.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_BlackGrimeOilInSeams.mat
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_BlackGrimeOilInSeams.mat.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_CrackedBrownLeather.mat
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_CrackedBrownLeather.mat.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_DarkBluedIron_OilyWear.mat
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_DarkBluedIron_OilyWear.mat.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_IvoryGaugeEnamelPrinted.mat
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_IvoryGaugeEnamelPrinted.mat.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_OxidizedCopper_HeatCoils.mat
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_OxidizedCopper_HeatCoils.mat.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_RedDangerEnamelChipped.mat
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_RedDangerEnamelChipped.mat.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_WarmAmberPressureGlass.mat
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_WarmAmberPressureGlass.mat.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_WornWalnutVarnish.mat
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Materials/PPH12_MAT_WornWalnutVarnish.mat.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_BoxUnit.asset
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_BoxUnit.asset.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_CogGearRing24_Z.asset
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_CogGearRing24_Z.asset.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_Cylinder12_Z.asset
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_Cylinder12_Z.asset.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_Cylinder16_Z.asset
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_Cylinder16_Z.asset.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_Cylinder24_Z.asset
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_Cylinder24_Z.asset.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_Cylinder32_Z.asset
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_Cylinder32_Z.asset.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_Cylinder48_Z.asset
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_Cylinder48_Z.asset.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_Cylinder64_Z.asset
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_Cylinder64_Z.asset.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_DomedRivet.asset
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_DomedRivet.asset.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_GaugeNeedlePrism.asset
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_GaugeNeedlePrism.asset.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_GlovePalmProxy.asset
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_GlovePalmProxy.asset.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_Sphere16Unit.asset
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_Sphere16Unit.asset.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_TaperedGripWedge.asset
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_TaperedGripWedge.asset.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_WasherRing32_Z.asset
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_WasherRing32_Z.asset.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_WasherRing48_Z.asset
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Meshes/PPH12_MESH_WasherRing48_Z.asset.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Metadata.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Metadata/PPH12_PressurePistolHeroSet12_Manifest_0.1.57-set12.json
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Metadata/PPH12_PressurePistolHeroSet12_Manifest_0.1.57-set12.json.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_BrassTriggerGuard_Component.prefab
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_BrassTriggerGuard_Component.prefab.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_CopperCoilArray_Component.prefab
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_CopperCoilArray_Component.prefab.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_FullFirstPersonHeroPistol.prefab
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_FullFirstPersonHeroPistol.prefab.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_LeatherGloveHandProxy_Component.prefab
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_LeatherGloveHandProxy_Component.prefab.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_MuzzleCrownCogBrake_Component.prefab
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_MuzzleCrownCogBrake_Component.prefab.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_PressureCylinderBarrel_Component.prefab
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_PressureCylinderBarrel_Component.prefab.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_PressureGauge_Component.prefab
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_PressureGauge_Component.prefab.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_SideValveWheels_Component.prefab
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_SideValveWheels_Component.prefab.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_WoodLeatherGrip_Component.prefab
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Prefabs/PPH12_WoodLeatherGrip_Component.prefab.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/PressurePistolHeroSet12Identity.cs
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/PressurePistolHeroSet12Identity.cs.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_AgedBrassLayered_Albedo.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_AgedBrassLayered_Albedo.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_AgedBrassLayered_MetallicSmoothness.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_AgedBrassLayered_MetallicSmoothness.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_AgedBrassLayered_Normal.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_AgedBrassLayered_Normal.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_BlackGrimeOil_Albedo.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_BlackGrimeOil_Albedo.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_BlackGrimeOil_Smoothness.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_BlackGrimeOil_Smoothness.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_CrackedBrownLeather_Albedo.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_CrackedBrownLeather_Albedo.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_CrackedBrownLeather_Normal.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_CrackedBrownLeather_Normal.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_DarkBluedIron_Albedo.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_DarkBluedIron_Albedo.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_DarkBluedIron_MetallicSmoothness.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_DarkBluedIron_MetallicSmoothness.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_DarkBluedIron_Normal.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_DarkBluedIron_Normal.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_IvoryGaugeFace_Albedo.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_IvoryGaugeFace_Albedo.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_OxidizedCopperCoil_Albedo.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_OxidizedCopperCoil_Albedo.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_OxidizedCopperCoil_MetallicSmoothness.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_OxidizedCopperCoil_MetallicSmoothness.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_OxidizedCopperCoil_Normal.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_OxidizedCopperCoil_Normal.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_RedDangerEnamel_Albedo.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_RedDangerEnamel_Albedo.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_WarmAmberGlass_Albedo.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_WarmAmberGlass_Albedo.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_WarmAmberGlass_Smoothness.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_WarmAmberGlass_Smoothness.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_WornWalnutGrip_Albedo.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_WornWalnutGrip_Albedo.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_WornWalnutGrip_Normal.png
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Runtime/Textures/PPH12_TEX_WornWalnutGrip_Normal.png.meta
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/Samples~/PreviewScene/README.md
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/package.json
+- AssetPacks/BrassworksBreach.PressurePistolHeroSet12/package.json.meta

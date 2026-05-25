@@ -497,3 +497,29 @@ Accepted the `v0.1.55` Set10 package/evidence wave as quarantined visual materia
 - No main `Packages/manifest.json` import, generated scene edit, executable build, or playable promotion happened in this slice. Latest playable build remains `v0.1.54`.
 
 Next-step directive: commit/push the `v0.1.55` acceptance slice, then continue immediately with active high-fidelity side lanes and the next playable art/content batch.
+
+## 2026-05-24 21:30 -04:00
+
+Rebalanced the visual-fidelity production flow around parallel object-family lanes.
+
+- Confirmed Dalton the 2nd completed and pushed Steam Corridor Dressing High Fidelity Set11 in `6b8811f`. The package is stronger than Set09 for corridor silhouette depth, with separate flanges, elbows, brackets, valve wheels, cage rods, gauge needles, grate bars, and soot/wetness detail cards.
+- Confirmed Meitner the 2nd completed and pushed Mechanical Sentinel Hero Set10 in `29455f7`. The package is a visual-only modular enemy candidate with boiler torso, furnace head, gauge chest, flywheel, saw/claw arms, piston legs, materials, previews, and rig-friendly sockets.
+- Closed Dalton the 2nd and Meitner the 2nd after completion.
+- Spawned Kuhn the 2nd on `PressurePistolFidelitySet11` to replace the flatter Set10 pistol evidence with a richer component-family pressure pistol matching the north-star more closely.
+- Spawned Kepler the 2nd on `RoomSurfaceReliefSet11` to create modular brick, flagstone, ceiling, mortar, grime, wetness, and relief geometry instead of relying only on flat material swatches.
+- Spawned Poincare the 2nd on `HeroCorridorLightingLookdevSet11` to assemble a Unity-only corridor render packet using accepted sidecar families for warm gaslight, wet surfaces, pipes, gauges, door hints, steam, and camera composition.
+- Galileo the 2nd remains the integrated isolated `roomtest` lane, but is no longer expected to solve every prop, material, and lighting family alone.
+
+Next-step directive: keep these object-family workers running in parallel, locally prepare the next playable import/build batch from accepted packages, and continue immediately with the highest-impact validated integration work.
+
+## 2026-05-24 23:15 -04:00
+
+Expanded the object-family production flow and accepted the next Set12 sidecar evidence wave for quarantine review.
+
+- Closed completed worker lanes for Hero Corridor Lighting Lookdev Set11, Hero Vault Door Set12, Steam Lighting Fixture Set12, Room Surface Relief Set11, Pressure Pistol Hero Set12, Mechanical Enemy Detail Set12, and Surface Breakup Decal Set12.
+- Confirmed pushed remote worker commits `9fc51f3` for hero corridor lighting renders and `211f51c` for Room Surface Relief Set11.
+- Reviewed representative Set12 renders. The packages are useful and stronger than the early swatch-level attempts, but remain quarantined visual candidates rather than final AAA art; remaining gaps are surface microdetail, material realism, and lighting calibration.
+- Spawned Jason the 2nd on HUD feedback ornamentation, Mill the 2nd on corridor prop clusters, and Confucius the 2nd on industrial machinery silhouettes while the main lane continues the v0.1.56 playable import.
+- Kept Galileo the 2nd assigned to isolated `roomtest` reference matching.
+
+Next-step directive: commit/push the Set12 sidecar evidence slice, continue the v0.1.56 playable visual import/build lane, and refill completed side-agent capacity with independent package-family work.
