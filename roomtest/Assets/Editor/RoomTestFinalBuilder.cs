@@ -37,10 +37,26 @@ public static class RoomTestFinalBuilder
     private const string MetricsFileNameV05 = "roomtest_metrics_v0.5.json";
     private const string TargetAnalysisFileNameV05 = "ROOMTEST_V0_5_TARGET_ANALYSIS.md";
     private const string ReviewFileNameV05 = "ROOMTEST_V0_5_ACCEPTANCE_REVIEW.md";
+    private const string PreviewScenePathV06 = SceneRoot + "/Roomtest_ReferenceMatchPreview_v0.6.unity";
+    private const string RoomScenePathV06 = SceneRoot + "/Roomtest_ReferenceMatchBrickRoom_v0.6.unity";
+    private const string PreviewRenderFileNameV06 = "roomtest_reference_match_preview_v0.6.png";
+    private const string RoomRenderFileNameV06 = "roomtest_reference_match_brick_room_v0.6.png";
+    private const string MetricsFileNameV06 = "roomtest_metrics_v0.6.json";
+    private const string TargetAnalysisFileNameV06 = "ROOMTEST_V0_6_TARGET_ANALYSIS.md";
+    private const string ReviewFileNameV06 = "ROOMTEST_V0_6_ACCEPTANCE_REVIEW.md";
 
     private enum TextureProfile
     {
         Wall,
+        Floor,
+        Ceiling
+    }
+
+    private enum BrickSurface
+    {
+        BackWall,
+        LeftWall,
+        RightWall,
         Floor,
         Ceiling
     }
@@ -249,6 +265,83 @@ public static class RoomTestFinalBuilder
         Debug.Log("ROOMTEST_MATERIAL_DRIVEN_LOOKDEV_V05_COMPLETE " + roomPath);
     }
 
+    [MenuItem("Roomtest/Build And Render Reference Match Lookdev v0.6")]
+    public static void BuildAndRenderReferenceMatchLookdevV06()
+    {
+        EnsureFolders();
+        ConfigureProject();
+        WriteTargetAnalysisV06();
+
+        TextureSet wallTextures = GenerateTextureSet(
+            "RTv06_DarkIrregularMasonryWall",
+            TextureProfile.Wall,
+            new Color(0.083f, 0.069f, 0.052f),
+            new Color(0.009f, 0.008f, 0.007f),
+            0.17f,
+            631);
+        TextureSet floorTextures = GenerateTextureSet(
+            "RTv06_WetWarmFlagstoneFloor",
+            TextureProfile.Floor,
+            new Color(0.112f, 0.094f, 0.074f),
+            new Color(0.01f, 0.009f, 0.008f),
+            0.54f,
+            647);
+        TextureSet ceilingTextures = GenerateTextureSet(
+            "RTv06_SootedSmallBrickCeiling",
+            TextureProfile.Ceiling,
+            new Color(0.062f, 0.052f, 0.041f),
+            new Color(0.008f, 0.007f, 0.006f),
+            0.1f,
+            661);
+        ValidateBaseAlbedoFiles(wallTextures.Albedo, floorTextures.Albedo, ceilingTextures.Albedo);
+        ValidateAssociatedMapFiles(wallTextures, floorTextures, ceilingTextures);
+
+        Material wallBase = CreatePbrMaterial("RTv06_MAT_DarkIrregularMasonryWall", wallTextures, new Vector2(2.85f, 2.35f), 0.16f, 0.04f, 1.1f);
+        Material floorBase = CreatePbrMaterial("RTv06_MAT_WetWarmFlagstoneFloor", floorTextures, new Vector2(1.22f, 1.28f), 0.5f, 0.022f, 0.52f);
+        Material ceilingBase = CreatePbrMaterial("RTv06_MAT_SootedSmallBrickCeiling", ceilingTextures, new Vector2(3.1f, 2.18f), 0.08f, 0.03f, 0.85f);
+        Material[] wallMaterials = CreateMaterialVariants("RTv06_MAT_WallFace", wallBase, new[]
+        {
+            new Color(0.82f, 0.76f, 0.66f),
+            new Color(0.96f, 0.88f, 0.74f),
+            new Color(0.67f, 0.63f, 0.56f),
+            new Color(1.08f, 0.93f, 0.76f),
+            new Color(0.74f, 0.68f, 0.6f),
+            new Color(0.9f, 0.78f, 0.62f)
+        });
+        Material[] floorMaterials = CreateMaterialVariants("RTv06_MAT_FloorFace", floorBase, new[]
+        {
+            new Color(0.86f, 0.78f, 0.67f),
+            new Color(0.98f, 0.86f, 0.69f),
+            new Color(0.72f, 0.68f, 0.6f),
+            new Color(0.9f, 0.78f, 0.64f),
+            new Color(0.8f, 0.72f, 0.61f)
+        });
+        Material[] ceilingMaterials = CreateMaterialVariants("RTv06_MAT_CeilingFace", ceilingBase, new[]
+        {
+            new Color(0.72f, 0.68f, 0.61f),
+            new Color(0.86f, 0.78f, 0.65f),
+            new Color(0.56f, 0.55f, 0.52f),
+            new Color(0.68f, 0.6f, 0.5f)
+        });
+        Material mortarMaterial = CreateSimpleMaterial("RTv06_MAT_DeepWarmBlackMortar", new Color(0.008f, 0.0068f, 0.0055f), 0f, 0.06f);
+        Material grimeMaterial = CreateSimpleMaterial("RTv06_MAT_LocalSootAndDamp", new Color(0.004f, 0.0036f, 0.003f), 0f, 0.03f);
+        Material lampGlassMaterial = CreateEmissiveMaterial("RTv06_MAT_HotAmberLampGlass", new Color(1f, 0.62f, 0.31f), 5.2f);
+        Material brassMaterial = CreateSimpleMaterial("RTv06_MAT_DulledBrassLampFrame", new Color(0.43f, 0.29f, 0.13f), 0.18f, 0.42f);
+        Material ironMaterial = CreateSimpleMaterial("RTv06_MAT_BlackenedIronLampFrame", new Color(0.013f, 0.011f, 0.009f), 0.12f, 0.26f);
+
+        BuildReferenceMatchPreviewV06(wallMaterials, floorMaterials, ceilingMaterials, mortarMaterial, lampGlassMaterial);
+        string previewPath = RenderSceneToFile(PreviewRenderFileNameV06);
+
+        BuildReferenceMatchChamberV06(wallMaterials, floorMaterials, ceilingMaterials, mortarMaterial, grimeMaterial, lampGlassMaterial, brassMaterial, ironMaterial);
+        string roomPath = RenderSceneToFile(RoomRenderFileNameV06);
+        WriteMetricsGeneric(roomPath, RoomRenderFileNameV06, MetricsFileNameV06, "reference-match dark warm wet masonry room");
+        WriteReviewV06(previewPath, roomPath);
+
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        Debug.Log("ROOMTEST_REFERENCE_MATCH_LOOKDEV_V06_COMPLETE " + roomPath);
+    }
+
     private static void EnsureFolders()
     {
         CreateAssetFolder("Assets", "RoomTest");
@@ -350,6 +443,30 @@ public static class RoomTestFinalBuilder
         builder.AppendLine("- Use warm lamps for local halos and damp floor glints while preserving dark corners and a readable back wall.");
         builder.AppendLine("- Follow the same evidence order: analysis, base PNGs, associated map PNGs, material build, isolated scene, render, acceptance note.");
         File.WriteAllText(ProjectPath("Documentation/" + TargetAnalysisFileNameV05), builder.ToString());
+    }
+
+    private static void WriteTargetAnalysisV06()
+    {
+        StringBuilder builder = new StringBuilder();
+        builder.AppendLine("# Roomtest v0.6 Target Analysis");
+        builder.AppendLine();
+        builder.AppendLine("Generated: " + DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture));
+        builder.AppendLine();
+        builder.AppendLine("## v0.5 Problems To Correct");
+        builder.AppendLine();
+        builder.AppendLine("- The floor lighting read too blue/cold compared with the warm brown-black reference.");
+        builder.AppendLine("- Brick and slab courses were still too regular and too clean.");
+        builder.AppendLine("- Lamp fixtures were simplified and the wall glow still lacked the reference's warm localized bloom shape.");
+        builder.AppendLine("- The room lacked enough surface-layered grime, chipped edges, and warm wet floor response.");
+        builder.AppendLine();
+        builder.AppendLine("## v0.6 Target");
+        builder.AppendLine();
+        builder.AppendLine("- Keep continuous material maps, but add very shallow individual brick/stone face meshes over dark mortar so relief reads without chunky blockout geometry.");
+        builder.AppendLine("- Use warmer neutral fill and amber lamps instead of cool blue readability light.");
+        builder.AppendLine("- Increase small-scale masonry irregularity, narrower mortar, chipped face corners, and soot/damp bands.");
+        builder.AppendLine("- Make the floor larger-scale, wet, reflective, and warm-black rather than blue or metallic.");
+        builder.AppendLine("- Preserve the staged evidence gate: reference analysis, generated base PNGs, map PNGs, material build, isolated scene, render, acceptance note.");
+        File.WriteAllText(ProjectPath("Documentation/" + TargetAnalysisFileNameV06), builder.ToString());
     }
 
     private static void ValidateBaseAlbedoFiles(params string[] albedoAssetPaths)
@@ -689,6 +806,77 @@ public static class RoomTestFinalBuilder
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), RoomScenePathV05);
     }
 
+    private static void BuildReferenceMatchPreviewV06(Material[] wallMaterials, Material[] floorMaterials, Material[] ceilingMaterials, Material mortarMaterial, Material lampGlassMaterial)
+    {
+        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+        ConfigureRenderSettings(new Color(0.045f, 0.036f, 0.028f), 0.52f);
+
+        CreateBox("RTv06_Preview_WallMortarBacking", new Vector3(-2.75f, 1.5f, 0.55f), new Vector3(4.2f, 2.75f, 0.05f), mortarMaterial);
+        CreateMasonryFaceGridV06("RTv06_Preview_WallFaces", BrickSurface.BackWall, wallMaterials, -4.7f, -0.8f, 0.25f, 2.7f, 0.515f, 12, 7, 1701, 0.93f, 0.9f);
+        CreateBox("RTv06_Preview_FloorMortarBacking", new Vector3(1.4f, -0.025f, 0.25f), new Vector3(4.2f, 0.045f, 2.6f), mortarMaterial);
+        CreateMasonryFaceGridV06("RTv06_Preview_FloorFaces", BrickSurface.Floor, floorMaterials, -0.55f, 3.35f, -1.05f, 1.3f, 0.012f, 4, 3, 1733, 0.92f, 0.9f);
+        CreateBox("RTv06_Preview_CeilingMortarBacking", new Vector3(3.65f, 2.65f, 0.55f), new Vector3(3.4f, 0.05f, 2.45f), mortarMaterial);
+        CreateMasonryFaceGridV06("RTv06_Preview_CeilingFaces", BrickSurface.Ceiling, ceilingMaterials, 2.1f, 5.2f, -0.6f, 1.55f, 2.62f, 11, 5, 1747, 0.92f, 0.88f);
+
+        CreateBox("RTv06_Preview_LampGlowChip", new Vector3(-4.1f, 1.65f, 0.48f), new Vector3(0.18f, 0.36f, 0.035f), lampGlassMaterial);
+        CreatePointLight("RTv06_Preview_WarmLamp", new Vector3(-4.0f, 1.65f, -0.12f), new Color(1f, 0.62f, 0.34f), 3.6f, 4.0f);
+        CreateSpotLight("RTv06_Preview_WetFloorGrazing", new Vector3(-1.1f, 2.0f, -2.1f), new Vector3(1.3f, 0.02f, 0.15f), new Color(1f, 0.64f, 0.36f), 2.4f, 56f, 6.2f);
+        CreateCamera("RTv06_PreviewCamera", new Vector3(0.2f, 1.22f, -4.65f), new Vector3(0.45f, 1.08f, 0.52f), 43f);
+        EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), PreviewScenePathV06);
+    }
+
+    private static void BuildReferenceMatchChamberV06(Material[] wallMaterials, Material[] floorMaterials, Material[] ceilingMaterials, Material mortarMaterial, Material grimeMaterial, Material lampGlassMaterial, Material brassMaterial, Material ironMaterial)
+    {
+        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+        ConfigureRenderSettings(new Color(0.18f, 0.135f, 0.092f), 0.88f);
+        RenderSettings.fogColor = new Color(0.032f, 0.024f, 0.017f);
+        RenderSettings.fogDensity = 0.00065f;
+        RenderSettings.defaultReflectionMode = UnityEngine.Rendering.DefaultReflectionMode.Custom;
+        RenderSettings.customReflectionTexture = null;
+        RenderSettings.reflectionIntensity = 0.45f;
+        Material floorMortarMaterial = CreateSimpleMaterial("RTv06_MAT_DeepFloorGrout", new Color(0.0025f, 0.002f, 0.0016f), 0f, 0.01f);
+
+        CreateBox("RTv06_Floor_DeepMortarBacking", new Vector3(0f, -0.035f, -0.25f), new Vector3(12.4f, 0.06f, 13.15f), floorMortarMaterial);
+        CreateBox("RTv06_BackWall_DeepMortarBacking", new Vector3(0f, 2.43f, 5.91f), new Vector3(12.4f, 4.86f, 0.07f), mortarMaterial);
+        CreateBox("RTv06_LeftWall_DeepMortarBacking", new Vector3(-6.13f, 2.43f, -0.2f), new Vector3(0.07f, 4.86f, 12.3f), mortarMaterial);
+        CreateBox("RTv06_RightWall_DeepMortarBacking", new Vector3(6.13f, 2.43f, -0.2f), new Vector3(0.07f, 4.86f, 12.3f), mortarMaterial);
+        CreateBox("RTv06_Ceiling_DeepMortarBacking", new Vector3(0f, 4.87f, -0.2f), new Vector3(12.4f, 0.07f, 12.3f), mortarMaterial);
+
+        CreateMasonryFaceGridV06("RTv06_BackWall_ShallowChippedFaces", BrickSurface.BackWall, wallMaterials, -6.0f, 6.0f, 0.14f, 4.64f, 5.85f, 34, 17, 1801, 0.94f, 0.9f);
+        CreateMasonryFaceGridV06("RTv06_LeftWall_ShallowChippedFaces", BrickSurface.LeftWall, wallMaterials, -6.0f, 5.65f, 0.14f, 4.64f, -6.075f, 33, 17, 1819, 0.94f, 0.9f);
+        CreateMasonryFaceGridV06("RTv06_RightWall_ShallowChippedFaces", BrickSurface.RightWall, wallMaterials, -6.0f, 5.65f, 0.14f, 4.64f, 6.075f, 33, 17, 1837, 0.94f, 0.9f);
+        GameObject continuousFloor = CreateBox("RTv06_Floor_ContinuousWetFlagstoneMaterial", new Vector3(0f, 0.018f, -0.25f), new Vector3(12.24f, 0.035f, 13.02f), floorMaterials[1]);
+        continuousFloor.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        CreateMasonryFaceGridV06("RTv06_Ceiling_SootedSmallFaces", BrickSurface.Ceiling, ceilingMaterials, -6.0f, 6.0f, -6.06f, 5.58f, 4.795f, 32, 13, 1871, 0.93f, 0.88f);
+
+        CreateLocalizedGrimeV06(grimeMaterial);
+        CreateWallLampV06("RTv06_Left_Gaslight", new Vector3(-6.03f, 2.35f, -1.28f), Quaternion.Euler(0f, 90f, 0f), lampGlassMaterial, brassMaterial, ironMaterial, false);
+        CreateWallLampV06("RTv06_Right_Gaslight", new Vector3(6.03f, 2.35f, -1.28f), Quaternion.Euler(0f, -90f, 0f), lampGlassMaterial, brassMaterial, ironMaterial, true);
+
+        CreatePointLight("RTv06_Left_LocalAmberBloom", new Vector3(-5.58f, 2.35f, -1.23f), new Color(1f, 0.64f, 0.36f), 2.95f, 2.45f);
+        CreatePointLight("RTv06_Right_LocalAmberBloom", new Vector3(5.58f, 2.35f, -1.23f), new Color(1f, 0.64f, 0.36f), 2.95f, 2.45f);
+        CreateSpotLight("RTv06_Left_WetFloorLampReflection", new Vector3(-5.55f, 2.02f, -1.12f), new Vector3(-2.25f, 0.03f, -3.15f), new Color(1f, 0.61f, 0.31f), 1.55f, 38f, 7.1f);
+        CreateSpotLight("RTv06_Right_WetFloorLampReflection", new Vector3(5.55f, 2.02f, -1.12f), new Vector3(2.25f, 0.03f, -3.15f), new Color(1f, 0.61f, 0.31f), 1.55f, 38f, 7.1f);
+        CreateSpotLight("RTv06_BackWall_WarmReadableBounce", new Vector3(0f, 3.05f, -4.4f), new Vector3(0f, 2.1f, 5.75f), new Color(0.92f, 0.78f, 0.6f), 3.1f, 78f, 13.4f);
+        CreateSpotLight("RTv06_FrontLowWarmFill", new Vector3(0f, 2.4f, -6.15f), new Vector3(0f, 0.85f, 1.8f), new Color(0.82f, 0.62f, 0.42f), 3.25f, 86f, 10.5f);
+        CreateSpotLight("RTv06_Ceiling_LowWarmGrazing", new Vector3(0f, 4.35f, -4.2f), new Vector3(0f, 3.55f, 2.7f), new Color(0.86f, 0.58f, 0.34f), 0.62f, 66f, 9.5f);
+        CreatePointFillLight("RTv06_NoShadow_WarmRoomExposure", new Vector3(0f, 2.85f, -2.25f), new Color(0.92f, 0.72f, 0.52f), 2.75f, 10.5f);
+        CreatePointFillLight("RTv06_NoShadow_BackWallSoftReadability", new Vector3(0f, 2.45f, 2.35f), new Color(0.72f, 0.58f, 0.43f), 1.55f, 7.5f);
+
+        GameObject probeObject = new GameObject("RTv06_ReflectionProbe");
+        probeObject.transform.position = new Vector3(0f, 1.45f, -1.15f);
+        ReflectionProbe probe = probeObject.AddComponent<ReflectionProbe>();
+        probe.mode = UnityEngine.Rendering.ReflectionProbeMode.Realtime;
+        probe.refreshMode = UnityEngine.Rendering.ReflectionProbeRefreshMode.OnAwake;
+        probe.timeSlicingMode = UnityEngine.Rendering.ReflectionProbeTimeSlicingMode.NoTimeSlicing;
+        probe.size = new Vector3(12.1f, 4.7f, 12f);
+        probe.intensity = 1.08f;
+        probe.resolution = 512;
+
+        CreateCamera("RTv06_RenderCamera", new Vector3(0f, 1.58f, -6.58f), new Vector3(0f, 1.98f, 4.95f), 67f);
+        EditorSceneManager.SaveScene(SceneManager.GetActiveScene(), RoomScenePathV06);
+    }
+
     private static void ConfigureRenderSettings(Color ambient, float reflectionIntensity)
     {
         RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
@@ -921,6 +1109,156 @@ public static class RoomTestFinalBuilder
         CreateBox("RTv04_BackWall_UpperSoot", new Vector3(0f, 4.48f, 5.72f), new Vector3(11.8f, 0.3f, 0.045f), material);
     }
 
+    private static void CreateMasonryFaceGridV06(string rootName, BrickSurface surface, Material[] materials, float minA, float maxA, float minB, float maxB, float plane, int columns, int rows, int seed, float fillA, float fillB)
+    {
+        GameObject root = new GameObject(rootName);
+        float cellA = (maxA - minA) / columns;
+        float cellB = (maxB - minB) / rows;
+        for (int row = 0; row < rows; row++)
+        {
+            float stagger = surface == BrickSurface.Floor ? ((row & 1) == 0 ? 0f : cellA * 0.18f) : ((row & 1) == 0 ? 0f : cellA * 0.48f);
+            for (int col = -1; col <= columns; col++)
+            {
+                float randomA = (Hash01(col, row, seed + 11) - 0.5f) * cellA * 0.15f;
+                float randomB = (Hash01(col, row, seed + 17) - 0.5f) * cellB * 0.13f;
+                float centerA = minA + (col + 0.5f) * cellA + stagger + randomA;
+                float centerB = minB + (row + 0.5f) * cellB + randomB;
+                if (centerA < minA + cellA * 0.15f || centerA > maxA - cellA * 0.15f)
+                {
+                    continue;
+                }
+
+                if (surface == BrickSurface.Floor)
+                {
+                    float width = cellA * fillA * Mathf.Lerp(0.982f, 1.012f, Hash01(col, row, seed + 29));
+                    float height = cellB * fillB * Mathf.Lerp(0.974f, 1.012f, Hash01(col, row, seed + 37));
+                    width *= Mathf.Lerp(0.992f, 1.018f, Hash01(col, row, seed + 43));
+                    height *= Mathf.Lerp(0.988f, 1.016f, Hash01(col, row, seed + 47));
+                    CreateMasonryFaceGridItemV06(root, rootName, surface, materials, minA, maxA, minB, maxB, plane, col, row, seed, centerA, centerB, width, height);
+                    continue;
+                }
+
+                CreateMasonryFaceGridItemV06(
+                    root,
+                    rootName,
+                    surface,
+                    materials,
+                    minA,
+                    maxA,
+                    minB,
+                    maxB,
+                    plane,
+                    col,
+                    row,
+                    seed,
+                    centerA,
+                    centerB,
+                    cellA * fillA * Mathf.Lerp(0.88f, 1.02f, Hash01(col, row, seed + 29)),
+                    cellB * fillB * Mathf.Lerp(0.86f, 1.03f, Hash01(col, row, seed + 37)));
+            }
+        }
+    }
+
+    private static void CreateMasonryFaceGridItemV06(GameObject root, string rootName, BrickSurface surface, Material[] materials, float minA, float maxA, float minB, float maxB, float plane, int col, int row, int seed, float centerA, float centerB, float width, float height)
+    {
+        float minU = Mathf.InverseLerp(minA, maxA, centerA - width * 0.5f);
+        float maxU = Mathf.InverseLerp(minA, maxA, centerA + width * 0.5f);
+        float minV = Mathf.InverseLerp(minB, maxB, centerB - height * 0.5f);
+        float maxV = Mathf.InverseLerp(minB, maxB, centerB + height * 0.5f);
+        string name = rootName + "_" + row.ToString("00", CultureInfo.InvariantCulture) + "_" + col.ToString("00", CultureInfo.InvariantCulture);
+        Material material = Pick(materials, col, row, seed);
+        GameObject face = CreateSurfaceQuadV06(name, surface, centerA, centerB, plane, width, height, new Vector4(minU, minV, maxU, maxV), seed + col * 13 + row * 31, material);
+        face.transform.SetParent(root.transform, true);
+    }
+
+    private static GameObject CreateSurfaceQuadV06(string name, BrickSurface surface, float centerA, float centerB, float plane, float width, float height, Vector4 uvRect, int seed, Material material)
+    {
+        Vector3 center;
+        Vector3 axisA;
+        Vector3 axisB;
+        bool flip;
+        switch (surface)
+        {
+            case BrickSurface.LeftWall:
+                center = new Vector3(plane, centerB, centerA);
+                axisA = Vector3.forward;
+                axisB = Vector3.up;
+                flip = false;
+                break;
+            case BrickSurface.RightWall:
+                center = new Vector3(plane, centerB, centerA);
+                axisA = Vector3.forward;
+                axisB = Vector3.up;
+                flip = true;
+                break;
+            case BrickSurface.Floor:
+                center = new Vector3(centerA, plane, centerB);
+                axisA = Vector3.right;
+                axisB = Vector3.forward;
+                flip = false;
+                break;
+            case BrickSurface.Ceiling:
+                center = new Vector3(centerA, plane, centerB);
+                axisA = Vector3.right;
+                axisB = Vector3.forward;
+                flip = true;
+                break;
+            default:
+                center = new Vector3(centerA, centerB, plane);
+                axisA = Vector3.right;
+                axisB = Vector3.up;
+                flip = false;
+                break;
+        }
+
+        float chip = Mathf.Min(width, height) * 0.055f;
+        Vector3 p0 = center - axisA * width * 0.5f - axisB * height * 0.5f + CornerJitter(axisA, axisB, chip, seed + 1);
+        Vector3 p1 = center - axisA * width * 0.5f + axisB * height * 0.5f + CornerJitter(axisA, axisB, chip, seed + 2);
+        Vector3 p2 = center + axisA * width * 0.5f + axisB * height * 0.5f + CornerJitter(axisA, axisB, chip, seed + 3);
+        Vector3 p3 = center + axisA * width * 0.5f - axisB * height * 0.5f + CornerJitter(axisA, axisB, chip, seed + 4);
+
+        Mesh mesh = new Mesh();
+        mesh.name = name + "_Mesh";
+        mesh.vertices = new[] { p0, p1, p2, p3 };
+        mesh.uv = new[]
+        {
+            new Vector2(uvRect.x, uvRect.y),
+            new Vector2(uvRect.x, uvRect.w),
+            new Vector2(uvRect.z, uvRect.w),
+            new Vector2(uvRect.z, uvRect.y)
+        };
+        mesh.triangles = flip ? new[] { 0, 2, 1, 0, 3, 2 } : new[] { 0, 1, 2, 0, 2, 3 };
+        mesh.RecalculateNormals();
+        mesh.RecalculateBounds();
+
+        GameObject obj = new GameObject(name);
+        obj.AddComponent<MeshFilter>().sharedMesh = mesh;
+        MeshRenderer renderer = obj.AddComponent<MeshRenderer>();
+        renderer.sharedMaterial = material;
+        renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        renderer.receiveShadows = true;
+        return obj;
+    }
+
+    private static Vector3 CornerJitter(Vector3 axisA, Vector3 axisB, float amount, int seed)
+    {
+        float a = (Hash01(seed, 19, seed + 101) - 0.5f) * amount;
+        float b = (Hash01(seed, 23, seed + 107) - 0.5f) * amount;
+        return axisA * a + axisB * b;
+    }
+
+    private static void CreateLocalizedGrimeV06(Material material)
+    {
+        CreateBox("RTv06_LeftBackCorner_SootColumn", new Vector3(-6.045f, 2.35f, 5.72f), new Vector3(0.04f, 4.45f, 0.07f), material);
+        CreateBox("RTv06_RightBackCorner_SootColumn", new Vector3(6.045f, 2.35f, 5.72f), new Vector3(0.04f, 4.45f, 0.07f), material);
+        CreateBox("RTv06_BackWall_DampBase", new Vector3(0f, 0.12f, 5.78f), new Vector3(12.0f, 0.18f, 0.035f), material);
+        CreateBox("RTv06_LeftWall_DampBase", new Vector3(-6.04f, 0.12f, -0.22f), new Vector3(0.035f, 0.18f, 11.8f), material);
+        CreateBox("RTv06_RightWall_DampBase", new Vector3(6.04f, 0.12f, -0.22f), new Vector3(0.035f, 0.18f, 11.8f), material);
+        CreateBox("RTv06_BackWall_CeilingSoot", new Vector3(0f, 4.53f, 5.78f), new Vector3(12.0f, 0.28f, 0.035f), material);
+        CreateBox("RTv06_Floor_FrontDampShadow", new Vector3(0f, 0.025f, -5.72f), new Vector3(12.0f, 0.03f, 0.22f), material);
+        CreateBox("RTv06_Floor_BackDampShadow", new Vector3(0f, 0.024f, 5.45f), new Vector3(11.8f, 0.028f, 0.24f), material);
+    }
+
     private static void CreateWallLamp(string name, Vector3 position, Quaternion rotation, Material glassMaterial, Material brassMaterial, Material ironMaterial, bool mirror)
     {
         GameObject root = new GameObject(name);
@@ -966,6 +1304,36 @@ public static class RoomTestFinalBuilder
         GameObject valve = CreateLocalPrimitive(root, name + "_SmallBrassValveCap", PrimitiveType.Cylinder, new Vector3(pipeX + (mirror ? 0.105f : -0.105f), -0.07f, -0.01f), new Vector3(0.075f, 0.022f, 0.075f), brassMaterial);
         valve.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
 
+        glass.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+    }
+
+    private static void CreateWallLampV06(string name, Vector3 position, Quaternion rotation, Material glassMaterial, Material brassMaterial, Material ironMaterial, bool mirror)
+    {
+        GameObject root = new GameObject(name);
+        root.transform.position = position;
+        root.transform.rotation = rotation;
+
+        CreateLocalPrimitive(root, name + "_InsetBlackIronBackbox", PrimitiveType.Cube, new Vector3(0f, 0f, 0.018f), new Vector3(0.38f, 0.72f, 0.055f), ironMaterial);
+        CreateLocalPrimitive(root, name + "_UpperSootCap", PrimitiveType.Cube, new Vector3(0f, 0.39f, -0.01f), new Vector3(0.42f, 0.05f, 0.08f), ironMaterial);
+        CreateLocalPrimitive(root, name + "_LowerSootCap", PrimitiveType.Cube, new Vector3(0f, -0.39f, -0.01f), new Vector3(0.42f, 0.05f, 0.08f), ironMaterial);
+
+        GameObject glass = CreateLocalPrimitive(root, name + "_TallHotAmberGlass", PrimitiveType.Sphere, new Vector3(0f, 0f, -0.105f), new Vector3(0.22f, 0.36f, 0.105f), glassMaterial);
+        GameObject rim = CreateLocalPrimitive(root, name + "_OvalTarnishedBrassRim", PrimitiveType.Cylinder, new Vector3(0f, 0f, -0.128f), new Vector3(0.34f, 0.024f, 0.34f), brassMaterial);
+        rim.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+
+        for (int i = -1; i <= 1; i++)
+        {
+            float x = i * 0.115f;
+            CreateLocalPrimitive(root, name + "_VerticalCageRib_" + i.ToString(CultureInfo.InvariantCulture), PrimitiveType.Cube, new Vector3(x, 0f, -0.147f), new Vector3(0.018f, 0.62f, 0.03f), brassMaterial);
+        }
+
+        CreateLocalPrimitive(root, name + "_TopCageRail", PrimitiveType.Cube, new Vector3(0f, 0.22f, -0.15f), new Vector3(0.32f, 0.022f, 0.03f), brassMaterial);
+        CreateLocalPrimitive(root, name + "_BottomCageRail", PrimitiveType.Cube, new Vector3(0f, -0.22f, -0.15f), new Vector3(0.32f, 0.022f, 0.03f), brassMaterial);
+
+        float pipeX = mirror ? 0.31f : -0.31f;
+        CreateLocalPrimitive(root, name + "_WallFeedPipe", PrimitiveType.Cube, new Vector3(pipeX, -0.12f, 0.008f), new Vector3(0.22f, 0.055f, 0.055f), ironMaterial);
+        GameObject valve = CreateLocalPrimitive(root, name + "_BrassValveWheel", PrimitiveType.Cylinder, new Vector3(pipeX + (mirror ? 0.135f : -0.135f), -0.12f, -0.02f), new Vector3(0.095f, 0.02f, 0.095f), brassMaterial);
+        valve.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
         glass.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
     }
 
@@ -1031,6 +1399,18 @@ public static class RoomTestFinalBuilder
         light.shadowStrength = 0.84f;
         light.shadowBias = 0.035f;
         light.shadowNormalBias = 0.22f;
+    }
+
+    private static void CreatePointFillLight(string name, Vector3 position, Color color, float intensity, float range)
+    {
+        GameObject obj = new GameObject(name);
+        obj.transform.position = position;
+        Light light = obj.AddComponent<Light>();
+        light.type = LightType.Point;
+        light.color = color;
+        light.intensity = intensity;
+        light.range = range;
+        light.shadows = LightShadows.None;
     }
 
     private static void CreateSpotLight(string name, Vector3 position, Vector3 target, Color color, float intensity, float spotAngle, float range)
@@ -1513,6 +1893,43 @@ public static class RoomTestFinalBuilder
         builder.AppendLine("- This is the most reference-aligned approach so far: material-driven masonry with restrained geometry.");
         builder.AppendLine("- If this still misses final quality, the remaining gains require purpose-built decals, better lamp models, and more realistic authored texture noise.");
         File.WriteAllText(ProjectPath("Documentation/" + ReviewFileNameV05), builder.ToString());
+    }
+
+    private static void WriteReviewV06(string previewPath, string roomPath)
+    {
+        string metricsPath = ProjectPath("Renders/" + MetricsFileNameV06);
+        StringBuilder builder = new StringBuilder();
+        builder.AppendLine("# Roomtest v0.6 Acceptance Review");
+        builder.AppendLine();
+        builder.AppendLine("Generated: " + DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture));
+        builder.AppendLine();
+        builder.AppendLine("## Files");
+        builder.AppendLine();
+        builder.AppendLine("- Material preview: `" + previewPath.Replace('\\', '/') + "`");
+        builder.AppendLine("- Room render: `" + roomPath.Replace('\\', '/') + "`");
+        builder.AppendLine("- Metrics: `" + metricsPath.Replace('\\', '/') + "`");
+        builder.AppendLine();
+        builder.AppendLine("## What Changed From v0.5");
+        builder.AppendLine();
+        builder.AppendLine("- Added shallow per-brick/per-stone face meshes over dark mortar backing so the image gets real edge relief without returning to chunky blockout cubes.");
+        builder.AppendLine("- Replaced cool readability fill with warmer amber/neutral bounce to move the floor and walls closer to the supplied reference.");
+        builder.AppendLine("- Added a larger, brighter gaslight fixture with brass cage pieces, black iron backing, and localized bloom lights.");
+        builder.AppendLine("- Added v0.6 texture families with darker mortar, warmer albedo, stronger normal relief, and more chipped/stained faces.");
+        builder.AppendLine("- Added localized soot, damp base bands, and front/back wet shadow bands.");
+        builder.AppendLine();
+        builder.AppendLine("## Acceptance Comparison");
+        builder.AppendLine();
+        builder.AppendLine("- Texture relief: should read less like a printed grid and more like individual worn masonry.");
+        builder.AppendLine("- Wet reflection: should remain glossy and warm-black without blue cast or orange metal response.");
+        builder.AppendLine("- Warm wall light: should be brighter and more visible at the fixture while remaining localized.");
+        builder.AppendLine("- Ceiling/floor scale: ceiling bricks remain small; floor stones are larger and flatter.");
+        builder.AppendLine("- Corner depth: corners and the back wall should hold darkness while still showing brick courses.");
+        builder.AppendLine();
+        builder.AppendLine("## Blunt Assessment");
+        builder.AppendLine();
+        builder.AppendLine("- v0.6 is intended to close the biggest visible gap from v0.5: regular flat material grids.");
+        builder.AppendLine("- Remaining misses after visual inspection should be handled by authored grime masks, less rectangular silhouette breakup, and more physically plausible lamp bloom.");
+        File.WriteAllText(ProjectPath("Documentation/" + ReviewFileNameV06), builder.ToString());
     }
 
     private static Material Pick(Material[] materials, int col, int row, int seed)

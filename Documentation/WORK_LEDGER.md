@@ -559,3 +559,16 @@ Paused broad playable-art filling and pivoted to exact concept-art replica produ
 - Kept Galileo the 2nd on `roomtest` v0.7 as supporting environment/material/lighting proof.
 
 Next-step directive: review exact-crop replica outputs first, revise until one passes the stricter visual gate, then promote only accepted replicas into the playable scaffold.
+
+## 2026-05-25 00:38 -04:00
+
+Wrapped the project for the day and closed active workers at coherent stopping points.
+
+- Paused the `brassworks-breach-pm-continuation` heartbeat automation.
+- Closed Schrodinger the 2nd after completing `ConceptReplicaSet13_FailureReview.md` and `ConceptReplicaPassB_CorrectionBrief.md`.
+- Closed Hypatia the 2nd after saving Gear Key Set14 as a partial source checkpoint. No Set14 renders were generated; provisional score is `2.75/5`, not promotable.
+- Closed Laplace the 2nd after saving Pipe Bundle Set14 as a partial source checkpoint. No accepted Set14 root renders were generated; provisional score is `2.33/5`, not promotable.
+- Closed Galileo the 2nd after stopping `roomtest` v0.7. The v0.7 outputs are valid/nonblank technical renders, but the visual quality fails and should not guide final art without the next corrective pass.
+- Confirmed Gear Key Set13, Pipe Bundle Set13, and Final PBR Material Proof Set13 remain controlled failures/support evidence, not playable-promotion candidates.
+
+Next-step directive: resume from the exact-replica correction brief. First run and inspect Gear Key Set14 and Pipe Bundle Set14 isolated Unity validation/render passes, then revise only the failing crop-specific categories before any playable scaffold promotion.

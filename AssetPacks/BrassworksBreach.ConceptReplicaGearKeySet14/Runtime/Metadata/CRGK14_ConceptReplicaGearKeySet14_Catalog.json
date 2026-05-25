@@ -1,0 +1,48 @@
+﻿{
+  "package": "com.brassworks.sidecar.concept-replica-gear-key-set14",
+  "version": "0.1.58-p014",
+  "marker": "CRGK14",
+  "generatedAtLocal": "2026-05-25 00:18:47 -04:00",
+  "conceptReference": "north-star Gear Key crop: round gear bow, missing teeth, central hub, aged bronze shaft, lower side bit, dark background",
+  "verdict": "PASS as Unity-only generation pipeline proof; FAIL as exact final concept match and not ready for playable promotion except temporary placeholder use.",
+  "validation": {
+    "passed": true,
+    "prefabs": 1,
+    "meshes": 12,
+    "materials": 5,
+    "textures": 8,
+    "renders": 3
+  },
+  "assets": [
+    { "path": "Runtime/Textures/CRGK14_TEX_AgedDarkBrass_Albedo.png", "type": "texture", "tag": "aged_dark_brass", "notes": "Base color map with bronze, soot, verdigris, worn gold edges, stains, and dark pitting." },
+    { "path": "Runtime/Textures/CRGK14_TEX_AgedDarkBrass_Normal.png", "type": "texture", "tag": "aged_dark_brass", "notes": "Normal map with micro scratches, hammer pitting, and worn directional ridges." },
+    { "path": "Runtime/Textures/CRGK14_TEX_AgedDarkBrass_MetallicSmoothness.png", "type": "texture", "tag": "aged_dark_brass", "notes": "Metallic/smoothness mask with uneven polish and tarnished low-sheen pockets." },
+    { "path": "Runtime/Textures/CRGK14_TEX_AgedDarkBrass_Occlusion.png", "type": "texture", "tag": "aged_dark_brass", "notes": "Crevice/pit occlusion map for blackened recesses." },
+    { "path": "Runtime/Textures/CRGK14_TEX_BlackenedRecess_Albedo.png", "type": "texture", "tag": "blackened_recess", "notes": "Warm black grime map for gear holes, shaft mouth, deep seams, and side-bit notches." },
+    { "path": "Runtime/Textures/CRGK14_TEX_BlackenedRecess_MetallicSmoothness.png", "type": "texture", "tag": "blackened_recess", "notes": "Low-polish oily black mask." },
+    { "path": "Runtime/Textures/CRGK14_TEX_WarmEdgeHighlight_Albedo.png", "type": "texture", "tag": "edge_highlight", "notes": "Subtle desaturated brass edge-highlight map, not saturated orange." },
+    { "path": "Runtime/Textures/CRGK14_TEX_DarkReferenceBackdrop_Albedo.png", "type": "texture", "tag": "render_backdrop", "notes": "Dark worn cloth/stone reference backdrop for render-only proof views." },
+    { "path": "Runtime/Materials/CRGK14_MAT_AgedDarkBrass_BurnishedEdges.mat", "type": "material", "tag": "aged_dark_brass", "notes": "Primary dark antique brass/bronze material for bow, shaft, teeth, collars, and bit." },
+    { "path": "Runtime/Materials/CRGK14_MAT_BlackenedRecesses_OilyCrevices.mat", "type": "material", "tag": "blackened_recess", "notes": "Dark grime and hollow openings used to keep the key from reading as clean toy brass." },
+    { "path": "Runtime/Materials/CRGK14_MAT_WarmWornEdgeGlints.mat", "type": "material", "tag": "edge_highlight", "notes": "Selective warmer worn metal on high rims, tooth tips, collars, and scratch streaks." },
+    { "path": "Runtime/Materials/CRGK14_MAT_SootedShadowBrass.mat", "type": "material", "tag": "aged_dark_brass_shadow", "notes": "Darker brass variant for recessed inner ring, underside collars, and worn bit shadows." },
+    { "path": "Runtime/Materials/CRGK14_MAT_DarkReferenceBackdrop.mat", "type": "material", "tag": "render_backdrop", "notes": "Render-only dark background matching the crop's low-key studio card." },
+    { "path": "Runtime/Meshes/CRGK14_MESH_GearBowIrregular14Tooth_Z.asset", "type": "mesh", "tag": "gear_key_geometry", "notes": "Unity-generated custom mesh: GearBowIrregular14Tooth_Z." },
+    { "path": "Runtime/Meshes/CRGK14_MESH_RingWide72_Z.asset", "type": "mesh", "tag": "gear_key_geometry", "notes": "Unity-generated custom mesh: RingWide72_Z." },
+    { "path": "Runtime/Meshes/CRGK14_MESH_RingNarrow72_Z.asset", "type": "mesh", "tag": "gear_key_geometry", "notes": "Unity-generated custom mesh: RingNarrow72_Z." },
+    { "path": "Runtime/Meshes/CRGK14_MESH_Cylinder48_Y.asset", "type": "mesh", "tag": "gear_key_geometry", "notes": "Unity-generated custom mesh: Cylinder48_Y." },
+    { "path": "Runtime/Meshes/CRGK14_MESH_Cylinder24_Y.asset", "type": "mesh", "tag": "gear_key_geometry", "notes": "Unity-generated custom mesh: Cylinder24_Y." },
+    { "path": "Runtime/Meshes/CRGK14_MESH_Cylinder64_Z.asset", "type": "mesh", "tag": "gear_key_geometry", "notes": "Unity-generated custom mesh: Cylinder64_Z." },
+    { "path": "Runtime/Meshes/CRGK14_MESH_Cylinder24_Z.asset", "type": "mesh", "tag": "gear_key_geometry", "notes": "Unity-generated custom mesh: Cylinder24_Z." },
+    { "path": "Runtime/Meshes/CRGK14_MESH_Torus48_8_Y.asset", "type": "mesh", "tag": "gear_key_geometry", "notes": "Unity-generated custom mesh: Torus48_8_Y." },
+    { "path": "Runtime/Meshes/CRGK14_MESH_Torus48_8_Z.asset", "type": "mesh", "tag": "gear_key_geometry", "notes": "Unity-generated custom mesh: Torus48_8_Z." },
+    { "path": "Runtime/Meshes/CRGK14_MESH_ChamferedBoxUnit.asset", "type": "mesh", "tag": "gear_key_geometry", "notes": "Unity-generated custom mesh: ChamferedBoxUnit." },
+    { "path": "Runtime/Meshes/CRGK14_MESH_DomedRivet20_Z.asset", "type": "mesh", "tag": "gear_key_geometry", "notes": "Unity-generated custom mesh: DomedRivet20_Z." },
+    { "path": "Runtime/Meshes/CRGK14_MESH_TinyIrregularChip_Z.asset", "type": "mesh", "tag": "gear_key_geometry", "notes": "Unity-generated custom mesh: TinyIrregularChip_Z." },
+    { "path": "Runtime/Prefabs/CRGK14_PREFAB_GearKey_ConceptReplica.prefab", "type": "prefab", "tag": "concept_replica_gear_key", "notes": "Visual-only focused replica prefab. Contains Transform, MeshFilter, MeshRenderer only." },
+    { "path": "Documentation/ConceptRenders/V0_1_57_ConceptReplicaGearKeySet14/CRGK14_RENDER_01_exact_reference_style_beauty.png", "type": "render", "tag": "concept_replica_preview", "notes": "Unity batchmode render for Gear Key concept match review." },
+    { "path": "Documentation/ConceptRenders/V0_1_57_ConceptReplicaGearKeySet14/CRGK14_RENDER_02_silhouette_detail_breakdown.png", "type": "render", "tag": "concept_replica_preview", "notes": "Unity batchmode render for Gear Key concept match review." },
+    { "path": "Documentation/ConceptRenders/V0_1_57_ConceptReplicaGearKeySet14/CRGK14_RENDER_03_material_closeup_contact_sheet.png", "type": "render", "tag": "concept_replica_preview", "notes": "Unity batchmode render for Gear Key concept match review." }
+  ]
+}
+

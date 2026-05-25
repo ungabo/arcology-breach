@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 23:58 -04:00`
+Last updated: `2026-05-25 00:31 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -14,7 +14,11 @@ Purpose: track side-agent work that can advance independently from the main Unit
 - Visual review verdict: useful component, material, atmosphere, and door-detail candidates, not final AAA art. Room materials plus grime/wetness/atmosphere and selected door mechanisms are strongest; corridor object-family depth remains the biggest north-star gap.
 - Completed and pushed since last update: Kepler the 2nd finished Room Surface Relief Set11 in `211f51c`; Poincare the 2nd finished Hero Corridor Lighting Lookdev Set11 in `9fc51f3`.
 - Completed locally since last update: Ptolemy the 2nd finished Hero Vault Door Set12; Descartes the 2nd finished Steam Lighting Fixture Set12; Sagan the 2nd finished Pressure Pistol Hero Set12; Goodall the 2nd finished Mechanical Enemy Detail Set12; Darwin the 2nd finished Surface Breakup Decal Set12; Jason the 2nd finished HUD Feedback Ornament Set12; Mill the 2nd finished Corridor Prop Cluster Set12; Confucius the 2nd finished Industrial Machinery Set12.
-- Active workers: Galileo the 2nd (`roomtest` integrated room reference), Gibbs the 2nd (reference-focused material proof), Euclid the 2nd (concept-replica gear key), and Parfit the 2nd (concept-replica modular pipe bundle). Newly closed Set12 lanes are pending visual review and package intake rather than being imported automatically.
+- Completed exact-replica pass A: Gear Key Set13 and Pipe Bundle Set13 were generated and pushed, but both failed final/exact crop parity. Gear Key is a pipeline proof only; Pipe Bundle is a useful modular layout candidate but not final art.
+- Completed material-support pass: Final PBR Material Proof Set13 is explicitly support evidence only and fails final-art promotion with a `2.33` average against the `4.25` checklist threshold.
+- End-of-day state: all active workers are closed and the PM continuation heartbeat is paused.
+- Stopped checkpoints: Galileo's `roomtest` v0.7 has valid technical renders but fails visually; Hypatia's Gear Key Set14 and Laplace's Pipe Bundle Set14 are partial unrended checkpoints; Schrodinger's Set13 failure review and pass-B correction brief are complete.
+- Newly closed Set12 lanes remain pending visual review and package intake rather than being imported automatically.
 
 ## Main Integration Lane
 
@@ -23,6 +27,7 @@ Owner: primary Codex thread
 Current focus:
 
 - Preserve the playable Windows scaffold as the stable base while AAA-looking reference replicas are produced.
+- Resume work from the Set14 partial checkpoints only after explicit restart; no worker is currently active.
 - Preserve scene-generation determinism and validation coverage.
 - Integrate side-agent outputs only after strict crop-specific visual review.
 - Run multiple independent asset, level, weapon/prop, enemy/readability, and QA crews in parallel when write scopes are disjoint.
@@ -62,9 +67,11 @@ Current speed adjustment:
 Current object-family allocation:
 
 - Galileo the 2nd owns integrated `roomtest` reference-room matching.
-- Euclid the 2nd owns the exact north-star gear-key replica proof under `ConceptReplicaGearKeySet13`.
-- Parfit the 2nd owns the exact north-star modular pipe-bundle replica proof under `ConceptReplicaPipeBundleSet13`.
-- Gibbs the 2nd owns reference-focused aged brass/copper/blackened iron/wet-grime material proof for the gear key and pipe bundle.
+- Gear Key Set13 and Pipe Bundle Set13 are controlled failures that establish the replica review baseline, not playable promotion candidates.
+- Gear Key Set14 is a partial source checkpoint with no accepted renders. Next fix: run its Unity validation builder and judge the beauty/silhouette sheets before tuning bow thickness and shaft radius again.
+- Pipe Bundle Set14 is a partial source checkpoint with no accepted root renders. Next fix: run its Unity validation generator, regenerate root renders/catalog/prefabs, and inspect crop framing before further iteration.
+- Schrodinger the 2nd completed the Set13 failure review and pass-B correction brief.
+- Final PBR Material Proof Set13 is material-support evidence only; it may inform Set14 but is not final art.
 - Completed Set12 review candidates are Hero Vault Door Set12, Steam Lighting Fixture Set12, Pressure Pistol Hero Set12, Mechanical Enemy Detail Set12, Surface Breakup Decal Set12, HUD Feedback Ornament Set12, Corridor Prop Cluster Set12, and Industrial Machinery Set12.
 - The main lane owns package review, manifest/import decisions, scene generator integration, playable builds, validation, commits, and releases.
 
