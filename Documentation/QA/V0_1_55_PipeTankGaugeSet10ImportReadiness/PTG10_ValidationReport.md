@@ -1,0 +1,34 @@
+# V0.1.55 Pipe Tank Gauge Set 10 Validation Report
+
+Status: PASS
+Package root: D:/__MY APPS/Unity Doom/AssetPacks/BrassworksBreach.PipeTankGaugeSet10
+Render root: D:/__MY APPS/Unity Doom/Documentation/ConceptRenders/V0_1_55_PipeTankGaugeSet10
+
+## Validation Summary
+
+- Prefabs: 13
+- Materials: 10
+- Textures: 15
+- Meshes: 11
+- Previews: 14
+
+## Failures
+
+- None.
+
+## Render Checksums
+
+- Documentation/ConceptRenders/V0_1_55_PipeTankGaugeSet10/PTG10_PREVIEW_black-iron-support-saddle-frame-a.png sha256:cf5cddd2abd6b9f8e40173adc8673cc56f5d4f519dd1d509c8353a26aebca55f
+- Documentation/ConceptRenders/V0_1_55_PipeTankGaugeSet10/PTG10_PREVIEW_brass-bracket-set-a.png sha256:964f60e3be35b8d526d1f884cde9c23510f477440905d8b70ecf4bc5f93e02a9
+- Documentation/ConceptRenders/V0_1_55_PipeTankGaugeSet10/PTG10_PREVIEW_ceiling-pipe-run-triple-valve-b.png sha256:985542f5580ddaa640e9830efd02214e4ab8cbcff519c5439f24a8fd804fe252
+- Documentation/ConceptRenders/V0_1_55_PipeTankGaugeSet10/PTG10_PREVIEW_contact-sheet.png sha256:b7d211076f76521b8adc9e9a1edf4e93b0d11e733716aa29ac19529402758a4f
+- Documentation/ConceptRenders/V0_1_55_PipeTankGaugeSet10/PTG10_PREVIEW_copper-elbow-ninety-array-a.png sha256:d6d4f5873ba2da2175c4d3a17b2ebafb14e0402a0b59e1a0376e5ce34bddd281
+- Documentation/ConceptRenders/V0_1_55_PipeTankGaugeSet10/PTG10_PREVIEW_corridor-machinery-lookdev-strip-a.png sha256:836efe54f4e3417a58890dd5eb7f124d63d50a72b17aed3b2bf37857b3b5e6d1
+- Documentation/ConceptRenders/V0_1_55_PipeTankGaugeSet10/PTG10_PREVIEW_gauge-cluster-triple-manifold-a.png sha256:b6e9c9989c8034b59d5f6c3d2b5ffca16413e007eefaf5b0b7deb1336f7cd99b
+- Documentation/ConceptRenders/V0_1_55_PipeTankGaugeSet10/PTG10_PREVIEW_gauge-cluster-wide-panel-b.png sha256:b8214d1f0eabbfea3f6db73d7968f9631ca69d7a7e060cc9219ec9283746d227
+- Documentation/ConceptRenders/V0_1_55_PipeTankGaugeSet10/PTG10_PREVIEW_pressure-tank-horizontal-cradle-b.png sha256:23843e1e2fec0477fbad5d94287894ea4ee8842e1d029b3a2f44c2183423258e
+- Documentation/ConceptRenders/V0_1_55_PipeTankGaugeSet10/PTG10_PREVIEW_pressure-tank-wall-mounted-a.png sha256:7c0cf79866dc68c7aa6c209fbe5a41c18ad4b7153aa6dc91ac062ddec4c180d5
+- Documentation/ConceptRenders/V0_1_55_PipeTankGaugeSet10/PTG10_PREVIEW_steam-nozzle-housing-twin-a.png sha256:7c848f615c88aae74f3bf6ec83ca3bc075423b69916a7e38586b78831b25c842
+- Documentation/ConceptRenders/V0_1_55_PipeTankGaugeSet10/PTG10_PREVIEW_valve-wheel-iron-handwheel-b.png sha256:8c9caec8250b7e55cadba1328bbf62a536324c8cb8b2587f8ffbb4e6e3c07835
+- Documentation/ConceptRenders/V0_1_55_PipeTankGaugeSet10/PTG10_PREVIEW_valve-wheel-large-brass-a.png sha256:d3fc8828571181afe0b4ea9d57ae4ae09faf785a1f4107ca66155008ad087361
+- Documentation/ConceptRenders/V0_1_55_PipeTankGaugeSet10/PTG10_PREVIEW_wall-pipe-run-dual-gauge-a.png sha256:d5119227777532560931658f4e0a5afb960c1ab84f41fc206241f145cd796e91

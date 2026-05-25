@@ -1,0 +1,213 @@
+{
+    "schema":  "brassworks.room_material_set10_catalog.v1",
+    "package":  "BrassworksBreach.RoomMaterialSet10",
+    "package_id":  "com.brassworks.sidecar.room-material-set10",
+    "version":  "0.1.55-p001",
+    "generated_at_utc":  "2026-05-25T00:40:38Z",
+    "material_count":  6,
+    "texture_count":  30,
+    "package_preview_count":  4,
+    "external_concept_preview_count":  4,
+    "texture_channel_convention":  {
+                                       "ALB":  "sRGB albedo/base color; overlay alpha is encoded where relevant",
+                                       "NRM":  "linear tangent-space normal detail",
+                                       "RMA":  "linear R=metallic intent, G=roughness intent, B=ambient occlusion/grime intent, A=Unity Standard smoothness",
+                                       "GRM":  "linear R=edge/chip mask, G=grime/soot mask, B=wetness mask, A=overlay alpha where relevant",
+                                       "HGT":  "linear height/parallax intent"
+                                   },
+    "north_star_alignment":  [
+                                 "Continuous material-driven masonry rather than individual construction-block bricks.",
+                                 "Wall and ceiling brick scale is smaller than floor flagstones.",
+                                 "Dark center/back-wall readability is protected by low average albedo.",
+                                 "Wet reflection intent is encoded as smoothness and wetness masks rather than metallic orange color.",
+                                 "Soot and dampness are separated into overlay candidates for restrained corner/lamp treatment."
+                             ],
+    "materials":  [
+                      {
+                          "id":  "RMS10_MAT_DarkWetBrickWall",
+                          "display_name":  "Dark Wet Brick Wall",
+                          "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Materials/RMS10_MAT_DarkWetBrickWall.mat",
+                          "guid":  "2c216fe14fe9535e4d05ec85d9d73bf0",
+                          "status":  "final_candidate",
+                          "import_priority":  "high",
+                          "family":  "dark_wet_brick_wall",
+                          "metallic":  0,
+                          "smoothness":  0.58,
+                          "bump_scale":  0.82,
+                          "use":  "Primary room side and back walls; smaller continuous brick scale than floor slabs.",
+                          "description":  "Oil-dark red-brown brick with black mortar, damp corner absorption, small chipped edges, and restrained wet glints.",
+                          "tiling_note":  "8 brick courses by 9 staggered columns per 512 tile; target 0.75m to 1.0m wall tile.",
+                          "validation_note":  "Wall brick scale intentionally smaller than floor flagstones; wetness mask favors lower edges and vertical seams.",
+                          "transparent_overlay":  false,
+                          "albedo_stats":  {
+                                               "width":  512,
+                                               "height":  512,
+                                               "avg_luma_sampled":  0.1121,
+                                               "avg_alpha_sampled":  1,
+                                               "alpha_coverage_gt_32":  1
+                                           },
+                          "textures":  {
+                                           "albedo":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Albedo/RMS10_MAT_DarkWetBrickWall_ALB.png",
+                                           "normal":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Normal/RMS10_MAT_DarkWetBrickWall_NRM.png",
+                                           "roughness_metallic_ao_smoothness":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/RoughnessMetallic/RMS10_MAT_DarkWetBrickWall_RMA.png",
+                                           "grime_edge_wetness_mask":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/GrimeEdgewear/RMS10_MAT_DarkWetBrickWall_GRM.png",
+                                           "height":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Height/RMS10_MAT_DarkWetBrickWall_HGT.png"
+                                       }
+                      },
+                      {
+                          "id":  "RMS10_MAT_SootedBrickCeiling",
+                          "display_name":  "Sooted Brick Ceiling",
+                          "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Materials/RMS10_MAT_SootedBrickCeiling.mat",
+                          "guid":  "649a85fa6b1394d401051d4359ccbc33",
+                          "status":  "final_candidate",
+                          "import_priority":  "high",
+                          "family":  "sooted_brick_ceiling",
+                          "metallic":  0,
+                          "smoothness":  0.32,
+                          "bump_scale":  0.62,
+                          "use":  "Ceiling brick runs and arch returns where soot should read without panel geometry.",
+                          "description":  "Charcoal brick ceiling surface with heavier smoke bloom, dark mortar, low wetness, and compressed relief.",
+                          "tiling_note":  "10 compressed courses by 8 columns per 512 tile; reads as smaller brick from below.",
+                          "validation_note":  "Ceiling soot mask is broad and low-sheen so it does not become orange under lamps.",
+                          "transparent_overlay":  false,
+                          "albedo_stats":  {
+                                               "width":  512,
+                                               "height":  512,
+                                               "avg_luma_sampled":  0.0525,
+                                               "avg_alpha_sampled":  1,
+                                               "alpha_coverage_gt_32":  1
+                                           },
+                          "textures":  {
+                                           "albedo":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Albedo/RMS10_MAT_SootedBrickCeiling_ALB.png",
+                                           "normal":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Normal/RMS10_MAT_SootedBrickCeiling_NRM.png",
+                                           "roughness_metallic_ao_smoothness":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/RoughnessMetallic/RMS10_MAT_SootedBrickCeiling_RMA.png",
+                                           "grime_edge_wetness_mask":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/GrimeEdgewear/RMS10_MAT_SootedBrickCeiling_GRM.png",
+                                           "height":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Height/RMS10_MAT_SootedBrickCeiling_HGT.png"
+                                       }
+                      },
+                      {
+                          "id":  "RMS10_MAT_WetUnevenFlagstoneFloor",
+                          "display_name":  "Wet Uneven Flagstone Floor",
+                          "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Materials/RMS10_MAT_WetUnevenFlagstoneFloor.mat",
+                          "guid":  "5af28efd4cab56c2262090492c8f0a2d",
+                          "status":  "final_candidate",
+                          "import_priority":  "high",
+                          "family":  "wet_uneven_flagstone_floor",
+                          "metallic":  0.01,
+                          "smoothness":  0.76,
+                          "bump_scale":  0.9,
+                          "use":  "Primary room floor and damp threshold areas.",
+                          "description":  "Large uneven slate flagstones with deep black joints, pooled wetness, worn raised lips, and cool damp variation.",
+                          "tiling_note":  "4 by 4 irregular flagstone cells per 512 tile; visibly larger than wall and ceiling brick.",
+                          "validation_note":  "High blue-channel wetness and alpha smoothness are concentrated in low joints and interior puddles.",
+                          "transparent_overlay":  false,
+                          "albedo_stats":  {
+                                               "width":  512,
+                                               "height":  512,
+                                               "avg_luma_sampled":  0.1046,
+                                               "avg_alpha_sampled":  1,
+                                               "alpha_coverage_gt_32":  1
+                                           },
+                          "textures":  {
+                                           "albedo":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Albedo/RMS10_MAT_WetUnevenFlagstoneFloor_ALB.png",
+                                           "normal":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Normal/RMS10_MAT_WetUnevenFlagstoneFloor_NRM.png",
+                                           "roughness_metallic_ao_smoothness":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/RoughnessMetallic/RMS10_MAT_WetUnevenFlagstoneFloor_RMA.png",
+                                           "grime_edge_wetness_mask":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/GrimeEdgewear/RMS10_MAT_WetUnevenFlagstoneFloor_GRM.png",
+                                           "height":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Height/RMS10_MAT_WetUnevenFlagstoneFloor_HGT.png"
+                                       }
+                      },
+                      {
+                          "id":  "RMS10_MAT_BlackMortarGrime",
+                          "display_name":  "Black Mortar Grime",
+                          "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Materials/RMS10_MAT_BlackMortarGrime.mat",
+                          "guid":  "4dc3c49bbb7f46c2eb93a0b874914420",
+                          "status":  "final_candidate",
+                          "import_priority":  "medium",
+                          "family":  "black_mortar_grime",
+                          "metallic":  0,
+                          "smoothness":  0.26,
+                          "bump_scale":  0.7,
+                          "use":  "Mortar fill, corner dirt, drain-adjacent grime, and under-pipe wall patches.",
+                          "description":  "Almost black mortar and grime blend with green-brown damp flecks, fine crack relief, and rougher finish.",
+                          "tiling_note":  "Non-directional fine material; can be tiled at 0.5m or used as decal backing.",
+                          "validation_note":  "Luminance stays under 0.08 average to preserve dark-corner depth.",
+                          "transparent_overlay":  false,
+                          "albedo_stats":  {
+                                               "width":  512,
+                                               "height":  512,
+                                               "avg_luma_sampled":  0.0469,
+                                               "avg_alpha_sampled":  1,
+                                               "alpha_coverage_gt_32":  1
+                                           },
+                          "textures":  {
+                                           "albedo":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Albedo/RMS10_MAT_BlackMortarGrime_ALB.png",
+                                           "normal":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Normal/RMS10_MAT_BlackMortarGrime_NRM.png",
+                                           "roughness_metallic_ao_smoothness":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/RoughnessMetallic/RMS10_MAT_BlackMortarGrime_RMA.png",
+                                           "grime_edge_wetness_mask":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/GrimeEdgewear/RMS10_MAT_BlackMortarGrime_GRM.png",
+                                           "height":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Height/RMS10_MAT_BlackMortarGrime_HGT.png"
+                                       }
+                      },
+                      {
+                          "id":  "RMS10_MAT_EdgeDampnessOverlay",
+                          "display_name":  "Edge Dampness Overlay",
+                          "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Materials/RMS10_MAT_EdgeDampnessOverlay.mat",
+                          "guid":  "221fa06ec388943343b39885f78b717d",
+                          "status":  "candidate_overlay",
+                          "import_priority":  "medium",
+                          "family":  "edge_dampness_overlay",
+                          "metallic":  0,
+                          "smoothness":  0.82,
+                          "bump_scale":  0.18,
+                          "use":  "Transparent trim/decal overlay for floor-wall seams, base corners, and leak paths.",
+                          "description":  "Cool transparent damp edge mask with vertical seep streaks and subtle amber floor glints.",
+                          "tiling_note":  "Use as overlay strip or mesh decal; alpha is strongest along borders and bottom edge.",
+                          "validation_note":  "Alpha coverage target is 25 to 50 percent, avoiding a full-screen black wash.",
+                          "transparent_overlay":  true,
+                          "albedo_stats":  {
+                                               "width":  512,
+                                               "height":  512,
+                                               "avg_luma_sampled":  0.0357,
+                                               "avg_alpha_sampled":  0.1874,
+                                               "alpha_coverage_gt_32":  0.5076
+                                           },
+                          "textures":  {
+                                           "albedo":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Albedo/RMS10_MAT_EdgeDampnessOverlay_ALB.png",
+                                           "normal":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Normal/RMS10_MAT_EdgeDampnessOverlay_NRM.png",
+                                           "roughness_metallic_ao_smoothness":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/RoughnessMetallic/RMS10_MAT_EdgeDampnessOverlay_RMA.png",
+                                           "grime_edge_wetness_mask":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/GrimeEdgewear/RMS10_MAT_EdgeDampnessOverlay_GRM.png",
+                                           "height":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Height/RMS10_MAT_EdgeDampnessOverlay_HGT.png"
+                                       }
+                      },
+                      {
+                          "id":  "RMS10_MAT_SootDecalOverlay",
+                          "display_name":  "Soot Decal Overlay",
+                          "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Materials/RMS10_MAT_SootDecalOverlay.mat",
+                          "guid":  "9ad23b2fa72fb47b015c94acd21563bd",
+                          "status":  "candidate_overlay",
+                          "import_priority":  "medium",
+                          "family":  "soot_decal_overlay",
+                          "metallic":  0,
+                          "smoothness":  0.12,
+                          "bump_scale":  0.12,
+                          "use":  "Transparent soot decals above lamps, ceiling corners, vents, and pipe exits.",
+                          "description":  "Soft black-brown soot bloom with smoke wisps, edge feathering, and rough low-sheen finish.",
+                          "tiling_note":  "Use as a projected or mesh decal; rotation and scale variation recommended.",
+                          "validation_note":  "Alpha coverage target is 20 to 45 percent with soft falloff and no hard tile border.",
+                          "transparent_overlay":  true,
+                          "albedo_stats":  {
+                                               "width":  512,
+                                               "height":  512,
+                                               "avg_luma_sampled":  0.0232,
+                                               "avg_alpha_sampled":  0.1834,
+                                               "alpha_coverage_gt_32":  0.5115
+                                           },
+                          "textures":  {
+                                           "albedo":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Albedo/RMS10_MAT_SootDecalOverlay_ALB.png",
+                                           "normal":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Normal/RMS10_MAT_SootDecalOverlay_NRM.png",
+                                           "roughness_metallic_ao_smoothness":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/RoughnessMetallic/RMS10_MAT_SootDecalOverlay_RMA.png",
+                                           "grime_edge_wetness_mask":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/GrimeEdgewear/RMS10_MAT_SootDecalOverlay_GRM.png",
+                                           "height":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Height/RMS10_MAT_SootDecalOverlay_HGT.png"
+                                       }
+                      }
+                  ]
+}

@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 20:48 -04:00`
+Last updated: `2026-05-24 21:05 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -9,9 +9,9 @@ Purpose: track side-agent work that can advance independently from the main Unit
 - Main lane: `v0.1.54` Set09 quarantine-import build passed the full Windows matrix and produced `Builds/Windows/v0.1.54/BrassworksBreach_v0.1.54.exe`.
 - Verification: `SIDECAR_QUARANTINE_IMPORT_PASS packages=20 assets=177`, route audit, QA packet, issue triage packet, candidate readiness, and Windows package generation all passed.
 - Active fidelity strategy: split the north-star room target into object/material family lanes instead of making Galileo solve every surface and prop alone.
-- Completed candidates for review: Banach the 2nd's Room Material Set 10, Cicero the 2nd's Door/Vault Set10, Chandrasekhar the 2nd's Pipe/Tank/Gauge Set10, and Beauvoir the 2nd's Grime/Decal/Wetness Set10.
-- Completed candidates still awaiting visual review: Noether the 2nd's Pressure Pistol Hero Set 10 and Avicenna the 2nd's Gaslight/Pipe Dressing Set 10.
-- Active workers: Galileo the 2nd (`roomtest` continuation if needed), Linnaeus the 2nd (Corridor Assembly Lookdev Set10), McClintock the 2nd (Steam Atmosphere VFX Set10), Meitner the 2nd (Mechanical Sentinel Hero Set10), and Carver the 2nd (Brassworks Door Mechanism Set10).
+- Completed and accepted for quarantine evidence: Room Material Set 10, Grime Decal Wetness Set 10, Gaslight Pipe Dressing Set 10, Pipe Tank Gauge Set 10, Door Vault Set 10, Brassworks Door Mechanism Set 10, Pressure Pistol Hero Set 10, Steam Atmosphere VFX Set 10, and Corridor Assembly Lookdev 10.
+- Visual review verdict: useful component, material, atmosphere, and door-detail candidates, not final AAA art. Room materials plus grime/wetness/atmosphere and selected door mechanisms are strongest; corridor object-family depth remains the biggest north-star gap.
+- Active workers: Galileo the 2nd (`roomtest` continuation if needed), Meitner the 2nd (Mechanical Sentinel Hero Set10), and Dalton the 2nd (Steam Corridor Dressing High Fidelity Set11).
 
 ## Main Integration Lane
 
@@ -46,7 +46,7 @@ Current sidecar-gate status:
 - Completed Set07 sidecar/lookdev lanes remain quarantined for review: Weapon Component Set 07, Room Shell Set 07, Mechanical Enemy Parts Set 07, Interior Dressing Set 07, Hero Room Render Set 07, and Set07 acceptance review. The procedural/non-Unity Weapon Component Set 07 assembly lookdev proof is not accepted or staged; any replacement must be Unity-rendered.
 - Current art conclusion: the best corridor render is useful for density/composition but still falls short of final north-star material realism. Do not bulk-promote Set07 into gameplay.
 - Completed and accepted sidecar/readiness lanes pending future promotion decisions: Surface Material Detail Set 08, the v0.1.52 Route Expansion Tuning packet, Meitner's Unity-only Weapon Assembly Lookdev replacement, Steam Corridor Dressing Set 09, Clockwork Enemy Parts Set 09, and Galileo the 2nd's isolated `roomtest` v0.3-v0.5 lookdev evidence.
-- Active Set10 fidelity lanes are split by object/material family so the corridor north-star target can be approached in parallel: room materials, pressure pistol, gaslight/pipe dressing, door/vault, pipe/tank/gauge, grime/wetness, and assembled corridor lookdev.
+- Active Set10/Set11 fidelity lanes are split by object/material family so the corridor north-star target can be approached in parallel: room materials, pressure pistol, gaslight/pipe dressing, door/vault, pipe/tank/gauge, grime/wetness, assembled corridor lookdev, atmosphere VFX, mechanical sentinel hero, door mechanisms, and high-fidelity corridor dressing.
 
 Current speed adjustment:
 

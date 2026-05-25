@@ -1,0 +1,423 @@
+{
+    "schema":  "brassworks.room_material_set10.static_validation.v1",
+    "package":  "BrassworksBreach.RoomMaterialSet10",
+    "package_id":  "com.brassworks.sidecar.room-material-set10",
+    "version":  "0.1.55-p001",
+    "generated_at_utc":  "2026-05-25T00:40:38Z",
+    "validation_status":  "PASS_STATIC_READY_WITH_LIMITATIONS",
+    "unity_editor_import_smoke":  "not_run",
+    "checked_roots":  [
+                          "AssetPacks/BrassworksBreach.RoomMaterialSet10",
+                          "Documentation/AssetProduction/V0_1_55_RoomMaterialSet10",
+                          "Documentation/ConceptRenders/V0_1_55_RoomMaterialSet10",
+                          "Documentation/Planning/V0_1_55_RoomMaterialSet10ImportReadiness",
+                          "Documentation/QA/V0_1_55_RoomMaterialSet10ImportReadiness"
+                      ],
+    "counts":  {
+                   "package_files_including_meta":  111,
+                   "runtime_materials":  6,
+                   "runtime_texture_pngs":  30,
+                   "package_preview_pngs":  4,
+                   "documentation_preview_pngs":  4,
+                   "runtime_scripts":  1,
+                   "asmdefs":  1
+               },
+    "measurable_checks":  {
+                              "runtime_texture_dimensions":  "30/30 runtime texture PNGs are 512x512",
+                              "package_preview_dimensions":  "4/4 package preview PNGs are 1536x768 or larger",
+                              "overlay_alpha_edge_dampness_avg":  0.1874,
+                              "overlay_alpha_edge_dampness_coverage_gt_32":  0.5076,
+                              "overlay_alpha_soot_avg":  0.1834,
+                              "overlay_alpha_soot_coverage_gt_32":  0.5115,
+                              "dark_wall_albedo_avg_luma":  0.1121,
+                              "ceiling_albedo_avg_luma":  0.0525,
+                              "flagstone_albedo_avg_luma":  0.1046
+                          },
+    "json_files_parsed_by_generator":  [
+                                           "AssetPacks/BrassworksBreach.RoomMaterialSet10/package.json",
+                                           "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Metadata/RMS10_RoomMaterialCatalog_v0.1.55-p001.json",
+                                           "AssetPacks/BrassworksBreach.RoomMaterialSet10/Documentation~/Manifest/RMS10_RoomMaterialSet10_Manifest_v0.1.55-p001.json",
+                                           "Documentation/AssetProduction/V0_1_55_RoomMaterialSet10/RMS10_RoomMaterialSet10_Manifest_v0.1.55-p001.json"
+                                       ],
+    "png_samples":  [
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Documentation~/Previews/RMS10_PREVIEW_01_room_corner_material_board.png",
+                            "stats":  {
+                                          "width":  1536,
+                                          "height":  960,
+                                          "avg_luma_sampled":  0.0745,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "ffb269109d45c3cde48897913df9414fda72a650badb91925b83a9f6b22fbdcc"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Documentation~/Previews/RMS10_PREVIEW_02_material_family_contact_sheet.png",
+                            "stats":  {
+                                          "width":  1536,
+                                          "height":  1024,
+                                          "avg_luma_sampled":  0.0799,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "cce76cdb4f4bf6620ac6c46eb46ce0bab3a77bf10b9a140e266cbb0a4f0691a0"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Documentation~/Previews/RMS10_PREVIEW_03_texture_map_matrix.png",
+                            "stats":  {
+                                          "width":  1600,
+                                          "height":  1280,
+                                          "avg_luma_sampled":  0.1778,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "34352f64dfd02214a74020cd60e41d7d684600a3bd351226fdfc32c081263261"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Documentation~/Previews/RMS10_PREVIEW_04_overlay_application_sheet.png",
+                            "stats":  {
+                                          "width":  1536,
+                                          "height":  768,
+                                          "avg_luma_sampled":  0.0954,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "0c36620f33ff9508f736140652ce07b177f7fb2b9fdb7d65a1044ecd33cd3752"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Albedo/RMS10_MAT_BlackMortarGrime_ALB.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.0469,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "39136210d5ea93b4921a7bfd4259c592f88b93abef50956fa2721db213270fa1"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Albedo/RMS10_MAT_DarkWetBrickWall_ALB.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.1121,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "b7f151d7da313227f0565dfea8f7280e919a6f435053322cd8c225059db2c18c"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Albedo/RMS10_MAT_EdgeDampnessOverlay_ALB.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.0357,
+                                          "avg_alpha_sampled":  0.1874,
+                                          "alpha_coverage_gt_32":  0.5076
+                                      },
+                            "sha256":  "219d5cc093d0829cce56e149aeb222df3bd63955703b66e2df200ad3166e9263"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Albedo/RMS10_MAT_SootDecalOverlay_ALB.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.0232,
+                                          "avg_alpha_sampled":  0.1834,
+                                          "alpha_coverage_gt_32":  0.5115
+                                      },
+                            "sha256":  "f36005fcc062a83560ae786b07be5762ce24a9c2e2593fb8c94bb99a7ad08627"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Albedo/RMS10_MAT_SootedBrickCeiling_ALB.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.0525,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "09b4acc7d5de573953b1d44ca5bfb6831532972acccef3e8cfa849adbe8b1084"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Albedo/RMS10_MAT_WetUnevenFlagstoneFloor_ALB.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.1046,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "a27905a682d6cf9c1b0a88a94ddeceeb26f4b570fc79c4862dfefa79342c592e"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/GrimeEdgewear/RMS10_MAT_BlackMortarGrime_GRM.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.5176,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "b575bfc60fcb74075cc2924c2d9bebedc603cc24e316d3efa3748b2831460f49"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/GrimeEdgewear/RMS10_MAT_DarkWetBrickWall_GRM.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.1746,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "53e172ad8afbbb60e168cbdcffa716ea5edcb3a01ef13b1667412bcb6d680a87"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/GrimeEdgewear/RMS10_MAT_EdgeDampnessOverlay_GRM.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.1551,
+                                          "avg_alpha_sampled":  0.1874,
+                                          "alpha_coverage_gt_32":  0.5076
+                                      },
+                            "sha256":  "66aa1b1e98136100b38707f6070a8bc83a62594a4465e7dad9d77d3917cc774b"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/GrimeEdgewear/RMS10_MAT_SootDecalOverlay_GRM.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.258,
+                                          "avg_alpha_sampled":  0.1834,
+                                          "alpha_coverage_gt_32":  0.5115
+                                      },
+                            "sha256":  "091a9f84f9ca07b1d30e00e0376fd5bcaaf7b4701448aef0342ac81ae6df8ab3"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/GrimeEdgewear/RMS10_MAT_SootedBrickCeiling_GRM.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.484,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "42aae89117c05cdbc287cc5a12042218030889ead7406eb03b1c86d3e1b3ab90"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/GrimeEdgewear/RMS10_MAT_WetUnevenFlagstoneFloor_GRM.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.2375,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "d3f56a602601f03fbbbc72e271cdaae82ec6b1242a9486bf0fb9624c8f26f4c1"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Height/RMS10_MAT_BlackMortarGrime_HGT.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.3879,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "3e09effdfd008fa9725a5cf9f6cfd65d4a4cdfe83d41f4e3f5dc076bdab5853b"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Height/RMS10_MAT_DarkWetBrickWall_HGT.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.573,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "c9596c67ba8a3df7e88d26841f33fbfccd0fe9164c4ca283425c10c52feb4e7b"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Height/RMS10_MAT_EdgeDampnessOverlay_HGT.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.5191,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "2003426a52e27de0e1b222ef12eb3ccef931890d53cfe23cd17353274ac84421"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Height/RMS10_MAT_SootDecalOverlay_HGT.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.418,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "92da78a8e9cc9d44d252471addf37a5dec4db53b7601f01ebb464e85c0bbac01"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Height/RMS10_MAT_SootedBrickCeiling_HGT.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.5653,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "ae11383b4774485516102ec4ca4b61ae3487e80a939d555a961ee36e497cefbe"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Height/RMS10_MAT_WetUnevenFlagstoneFloor_HGT.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.5211,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "352a0702772799327b25399131ff6ff2fd452abbfdb01049786eaeb53e53d13a"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Normal/RMS10_MAT_BlackMortarGrime_NRM.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.5363,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "9deed4c220327c9954b50b228458e651ea0f91c6a29936375403d50b7c4f81e2"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Normal/RMS10_MAT_DarkWetBrickWall_NRM.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.5345,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "704a389e82b1bb8655d50762c8a3243e54150469655b59d7ae29080ad8c362f5"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Normal/RMS10_MAT_EdgeDampnessOverlay_NRM.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.5357,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "d815985c8170576eb6ba2b56293b389c928aa0cb54bd7f4f9f9b414390b4dad1"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Normal/RMS10_MAT_SootDecalOverlay_NRM.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.536,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "b39ea8356b97fc87b0941a259869a9abe292529b34c16c35e72468bbb34d36c1"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Normal/RMS10_MAT_SootedBrickCeiling_NRM.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.5362,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "50e26f7bc117e938505545ddd4c50c63834549908ca3bb44984117d447dc20a1"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/Normal/RMS10_MAT_WetUnevenFlagstoneFloor_NRM.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.5348,
+                                          "avg_alpha_sampled":  1,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "1288073568b922bbe8a8ff22735568e21a1947bc0120539f2aa962a22f2b3c5f"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/RoughnessMetallic/RMS10_MAT_BlackMortarGrime_RMA.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.6075,
+                                          "avg_alpha_sampled":  0.2091,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "91b186b64414e60183f17b7c43cb26ecb3a0a863970160b91349b9d019e1c632"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/RoughnessMetallic/RMS10_MAT_DarkWetBrickWall_RMA.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.4147,
+                                          "avg_alpha_sampled":  0.5078,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "575dc489b4800aeba97e9e5e5a70de703e671ba6f80897583b43d891f9b4a6c3"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/RoughnessMetallic/RMS10_MAT_EdgeDampnessOverlay_RMA.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.2592,
+                                          "avg_alpha_sampled":  0.7364,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "0b89fce25bd9fa1ee9f9c194161737724dd610bfc13965b967a8fa05888f2f0f"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/RoughnessMetallic/RMS10_MAT_SootDecalOverlay_RMA.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.6836,
+                                          "avg_alpha_sampled":  0.1395,
+                                          "alpha_coverage_gt_32":  0.7148
+                                      },
+                            "sha256":  "c0d7bfae111415f344e0f6ce9e6e24c58c7e9200027d3f714b7ebfc23d5000df"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/RoughnessMetallic/RMS10_MAT_SootedBrickCeiling_RMA.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.6432,
+                                          "avg_alpha_sampled":  0.1805,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "e3bec95d315fb2fe9f83482a852c503709eb297ac22cab3fafa72fc23c5e8255"
+                        },
+                        {
+                            "path":  "AssetPacks/BrassworksBreach.RoomMaterialSet10/Runtime/Textures/RoughnessMetallic/RMS10_MAT_WetUnevenFlagstoneFloor_RMA.png",
+                            "stats":  {
+                                          "width":  512,
+                                          "height":  512,
+                                          "avg_luma_sampled":  0.3963,
+                                          "avg_alpha_sampled":  0.533,
+                                          "alpha_coverage_gt_32":  1
+                                      },
+                            "sha256":  "5b32d2d051def458c408f65b10724d2dc27637d7644bbaf76413a47b9b7df361"
+                        }
+                    ],
+    "limitations":  [
+                        "Unity Editor was not launched by this generator; quarantine import remains required.",
+                        "Overlay materials use Standard alpha blending and need render-order/decal validation.",
+                        "Texture art is procedural and may require final hand-authored variation for very large uninterrupted rooms."
+                    ]
+}

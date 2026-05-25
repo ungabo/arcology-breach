@@ -1,0 +1,259 @@
+﻿{
+    "pack_id":  "DV10",
+    "display_name":  "Door Vault Set 10",
+    "version":  "0.1.55",
+    "build_id":  "p010",
+    "package_name":  "com.brassworks.sidecar.door-vault-set10",
+    "common_schema":  "brassworks.sidecar.visual_pack_manifest.v1",
+    "unity_version":  "6000.4.6f1",
+    "generated_at_utc":  "2026-05-25T00:00:00Z",
+    "owner_lane":  "sidecar-door-vault-set10",
+    "canonical_root":  "AssetPacks/BrassworksBreach.DoorVaultSet10",
+    "package_root":  "AssetPacks/BrassworksBreach.DoorVaultSet10",
+    "render_root":  "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10",
+    "asset_counts":  {
+                         "lights":  0,
+                         "rigidbodies":  0,
+                         "audio":  0,
+                         "colliders":  0,
+                         "generated_prefabs":  9,
+                         "generated_meshes":  9,
+                         "preview_pngs":  10,
+                         "runtime_texture_pngs":  8,
+                         "runtime_scripts":  0,
+                         "generated_materials":  8
+                     },
+    "visual_contract":  [
+                            "visual_only_no_gameplay_authority",
+                            "unity_procedural_meshes_only",
+                            "no_blender_or_external_dcc",
+                            "no_runtime_scripts",
+                            "no_colliders_or_rigidbodies",
+                            "no_lights_cameras_audio_or_animators_in_prefabs",
+                            "no_scene_dependencies"
+                        ],
+    "dependencies":  [
+                         "Unity Package Manager local package reference",
+                         "Unity built-in materials/primitive mesh APIs",
+                         "No Blender or external DCC source files"
+                     ],
+    "components":  [
+                       {
+                           "id":  "DV10_RoundPressureDoor_Standalone",
+                           "role":  "round_pressure_door",
+                           "acceptance_status":  "component-pass",
+                           "prefab":  "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Prefabs/DV10_RoundPressureDoor_Standalone.prefab",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_round-pressure-door-standalone.png",
+                           "renderer_count":  73,
+                           "mesh_part_count":  73,
+                           "bounds_size_meters":  {
+                                                      "x":  4.42,
+                                                      "y":  4.42,
+                                                      "z":  0.585
+                                                  },
+                           "notes":  "Riveted round pressure door slab with brass rings, rubber gasket, radial segmented metal plates, and readable rivet language."
+                       },
+                       {
+                           "id":  "DV10_GearWheelCenter_Standalone",
+                           "role":  "gear_wheel_center",
+                           "acceptance_status":  "component-pass",
+                           "prefab":  "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Prefabs/DV10_GearWheelCenter_Standalone.prefab",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_gear-wheel-center-standalone.png",
+                           "renderer_count":  18,
+                           "mesh_part_count":  18,
+                           "bounds_size_meters":  {
+                                                      "x":  1.827,
+                                                      "y":  1.827,
+                                                      "z":  0.415
+                                                  },
+                           "notes":  "Central toothed gear handwheel with six spokes, brass hub, pressure mark cap, and service bolts."
+                       },
+                       {
+                           "id":  "DV10_ArchedFrame_Standalone",
+                           "role":  "arched_frame",
+                           "acceptance_status":  "component-pass",
+                           "prefab":  "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Prefabs/DV10_ArchedFrame_Standalone.prefab",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_arched-frame-standalone.png",
+                           "renderer_count":  41,
+                           "mesh_part_count":  41,
+                           "bounds_size_meters":  {
+                                                      "x":  6.2,
+                                                      "y":  5.367,
+                                                      "z":  0.72
+                                                  },
+                           "notes":  "Segmented arched corridor frame with heavy side pillars, brass wear strips, pressure pipes, bottom sill, and individual arch rivets."
+                       },
+                       {
+                           "id":  "DV10_SegmentedMetalPlates_Standalone",
+                           "role":  "segmented_metal_plates",
+                           "acceptance_status":  "component-pass",
+                           "prefab":  "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Prefabs/DV10_SegmentedMetalPlates_Standalone.prefab",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_segmented-metal-plates-standalone.png",
+                           "renderer_count":  49,
+                           "mesh_part_count":  49,
+                           "bounds_size_meters":  {
+                                                      "x":  3.627,
+                                                      "y":  3.627,
+                                                      "z":  0.288
+                                                  },
+                           "notes":  "Standalone segmented metal plate language sheet for door skin and vault armor replacement panels."
+                       },
+                       {
+                           "id":  "DV10_PressureLocks_Standalone",
+                           "role":  "pressure_locks",
+                           "acceptance_status":  "component-pass",
+                           "prefab":  "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Prefabs/DV10_PressureLocks_Standalone.prefab",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_pressure-locks-standalone.png",
+                           "renderer_count":  25,
+                           "mesh_part_count":  25,
+                           "bounds_size_meters":  {
+                                                      "x":  3.323,
+                                                      "y":  4.002,
+                                                      "z":  0.428
+                                                  },
+                           "notes":  "Four heavy dog locks with brass throw arms, red pressure pins, bottom accumulator tanks, manifold, and bolt detail."
+                       },
+                       {
+                           "id":  "DV10_AmberSideLamps_Standalone",
+                           "role":  "amber_side_lamps",
+                           "acceptance_status":  "component-pass",
+                           "prefab":  "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Prefabs/DV10_AmberSideLamps_Standalone.prefab",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_amber-side-lamps-standalone.png",
+                           "renderer_count":  18,
+                           "mesh_part_count":  18,
+                           "bounds_size_meters":  {
+                                                      "x":  1.82,
+                                                      "y":  1.835,
+                                                      "z":  0.46
+                                                  },
+                           "notes":  "Paired amber side lamp housings with emissive glass material, brass cage ribs, iron backing plates, and copper feed pipes. No Light components are saved."
+                       },
+                       {
+                           "id":  "DV10_ThresholdTrims_Standalone",
+                           "role":  "threshold_trims",
+                           "acceptance_status":  "component-pass",
+                           "prefab":  "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Prefabs/DV10_ThresholdTrims_Standalone.prefab",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_threshold-trims-standalone.png",
+                           "renderer_count":  40,
+                           "mesh_part_count":  40,
+                           "bounds_size_meters":  {
+                                                      "x":  5.7,
+                                                      "y":  0.46,
+                                                      "z":  0.286
+                                                  },
+                           "notes":  "Heavy visual threshold trim for corridor placement with brass wear strips, red pressure warning inset, and repeated rivets."
+                       },
+                       {
+                           "id":  "DV10_SmallGaugeCluster_Standalone",
+                           "role":  "small_gauge_cluster",
+                           "acceptance_status":  "component-pass",
+                           "prefab":  "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Prefabs/DV10_SmallGaugeCluster_Standalone.prefab",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_small-gauge-cluster-standalone.png",
+                           "renderer_count":  41,
+                           "mesh_part_count":  41,
+                           "bounds_size_meters":  {
+                                                      "x":  1.55,
+                                                      "y":  2.02,
+                                                      "z":  0.429
+                                                  },
+                           "notes":  "Three small readable pressure gauges on a blackened mount plate with brass bezels, ivory faces, red danger ticks, needles, and a pipe stub."
+                       },
+                       {
+                           "id":  "DV10_CandidateAssembly_DoorVault_A",
+                           "role":  "candidate_assembly",
+                           "acceptance_status":  "candidate-pass",
+                           "prefab":  "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Prefabs/DV10_CandidateAssembly_DoorVault_A.prefab",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_candidate-assembly-door-vault-a.png",
+                           "renderer_count":  256,
+                           "mesh_part_count":  256,
+                           "bounds_size_meters":  {
+                                                      "x":  6.2,
+                                                      "y":  5.697,
+                                                      "z":  1.783
+                                                  },
+                           "notes":  "Composed visual-only north-star corridor door and vault assembly using the standalone arched frame, round pressure door, gear wheel center, pressure locks, amber side lamps, gauges, and threshold trims."
+                       }
+                   ],
+    "generated_materials":  [
+                                "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Materials/DV10_MAT_AgedBrassTrim.mat",
+                                "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Materials/DV10_MAT_BlackenedRivetedIron.mat",
+                                "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Materials/DV10_MAT_GunmetalSegmentPlate.mat",
+                                "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Materials/DV10_MAT_AmberSideLampGlass.mat",
+                                "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Materials/DV10_MAT_IvoryGaugeEnamel.mat",
+                                "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Materials/DV10_MAT_RedPressureMarkPaint.mat",
+                                "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Materials/DV10_MAT_VerdigrisCopperPipe.mat",
+                                "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Materials/DV10_MAT_OilDarkRubberGasket.mat"
+                            ],
+    "generated_meshes":  [
+                             "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Meshes/DV10_MESH_BoxUnit.asset",
+                             "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Meshes/DV10_MESH_SegmentPlate.asset",
+                             "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Meshes/DV10_MESH_Cylinder16_Z.asset",
+                             "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Meshes/DV10_MESH_Cylinder32_Z.asset",
+                             "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Meshes/DV10_MESH_Cylinder48_Z.asset",
+                             "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Meshes/DV10_MESH_BoltHead6_Z.asset",
+                             "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Meshes/DV10_MESH_GearRing32_Z.asset",
+                             "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Meshes/DV10_MESH_SmoothRing48_Z.asset",
+                             "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Meshes/DV10_MESH_GaugeNeedle.asset"
+                         ],
+    "generated_texture_pngs":  [
+                                   "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Textures/DV10_TEX_AgedBrassTrim_Base.png",
+                                   "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Textures/DV10_TEX_BlackenedRivetedIron_Base.png",
+                                   "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Textures/DV10_TEX_GunmetalSegmentPlate_Base.png",
+                                   "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Textures/DV10_TEX_AmberSideLampGlass_Base.png",
+                                   "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Textures/DV10_TEX_IvoryGaugeEnamel_Base.png",
+                                   "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Textures/DV10_TEX_RedPressureMarkPaint_Base.png",
+                                   "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Textures/DV10_TEX_VerdigrisCopperPipe_Base.png",
+                                   "Packages/com.brassworks.sidecar.door-vault-set10/Runtime/Textures/DV10_TEX_OilDarkRubberGasket_Base.png"
+                               ],
+    "preview_renders":  [
+                            "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_round-pressure-door-standalone.png",
+                            "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_gear-wheel-center-standalone.png",
+                            "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_arched-frame-standalone.png",
+                            "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_segmented-metal-plates-standalone.png",
+                            "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_pressure-locks-standalone.png",
+                            "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_amber-side-lamps-standalone.png",
+                            "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_threshold-trims-standalone.png",
+                            "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_small-gauge-cluster-standalone.png",
+                            "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_candidate-assembly-door-vault-a.png",
+                            "Documentation/ConceptRenders/V0_1_55_DoorVaultSet10/DV10_PREVIEW_contact-sheet.png"
+                        ],
+    "acceptance_gates":  [
+                             "Nine visual-only prefabs exist: eight standalone modules and one candidate assembly.",
+                             "Riveted round pressure door, gear wheel center, arched frame, segmented plates, pressure locks, amber side lamps, threshold trims, and small gauges are represented.",
+                             "Every prefab contains only Transform, MeshFilter, MeshRenderer, and prefab instance data.",
+                             "No colliders, rigidbodies, runtime scripts, lights, cameras, audio sources, animator controllers, animation clips, scenes, or gameplay authority are included.",
+                             "Procedural material texture PNGs are present and assigned through package materials.",
+                             "Preview PNGs and contact sheet are present in the assigned ConceptRenders root.",
+                             "Runtime and Documentation manifest copies are normalized and identical."
+                         ],
+    "known_risks":  [
+                        "Contact sheet is visually flat and needs richer material/lighting treatment before final art.",
+                        "No gameplay door state, animation, collider, or lighting authority is included.",
+                        "Large assembly may need LOD and batching review before wide use."
+                    ],
+    "validation":  {
+                       "status":  "pass",
+                       "collider_count":  0,
+                       "rigidbody_count":  0,
+                       "mono_behaviour_count":  0,
+                       "light_count":  0,
+                       "audio_source_count":  0,
+                       "camera_count":  0,
+                       "animator_count":  0,
+                       "failures":  [
+
+                                    ]
+                   },
+    "rollback_path":  "remove local package reference com.brassworks.sidecar.door-vault-set10 and delete isolated package root AssetPacks/BrassworksBreach.DoorVaultSet10",
+    "decision":  "ready_for_primary_quarantine_preview_review",
+    "sidecar_project":  "UD-SC-ENV-DoorVaultSet10",
+    "primary_intake_owner":  "main-lane-art-integration",
+    "required_primary_changes":  [
+                                     "Review as modular vault-door component kit, not as final shipped hero door art.",
+                                     "Keep door motion, locks, collision, audio, lighting, and route authority in main-generated scenes.",
+                                     "Use selected details for future door mechanism or corridor endpoint assemblies after visual refinement."
+                                 ],
+    "path_collisions_checked":  true,
+    "guid_collisions_checked":  true,
+    "import_smoke_status":  "static_ready_visual_revision_required"
+}

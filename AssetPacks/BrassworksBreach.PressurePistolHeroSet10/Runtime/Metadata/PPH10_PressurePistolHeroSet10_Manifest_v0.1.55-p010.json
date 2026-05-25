@@ -1,0 +1,220 @@
+﻿{
+    "schema":  "com.brassworks.asset_manifest.v1",
+    "package":  {
+                    "name":  "com.brassworks.sidecar.pressure-pistol-hero-set10",
+                    "version":  "0.1.55-p010",
+                    "displayName":  "Brassworks Breach Pressure Pistol Hero Set 10",
+                    "unity":  "6000.4"
+                },
+    "safety":  {
+                   "visualOnly":  true,
+                   "externalDcc":  false,
+                   "forbiddenAssetTypes":  [
+
+                                           ]
+               },
+    "acceptanceGates":  [
+                            "All required component prefabs exist as isolated modules.",
+                            "Candidate assembly is composed from separately passing components.",
+                            "No colliders, rigidbodies, cameras, lights, audio sources, animator controllers, or gameplay scripts are saved in prefabs.",
+                            "Every MeshRenderer has a material and every MeshFilter has a reusable mesh asset.",
+                            "Procedural texture files are present and referenced by package materials.",
+                            "Individual previews and one contact sheet are present in the assigned ConceptRenders root.",
+                            "Runtime and Documentation manifest copies are normalized and identical."
+                        ],
+    "components":  [
+                       {
+                           "id":  "PPH10_CoilPack_Standalone",
+                           "role":  "coil_pack",
+                           "acceptanceStatus":  "component-pass",
+                           "prefab":  "Runtime/Prefabs/PPH10_CoilPack_Standalone.prefab",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_PressurePistolHeroSet10/PPH10_PREVIEW_coil-pack-standalone.png",
+                           "rendererCount":  27,
+                           "meshPartCount":  27,
+                           "boundsSize":  {
+                                              "x":  0.59,
+                                              "y":  0.34,
+                                              "z":  1.55
+                                          }
+                       },
+                       {
+                           "id":  "PPH10_PressureGauge_Standalone",
+                           "role":  "pressure_gauge",
+                           "acceptanceStatus":  "component-pass",
+                           "prefab":  "Runtime/Prefabs/PPH10_PressureGauge_Standalone.prefab",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_PressurePistolHeroSet10/PPH10_PREVIEW_pressure-gauge-standalone.png",
+                           "rendererCount":  24,
+                           "meshPartCount":  24,
+                           "boundsSize":  {
+                                              "x":  0.829,
+                                              "y":  0.974,
+                                              "z":  0.27
+                                          }
+                       },
+                       {
+                           "id":  "PPH10_BarrelTank_Standalone",
+                           "role":  "barrel_tank",
+                           "acceptanceStatus":  "component-pass",
+                           "prefab":  "Runtime/Prefabs/PPH10_BarrelTank_Standalone.prefab",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_PressurePistolHeroSet10/PPH10_PREVIEW_barrel-tank-standalone.png",
+                           "rendererCount":  16,
+                           "meshPartCount":  16,
+                           "boundsSize":  {
+                                              "x":  0.525,
+                                              "y":  0.555,
+                                              "z":  1.7
+                                          }
+                       },
+                       {
+                           "id":  "PPH10_Muzzle_Standalone",
+                           "role":  "muzzle",
+                           "acceptanceStatus":  "component-pass",
+                           "prefab":  "Runtime/Prefabs/PPH10_Muzzle_Standalone.prefab",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_PressurePistolHeroSet10/PPH10_PREVIEW_muzzle-standalone.png",
+                           "rendererCount":  12,
+                           "meshPartCount":  12,
+                           "boundsSize":  {
+                                              "x":  0.41,
+                                              "y":  0.41,
+                                              "z":  0.645
+                                          }
+                       },
+                       {
+                           "id":  "PPH10_WoodLeatherGrip_Standalone",
+                           "role":  "wood_leather_grip",
+                           "acceptanceStatus":  "component-pass",
+                           "prefab":  "Runtime/Prefabs/PPH10_WoodLeatherGrip_Standalone.prefab",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_PressurePistolHeroSet10/PPH10_PREVIEW_wood-leather-grip-standalone.png",
+                           "rendererCount":  19,
+                           "meshPartCount":  19,
+                           "boundsSize":  {
+                                              "x":  0.42,
+                                              "y":  0.903,
+                                              "z":  0.675
+                                          }
+                       },
+                       {
+                           "id":  "PPH10_Fasteners_Standalone",
+                           "role":  "fasteners",
+                           "acceptanceStatus":  "component-pass",
+                           "prefab":  "Runtime/Prefabs/PPH10_Fasteners_Standalone.prefab",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_PressurePistolHeroSet10/PPH10_PREVIEW_fasteners-standalone.png",
+                           "rendererCount":  21,
+                           "meshPartCount":  21,
+                           "boundsSize":  {
+                                              "x":  1.05,
+                                              "y":  0.54,
+                                              "z":  0.135
+                                          }
+                       },
+                       {
+                           "id":  "PPH10_CandidateAssembly_PressurePistolHero_A",
+                           "role":  "candidate_assembly",
+                           "acceptanceStatus":  "candidate-pass",
+                           "prefab":  "Runtime/Prefabs/PPH10_CandidateAssembly_PressurePistolHero_A.prefab",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_PressurePistolHeroSet10/PPH10_PREVIEW_candidate-assembly-pressure-pistol-hero-a.png",
+                           "rendererCount":  113,
+                           "meshPartCount":  113,
+                           "boundsSize":  {
+                                              "x":  0.615,
+                                              "y":  1.645,
+                                              "z":  2.117
+                                          }
+                       },
+                       {
+                           "id":  "PPH10_PREVIEW_contact-sheet",
+                           "role":  "contact_sheet",
+                           "preview":  "Documentation/ConceptRenders/V0_1_55_PressurePistolHeroSet10/PPH10_PREVIEW_contact-sheet.png"
+                       }
+                   ],
+    "materials":  [
+                      "Runtime/Materials/PPH10_MAT_AgedBrassPatina.mat",
+                      "Runtime/Materials/PPH10_MAT_AmberPressureGlass.mat",
+                      "Runtime/Materials/PPH10_MAT_BlackenedIron.mat",
+                      "Runtime/Materials/PPH10_MAT_DarkWalnutGrip.mat",
+                      "Runtime/Materials/PPH10_MAT_HeatStainedCopperCoil.mat",
+                      "Runtime/Materials/PPH10_MAT_IvoryGaugeEnamel.mat",
+                      "Runtime/Materials/PPH10_MAT_RedPressureMark.mat",
+                      "Runtime/Materials/PPH10_MAT_WornLeatherWrap.mat"
+                  ],
+    "textures":  [
+                     "Runtime/Textures/PPH10_TEX_AgedBrassPatina_Albedo.png",
+                     "Runtime/Textures/PPH10_TEX_AgedBrassPatina_Normal.png",
+                     "Runtime/Textures/PPH10_TEX_AmberPressureGlass_Albedo.png",
+                     "Runtime/Textures/PPH10_TEX_BlackenedIron_Albedo.png",
+                     "Runtime/Textures/PPH10_TEX_BlackenedIron_MetallicSmoothness.png",
+                     "Runtime/Textures/PPH10_TEX_DarkWalnutGrain_Albedo.png",
+                     "Runtime/Textures/PPH10_TEX_DarkWalnutGrain_Normal.png",
+                     "Runtime/Textures/PPH10_TEX_HeatStainedCopper_Albedo.png",
+                     "Runtime/Textures/PPH10_TEX_HeatStainedCopper_MetallicSmoothness.png",
+                     "Runtime/Textures/PPH10_TEX_IvoryGaugeEnamel_Albedo.png",
+                     "Runtime/Textures/PPH10_TEX_RedPressureMark_Albedo.png",
+                     "Runtime/Textures/PPH10_TEX_WornLeatherGrip_Albedo.png",
+                     "Runtime/Textures/PPH10_TEX_WornLeatherGrip_Normal.png"
+                 ],
+    "meshes":  [
+                   "Runtime/Meshes/PPH10_MESH_BoltHead.asset",
+                   "Runtime/Meshes/PPH10_MESH_Box_Unit.asset",
+                   "Runtime/Meshes/PPH10_MESH_Cylinder16_Z.asset",
+                   "Runtime/Meshes/PPH10_MESH_Cylinder32_Z.asset",
+                   "Runtime/Meshes/PPH10_MESH_Cylinder48_Z.asset",
+                   "Runtime/Meshes/PPH10_MESH_GaugeNeedle.asset",
+                   "Runtime/Meshes/PPH10_MESH_RailPrism.asset",
+                   "Runtime/Meshes/PPH10_MESH_TaperedGripWedge.asset",
+                   "Runtime/Meshes/PPH10_MESH_WasherDisc.asset"
+               ],
+    "validation":  {
+                       "status":  "pass",
+                       "prefabCount":  7,
+                       "materialCount":  8,
+                       "textureCount":  13,
+                       "meshCount":  9,
+                       "previewCount":  8,
+                       "failures":  [
+
+                                    ]
+                   },
+    "common_schema":  "brassworks.sidecar.visual_pack_manifest.v1",
+    "pack_id":  "PPH10",
+    "display_name":  "Pressure Pistol Hero Set 10",
+    "version":  "0.1.55",
+    "build_id":  "p010",
+    "unity_version":  "6000.4.6f1",
+    "sidecar_project":  "UD-SC-WEAPON-PressurePistolHeroSet10",
+    "owner_lane":  "sidecar-pressure-pistol-hero-set10",
+    "primary_intake_owner":  "main-lane-art-integration",
+    "canonical_root":  "AssetPacks/BrassworksBreach.PressurePistolHeroSet10",
+    "package_root":  "AssetPacks/BrassworksBreach.PressurePistolHeroSet10",
+    "package_name":  "com.brassworks.sidecar.pressure-pistol-hero-set10",
+    "asset_counts":  {
+                         "lights":  0,
+                         "rigidbodies":  0,
+                         "audio":  0,
+                         "colliders":  0,
+                         "generated_prefabs":  7,
+                         "generated_meshes":  9,
+                         "preview_pngs":  8,
+                         "runtime_texture_pngs":  13,
+                         "runtime_scripts":  0,
+                         "generated_materials":  8
+                     },
+    "dependencies":  [
+                         "Unity Package Manager local package reference",
+                         "Unity built-in materials/primitive mesh APIs",
+                         "No Blender or external DCC source files"
+                     ],
+    "required_primary_changes":  [
+                                     "Review as component-first pressure pistol lookdev before any hero-weapon replacement.",
+                                     "Use selected components only after main-lane weapon authority owns viewmodel placement, animation, muzzle/VFX sockets, and performance budgets.",
+                                     "Run a stronger material/lighting refinement pass before final-art promotion."
+                                 ],
+    "path_collisions_checked":  true,
+    "guid_collisions_checked":  true,
+    "import_smoke_status":  "unity_batch_pass_static_ready_visual_revision_required",
+    "known_risks":  [
+                        "Visual result is structurally useful but still flatter than the north-star concept art.",
+                        "No gameplay, animation, muzzle, recoil, audio, or interaction authority is included.",
+                        "Transparent/emissive materials may need pipeline tuning before import."
+                    ],
+    "rollback_path":  "remove local package reference com.brassworks.sidecar.pressure-pistol-hero-set10 and delete isolated package root AssetPacks/BrassworksBreach.PressurePistolHeroSet10"
+}

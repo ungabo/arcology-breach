@@ -1,0 +1,1239 @@
+﻿{
+    "owner":  {
+                  "assignedRootsOnly":  true,
+                  "worker":  "GrimeDecalWetnessSet10",
+                  "lane":  "sidecar-grime-decal-wetness-set10"
+              },
+    "importReadiness":  {
+                            "guidCollisionsChecked":  true,
+                            "status":  "ready_for_quarantine_import_static_validation_complete",
+                            "rollbackPath":  "Remove local package reference com.brassworks.sidecar.grime-decal-wetness-set10 and delete only the isolated GDW10 assigned roots.",
+                            "pathCollisionsChecked":  true
+                        },
+    "dependencies":  [
+                         "Unity Package Manager local package reference",
+                         "Unity built-in materials/primitive mesh APIs",
+                         "No Blender or external DCC source files"
+                     ],
+    "visualOnlyContract":  {
+                               "containsLights":  false,
+                               "containsReflectionProbes":  false,
+                               "containsColliders":  false,
+                               "intendedRuntimeBehavior":  "None. All gameplay, collision, lighting, audio, animation, occlusion, and interactable behavior must be added later by the importing project.",
+                               "containsAnimations":  false,
+                               "containsExternalDccAssets":  false,
+                               "containsScenes":  false,
+                               "containsRigidbodies":  false,
+                               "containsAudio":  false,
+                               "containsScripts":  false,
+                               "containsCustomShaders":  false,
+                               "visualOnly":  true
+                           },
+    "validationChecklist":  [
+                                "Manifest JSON parses.",
+                                "Prefab count is 32.",
+                                "Material count is 16.",
+                                "Texture count is 48.",
+                                "Preview PNG count is 32 plus two contact sheets.",
+                                "No .cs files in package root.",
+                                "No forbidden prefab components: MonoBehaviour, Collider, Rigidbody, Light, ReflectionProbe, AudioSource, Animation.",
+                                "No Blender, FBX, OBJ, audio, scene, or external DCC artifacts."
+                            ],
+    "families":  [
+                     {
+                         "name":  "SootStreaks",
+                         "variants":  4,
+                         "role":  "vertical smoke trails from vents, pipe joints, and ceiling leaks",
+                         "prefabPlacement":  "wall"
+                     },
+                     {
+                         "name":  "CornerGrime",
+                         "variants":  4,
+                         "role":  "room corner darkening and wet dirt pockets",
+                         "prefabPlacement":  "corner"
+                     },
+                     {
+                         "name":  "DampBands",
+                         "variants":  4,
+                         "role":  "low wall moisture lines and seepage bands",
+                         "prefabPlacement":  "wall"
+                     },
+                     {
+                         "name":  "WetFloorReflectionHelpers",
+                         "variants":  4,
+                         "role":  "floor-only cards that suggest wet reflected light without lights or probes",
+                         "prefabPlacement":  "floor"
+                     },
+                     {
+                         "name":  "EdgeWearStrips",
+                         "variants":  4,
+                         "role":  "thin rubbed/chipped strips for masonry ledges and trim contact edges",
+                         "prefabPlacement":  "wall"
+                     },
+                     {
+                         "name":  "OilStains",
+                         "variants":  4,
+                         "role":  "black floor slicks below machinery, boilers, and pipe junctions",
+                         "prefabPlacement":  "floor"
+                     },
+                     {
+                         "name":  "WaterPuddleDecals",
+                         "variants":  4,
+                         "role":  "shallow water puddles and wet patches on existing floor materials",
+                         "prefabPlacement":  "floor"
+                     },
+                     {
+                         "name":  "MasonryVariationOverlays",
+                         "variants":  4,
+                         "role":  "transparent brick-tone overlays to break repeated masonry surfaces",
+                         "prefabPlacement":  "wall"
+                     }
+                 ],
+    "assets":  {
+                   "materials":  [
+                                     {
+                                         "name":  "GDW10_MAT_SootStreak_CharcoalHeavy",
+                                         "family":  "SootStreaks",
+                                         "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Materials/GDW10_MAT_SootStreak_CharcoalHeavy.mat",
+                                         "role":  "Dense black soot runnels for walls and ceiling seams",
+                                         "metallic":  0,
+                                         "smoothness":  0.16,
+                                         "alpha":  0.76,
+                                         "textureSet":  {
+                                                            "albedo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_SootStreak_CharcoalHeavy_ALB.png",
+                                                            "normal":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_SootStreak_CharcoalHeavy_NRM.png",
+                                                            "roughnessMetallicAo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_SootStreak_CharcoalHeavy_RMA.png"
+                                                        }
+                                     },
+                                     {
+                                         "name":  "GDW10_MAT_SootStreak_SoftBrown",
+                                         "family":  "SootStreaks",
+                                         "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Materials/GDW10_MAT_SootStreak_SoftBrown.mat",
+                                         "role":  "Softer brown-black smoke staining for upper walls",
+                                         "metallic":  0,
+                                         "smoothness":  0.22,
+                                         "alpha":  0.54,
+                                         "textureSet":  {
+                                                            "albedo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_SootStreak_SoftBrown_ALB.png",
+                                                            "normal":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_SootStreak_SoftBrown_NRM.png",
+                                                            "roughnessMetallicAo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_SootStreak_SoftBrown_RMA.png"
+                                                        }
+                                     },
+                                     {
+                                         "name":  "GDW10_MAT_CornerGrime_BlackMold",
+                                         "family":  "CornerGrime",
+                                         "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Materials/GDW10_MAT_CornerGrime_BlackMold.mat",
+                                         "role":  "Dark corner accumulation and wet soot pocketing",
+                                         "metallic":  0,
+                                         "smoothness":  0.34,
+                                         "alpha":  0.68,
+                                         "textureSet":  {
+                                                            "albedo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_CornerGrime_BlackMold_ALB.png",
+                                                            "normal":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_CornerGrime_BlackMold_NRM.png",
+                                                            "roughnessMetallicAo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_CornerGrime_BlackMold_RMA.png"
+                                                        }
+                                     },
+                                     {
+                                         "name":  "GDW10_MAT_CornerGrime_AshyDust",
+                                         "family":  "CornerGrime",
+                                         "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Materials/GDW10_MAT_CornerGrime_AshyDust.mat",
+                                         "role":  "Ashy gray corner dirt for less wet masonry seams",
+                                         "metallic":  0,
+                                         "smoothness":  0.2,
+                                         "alpha":  0.42,
+                                         "textureSet":  {
+                                                            "albedo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_CornerGrime_AshyDust_ALB.png",
+                                                            "normal":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_CornerGrime_AshyDust_NRM.png",
+                                                            "roughnessMetallicAo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_CornerGrime_AshyDust_RMA.png"
+                                                        }
+                                     },
+                                     {
+                                         "name":  "GDW10_MAT_DampBand_GreenBlack",
+                                         "family":  "DampBands",
+                                         "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Materials/GDW10_MAT_DampBand_GreenBlack.mat",
+                                         "role":  "Low green-black damp tide marks along walls",
+                                         "metallic":  0,
+                                         "smoothness":  0.64,
+                                         "alpha":  0.58,
+                                         "textureSet":  {
+                                                            "albedo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_DampBand_GreenBlack_ALB.png",
+                                                            "normal":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_DampBand_GreenBlack_NRM.png",
+                                                            "roughnessMetallicAo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_DampBand_GreenBlack_RMA.png"
+                                                        }
+                                     },
+                                     {
+                                         "name":  "GDW10_MAT_DampBand_CoolSeep",
+                                         "family":  "DampBands",
+                                         "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Materials/GDW10_MAT_DampBand_CoolSeep.mat",
+                                         "role":  "Cool blue-gray seep bands and masonry moisture",
+                                         "metallic":  0,
+                                         "smoothness":  0.7,
+                                         "alpha":  0.48,
+                                         "textureSet":  {
+                                                            "albedo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_DampBand_CoolSeep_ALB.png",
+                                                            "normal":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_DampBand_CoolSeep_NRM.png",
+                                                            "roughnessMetallicAo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_DampBand_CoolSeep_RMA.png"
+                                                        }
+                                     },
+                                     {
+                                         "name":  "GDW10_MAT_WetReflection_CoolLong",
+                                         "family":  "WetReflectionHelpers",
+                                         "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Materials/GDW10_MAT_WetReflection_CoolLong.mat",
+                                         "role":  "Cool elongated floor glints that suggest damp reflection",
+                                         "metallic":  0,
+                                         "smoothness":  0.92,
+                                         "alpha":  0.42,
+                                         "textureSet":  {
+                                                            "albedo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_WetReflection_CoolLong_ALB.png",
+                                                            "normal":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_WetReflection_CoolLong_NRM.png",
+                                                            "roughnessMetallicAo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_WetReflection_CoolLong_RMA.png"
+                                                        }
+                                     },
+                                     {
+                                         "name":  "GDW10_MAT_WetReflection_WarmBroken",
+                                         "family":  "WetReflectionHelpers",
+                                         "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Materials/GDW10_MAT_WetReflection_WarmBroken.mat",
+                                         "role":  "Warm broken amber glints from gaslit wet floor areas",
+                                         "metallic":  0,
+                                         "smoothness":  0.9,
+                                         "alpha":  0.38,
+                                         "textureSet":  {
+                                                            "albedo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_WetReflection_WarmBroken_ALB.png",
+                                                            "normal":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_WetReflection_WarmBroken_NRM.png",
+                                                            "roughnessMetallicAo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_WetReflection_WarmBroken_RMA.png"
+                                                        }
+                                     },
+                                     {
+                                         "name":  "GDW10_MAT_EdgeWear_RawStone",
+                                         "family":  "EdgeWearStrips",
+                                         "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Materials/GDW10_MAT_EdgeWear_RawStone.mat",
+                                         "role":  "Pale rubbed stone and chipped masonry edge wear",
+                                         "metallic":  0,
+                                         "smoothness":  0.28,
+                                         "alpha":  0.62,
+                                         "textureSet":  {
+                                                            "albedo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_EdgeWear_RawStone_ALB.png",
+                                                            "normal":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_EdgeWear_RawStone_NRM.png",
+                                                            "roughnessMetallicAo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_EdgeWear_RawStone_RMA.png"
+                                                        }
+                                     },
+                                     {
+                                         "name":  "GDW10_MAT_EdgeWear_RustScratch",
+                                         "family":  "EdgeWearStrips",
+                                         "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Materials/GDW10_MAT_EdgeWear_RustScratch.mat",
+                                         "role":  "Rusty rubbed strips for iron-framed masonry edges",
+                                         "metallic":  0.1,
+                                         "smoothness":  0.32,
+                                         "alpha":  0.56,
+                                         "textureSet":  {
+                                                            "albedo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_EdgeWear_RustScratch_ALB.png",
+                                                            "normal":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_EdgeWear_RustScratch_NRM.png",
+                                                            "roughnessMetallicAo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_EdgeWear_RustScratch_RMA.png"
+                                                        }
+                                     },
+                                     {
+                                         "name":  "GDW10_MAT_OilStain_BlackSlick",
+                                         "family":  "OilStains",
+                                         "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Materials/GDW10_MAT_OilStain_BlackSlick.mat",
+                                         "role":  "Irregular black oil stains for floor corners and machinery bases",
+                                         "metallic":  0,
+                                         "smoothness":  0.88,
+                                         "alpha":  0.72,
+                                         "textureSet":  {
+                                                            "albedo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_OilStain_BlackSlick_ALB.png",
+                                                            "normal":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_OilStain_BlackSlick_NRM.png",
+                                                            "roughnessMetallicAo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_OilStain_BlackSlick_RMA.png"
+                                                        }
+                                     },
+                                     {
+                                         "name":  "GDW10_MAT_OilStain_IridescentSheen",
+                                         "family":  "OilStains",
+                                         "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Materials/GDW10_MAT_OilStain_IridescentSheen.mat",
+                                         "role":  "Thin oily rainbow sheen over existing dark floor materials",
+                                         "metallic":  0,
+                                         "smoothness":  0.95,
+                                         "alpha":  0.46,
+                                         "textureSet":  {
+                                                            "albedo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_OilStain_IridescentSheen_ALB.png",
+                                                            "normal":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_OilStain_IridescentSheen_NRM.png",
+                                                            "roughnessMetallicAo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_OilStain_IridescentSheen_RMA.png"
+                                                        }
+                                     },
+                                     {
+                                         "name":  "GDW10_MAT_WaterPuddle_Clear",
+                                         "family":  "WaterPuddleDecals",
+                                         "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Materials/GDW10_MAT_WaterPuddle_Clear.mat",
+                                         "role":  "Clear shallow water puddle with soft rim highlights",
+                                         "metallic":  0,
+                                         "smoothness":  0.96,
+                                         "alpha":  0.4,
+                                         "textureSet":  {
+                                                            "albedo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_WaterPuddle_Clear_ALB.png",
+                                                            "normal":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_WaterPuddle_Clear_NRM.png",
+                                                            "roughnessMetallicAo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_WaterPuddle_Clear_RMA.png"
+                                                        }
+                                     },
+                                     {
+                                         "name":  "GDW10_MAT_WaterPuddle_Muddy",
+                                         "family":  "WaterPuddleDecals",
+                                         "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Materials/GDW10_MAT_WaterPuddle_Muddy.mat",
+                                         "role":  "Muddy industrial water puddle with dirty brown center",
+                                         "metallic":  0,
+                                         "smoothness":  0.87,
+                                         "alpha":  0.44,
+                                         "textureSet":  {
+                                                            "albedo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_WaterPuddle_Muddy_ALB.png",
+                                                            "normal":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_WaterPuddle_Muddy_NRM.png",
+                                                            "roughnessMetallicAo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_WaterPuddle_Muddy_RMA.png"
+                                                        }
+                                     },
+                                     {
+                                         "name":  "GDW10_MAT_MasonryVariation_DarkPatch",
+                                         "family":  "MasonryVariationOverlays",
+                                         "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Materials/GDW10_MAT_MasonryVariation_DarkPatch.mat",
+                                         "role":  "Dark masonry block variation overlay for repeated walls",
+                                         "metallic":  0,
+                                         "smoothness":  0.26,
+                                         "alpha":  0.36,
+                                         "textureSet":  {
+                                                            "albedo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_MasonryVariation_DarkPatch_ALB.png",
+                                                            "normal":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_MasonryVariation_DarkPatch_NRM.png",
+                                                            "roughnessMetallicAo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_MasonryVariation_DarkPatch_RMA.png"
+                                                        }
+                                     },
+                                     {
+                                         "name":  "GDW10_MAT_MasonryVariation_LimeBloom",
+                                         "family":  "MasonryVariationOverlays",
+                                         "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Materials/GDW10_MAT_MasonryVariation_LimeBloom.mat",
+                                         "role":  "Pale mineral bloom and mortar breakup over damp brick",
+                                         "metallic":  0,
+                                         "smoothness":  0.18,
+                                         "alpha":  0.3,
+                                         "textureSet":  {
+                                                            "albedo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_MasonryVariation_LimeBloom_ALB.png",
+                                                            "normal":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_MasonryVariation_LimeBloom_NRM.png",
+                                                            "roughnessMetallicAo":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_MasonryVariation_LimeBloom_RMA.png"
+                                                        }
+                                     }
+                                 ],
+                   "previews":  [
+                                    {
+                                        "name":  "GDW10_PREVIEW_01_SootStreaks_A",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_01_SootStreaks_A.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_01_SootStreaks_A.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_02_SootStreaks_B",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_02_SootStreaks_B.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_02_SootStreaks_B.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_03_SootStreaks_C",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_03_SootStreaks_C.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_03_SootStreaks_C.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_04_SootStreaks_D",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_04_SootStreaks_D.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_04_SootStreaks_D.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_05_CornerGrime_A",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_05_CornerGrime_A.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_05_CornerGrime_A.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_06_CornerGrime_B",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_06_CornerGrime_B.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_06_CornerGrime_B.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_07_CornerGrime_C",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_07_CornerGrime_C.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_07_CornerGrime_C.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_08_CornerGrime_D",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_08_CornerGrime_D.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_08_CornerGrime_D.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_09_DampBands_A",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_09_DampBands_A.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_09_DampBands_A.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_10_DampBands_B",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_10_DampBands_B.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_10_DampBands_B.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_11_DampBands_C",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_11_DampBands_C.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_11_DampBands_C.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_12_DampBands_D",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_12_DampBands_D.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_12_DampBands_D.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_13_WetReflectionHelpers_A",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_13_WetReflectionHelpers_A.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_13_WetReflectionHelpers_A.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_14_WetReflectionHelpers_B",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_14_WetReflectionHelpers_B.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_14_WetReflectionHelpers_B.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_15_WetReflectionHelpers_C",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_15_WetReflectionHelpers_C.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_15_WetReflectionHelpers_C.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_16_WetReflectionHelpers_D",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_16_WetReflectionHelpers_D.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_16_WetReflectionHelpers_D.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_17_EdgeWearStrips_A",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_17_EdgeWearStrips_A.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_17_EdgeWearStrips_A.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_18_EdgeWearStrips_B",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_18_EdgeWearStrips_B.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_18_EdgeWearStrips_B.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_19_EdgeWearStrips_C",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_19_EdgeWearStrips_C.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_19_EdgeWearStrips_C.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_20_EdgeWearStrips_D",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_20_EdgeWearStrips_D.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_20_EdgeWearStrips_D.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_21_OilStains_A",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_21_OilStains_A.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_21_OilStains_A.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_22_OilStains_B",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_22_OilStains_B.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_22_OilStains_B.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_23_OilStains_C",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_23_OilStains_C.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_23_OilStains_C.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_24_OilStains_D",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_24_OilStains_D.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_24_OilStains_D.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_25_WaterPuddleDecals_A",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_25_WaterPuddleDecals_A.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_25_WaterPuddleDecals_A.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_26_WaterPuddleDecals_B",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_26_WaterPuddleDecals_B.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_26_WaterPuddleDecals_B.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_27_WaterPuddleDecals_C",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_27_WaterPuddleDecals_C.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_27_WaterPuddleDecals_C.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_28_WaterPuddleDecals_D",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_28_WaterPuddleDecals_D.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_28_WaterPuddleDecals_D.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_29_MasonryVariationOverlays_A",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_29_MasonryVariationOverlays_A.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_29_MasonryVariationOverlays_A.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_30_MasonryVariationOverlays_B",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_30_MasonryVariationOverlays_B.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_30_MasonryVariationOverlays_B.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_31_MasonryVariationOverlays_C",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_31_MasonryVariationOverlays_C.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_31_MasonryVariationOverlays_C.prefab"
+                                    },
+                                    {
+                                        "name":  "GDW10_PREVIEW_32_MasonryVariationOverlays_D",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_32_MasonryVariationOverlays_D.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_32_MasonryVariationOverlays_D.prefab"
+                                    }
+                                ],
+                   "prefabs":  [
+                                   {
+                                       "name":  "GDW10_PREFAB_01_SootStreaks_A",
+                                       "family":  "SootStreaks",
+                                       "variant":  "A",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_01_SootStreaks_A.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_01_SootStreaks_A.png",
+                                       "material":  "GDW10_MAT_SootStreak_CharcoalHeavy",
+                                       "placement":  "wall",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_02_SootStreaks_B",
+                                       "family":  "SootStreaks",
+                                       "variant":  "B",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_02_SootStreaks_B.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_02_SootStreaks_B.png",
+                                       "material":  "GDW10_MAT_SootStreak_SoftBrown",
+                                       "placement":  "wall",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_03_SootStreaks_C",
+                                       "family":  "SootStreaks",
+                                       "variant":  "C",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_03_SootStreaks_C.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_03_SootStreaks_C.png",
+                                       "material":  "GDW10_MAT_SootStreak_CharcoalHeavy",
+                                       "placement":  "wall",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_04_SootStreaks_D",
+                                       "family":  "SootStreaks",
+                                       "variant":  "D",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_04_SootStreaks_D.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_04_SootStreaks_D.png",
+                                       "material":  "GDW10_MAT_SootStreak_SoftBrown",
+                                       "placement":  "wall",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_05_CornerGrime_A",
+                                       "family":  "CornerGrime",
+                                       "variant":  "A",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_05_CornerGrime_A.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_05_CornerGrime_A.png",
+                                       "material":  "GDW10_MAT_CornerGrime_BlackMold",
+                                       "placement":  "corner",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_06_CornerGrime_B",
+                                       "family":  "CornerGrime",
+                                       "variant":  "B",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_06_CornerGrime_B.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_06_CornerGrime_B.png",
+                                       "material":  "GDW10_MAT_CornerGrime_AshyDust",
+                                       "placement":  "corner",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_07_CornerGrime_C",
+                                       "family":  "CornerGrime",
+                                       "variant":  "C",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_07_CornerGrime_C.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_07_CornerGrime_C.png",
+                                       "material":  "GDW10_MAT_CornerGrime_BlackMold",
+                                       "placement":  "corner",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_08_CornerGrime_D",
+                                       "family":  "CornerGrime",
+                                       "variant":  "D",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_08_CornerGrime_D.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_08_CornerGrime_D.png",
+                                       "material":  "GDW10_MAT_CornerGrime_AshyDust",
+                                       "placement":  "corner",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_09_DampBands_A",
+                                       "family":  "DampBands",
+                                       "variant":  "A",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_09_DampBands_A.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_09_DampBands_A.png",
+                                       "material":  "GDW10_MAT_DampBand_GreenBlack",
+                                       "placement":  "wall",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_10_DampBands_B",
+                                       "family":  "DampBands",
+                                       "variant":  "B",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_10_DampBands_B.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_10_DampBands_B.png",
+                                       "material":  "GDW10_MAT_DampBand_CoolSeep",
+                                       "placement":  "wall",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_11_DampBands_C",
+                                       "family":  "DampBands",
+                                       "variant":  "C",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_11_DampBands_C.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_11_DampBands_C.png",
+                                       "material":  "GDW10_MAT_DampBand_GreenBlack",
+                                       "placement":  "wall",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_12_DampBands_D",
+                                       "family":  "DampBands",
+                                       "variant":  "D",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_12_DampBands_D.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_12_DampBands_D.png",
+                                       "material":  "GDW10_MAT_DampBand_CoolSeep",
+                                       "placement":  "wall",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_13_WetReflectionHelpers_A",
+                                       "family":  "WetFloorReflectionHelpers",
+                                       "variant":  "A",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_13_WetReflectionHelpers_A.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_13_WetReflectionHelpers_A.png",
+                                       "material":  "GDW10_MAT_WetReflection_CoolLong",
+                                       "placement":  "floor",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_14_WetReflectionHelpers_B",
+                                       "family":  "WetFloorReflectionHelpers",
+                                       "variant":  "B",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_14_WetReflectionHelpers_B.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_14_WetReflectionHelpers_B.png",
+                                       "material":  "GDW10_MAT_WetReflection_WarmBroken",
+                                       "placement":  "floor",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_15_WetReflectionHelpers_C",
+                                       "family":  "WetFloorReflectionHelpers",
+                                       "variant":  "C",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_15_WetReflectionHelpers_C.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_15_WetReflectionHelpers_C.png",
+                                       "material":  "GDW10_MAT_WetReflection_CoolLong",
+                                       "placement":  "floor",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_16_WetReflectionHelpers_D",
+                                       "family":  "WetFloorReflectionHelpers",
+                                       "variant":  "D",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_16_WetReflectionHelpers_D.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_16_WetReflectionHelpers_D.png",
+                                       "material":  "GDW10_MAT_WetReflection_WarmBroken",
+                                       "placement":  "floor",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_17_EdgeWearStrips_A",
+                                       "family":  "EdgeWearStrips",
+                                       "variant":  "A",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_17_EdgeWearStrips_A.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_17_EdgeWearStrips_A.png",
+                                       "material":  "GDW10_MAT_EdgeWear_RawStone",
+                                       "placement":  "wall",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_18_EdgeWearStrips_B",
+                                       "family":  "EdgeWearStrips",
+                                       "variant":  "B",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_18_EdgeWearStrips_B.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_18_EdgeWearStrips_B.png",
+                                       "material":  "GDW10_MAT_EdgeWear_RustScratch",
+                                       "placement":  "wall",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_19_EdgeWearStrips_C",
+                                       "family":  "EdgeWearStrips",
+                                       "variant":  "C",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_19_EdgeWearStrips_C.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_19_EdgeWearStrips_C.png",
+                                       "material":  "GDW10_MAT_EdgeWear_RawStone",
+                                       "placement":  "wall",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_20_EdgeWearStrips_D",
+                                       "family":  "EdgeWearStrips",
+                                       "variant":  "D",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_20_EdgeWearStrips_D.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_20_EdgeWearStrips_D.png",
+                                       "material":  "GDW10_MAT_EdgeWear_RustScratch",
+                                       "placement":  "wall",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_21_OilStains_A",
+                                       "family":  "OilStains",
+                                       "variant":  "A",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_21_OilStains_A.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_21_OilStains_A.png",
+                                       "material":  "GDW10_MAT_OilStain_BlackSlick",
+                                       "placement":  "floor",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_22_OilStains_B",
+                                       "family":  "OilStains",
+                                       "variant":  "B",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_22_OilStains_B.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_22_OilStains_B.png",
+                                       "material":  "GDW10_MAT_OilStain_IridescentSheen",
+                                       "placement":  "floor",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_23_OilStains_C",
+                                       "family":  "OilStains",
+                                       "variant":  "C",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_23_OilStains_C.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_23_OilStains_C.png",
+                                       "material":  "GDW10_MAT_OilStain_BlackSlick",
+                                       "placement":  "floor",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_24_OilStains_D",
+                                       "family":  "OilStains",
+                                       "variant":  "D",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_24_OilStains_D.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_24_OilStains_D.png",
+                                       "material":  "GDW10_MAT_OilStain_IridescentSheen",
+                                       "placement":  "floor",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_25_WaterPuddleDecals_A",
+                                       "family":  "WaterPuddleDecals",
+                                       "variant":  "A",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_25_WaterPuddleDecals_A.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_25_WaterPuddleDecals_A.png",
+                                       "material":  "GDW10_MAT_WaterPuddle_Clear",
+                                       "placement":  "floor",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_26_WaterPuddleDecals_B",
+                                       "family":  "WaterPuddleDecals",
+                                       "variant":  "B",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_26_WaterPuddleDecals_B.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_26_WaterPuddleDecals_B.png",
+                                       "material":  "GDW10_MAT_WaterPuddle_Muddy",
+                                       "placement":  "floor",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_27_WaterPuddleDecals_C",
+                                       "family":  "WaterPuddleDecals",
+                                       "variant":  "C",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_27_WaterPuddleDecals_C.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_27_WaterPuddleDecals_C.png",
+                                       "material":  "GDW10_MAT_WaterPuddle_Clear",
+                                       "placement":  "floor",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_28_WaterPuddleDecals_D",
+                                       "family":  "WaterPuddleDecals",
+                                       "variant":  "D",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_28_WaterPuddleDecals_D.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_28_WaterPuddleDecals_D.png",
+                                       "material":  "GDW10_MAT_WaterPuddle_Muddy",
+                                       "placement":  "floor",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_29_MasonryVariationOverlays_A",
+                                       "family":  "MasonryVariationOverlays",
+                                       "variant":  "A",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_29_MasonryVariationOverlays_A.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_29_MasonryVariationOverlays_A.png",
+                                       "material":  "GDW10_MAT_MasonryVariation_DarkPatch",
+                                       "placement":  "wall",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_30_MasonryVariationOverlays_B",
+                                       "family":  "MasonryVariationOverlays",
+                                       "variant":  "B",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_30_MasonryVariationOverlays_B.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_30_MasonryVariationOverlays_B.png",
+                                       "material":  "GDW10_MAT_MasonryVariation_LimeBloom",
+                                       "placement":  "wall",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_31_MasonryVariationOverlays_C",
+                                       "family":  "MasonryVariationOverlays",
+                                       "variant":  "C",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_31_MasonryVariationOverlays_C.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_31_MasonryVariationOverlays_C.png",
+                                       "material":  "GDW10_MAT_MasonryVariation_DarkPatch",
+                                       "placement":  "wall",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GDW10_PREFAB_32_MasonryVariationOverlays_D",
+                                       "family":  "MasonryVariationOverlays",
+                                       "variant":  "D",
+                                       "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Prefabs/GDW10_PREFAB_32_MasonryVariationOverlays_D.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_PREVIEW_32_MasonryVariationOverlays_D.png",
+                                       "material":  "GDW10_MAT_MasonryVariation_LimeBloom",
+                                       "placement":  "wall",
+                                       "builtInMesh":  "Unity built-in Quad fileID 10210",
+                                       "childRenderers":  1,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   }
+                               ],
+                   "contactSheets":  [
+                                         "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10/GDW10_CONTACTSHEET_GrimeDecalWetnessSet10.png",
+                                         "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Previews/GDW10_CONTACTSHEET_GrimeDecalWetnessSet10.png"
+                                     ],
+                   "textures":  [
+                                    {
+                                        "name":  "GDW10_MAT_SootStreak_CharcoalHeavy_ALB",
+                                        "kind":  "albedo_alpha",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_SootStreak_CharcoalHeavy_ALB.png",
+                                        "sourceMaterial":  "GDW10_MAT_SootStreak_CharcoalHeavy"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_SootStreak_CharcoalHeavy_NRM",
+                                        "kind":  "normal_helper",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_SootStreak_CharcoalHeavy_NRM.png",
+                                        "sourceMaterial":  "GDW10_MAT_SootStreak_CharcoalHeavy"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_SootStreak_CharcoalHeavy_RMA",
+                                        "kind":  "roughness_metallic_ao",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_SootStreak_CharcoalHeavy_RMA.png",
+                                        "sourceMaterial":  "GDW10_MAT_SootStreak_CharcoalHeavy"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_SootStreak_SoftBrown_ALB",
+                                        "kind":  "albedo_alpha",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_SootStreak_SoftBrown_ALB.png",
+                                        "sourceMaterial":  "GDW10_MAT_SootStreak_SoftBrown"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_SootStreak_SoftBrown_NRM",
+                                        "kind":  "normal_helper",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_SootStreak_SoftBrown_NRM.png",
+                                        "sourceMaterial":  "GDW10_MAT_SootStreak_SoftBrown"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_SootStreak_SoftBrown_RMA",
+                                        "kind":  "roughness_metallic_ao",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_SootStreak_SoftBrown_RMA.png",
+                                        "sourceMaterial":  "GDW10_MAT_SootStreak_SoftBrown"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_CornerGrime_BlackMold_ALB",
+                                        "kind":  "albedo_alpha",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_CornerGrime_BlackMold_ALB.png",
+                                        "sourceMaterial":  "GDW10_MAT_CornerGrime_BlackMold"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_CornerGrime_BlackMold_NRM",
+                                        "kind":  "normal_helper",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_CornerGrime_BlackMold_NRM.png",
+                                        "sourceMaterial":  "GDW10_MAT_CornerGrime_BlackMold"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_CornerGrime_BlackMold_RMA",
+                                        "kind":  "roughness_metallic_ao",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_CornerGrime_BlackMold_RMA.png",
+                                        "sourceMaterial":  "GDW10_MAT_CornerGrime_BlackMold"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_CornerGrime_AshyDust_ALB",
+                                        "kind":  "albedo_alpha",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_CornerGrime_AshyDust_ALB.png",
+                                        "sourceMaterial":  "GDW10_MAT_CornerGrime_AshyDust"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_CornerGrime_AshyDust_NRM",
+                                        "kind":  "normal_helper",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_CornerGrime_AshyDust_NRM.png",
+                                        "sourceMaterial":  "GDW10_MAT_CornerGrime_AshyDust"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_CornerGrime_AshyDust_RMA",
+                                        "kind":  "roughness_metallic_ao",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_CornerGrime_AshyDust_RMA.png",
+                                        "sourceMaterial":  "GDW10_MAT_CornerGrime_AshyDust"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_DampBand_GreenBlack_ALB",
+                                        "kind":  "albedo_alpha",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_DampBand_GreenBlack_ALB.png",
+                                        "sourceMaterial":  "GDW10_MAT_DampBand_GreenBlack"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_DampBand_GreenBlack_NRM",
+                                        "kind":  "normal_helper",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_DampBand_GreenBlack_NRM.png",
+                                        "sourceMaterial":  "GDW10_MAT_DampBand_GreenBlack"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_DampBand_GreenBlack_RMA",
+                                        "kind":  "roughness_metallic_ao",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_DampBand_GreenBlack_RMA.png",
+                                        "sourceMaterial":  "GDW10_MAT_DampBand_GreenBlack"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_DampBand_CoolSeep_ALB",
+                                        "kind":  "albedo_alpha",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_DampBand_CoolSeep_ALB.png",
+                                        "sourceMaterial":  "GDW10_MAT_DampBand_CoolSeep"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_DampBand_CoolSeep_NRM",
+                                        "kind":  "normal_helper",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_DampBand_CoolSeep_NRM.png",
+                                        "sourceMaterial":  "GDW10_MAT_DampBand_CoolSeep"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_DampBand_CoolSeep_RMA",
+                                        "kind":  "roughness_metallic_ao",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_DampBand_CoolSeep_RMA.png",
+                                        "sourceMaterial":  "GDW10_MAT_DampBand_CoolSeep"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_WetReflection_CoolLong_ALB",
+                                        "kind":  "albedo_alpha",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_WetReflection_CoolLong_ALB.png",
+                                        "sourceMaterial":  "GDW10_MAT_WetReflection_CoolLong"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_WetReflection_CoolLong_NRM",
+                                        "kind":  "normal_helper",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_WetReflection_CoolLong_NRM.png",
+                                        "sourceMaterial":  "GDW10_MAT_WetReflection_CoolLong"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_WetReflection_CoolLong_RMA",
+                                        "kind":  "roughness_metallic_ao",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_WetReflection_CoolLong_RMA.png",
+                                        "sourceMaterial":  "GDW10_MAT_WetReflection_CoolLong"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_WetReflection_WarmBroken_ALB",
+                                        "kind":  "albedo_alpha",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_WetReflection_WarmBroken_ALB.png",
+                                        "sourceMaterial":  "GDW10_MAT_WetReflection_WarmBroken"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_WetReflection_WarmBroken_NRM",
+                                        "kind":  "normal_helper",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_WetReflection_WarmBroken_NRM.png",
+                                        "sourceMaterial":  "GDW10_MAT_WetReflection_WarmBroken"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_WetReflection_WarmBroken_RMA",
+                                        "kind":  "roughness_metallic_ao",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_WetReflection_WarmBroken_RMA.png",
+                                        "sourceMaterial":  "GDW10_MAT_WetReflection_WarmBroken"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_EdgeWear_RawStone_ALB",
+                                        "kind":  "albedo_alpha",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_EdgeWear_RawStone_ALB.png",
+                                        "sourceMaterial":  "GDW10_MAT_EdgeWear_RawStone"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_EdgeWear_RawStone_NRM",
+                                        "kind":  "normal_helper",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_EdgeWear_RawStone_NRM.png",
+                                        "sourceMaterial":  "GDW10_MAT_EdgeWear_RawStone"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_EdgeWear_RawStone_RMA",
+                                        "kind":  "roughness_metallic_ao",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_EdgeWear_RawStone_RMA.png",
+                                        "sourceMaterial":  "GDW10_MAT_EdgeWear_RawStone"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_EdgeWear_RustScratch_ALB",
+                                        "kind":  "albedo_alpha",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_EdgeWear_RustScratch_ALB.png",
+                                        "sourceMaterial":  "GDW10_MAT_EdgeWear_RustScratch"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_EdgeWear_RustScratch_NRM",
+                                        "kind":  "normal_helper",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_EdgeWear_RustScratch_NRM.png",
+                                        "sourceMaterial":  "GDW10_MAT_EdgeWear_RustScratch"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_EdgeWear_RustScratch_RMA",
+                                        "kind":  "roughness_metallic_ao",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_EdgeWear_RustScratch_RMA.png",
+                                        "sourceMaterial":  "GDW10_MAT_EdgeWear_RustScratch"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_OilStain_BlackSlick_ALB",
+                                        "kind":  "albedo_alpha",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_OilStain_BlackSlick_ALB.png",
+                                        "sourceMaterial":  "GDW10_MAT_OilStain_BlackSlick"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_OilStain_BlackSlick_NRM",
+                                        "kind":  "normal_helper",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_OilStain_BlackSlick_NRM.png",
+                                        "sourceMaterial":  "GDW10_MAT_OilStain_BlackSlick"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_OilStain_BlackSlick_RMA",
+                                        "kind":  "roughness_metallic_ao",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_OilStain_BlackSlick_RMA.png",
+                                        "sourceMaterial":  "GDW10_MAT_OilStain_BlackSlick"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_OilStain_IridescentSheen_ALB",
+                                        "kind":  "albedo_alpha",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_OilStain_IridescentSheen_ALB.png",
+                                        "sourceMaterial":  "GDW10_MAT_OilStain_IridescentSheen"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_OilStain_IridescentSheen_NRM",
+                                        "kind":  "normal_helper",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_OilStain_IridescentSheen_NRM.png",
+                                        "sourceMaterial":  "GDW10_MAT_OilStain_IridescentSheen"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_OilStain_IridescentSheen_RMA",
+                                        "kind":  "roughness_metallic_ao",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_OilStain_IridescentSheen_RMA.png",
+                                        "sourceMaterial":  "GDW10_MAT_OilStain_IridescentSheen"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_WaterPuddle_Clear_ALB",
+                                        "kind":  "albedo_alpha",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_WaterPuddle_Clear_ALB.png",
+                                        "sourceMaterial":  "GDW10_MAT_WaterPuddle_Clear"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_WaterPuddle_Clear_NRM",
+                                        "kind":  "normal_helper",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_WaterPuddle_Clear_NRM.png",
+                                        "sourceMaterial":  "GDW10_MAT_WaterPuddle_Clear"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_WaterPuddle_Clear_RMA",
+                                        "kind":  "roughness_metallic_ao",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_WaterPuddle_Clear_RMA.png",
+                                        "sourceMaterial":  "GDW10_MAT_WaterPuddle_Clear"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_WaterPuddle_Muddy_ALB",
+                                        "kind":  "albedo_alpha",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_WaterPuddle_Muddy_ALB.png",
+                                        "sourceMaterial":  "GDW10_MAT_WaterPuddle_Muddy"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_WaterPuddle_Muddy_NRM",
+                                        "kind":  "normal_helper",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_WaterPuddle_Muddy_NRM.png",
+                                        "sourceMaterial":  "GDW10_MAT_WaterPuddle_Muddy"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_WaterPuddle_Muddy_RMA",
+                                        "kind":  "roughness_metallic_ao",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_WaterPuddle_Muddy_RMA.png",
+                                        "sourceMaterial":  "GDW10_MAT_WaterPuddle_Muddy"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_MasonryVariation_DarkPatch_ALB",
+                                        "kind":  "albedo_alpha",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_MasonryVariation_DarkPatch_ALB.png",
+                                        "sourceMaterial":  "GDW10_MAT_MasonryVariation_DarkPatch"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_MasonryVariation_DarkPatch_NRM",
+                                        "kind":  "normal_helper",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_MasonryVariation_DarkPatch_NRM.png",
+                                        "sourceMaterial":  "GDW10_MAT_MasonryVariation_DarkPatch"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_MasonryVariation_DarkPatch_RMA",
+                                        "kind":  "roughness_metallic_ao",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_MasonryVariation_DarkPatch_RMA.png",
+                                        "sourceMaterial":  "GDW10_MAT_MasonryVariation_DarkPatch"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_MasonryVariation_LimeBloom_ALB",
+                                        "kind":  "albedo_alpha",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Albedo/GDW10_MAT_MasonryVariation_LimeBloom_ALB.png",
+                                        "sourceMaterial":  "GDW10_MAT_MasonryVariation_LimeBloom"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_MasonryVariation_LimeBloom_NRM",
+                                        "kind":  "normal_helper",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/Normal/GDW10_MAT_MasonryVariation_LimeBloom_NRM.png",
+                                        "sourceMaterial":  "GDW10_MAT_MasonryVariation_LimeBloom"
+                                    },
+                                    {
+                                        "name":  "GDW10_MAT_MasonryVariation_LimeBloom_RMA",
+                                        "kind":  "roughness_metallic_ao",
+                                        "path":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10/Runtime/Textures/RoughnessMetallic/GDW10_MAT_MasonryVariation_LimeBloom_RMA.png",
+                                        "sourceMaterial":  "GDW10_MAT_MasonryVariation_LimeBloom"
+                                    }
+                                ]
+               },
+    "counts":  {
+                   "builtInMeshReferences":  1,
+                   "materials":  16,
+                   "prefabs":  32,
+                   "textures":  48,
+                   "previewPNGs":  32,
+                   "meshes":  0,
+                   "contactSheets":  2,
+                   "families":  8
+               },
+    "roomtest_v0_5_gap_target":  {
+                                     "addressedGap":  "finish layer lacks soot streaks, dirty corners, damp bands, floor wetness cues, edge wear, oil/water surface breakup, and varied masonry overlays",
+                                     "placementIntent":  [
+                                                             "wall and ceiling soot trails behind vents and pipes",
+                                                             "dark corner dirt that deepens room silhouettes",
+                                                             "low damp bands at masonry/floor junctions",
+                                                             "floor glint cards that read as wetness without lights or reflection probes",
+                                                             "edge wear strips on masonry ledges and trim",
+                                                             "oil and water decals under machinery and pipes",
+                                                             "masonry color overlays to break repeated wall tiling"
+                                                         ]
+                                 },
+    "pack_id":  "GDW10",
+    "package":  {
+                    "packageId":  "com.brassworks.sidecar.grime-decal-wetness-set10",
+                    "name":  "BrassworksBreach.GrimeDecalWetnessSet10",
+                    "generated_at_utc":  "2026-05-25T00:52:14Z",
+                    "unityCompatibility":  "Unity 2022.3+ text assets; built-in Quad mesh references and built-in Standard shader only.",
+                    "externalDccToolsUsed":  [
+
+                                             ],
+                    "version":  "0.1.55-p001"
+                },
+    "common_schema":  "brassworks.sidecar.visual_pack_manifest.v1",
+    "display_name":  "Grime Decal Wetness Set 10",
+    "roots":  {
+                  "qaRoot":  "Documentation/QA/V0_1_55_GrimeDecalWetnessSet10ImportReadiness",
+                  "conceptRenderRoot":  "Documentation/ConceptRenders/V0_1_55_GrimeDecalWetnessSet10",
+                  "productionDocumentationRoot":  "Documentation/AssetProduction/V0_1_55_GrimeDecalWetnessSet10",
+                  "packageRoot":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10",
+                  "planningRoot":  "Documentation/Planning/V0_1_55_GrimeDecalWetnessSet10ImportReadiness"
+              },
+    "version":  "0.1.55",
+    "build_id":  "p001",
+    "unity_version":  "6000.4.6f1",
+    "sidecar_project":  "UD-SC-MAT-GrimeDecalWetnessSet10",
+    "owner_lane":  "sidecar-grime-decal-wetness-set10",
+    "primary_intake_owner":  "main-lane-art-integration",
+    "canonical_root":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10",
+    "package_root":  "AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10",
+    "package_name":  "com.brassworks.sidecar.grime-decal-wetness-set10",
+    "asset_counts":  {
+                         "lights":  0,
+                         "rigidbodies":  0,
+                         "audio":  0,
+                         "colliders":  0,
+                         "generated_prefabs":  32,
+                         "generated_meshes":  0,
+                         "preview_pngs":  34,
+                         "runtime_texture_pngs":  48,
+                         "runtime_scripts":  0,
+                         "generated_materials":  16
+                     },
+    "required_primary_changes":  [
+                                     "Review as final-layer decal and wetness helper package for roomtest-derived corridors.",
+                                     "Validate transparent sorting and blend modes before importing into gameplay scenes.",
+                                     "Use with room materials and gaslight placement to recover the wet, sooty, reflective north-star surface language."
+                                 ],
+    "path_collisions_checked":  true,
+    "guid_collisions_checked":  true,
+    "import_smoke_status":  "static_ready_visual_revision_required",
+    "known_risks":  [
+                        "Transparent overlay sorting may need render-pipeline tuning.",
+                        "Some overlays are subtle and require scene lighting to prove final value.",
+                        "No decals own collision, gameplay, lighting, or reflection-probe authority."
+                    ],
+    "rollback_path":  "remove local package reference com.brassworks.sidecar.grime-decal-wetness-set10 and delete isolated package root AssetPacks/BrassworksBreach.GrimeDecalWetnessSet10"
+}

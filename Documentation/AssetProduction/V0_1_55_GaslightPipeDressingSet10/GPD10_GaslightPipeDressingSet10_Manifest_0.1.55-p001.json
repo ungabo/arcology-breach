@@ -1,0 +1,568 @@
+{
+    "common_schema":  "brassworks.sidecar.visual_pack_manifest.v1",
+    "pack_id":  "GPD10",
+    "display_name":  "Gaslight Pipe Dressing Set 10",
+    "package":  {
+                    "name":  "BrassworksBreach.GaslightPipeDressingSet10",
+                    "packageId":  "com.brassworks.sidecar.gaslight-pipe-dressing-set10",
+                    "version":  "0.1.55-p001",
+                    "generated_at_utc":  "2026-05-25T00:00:00Z",
+                    "unityCompatibility":  "Unity 2022.3+ text assets; built-in primitive mesh references only.",
+                    "externalDccToolsUsed":  [
+
+                                             ]
+                },
+    "owner":  {
+                  "worker":  "GaslightPipeSet10",
+                  "assignedRootsOnly":  true,
+                  "lane":  "sidecar-gaslight-pipe-dressing-set10"
+              },
+    "roots":  {
+                  "packageRoot":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10",
+                  "productionDocumentationRoot":  "Documentation/AssetProduction/V0_1_55_GaslightPipeDressingSet10",
+                  "conceptRenderRoot":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10",
+                  "planningRoot":  "Documentation/Planning/V0_1_55_GaslightPipeDressingSet10ImportReadiness",
+                  "qaRoot":  "Documentation/QA/V0_1_55_GaslightPipeDressingSet10ImportReadiness"
+              },
+    "counts":  {
+                   "prefabs":  24,
+                   "materials":  14,
+                   "meshes":  0,
+                   "builtInMeshReferences":  4,
+                   "previewPNGs":  24,
+                   "contactSheets":  2,
+                   "families":  6
+               },
+    "roomtest_v0_5_gap_target":  {
+                                     "addressedGap":  "weak lamp/fixture dressing after material-driven room surfaces",
+                                     "placementIntent":  [
+                                                             "wall-mounted gaslights with stronger brass cage silhouettes",
+                                                             "pipe brackets and plaques to make fixtures feel mounted instead of floating",
+                                                             "reflection helper strips for warm damp glints without adding lights or probes",
+                                                             "dark soot cards to preserve localized amber halos and readable dark corners"
+                                                         ]
+                                 },
+    "visualOnlyContract":  {
+                               "visualOnly":  true,
+                               "containsScripts":  false,
+                               "containsColliders":  false,
+                               "containsRigidbodies":  false,
+                               "containsLights":  false,
+                               "containsReflectionProbes":  false,
+                               "containsAudio":  false,
+                               "containsAnimations":  false,
+                               "containsScenes":  false,
+                               "intendedRuntimeBehavior":  "None. All gameplay, collision, lighting, VFX, audio, occlusion, reflection-probe, and interactable behavior must be added later by the importing project."
+                           },
+    "dependencies":  [
+                         "Unity built-in primitive meshes",
+                         "Unity built-in Standard shader"
+                     ],
+    "families":  [
+                     {
+                         "name":  "WallGaslights",
+                         "variants":  4,
+                         "role":  "primary wall-mounted lamp silhouettes and amber bulbs"
+                     },
+                     {
+                         "name":  "PipeBrackets",
+                         "variants":  4,
+                         "role":  "pipe clamp support and wall bracket fill around lamps"
+                     },
+                     {
+                         "name":  "LampFrames",
+                         "variants":  4,
+                         "role":  "open replacement frames for weak/flat fixtures"
+                     },
+                     {
+                         "name":  "BrassCages",
+                         "variants":  4,
+                         "role":  "cage shells to layer over lamps or pipes"
+                     },
+                     {
+                         "name":  "WallPlaques",
+                         "variants":  4,
+                         "role":  "readable wall-mounted brass/iron plates without text mesh"
+                     },
+                     {
+                         "name":  "ReflectionHelpers",
+                         "variants":  4,
+                         "role":  "visual-only damp glint cards and soot masks"
+                     }
+                 ],
+    "assets":  {
+                   "prefabs":  [
+                                   {
+                                       "name":  "GPD10_PREFAB_01_WallGaslights_A",
+                                       "family":  "WallGaslights",
+                                       "variant":  "A",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_01_WallGaslights_A.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_01_WallGaslights_A.png",
+                                       "childRenderers":  19,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_02_WallGaslights_B",
+                                       "family":  "WallGaslights",
+                                       "variant":  "B",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_02_WallGaslights_B.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_02_WallGaslights_B.png",
+                                       "childRenderers":  21,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_03_WallGaslights_C",
+                                       "family":  "WallGaslights",
+                                       "variant":  "C",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_03_WallGaslights_C.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_03_WallGaslights_C.png",
+                                       "childRenderers":  21,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_04_WallGaslights_D",
+                                       "family":  "WallGaslights",
+                                       "variant":  "D",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_04_WallGaslights_D.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_04_WallGaslights_D.png",
+                                       "childRenderers":  23,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_05_PipeBrackets_A",
+                                       "family":  "PipeBrackets",
+                                       "variant":  "A",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_05_PipeBrackets_A.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_05_PipeBrackets_A.png",
+                                       "childRenderers":  13,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_06_PipeBrackets_B",
+                                       "family":  "PipeBrackets",
+                                       "variant":  "B",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_06_PipeBrackets_B.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_06_PipeBrackets_B.png",
+                                       "childRenderers":  13,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_07_PipeBrackets_C",
+                                       "family":  "PipeBrackets",
+                                       "variant":  "C",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_07_PipeBrackets_C.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_07_PipeBrackets_C.png",
+                                       "childRenderers":  15,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_08_PipeBrackets_D",
+                                       "family":  "PipeBrackets",
+                                       "variant":  "D",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_08_PipeBrackets_D.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_08_PipeBrackets_D.png",
+                                       "childRenderers":  15,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_09_LampFrames_A",
+                                       "family":  "LampFrames",
+                                       "variant":  "A",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_09_LampFrames_A.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_09_LampFrames_A.png",
+                                       "childRenderers":  9,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_10_LampFrames_B",
+                                       "family":  "LampFrames",
+                                       "variant":  "B",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_10_LampFrames_B.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_10_LampFrames_B.png",
+                                       "childRenderers":  11,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_11_LampFrames_C",
+                                       "family":  "LampFrames",
+                                       "variant":  "C",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_11_LampFrames_C.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_11_LampFrames_C.png",
+                                       "childRenderers":  11,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_12_LampFrames_D",
+                                       "family":  "LampFrames",
+                                       "variant":  "D",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_12_LampFrames_D.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_12_LampFrames_D.png",
+                                       "childRenderers":  13,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_13_BrassCages_A",
+                                       "family":  "BrassCages",
+                                       "variant":  "A",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_13_BrassCages_A.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_13_BrassCages_A.png",
+                                       "childRenderers":  8,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_14_BrassCages_B",
+                                       "family":  "BrassCages",
+                                       "variant":  "B",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_14_BrassCages_B.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_14_BrassCages_B.png",
+                                       "childRenderers":  11,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_15_BrassCages_C",
+                                       "family":  "BrassCages",
+                                       "variant":  "C",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_15_BrassCages_C.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_15_BrassCages_C.png",
+                                       "childRenderers":  9,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_16_BrassCages_D",
+                                       "family":  "BrassCages",
+                                       "variant":  "D",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_16_BrassCages_D.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_16_BrassCages_D.png",
+                                       "childRenderers":  12,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_17_WallPlaques_A",
+                                       "family":  "WallPlaques",
+                                       "variant":  "A",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_17_WallPlaques_A.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_17_WallPlaques_A.png",
+                                       "childRenderers":  8,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_18_WallPlaques_B",
+                                       "family":  "WallPlaques",
+                                       "variant":  "B",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_18_WallPlaques_B.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_18_WallPlaques_B.png",
+                                       "childRenderers":  10,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_19_WallPlaques_C",
+                                       "family":  "WallPlaques",
+                                       "variant":  "C",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_19_WallPlaques_C.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_19_WallPlaques_C.png",
+                                       "childRenderers":  9,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_20_WallPlaques_D",
+                                       "family":  "WallPlaques",
+                                       "variant":  "D",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_20_WallPlaques_D.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_20_WallPlaques_D.png",
+                                       "childRenderers":  11,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_21_ReflectionHelpers_A",
+                                       "family":  "ReflectionHelpers",
+                                       "variant":  "A",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_21_ReflectionHelpers_A.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_21_ReflectionHelpers_A.png",
+                                       "childRenderers":  6,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_22_ReflectionHelpers_B",
+                                       "family":  "ReflectionHelpers",
+                                       "variant":  "B",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_22_ReflectionHelpers_B.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_22_ReflectionHelpers_B.png",
+                                       "childRenderers":  8,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_23_ReflectionHelpers_C",
+                                       "family":  "ReflectionHelpers",
+                                       "variant":  "C",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_23_ReflectionHelpers_C.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_23_ReflectionHelpers_C.png",
+                                       "childRenderers":  8,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   },
+                                   {
+                                       "name":  "GPD10_PREFAB_24_ReflectionHelpers_D",
+                                       "family":  "ReflectionHelpers",
+                                       "variant":  "D",
+                                       "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_24_ReflectionHelpers_D.prefab",
+                                       "preview":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_24_ReflectionHelpers_D.png",
+                                       "childRenderers":  10,
+                                       "componentContract":  "GameObject, Transform, MeshFilter, MeshRenderer only"
+                                   }
+                               ],
+                   "materials":  [
+                                     {
+                                         "name":  "GPD10_MAT_AgedBrassWarm",
+                                         "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Materials/GPD10_MAT_AgedBrassWarm.mat",
+                                         "role":  "dominant worn brass for lamp frames and cages",
+                                         "metallic":  0.82,
+                                         "smoothness":  0.48,
+                                         "emissive":  false
+                                     },
+                                     {
+                                         "name":  "GPD10_MAT_PolishedBrassEdge",
+                                         "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Materials/GPD10_MAT_PolishedBrassEdge.mat",
+                                         "role":  "small edge highlights on brackets, rims, and cage ribs",
+                                         "metallic":  0.9,
+                                         "smoothness":  0.64,
+                                         "emissive":  false
+                                     },
+                                     {
+                                         "name":  "GPD10_MAT_TarnishedBrassDark",
+                                         "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Materials/GPD10_MAT_TarnishedBrassDark.mat",
+                                         "role":  "aged shadow brass for grime-heavy fixture backs",
+                                         "metallic":  0.74,
+                                         "smoothness":  0.36,
+                                         "emissive":  false
+                                     },
+                                     {
+                                         "name":  "GPD10_MAT_BlackenedPipeIron",
+                                         "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Materials/GPD10_MAT_BlackenedPipeIron.mat",
+                                         "role":  "black pipe runs and dark support iron",
+                                         "metallic":  0.72,
+                                         "smoothness":  0.31,
+                                         "emissive":  false
+                                     },
+                                     {
+                                         "name":  "GPD10_MAT_OilySteelBracket",
+                                         "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Materials/GPD10_MAT_OilySteelBracket.mat",
+                                         "role":  "slightly wet bracket steel",
+                                         "metallic":  0.64,
+                                         "smoothness":  0.52,
+                                         "emissive":  false
+                                     },
+                                     {
+                                         "name":  "GPD10_MAT_AmberGaslightGlass",
+                                         "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Materials/GPD10_MAT_AmberGaslightGlass.mat",
+                                         "role":  "emissive amber glass bulb surfaces",
+                                         "metallic":  0.04,
+                                         "smoothness":  0.82,
+                                         "emissive":  true
+                                     },
+                                     {
+                                         "name":  "GPD10_MAT_SoftAmberGlow",
+                                         "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Materials/GPD10_MAT_SoftAmberGlow.mat",
+                                         "role":  "visual-only halo cards and bulbs, no Light component",
+                                         "metallic":  0,
+                                         "smoothness":  0.58,
+                                         "emissive":  true
+                                     },
+                                     {
+                                         "name":  "GPD10_MAT_SmokedGlassRim",
+                                         "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Materials/GPD10_MAT_SmokedGlassRim.mat",
+                                         "role":  "smoked glass rims and internal shade silhouettes",
+                                         "metallic":  0.02,
+                                         "smoothness":  0.76,
+                                         "emissive":  false
+                                     },
+                                     {
+                                         "name":  "GPD10_MAT_DarkWallPlaque",
+                                         "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Materials/GPD10_MAT_DarkWallPlaque.mat",
+                                         "role":  "dark wall plaques that sit over v0.5 brick surfaces",
+                                         "metallic":  0.38,
+                                         "smoothness":  0.28,
+                                         "emissive":  false
+                                     },
+                                     {
+                                         "name":  "GPD10_MAT_SootGradientCard",
+                                         "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Materials/GPD10_MAT_SootGradientCard.mat",
+                                         "role":  "visual soot cards behind fixtures",
+                                         "metallic":  0,
+                                         "smoothness":  0.44,
+                                         "emissive":  false
+                                     },
+                                     {
+                                         "name":  "GPD10_MAT_WetReflectionWarm",
+                                         "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Materials/GPD10_MAT_WetReflectionWarm.mat",
+                                         "role":  "warm reflection helper glints for damp floors/walls",
+                                         "metallic":  0,
+                                         "smoothness":  0.88,
+                                         "emissive":  true
+                                     },
+                                     {
+                                         "name":  "GPD10_MAT_CoolDampReflection",
+                                         "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Materials/GPD10_MAT_CoolDampReflection.mat",
+                                         "role":  "cool reflection helper strips for back-wall readability",
+                                         "metallic":  0,
+                                         "smoothness":  0.86,
+                                         "emissive":  true
+                                     },
+                                     {
+                                         "name":  "GPD10_MAT_VerdigrisOxide",
+                                         "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Materials/GPD10_MAT_VerdigrisOxide.mat",
+                                         "role":  "oxidized brass/copper accent staining",
+                                         "metallic":  0.58,
+                                         "smoothness":  0.42,
+                                         "emissive":  false
+                                     },
+                                     {
+                                         "name":  "GPD10_MAT_RivetShadow",
+                                         "path":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Materials/GPD10_MAT_RivetShadow.mat",
+                                         "role":  "dark bolt heads and tiny fasteners",
+                                         "metallic":  0.56,
+                                         "smoothness":  0.25,
+                                         "emissive":  false
+                                     }
+                                 ],
+                   "previews":  [
+                                    {
+                                        "name":  "GPD10_PREVIEW_01_WallGaslights_A",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_01_WallGaslights_A.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_01_WallGaslights_A.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_02_WallGaslights_B",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_02_WallGaslights_B.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_02_WallGaslights_B.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_03_WallGaslights_C",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_03_WallGaslights_C.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_03_WallGaslights_C.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_04_WallGaslights_D",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_04_WallGaslights_D.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_04_WallGaslights_D.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_05_PipeBrackets_A",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_05_PipeBrackets_A.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_05_PipeBrackets_A.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_06_PipeBrackets_B",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_06_PipeBrackets_B.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_06_PipeBrackets_B.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_07_PipeBrackets_C",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_07_PipeBrackets_C.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_07_PipeBrackets_C.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_08_PipeBrackets_D",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_08_PipeBrackets_D.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_08_PipeBrackets_D.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_09_LampFrames_A",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_09_LampFrames_A.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_09_LampFrames_A.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_10_LampFrames_B",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_10_LampFrames_B.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_10_LampFrames_B.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_11_LampFrames_C",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_11_LampFrames_C.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_11_LampFrames_C.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_12_LampFrames_D",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_12_LampFrames_D.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_12_LampFrames_D.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_13_BrassCages_A",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_13_BrassCages_A.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_13_BrassCages_A.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_14_BrassCages_B",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_14_BrassCages_B.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_14_BrassCages_B.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_15_BrassCages_C",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_15_BrassCages_C.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_15_BrassCages_C.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_16_BrassCages_D",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_16_BrassCages_D.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_16_BrassCages_D.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_17_WallPlaques_A",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_17_WallPlaques_A.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_17_WallPlaques_A.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_18_WallPlaques_B",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_18_WallPlaques_B.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_18_WallPlaques_B.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_19_WallPlaques_C",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_19_WallPlaques_C.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_19_WallPlaques_C.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_20_WallPlaques_D",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_20_WallPlaques_D.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_20_WallPlaques_D.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_21_ReflectionHelpers_A",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_21_ReflectionHelpers_A.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_21_ReflectionHelpers_A.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_22_ReflectionHelpers_B",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_22_ReflectionHelpers_B.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_22_ReflectionHelpers_B.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_23_ReflectionHelpers_C",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_23_ReflectionHelpers_C.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_23_ReflectionHelpers_C.prefab"
+                                    },
+                                    {
+                                        "name":  "GPD10_PREVIEW_24_ReflectionHelpers_D",
+                                        "path":  "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_PREVIEW_24_ReflectionHelpers_D.png",
+                                        "sourcePrefab":  "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Prefabs/GPD10_PREFAB_24_ReflectionHelpers_D.prefab"
+                                    }
+                                ],
+                   "contactSheets":  [
+                                         "Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/GPD10_CONTACTSHEET_GaslightPipeDressingSet10.png",
+                                         "AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/Runtime/Previews/GPD10_CONTACTSHEET_GaslightPipeDressingSet10.png"
+                                     ]
+               },
+    "importReadiness":  {
+                            "status":  "ready_for_quarantine_import_static_validation_complete",
+                            "pathCollisionsChecked":  true,
+                            "guidCollisionsChecked":  true,
+                            "rollbackPath":  "Remove local package reference com.brassworks.sidecar.gaslight-pipe-dressing-set10 and delete the isolated Set10 assigned roots."
+                        },
+    "validationChecklist":  [
+                                "Manifest JSON parses.",
+                                "Prefab count is 24.",
+                                "Material count is 14.",
+                                "Preview PNG count is 24 plus contact sheets.",
+                                "No .cs files in package root.",
+                                "No forbidden prefab components: MonoBehaviour, Collider, Rigidbody, Light, ReflectionProbe, AudioSource, Animation.",
+                                "No Blender or external DCC artifacts."
+                            ]
+}
