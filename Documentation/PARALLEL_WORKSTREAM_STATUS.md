@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 20:17 -04:00`
+Last updated: `2026-05-24 20:23 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -248,6 +248,15 @@ Current PM rule: keep incomplete sidecar package roots unstaged until their agen
 | --- | --- | --- | --- |
 | Primary lane | validation cleanup complete | `AssetPacks/BrassworksBreach.SteamCorridorDressingSet09/`, `AssetPacks/BrassworksBreach.ClockworkEnemyPartsSet09/` | Normalized both Set09 sidecar manifests to the shared schema, added missing SCD09 Unity `.meta` files, and reran `Tools/SidecarValidation/Test-SidecarAssetPacks.ps1 -PackageNamePattern BrassworksBreach.*Set09`; result: 2 packages checked, 0 errors, 0 warnings. |
 | Galileo the 2nd | active | `roomtest/` only | Received a redirect to continue Unity-only v0.4/v0.5 room lookdev refinement inside the isolated `roomtest/` project. Keep unstaged until final report and PM visual acceptance. |
+
+## 2026-05-24 20:23 -04:00 Parallel Lane Update
+
+| Agent | Status | Output Scope | PM Action |
+| --- | --- | --- | --- |
+| Banach the 2nd | active | `AssetPacks/BrassworksBreach.RoomMaterialSet10/`, `Documentation/AssetProduction/V0_1_55_RoomMaterialSet10/`, `Documentation/ConceptRenders/V0_1_55_RoomMaterialSet10/`, `Documentation/Planning/V0_1_55_RoomMaterialSet10ImportReadiness/`, `Documentation/QA/V0_1_55_RoomMaterialSet10ImportReadiness/` | Building a bundled Unity-only dark wet masonry material sidecar: brick wall, sooted ceiling, wet flagstone, mortar/grime, dampness, and decal overlays. |
+| Avicenna the 2nd | active | `AssetPacks/BrassworksBreach.GaslightPipeDressingSet10/`, `Documentation/AssetProduction/V0_1_55_GaslightPipeDressingSet10/`, `Documentation/ConceptRenders/V0_1_55_GaslightPipeDressingSet10/`, `Documentation/Planning/V0_1_55_GaslightPipeDressingSet10ImportReadiness/`, `Documentation/QA/V0_1_55_GaslightPipeDressingSet10ImportReadiness/` | Building a bundled Unity-only visual sidecar for wall gaslights, brass cages, pipe brackets, wall plaques, and reflection helpers. |
+| Noether the 2nd | active | `AssetPacks/BrassworksBreach.PressurePistolHeroSet10/`, `Documentation/AssetProduction/V0_1_55_PressurePistolHeroSet10/`, `Documentation/ConceptRenders/V0_1_55_PressurePistolHeroSet10/`, `Documentation/Planning/V0_1_55_PressurePistolHeroSet10ImportReadiness/`, `Documentation/QA/V0_1_55_PressurePistolHeroSet10ImportReadiness/` | Building a component-first Unity-only pressure-pistol sidecar with coil, gauge, barrel/tank, muzzle, grip, fasteners, and candidate assembly renders. |
+| Gauss the 2nd | active | `Documentation/LevelDesign/V0_1_55_MajorRouteEncounterExpansion/`, `Documentation/Planning/V0_1_55_MajorRouteEncounterExpansion/`, `Documentation/QA/V0_1_55_MajorRouteEncounterExpansion/` | Preparing the next large playable-batch route/encounter implementation plan with maps, scale notes, objectives, secrets, validation hooks, and smoke-test additions. |
 
 ## Integration Rules
 
