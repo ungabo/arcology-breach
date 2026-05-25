@@ -545,3 +545,17 @@ Parallel lane status:
 - Galileo the 2nd remains active on isolated `roomtest` reference-room matching.
 
 Next-step directive: commit/push the verified `v0.1.56` slice, then continue immediately with Set12 visual review, package intake, and the next parallel worker wave.
+
+## 2026-05-24 23:58 -04:00
+
+Paused broad playable-art filling and pivoted to exact concept-art replica production.
+
+- Preserved the current playable game as the scaffold: maps, mechanisms, combat, levels, menus, QA, Windows packaging, and generated scene infrastructure remain useful.
+- Created `Documentation/ArtDirection/AAA_REFERENCE_REPLICA_PIPELINE.md` to define the new art-production gate.
+- Changed near-term planning so `v0.1.57` is the AAA reference-replica pipeline proof rather than another broad playable import.
+- Spawned Euclid the 2nd on `ConceptReplicaGearKeySet13`, using the north-star gear-key crop as the first focused asset target.
+- Spawned Parfit the 2nd on `ConceptReplicaPipeBundleSet13`, using the north-star pipe-bundle crop as the first modular dressing target.
+- Redirected Gibbs the 2nd to focus material proof on aged brass/bronze, aged copper/brass, blackened iron, oily grime, and wet masonry support for the gear-key and pipe-bundle replicas.
+- Kept Galileo the 2nd on `roomtest` v0.7 as supporting environment/material/lighting proof.
+
+Next-step directive: review exact-crop replica outputs first, revise until one passes the stricter visual gate, then promote only accepted replicas into the playable scaffold.

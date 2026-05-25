@@ -1,6 +1,6 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 23:33 -04:00`
+Last updated: `2026-05-24 23:58 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
@@ -9,11 +9,12 @@ Purpose: track side-agent work that can advance independently from the main Unit
 - Main lane: `v0.1.56` high-fidelity quarantine-import build passed the full Windows matrix and produced `Builds/Windows/v0.1.56/BrassworksBreach_v0.1.56.exe`.
 - Verification: `SIDECAR_QUARANTINE_IMPORT_PASS packages=24 assets=208`, route audit, QA packet, issue triage packet, candidate readiness, and Windows package generation all passed.
 - Active fidelity strategy: split the north-star room target into object/material family lanes instead of making any single worker solve every surface, prop, weapon, enemy, and lighting family alone.
+- Active phase change: playable scaffold work is paused as the primary target. The next art push must prove exact concept-art crop replication in Unity before broad playable imports resume.
 - Completed and accepted for quarantine evidence: Room Material Set 10, Grime Decal Wetness Set 10, Gaslight Pipe Dressing Set 10, Pipe Tank Gauge Set 10, Door Vault Set 10, Brassworks Door Mechanism Set 10, Pressure Pistol Hero Set 10, Steam Atmosphere VFX Set 10, and Corridor Assembly Lookdev 10.
 - Visual review verdict: useful component, material, atmosphere, and door-detail candidates, not final AAA art. Room materials plus grime/wetness/atmosphere and selected door mechanisms are strongest; corridor object-family depth remains the biggest north-star gap.
 - Completed and pushed since last update: Kepler the 2nd finished Room Surface Relief Set11 in `211f51c`; Poincare the 2nd finished Hero Corridor Lighting Lookdev Set11 in `9fc51f3`.
 - Completed locally since last update: Ptolemy the 2nd finished Hero Vault Door Set12; Descartes the 2nd finished Steam Lighting Fixture Set12; Sagan the 2nd finished Pressure Pistol Hero Set12; Goodall the 2nd finished Mechanical Enemy Detail Set12; Darwin the 2nd finished Surface Breakup Decal Set12; Jason the 2nd finished HUD Feedback Ornament Set12; Mill the 2nd finished Corridor Prop Cluster Set12; Confucius the 2nd finished Industrial Machinery Set12.
-- Active workers: Galileo the 2nd (`roomtest` integrated room reference). Newly closed Set12 lanes are pending visual review and package intake rather than being imported automatically.
+- Active workers: Galileo the 2nd (`roomtest` integrated room reference), Gibbs the 2nd (reference-focused material proof), Euclid the 2nd (concept-replica gear key), and Parfit the 2nd (concept-replica modular pipe bundle). Newly closed Set12 lanes are pending visual review and package intake rather than being imported automatically.
 
 ## Main Integration Lane
 
@@ -21,9 +22,9 @@ Owner: primary Codex thread
 
 Current focus:
 
-- Keep the playable Windows build moving through ambitious visible milestone batches.
+- Preserve the playable Windows scaffold as the stable base while AAA-looking reference replicas are produced.
 - Preserve scene-generation determinism and validation coverage.
-- Integrate side-agent outputs only after review.
+- Integrate side-agent outputs only after strict crop-specific visual review.
 - Run multiple independent asset, level, weapon/prop, enemy/readability, and QA crews in parallel when write scopes are disjoint.
 - Use targeted checks during batch development and reserve full route/package/QA/candidate matrix runs for coherent milestone completion.
 - Commit and push verified slices regularly.
@@ -52,6 +53,7 @@ Current sidecar-gate status:
 
 Current speed adjustment:
 
+- Broad package volume is no longer treated as progress toward final art unless it helps an exact reference replica pass.
 - The 15-minute PM heartbeat now explicitly asks whether the current flow is the fastest safe pace achievable.
 - Side agents are being assigned asset families, render sets, level kits, or validation tooling, not single-object serial work.
 - Completed clean sidecars should be batched into one quarantine import/compile pass when that creates a visible player-facing leap.
@@ -60,6 +62,9 @@ Current speed adjustment:
 Current object-family allocation:
 
 - Galileo the 2nd owns integrated `roomtest` reference-room matching.
+- Euclid the 2nd owns the exact north-star gear-key replica proof under `ConceptReplicaGearKeySet13`.
+- Parfit the 2nd owns the exact north-star modular pipe-bundle replica proof under `ConceptReplicaPipeBundleSet13`.
+- Gibbs the 2nd owns reference-focused aged brass/copper/blackened iron/wet-grime material proof for the gear key and pipe bundle.
 - Completed Set12 review candidates are Hero Vault Door Set12, Steam Lighting Fixture Set12, Pressure Pistol Hero Set12, Mechanical Enemy Detail Set12, Surface Breakup Decal Set12, HUD Feedback Ornament Set12, Corridor Prop Cluster Set12, and Industrial Machinery Set12.
 - The main lane owns package review, manifest/import decisions, scene generator integration, playable builds, validation, commits, and releases.
 

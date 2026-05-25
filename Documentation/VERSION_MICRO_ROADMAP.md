@@ -1,6 +1,6 @@
 # Brassworks Breach - Version Micro Roadmap
 
-Last updated: 2026-05-24 23:33 -04:00
+Last updated: 2026-05-24 23:58 -04:00
 
 ## Purpose
 
@@ -97,7 +97,8 @@ The roadmap is a living plan, not a promise that every version number is immutab
 
 | Version | Planned Slice | Intent | Expected Verification |
 | --- | --- | --- | --- |
-| v0.1.57 | Object-family fidelity intake and playable refinement | Review `RoomSurfaceReliefSet11`, `HeroCorridorLightingLookdevSet11`, Set12 object-family sidecars, `HudFeedbackOrnamentSet12`, `CorridorPropClusterSet12`, `IndustrialMachinerySet12`, and `roomtest` updates, then promote the best validated pieces into either quarantine or a gameplay-safe visual import batch. | Package/static validators, render nonblank checks, visual review notes, targeted scene integration checks, then full matrix only after a coherent playable milestone. |
+| v0.1.57 | AAA reference-replica art pipeline pivot | Pause broad playable art imports and prove exact concept-art replication first, starting with the north-star gear key and modular pipe bundle crops. Existing playable maps, mechanisms, combat, levels, menus, and QA remain the scaffold, but final-art promotion waits for crop-specific Unity render acceptance. | Unity-only sidecar generation, crop-specific beauty/detail/material renders, metadata/catalog JSON, strict visual QA against the reference crop, and an honest pass/fail verdict before any playable promotion. |
+| v0.1.58 | First accepted replica promotion | If the gear key and/or pipe bundle passes the stricter visual gate, replace the relevant playable scaffold object or add the approved pipe modules as visual-only dressing without changing gameplay authority. | Scene rebuild, level validation, focused visual placement check, sidecar quarantine import if packaged, route audit, and full Windows matrix only after an accepted replica is promoted. |
 
 ## Later Follow-Up Areas
 
