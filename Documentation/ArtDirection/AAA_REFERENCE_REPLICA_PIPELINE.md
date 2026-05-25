@@ -46,6 +46,8 @@ An asset can be called `final-art candidate` only when all are true:
 
 If it fails the visual target, it remains quarantine evidence and should be revised or replaced, not promoted into the playable scaffold.
 
+Detailed scoring lives in `Documentation/QA/REFERENCE_REPLICA_ACCEPTANCE_CHECKLIST.md`. Promotion requires no score below `4` and an average score of at least `4.25`.
+
 ## Production Flow
 
 1. Select one crop from the north-star concept art.
