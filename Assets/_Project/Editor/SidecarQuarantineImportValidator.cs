@@ -87,6 +87,36 @@ public static class SidecarQuarantineImportValidator
                 "Packages/com.brassworks.sidecar.surface-material-detail-set08/Runtime/Metadata/SMD08_SurfaceMaterialDetailCatalog_0.1.52-p001.json"
             }),
         new PackageCheck(
+            "Steam Corridor Dressing Set 09",
+            "com.brassworks.sidecar.steam-corridor-dressing-set09",
+            "Documentation~/Manifest/SCD09_SteamCorridorDressingSet09_Manifest_0.1.54-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.steam-corridor-dressing-set09/Runtime/Generated/Prefabs/SCD09_PREFAB_001_WallPipeTripleRun_A.prefab",
+                "Packages/com.brassworks.sidecar.steam-corridor-dressing-set09/Runtime/Generated/Prefabs/SCD09_PREFAB_005_WallGaslightSconce_E.prefab",
+                "Packages/com.brassworks.sidecar.steam-corridor-dressing-set09/Runtime/Generated/Prefabs/SCD09_PREFAB_014_CeilingLampCage_C.prefab",
+                "Packages/com.brassworks.sidecar.steam-corridor-dressing-set09/Runtime/Generated/Prefabs/SCD09_PREFAB_017_DoorwayRivetedHeader_A.prefab",
+                "Packages/com.brassworks.sidecar.steam-corridor-dressing-set09/Runtime/Generated/Materials/SCD09_MAT_AgedBrass.mat",
+                "Packages/com.brassworks.sidecar.steam-corridor-dressing-set09/Runtime/Generated/Materials/SCD09_MAT_WetBlackStone.mat",
+                "Packages/com.brassworks.sidecar.steam-corridor-dressing-set09/Runtime/Generated/Meshes/SCD09_MESH_Cylinder24.asset",
+                "Packages/com.brassworks.sidecar.steam-corridor-dressing-set09/Runtime/Metadata/SCD09_SteamCorridorDressingSet09_Catalog_0.1.54-p001.json"
+            }),
+        new PackageCheck(
+            "Clockwork Enemy Parts Set 09",
+            "com.brassworks.sidecar.clockwork-enemy-parts-set09",
+            "Documentation~/Manifest/CEPS09_ClockworkEnemyPartsSet09_Manifest_v0.1.54-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.clockwork-enemy-parts-set09/Runtime/Prefabs/CEPS09_ArchetypePreview_BoilerBrute_HumanoidSilhouette.prefab",
+                "Packages/com.brassworks.sidecar.clockwork-enemy-parts-set09/Runtime/Prefabs/CEPS09_ArchetypePreview_SkitterUnit_ReadableLowProfile.prefab",
+                "Packages/com.brassworks.sidecar.clockwork-enemy-parts-set09/Runtime/Prefabs/CEPS09_ArchetypePreview_WallCeilingSentry_MountedProfile.prefab",
+                "Packages/com.brassworks.sidecar.clockwork-enemy-parts-set09/Runtime/Prefabs/CEPS09_Shared_Gauge_SteamPressureDial_A.prefab",
+                "Packages/com.brassworks.sidecar.clockwork-enemy-parts-set09/Runtime/Materials/CEPS09_MAT_AgedBrassBoiler.mat",
+                "Packages/com.brassworks.sidecar.clockwork-enemy-parts-set09/Runtime/Materials/CEPS09_MAT_AmberGlowGlass.mat",
+                "Packages/com.brassworks.sidecar.clockwork-enemy-parts-set09/Runtime/Textures/CEPS09_TEX_AgedBrassBoiler_Base.png",
+                "Packages/com.brassworks.sidecar.clockwork-enemy-parts-set09/Runtime/Metadata/CEPS09_ClockworkEnemyPartsCatalog_v0.1.54-p001.json"
+            }),
+        new PackageCheck(
             "Steampunk Weapons",
             "com.brassworks.sidecar.steampunk-weapons",
             "Documentation~/Manifest/SCWPN_SteampunkWeapons_Manifest_v0.1.37-p001.json",

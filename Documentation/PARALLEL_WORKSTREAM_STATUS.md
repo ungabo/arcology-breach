@@ -1,8 +1,17 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 20:27 -04:00`
+Last updated: `2026-05-24 20:48 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
+
+## Current Sprint Snapshot
+
+- Main lane: `v0.1.54` Set09 quarantine-import build passed the full Windows matrix and produced `Builds/Windows/v0.1.54/BrassworksBreach_v0.1.54.exe`.
+- Verification: `SIDECAR_QUARANTINE_IMPORT_PASS packages=20 assets=177`, route audit, QA packet, issue triage packet, candidate readiness, and Windows package generation all passed.
+- Active fidelity strategy: split the north-star room target into object/material family lanes instead of making Galileo solve every surface and prop alone.
+- Completed candidate for review: Banach the 2nd's Room Material Set 10, with six material families, thirty 512x512 maps, preview PNGs, manifests, and static QA.
+- Completed candidates still awaiting visual review: Noether the 2nd's Pressure Pistol Hero Set 10 and Avicenna the 2nd's Gaslight/Pipe Dressing Set 10.
+- Active workers: Galileo the 2nd (`roomtest`), Cicero the 2nd (Door/Vault Set10), Chandrasekhar the 2nd (Pipe/Tank/Gauge Set10), Beauvoir the 2nd (Grime/Decal/Wetness Set10), and Linnaeus the 2nd (Corridor Assembly Lookdev Set10).
 
 ## Main Integration Lane
 
@@ -19,25 +28,25 @@ Current focus:
 
 Current verified local build:
 
-- `v0.1.53`
-- Build path: `Builds/Windows/v0.1.53/BrassworksBreach_v0.1.53.exe`
-- Package path: `Builds/WindowsPackages/v0.1.53/BrassworksBreach_v0.1.53_Windows.zip`
-- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.53.md`
-- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.53.md`
-- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.53.md`
-- Matrix result: route audit, full smoke/build/package sequence, `SIDECAR_QUARANTINE_IMPORT_PASS packages=18 assets=161`, Set08 active material binding validation, Level02-Level04 route-polish validation, `V0_GAMEPLAY_FEEDBACK_PASS`, `V0_WORLD_LABEL_READABILITY_PASS`, `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, `V0_WINDOWS_CANDIDATE_PASS`, and `V0_BUILD_MATRIX_PASS v0.1.53`
+- `v0.1.54`
+- Build path: `Builds/Windows/v0.1.54/BrassworksBreach_v0.1.54.exe`
+- Package path: `Builds/WindowsPackages/v0.1.54/BrassworksBreach_v0.1.54_Windows.zip`
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.54.md`
+- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.54.md`
+- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.54.md`
+- Matrix result: route audit, full smoke/build/package sequence, `SIDECAR_QUARANTINE_IMPORT_PASS packages=20 assets=177`, Set09 visual-only package quarantine validation, `V0_GAMEPLAY_FEEDBACK_PASS`, `V0_WORLD_LABEL_READABILITY_PASS`, `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, `V0_WINDOWS_CANDIDATE_PASS`, and `V0_BUILD_MATRIX_PASS v0.1.54`
 
 Current sidecar-gate status:
 
-- Weapon, mechanical enemy, feedback FX/audio, Steamworks level-kit, Materials Set 01, Level Dressing Set 01, Mechanical Enemy Visual Set 01, Weapon Props Set 02, Corridor Kit Set 02, Encounter Enemy Set 02, Weapon Viewmodel Set 03, Objective Props Set 02, Steam VFX Set 02, Level Atmosphere Set 03, Enemy Animation Proxy Set 01, Room Setpiece Kit 04, and Weapon Mechanisms Set 04 sidecars are imported as local packages in `Packages/manifest.json`.
-- `SidecarQuarantineImportValidator` passed with `SIDECAR_QUARANTINE_IMPORT_PASS packages=17 assets=150`.
+- Weapon, mechanical enemy, feedback FX/audio, Steamworks level-kit, Materials Set 01, Level Dressing Set 01, Mechanical Enemy Visual Set 01, Weapon Props Set 02, Corridor Kit Set 02, Encounter Enemy Set 02, Weapon Viewmodel Set 03, Objective Props Set 02, Steam VFX Set 02, Level Atmosphere Set 03, Enemy Animation Proxy Set 01, Room Setpiece Kit 04, Weapon Mechanisms Set 04, Surface Material Detail Set 08, Steam Corridor Dressing Set 09, and Clockwork Enemy Parts Set 09 sidecars are imported as local packages in `Packages/manifest.json`.
+- `SidecarQuarantineImportValidator` passed with `SIDECAR_QUARANTINE_IMPORT_PASS packages=20 assets=177`.
 - Level02 now contains a route-shell promotion pilot proving sidecar visual shells plus main-scene-owned collision proxies.
 - Completed and accepted sidecar lanes pending future import/promotion: Surface Texture Set 05, Objective Interactables Set 05, Mechanical Enemy Elite Set 05, Steam FX Set 06, and Hazard Props Set 06.
 - Completed and implemented route-planning lane: Level Expansion Routes for Level02-Level04 is now represented by v0.1.51 pressure-bypass, foundry-gantry, and observatory-pumpworks scene modules.
 - Completed Set07 sidecar/lookdev lanes remain quarantined for review: Weapon Component Set 07, Room Shell Set 07, Mechanical Enemy Parts Set 07, Interior Dressing Set 07, Hero Room Render Set 07, and Set07 acceptance review. The procedural/non-Unity Weapon Component Set 07 assembly lookdev proof is not accepted or staged; any replacement must be Unity-rendered.
 - Current art conclusion: the best corridor render is useful for density/composition but still falls short of final north-star material realism. Do not bulk-promote Set07 into gameplay.
-- Completed and accepted sidecar/readiness lanes pending future promotion decisions: Surface Material Detail Set 08, the v0.1.52 Route Expansion Tuning packet, Meitner's Unity-only Weapon Assembly Lookdev replacement, Steam Corridor Dressing Set 09, and Clockwork Enemy Parts Set 09.
-- Active sidecar lane: Galileo the 2nd owns isolated `roomtest/` v0.3 lookdev outputs. The outputs are not part of the playable build until reviewed.
+- Completed and accepted sidecar/readiness lanes pending future promotion decisions: Surface Material Detail Set 08, the v0.1.52 Route Expansion Tuning packet, Meitner's Unity-only Weapon Assembly Lookdev replacement, Steam Corridor Dressing Set 09, Clockwork Enemy Parts Set 09, and Galileo the 2nd's isolated `roomtest` v0.3-v0.5 lookdev evidence.
+- Active Set10 fidelity lanes are split by object/material family so the corridor north-star target can be approached in parallel: room materials, pressure pistol, gaslight/pipe dressing, door/vault, pipe/tank/gauge, grime/wetness, and assembled corridor lookdev.
 
 Current speed adjustment:
 

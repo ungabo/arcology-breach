@@ -458,3 +458,26 @@ Accepted Gauss the 2nd's docs-only major route/encounter expansion packet.
 - Recommendation from the packet: use `v0.1.55` for a visible five-level content leap and `v0.1.56` for stabilization/candidate hardening.
 
 Next-step directive: commit/push the docs-only packet and continue immediately with the Set09 visible import candidate while Set10 workers run in parallel.
+
+## 2026-05-24 20:48 -04:00
+
+Completed the `v0.1.54` playable Set09 quarantine-import build.
+
+- Imported Steam Corridor Dressing Set 09 and Clockwork Enemy Parts Set 09 as local Unity package dependencies.
+- Generated Steam Corridor Dressing Set 09 runtime assets in Unity batchmode: 20 piece prefabs, 12 materials, 6 meshes, and 1 palette prefab.
+- Added visual-only Set09 showcase placements and material swatches across all five levels, including gaslights, pipe runs, gauge manifolds, steam vents, floor grates, pressure-lock trim, clockwork enemy archetype previews, shared enemy parts, and package material samples.
+- Extended sidecar quarantine validation and level validation to cover the new Set09 package assets while preserving main-scene ownership of gameplay authority.
+- Created `Builds/Windows/v0.1.54/BrassworksBreach_v0.1.54.exe`.
+- Created `Builds/WindowsPackages/v0.1.54/BrassworksBreach_v0.1.54_Windows.zip`.
+- Generated `Documentation/QA/RouteAudit/ROUTE_AUDIT_v0.1.54.md`, `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.54.md`, `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.54.md`, and `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.54.md`.
+- Full Windows build matrix passed with `SIDECAR_QUARANTINE_IMPORT_PASS packages=20 assets=177` and `V0_BUILD_MATRIX_PASS v0.1.54`.
+- Package SHA-256: `D15DE269B3754BD0E816526CA96E9F52C790A794001F773B48FE8342059EE89B`.
+
+Parallel lane status:
+
+- Galileo the 2nd's `roomtest` v0.3-v0.5 lookdev refinements are now committed as isolated evidence.
+- Banach the 2nd completed Room Material Set 10 as a static-ready sidecar candidate for review.
+- Noether the 2nd and Avicenna the 2nd completed Pressure Pistol Hero Set 10 and Gaslight/Pipe Dressing Set 10 candidates; they remain unaccepted until visual review.
+- Cicero the 2nd, Chandrasekhar the 2nd, Beauvoir the 2nd, and Linnaeus the 2nd are active on door/vault, pipe/tank/gauge, grime/wetness, and assembled corridor lookdev lanes.
+
+Next-step directive: commit/push the verified `v0.1.54` slice, then continue immediately with Set10 visual review, accepted sidecar package intake, and larger playable art/content batches.
