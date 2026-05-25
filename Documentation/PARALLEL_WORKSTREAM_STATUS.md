@@ -1,19 +1,19 @@
 # Brassworks Breach - Parallel Workstream Status
 
-Last updated: `2026-05-24 23:15 -04:00`
+Last updated: `2026-05-24 23:33 -04:00`
 
 Purpose: track side-agent work that can advance independently from the main Unity implementation lane. Side agents own separate documentation, art-staging, and view-only render scopes; code, generated scenes, and shared status docs remain in the main integration lane until their output is reviewed and merged.
 
 ## Current Sprint Snapshot
 
-- Main lane: `v0.1.54` Set09 quarantine-import build passed the full Windows matrix and produced `Builds/Windows/v0.1.54/BrassworksBreach_v0.1.54.exe`.
-- Verification: `SIDECAR_QUARANTINE_IMPORT_PASS packages=20 assets=177`, route audit, QA packet, issue triage packet, candidate readiness, and Windows package generation all passed.
+- Main lane: `v0.1.56` high-fidelity quarantine-import build passed the full Windows matrix and produced `Builds/Windows/v0.1.56/BrassworksBreach_v0.1.56.exe`.
+- Verification: `SIDECAR_QUARANTINE_IMPORT_PASS packages=24 assets=208`, route audit, QA packet, issue triage packet, candidate readiness, and Windows package generation all passed.
 - Active fidelity strategy: split the north-star room target into object/material family lanes instead of making any single worker solve every surface, prop, weapon, enemy, and lighting family alone.
 - Completed and accepted for quarantine evidence: Room Material Set 10, Grime Decal Wetness Set 10, Gaslight Pipe Dressing Set 10, Pipe Tank Gauge Set 10, Door Vault Set 10, Brassworks Door Mechanism Set 10, Pressure Pistol Hero Set 10, Steam Atmosphere VFX Set 10, and Corridor Assembly Lookdev 10.
 - Visual review verdict: useful component, material, atmosphere, and door-detail candidates, not final AAA art. Room materials plus grime/wetness/atmosphere and selected door mechanisms are strongest; corridor object-family depth remains the biggest north-star gap.
 - Completed and pushed since last update: Kepler the 2nd finished Room Surface Relief Set11 in `211f51c`; Poincare the 2nd finished Hero Corridor Lighting Lookdev Set11 in `9fc51f3`.
-- Completed locally since last update: Ptolemy the 2nd finished Hero Vault Door Set12; Descartes the 2nd finished Steam Lighting Fixture Set12; Sagan the 2nd finished Pressure Pistol Hero Set12; Goodall the 2nd finished Mechanical Enemy Detail Set12; Darwin the 2nd finished Surface Breakup Decal Set12.
-- Active workers: Galileo the 2nd (`roomtest` integrated room reference), Jason the 2nd (HUD feedback ornament sidecar), Mill the 2nd (corridor prop cluster sidecar), and Confucius the 2nd (industrial machinery sidecar).
+- Completed locally since last update: Ptolemy the 2nd finished Hero Vault Door Set12; Descartes the 2nd finished Steam Lighting Fixture Set12; Sagan the 2nd finished Pressure Pistol Hero Set12; Goodall the 2nd finished Mechanical Enemy Detail Set12; Darwin the 2nd finished Surface Breakup Decal Set12; Jason the 2nd finished HUD Feedback Ornament Set12; Mill the 2nd finished Corridor Prop Cluster Set12; Confucius the 2nd finished Industrial Machinery Set12.
+- Active workers: Galileo the 2nd (`roomtest` integrated room reference). Newly closed Set12 lanes are pending visual review and package intake rather than being imported automatically.
 
 ## Main Integration Lane
 
@@ -30,18 +30,18 @@ Current focus:
 
 Current verified local build:
 
-- `v0.1.54`
-- Build path: `Builds/Windows/v0.1.54/BrassworksBreach_v0.1.54.exe`
-- Package path: `Builds/WindowsPackages/v0.1.54/BrassworksBreach_v0.1.54_Windows.zip`
-- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.54.md`
-- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.54.md`
-- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.54.md`
-- Matrix result: route audit, full smoke/build/package sequence, `SIDECAR_QUARANTINE_IMPORT_PASS packages=20 assets=177`, Set09 visual-only package quarantine validation, `V0_GAMEPLAY_FEEDBACK_PASS`, `V0_WORLD_LABEL_READABILITY_PASS`, `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, `V0_WINDOWS_CANDIDATE_PASS`, and `V0_BUILD_MATRIX_PASS v0.1.54`
+- `v0.1.56`
+- Build path: `Builds/Windows/v0.1.56/BrassworksBreach_v0.1.56.exe`
+- Package path: `Builds/WindowsPackages/v0.1.56/BrassworksBreach_v0.1.56_Windows.zip`
+- QA packet: `Documentation/QA/WindowsRouteQA/QA_PACKET_v0.1.56.md`
+- Issue triage packet: `Documentation/QA/WindowsRouteQA/ISSUE_TRIAGE_v0.1.56.md`
+- Candidate readiness: `Documentation/Releases/CandidateReadiness/CANDIDATE_READINESS_v0.1.56.md`
+- Matrix result: route audit, full smoke/build/package sequence, `SIDECAR_QUARANTINE_IMPORT_PASS packages=24 assets=208`, high-fidelity visual-only package quarantine validation, `V0_GAMEPLAY_FEEDBACK_PASS`, `V0_WORLD_LABEL_READABILITY_PASS`, `V0_WINDOWS_PACKAGE_PASS`, `V0_WINDOWS_QA_PACKET_PASS`, `V0_WINDOWS_ISSUE_TRIAGE_PASS`, `V0_WINDOWS_CANDIDATE_PASS`, and `V0_BUILD_MATRIX_PASS v0.1.56`
 
 Current sidecar-gate status:
 
-- Weapon, mechanical enemy, feedback FX/audio, Steamworks level-kit, Materials Set 01, Level Dressing Set 01, Mechanical Enemy Visual Set 01, Weapon Props Set 02, Corridor Kit Set 02, Encounter Enemy Set 02, Weapon Viewmodel Set 03, Objective Props Set 02, Steam VFX Set 02, Level Atmosphere Set 03, Enemy Animation Proxy Set 01, Room Setpiece Kit 04, Weapon Mechanisms Set 04, Surface Material Detail Set 08, Steam Corridor Dressing Set 09, and Clockwork Enemy Parts Set 09 sidecars are imported as local packages in `Packages/manifest.json`.
-- `SidecarQuarantineImportValidator` passed with `SIDECAR_QUARANTINE_IMPORT_PASS packages=20 assets=177`.
+- Weapon, mechanical enemy, feedback FX/audio, Steamworks level-kit, Materials Set 01, Level Dressing Set 01, Mechanical Enemy Visual Set 01, Weapon Props Set 02, Corridor Kit Set 02, Encounter Enemy Set 02, Weapon Viewmodel Set 03, Objective Props Set 02, Steam VFX Set 02, Level Atmosphere Set 03, Enemy Animation Proxy Set 01, Room Setpiece Kit 04, Weapon Mechanisms Set 04, Surface Material Detail Set 08, Steam Corridor Dressing Set 09, Clockwork Enemy Parts Set 09, Steam Corridor Dressing High Fidelity Set11, Mechanical Sentinel Hero Set10, Brassworks Door Mechanism Set10, and Steam Atmosphere VFX Set10 sidecars are imported as local packages in `Packages/manifest.json`.
+- `SidecarQuarantineImportValidator` passed with `SIDECAR_QUARANTINE_IMPORT_PASS packages=24 assets=208`.
 - Level02 now contains a route-shell promotion pilot proving sidecar visual shells plus main-scene-owned collision proxies.
 - Completed and accepted sidecar lanes pending future import/promotion: Surface Texture Set 05, Objective Interactables Set 05, Mechanical Enemy Elite Set 05, Steam FX Set 06, and Hazard Props Set 06.
 - Completed and implemented route-planning lane: Level Expansion Routes for Level02-Level04 is now represented by v0.1.51 pressure-bypass, foundry-gantry, and observatory-pumpworks scene modules.
@@ -60,10 +60,7 @@ Current speed adjustment:
 Current object-family allocation:
 
 - Galileo the 2nd owns integrated `roomtest` reference-room matching.
-- Jason the 2nd owns HUD feedback ornament and UI sidecar content under `HudFeedbackOrnamentSet12`.
-- Mill the 2nd owns visual-only corridor prop clusters under `CorridorPropClusterSet12`.
-- Confucius the 2nd owns industrial machinery silhouettes and room-scale machinery under `IndustrialMachinerySet12`.
-- Completed Set12 review candidates are Hero Vault Door Set12, Steam Lighting Fixture Set12, Pressure Pistol Hero Set12, Mechanical Enemy Detail Set12, and Surface Breakup Decal Set12.
+- Completed Set12 review candidates are Hero Vault Door Set12, Steam Lighting Fixture Set12, Pressure Pistol Hero Set12, Mechanical Enemy Detail Set12, Surface Breakup Decal Set12, HUD Feedback Ornament Set12, Corridor Prop Cluster Set12, and Industrial Machinery Set12.
 - The main lane owns package review, manifest/import decisions, scene generator integration, playable builds, validation, commits, and releases.
 
 ## Active Side Agents

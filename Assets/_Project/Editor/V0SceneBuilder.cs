@@ -3496,8 +3496,105 @@ public static class V0SceneBuilder
             StripSidecarPresentationPhysics(instance);
         }
 
+        CreateV0156HighFidelityShowcase(root.transform, sceneName);
         CreateSidecarMaterialSwatches(root.transform, sceneName);
         CreateSidecarShowcaseLabel(root.transform, sceneName + " sidecar package visuals", placements[0].Position + new Vector3(0f, 1.25f, 0f));
+    }
+
+    private static void CreateV0156HighFidelityShowcase(Transform parent, string sceneName)
+    {
+        SidecarPrefabPlacement[] placements = GetV0156HighFidelityShowcasePlacements(sceneName);
+        if (placements.Length == 0)
+        {
+            return;
+        }
+
+        GameObject root = new GameObject("V0156 High Fidelity Visual Imports - " + sceneName);
+        root.transform.SetParent(parent);
+
+        for (int i = 0; i < placements.Length; i++)
+        {
+            SidecarPrefabPlacement placement = placements[i];
+            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(placement.AssetPath);
+            if (prefab == null)
+            {
+                throw new InvalidOperationException("v0.1.56 sidecar showcase prefab missing: " + placement.AssetPath);
+            }
+
+            GameObject instance = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
+            if (instance == null)
+            {
+                throw new InvalidOperationException("v0.1.56 sidecar showcase prefab could not be instantiated: " + placement.AssetPath);
+            }
+
+            instance.name = "SidecarVisual_" + sceneName + "_" + placement.Name;
+            instance.transform.SetParent(root.transform);
+            instance.transform.position = placement.Position;
+            instance.transform.rotation = placement.Rotation;
+            instance.transform.localScale = Vector3.one * placement.Scale;
+            StripSidecarPresentationPhysics(instance);
+        }
+    }
+
+    private static SidecarPrefabPlacement[] GetV0156HighFidelityShowcasePlacements(string sceneName)
+    {
+        if (sceneName == "Level01")
+        {
+            return new[]
+            {
+                new SidecarPrefabPlacement("V0156SCDHF11CagedGaslightLong", "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Prefabs/SCDHF11_PREFAB_CagedGaslight_Long_A.prefab", new Vector3(-5.18f, 1.58f, 17.35f), Quaternion.Euler(0f, 90f, 0f), 0.42f),
+                new SidecarPrefabPlacement("V0156SCDHF11WallPipeRunLayered", "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Prefabs/SCDHF11_PREFAB_WallPipeRunLayered_A.prefab", new Vector3(5.28f, 0.82f, 17.35f), Quaternion.Euler(0f, -90f, 0f), 0.34f),
+                new SidecarPrefabPlacement("V0156BDM10PressureWheel", "Packages/com.brassworks.sidecar.brassworks-door-mechanism-set10/Runtime/Prefabs/BDM10_PressureWheel_CrankedValve.prefab", new Vector3(-5.16f, 0.72f, 18.25f), Quaternion.Euler(0f, 92f, 0f), 0.36f),
+                new SidecarPrefabPlacement("V0156SAV10WarmGaslightHaze", "Packages/com.brassworks.sidecar.steam-atmosphere-vfx-set10/Runtime/Prefabs/SAV10_PREFAB_WarmGaslightHaze.prefab", new Vector3(0f, 1.72f, 18.2f), Quaternion.Euler(0f, 0f, 0f), 0.58f)
+            };
+        }
+
+        if (sceneName == "Level02")
+        {
+            return new[]
+            {
+                new SidecarPrefabPlacement("V0156SCDHF11GaugeClusterTriple", "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Prefabs/SCDHF11_PREFAB_GaugeCluster_Triple_A.prefab", new Vector3(-5.18f, 0.86f, 15.15f), Quaternion.Euler(0f, 90f, 0f), 0.38f),
+                new SidecarPrefabPlacement("V0156SCDHF11PressureManifoldLarge", "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Prefabs/SCDHF11_PREFAB_PressureManifold_Large_A.prefab", new Vector3(5.18f, 0.42f, 16.05f), Quaternion.Euler(0f, -90f, 0f), 0.36f),
+                new SidecarPrefabPlacement("V0156SCDHF11ValveBankTriple", "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Prefabs/SCDHF11_PREFAB_ValveBank_Triple_A.prefab", new Vector3(-5.18f, 0.36f, 16.95f), Quaternion.Euler(0f, 90f, 0f), 0.38f),
+                new SidecarPrefabPlacement("V0156SAV10PipeLeakSteamJet", "Packages/com.brassworks.sidecar.steam-atmosphere-vfx-set10/Runtime/Prefabs/SAV10_PREFAB_PipeLeakSteamJet.prefab", new Vector3(5.05f, 1.28f, 17.05f), Quaternion.Euler(0f, -90f, 0f), 0.42f)
+            };
+        }
+
+        if (sceneName == "Level03")
+        {
+            return new[]
+            {
+                new SidecarPrefabPlacement("V0156SCDHF11CeilingPipeCluster", "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Prefabs/SCDHF11_PREFAB_CeilingPipeCluster_A.prefab", new Vector3(0.0f, 2.6f, 20.05f), Quaternion.Euler(0f, 0f, 0f), 0.42f),
+                new SidecarPrefabPlacement("V0156SCDHF11FloorDrainGrateLong", "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Prefabs/SCDHF11_PREFAB_FloorDrainGrate_Long_A.prefab", new Vector3(3.92f, 0.08f, 19.35f), Quaternion.Euler(0f, -4f, 0f), 0.42f),
+                new SidecarPrefabPlacement("V0156BDM10GaugeValveManifold", "Packages/com.brassworks.sidecar.brassworks-door-mechanism-set10/Runtime/Prefabs/BDM10_GaugeValve_ManifoldCluster.prefab", new Vector3(5.18f, 0.76f, 20.35f), Quaternion.Euler(0f, -90f, 0f), 0.34f),
+                new SidecarPrefabPlacement("V0156SAV10LowFloorMist", "Packages/com.brassworks.sidecar.steam-atmosphere-vfx-set10/Runtime/Prefabs/SAV10_PREFAB_LowFloorMist.prefab", new Vector3(0.0f, 0.11f, 20.2f), Quaternion.Euler(0f, 0f, 0f), 0.62f)
+            };
+        }
+
+        if (sceneName == "Level04")
+        {
+            return new[]
+            {
+                new SidecarPrefabPlacement("V0156SCDHF11BoilerTankColumn", "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Prefabs/SCDHF11_PREFAB_BoilerTankColumn_A.prefab", new Vector3(5.0f, 0.1f, 24.2f), Quaternion.Euler(0f, -64f, 0f), 0.44f),
+                new SidecarPrefabPlacement("V0156SCDHF11HandrailRiveted", "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Prefabs/SCDHF11_PREFAB_Handrail_Riveted_A.prefab", new Vector3(-3.8f, 0.18f, 24.15f), Quaternion.Euler(0f, 92f, 0f), 0.46f),
+                new SidecarPrefabPlacement("V0156MSH10SentinelHeroAssembly", "Packages/com.brassworks.sidecar.mechanical-sentinel-hero-set10/Runtime/Prefabs/MSH10_MechanicalSentinelHeroAssembly.prefab", new Vector3(-4.9f, 0.08f, 24.65f), Quaternion.Euler(0f, 50f, 0f), 0.30f),
+                new SidecarPrefabPlacement("V0156BDM10PistonBrace", "Packages/com.brassworks.sidecar.brassworks-door-mechanism-set10/Runtime/Prefabs/BDM10_PistonBrace_SteamActuated.prefab", new Vector3(5.15f, 0.38f, 25.05f), Quaternion.Euler(0f, -90f, 0f), 0.36f)
+            };
+        }
+
+        if (sceneName == "Level05")
+        {
+            return new[]
+            {
+                new SidecarPrefabPlacement("V0156MSH10GovernorSentinelHero", "Packages/com.brassworks.sidecar.mechanical-sentinel-hero-set10/Runtime/Prefabs/MSH10_MechanicalSentinelHeroAssembly.prefab", new Vector3(5.1f, 0.08f, 25.85f), Quaternion.Euler(0f, -56f, 0f), 0.32f),
+                new SidecarPrefabPlacement("V0156MSH10BackFlywheelModule", "Packages/com.brassworks.sidecar.mechanical-sentinel-hero-set10/Runtime/Prefabs/MSH10_BackFlywheel_Module.prefab", new Vector3(-5.05f, 1.05f, 25.35f), Quaternion.Euler(0f, 86f, 0f), 0.38f),
+                new SidecarPrefabPlacement("V0156SCDHF11DoorThresholdTrim", "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Prefabs/SCDHF11_PREFAB_DoorThresholdTrim_A.prefab", new Vector3(-5.22f, 0.12f, 25.95f), Quaternion.Euler(0f, 90f, 0f), 0.42f),
+                new SidecarPrefabPlacement("V0156BDM10GearHubLarge", "Packages/com.brassworks.sidecar.brassworks-door-mechanism-set10/Runtime/Prefabs/BDM10_GearHub_LargeCogCore.prefab", new Vector3(-5.25f, 1.28f, 26.55f), Quaternion.Euler(0f, 90f, 0f), 0.34f),
+                new SidecarPrefabPlacement("V0156SAV10BacklitDoorFog", "Packages/com.brassworks.sidecar.steam-atmosphere-vfx-set10/Runtime/Prefabs/SAV10_PREFAB_BacklitDoorFog.prefab", new Vector3(0f, 1.25f, 26.5f), Quaternion.Euler(0f, 0f, 0f), 0.58f)
+            };
+        }
+
+        return Array.Empty<SidecarPrefabPlacement>();
     }
 
     private static void CreatePipeworksRouteShellPromotionPilot(Material ironMaterial, Material brassMaterial, Material warningMaterial, Material gaugeFaceMaterial, Material floorMaterial)

@@ -117,6 +117,65 @@ public static class SidecarQuarantineImportValidator
                 "Packages/com.brassworks.sidecar.clockwork-enemy-parts-set09/Runtime/Metadata/CEPS09_ClockworkEnemyPartsCatalog_v0.1.54-p001.json"
             }),
         new PackageCheck(
+            "Steam Corridor Dressing High Fidelity Set 11",
+            "com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11",
+            "Documentation~/Manifest/SCDHF11_SteamCorridorDressingHighFidelitySet11_Manifest_v0.1.56-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Prefabs/SCDHF11_PREFAB_WallPipeRunLayered_A.prefab",
+                "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Prefabs/SCDHF11_PREFAB_CagedGaslight_Long_A.prefab",
+                "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Prefabs/SCDHF11_PREFAB_GaugeCluster_Triple_A.prefab",
+                "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Prefabs/SCDHF11_PREFAB_BoilerTankColumn_A.prefab",
+                "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Materials/SCDHF11_MAT_AgedBrassDeepPatina.mat",
+                "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Materials/SCDHF11_MAT_BlackenedRivetedIron.mat",
+                "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Textures/SCDHF11_TEX_AgedBrassDeepPatina_Base.png",
+                "Packages/com.brassworks.sidecar.steam-corridor-dressing-high-fidelity-set11/Runtime/Metadata/SCDHF11_CorridorDressingCatalog_v0.1.56-p001.json"
+            }),
+        new PackageCheck(
+            "Mechanical Sentinel Hero Set 10",
+            "com.brassworks.sidecar.mechanical-sentinel-hero-set10",
+            "Runtime/Metadata/MSH10_MechanicalSentinelHeroSet10_Manifest_v0.1.55-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.mechanical-sentinel-hero-set10/Runtime/Prefabs/MSH10_MechanicalSentinelHeroAssembly.prefab",
+                "Packages/com.brassworks.sidecar.mechanical-sentinel-hero-set10/Runtime/Prefabs/MSH10_BoilerTorso_Module.prefab",
+                "Packages/com.brassworks.sidecar.mechanical-sentinel-hero-set10/Runtime/Prefabs/MSH10_FurnaceHead_Module.prefab",
+                "Packages/com.brassworks.sidecar.mechanical-sentinel-hero-set10/Runtime/Prefabs/MSH10_LeftSawArm_Module.prefab",
+                "Packages/com.brassworks.sidecar.mechanical-sentinel-hero-set10/Runtime/Materials/MSH10_MAT_AgedBrassPatina.mat",
+                "Packages/com.brassworks.sidecar.mechanical-sentinel-hero-set10/Runtime/Materials/MSH10_MAT_AmberFurnaceGlow.mat",
+                "Packages/com.brassworks.sidecar.mechanical-sentinel-hero-set10/Runtime/Textures/MSH10_TEX_AgedBrassPatina_Albedo.png",
+                "Packages/com.brassworks.sidecar.mechanical-sentinel-hero-set10/Runtime/Metadata/MSH10_MechanicalSentinelHeroSet10_Catalog_v0.1.55-p001.json"
+            }),
+        new PackageCheck(
+            "Steam Atmosphere VFX Set 10",
+            "com.brassworks.sidecar.steam-atmosphere-vfx-set10",
+            "Documentation~/Manifest/SAV10_SteamAtmosphereVfxSet10_Manifest_v0.1.55-p020.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.steam-atmosphere-vfx-set10/Runtime/Prefabs/SAV10_PREFAB_WarmGaslightHaze.prefab",
+                "Packages/com.brassworks.sidecar.steam-atmosphere-vfx-set10/Runtime/Prefabs/SAV10_PREFAB_PipeLeakSteamJet.prefab",
+                "Packages/com.brassworks.sidecar.steam-atmosphere-vfx-set10/Runtime/Prefabs/SAV10_PREFAB_LowFloorMist.prefab",
+                "Packages/com.brassworks.sidecar.steam-atmosphere-vfx-set10/Runtime/Prefabs/SAV10_PREFAB_BacklitDoorFog.prefab",
+                "Packages/com.brassworks.sidecar.steam-atmosphere-vfx-set10/Runtime/Materials/SAV10_MAT_WarmGaslightHaze.mat",
+                "Packages/com.brassworks.sidecar.steam-atmosphere-vfx-set10/Runtime/Textures/SAV10_TEX_WarmGaslightHaze.png",
+                "Packages/com.brassworks.sidecar.steam-atmosphere-vfx-set10/Runtime/Metadata/SAV10_SteamAtmosphereVfxCatalog_v0.1.55-p020.json"
+            }),
+        new PackageCheck(
+            "Brassworks Door Mechanism Set 10",
+            "com.brassworks.sidecar.brassworks-door-mechanism-set10",
+            "Documentation~/Manifest/BDM10_BrassworksDoorMechanismSet10_Manifest_v0.1.55-p001.json",
+            new[]
+            {
+                "Packages/com.brassworks.sidecar.brassworks-door-mechanism-set10/Runtime/Prefabs/BDM10_PressureWheel_CrankedValve.prefab",
+                "Packages/com.brassworks.sidecar.brassworks-door-mechanism-set10/Runtime/Prefabs/BDM10_GaugeValve_ManifoldCluster.prefab",
+                "Packages/com.brassworks.sidecar.brassworks-door-mechanism-set10/Runtime/Prefabs/BDM10_PistonBrace_SteamActuated.prefab",
+                "Packages/com.brassworks.sidecar.brassworks-door-mechanism-set10/Runtime/Prefabs/BDM10_GearHub_LargeCogCore.prefab",
+                "Packages/com.brassworks.sidecar.brassworks-door-mechanism-set10/Runtime/Materials/BDM10_MAT_AgedBrassPatina.mat",
+                "Packages/com.brassworks.sidecar.brassworks-door-mechanism-set10/Runtime/Materials/BDM10_MAT_BlackenedOilyIron.mat",
+                "Packages/com.brassworks.sidecar.brassworks-door-mechanism-set10/Runtime/Textures/BDM10_TEX_AgedBrassPatina_Albedo.png",
+                "Packages/com.brassworks.sidecar.brassworks-door-mechanism-set10/Runtime/Metadata/BDM10_BrassworksDoorMechanismSet10_Manifest_v0.1.55-p001.json"
+            }),
+        new PackageCheck(
             "Steampunk Weapons",
             "com.brassworks.sidecar.steampunk-weapons",
             "Documentation~/Manifest/SCWPN_SteampunkWeapons_Manifest_v0.1.37-p001.json",

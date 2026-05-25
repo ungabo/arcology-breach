@@ -1,6 +1,6 @@
 # Brassworks Breach - Version Micro Roadmap
 
-Last updated: 2026-05-24 23:15 -04:00
+Last updated: 2026-05-24 23:33 -04:00
 
 ## Purpose
 
@@ -91,13 +91,13 @@ The roadmap is a living plan, not a promise that every version number is immutab
 | v0.1.55 | Set10 candidate review and package acceptance | Completed: accepted Room Material Set 10, Grime Decal Wetness Set 10, Gaslight Pipe Dressing Set 10, Pipe Tank Gauge Set 10, Door Vault Set 10, Brassworks Door Mechanism Set 10, Pressure Pistol Hero Set 10, Steam Atmosphere VFX Set 10, and Corridor Assembly Lookdev 10 as quarantined Unity-only evidence. | Shared sidecar validation passes with 0 errors and 0 warnings for all eight package roots after manifest normalization; CAML10 confirms useful direction but not final north-star quality; no playable import was performed. |
 | v0.1.55-p1 | Set11 corridor/enemy sidecar acceptance | Completed: accepted Steam Corridor Dressing High Fidelity Set11 and Mechanical Sentinel Hero Set10 as pushed quarantined Unity-only sidecar candidates. | Set11 QA passed with 23 visual-only prefabs, 16 materials, 14 meshes, 48 texture maps, and no forbidden gameplay components; Mechanical Sentinel QA passed with limitations as a visual-only modular enemy kit. |
 | v0.1.55-p2 | Set12 object-family sidecar evidence wave | Completed locally: accepted Hero Vault Door Set12, Steam Lighting Fixture Set12, Pressure Pistol Hero Set12, Mechanical Enemy Detail Set12, and Surface Breakup Decal Set12 as quarantined visual candidates for review. | Worker Unity batch/static validations passed; representative renders reviewed as useful but not final AAA quality; no playable import was performed in this slice. |
+| v0.1.56 | High-fidelity corridor replacement and playable art/content leap | Completed: imported Steam Corridor Dressing High Fidelity Set11, Mechanical Sentinel Hero Set10, Brassworks Door Mechanism Set10, and Steam Atmosphere VFX Set10 as visual-only package showcases across all five levels, raising the playable scene density without transferring gameplay authority to sidecars. | Scene rebuild, level validation, `SIDECAR_QUARANTINE_IMPORT_PASS packages=24 assets=208`, route audit, full Windows matrix, package, QA packet, issue triage, candidate readiness, and release notes passed. |
 
 ## Near-Term Proposed Sequence
 
 | Version | Planned Slice | Intent | Expected Verification |
 | --- | --- | --- | --- |
-| v0.1.56 | High-fidelity corridor replacement and next playable art/content leap | Import the strongest accepted Set10/Set11 packages into the playable project as visual-only local package showcases, with larger visible scene dressing and no sidecar gameplay authority. Parallel workers continue pressure pistol, surface relief, and hero corridor lighting lookdev while the main lane builds the playable leap. | Package validation, visual comparison against CAML10 and the north-star, scene rebuild, level validation, sidecar quarantine import validation, route audit, full Windows matrix, package, QA packet, issue triage, candidate readiness, and no unintended sidecar gameplay authority. |
-| v0.1.57 | Object-family fidelity intake and playable refinement | Review `RoomSurfaceReliefSet11`, `HeroCorridorLightingLookdevSet11`, Set12 object-family sidecars, and `roomtest` updates, then promote the best validated pieces into either quarantine or a gameplay-safe visual import batch. | Package/static validators, render nonblank checks, visual review notes, targeted scene integration checks, then full matrix only after a coherent playable milestone. |
+| v0.1.57 | Object-family fidelity intake and playable refinement | Review `RoomSurfaceReliefSet11`, `HeroCorridorLightingLookdevSet11`, Set12 object-family sidecars, `HudFeedbackOrnamentSet12`, `CorridorPropClusterSet12`, `IndustrialMachinerySet12`, and `roomtest` updates, then promote the best validated pieces into either quarantine or a gameplay-safe visual import batch. | Package/static validators, render nonblank checks, visual review notes, targeted scene integration checks, then full matrix only after a coherent playable milestone. |
 
 ## Later Follow-Up Areas
 
